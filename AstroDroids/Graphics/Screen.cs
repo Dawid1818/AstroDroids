@@ -10,8 +10,8 @@ namespace AstroDroids.Graphics
 {
     public static class Screen
     {
-        static SpriteBatch spriteBatch;
-        static GumService GumUI => GumService.Default;
+        public static SpriteBatch spriteBatch { get; private set; }
+        public static GumService GumUI => GumService.Default;
         static GumProjectSave gumProject;
 
         public static void Initialize(AstroDroidsGame game)
@@ -19,16 +19,6 @@ namespace AstroDroids.Graphics
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
 
             gumProject = GumUI.Initialize(game, "GumProject/AstroDroidsGum.gumx");
-        }
-
-        public static SpriteBatch GetSpriteBatch()
-        {
-            return spriteBatch;
-        }
-
-        public static GumService GetUIService()
-        {
-            return GumUI;
         }
 
         public static void Update(GameTime gameTime)

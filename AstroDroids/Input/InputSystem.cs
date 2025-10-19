@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Input
 {
@@ -14,6 +10,21 @@ namespace AstroDroids.Input
 
         static KeyboardState oldKState;
         static MouseState oldMState;
+
+        static Dictionary<GameAction, ButtonInputAction> Actions;
+
+        public static void Initialize()
+        {
+            Actions = new Dictionary<GameAction, ButtonInputAction>
+            {
+                { GameAction.Up, new ButtonInputAction(Keys.Up) },
+                { GameAction.Down, new ButtonInputAction(Keys.Down) },
+                { GameAction.Left, new ButtonInputAction(Keys.Left) },
+                { GameAction.Right, new ButtonInputAction(Keys.Right) },
+                { GameAction.Fire, new ButtonInputAction(Keys.Z) },
+            };
+        }
+
         public static void Begin()
         {
             kState = Keyboard.GetState();
@@ -24,6 +35,45 @@ namespace AstroDroids.Input
         {
             oldKState = kState;
             oldMState = mState;
+        }
+
+        public static bool IsActionHeld(GameAction action)
+        {
+            if(Actions.TryGetValue(action, out ButtonInputAction inputAction))
+            {
+                if(kState.IsKeyDown(inputAction.KeyboardKey))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsActionDown(GameAction action)
+        {
+            if (Actions.TryGetValue(action, out ButtonInputAction inputAction))
+            {
+                if((kState.IsKeyDown(inputAction.KeyboardKey) && oldKState.IsKeyUp(inputAction.KeyboardKey)))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsActionUp(GameAction action)
+        {
+            if (Actions.TryGetValue(action, out ButtonInputAction inputAction))
+            {
+                if ((kState.IsKeyUp(inputAction.KeyboardKey) && oldKState.IsKeyDown(inputAction.KeyboardKey)))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public static bool GetKey(Keys key)

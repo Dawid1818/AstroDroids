@@ -25,11 +25,12 @@ namespace AstroDroids
 
         protected override void LoadContent()
         {
+            InputSystem.Initialize();
             TextureManager.Initialize(this);
             SoundManager.Initialize();
             Screen.Initialize(this);
 
-            SceneManager.SetScene(new MainMenuScene());
+            SceneManager.SetScene(new GameScene());
         }
 
         protected override void Update(GameTime gameTime)
@@ -49,7 +50,11 @@ namespace AstroDroids
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            Screen.spriteBatch.Begin();
+
             SceneManager.Draw(gameTime);
+
+            Screen.spriteBatch.End();
 
             Screen.Draw(gameTime);
 
