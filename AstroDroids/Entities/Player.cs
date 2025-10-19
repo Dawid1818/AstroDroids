@@ -3,10 +3,11 @@ using MonoGame.Extended;
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using AstroDroids.Input;
+using AstroDroids.Gameplay;
 
 namespace AstroDroids.Entities
 {
-    public class Player : Entity
+    public class Player : AliveEntity
     {
         float speed = 10f;
 
@@ -17,6 +18,10 @@ namespace AstroDroids.Entities
 
         public override void Update(GameTime gameTime)
         {
+            //Firing
+            GameState.CurrentWeapon.Update(this, gameTime);
+
+            //Player movement
             Vector2 movement = Vector2.Zero;
 
             if (InputSystem.IsActionHeld(GameAction.Up))
@@ -40,11 +45,36 @@ namespace AstroDroids.Entities
             }
 
             Collider.Position += movement;
+
+            if (Collider.X < Scene.World.Bounds.Left)
+            {
+                Collider.X = Scene.World.Bounds.Left;
+            }
+            else if (Collider.Right > Scene.World.Bounds.Right)
+            {
+                Collider.X = Scene.World.Bounds.Right - Collider.Width;
+            }
+
+            if (Collider.Y < Scene.World.Bounds.Top)
+            {
+                Collider.Y = Scene.World.Bounds.Top;
+            }
+            else if (Collider.Bottom > Scene.World.Bounds.Bottom)
+            {
+                Collider.Y = Scene.World.Bounds.Bottom - Collider.Height;
+            }
         }
 
         public override void Draw(GameTime gameTime)
         {
             Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), Collider.ToRectangle(), Color.White);
+
+            GameState.CurrentWeapon.DrawEffects(this, gameTime);
+        }
+
+        public Vector2 GetPosition()
+        {
+            return Collider.Position;
         }
     }
 }

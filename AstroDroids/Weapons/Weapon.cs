@@ -1,4 +1,5 @@
-﻿using AstroDroids.Managers;
+﻿using AstroDroids.Entities;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using System;
@@ -7,18 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AstroDroids.Entities
+namespace AstroDroids.Weapons
 {
-    public class Entity
+    public class Weapon
     {
         protected Scene Scene { get { return SceneManager.GetScene(); } }
 
-        public Entity()
+        public virtual void Update(Player player, GameTime gameTime)
         {
 
         }
 
-        public virtual void Update(GameTime gameTime) { }
-        public virtual void Draw(GameTime gameTime) { }
+        public virtual void DrawEffects(Player player, GameTime gameTime)
+        {
+
+        }
     }
 }
