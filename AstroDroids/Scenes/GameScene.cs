@@ -1,11 +1,8 @@
 ﻿using AstroDroids.Entities;
+using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
+using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Scenes
 {
@@ -13,11 +10,20 @@ namespace AstroDroids.Scenes
     {
         public GameScene()
         {
+
+        }
+
+        public override void Set()
+        {
+            LevelManager.LoadLevel(0);
+
             GameState.NewState();
 
             World = new GameWorld();
 
-            World.Player = new Player(Vector2.Zero);
+            World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2, World.Bounds.Bottom - 64)));
+
+            LevelManager.StartLevel();
         }
 
         public override void Update(GameTime gameTime)

@@ -18,5 +18,7 @@ namespace AstroDroids.Scenes
         {
 
         }
+
+        public virtual void Set() { }
     }
 }

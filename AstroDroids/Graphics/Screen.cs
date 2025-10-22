@@ -1,10 +1,7 @@
-﻿using AstroDroids.Managers;
-using Gum.DataTypes;
-using Gum.Forms.Controls;
+﻿using Gum.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameGum;
-using System;
 
 namespace AstroDroids.Graphics
 {

@@ -15,6 +15,7 @@ namespace AstroDroids.Managers
         public static void SetScene(Scene newScene)
         {
             scene = newScene;
+            scene.Set();
         }
 
         public static void Update(GameTime gameTime)

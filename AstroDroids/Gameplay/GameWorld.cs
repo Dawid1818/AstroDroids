@@ -1,11 +1,9 @@
 ﻿using AstroDroids.Entities;
+using AstroDroids.Entities.Friendly;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Gameplay
 {
@@ -19,11 +17,17 @@ namespace AstroDroids.Gameplay
         public List<Projectile> Projectiles { get; } = new List<Projectile>();
         public List<Projectile> ProjectilesToRemove { get; } = new List<Projectile>();
 
-        public Player Player { get; set; }
+        //public Player Player { get; set; }
+        List<Player> Players = new List<Player>();
+
+        Random rnd = new Random();
 
         public void Update(GameTime gameTime)
         {
-            Player.Update(gameTime);
+            foreach (var item in Players)
+            {
+                item.Update(gameTime);
+            }
 
             foreach (var item in Enemies)
             {
@@ -50,7 +54,10 @@ namespace AstroDroids.Gameplay
 
         public void Draw(GameTime gameTime)
         {
-            Player.Draw(gameTime);
+            foreach (var item in Players)
+            {
+                item.Draw(gameTime);
+            }
 
             foreach (var item in Enemies)
             {
@@ -80,7 +87,25 @@ namespace AstroDroids.Gameplay
 
         public void RemoveProjectile(Projectile projectile)
         {
-            ProjectilesToRemove.Remove(projectile);
+            ProjectilesToRemove.Add(projectile);
+        }
+
+        public Player GetRandomPlayer()
+        {
+            if (Players.Count == 0)
+                return null;
+
+            return Players[rnd.Next(Players.Count)];
+        }
+
+        public void AddPlayer(Player player)
+        {
+            Players.Add(player);
+        }
+
+        public void RemovePlayer(Player player)
+        {
+            Players.Remove(player);
         }
     }
 }

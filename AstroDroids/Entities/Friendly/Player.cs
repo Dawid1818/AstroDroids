@@ -5,15 +5,16 @@ using AstroDroids.Managers;
 using AstroDroids.Input;
 using AstroDroids.Gameplay;
 
-namespace AstroDroids.Entities
+namespace AstroDroids.Entities.Friendly
 {
     public class Player : AliveEntity
     {
+        int playerIndex;
         float speed = 10f;
 
-        public Player(Vector2 position) : base(new RectangleF(position.X, position.Y, 32, 32), 1) 
+        public Player(int playerIndex, Vector2 position) : base(new RectangleF(position.X, position.Y, 32, 32), 1) 
         {
-
+            this.playerIndex = playerIndex;
         }
 
         public override void Update(GameTime gameTime)

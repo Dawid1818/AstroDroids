@@ -1,4 +1,4 @@
-﻿using AstroDroids.Entities;
+﻿using AstroDroids.Entities.Friendly;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;

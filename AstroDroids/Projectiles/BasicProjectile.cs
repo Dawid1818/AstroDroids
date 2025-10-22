@@ -1,31 +1,42 @@
 ﻿using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles
 {
     public class BasicProjectile : Projectile
     {
-        Vector2 position;
-
-        public BasicProjectile(Vector2 position)
+        public BasicProjectile(Vector2 position) : base(new RectangleF((int)position.X, (int)position.Y, 16, 16))
         {
-            this.position = position;
+
         }
 
         public override void Update(GameTime gameTime)
         {
-            position.Y -= 5f;
+            Collider.Y -= 5f;
 
-            if(position.Y + 16 < 0)
+            if(Collider.Y + 16 < 0)
             {
                 Scene.World.RemoveProjectile(this);
+            }
+            else
+            {
+                foreach (var enemy in Scene.World.Enemies)
+                {
+                    if (enemy.CollidesWith(Collider))
+                    {
+                        Scene.World.RemoveProjectile(this);
+                        enemy.Damage(1, true);
+                        break;
+                    }
+                }
             }
         }
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)position.X, (int)position.Y, 16, 16), Color.White);
+            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), Collider.ToRectangle(), Color.White);
         }
     }
 }

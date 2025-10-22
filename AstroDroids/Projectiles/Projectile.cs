@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AstroDroids.Entities;
-using Microsoft.Xna.Framework;
+﻿using AstroDroids.Entities;
+using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles
 {
-    public class Projectile : Entity
+    public class Projectile : CollidableEntity
     {
-
+        public Projectile(RectangleF collider) : base(collider)
+        {
+        }
     }
 }

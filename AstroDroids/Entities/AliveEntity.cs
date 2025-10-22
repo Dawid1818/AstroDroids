@@ -1,24 +1,18 @@
-﻿using AstroDroids.Managers;
-using AstroDroids.Scenes;
-using Microsoft.Xna.Framework;
-using MonoGame.Extended;
+﻿using MonoGame.Extended;
 
 namespace AstroDroids.Entities
 {
-    public class AliveEntity : Entity
+    public class AliveEntity : CollidableEntity
     {
-        protected RectangleF Collider;
         int Health;
 
-        public AliveEntity()
+        public AliveEntity() : base()
         {
-            Collider = new RectangleF(0f, 0f, 32f, 32f);
             Health = 1;
         }
 
-        public AliveEntity(RectangleF collider, int health)
+        public AliveEntity(RectangleF collider, int health) : base(collider)
         {
-            Collider = collider;
             Health = health;
         }
 
@@ -28,6 +22,12 @@ namespace AstroDroids.Entities
         public virtual void Damage(int damage, bool produceSound)
         {
             Health -= damage;
+
+            if(Health <= 0)
+            {
+                //spawn explosion later
+                Scene.World.RemoveEnemy(this);
+            }
         }
     }
 }
