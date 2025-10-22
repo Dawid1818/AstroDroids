@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
+using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 
@@ -33,6 +34,8 @@ namespace AstroDroids.Scenes
 
         public override void Draw(GameTime gameTime)
         {
+            Screen.spriteBatch.Draw(TextureManager.GetStarfield(), Vector2.Zero, Color.White);
+
             World.Draw(gameTime);
         }
     }

@@ -13,6 +13,8 @@ namespace AstroDroids.Managers
         static bool initialized = false;
         static Texture2D pixelTexture;
 
+        static Texture2D Starfield;
+
         public static void Initialize(AstroDroidsGame game)
         {
             if(initialized) return;
@@ -21,12 +23,19 @@ namespace AstroDroids.Managers
 
             pixelTexture.SetData(new Color[] { Color.White });
 
+            Starfield = game.Content.Load<Texture2D>("Textures/Starfields/BlueStarfield");
+
             initialized = true;
         }
 
         public static Texture2D GetPixelTexture() 
         {
             return pixelTexture; 
+        }
+
+        public static Texture2D GetStarfield()
+        {
+            return Starfield;
         }
     }
 }
