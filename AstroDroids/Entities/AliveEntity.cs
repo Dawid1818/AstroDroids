@@ -22,12 +22,16 @@ namespace AstroDroids.Entities
         public virtual void Damage(int damage, bool produceSound)
         {
             Health -= damage;
-
+            
             if(Health <= 0)
             {
-                //spawn explosion later
-                Scene.World.RemoveEnemy(this);
+                Destroyed();
             }
+        }
+
+        public virtual void Destroyed()
+        {
+
         }
     }
 }

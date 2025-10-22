@@ -8,5 +8,10 @@ namespace AstroDroids.Projectiles
         public Projectile(RectangleF collider) : base(collider)
         {
         }
+
+        protected void Despawn()
+        {
+            Scene.World.RemoveProjectile(this);
+        }
     }
 }

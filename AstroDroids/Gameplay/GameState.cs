@@ -18,5 +18,20 @@ namespace AstroDroids.Gameplay
             Firepower = 1;
             CurrentWeapon = new BasicWeapon();
         }
+
+        public static void AddScore(int amount)
+        {
+            Score += amount;
+        }
+
+        public static void RemoveLife()
+        {
+            Lives--;
+
+            if(Lives <= 0)
+            {
+                //game over
+            }
+        }
     }
 }

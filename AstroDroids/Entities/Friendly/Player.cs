@@ -64,6 +64,16 @@ namespace AstroDroids.Entities.Friendly
             {
                 Collider.Y = Scene.World.Bounds.Bottom - Collider.Height;
             }
+
+            foreach (var enemy in Scene.World.Enemies)
+            {
+                if(enemy.CollidesWith(Collider))
+                {
+                    enemy.Damage(5, true);
+                    Damage(1, false);
+                    break;
+                }
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -76,6 +86,12 @@ namespace AstroDroids.Entities.Friendly
         public Vector2 GetPosition()
         {
             return Collider.Position;
+        }
+
+        public override void Destroyed()
+        {
+            Scene.World.RemovePlayer(this);
+            GameState.RemoveLife();
         }
     }
 }

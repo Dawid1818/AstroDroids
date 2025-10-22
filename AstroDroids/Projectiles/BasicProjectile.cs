@@ -18,7 +18,7 @@ namespace AstroDroids.Projectiles
 
             if(Collider.Y + 16 < 0)
             {
-                Scene.World.RemoveProjectile(this);
+                Despawn();
             }
             else
             {
@@ -26,7 +26,7 @@ namespace AstroDroids.Projectiles
                 {
                     if (enemy.CollidesWith(Collider))
                     {
-                        Scene.World.RemoveProjectile(this);
+                        Despawn();
                         enemy.Damage(1, true);
                         break;
                     }

@@ -19,6 +19,7 @@ namespace AstroDroids.Gameplay
 
         //public Player Player { get; set; }
         List<Player> Players = new List<Player>();
+        List<Player> PlayersToRemove = new List<Player>();
 
         Random rnd = new Random();
 
@@ -28,6 +29,12 @@ namespace AstroDroids.Gameplay
             {
                 item.Update(gameTime);
             }
+
+            foreach (var item in PlayersToRemove)
+            {
+                Players.Remove(item);
+            }
+            PlayersToRemove.Clear();
 
             foreach (var item in Enemies)
             {
@@ -105,7 +112,7 @@ namespace AstroDroids.Gameplay
 
         public void RemovePlayer(Player player)
         {
-            Players.Remove(player);
+            PlayersToRemove.Add(player);
         }
     }
 }

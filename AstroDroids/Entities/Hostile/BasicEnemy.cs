@@ -5,7 +5,7 @@ using MonoGame.Extended;
 
 namespace AstroDroids.Entities.Hostile
 {
-    public class BasicEnemy : AliveEntity
+    public class BasicEnemy : Enemy
     {
         public BasicEnemy(Vector2 position) : base(new RectangleF(position.X, position.Y, 32f, 32f), 1)
         {
