@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Levels;
+using System.Collections;
 
 namespace AstroDroids.Managers
 {
@@ -13,6 +14,11 @@ namespace AstroDroids.Managers
         public static void StartLevel()
         {
             CurrentLevel.StartLevel();
+        }
+
+        public static IEnumerator GetLevelScript()
+        {
+            return CurrentLevel.LevelScript();
         }
     }
 }

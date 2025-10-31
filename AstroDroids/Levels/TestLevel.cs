@@ -1,5 +1,6 @@
-﻿using AstroDroids.Entities.Hostile;
-using AstroDroids.Managers;
+﻿using AstroDroids.Coroutines;
+using AstroDroids.Entities.Hostile;
+using System.Collections;
 using System.Numerics;
 
 namespace AstroDroids.Levels
@@ -8,7 +9,14 @@ namespace AstroDroids.Levels
     {
         public override void StartLevel()
         {
-            SceneManager.GetScene().World.AddEnemy(new BasicEnemy(Vector2.Zero));
+
+        }
+
+        public override IEnumerator LevelScript()
+        {
+            yield return new WaitForSeconds(2);
+
+            Scene.World.AddEnemy(new BasicEnemy(Vector2.Zero));
         }
     }
 }

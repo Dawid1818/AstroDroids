@@ -1,5 +1,4 @@
-﻿using AstroDroids.Entities;
-using AstroDroids.Entities.Friendly;
+﻿using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
@@ -9,6 +8,8 @@ namespace AstroDroids.Scenes
 {
     public class GameScene : Scene
     {
+        CoroutineManager coroutineManager = new CoroutineManager();
+
         public GameScene()
         {
 
@@ -25,10 +26,14 @@ namespace AstroDroids.Scenes
             World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2, World.Bounds.Bottom - 64)));
 
             LevelManager.StartLevel();
+
+            coroutineManager.StartCoroutine(LevelManager.GetLevelScript());
         }
 
         public override void Update(GameTime gameTime)
         {
+            coroutineManager.Update();
+
             World.Update(gameTime);
         }
 
