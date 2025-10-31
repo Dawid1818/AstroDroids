@@ -1,8 +1,10 @@
 ﻿using AstroDroids.Curves;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
+using AstroDroids.Screens;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
+using MonoGameGum;
 using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
@@ -14,6 +16,8 @@ namespace AstroDroids.Scenes
         int draggedPointIndex = -1;
         bool isDraggingPoint = false;
 
+        CurveEditorScreenGum ui;
+
         public CurveEditorScene()
         {
             curve = new BezierCurve(new List<Vector2>() 
@@ -23,6 +27,17 @@ namespace AstroDroids.Scenes
                 new Vector2(300, 100),
                 new Vector2(400, 400)
             });
+        }
+
+        public override void Set()
+        {
+            ui = new CurveEditorScreenGum();
+            ui.AddToRoot();
+
+            ui.StartPointText.Text = $"Start Point: {curve.GetPointAtIndex(0)}";
+            ui.KeyPoint1Text.Text = $"Key Point 1: {curve.GetPointAtIndex(1)}";
+            ui.KeyPoint2Text.Text = $"Key Point 2: {curve.GetPointAtIndex(2)}";
+            ui.EndPointText.Text = $"End Point: {curve.GetPointAtIndex(3)}";
         }
 
         public override void Update(GameTime gameTime)
@@ -53,6 +68,11 @@ namespace AstroDroids.Scenes
                 isDraggingPoint = false;
                 draggedPointIndex = -1;
             }
+
+            ui.StartPointText.Text = $"Start Point: {curve.GetPointAtIndex(0)}";
+            ui.KeyPoint1Text.Text = $"Key Point 1: {curve.GetPointAtIndex(1)}";
+            ui.KeyPoint2Text.Text = $"Key Point 2: {curve.GetPointAtIndex(2)}";
+            ui.EndPointText.Text = $"End Point: {curve.GetPointAtIndex(3)}";
         }
 
         public override void Draw(GameTime gameTime)
