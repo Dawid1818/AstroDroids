@@ -10,10 +10,8 @@ using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
 
-using System.Linq;
-
 namespace AstroDroids.Components.Elements;
-partial class Icon : MonoGameGum.Forms.Controls.FrameworkElement
+partial class Icon : global::Gum.Forms.Controls.FrameworkElement
 {
     [System.Runtime.CompilerServices.ModuleInitializer]
     public static void RegisterRuntimeType()

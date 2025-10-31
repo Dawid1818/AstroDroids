@@ -1,5 +1,5 @@
 {
-  "CommonUsingStatements": "using Gum.Converters;\r\nusing Gum.DataTypes;\r\nusing Gum.Managers;\r\nusing Gum.Wireframe;\r\n\r\nusing RenderingLibrary.Graphics;\r\n\r\nusing System.Linq;\r\n",
+  "CommonUsingStatements": "using Gum.Converters;\nusing Gum.DataTypes;\nusing Gum.Managers;\nusing Gum.Wireframe;\n\nusing RenderingLibrary.Graphics;\n",
   "CodeProjectRoot": "Q:\\Projects\\Studia\\AstroDroids\\AstroDroids\\",
   "RootNamespace": "AstroDroids",
   "AppendFolderToNamespace": true,

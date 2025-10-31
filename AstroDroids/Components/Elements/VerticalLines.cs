@@ -5,8 +5,6 @@ using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
 
-using System.Linq;
-
 namespace AstroDroids.Components.Elements
 {
     partial class VerticalLines

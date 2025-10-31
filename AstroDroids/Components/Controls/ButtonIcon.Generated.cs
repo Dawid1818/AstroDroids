@@ -11,8 +11,6 @@ using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
 
-using System.Linq;
-
 namespace AstroDroids.Components.Controls;
 partial class ButtonIcon : global::Gum.Forms.Controls.Button
 {

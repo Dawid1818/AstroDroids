@@ -10,10 +10,8 @@ using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
 
-using System.Linq;
-
 namespace AstroDroids.Components.Elements;
-partial class DividerHorizontal : MonoGameGum.Forms.Controls.FrameworkElement
+partial class DividerHorizontal : global::Gum.Forms.Controls.FrameworkElement
 {
     [System.Runtime.CompilerServices.ModuleInitializer]
     public static void RegisterRuntimeType()

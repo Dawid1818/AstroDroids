@@ -10,8 +10,6 @@ using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
 
-using System.Linq;
-
 namespace AstroDroids.Components.Controls;
 partial class TextBox : global::Gum.Forms.Controls.TextBox
 {

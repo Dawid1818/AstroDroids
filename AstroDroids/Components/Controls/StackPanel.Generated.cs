@@ -10,8 +10,6 @@ using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
 
-using System.Linq;
-
 namespace AstroDroids.Components.Controls;
 partial class StackPanel : global::Gum.Forms.Controls.StackPanel
 {

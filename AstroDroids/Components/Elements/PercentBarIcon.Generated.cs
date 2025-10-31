@@ -11,10 +11,8 @@ using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
 
-using System.Linq;
-
 namespace AstroDroids.Components.Elements;
-partial class PercentBarIcon : MonoGameGum.Forms.Controls.FrameworkElement
+partial class PercentBarIcon : global::Gum.Forms.Controls.FrameworkElement
 {
     [System.Runtime.CompilerServices.ModuleInitializer]
     public static void RegisterRuntimeType()
