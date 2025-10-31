@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using System.Numerics;
 
 namespace AstroDroids.Input
 {
@@ -89,6 +90,11 @@ namespace AstroDroids.Input
         public static bool GetKeyUp(Keys key)
         {
             return kState.IsKeyUp(key) && oldKState.IsKeyDown(key);
+        }
+
+        public static Vector2 GetMousePos()
+        {
+            return new Vector2(mState.X, mState.Y);
         }
 
         public static bool GetLMB()

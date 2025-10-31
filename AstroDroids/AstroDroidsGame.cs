@@ -33,7 +33,8 @@ namespace AstroDroids
             SoundManager.Initialize();
             Screen.Initialize(this);
 
-            SceneManager.SetScene(new GameScene());
+            //SceneManager.SetScene(new GameScene());
+            SceneManager.SetScene(new CurveEditorScene());
         }
 
         protected override void Update(GameTime gameTime)

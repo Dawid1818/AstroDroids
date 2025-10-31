@@ -1,7 +1,7 @@
 ﻿using AstroDroids.Coroutines;
 using AstroDroids.Entities.Hostile;
+using Microsoft.Xna.Framework;
 using System.Collections;
-using System.Numerics;
 
 namespace AstroDroids.Levels
 {
@@ -15,6 +15,10 @@ namespace AstroDroids.Levels
         public override IEnumerator LevelScript()
         {
             yield return new WaitForSeconds(2);
+
+            Scene.World.AddEnemy(new BasicEnemy(Vector2.Zero));
+
+            yield return new WaitForSeconds(0.3f);
 
             Scene.World.AddEnemy(new BasicEnemy(Vector2.Zero));
         }
