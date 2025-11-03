@@ -4,15 +4,62 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>bool</Type>
+      <Name>CurvePointEditorWindow.ClipsChildren</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurvePointEditorWindow.Height</Name>
+      <Value xsi:type="xsd:float">143</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float?</Type>
+      <Name>CurvePointEditorWindow.MinHeight</Name>
+      <Value xsi:type="xsd:float">143</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float?</Type>
+      <Name>CurvePointEditorWindow.MinWidth</Name>
+      <Value xsi:type="xsd:float">221</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>CurvePointEditorWindow.Parent</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurvePointEditorWindow.Width</Name>
+      <Value xsi:type="xsd:float">221</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurvePointEditorWindow.X</Name>
+      <Value xsi:type="xsd:float">9</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CurvePointEditorWindow.Y</Name>
+      <Value xsi:type="xsd:float">438</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>EndPointText.Parent</Name>
-      <Value xsi:type="xsd:string">WindowStandardInstance</Value>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
       <Name>EndPointText.Text</Name>
-      <Value xsi:type="xsd:string">End Point: 0, 0</Value>
+      <Value xsi:type="xsd:string">End Point</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -29,14 +76,86 @@
     </Variable>
     <Variable>
       <Type>string</Type>
+      <Name>EndPointXBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EndPointXBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EndPointXBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EndPointXBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EndPointXBox.X</Name>
+      <Value xsi:type="xsd:float">94</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EndPointXBox.Y</Name>
+      <Value xsi:type="xsd:float">102</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EndPointYBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EndPointYBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EndPointYBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EndPointYBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EndPointYBox.X</Name>
+      <Value xsi:type="xsd:float">151</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EndPointYBox.Y</Name>
+      <Value xsi:type="xsd:float">102</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
       <Name>KeyPoint1Text.Parent</Name>
-      <Value xsi:type="xsd:string">WindowStandardInstance</Value>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
       <Name>KeyPoint1Text.Text</Name>
-      <Value xsi:type="xsd:string">Key Point 1: 0, 0</Value>
+      <Value xsi:type="xsd:string">Key Point 1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -53,14 +172,86 @@
     </Variable>
     <Variable>
       <Type>string</Type>
+      <Name>KeyPoint1XBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint1XBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint1XBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint1XBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint1XBox.X</Name>
+      <Value xsi:type="xsd:float">94</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint1XBox.Y</Name>
+      <Value xsi:type="xsd:float">52</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint1YBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint1YBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint1YBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint1YBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint1YBox.X</Name>
+      <Value xsi:type="xsd:float">151</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint1YBox.Y</Name>
+      <Value xsi:type="xsd:float">52</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
       <Name>KeyPoint2Text.Parent</Name>
-      <Value xsi:type="xsd:string">WindowStandardInstance</Value>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
       <Name>KeyPoint2Text.Text</Name>
-      <Value xsi:type="xsd:string">Key Point 2: 0, 0</Value>
+      <Value xsi:type="xsd:string">Key Point 2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -77,14 +268,104 @@
     </Variable>
     <Variable>
       <Type>string</Type>
+      <Name>KeyPoint2XBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint2XBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint2XBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint2XBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint2XBox.X</Name>
+      <Value xsi:type="xsd:float">94</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint2XBox.Y</Name>
+      <Value xsi:type="xsd:float">77</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint2YBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint2YBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>KeyPoint2YBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint2YBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint2YBox.X</Name>
+      <Value xsi:type="xsd:float">151</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>KeyPoint2YBox.Y</Name>
+      <Value xsi:type="xsd:float">77</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>LabelInstance.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LabelInstance.X</Name>
+      <Value xsi:type="xsd:float">17</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>LabelInstance.Y</Name>
+      <Value xsi:type="xsd:float">9</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
       <Name>StartPointText.Parent</Name>
-      <Value xsi:type="xsd:string">WindowStandardInstance</Value>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
       <Name>StartPointText.Text</Name>
-      <Value xsi:type="xsd:string">Start Point: 0, 0</Value>
+      <Value xsi:type="xsd:string">Start Point</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -100,55 +381,85 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>bool</Type>
-      <Name>WindowStandardInstance.ClipsChildren</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WindowStandardInstance.Height</Name>
-      <Value xsi:type="xsd:float">143</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float?</Type>
-      <Name>WindowStandardInstance.MinHeight</Name>
-      <Value xsi:type="xsd:float">143</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float?</Type>
-      <Name>WindowStandardInstance.MinWidth</Name>
-      <Value xsi:type="xsd:float">221</Value>
+      <Type>string</Type>
+      <Name>StartPointXBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
-      <Name>WindowStandardInstance.Parent</Name>
+      <Name>StartPointXBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>StartPointXBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>WindowStandardInstance.Width</Name>
-      <Value xsi:type="xsd:float">221</Value>
+      <Name>StartPointXBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>WindowStandardInstance.X</Name>
-      <Value xsi:type="xsd:float">9</Value>
+      <Name>StartPointXBox.X</Name>
+      <Value xsi:type="xsd:float">94</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>WindowStandardInstance.Y</Name>
-      <Value xsi:type="xsd:float">438</Value>
+      <Name>StartPointXBox.Y</Name>
+      <Value xsi:type="xsd:float">26</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>StartPointYBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>StartPointYBox.PlaceholderText</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>StartPointYBox.Text</Name>
+      <Value xsi:type="xsd:string">800</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>StartPointYBox.Width</Name>
+      <Value xsi:type="xsd:float">56</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>StartPointYBox.X</Name>
+      <Value xsi:type="xsd:float">151</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>StartPointYBox.Y</Name>
+      <Value xsi:type="xsd:float">26</Value>
       <SetsValue>true</SetsValue>
     </Variable>
   </State>
   <Instance>
-    <Name>WindowStandardInstance</Name>
+    <Name>LabelInstance</Name>
+    <BaseType>Controls/Label</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>CurvePointEditorWindow</Name>
     <BaseType>Controls/WindowStandard</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
@@ -170,6 +481,46 @@
   <Instance>
     <Name>KeyPoint2Text</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>StartPointXBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>KeyPoint1XBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>EndPointXBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>KeyPoint2XBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>StartPointYBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>KeyPoint1YBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>EndPointYBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>KeyPoint2YBox</Name>
+    <BaseType>Controls/TextBox</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />

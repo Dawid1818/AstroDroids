@@ -39,11 +39,20 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
-    public WindowStandard WindowStandardInstance { get; protected set; }
+    public Label LabelInstance { get; protected set; }
+    public WindowStandard CurvePointEditorWindow { get; protected set; }
     public TextRuntime StartPointText { get; protected set; }
     public TextRuntime KeyPoint1Text { get; protected set; }
     public TextRuntime EndPointText { get; protected set; }
     public TextRuntime KeyPoint2Text { get; protected set; }
+    public TextBox StartPointXBox { get; protected set; }
+    public TextBox KeyPoint1XBox { get; protected set; }
+    public TextBox EndPointXBox { get; protected set; }
+    public TextBox KeyPoint2XBox { get; protected set; }
+    public TextBox StartPointYBox { get; protected set; }
+    public TextBox KeyPoint1YBox { get; protected set; }
+    public TextBox EndPointYBox { get; protected set; }
+    public TextBox KeyPoint2YBox { get; protected set; }
 
     public CurveEditorScreenGum(InteractiveGue visual) : base(visual)
     {
@@ -57,11 +66,20 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        WindowStandardInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<WindowStandard>(this.Visual,"WindowStandardInstance");
+        LabelInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"LabelInstance");
+        CurvePointEditorWindow = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<WindowStandard>(this.Visual,"CurvePointEditorWindow");
         StartPointText = this.Visual?.GetGraphicalUiElementByName("StartPointText") as global::MonoGameGum.GueDeriving.TextRuntime;
         KeyPoint1Text = this.Visual?.GetGraphicalUiElementByName("KeyPoint1Text") as global::MonoGameGum.GueDeriving.TextRuntime;
         EndPointText = this.Visual?.GetGraphicalUiElementByName("EndPointText") as global::MonoGameGum.GueDeriving.TextRuntime;
         KeyPoint2Text = this.Visual?.GetGraphicalUiElementByName("KeyPoint2Text") as global::MonoGameGum.GueDeriving.TextRuntime;
+        StartPointXBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"StartPointXBox");
+        KeyPoint1XBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"KeyPoint1XBox");
+        EndPointXBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"EndPointXBox");
+        KeyPoint2XBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"KeyPoint2XBox");
+        StartPointYBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"StartPointYBox");
+        KeyPoint1YBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"KeyPoint1YBox");
+        EndPointYBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"EndPointYBox");
+        KeyPoint2YBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"KeyPoint2YBox");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

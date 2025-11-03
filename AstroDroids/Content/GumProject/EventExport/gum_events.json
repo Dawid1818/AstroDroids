@@ -98,6 +98,174 @@
         "ElementType": "Screens",
         "EventType": 6,
         "TimestampUtc": "2025-10-31T15:43:18.8068658Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T14:56:37.8245925Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.SliderInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:00:31.311628Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "CurveEditorScreenGum.Controls/Slider SliderInstance in CurveEditorScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-11-03T15:00:35.290205Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:01:18.5015239Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:01:39.3356011Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "CurveEditorScreenGum.Controls/TextBox TextBoxInstance2 in CurveEditorScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2025-11-03T15:01:46.6571119Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:01:50.7167622Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:01:50.7582106Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance4",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:01:58.6092027Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance5",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:01:58.6502002Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance6",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:02:04.2662525Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.TextBoxInstance7",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T15:02:04.3072815Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.StartPointXBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:02.5035537Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.Start",
+        "OldName": "CurveEditorScreenGum.StartPointXBox",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:06.7526877Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.StartPointXBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:12.6057667Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.StartPointYBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:17.8728952Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.KeyPoint1XBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:23.4488605Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.KeyPoint1YBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance3",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:28.3425205Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.KeyPoint2XBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance4",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:34.2754318Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.KeyPoint2YBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance5",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:40.0785432Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.EndPointXBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance6",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:44.7300261Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.EndPointYBox",
+        "OldName": "CurveEditorScreenGum.TextBoxInstance7",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T15:03:49.6436576Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.CurvePointEditorWindow",
+        "OldName": "CurveEditorScreenGum.WindowStandardInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2025-11-03T16:27:51.6819712Z"
+      },
+      {
+        "NewName": "CurveEditorScreenGum.LabelInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-11-03T16:27:57.325023Z"
       }
     ]
   }

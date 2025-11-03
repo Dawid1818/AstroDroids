@@ -54,7 +54,7 @@ namespace AstroDroids
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            Screen.spriteBatch.Begin();
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
 
             SceneManager.Draw(gameTime);
 
