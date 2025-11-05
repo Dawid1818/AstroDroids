@@ -345,6 +345,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>LabelInstance.Text</Name>
+      <Value xsi:type="xsd:string">Bezier Curve Editor</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>LabelInstance.X</Name>
       <Value xsi:type="xsd:float">17</Value>

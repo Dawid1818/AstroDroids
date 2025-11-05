@@ -68,5 +68,12 @@ namespace AstroDroids.Graphics
         {
             CameraPosition += vec;
         }
+
+        public static void ZoomCamera(float val)
+        {
+            ScreenScale += val;
+            if (ScreenScale <= 0.2f)
+                ScreenScale = 0.2f;
+        }
     }
 }

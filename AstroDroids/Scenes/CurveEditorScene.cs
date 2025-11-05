@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGameGum;
-using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
@@ -23,7 +22,8 @@ namespace AstroDroids.Scenes
 
         bool disableUIEvents = false;
 
-        float cameraSpeed = 5f;
+        float cameraMoveSpeed = 5f;
+        float cameraZoomSpeed = 0.2f;
 
         public CurveEditorScene()
         {
@@ -146,18 +146,32 @@ namespace AstroDroids.Scenes
             Vector2 cameraTranslation = Vector2.Zero;
 
             if (InputSystem.GetKey(Keys.W))
-                cameraTranslation.Y -= cameraSpeed;
+                cameraTranslation.Y -= cameraMoveSpeed;
 
             if (InputSystem.GetKey(Keys.S))
-                cameraTranslation.Y += cameraSpeed;
+                cameraTranslation.Y += cameraMoveSpeed;
 
             if (InputSystem.GetKey(Keys.A))
-                cameraTranslation.X -= cameraSpeed;
+                cameraTranslation.X -= cameraMoveSpeed;
 
             if (InputSystem.GetKey(Keys.D))
-                cameraTranslation.X += cameraSpeed;
+                cameraTranslation.X += cameraMoveSpeed;
 
             Screen.MoveCamera(cameraTranslation);
+
+            int scrollDelta = InputSystem.GetScrollDelta();
+
+            if(scrollDelta > 0)
+            {
+                Screen.ZoomCamera(cameraZoomSpeed);
+            }
+            else if(scrollDelta < 0)
+            {
+                Screen.ZoomCamera(-cameraZoomSpeed);
+            }
+
+            if (InputSystem.GetKeyDown(Keys.R))
+                Screen.ResetCamera();
         }
 
         public override void Draw(GameTime gameTime)

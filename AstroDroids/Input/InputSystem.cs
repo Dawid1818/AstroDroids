@@ -14,6 +14,9 @@ namespace AstroDroids.Input
 
         static Dictionary<GameAction, ButtonInputAction> Actions;
 
+        static int scroll = 0;
+        static int oldScroll = 0;
+
         public static void Initialize()
         {
             Actions = new Dictionary<GameAction, ButtonInputAction>
@@ -30,12 +33,21 @@ namespace AstroDroids.Input
         {
             kState = Keyboard.GetState();
             mState = Mouse.GetState();
+
+            scroll = mState.ScrollWheelValue;
         }
 
         public static void End()
         {
             oldKState = kState;
             oldMState = mState;
+
+            oldScroll = scroll;
+        }
+
+        public static int GetScrollDelta()
+        {
+            return scroll - oldScroll;
         }
 
         public static bool IsActionHeld(GameAction action)
