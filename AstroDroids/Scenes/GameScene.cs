@@ -23,7 +23,7 @@ namespace AstroDroids.Scenes
 
             World = new GameWorld();
 
-            World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2, World.Bounds.Bottom - 64)));
+            World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));
 
             LevelManager.StartLevel();
 

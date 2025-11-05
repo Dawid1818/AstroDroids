@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
+using AstroDroids.Entities.Neutral;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
@@ -16,6 +17,9 @@ namespace AstroDroids.Gameplay
 
         public List<Projectile> Projectiles { get; } = new List<Projectile>();
         public List<Projectile> ProjectilesToRemove { get; } = new List<Projectile>();
+
+        public List<EntityGroup> EntityGroups { get; } = new List<EntityGroup>();
+        public List<EntityGroup> EntityGroupsToRemove { get; } = new List<EntityGroup>();
 
         //public Player Player { get; set; }
         List<Player> Players = new List<Player>();
@@ -35,6 +39,17 @@ namespace AstroDroids.Gameplay
                 Players.Remove(item);
             }
             PlayersToRemove.Clear();
+
+            foreach (var item in EntityGroups)
+            {
+                item.Update(gameTime);
+            }
+
+            foreach (var item in EntityGroupsToRemove)
+            {
+                EntityGroups.Remove(item);
+            }
+            EntityGroupsToRemove.Clear();
 
             foreach (var item in Enemies)
             {
@@ -95,6 +110,16 @@ namespace AstroDroids.Gameplay
         public void RemoveProjectile(Projectile projectile)
         {
             ProjectilesToRemove.Add(projectile);
+        }
+
+        public void AddEntityGroup(EntityGroup group)
+        {
+            EntityGroups.Add(group);
+        }
+
+        public void RemoveEntityGroup(EntityGroup group)
+        {
+            EntityGroupsToRemove.Add(group);
         }
 
         public Player GetRandomPlayer()

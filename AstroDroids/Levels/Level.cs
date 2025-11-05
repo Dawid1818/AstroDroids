@@ -1,5 +1,7 @@
-﻿using AstroDroids.Managers;
+﻿using AstroDroids.Entities.Neutral;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +23,14 @@ namespace AstroDroids.Levels
         public virtual IEnumerator LevelScript()
         {
             yield break;
+        }
+
+        protected EntityGroup CreateGroup(Vector2 position, int rows, int cols, float cellWidth, float cellHeight, float spacing)
+        {
+            EntityGroup group = new EntityGroup(position, rows, cols, cellWidth, cellHeight, spacing);
+
+            Scene.World.AddEntityGroup(group);
+            return group; 
         }
     }
 }
