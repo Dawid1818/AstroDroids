@@ -4,6 +4,8 @@ using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using AstroDroids.Input;
 using AstroDroids.Gameplay;
+using Microsoft.Xna.Framework.Graphics;
+using AstroDroids.Drawables;
 
 namespace AstroDroids.Entities.Friendly
 {
@@ -12,9 +14,20 @@ namespace AstroDroids.Entities.Friendly
         int playerIndex;
         float speed = 10f;
 
-        public Player(int playerIndex, Vector2 position) : base(new RectangleF(position.X, position.Y, 32, 32), 1) 
+        Texture2D shipTexture;
+        Texture2D exhaustTexture;
+
+        CompositeShip ship;
+
+        float thrusterPower = 1f;
+
+        public Player(int playerIndex, Vector2 position) : base(new RectangleF(position.X, position.Y, 110, 98), 1) 
         {
             this.playerIndex = playerIndex;
+            shipTexture = TextureManager.Get("Ships/Player/PlayerShip");
+            exhaustTexture = TextureManager.Get("Ships/Player/Exhaust");
+
+            ship = new CompositeShip();
         }
 
         public override void Update(GameTime gameTime)
@@ -78,7 +91,10 @@ namespace AstroDroids.Entities.Friendly
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), Collider.ToRectangle(), Color.White);
+            //Screen.spriteBatch.Draw(exhaustTexture, new Rectangle((int)GetPosition().X, (int)Collider.Bottom, 20, exhaustTexture.Height), Color.White);
+            //Screen.spriteBatch.Draw(exhaustTexture, new Rectangle((int)Collider.Right - 20, (int)Collider.Bottom, 20, exhaustTexture.Height), Color.White);
+            //Screen.spriteBatch.Draw(shipTexture, Collider.ToRectangle(), Color.White);
+            ship.Draw(GetPosition());
 
             GameState.CurrentWeapon.DrawEffects(this, gameTime);
         }

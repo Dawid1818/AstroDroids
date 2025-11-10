@@ -1,5 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace AstroDroids.Managers
 {
@@ -8,7 +12,7 @@ namespace AstroDroids.Managers
         static bool initialized = false;
         static Texture2D pixelTexture;
 
-        static Texture2D Starfield;
+        static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
 
         public static void Initialize(AstroDroidsGame game)
         {
@@ -18,9 +22,35 @@ namespace AstroDroids.Managers
 
             pixelTexture.SetData(new Color[] { Color.White });
 
-            Starfield = game.Content.Load<Texture2D>("Textures/Starfields/BlueStarfield");
+            LoadAllTextures(game.Content);
 
             initialized = true;
+        }
+
+        public static Texture2D Get(string textureName)
+        {
+            if (textures.TryGetValue(textureName, out Texture2D texture))
+            {
+                return texture;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        static void LoadAllTextures(ContentManager content)
+        {
+            Directory.GetFiles("Content/Textures", "*.xnb", SearchOption.AllDirectories).ToList().ForEach(filePath =>
+            {
+                string relativePath = filePath.Substring(8).Replace(".xnb", "").Replace("\\", "/");
+                string textureName = Path.GetFileNameWithoutExtension(filePath);
+                if (!textures.ContainsKey(textureName))
+                {
+                    Texture2D texture = content.Load<Texture2D>(relativePath);
+                    textures.Add(relativePath.Substring(9), texture);
+                }
+            });
         }
 
         public static Texture2D GetPixelTexture() 
@@ -30,7 +60,7 @@ namespace AstroDroids.Managers
 
         public static Texture2D GetStarfield()
         {
-            return Starfield;
+            return Get("Starfields/BlueStarfield");
         }
     }
 }

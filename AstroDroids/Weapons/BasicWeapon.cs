@@ -19,6 +19,10 @@ namespace AstroDroids.Weapons
                     
                     Scene.World.AddProjectile(projectile);
 
+                    projectile = new BasicProjectile(player.GetPosition() + new Vector2(90f, 0f));
+
+                    Scene.World.AddProjectile(projectile);
+
                     currentCooldown = 0.5f;
                 }
             }
