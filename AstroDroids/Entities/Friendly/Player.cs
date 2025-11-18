@@ -21,7 +21,7 @@ namespace AstroDroids.Entities.Friendly
 
         float thrusterPower = 1f;
 
-        public Player(int playerIndex, Vector2 position) : base(new RectangleF(position.X, position.Y, 110, 98), 1) 
+        public Player(int playerIndex, Vector2 position) : base(new Transform(position.X, position.Y, 110, 98), 1) 
         {
             this.playerIndex = playerIndex;
             shipTexture = TextureManager.Get("Ships/Player/PlayerShip");
@@ -58,29 +58,29 @@ namespace AstroDroids.Entities.Friendly
                 movement.X += speed;
             }
 
-            Collider.Position += movement;
+            Transform.Position += movement;
 
-            if (Collider.X < Scene.World.Bounds.Left)
+            if (Transform.X < Scene.World.Bounds.Left)
             {
-                Collider.X = Scene.World.Bounds.Left;
+                Transform.X = Scene.World.Bounds.Left;
             }
-            else if (Collider.Right > Scene.World.Bounds.Right)
+            else if (Transform.Right > Scene.World.Bounds.Right)
             {
-                Collider.X = Scene.World.Bounds.Right - Collider.Width;
+                Transform.X = Scene.World.Bounds.Right - Transform.Width;
             }
 
-            if (Collider.Y < Scene.World.Bounds.Top)
+            if (Transform.Y < Scene.World.Bounds.Top)
             {
-                Collider.Y = Scene.World.Bounds.Top;
+                Transform.Y = Scene.World.Bounds.Top;
             }
-            else if (Collider.Bottom > Scene.World.Bounds.Bottom)
+            else if (Transform.Bottom > Scene.World.Bounds.Bottom)
             {
-                Collider.Y = Scene.World.Bounds.Bottom - Collider.Height;
+                Transform.Y = Scene.World.Bounds.Bottom - Transform.Height;
             }
 
             foreach (var enemy in Scene.World.Enemies)
             {
-                if(enemy.CollidesWith(Collider))
+                if(enemy.CollidesWith(Transform))
                 {
                     enemy.Damage(5, true);
                     Damage(1, false);
@@ -101,7 +101,7 @@ namespace AstroDroids.Entities.Friendly
 
         public Vector2 GetPosition()
         {
-            return Collider.Position;
+            return Transform.Position;
         }
 
         public override void Destroyed()

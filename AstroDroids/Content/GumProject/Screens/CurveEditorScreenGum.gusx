@@ -12,7 +12,7 @@
     <Variable>
       <Type>float</Type>
       <Name>CurvePointEditorWindow.Height</Name>
-      <Value xsi:type="xsd:float">143</Value>
+      <Value xsi:type="xsd:float">168</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -47,7 +47,13 @@
     <Variable>
       <Type>float</Type>
       <Name>CurvePointEditorWindow.Y</Name>
-      <Value xsi:type="xsd:float">438</Value>
+      <Value xsi:type="xsd:float">-185</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>CurvePointEditorWindow.YUnits</Name>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -144,6 +150,30 @@
       <Type>float</Type>
       <Name>EndPointYBox.Y</Name>
       <Value xsi:type="xsd:float">102</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>GridBox.Parent</Name>
+      <Value xsi:type="xsd:string">CurvePointEditorWindow</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>GridBox.Text</Name>
+      <Value xsi:type="xsd:string">Grid</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>GridBox.X</Name>
+      <Value xsi:type="xsd:float">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>GridBox.Y</Name>
+      <Value xsi:type="xsd:float">130</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -522,6 +552,11 @@
   <Instance>
     <Name>EndPointYBox</Name>
     <BaseType>Controls/TextBox</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>GridBox</Name>
+    <BaseType>Controls/CheckBox</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>

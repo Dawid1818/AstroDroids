@@ -2,12 +2,16 @@
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
+using AstroDroids.Screens;
 using Microsoft.Xna.Framework;
+using MonoGameGum;
 
 namespace AstroDroids.Scenes
 {
     public class GameScene : Scene
     {
+        GameScreenGum ui;
+
         CoroutineManager coroutineManager = new CoroutineManager();
 
         public GameScene()
@@ -17,6 +21,9 @@ namespace AstroDroids.Scenes
 
         public override void Set()
         {
+            ui = new GameScreenGum();
+            ui.AddToRoot();
+
             LevelManager.LoadLevel(0);
 
             GameState.NewState();
@@ -35,6 +42,8 @@ namespace AstroDroids.Scenes
             coroutineManager.Update();
 
             World.Update(gameTime);
+
+            Screen.MoveCamera(new Vector2(0, -2));
         }
 
         public override void Draw(GameTime gameTime)

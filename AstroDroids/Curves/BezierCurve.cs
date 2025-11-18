@@ -20,9 +20,10 @@ namespace AstroDroids.Curves
                 return Vector2.Zero;
             }
 
-            t = Math.Max(0, Math.Min(1, t));
+            t = Math.Clamp(t, 0f, 1f);
 
             Vector2 result = Vector2.Zero;
+
             for (int i = 0; i < Points.Count; i++) { 
                 var binom = binomialCoefficient(Points.Count - 1, i);
                 var term = Math.Pow(1 - t, Points.Count - 1 - i) * Math.Pow(t, i);
@@ -69,6 +70,34 @@ namespace AstroDroids.Curves
             }
 
             return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
+        }
+
+        public Vector2 GetDirection(float t)
+        {
+            int n = Points.Count - 1;
+            if (n == 0)
+            {
+                return Vector2.Zero;
+            }
+
+            t = Math.Clamp(t, 0f, 1f);
+
+            Vector2 result = Vector2.Zero;
+
+            for (int i = 0; i < n; i++)
+            {
+                float binom = binomialCoefficient(n - 1, i);
+                float term = (float)(Math.Pow(1 - t, n - 1 - i) * Math.Pow(t, i));
+                Vector2 diff = Points[i + 1] - Points[i];
+                result += binom * term * diff;
+            }
+
+            result *= n;
+
+            if (result != Vector2.Zero)
+                result.Normalize();
+
+            return result;
         }
     }
 }

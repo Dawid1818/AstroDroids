@@ -1,4 +1,5 @@
-﻿using AstroDroids.Graphics;
+﻿using AstroDroids.Entities;
+using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
@@ -7,16 +8,16 @@ namespace AstroDroids.Projectiles
 {
     public class BasicProjectile : Projectile
     {
-        public BasicProjectile(Vector2 position) : base(new RectangleF((int)position.X, (int)position.Y, 16, 16))
+        public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y, 16, 16))
         {
 
         }
 
         public override void Update(GameTime gameTime)
         {
-            Collider.Y -= 5f;
+            Transform.Y -= 5f;
 
-            if(Collider.Y + 16 < 0)
+            if(Transform.Y + 16 < 0)
             {
                 Despawn();
             }
@@ -24,7 +25,7 @@ namespace AstroDroids.Projectiles
             {
                 foreach (var enemy in Scene.World.Enemies)
                 {
-                    if (enemy.CollidesWith(Collider))
+                    if (enemy.CollidesWith(Transform))
                     {
                         Despawn();
                         enemy.Damage(1, true);
@@ -36,7 +37,7 @@ namespace AstroDroids.Projectiles
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), Collider.ToRectangle(), Color.White);
+            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), Transform.ToRectangle(), Color.White);
         }
     }
 }

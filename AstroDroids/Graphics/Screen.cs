@@ -8,6 +8,9 @@ namespace AstroDroids.Graphics
 {
     public static class Screen
     {
+        public const int ScreenWidth = 800;
+        public const int ScreenHeight = 600;
+
         public static SpriteBatch spriteBatch { get; private set; }
         public static GumService GumUI => GumService.Default;
         static GumProjectSave gumProject;
@@ -74,6 +77,11 @@ namespace AstroDroids.Graphics
             ScreenScale += val;
             if (ScreenScale <= 0.2f)
                 ScreenScale = 0.2f;
+        }
+
+        public static Vector2 GetCameraPosition()
+        {
+            return CameraPosition;
         }
     }
 }

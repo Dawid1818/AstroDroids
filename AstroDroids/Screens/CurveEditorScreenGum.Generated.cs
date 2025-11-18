@@ -52,6 +52,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public TextBox StartPointYBox { get; protected set; }
     public TextBox KeyPoint1YBox { get; protected set; }
     public TextBox EndPointYBox { get; protected set; }
+    public CheckBox GridBox { get; protected set; }
     public TextBox KeyPoint2YBox { get; protected set; }
 
     public CurveEditorScreenGum(InteractiveGue visual) : base(visual)
@@ -79,6 +80,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         StartPointYBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"StartPointYBox");
         KeyPoint1YBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"KeyPoint1YBox");
         EndPointYBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"EndPointYBox");
+        GridBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"GridBox");
         KeyPoint2YBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"KeyPoint2YBox");
         CustomInitialize();
     }

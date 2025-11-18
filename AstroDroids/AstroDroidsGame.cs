@@ -17,8 +17,8 @@ namespace AstroDroids
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            _graphics.PreferredBackBufferWidth = 800;
-            _graphics.PreferredBackBufferHeight = 600;
+            _graphics.PreferredBackBufferWidth = Screen.ScreenWidth;
+            _graphics.PreferredBackBufferHeight = Screen.ScreenHeight;
         }
 
         protected override void Initialize()

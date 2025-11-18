@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGameGum;
+using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
@@ -24,6 +25,10 @@ namespace AstroDroids.Scenes
 
         float cameraMoveSpeed = 5f;
         float cameraZoomSpeed = 0.2f;
+
+        bool drawGrid = false;
+
+        public int gridSize = 32;
 
         public CurveEditorScene()
         {
@@ -60,6 +65,18 @@ namespace AstroDroids.Scenes
             ui.KeyPoint1YBox.TextChanged += YBox_TextChanged;
             ui.KeyPoint2YBox.TextChanged += YBox_TextChanged;
             ui.EndPointYBox.TextChanged += YBox_TextChanged;
+
+            ui.GridBox.IsChecked = false;
+
+            ui.GridBox.Checked += (sender, e) =>
+            {
+                drawGrid = true;
+            };
+
+            ui.GridBox.Unchecked += (sender, e) =>
+            {
+                drawGrid = false;
+            };
 
             UpdateUI();
         }
@@ -133,7 +150,15 @@ namespace AstroDroids.Scenes
                 }
                 else
                 {
-                    curve.SetPointAtIndex(draggedPointIndex, Screen.ScreenToWorldSpaceMouse());
+                    Vector2 finalLoc = Screen.ScreenToWorldSpaceMouse();
+
+                    if(drawGrid)
+                    {
+                        finalLoc.X = (int)Math.Floor(finalLoc.X / gridSize) * gridSize;
+                        finalLoc.Y = (int)Math.Floor(finalLoc.Y / gridSize) * gridSize;
+                    }
+
+                    curve.SetPointAtIndex(draggedPointIndex, finalLoc);
                     UpdateUI();
                 }
             }
@@ -176,6 +201,31 @@ namespace AstroDroids.Scenes
 
         public override void Draw(GameTime gameTime)
         {
+            Matrix cam = Screen.GetCameraMatrix();
+            Matrix invCam = Matrix.Invert(cam);
+
+            Vector2 topLeft = Vector2.Transform(Vector2.Zero, invCam);
+            Vector2 bottomRight = Vector2.Transform(new Vector2(Screen.ScreenWidth, Screen.ScreenHeight), invCam);
+
+            if (drawGrid)
+            {
+                int startX = (int)Math.Floor(topLeft.X / gridSize) * gridSize;
+                int endX = (int)Math.Ceiling(bottomRight.X / gridSize) * gridSize;
+                int startY = (int)Math.Floor(topLeft.Y / gridSize) * gridSize;
+                int endY = (int)Math.Ceiling(bottomRight.Y / gridSize) * gridSize;
+
+                for (int x = startX; x <= endX; x += gridSize)
+                    Screen.spriteBatch.DrawLine(new Vector2(x, startY), new Vector2(x, endY), Color.DarkGray, 2);
+
+                for (int y = startY; y <= endY; y += gridSize)
+                    Screen.spriteBatch.DrawLine(new Vector2(startX, y), new Vector2(endX, y), Color.DarkGray, 2);
+            }
+
+            Screen.spriteBatch.DrawRectangle(0, 0, 800, 600, Color.White, 2);
+
+            Screen.spriteBatch.DrawLine(new Vector2(0, topLeft.Y), new Vector2(0, bottomRight.Y), Color.White, 5f);
+            Screen.spriteBatch.DrawLine(new Vector2(800, topLeft.Y), new Vector2(800, bottomRight.Y), Color.White, 5f);
+
             float t = 0f;
             Vector2 lastPos = curve.GetPoint(t);
             while(t < 1f)

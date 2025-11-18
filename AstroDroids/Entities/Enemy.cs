@@ -14,7 +14,7 @@ namespace AstroDroids.Entities
         {
         }
 
-        public Enemy(RectangleF collider, int health) : base(collider, health)
+        public Enemy(Transform collider, int health) : base(collider, health)
         {
         }
 
