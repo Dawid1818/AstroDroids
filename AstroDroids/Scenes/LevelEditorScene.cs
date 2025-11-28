@@ -4,7 +4,6 @@ using AstroDroids.Graphics;
 using AstroDroids.Input;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
-using AstroDroids.Projectiles;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -239,6 +238,9 @@ namespace AstroDroids.Scenes
 
             if (InputSystem.GetKeyDown(Keys.V))
                 level.CreateEvent(mousePos);
+
+            if (InputSystem.GetKeyDown(Keys.T))
+                LevelManager.Playtest(mousePos.Y);
         }
 
         void MainDraw()
@@ -370,18 +372,20 @@ namespace AstroDroids.Scenes
 
         void BottomBar()
         {
-            int bottomBarHeight = 35;
-            int bottomBarWidth = 350;
+            int bottomBarHeight = 55;
+            int bottomBarWidth = 355;
             int bottomBarSpacing = 5;
 
             ImGui.SetNextWindowSize(new Numeric.Vector2(bottomBarWidth, bottomBarHeight));
             ImGui.SetNextWindowPos(new Numeric.Vector2(10, Screen.ScreenHeight - bottomBarHeight - bottomBarSpacing));
             ImGui.Begin("##Bottom Bar", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar);
+            Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+            ImGui.Text($"Mouse X:{mousePos.X.ToString("0.00")} Y:{mousePos.Y.ToString("0.00")}");
             ImGui.Checkbox("Grid", ref drawGrid);
             ImGui.SameLine();
             if (ImGui.Button("Playtest"))
             {
-                LevelManager.Playtest();
+                LevelManager.Playtest(0f);
             }
             ImGui.SameLine();
             if(ImGui.Button("Create Spawner"))

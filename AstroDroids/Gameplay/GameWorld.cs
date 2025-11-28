@@ -3,6 +3,7 @@ using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Neutral;
+using AstroDroids.Graphics;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles;
@@ -200,6 +201,25 @@ namespace AstroDroids.Gameplay
         public void RemovePlayer(Player player)
         {
             PlayersToRemove.Add(player);
+        }
+
+        internal void SetProgress(float yStart)
+        {
+            Vector2 newCamera = new Vector2(Screen.GetCameraPosition().X, yStart + Screen.ScreenHeight / 2f);
+            Screen.SetCameraPosition(newCamera);
+
+            foreach (var spawner in Spawners)
+            {
+                if (spawner.Transform.Position.Y > yStart)
+                {
+                    SpawnersToRemove.Add(spawner);
+                }
+            }
+            foreach (var item in SpawnersToRemove)
+            {
+                Spawners.Remove(item);
+            }
+            SpawnersToRemove.Clear();
         }
     }
 }

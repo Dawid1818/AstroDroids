@@ -29,7 +29,7 @@ namespace AstroDroids.Managers
             return CurrentLevel.LevelScript();
         }
 
-        internal static void Playtest()
+        internal static void Playtest(float yStart)
         {
             backedLevel = CurrentLevel;
             CurrentLevel = new Level();
@@ -39,7 +39,11 @@ namespace AstroDroids.Managers
 
             Playtesting = true;
 
-            SceneManager.SetScene(new GameScene());
+            GameScene scene = new GameScene();
+
+            SceneManager.SetScene(scene);
+
+            scene.World.SetProgress(yStart);
         }
 
         internal static void QuitPlaytest()
