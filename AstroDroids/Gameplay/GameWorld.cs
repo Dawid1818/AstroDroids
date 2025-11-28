@@ -1,9 +1,15 @@
-﻿using AstroDroids.Entities;
+﻿using AstroDroids.Coroutines;
+using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
+using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Neutral;
+using AstroDroids.Levels;
+using AstroDroids.Managers;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace AstroDroids.Gameplay
@@ -21,14 +27,63 @@ namespace AstroDroids.Gameplay
         public List<EntityGroup> EntityGroups { get; } = new List<EntityGroup>();
         public List<EntityGroup> EntityGroupsToRemove { get; } = new List<EntityGroup>();
 
+        List<EnemySpawner> Spawners = new List<EnemySpawner>();
+        List<EnemySpawner> SpawnersToRemove = new List<EnemySpawner>();
+        List<EventNode> Events = new List<EventNode>();
+
         //public Player Player { get; set; }
         List<Player> Players = new List<Player>();
         List<Player> PlayersToRemove = new List<Player>();
 
+        CameraEntity camEntity = new CameraEntity();
+
         Random rnd = new Random();
+
+        CoroutineManager coroutineManager = new CoroutineManager();
+
+        public void Initialize()
+        {
+            Spawners.Clear();
+            Spawners.AddRange(LevelManager.CurrentLevel.Spawners);
+
+            Events.Clear();
+            Events.AddRange(LevelManager.CurrentLevel.Events);
+        }
+
+        IEnumerator SpawnEnemies(EnemySpawner spawner)
+        {
+            for (int i = 0; i < spawner.EnemyCount; i++)
+            {
+                BasicEnemy enemy = new BasicEnemy(spawner.Transform.Position, null);
+                enemy.Path = spawner.Curve;
+                AddEnemy(enemy, spawner.FollowsCamera);
+
+                yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
+            }
+        }
 
         public void Update(GameTime gameTime)
         {
+            coroutineManager.Update();
+
+            camEntity.Update(gameTime);
+
+            foreach (var spawner in Spawners)
+            {
+                if(spawner.Transform.Position.Y > camEntity.Transform.Position.Y)
+                {
+                    SpawnersToRemove.Add(spawner);
+
+                    coroutineManager.StartCoroutine(SpawnEnemies(spawner));
+                }
+            }
+
+            foreach (var item in SpawnersToRemove)
+            {
+                Spawners.Remove(item);
+            }
+            SpawnersToRemove.Clear();
+
             foreach (var item in Players)
             {
                 item.Update(gameTime);
@@ -92,8 +147,13 @@ namespace AstroDroids.Gameplay
             }
         }
 
-        public void AddEnemy(AliveEntity enemy)
+        public void AddEnemy(AliveEntity enemy, bool followsCamera)
         {
+            if (followsCamera)
+            {
+                enemy.Transform.SetParent(camEntity.Transform);
+                enemy.Transform.LocalPosition -= camEntity.Transform.Position;
+            }
             Enemies.Add(enemy);
         }
 
@@ -104,6 +164,7 @@ namespace AstroDroids.Gameplay
 
         public void AddProjectile(Projectile projectile)
         {
+            projectile.Transform.SetParent(camEntity.Transform);
             Projectiles.Add(projectile);
         }
 
@@ -132,6 +193,7 @@ namespace AstroDroids.Gameplay
 
         public void AddPlayer(Player player)
         {
+            player.Transform.SetParent(camEntity.Transform);
             Players.Add(player);
         }
 

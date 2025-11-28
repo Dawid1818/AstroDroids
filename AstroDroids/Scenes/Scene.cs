@@ -19,6 +19,11 @@ namespace AstroDroids.Scenes
 
         }
 
+        public virtual void DrawImGui(GameTime gameTime)
+        {
+
+        }
+
         public virtual void Set() { }
     }
 }

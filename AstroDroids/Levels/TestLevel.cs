@@ -15,39 +15,41 @@ namespace AstroDroids.Levels
 
         public override IEnumerator LevelScript()
         {
-            int rows = 3;
-            int cols = 6;
+            return null;
 
-            EntityGroup group = CreateGroup(new Vector2(Scene.World.Bounds.Width / 2f - ((32f * cols) + (24 * cols - 1)) / 2f, 20f), rows, cols, 32f, 32f, 24f);
+            //int rows = 3;
+            //int cols = 6;
 
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    Scene.World.AddEnemy(new BasicEnemy(Vector2.Zero, group.GetCell(i, j)));
+            //EntityGroup group = CreateGroup(new Vector2(Scene.World.Bounds.Width / 2f - ((32f * cols) + (24 * cols - 1)) / 2f, 20f), rows, cols, 32f, 32f, 24f);
 
-                    yield return new WaitForSeconds(0.3f);
-                }
-            }
+            //for (int i = 0; i < rows; i++)
+            //{
+            //    for (int j = 0; j < cols; j++)
+            //    {
+            //        Scene.World.AddEnemy(new BasicEnemy(Vector2.Zero, group.GetCell(i, j)));
 
-            yield return new WaitUntil(() => { return Scene.World.Enemies.Count == 0; } );
+            //        yield return new WaitForSeconds(0.3f);
+            //    }
+            //}
 
-            Scene.World.RemoveEntityGroup(group);
+            //yield return new WaitUntil(() => { return Scene.World.Enemies.Count == 0; } );
 
-            rows = 5;
-            cols = 10;
+            //Scene.World.RemoveEntityGroup(group);
 
-            group = CreateGroup(new Vector2(Scene.World.Bounds.Width / 2f - ((32f * cols) + (24 * cols - 1)) / 2f, 20f), rows, cols, 32f, 32f, 24f);
+            //rows = 5;
+            //cols = 10;
 
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    Scene.World.AddEnemy(new BasicEnemy(Vector2.Zero, group.GetCell(i, j)));
+            //group = CreateGroup(new Vector2(Scene.World.Bounds.Width / 2f - ((32f * cols) + (24 * cols - 1)) / 2f, 20f), rows, cols, 32f, 32f, 24f);
 
-                    yield return new WaitForSeconds(0.3f);
-                }
-            }
+            //for (int i = 0; i < rows; i++)
+            //{
+            //    for (int j = 0; j < cols; j++)
+            //    {
+            //        Scene.World.AddEnemy(new BasicEnemy(Vector2.Zero, group.GetCell(i, j)));
+
+            //        yield return new WaitForSeconds(0.3f);
+            //    }
+            //}
         }
     }
 }

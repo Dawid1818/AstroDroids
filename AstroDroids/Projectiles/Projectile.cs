@@ -5,7 +5,7 @@ namespace AstroDroids.Projectiles
 {
     public class Projectile : CollidableEntity
     {
-        public Projectile(Transform collider) : base(collider)
+        public Projectile(Transform collider, float width, float height) : base(collider, width, height)
         {
         }
 

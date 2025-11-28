@@ -11,7 +11,7 @@ namespace AstroDroids.Entities
             Health = 1;
         }
 
-        public AliveEntity(Transform collider, int health) : base(collider)
+        public AliveEntity(Transform collider, int health, float width, float height) : base(collider, width, height)
         {
             Health = health;
         }

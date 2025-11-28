@@ -1,12 +1,19 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AstroDroids.Interfaces;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace AstroDroids.Curves
 {
-    public class BezierCurve
+    public class BezierCurve : ISaveable
     {
         List<Vector2> Points = new List<Vector2>();
+
+        public BezierCurve()
+        {
+
+        }
 
         public BezierCurve(List<Vector2> points)
         {
@@ -98,6 +105,28 @@ namespace AstroDroids.Curves
                 result.Normalize();
 
             return result;
+        }
+
+        public void Save(BinaryWriter writer)
+        {
+            writer.Write(Points.Count);
+            foreach (var item in Points)
+            {
+                writer.Write(item.X);
+                writer.Write(item.Y);
+            }
+        }
+
+        public void Load(BinaryReader reader, int version)
+        {
+            int pointCount = reader.ReadInt32();
+            Points.Clear();
+            for (int i = 0; i < pointCount; i++)
+            {
+                float x = reader.ReadSingle();
+                float y = reader.ReadSingle();
+                Points.Add(new Vector2(x, y));
+            }
         }
     }
 }

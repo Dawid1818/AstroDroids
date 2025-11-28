@@ -1,4 +1,5 @@
 ﻿
+using AstroDroids.Curves;
 using AstroDroids.Gameplay;
 using MonoGame.Extended;
 
@@ -10,11 +11,13 @@ namespace AstroDroids.Entities
 
         bool destroyed = false;
 
+        public BezierCurve Path { get; set; }
+
         public Enemy() : base()
         {
         }
 
-        public Enemy(Transform collider, int health) : base(collider, health)
+        public Enemy(Transform collider, int health, float width, float height) : base(collider, health, width, height)
         {
         }
 

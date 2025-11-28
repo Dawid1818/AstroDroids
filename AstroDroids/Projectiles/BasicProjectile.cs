@@ -8,16 +8,16 @@ namespace AstroDroids.Projectiles
 {
     public class BasicProjectile : Projectile
     {
-        public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y, 16, 16))
+        public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y), 16, 16)
         {
 
         }
 
         public override void Update(GameTime gameTime)
         {
-            Transform.Y -= 5f;
+            Transform.Translate(new Vector2(0f, -5f));
 
-            if(Transform.Y + 16 < 0)
+            if (Transform.LocalPosition.Y + 16 < 0)
             {
                 Despawn();
             }
@@ -25,7 +25,7 @@ namespace AstroDroids.Projectiles
             {
                 foreach (var enemy in Scene.World.Enemies)
                 {
-                    if (enemy.CollidesWith(Transform))
+                    if (enemy.Intersects(this))
                     {
                         Despawn();
                         enemy.Damage(1, true);
@@ -37,7 +37,7 @@ namespace AstroDroids.Projectiles
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), Transform.ToRectangle(), Color.White);
+            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), ToRectangle(), Color.White);
         }
     }
 }

@@ -26,6 +26,7 @@ namespace AstroDroids.Managers
         public static void Draw(GameTime gameTime)
         {
             scene?.Draw(gameTime);
+            scene?.DrawImGui(gameTime);
         }
     }
 }

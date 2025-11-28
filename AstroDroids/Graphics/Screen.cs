@@ -15,9 +15,13 @@ namespace AstroDroids.Graphics
         public static GumService GumUI => GumService.Default;
         static GumProjectSave gumProject;
 
+        static ImGuiRenderer imGuiRenderer;
         static GraphicsDeviceManager graphicsManager;
         static Vector2 CameraPosition = new Vector2(0, 0);
         static float ScreenScale = 1.0f;
+
+        public static Effect Infinite { get; private set; }
+        public static Viewport Viewport { get { return graphicsManager.GraphicsDevice.Viewport; } }
 
         public static void Initialize(AstroDroidsGame game)
         {
@@ -27,6 +31,10 @@ namespace AstroDroids.Graphics
             gumProject = GumUI.Initialize(game, "GumProject/AstroDroidsGum.gumx");
 
             CameraPosition = new Vector2(graphicsManager.GraphicsDevice.Viewport.Width / 2f, graphicsManager.GraphicsDevice.Viewport.Height / 2f);
+
+            imGuiRenderer = new ImGuiRenderer(game);
+
+            Infinite = game.Content.Load<Effect>("Shaders/Infinite");
         }
 
         public static void Update(GameTime gameTime)
@@ -34,7 +42,7 @@ namespace AstroDroids.Graphics
             GumUI.Update(gameTime);
         }
 
-        public static void Draw(GameTime gameTime)
+        public static void DrawGum(GameTime gameTime)
         {
             GumUI.Draw();
         }
@@ -72,6 +80,11 @@ namespace AstroDroids.Graphics
             CameraPosition += vec;
         }
 
+        public static void SetCameraPosition(Vector2 vec)
+        {
+            CameraPosition = vec;
+        }
+
         public static void ZoomCamera(float val)
         {
             ScreenScale += val;
@@ -79,9 +92,41 @@ namespace AstroDroids.Graphics
                 ScreenScale = 0.2f;
         }
 
+        public static float GetCameraZoom()
+        {
+            return ScreenScale;
+        }
+
+        public static void SetCameraZoom(float val)
+        {
+            ScreenScale = val;
+            if (ScreenScale <= 0.2f)
+                ScreenScale = 0.2f;
+        }
+
         public static Vector2 GetCameraPosition()
         {
             return CameraPosition;
+        }
+
+        internal static void DrawImGuiBefore(GameTime gameTime)
+        {
+            imGuiRenderer.BeforeLayout(gameTime);
+        }
+
+        internal static void DrawImGuiAfter()
+        {
+            imGuiRenderer.AfterLayout();
+        }
+
+        internal static Matrix GetUVTransform(Texture2D t, Vector2 offset, float scale, Viewport v)
+        {
+            return
+                Matrix.CreateScale(t.Width, t.Height, 1f) *
+                Matrix.CreateScale(scale, scale, 1f) *
+                Matrix.CreateTranslation(offset.X, offset.Y, 0f) *
+                Screen.GetCameraMatrix() *
+                Matrix.CreateScale(1f / v.Width, 1f / v.Height, 1f);
         }
     }
 }

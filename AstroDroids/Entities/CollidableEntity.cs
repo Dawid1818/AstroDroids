@@ -1,93 +1,51 @@
-﻿using AstroDroids.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoGame.Extended;
-using System.Runtime.Serialization;
 
 namespace AstroDroids.Entities
 {
-    public class Transform
+    public class CollidableEntity : Entity
     {
-        float x;
-        float y;
+        public float Width { get; set; }
+        public float Height { get; set; }
+        public float Left { get { return Transform.Position.X; } }
+        public float Right { get { return Transform.Position.X + Width; } }
+        public float LocalLeft { get { return Transform.LocalPosition.X; } }
+        public float LocalRight { get { return Transform.LocalPosition.X + Width; } }
+        public float Top { get { return Transform.Position.Y; } }
+        public float LocalTop { get { return Transform.LocalPosition.Y; } }
+        public float Bottom { get { return Transform.Position.Y + Height; } }
+        public float LocalBottom { get { return Transform.LocalPosition.Y + Height; } }
 
-        float width;
-        float height;
 
-        bool followsCamera = true;
-
-        public float X { get {
-                if (followsCamera)
-                    return x + (Screen.GetCameraPosition().X - Screen.ScreenWidth / 2);
-                else
-                    return x;
-            } set { x = value; } }
-        public float Y { get {
-                if (followsCamera)
-                    return y + (Screen.GetCameraPosition().Y - Screen.ScreenHeight / 2);
-                else
-                    return y; 
-            } set { y = value; } }
-
-        public float Width { get { return width; } set { width = value; } }
-        public float Height { get { return height; } set { height = value; } }
-
-        public Vector2 Position { get { return new Vector2(X, Y); } set { X = value.X; Y = value.Y; } }
-        public float Right { get { return X + width; } }
-        public float Bottom { get { return Y + Height; } }
-
-        public Transform(float x, float y, float width, float height)
+        public CollidableEntity() : base()
         {
-            X = x;
-            Y = y;
+
+        }
+
+        public CollidableEntity(Transform transform) : base(transform)
+        {
+
+        }
+
+        public CollidableEntity(Transform transform, float width, float height) : base(transform)
+        {
             Width = width;
             Height = height;
         }
 
-        public bool Intersects(Transform other)
-        {
-            return ToRectangleF().Intersects(other.ToRectangleF());
-        }
-
         public Rectangle ToRectangle()
         {
-            return new Rectangle((int)X, (int)Y, (int)Width, (int)Height);
+            return new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, (int)Width, (int)Height);
         }
 
         public RectangleF ToRectangleF()
         {
-            return new RectangleF(X, Y, Width, Height);
-        }
-    }
-
-    public class CollidableEntity : Entity
-    {
-        protected Transform Transform;
-        //protected RectangleF Collider;
-
-        public CollidableEntity() : base()
-        {
-            Transform = new Transform(0f, 0f, 32f, 32f);
-            //Collider = new RectangleF(0f, 0f, 32f, 32f);
+            return new RectangleF(Transform.Position.X, Transform.Position.Y, Width, Height);
         }
 
-        //public CollidableEntity(RectangleF collider) : base()
-        //{
-        //    Collider = collider;
-        //}
-
-        public CollidableEntity(Transform transform) : base()
+        public bool Intersects(CollidableEntity other)
         {
-            Transform = transform;
-        }
-
-        //public bool CollidesWith(RectangleF other)
-        //{
-        //    return Collider.Intersects(other);
-        //}
-
-        public bool CollidesWith(Transform other)
-        {
-            return Transform.Intersects(other);
+            return ToRectangleF().Intersects(other.ToRectangleF());
         }
     }
 }

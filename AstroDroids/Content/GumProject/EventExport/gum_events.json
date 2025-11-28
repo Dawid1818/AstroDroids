@@ -217,6 +217,13 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2025-11-18T14:45:04.1477062Z"
+      },
+      {
+        "NewName": "LevelEditorScreenGum",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2025-11-28T10:18:03.0477504Z"
       }
     ]
   }

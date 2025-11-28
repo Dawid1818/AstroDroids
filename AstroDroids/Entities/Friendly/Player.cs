@@ -21,7 +21,7 @@ namespace AstroDroids.Entities.Friendly
 
         float thrusterPower = 1f;
 
-        public Player(int playerIndex, Vector2 position) : base(new Transform(position.X, position.Y, 110, 98), 1) 
+        public Player(int playerIndex, Vector2 position) : base(new Transform(position.X, position.Y), 1, 110, 98)
         {
             this.playerIndex = playerIndex;
             shipTexture = TextureManager.Get("Ships/Player/PlayerShip");
@@ -58,29 +58,29 @@ namespace AstroDroids.Entities.Friendly
                 movement.X += speed;
             }
 
-            Transform.Position += movement;
+            Transform.LocalPosition += movement;
 
-            if (Transform.X < Scene.World.Bounds.Left)
+            if (Transform.LocalPosition.X < Scene.World.Bounds.Left)
             {
-                Transform.X = Scene.World.Bounds.Left;
+                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Left, Transform.LocalPosition.Y);
             }
-            else if (Transform.Right > Scene.World.Bounds.Right)
+            else if (LocalRight > Scene.World.Bounds.Right)
             {
-                Transform.X = Scene.World.Bounds.Right - Transform.Width;
+                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width, Transform.LocalPosition.X);
             }
 
-            if (Transform.Y < Scene.World.Bounds.Top)
+            if (Transform.LocalPosition.Y < Scene.World.Bounds.Top)
             {
-                Transform.Y = Scene.World.Bounds.Top;
+                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Top);
             }
-            else if (Transform.Bottom > Scene.World.Bounds.Bottom)
+            else if (LocalBottom > Scene.World.Bounds.Bottom)
             {
-                Transform.Y = Scene.World.Bounds.Bottom - Transform.Height;
+                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Bottom - Height);
             }
 
             foreach (var enemy in Scene.World.Enemies)
             {
-                if(enemy.CollidesWith(Transform))
+                if (enemy.Intersects(this))
                 {
                     enemy.Damage(5, true);
                     Damage(1, false);
@@ -102,6 +102,11 @@ namespace AstroDroids.Entities.Friendly
         public Vector2 GetPosition()
         {
             return Transform.Position;
+        }
+
+        public Vector2 GetLocalPosition()
+        {
+            return Transform.LocalPosition;
         }
 
         public override void Destroyed()

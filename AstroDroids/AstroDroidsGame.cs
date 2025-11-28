@@ -4,6 +4,7 @@ using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace AstroDroids
 {
@@ -33,13 +34,16 @@ namespace AstroDroids
             SoundManager.Initialize();
             Screen.Initialize(this);
 
-            SceneManager.SetScene(new GameScene());
-            //SceneManager.SetScene(new CurveEditorScene());
+            //SceneManager.SetScene(new GameScene());
+            SceneManager.SetScene(new LevelEditorScene());
         }
 
         protected override void Update(GameTime gameTime)
         {
             InputSystem.Begin();
+
+            if(InputSystem.GetKeyDown(Keys.F1))
+                SceneManager.SetScene(new LevelEditorScene());
 
             SceneManager.Update(gameTime);
 
@@ -56,11 +60,15 @@ namespace AstroDroids
 
             Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
 
+            Screen.DrawImGuiBefore(gameTime);
+
             SceneManager.Draw(gameTime);
 
             Screen.spriteBatch.End();
 
-            Screen.Draw(gameTime);
+            Screen.DrawImGuiAfter();
+
+            Screen.DrawGum(gameTime);
 
             base.Draw(gameTime);
         }

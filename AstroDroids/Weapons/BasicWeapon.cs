@@ -15,11 +15,11 @@ namespace AstroDroids.Weapons
             {
                 if (currentCooldown <= 0f)
                 {
-                    BasicProjectile projectile = new BasicProjectile(player.GetPosition());
-                    
+                    BasicProjectile projectile = new BasicProjectile(player.GetLocalPosition());
+
                     Scene.World.AddProjectile(projectile);
 
-                    projectile = new BasicProjectile(player.GetPosition() + new Vector2(90f, 0f));
+                    projectile = new BasicProjectile(player.GetLocalPosition() + new Vector2(90f, 0f));
 
                     Scene.World.AddProjectile(projectile);
 
@@ -27,7 +27,7 @@ namespace AstroDroids.Weapons
                 }
             }
 
-            if(currentCooldown > 0)
+            if (currentCooldown > 0)
                 currentCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
     }

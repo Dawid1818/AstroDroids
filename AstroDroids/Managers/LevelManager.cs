@@ -1,11 +1,19 @@
-﻿using AstroDroids.Levels;
+﻿using AstroDroids.Helpers;
+using AstroDroids.Levels;
+using AstroDroids.Scenes;
+using System;
 using System.Collections;
 
 namespace AstroDroids.Managers
 {
     public static class LevelManager
     {
-        static Level CurrentLevel;
+        public static Level CurrentLevel { get; set; }
+        public static bool Playtesting { get; set; }
+
+        static Level backedLevel { get; set; }
+        static Scene backedScene { get; set; }
+
         public static void LoadLevel(int levelIndex)
         {
             CurrentLevel = new TestLevel();
@@ -19,6 +27,37 @@ namespace AstroDroids.Managers
         public static IEnumerator GetLevelScript()
         {
             return CurrentLevel.LevelScript();
+        }
+
+        internal static void Playtest()
+        {
+            backedLevel = CurrentLevel;
+            CurrentLevel = new Level();
+            FileSaver.CloneObject(backedLevel, CurrentLevel);
+
+            backedScene = SceneManager.GetScene();
+
+            Playtesting = true;
+
+            SceneManager.SetScene(new GameScene());
+        }
+
+        internal static void QuitPlaytest()
+        {
+            if (backedLevel != null)
+            {
+                CurrentLevel = backedLevel;
+                backedLevel = null;
+
+            }
+
+            if (backedScene != null)
+            {
+                SceneManager.SetScene(backedScene);
+                backedScene = null;
+            }
+
+            Playtesting = false;
         }
     }
 }
