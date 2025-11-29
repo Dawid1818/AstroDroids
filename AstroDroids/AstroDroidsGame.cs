@@ -12,6 +12,8 @@ namespace AstroDroids
     {
         private GraphicsDeviceManager _graphics;
 
+        public static bool Debug { get; set; } = true;
+
         public AstroDroidsGame()
         {
             _graphics = new GraphicsDeviceManager(this);

@@ -11,7 +11,7 @@ namespace AstroDroids.Levels
         public string EnemyId { get; set; } = string.Empty;
         public bool FollowsCamera { get; set; } = false;
         public bool HasPath { get; set; } = false;
-        public BezierCurve Curve { get; set; } = null;
+        public CompositePath Path { get; set; } = null;
         public int EnemyCount { get; set; } = 1;
         public float DelayBetweenEnemies { get; set; } = 1f;
 
@@ -30,11 +30,11 @@ namespace AstroDroids.Levels
 
             if (HasPath)
             {
-                Curve = new BezierCurve();
-                Curve.Load(reader, version);
+                Path = new CompositePath();
+                Path.Load(reader, version);
             }
             else
-                Curve = null;
+                Path = null;
         }
 
         public void Save(BinaryWriter writer)
@@ -51,7 +51,7 @@ namespace AstroDroids.Levels
             writer.Write(DelayBetweenEnemies);
 
             if(HasPath)
-                Curve.Save(writer);
+                Path.Save(writer);
         }
     }
 }

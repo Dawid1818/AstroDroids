@@ -1,37 +1,50 @@
-﻿using AstroDroids.Interfaces;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace AstroDroids.Curves
 {
-    public class BezierCurve : ISaveable
+    public class BezierPath : IPath
     {
-        List<Vector2> Points = new List<Vector2>();
+        List<PathPoint> Points = new List<PathPoint>();
 
-        public BezierCurve()
+        public PathPoint[] KeyPoints
         {
-
+            get
+            {
+                return Points.ToArray();
+            }
         }
 
-        public BezierCurve(List<Vector2> points)
+        public PathPoint StartPoint { get => Points[0]; set => Points[0] = value; }
+        public PathPoint EndPoint { get => Points[3]; set => Points[3] = value; }
+
+        public double Length => throw new NotImplementedException();
+
+        public BezierPath()
+        {
+            Points = new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero };
+        }
+
+        public BezierPath(List<PathPoint> points)
         {
             Points = points;
         }
 
-        public Vector2 GetPoint(float t)
+        public PathPoint GetPoint(float t)
         {
-            if(Points.Count == 0)
-            {                 
-                return Vector2.Zero;
+            if (Points.Count == 0)
+            {
+                return PathPoint.Zero;
             }
 
             t = Math.Clamp(t, 0f, 1f);
 
-            Vector2 result = Vector2.Zero;
+            PathPoint result = Vector2.Zero;
 
-            for (int i = 0; i < Points.Count; i++) { 
+            for (int i = 0; i < Points.Count; i++)
+            {
                 var binom = binomialCoefficient(Points.Count - 1, i);
                 var term = Math.Pow(1 - t, Points.Count - 1 - i) * Math.Pow(t, i);
                 result += (float)(binom * term) * Points[i];

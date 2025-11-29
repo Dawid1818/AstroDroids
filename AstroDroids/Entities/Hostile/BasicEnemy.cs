@@ -39,9 +39,9 @@ namespace AstroDroids.Entities.Hostile
                     //Path.SetPointAtIndex(3, cell.Position);
                     Transform.Position = Path.GetPoint(t);
 
-                    Vector2 dir = Path.GetDirection(t);
+                    //Vector2 dir = Path.GetDirection(t);
 
-                    angle = (float)Math.Atan2(dir.Y, dir.X) + 1.571f;
+                    //angle = (float)Math.Atan2(dir.Y, dir.X) + 1.571f;
                 }
                 else
                 {

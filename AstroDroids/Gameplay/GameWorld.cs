@@ -8,7 +8,6 @@ using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
-using MonoGame.Extended;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -56,7 +55,7 @@ namespace AstroDroids.Gameplay
             for (int i = 0; i < spawner.EnemyCount; i++)
             {
                 BasicEnemy enemy = new BasicEnemy(spawner.Transform.Position, null);
-                enemy.Path = spawner.Curve;
+                enemy.Path = spawner.Path;
                 AddEnemy(enemy, spawner.FollowsCamera);
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);

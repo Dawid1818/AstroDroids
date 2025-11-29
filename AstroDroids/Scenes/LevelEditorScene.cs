@@ -1,4 +1,5 @@
-﻿using AstroDroids.Editors;
+﻿using AstroDroids.Curves;
+using AstroDroids.Editors;
 using AstroDroids.Entities;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
@@ -328,9 +329,14 @@ namespace AstroDroids.Scenes
                         spawner.HasPath = hasPath;
 
                         if (spawner.HasPath)
-                            spawner.Curve = new Curves.BezierCurve(new List<Vector2>() { spawner.Transform.Position, spawner.Transform.Position, spawner.Transform.Position, spawner.Transform.Position });
+                        {
+                            CompositePath path = new CompositePath();
+                            spawner.Path = path;
+                            //path.Add(new LinePath(spawner.Transform.Position, spawner.Transform.Position + new Vector2(100, 0)));
+                            path.Add(new BezierPath(new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero }));
+                        }
                         else
-                            spawner.Curve = null;
+                            spawner.Path = null;
                     }
 
                     if (spawner.HasPath)
@@ -344,12 +350,12 @@ namespace AstroDroids.Scenes
                                 savedCameraZoom = Screen.GetCameraZoom();
                                 savedCamera = true;
                                 Screen.ResetCamera();
-                                curveEditor.SetPath(spawner.Curve);
+                                curveEditor.SetPath(spawner.Path);
                             }
                             else
                             {
                                 mode = EditorMode.Path;
-                                curveEditor.SetPath(spawner.Curve);
+                                curveEditor.SetPath(spawner.Path);
                             }
                         }
                     }

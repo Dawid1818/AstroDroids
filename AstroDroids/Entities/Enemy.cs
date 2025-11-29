@@ -11,7 +11,7 @@ namespace AstroDroids.Entities
 
         bool destroyed = false;
 
-        public BezierCurve Path { get; set; }
+        public CompositePath Path { get; set; }
 
         public Enemy() : base()
         {
