@@ -12,6 +12,7 @@ namespace AstroDroids.Levels
         public bool FollowsCamera { get; set; } = false;
         public bool HasPath { get; set; } = false;
         public CompositePath Path { get; set; } = null;
+        public PathPoint SpawnPosition { get; set; } = null;
         public int EnemyCount { get; set; } = 1;
         public float DelayBetweenEnemies { get; set; } = 1f;
 
@@ -32,9 +33,13 @@ namespace AstroDroids.Levels
             {
                 Path = new CompositePath();
                 Path.Load(reader, version);
+                SpawnPosition = null;
             }
             else
+            {
                 Path = null;
+                SpawnPosition = new PathPoint(reader.ReadSingle(), reader.ReadSingle());
+            }
         }
 
         public void Save(BinaryWriter writer)
@@ -50,8 +55,15 @@ namespace AstroDroids.Levels
             writer.Write(EnemyCount);
             writer.Write(DelayBetweenEnemies);
 
-            if(HasPath)
+            if (HasPath)
+            {
                 Path.Save(writer);
+            }
+            else
+            {
+                writer.Write(SpawnPosition.X);
+                writer.Write(SpawnPosition.Y);
+            }
         }
     }
 }

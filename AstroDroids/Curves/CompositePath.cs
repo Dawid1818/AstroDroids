@@ -113,5 +113,13 @@ namespace AstroDroids.Curves
         {
             return paths;
         }
+
+        public void Translate(PathPoint dist)
+        {
+            foreach (var path in paths)
+            {
+                path.Translate(dist);
+            }
+        }
     }
 }

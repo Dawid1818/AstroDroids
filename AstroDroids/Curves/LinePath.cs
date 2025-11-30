@@ -75,5 +75,11 @@ namespace AstroDroids.Curves
             writer.Write(Point2.X);
             writer.Write(Point2.Y);
         }
+
+        public void Translate(PathPoint dist)
+        {
+            Point1 += dist;
+            Point2 += dist;
+        }
     }
 }

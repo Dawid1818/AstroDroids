@@ -141,5 +141,13 @@ namespace AstroDroids.Curves
                 Points.Add(new Vector2(x, y));
             }
         }
+
+        public void Translate(PathPoint dist)
+        {
+            for (int i = 0; i < Points.Count; i++)
+            {
+                Points[i] += dist;
+            }
+        }
     }
 }

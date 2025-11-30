@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Curves;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
+using AstroDroids.Levels;
 using AstroDroids.Scenes;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
@@ -12,6 +13,7 @@ namespace AstroDroids.Editors
 {
     public class PathEditor
     {
+        EnemySpawner spawner;
         CompositePath Path;
 
         LevelEditorScene scene;
@@ -31,6 +33,11 @@ namespace AstroDroids.Editors
         public void SetPath(CompositePath path)
         {
             this.Path = path;
+        }
+
+        public void SetSpawner(EnemySpawner spawner)
+        {
+            this.spawner = spawner;
         }
 
         public void Update(GameTime gameTime)
@@ -93,6 +100,9 @@ namespace AstroDroids.Editors
                 Screen.spriteBatch.DrawLine(lastPos, nextPos, Color.Green, 4f);
                 lastPos = nextPos;
             }
+
+            if(spawner != null)
+                Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Yellow, 16f);
 
             foreach (var path in Path.Decompose())
             {

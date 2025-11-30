@@ -11,5 +11,7 @@ namespace AstroDroids.Curves
 
         public double Length { get; }
         public PathPoint GetPoint(float t);
+
+        public void Translate(PathPoint dist);
     }
 }

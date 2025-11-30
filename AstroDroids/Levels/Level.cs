@@ -37,7 +37,7 @@ namespace AstroDroids.Levels
         public void CreateSpawner(Vector2 Position)
         {
             //Spawners.Add(new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), Curve = new Curves.BezierPath(new List<Vector2>() { Position, Position, Position, Position }) });
-            Spawners.Add(new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y) });
+            Spawners.Add(new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), SpawnPosition = Position });
         }
 
         public void CreateEvent(Vector2 Position)

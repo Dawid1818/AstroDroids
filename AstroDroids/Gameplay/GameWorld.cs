@@ -54,7 +54,7 @@ namespace AstroDroids.Gameplay
         {
             for (int i = 0; i < spawner.EnemyCount; i++)
             {
-                BasicEnemy enemy = new BasicEnemy(spawner.Transform.Position, null);
+                BasicEnemy enemy = new BasicEnemy(spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition, null);
                 enemy.Path = spawner.Path;
                 AddEnemy(enemy, spawner.FollowsCamera);
 
