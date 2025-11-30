@@ -1,10 +1,10 @@
-﻿using AstroDroids.Curves;
-using AstroDroids.Editors;
+﻿using AstroDroids.Editors;
 using AstroDroids.Entities;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
+using AstroDroids.Paths;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
+using static AstroDroids.Paths.PathManager;
 using Numeric = System.Numerics;
 
 namespace AstroDroids.Scenes
@@ -80,37 +81,40 @@ namespace AstroDroids.Scenes
                     break;
             }
 
-            Vector2 cameraTranslation = Vector2.Zero;
-
-            if (InputSystem.GetKey(Keys.W))
-                cameraTranslation.Y -= cameraMoveSpeed;
-
-            if (InputSystem.GetKey(Keys.S))
-                cameraTranslation.Y += cameraMoveSpeed;
-
-            if (InputSystem.GetKey(Keys.A))
-                cameraTranslation.X -= cameraMoveSpeed;
-
-            if (InputSystem.GetKey(Keys.D))
-                cameraTranslation.X += cameraMoveSpeed;
-
-            Screen.MoveCamera(cameraTranslation);
-
-            int scrollDelta = InputSystem.GetScrollDelta();
-
-            if(scrollDelta > 0)
+            if (!ImGui.GetIO().WantCaptureMouse)
             {
-                Screen.ZoomCamera(cameraZoomSpeed);
-            }
-            else if(scrollDelta < 0)
-            {
-                Screen.ZoomCamera(-cameraZoomSpeed);
+                Vector2 cameraTranslation = Vector2.Zero;
+
+                if (InputSystem.GetKey(Keys.W))
+                    cameraTranslation.Y -= cameraMoveSpeed;
+
+                if (InputSystem.GetKey(Keys.S))
+                    cameraTranslation.Y += cameraMoveSpeed;
+
+                if (InputSystem.GetKey(Keys.A))
+                    cameraTranslation.X -= cameraMoveSpeed;
+
+                if (InputSystem.GetKey(Keys.D))
+                    cameraTranslation.X += cameraMoveSpeed;
+
+                Screen.MoveCamera(cameraTranslation);
+
+                int scrollDelta = InputSystem.GetScrollDelta();
+
+                if (scrollDelta > 0)
+                {
+                    Screen.ZoomCamera(cameraZoomSpeed);
+                }
+                else if (scrollDelta < 0)
+                {
+                    Screen.ZoomCamera(-cameraZoomSpeed);
+                }
             }
         }
 
         public override void Draw(GameTime gameTime)
         {
-           // Screen.spriteBatch.Draw(TextureManager.GetStarfield(), Vector2.Zero, Color.White);
+            // Screen.spriteBatch.Draw(TextureManager.GetStarfield(), Vector2.Zero, Color.White);
             Vector2 cameraPos = Screen.GetCameraPosition();
 
             Screen.spriteBatch.End();
@@ -234,7 +238,7 @@ namespace AstroDroids.Scenes
                         }
                     }
 
-                    if(!foundNode)
+                    if (!foundNode)
                     {
                         selectedNode = null;
                         selectedSpawnPoint = null;
@@ -255,9 +259,9 @@ namespace AstroDroids.Scenes
                     }
                     else if (isDraggingNode)
                     {
-                        if(selectedNode is EnemySpawner spawner && !spawner.FollowsCamera && !InputSystem.GetKey(Keys.LeftShift))
+                        if (selectedNode is EnemySpawner spawner && !spawner.FollowsCamera && !InputSystem.GetKey(Keys.LeftShift))
                         {
-                            if(spawner.HasPath)
+                            if (spawner.HasPath)
                             {
                                 spawner.Path.Translate(mousePos - spawner.Transform.Position);
                             }
@@ -306,30 +310,34 @@ namespace AstroDroids.Scenes
         {
             foreach (var spawner in level.Spawners)
             {
-                if (spawner == selectedNode)
-                {
-                    if (!spawner.HasPath)
-                        Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
+                //if (spawner == selectedNode)
+                //{
+                //    if (!spawner.HasPath)
+                //        Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
 
-                    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Cyan, 16f);
+                //    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Cyan, 16f);
 
-                    if (!spawner.HasPath)
-                    {
-                        Screen.spriteBatch.DrawCircle(spawner.SpawnPosition, 16f, 16, Color.Red, 16f);
-                    }
-                }
+                //    if (!spawner.HasPath)
+                //    {
+                //        Screen.spriteBatch.DrawCircle(spawner.SpawnPosition, 16f, 16, Color.Red, 16f);
+                //    }
+                //}
+                //else
+                //{
+                if (!spawner.HasPath)
+                    Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
                 else
                 {
-                    if (!spawner.HasPath)
-                        Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
-
-                    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Orange, 16f);
-
-                    if (!spawner.HasPath)
-                    {
-                        Screen.spriteBatch.DrawCircle(spawner.SpawnPosition, 16f, 16, Color.Red, 16f);
-                    }
+                    PathVisualizer.DrawPath(spawner.Path);
                 }
+
+                Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, selectedNode == spawner ? Color.Cyan : Color.Orange, 16f);
+
+                if (!spawner.HasPath)
+                {
+                    Screen.spriteBatch.DrawCircle(spawner.SpawnPosition, 16f, 16, Color.Red, 16f);
+                }
+                //}
             }
 
             foreach (var spawner in level.Events)
@@ -364,6 +372,9 @@ namespace AstroDroids.Scenes
             if (selectedNode != null)
             {
                 float pos = selectedNode.Transform.Position.X;
+
+                ImGui.SeparatorText("Transform settings");
+
                 if (ImGui.InputFloat("X", ref pos))
                 {
                     selectedNode.Transform.Position = new Vector2(pos, selectedNode.Transform.Position.Y);
@@ -377,14 +388,16 @@ namespace AstroDroids.Scenes
 
                 if (selectedNode is EnemySpawner spawner)
                 {
+                    ImGui.SeparatorText("Spawner settings");
+
                     string enemyId = spawner.EnemyId;
-                    if(ImGui.InputText("Enemy ID", ref enemyId, 100))
+                    if (ImGui.InputText("Enemy ID", ref enemyId, 100))
                     {
                         spawner.EnemyId = enemyId;
                     }
 
                     bool followsCamera = spawner.FollowsCamera;
-                    if(ImGui.Checkbox("Follows Camera", ref followsCamera))
+                    if (ImGui.Checkbox("Follows Camera", ref followsCamera))
                     {
                         spawner.FollowsCamera = followsCamera;
                     }
@@ -400,6 +413,8 @@ namespace AstroDroids.Scenes
                     {
                         spawner.DelayBetweenEnemies = enemyDelay;
                     }
+
+                    ImGui.SeparatorText("Path settings");
 
                     bool hasPath = spawner.HasPath;
                     if (ImGui.Checkbox("Has Path", ref hasPath))
@@ -423,6 +438,28 @@ namespace AstroDroids.Scenes
 
                     if (spawner.HasPath)
                     {
+                        float speed = spawner.PathSpeed;
+                        if(ImGui.InputFloat("Speed", ref speed))
+                        {
+                            spawner.PathSpeed = speed;
+                        }
+
+                        LoopingMode loopMode = spawner.PathLoop;
+                        if(ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
+                        {
+                            foreach(var mode in Enum.GetValues<LoopingMode>())
+                            {
+                                bool isSelected = mode == spawner.PathLoop;
+                                if(ImGui.Selectable(mode.ToString(), isSelected))
+                                {
+                                    spawner.PathLoop = mode;
+                                }
+                                if (isSelected)
+                                    ImGui.SetItemDefaultFocus();
+                            }
+                            ImGui.EndCombo();
+                        }
+
                         if (ImGui.Button("Edit path"))
                         {
                             if (spawner.FollowsCamera)
@@ -478,7 +515,7 @@ namespace AstroDroids.Scenes
                 LevelManager.Playtest(0f);
             }
             ImGui.SameLine();
-            if(ImGui.Button("Create Spawner"))
+            if (ImGui.Button("Create Spawner"))
             {
                 level.CreateSpawner(Screen.GetCameraPosition());
             }

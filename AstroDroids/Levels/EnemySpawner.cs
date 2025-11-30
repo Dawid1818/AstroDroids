@@ -1,4 +1,4 @@
-﻿using AstroDroids.Curves;
+﻿using AstroDroids.Paths;
 using AstroDroids.Entities;
 using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
@@ -12,6 +12,8 @@ namespace AstroDroids.Levels
         public bool FollowsCamera { get; set; } = false;
         public bool HasPath { get; set; } = false;
         public CompositePath Path { get; set; } = null;
+        public float PathSpeed { get; set; } = 1f;
+        public LoopingMode PathLoop { get; set; } = LoopingMode.Off;
         public PathPoint SpawnPosition { get; set; } = null;
         public int EnemyCount { get; set; } = 1;
         public float DelayBetweenEnemies { get; set; } = 1f;
@@ -33,6 +35,8 @@ namespace AstroDroids.Levels
             {
                 Path = new CompositePath();
                 Path.Load(reader, version);
+                PathSpeed = reader.ReadSingle();
+                PathLoop = (LoopingMode)reader.ReadInt32();
                 SpawnPosition = null;
             }
             else
@@ -58,6 +62,8 @@ namespace AstroDroids.Levels
             if (HasPath)
             {
                 Path.Save(writer);
+                writer.Write(PathSpeed);
+                writer.Write((int)PathLoop);
             }
             else
             {

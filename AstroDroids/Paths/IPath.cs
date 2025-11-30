@@ -1,7 +1,7 @@
 ﻿using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
 
-namespace AstroDroids.Curves
+namespace AstroDroids.Paths
 {
     public interface IPath : ISaveable
     {

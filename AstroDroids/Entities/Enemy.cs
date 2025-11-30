@@ -1,5 +1,5 @@
 ﻿
-using AstroDroids.Curves;
+using AstroDroids.Paths;
 using AstroDroids.Gameplay;
 using MonoGame.Extended;
 
@@ -11,7 +11,7 @@ namespace AstroDroids.Entities
 
         bool destroyed = false;
 
-        public CompositePath Path { get; set; }
+        public PathManager PathManager { get; set; }
 
         public Enemy() : base()
         {

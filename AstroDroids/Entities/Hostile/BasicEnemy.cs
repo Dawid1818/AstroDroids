@@ -1,4 +1,4 @@
-﻿using AstroDroids.Curves;
+﻿using AstroDroids.Paths;
 using AstroDroids.Entities.Neutral;
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
@@ -31,24 +31,30 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Update(GameTime gameTime)
         {
-            if (Path != null)
+            if(PathManager != null)
             {
-                if (t < 1f)
-                {
-                    t += 0.01f;
-                    //Path.SetPointAtIndex(3, cell.Position);
-                    Transform.Position = Path.GetPoint(t);
-
-                    //Vector2 dir = Path.GetDirection(t);
-
-                    //angle = (float)Math.Atan2(dir.Y, dir.X) + 1.571f;
-                }
-                else
-                {
-                    //Transform.Position = cell.Position;
-                    //angle = 3.142f;
-                }
+                PathManager.Update(gameTime);
+                Transform.Position = PathManager.Position;
             }
+
+            //if (Path != null)
+            //{
+            //    if (t < 1f)
+            //    {
+            //        t += 0.01f;
+            //        //Path.SetPointAtIndex(3, cell.Position);
+            //        Transform.Position = PathManager.GetPoint(t);
+
+            //        //Vector2 dir = Path.GetDirection(t);
+
+            //        //angle = (float)Math.Atan2(dir.Y, dir.X) + 1.571f;
+            //    }
+            //    else
+            //    {
+            //        //Transform.Position = cell.Position;
+            //        //angle = 3.142f;
+            //    }
+            //}
         }
 
         public override void Draw(GameTime gameTime)

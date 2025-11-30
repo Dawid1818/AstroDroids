@@ -1,4 +1,4 @@
-﻿using AstroDroids.Curves;
+﻿using AstroDroids.Paths;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
 using AstroDroids.Levels;
@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
+using AstroDroids.Exensions;
 
 namespace AstroDroids.Editors
 {
@@ -61,6 +62,7 @@ namespace AstroDroids.Editors
                                 {
                                     isDraggingPoint = true;
                                     draggedPoint = point;
+                                    selectedPath = path;
                                     break;
                                 }
                             }
@@ -91,29 +93,30 @@ namespace AstroDroids.Editors
 
         public void Draw(GameTime gameTime)
         {
-            float t = 0f;
-            PathPoint lastPos = Path.GetPoint(t);
-            while (t < 1f)
-            {
-                t += 0.01f;
-                PathPoint nextPos = Path.GetPoint(t);
-                Screen.spriteBatch.DrawLine(lastPos, nextPos, Color.Green, 4f);
-                lastPos = nextPos;
-            }
+            PathVisualizer.DrawPath(Path, spawner.Transform.Position, selectedPath);
+            //float t = 0f;
+            //PathPoint lastPos = Path.GetPoint(t);
+            //while (t < 1f)
+            //{
+            //    t += 0.01f;
+            //    PathPoint nextPos = Path.GetPoint(t);
+            //    Screen.spriteBatch.DrawLine(lastPos, nextPos, Color.Green, 4f);
+            //    lastPos = nextPos;
+            //}
 
-            if(spawner != null)
-                Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Yellow, 16f);
+            //if(spawner != null)
+            //    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Yellow, 16f);
 
-            foreach (var path in Path.Decompose())
-            {
-                var keyPoints = path.KeyPoints;
-                for (int i = 0; i < keyPoints.Length; i++)
-                {
-                    PathPoint point = keyPoints[i];
+            //foreach (var path in Path.Decompose())
+            //{
+            //    var keyPoints = path.KeyPoints;
+            //    for (int i = 0; i < keyPoints.Length; i++)
+            //    {
+            //        PathPoint point = keyPoints[i];
 
-                    Screen.spriteBatch.DrawCircle(point, 16f, 16, Color.Red, 16f);
-                }
-            }
+            //        Screen.spriteBatch.DrawCircle(point, 16f, 16, Color.Red, 16f);
+            //    }
+            //}
         }
 
         public void DrawImGui(GameTime gameTime)
@@ -172,6 +175,16 @@ namespace AstroDroids.Editors
             {
                 Path.Remove(selectedPath);
                 selectedPath = null;
+            }
+            ImGui.SameLine();
+            if (ImGui.Button("Up") && selectedPath != null)
+            {
+                Path.Decompose().MoveItemUp(selectedPath);
+            }
+            ImGui.SameLine();
+            if (ImGui.Button("Down") && selectedPath != null)
+            {
+                Path.Decompose().MoveItemDown(selectedPath);
             }
             ImGui.EndDisabled();
 

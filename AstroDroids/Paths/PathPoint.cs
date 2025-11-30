@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 
-namespace AstroDroids.Curves
+namespace AstroDroids.Paths
 {
     public class PathPoint : ISaveable
     {

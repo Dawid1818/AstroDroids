@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace AstroDroids.Curves
+namespace AstroDroids.Paths
 {
     public class LinePath : IPath
     {

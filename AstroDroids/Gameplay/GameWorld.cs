@@ -6,6 +6,7 @@ using AstroDroids.Entities.Neutral;
 using AstroDroids.Graphics;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
+using AstroDroids.Paths;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
@@ -55,7 +56,9 @@ namespace AstroDroids.Gameplay
             for (int i = 0; i < spawner.EnemyCount; i++)
             {
                 BasicEnemy enemy = new BasicEnemy(spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition, null);
-                enemy.Path = spawner.Path;
+                enemy.PathManager = new PathManager(spawner.Path);
+                enemy.PathManager.Speed = spawner.PathSpeed;
+                enemy.PathManager.Loop = spawner.PathLoop;
                 AddEnemy(enemy, spawner.FollowsCamera);
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);

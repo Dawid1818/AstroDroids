@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace AstroDroids.Curves
+namespace AstroDroids.Paths
 {
     public class BezierPath : IPath
     {
