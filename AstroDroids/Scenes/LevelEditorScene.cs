@@ -460,6 +460,12 @@ namespace AstroDroids.Scenes
                             ImGui.EndCombo();
                         }
 
+                        int minPath = spawner.MinPath;
+                        if (ImGui.InputInt("Min Path", ref minPath))
+                        {
+                            spawner.MinPath = Math.Clamp(minPath, -1, spawner.Path.Decompose().Count);
+                        }
+
                         if (ImGui.Button("Edit path"))
                         {
                             if (spawner.FollowsCamera)

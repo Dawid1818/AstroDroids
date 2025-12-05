@@ -18,6 +18,8 @@ namespace AstroDroids.Levels
         public int EnemyCount { get; set; } = 1;
         public float DelayBetweenEnemies { get; set; } = 1f;
 
+        public int MinPath { get; set; } = -1;
+
         public void Load(BinaryReader reader, int version)
         {
             Transform.Position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
@@ -37,6 +39,7 @@ namespace AstroDroids.Levels
                 Path.Load(reader, version);
                 PathSpeed = reader.ReadSingle();
                 PathLoop = (LoopingMode)reader.ReadInt32();
+                MinPath = reader.ReadInt32();
                 SpawnPosition = null;
             }
             else
@@ -64,6 +67,7 @@ namespace AstroDroids.Levels
                 Path.Save(writer);
                 writer.Write(PathSpeed);
                 writer.Write((int)PathLoop);
+                writer.Write(MinPath);
             }
             else
             {

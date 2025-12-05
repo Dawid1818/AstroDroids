@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Paths
 {
@@ -15,7 +10,7 @@ namespace AstroDroids.Paths
         public float Time { get; set; } = 0f;
         public LoopingMode Loop { get; set; } = LoopingMode.Off;
         public bool Reverse { get; set; } = false;
-        public int MinPath = -1; 
+        public int MinPath = -1;
 
         IPath Path;
 
@@ -28,10 +23,10 @@ namespace AstroDroids.Paths
 
         public void Update(GameTime gameTime)
         {
-            if(!Active)
+            if (!Active)
                 return;
 
-            if(!Reverse)
+            if (!Reverse)
                 Time += (float)gameTime.ElapsedGameTime.TotalSeconds * Speed;
             else
                 Time -= (float)gameTime.ElapsedGameTime.TotalSeconds * Speed;
@@ -41,23 +36,35 @@ namespace AstroDroids.Paths
             switch (Loop)
             {
                 case LoopingMode.Off:
-                    if(!Reverse && Time >= 1f)
+                    if (!Reverse && Time >= 1f)
                     {
                         Active = false;
-                    }else if(Reverse && Time <= 0f)
+                    }
+                    else if (Reverse && Time <= 0f)
                     {
                         Active = false;
                     }
                     break;
                 case LoopingMode.Loop:
-                    if (!Reverse && Time >= 1f)
+                    if (!Reverse)
                     {
-                        Time = 0f;
-                    }else if(Reverse)
-                    {
-                        if(MinPath != -1 && Time <= MinPath)
+                        if (Time >= 1f)
                         {
-                            Time = MinPath;
+                            if (MinPath != -1 && Path is CompositePath composite)
+                            {
+                                Time = (float)MinPath / composite.Decompose().Count;
+                            }
+                            else
+                            {
+                                Time = 0f;
+                            }
+                        }
+                    }
+                    else if (Reverse)
+                    {
+                        if (MinPath != -1 && Path is CompositePath composite && Time <= (float)MinPath / composite.Decompose().Count)
+                        {
+                            Time = 1f;
                         }
                         else if (Time <= 0f)
                         {
@@ -66,15 +73,34 @@ namespace AstroDroids.Paths
                     }
                     break;
                 case LoopingMode.Oscillate:
-                    if (!Reverse && Time >= 1f)
+                    if (!Reverse)
                     {
-                        Reverse = true;
-                        Time = 1f;
+                        if (Time >= 1f)
+                        {
+                            if (MinPath != -1 && Path is CompositePath composite)
+                            {
+                                Reverse = true;
+                                Time = 1f;
+                            }
+                            else
+                            {
+                                Reverse = true;
+                                Time = 1f;
+                            }
+                        }
                     }
-                    else if (Reverse && Time <= 0f)
+                    else if (Reverse)
                     {
-                        Reverse = false;
-                        Time = 0f;
+                        if (MinPath != -1 && Path is CompositePath composite && Time <= (float)MinPath / composite.Decompose().Count)
+                        {
+                            Reverse = false;
+                            Time = (float)MinPath / composite.Decompose().Count;
+                        }
+                        else if (Time <= 0f)
+                        {
+                            Reverse = false;
+                            Time = 0f;
+                        }
                     }
                     break;
                 default:

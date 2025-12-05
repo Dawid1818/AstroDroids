@@ -59,6 +59,7 @@ namespace AstroDroids.Gameplay
                 enemy.PathManager = new PathManager(spawner.Path);
                 enemy.PathManager.Speed = spawner.PathSpeed;
                 enemy.PathManager.Loop = spawner.PathLoop;
+                enemy.PathManager.MinPath = spawner.MinPath;
                 AddEnemy(enemy, spawner.FollowsCamera);
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
