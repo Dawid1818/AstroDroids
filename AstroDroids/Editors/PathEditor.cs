@@ -9,6 +9,7 @@ using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using AstroDroids.Exensions;
+using System.Linq;
 
 namespace AstroDroids.Editors
 {
@@ -44,6 +45,7 @@ namespace AstroDroids.Editors
         public void Update(GameTime gameTime)
         {
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+            List<IPath> paths = Path.Decompose();
 
             if (Path != null)
             {
@@ -51,11 +53,16 @@ namespace AstroDroids.Editors
                 {
                     if (!isDraggingPoint)
                     {
-                        foreach (var path in Path.Decompose())
+                        bool first = true;
+
+                        foreach (var path in paths)
                         {
                             var keyPoints = path.KeyPoints;
                             for (int i = 0; i < keyPoints.Length; i++)
                             {
+                                if (i == 0 && !first)
+                                    continue;
+
                                 PathPoint point = keyPoints[i];
                                 RectangleF col = new RectangleF(point.X - 16f, point.Y - 16f, 32f, 32f);
                                 if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
@@ -69,6 +76,8 @@ namespace AstroDroids.Editors
 
                             if (isDraggingPoint)
                                 break;
+
+                            first = false;
                         }
                     }
                     else
@@ -81,6 +90,17 @@ namespace AstroDroids.Editors
 
                         draggedPoint.X = mousePos.X;
                         draggedPoint.Y = mousePos.Y;
+
+                        if(draggedPoint == selectedPath.EndPoint)
+                        {
+                            int ind = paths.IndexOf(selectedPath);
+                            ind++;
+                            if(ind < paths.Count)
+                            {
+                                paths[ind].StartPoint.X = mousePos.X;
+                                paths[ind].StartPoint.Y = mousePos.Y;
+                            }
+                        }
                     }
                 }
                 else if (isDraggingPoint)
@@ -121,16 +141,17 @@ namespace AstroDroids.Editors
 
         public void DrawImGui(GameTime gameTime)
         {
+            List<IPath> paths = Path.Decompose();
+
             ImGui.Begin("Path Editor");
 
             ImGui.SetNextItemWidth(-1);
 
             if(ImGui.BeginListBox("##Paths"))
             {
-                List<IPath> list = Path.Decompose();
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < paths.Count; i++)
                 {
-                    IPath path = list[i];
+                    IPath path = paths[i];
                     if (ImGui.Selectable($"{GetPathTypeName(path)}##PathSelectable{i}", selectedPath == path))
                     {
                         selectedPath = path;
@@ -163,6 +184,12 @@ namespace AstroDroids.Editors
                     case 1:
                         path = new BezierPath();
                         break;
+                }
+
+                if(paths.LastOrDefault() is IPath lastPath)
+                {
+                    path.StartPoint.X = lastPath.EndPoint.X;
+                    path.StartPoint.Y = lastPath.EndPoint.Y;
                 }
 
                 Path.Add(path);

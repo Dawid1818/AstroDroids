@@ -11,10 +11,14 @@ namespace AstroDroids.Graphics
         public const int ScreenWidth = 800;
         public const int ScreenHeight = 600;
 
+        public static int ActualScreenWidth { get { return gameWnd.ClientBounds.Width; } }
+        public static int ActualScreenHeight { get { return gameWnd.ClientBounds.Height; } }
+
         public static SpriteBatch spriteBatch { get; private set; }
         public static GumService GumUI => GumService.Default;
         static GumProjectSave gumProject;
 
+        static GameWindow gameWnd;
         static ImGuiRenderer imGuiRenderer;
         static GraphicsDeviceManager graphicsManager;
         static Vector2 CameraPosition = new Vector2(0, 0);
@@ -25,7 +29,7 @@ namespace AstroDroids.Graphics
 
         public static void Initialize(AstroDroidsGame game)
         {
-            graphicsManager = game.GetGraphicsDeviceManager();
+            graphicsManager = game.Graphics;
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
 
             gumProject = GumUI.Initialize(game, "GumProject/AstroDroidsGum.gumx");
@@ -35,6 +39,8 @@ namespace AstroDroids.Graphics
             imGuiRenderer = new ImGuiRenderer(game);
 
             Infinite = game.Content.Load<Effect>("Shaders/Infinite");
+
+            gameWnd = game.Window;
         }
 
         public static void Update(GameTime gameTime)

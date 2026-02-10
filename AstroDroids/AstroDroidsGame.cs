@@ -10,18 +10,19 @@ namespace AstroDroids
 {
     public class AstroDroidsGame : Game
     {
-        private GraphicsDeviceManager _graphics;
+        public GraphicsDeviceManager Graphics { get; private set; }
 
         public static bool Debug { get; set; } = true;
 
         public AstroDroidsGame()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            _graphics.PreferredBackBufferWidth = Screen.ScreenWidth;
-            _graphics.PreferredBackBufferHeight = Screen.ScreenHeight;
+            Graphics.PreferredBackBufferWidth = Screen.ScreenWidth;
+            Graphics.PreferredBackBufferHeight = Screen.ScreenHeight;
+            Window.AllowUserResizing = true;
         }
 
         protected override void Initialize()
@@ -73,11 +74,6 @@ namespace AstroDroids
             Screen.DrawGum(gameTime);
 
             base.Draw(gameTime);
-        }
-
-        public GraphicsDeviceManager GetGraphicsDeviceManager()
-        {
-            return _graphics;
         }
     }
 }

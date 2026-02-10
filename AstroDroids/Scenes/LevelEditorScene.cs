@@ -12,7 +12,6 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using static AstroDroids.Paths.PathManager;
 using Numeric = System.Numerics;
 
 namespace AstroDroids.Scenes
@@ -41,7 +40,10 @@ namespace AstroDroids.Scenes
         bool isDraggingNode;
         bool isDraggingSpawnPosition;
         PathPoint selectedSpawnPoint;
-        Entity selectedNode;
+        List<Entity> selectedNodes = new List<Entity>();
+
+        Vector2 selRectStart = Vector2.Zero;
+        bool isDraggingSelRect = false;
 
         bool savedCamera = false;
         Vector2 savedCameraPos;
@@ -134,7 +136,7 @@ namespace AstroDroids.Scenes
             Matrix invCam = Matrix.Invert(cam);
 
             Vector2 topLeft = Vector2.Transform(Vector2.Zero, invCam);
-            Vector2 bottomRight = Vector2.Transform(new Vector2(Screen.ScreenWidth, Screen.ScreenHeight), invCam);
+            Vector2 bottomRight = Vector2.Transform(new Vector2(Screen.ActualScreenWidth, Screen.ActualScreenHeight), invCam);
 
             if (drawGrid)
             {
@@ -179,9 +181,10 @@ namespace AstroDroids.Scenes
             bool rmbDown = InputSystem.GetRMBDown();
             if (lmb || rmbDown)
             {
-                if (!isDraggingNode && !isDraggingSpawnPosition)
+                if (!isDraggingNode && !isDraggingSpawnPosition && !isDraggingSelRect)
                 {
-                    bool foundNode = false;
+                    //bool foundNode = false;
+                    Entity foundNode = null;
 
                     foreach (var spawner in level.Spawners)
                     {
@@ -196,8 +199,7 @@ namespace AstroDroids.Scenes
                                     isDraggingNode = false;
                                     isDraggingSpawnPosition = true;
                                 }
-                                selectedNode = spawner;
-                                foundNode = true;
+                                foundNode = spawner;
                                 selectedSpawnPoint = spawner.SpawnPosition;
                                 break;
                             }
@@ -211,14 +213,13 @@ namespace AstroDroids.Scenes
                                 isDraggingNode = true;
                                 isDraggingSpawnPosition = false;
                             }
-                            selectedNode = spawner;
-                            foundNode = true;
+                            foundNode = spawner;
                             selectedSpawnPoint = null;
                             break;
                         }
                     }
 
-                    if (!foundNode)
+                    if (foundNode == null)
                     {
                         foreach (var eventNode in level.Events)
                         {
@@ -230,18 +231,32 @@ namespace AstroDroids.Scenes
                                     isDraggingNode = true;
                                     isDraggingSpawnPosition = false;
                                 }
-                                selectedNode = eventNode;
-                                foundNode = true;
+
+                                foundNode = eventNode;
                                 selectedSpawnPoint = null;
                                 break;
                             }
                         }
                     }
 
-                    if (!foundNode)
+                    if (foundNode == null)
                     {
-                        selectedNode = null;
+                        selectedNodes.Clear();
                         selectedSpawnPoint = null;
+
+                        if(lmb && !isDraggingSelRect)
+                        {
+                            isDraggingSelRect = true;
+                            selRectStart = mousePos;
+                        }
+                    }
+                    else
+                    {
+                        if (!selectedNodes.Contains(foundNode))
+                        {
+                            selectedNodes.Clear();
+                            selectedNodes.Add(foundNode);
+                        }
                     }
                 }
                 else
@@ -259,37 +274,71 @@ namespace AstroDroids.Scenes
                     }
                     else if (isDraggingNode)
                     {
-                        if (selectedNode is EnemySpawner spawner && !spawner.FollowsCamera && !InputSystem.GetKey(Keys.LeftShift))
+                        foreach (var selectedNode in selectedNodes)
                         {
-                            if (spawner.HasPath)
+                            if (selectedNode is EnemySpawner spawner && !spawner.FollowsCamera && !InputSystem.GetKey(Keys.LeftShift))
                             {
-                                spawner.Path.Translate(mousePos - spawner.Transform.Position);
+                                if (spawner.HasPath)
+                                {
+                                    spawner.Path.Translate(mousePos - spawner.Transform.Position);
+                                }
+                                else
+                                {
+                                    spawner.SpawnPosition += mousePos - spawner.Transform.Position;
+                                }
                             }
-                            else
-                            {
-                                spawner.SpawnPosition += mousePos - spawner.Transform.Position;
-                            }
-                        }
 
-                        selectedNode.Transform.Position = mousePos;
+                            selectedNode.Transform.Position = mousePos;
+                        }
                     }
                     //UpdateUI();
                 }
             }
-            else if (isDraggingNode || isDraggingSpawnPosition)
+            else if (isDraggingNode || isDraggingSpawnPosition || isDraggingSelRect)
             {
                 isDraggingNode = false;
                 isDraggingSpawnPosition = false;
+
+                if(isDraggingSelRect)
+                {
+                    isDraggingSelRect = false;
+                    RectangleF selectionRect = new RectangleF(
+                        Math.Min(selRectStart.X, mousePos.X),
+                        Math.Min(selRectStart.Y, mousePos.Y),
+                        Math.Abs(mousePos.X - selRectStart.X),
+                        Math.Abs(mousePos.Y - selRectStart.Y)
+                    );
+                    selectedNodes.Clear();
+                    foreach (var spawner in level.Spawners)
+                    {
+                        RectangleF col = new RectangleF(spawner.Transform.Position.X - 16f, spawner.Transform.Position.Y - 16f, 32f, 32f);
+                        if (selectionRect.Intersects(col))
+                        {
+                            selectedNodes.Add(spawner);
+                        }
+                    }
+                    foreach (var eventNode in level.Events)
+                    {
+                        RectangleF col = new RectangleF(eventNode.Transform.Position.X - 16f, eventNode.Transform.Position.Y - 16f, 32f, 32f);
+                        if (selectionRect.Intersects(col))
+                        {
+                            selectedNodes.Add(eventNode);
+                        }
+                    }
+                }
             }
 
-            if (InputSystem.GetKeyDown(Keys.Delete) && selectedNode != null)
+            if (InputSystem.GetKeyDown(Keys.Delete) && selectedNodes.Count > 0)
             {
-                if (selectedNode is EnemySpawner spawner)
-                    level.RemoveSpawner(spawner);
-                else if (selectedNode is EventNode eventN)
-                    level.RemoveEvent(eventN);
+                foreach (var selectedNode in selectedNodes)
+                {
+                    if (selectedNode is EnemySpawner spawner)
+                        level.RemoveSpawner(spawner);
+                    else if (selectedNode is EventNode eventN)
+                        level.RemoveEvent(eventN);
+                }
 
-                selectedNode = null;
+                selectedNodes.Clear();
                 isDraggingNode = false;
             }
 
@@ -308,6 +357,8 @@ namespace AstroDroids.Scenes
 
         void MainDraw()
         {
+            Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+
             foreach (var spawner in level.Spawners)
             {
                 //if (spawner == selectedNode)
@@ -331,7 +382,7 @@ namespace AstroDroids.Scenes
                     PathVisualizer.DrawPath(spawner.Path);
                 }
 
-                Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, selectedNode == spawner ? Color.Cyan : Color.Orange, 16f);
+                Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, selectedNodes.Contains(spawner) ? Color.Cyan : Color.Orange, 16f);
 
                 if (!spawner.HasPath)
                 {
@@ -342,10 +393,22 @@ namespace AstroDroids.Scenes
 
             foreach (var spawner in level.Events)
             {
-                if (spawner == selectedNode)
+                if (selectedNodes.Contains(spawner))
                     Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Cyan, 16f);
                 else
                     Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Gray, 16f);
+            }
+
+            if (isDraggingSelRect)
+            {
+                RectangleF selectionRect = new RectangleF(
+                    Math.Min(selRectStart.X, mousePos.X),
+                    Math.Min(selRectStart.Y, mousePos.Y),
+                    Math.Abs(mousePos.X - selRectStart.X),
+                    Math.Abs(mousePos.Y - selRectStart.Y)
+                );
+
+                Screen.spriteBatch.DrawRectangle(selectionRect, Color.Cyan, 2f);
             }
         }
 
@@ -369,8 +432,14 @@ namespace AstroDroids.Scenes
         void NodeSettings()
         {
             ImGui.Begin("Node settings");
-            if (selectedNode != null)
+            if(selectedNodes.Count > 1)
             {
+                ImGui.Text("Node multi-editing is not supported");
+            }
+            else if (selectedNodes.Count == 1)
+            {
+                Entity selectedNode = selectedNodes[0];
+
                 float pos = selectedNode.Transform.Position.X;
 
                 ImGui.SeparatorText("Transform settings");
@@ -510,7 +579,7 @@ namespace AstroDroids.Scenes
             int bottomBarSpacing = 5;
 
             ImGui.SetNextWindowSize(new Numeric.Vector2(bottomBarWidth, bottomBarHeight));
-            ImGui.SetNextWindowPos(new Numeric.Vector2(10, Screen.ScreenHeight - bottomBarHeight - bottomBarSpacing));
+            ImGui.SetNextWindowPos(new Numeric.Vector2(10, Screen.ActualScreenHeight - bottomBarHeight - bottomBarSpacing));
             ImGui.Begin("##Bottom Bar", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar);
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
             ImGui.Text($"Mouse X:{mousePos.X.ToString("0.00")} Y:{mousePos.Y.ToString("0.00")}");

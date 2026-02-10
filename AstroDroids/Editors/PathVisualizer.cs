@@ -25,17 +25,22 @@ namespace AstroDroids.Editors
                 Screen.spriteBatch.DrawCircle(referencePoint, 16f, 16, Color.Yellow, 16f);
 
             var Paths = new List<IPath>(Path.Decompose());
-            Paths.Reverse();
-
+            //Paths.Reverse();
+            bool first = true;
             foreach (var path in Paths)
             {
                 var keyPoints = path.KeyPoints;
                 for (int i = 0; i < keyPoints.Length; i++)
                 {
+                    if (i == 0 && !first)
+                        continue;
+
                     PathPoint point = keyPoints[i];
 
                     Screen.spriteBatch.DrawCircle(point, 16f, 16, selectedPath == path ? Color.Cyan : Color.Red, 16f);
                 }
+
+                first = false;
             }
         }
     }
