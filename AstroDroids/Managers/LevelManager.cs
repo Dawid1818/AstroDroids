@@ -1,7 +1,6 @@
 ﻿using AstroDroids.Helpers;
 using AstroDroids.Levels;
 using AstroDroids.Scenes;
-using System;
 using System.Collections;
 using System.IO;
 
@@ -17,7 +16,7 @@ namespace AstroDroids.Managers
 
         public static void Initialize()
         {
-            if(!Directory.Exists("Content/Levels"))
+            if (!Directory.Exists("Content/Levels"))
                 Directory.CreateDirectory("Content/Levels");
         }
 

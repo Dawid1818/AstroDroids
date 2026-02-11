@@ -1,4 +1,5 @@
-﻿using AstroDroids.Entities.Friendly;
+﻿using AstroDroids.Drawables;
+using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
@@ -8,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
+using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
 {
@@ -34,6 +36,16 @@ namespace AstroDroids.Scenes
             World = new GameWorld();
 
             World.Initialize();
+
+            if (LevelManager.CurrentLevel.BackgroundId == 0)
+            {
+                World.Starfield = new SimulationStarfield();
+            }
+            else
+            {
+                List<Texture2D> starfields = TextureManager.GetStarfields();
+                World.Starfield = new ImageStarfield(starfields[LevelManager.CurrentLevel.BackgroundId - 1]);
+            }
 
             World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));
 
@@ -62,19 +74,13 @@ namespace AstroDroids.Scenes
         {
             //Screen.spriteBatch.Draw(TextureManager.GetStarfield(), Vector2.Zero, Color.White);
 
-            Screen.spriteBatch.End();
+            //Screen.spriteBatch.End();
 
             Matrix projection = Matrix.CreateOrthographicOffCenter(0, Screen.ScreenWidth, Screen.ScreenHeight, 0, 0, 1);
             Matrix uv_transform = Screen.GetUVTransform(TextureManager.GetStarfield(), new Vector2(0, 0), 1f, Screen.Viewport);
 
             Screen.Infinite.Parameters["view_projection"].SetValue(projection);
             Screen.Infinite.Parameters["uv_transform"].SetValue(Matrix.Invert(uv_transform));
-
-            Screen.spriteBatch.Begin(effect: Screen.Infinite, transformMatrix: Screen.GetCameraMatrix(), samplerState: SamplerState.LinearWrap);
-            Screen.spriteBatch.Draw(TextureManager.GetStarfield(), new Rectangle(0, 0, Screen.ScreenWidth, Screen.ScreenHeight), Color.White);
-            Screen.spriteBatch.End();
-
-            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
 
             World.Draw(gameTime);
         }

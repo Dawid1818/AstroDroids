@@ -13,6 +13,7 @@ namespace AstroDroids.Managers
         static Texture2D pixelTexture;
 
         static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        static List<Texture2D> starfields = new List<Texture2D>();
 
         public static void Initialize(AstroDroidsGame game)
         {
@@ -51,6 +52,14 @@ namespace AstroDroids.Managers
                     textures.Add(relativePath.Substring(9), texture);
                 }
             });
+
+            OrganiseAssets();
+        }
+
+        static void OrganiseAssets()
+        {
+            //Add starfields in order
+            starfields.Add(textures["Starfields/BlueStarfield"]);
         }
 
         public static Texture2D GetPixelTexture() 
@@ -61,6 +70,11 @@ namespace AstroDroids.Managers
         public static Texture2D GetStarfield()
         {
             return Get("Starfields/BlueStarfield");
+        }
+
+        public static List<Texture2D> GetStarfields()
+        {
+            return starfields;
         }
     }
 }

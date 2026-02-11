@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Entities.Neutral;
+using AstroDroids.Exensions;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
@@ -11,6 +12,11 @@ namespace AstroDroids.Levels
 {
     public class Level : ISaveable
     {
+        public const string Magic = "adlvl";
+
+        public string Name { get; set; } = string.Empty;
+        public int BackgroundId { get; set; } = 0;
+
         protected Scene Scene { get { return SceneManager.GetScene(); } }
 
         public List<EnemySpawner> Spawners { get; private set; } = new List<EnemySpawner>();
@@ -57,6 +63,14 @@ namespace AstroDroids.Levels
 
         public void Save(BinaryWriter writer)
         {
+            writer.WriteFixedString(Magic);
+
+            //file format version placeholder
+            writer.Write(0);
+
+            writer.Write(Name);
+            writer.Write(BackgroundId);
+
             writer.Write(Spawners.Count);
             foreach (var spawner in Spawners)
             {
@@ -72,6 +86,17 @@ namespace AstroDroids.Levels
 
         public void Load(BinaryReader reader, int version)
         {
+            if(reader.ReadFixedString(Magic.Length) != Magic)
+            {
+                throw new InvalidDataException("Invalid level file, Magic string doesn't match.");
+            }
+
+            //file format version placeholder
+            reader.ReadInt32();
+
+            Name = reader.ReadString();
+            BackgroundId = reader.ReadInt32();
+
             Spawners = new List<EnemySpawner>();
             int spawnerCount = reader.ReadInt32();
             for (int i = 0; i < spawnerCount; i++)

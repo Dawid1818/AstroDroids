@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Coroutines;
+using AstroDroids.Drawables;
 using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Hostile;
@@ -18,6 +19,7 @@ namespace AstroDroids.Gameplay
     public class GameWorld
     {
         public readonly Rectangle Bounds = new Rectangle(0, 0, 800, 600);
+        public Starfield Starfield { get; set; }
 
         public List<AliveEntity> Enemies { get; } = new List<AliveEntity>();
         public List<AliveEntity> EnemiesToRemove { get; } = new List<AliveEntity>();
@@ -72,6 +74,9 @@ namespace AstroDroids.Gameplay
         public void Update(GameTime gameTime)
         {
             coroutineManager.Update();
+
+            if(Starfield != null)
+                Starfield.Update();
 
             camEntity.Update(gameTime);
 
@@ -138,6 +143,11 @@ namespace AstroDroids.Gameplay
 
         public void Draw(GameTime gameTime)
         {
+            if (Starfield != null)
+                Starfield.Draw();
+
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
+
             foreach (var item in Players)
             {
                 item.Draw(gameTime);
@@ -152,6 +162,8 @@ namespace AstroDroids.Gameplay
             {
                 item.Draw(gameTime);
             }
+
+            Screen.spriteBatch.End();
         }
 
         public void AddEnemy(AliveEntity enemy, bool followsCamera)

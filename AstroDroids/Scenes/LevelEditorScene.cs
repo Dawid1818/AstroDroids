@@ -1,13 +1,15 @@
-﻿using AstroDroids.Editors;
+﻿using AstroDroids.Drawables;
+using AstroDroids.Editors;
 using AstroDroids.Entities;
+using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
@@ -23,9 +25,17 @@ namespace AstroDroids.Scenes
         Path
     }
 
+    enum BackgroundViewMode
+    {
+        Show,
+        Darken,
+        Hide
+    }
+
     public class LevelEditorScene : Scene
     {
         EditorMode mode = EditorMode.Main;
+        BackgroundViewMode bgViewMode = BackgroundViewMode.Show;
         string levelFileName = string.Empty;
         Level level { get { return LevelManager.CurrentLevel; } set { LevelManager.CurrentLevel = value; } }
 
@@ -37,10 +47,12 @@ namespace AstroDroids.Scenes
 
         public int gridSize = 32;
 
+        LevelSettingsEditor levelSettingsEditor;
         PathEditor curveEditor;
         LevelBrowser levelBrowser;
         bool showLBModal = false;
         bool showSaveModal = false;
+        bool showLevelSettings = false;
 
         bool isDraggingNode;
         bool isDraggingSpawnPosition;
@@ -57,24 +69,16 @@ namespace AstroDroids.Scenes
 
         public LevelEditorScene()
         {
-            //curve = new BezierCurve(new List<Vector2>() 
-            //{ 
-            //    new Vector2(10, 10),
-            //    new Vector2(200, 300),
-            //    new Vector2(300, 100),
-            //    new Vector2(400, 400)
-            //});
+            World = new GameWorld();
 
+            levelSettingsEditor = new LevelSettingsEditor(this);
             curveEditor = new PathEditor(this);
             levelBrowser = new LevelBrowser();
             levelBrowser.LevelSelected += (levelName) =>
             {
                 levelFileName = levelName;
                 level = new Level();
-                FileStream stream = File.OpenRead(Path.Combine("Content/Levels/", levelName + ".adlvl"));
-                BinaryReader reader = new BinaryReader(stream);
-                level.Load(reader, 0);
-                reader.Close();
+                FileSaver.RestoreObject(level, Path.Combine("Content/Levels/", levelName + ".adlvl"));
 
                 isDraggingNode = false;
                 isDraggingSelRect = false;
@@ -136,14 +140,13 @@ namespace AstroDroids.Scenes
                     Screen.ZoomCamera(-cameraZoomSpeed);
                 }
             }
+
+            World.Starfield.Update();
         }
 
         public override void Draw(GameTime gameTime)
         {
-            // Screen.spriteBatch.Draw(TextureManager.GetStarfield(), Vector2.Zero, Color.White);
             Vector2 cameraPos = Screen.GetCameraPosition();
-
-            Screen.spriteBatch.End();
 
             Matrix projection = Matrix.CreateOrthographicOffCenter(0, Screen.ScreenWidth, Screen.ScreenHeight, 0, 0, 1);
             Matrix uv_transform = Screen.GetUVTransform(TextureManager.GetStarfield(), new Vector2(0, 0), 1f, Screen.Viewport);
@@ -151,9 +154,15 @@ namespace AstroDroids.Scenes
             Screen.Infinite.Parameters["view_projection"].SetValue(projection);
             Screen.Infinite.Parameters["uv_transform"].SetValue(Matrix.Invert(uv_transform));
 
-            Screen.spriteBatch.Begin(effect: Screen.Infinite, transformMatrix: Screen.GetCameraMatrix(), samplerState: SamplerState.LinearWrap);
-            Screen.spriteBatch.Draw(TextureManager.GetStarfield(), new Rectangle(0, 0, Screen.ScreenWidth, Screen.ScreenHeight), Color.White);
-            Screen.spriteBatch.End();
+            if (bgViewMode != BackgroundViewMode.Hide)
+                World.Starfield.Draw();
+
+            if (bgViewMode == BackgroundViewMode.Darken)
+            {
+                Screen.spriteBatch.Begin();
+                Screen.spriteBatch.FillRectangle(new RectangleF(0, 0, Screen.ActualScreenWidth, Screen.ActualScreenHeight), new Color(0, 0, 0, 191));
+                Screen.spriteBatch.End();
+            }
 
             Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
             Matrix cam = Screen.GetCameraMatrix();
@@ -192,6 +201,8 @@ namespace AstroDroids.Scenes
                 default:
                     break;
             }
+
+            Screen.spriteBatch.End();
         }
 
         void MainUpdate()
@@ -460,6 +471,9 @@ namespace AstroDroids.Scenes
             MenuBar();
             BottomBar();
 
+            if (showLevelSettings)
+                levelSettingsEditor.DrawImGui(ref showLevelSettings);
+
             if (showLBModal)
             {
                 levelBrowser.ShowModal();
@@ -469,10 +483,10 @@ namespace AstroDroids.Scenes
 
             if (showSaveModal)
             {
-                ImGui.OpenPopup("Save level");
+                ImGui.OpenPopup("Save Level");
                 showSaveModal = false;
             }
-            if (ImGui.BeginPopupModal("Save level", ImGuiWindowFlags.AlwaysAutoResize))
+            if (ImGui.BeginPopupModal("Save Level", ImGuiWindowFlags.AlwaysAutoResize))
             {
                 ImGui.InputText("File name", ref levelFileName, 100);
                 if (ImGui.Button("Save"))
@@ -484,6 +498,8 @@ namespace AstroDroids.Scenes
                         ImGui.CloseCurrentPopup();
                     }
                 }
+
+                ImGui.SameLine();
 
                 if (ImGui.Button("Cancel"))
                 {
@@ -622,6 +638,8 @@ namespace AstroDroids.Scenes
                 }
                 else if (selectedNode is EventNode eventN)
                 {
+                    ImGui.SeparatorText("Event settings");
+
                     string eventId = eventN.EventId;
                     if (ImGui.InputText("Event ID", ref eventId, 100))
                     {
@@ -671,6 +689,42 @@ namespace AstroDroids.Scenes
 
                     ImGui.EndMenu();
                 }
+
+                if (ImGui.BeginMenu("Level"))
+                {
+                    if (ImGui.MenuItem("Settings"))
+                    {
+                        showLevelSettings = true;
+                    }
+
+                    ImGui.EndMenu();
+                }
+
+                if (ImGui.BeginMenu("View"))
+                {
+                    if (ImGui.BeginMenu("Background"))
+                    {
+                        if (ImGui.MenuItem("Show", bgViewMode == BackgroundViewMode.Show))
+                        {
+                            bgViewMode = BackgroundViewMode.Show;
+                        }
+
+                        if (ImGui.MenuItem("Darken", bgViewMode == BackgroundViewMode.Darken))
+                        {
+                            bgViewMode = BackgroundViewMode.Darken;
+                        }
+
+                        if (ImGui.MenuItem("Hide", bgViewMode == BackgroundViewMode.Hide))
+                        {
+                            bgViewMode = BackgroundViewMode.Hide;
+                        }
+
+                        ImGui.EndMenu();
+                    }
+
+                    ImGui.EndMenu();
+                }
+
 
                 ImGui.EndMainMenuBar();
             }
@@ -727,15 +781,14 @@ namespace AstroDroids.Scenes
             levelFileName = string.Empty;
             level = new Level();
 
+            World.Starfield = new SimulationStarfield();
+
             Screen.ResetCamera();
         }
 
         void SaveLevel(string path)
         {
-            FileStream stream = File.OpenWrite(Path.Combine("Content/Levels/", path + ".adlvl"));
-            BinaryWriter writer = new BinaryWriter(stream);
-            level.Save(writer);
-            writer.Close();
+            FileSaver.SaveObject(level, Path.Combine("Content/Levels/", path + ".adlvl"));
         }
     }
 }
