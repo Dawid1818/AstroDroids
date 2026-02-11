@@ -42,6 +42,7 @@ namespace AstroDroids.Scenes
         PathPoint selectedSpawnPoint;
         List<Entity> selectedNodes = new List<Entity>();
 
+        Vector2 prevMousePos = Vector2.Zero;
         Vector2 selRectStart = Vector2.Zero;
         bool isDraggingSelRect = false;
 
@@ -173,6 +174,7 @@ namespace AstroDroids.Scenes
         void MainUpdate()
         {
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+            Vector2 deltaMousePos = mousePos - prevMousePos;
 
             if (ImGui.GetIO().WantCaptureMouse)
                 return;
@@ -252,6 +254,8 @@ namespace AstroDroids.Scenes
                     }
                     else
                     {
+                        selRectStart = mousePos;
+
                         if (!selectedNodes.Contains(foundNode))
                         {
                             selectedNodes.Clear();
@@ -265,6 +269,8 @@ namespace AstroDroids.Scenes
                     {
                         mousePos.X = (int)Math.Floor(mousePos.X / gridSize) * gridSize;
                         mousePos.Y = (int)Math.Floor(mousePos.Y / gridSize) * gridSize;
+
+                        deltaMousePos = mousePos - prevMousePos;
                     }
 
                     if (isDraggingSpawnPosition)
@@ -280,15 +286,15 @@ namespace AstroDroids.Scenes
                             {
                                 if (spawner.HasPath)
                                 {
-                                    spawner.Path.Translate(mousePos - spawner.Transform.Position);
+                                    spawner.Path.Translate(deltaMousePos);
                                 }
                                 else
                                 {
-                                    spawner.SpawnPosition += mousePos - spawner.Transform.Position;
+                                    spawner.SpawnPosition += deltaMousePos;
                                 }
                             }
 
-                            selectedNode.Transform.Position = mousePos;
+                            selectedNode.Transform.Position += deltaMousePos;
                         }
                     }
                     //UpdateUI();
@@ -353,6 +359,8 @@ namespace AstroDroids.Scenes
 
             if (InputSystem.GetKeyDown(Keys.T))
                 LevelManager.Playtest(mousePos.Y);
+
+            prevMousePos = mousePos;
         }
 
         void MainDraw()
