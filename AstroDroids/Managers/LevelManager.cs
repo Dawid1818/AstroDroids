@@ -3,6 +3,7 @@ using AstroDroids.Levels;
 using AstroDroids.Scenes;
 using System;
 using System.Collections;
+using System.IO;
 
 namespace AstroDroids.Managers
 {
@@ -13,6 +14,12 @@ namespace AstroDroids.Managers
 
         static Level backedLevel { get; set; }
         static Scene backedScene { get; set; }
+
+        public static void Initialize()
+        {
+            if(!Directory.Exists("Content/Levels"))
+                Directory.CreateDirectory("Content/Levels");
+        }
 
         public static void LoadLevel(int levelIndex)
         {

@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Numeric = System.Numerics;
 
 namespace AstroDroids.Scenes
@@ -25,6 +26,7 @@ namespace AstroDroids.Scenes
     public class LevelEditorScene : Scene
     {
         EditorMode mode = EditorMode.Main;
+        string levelFileName = string.Empty;
         Level level { get { return LevelManager.CurrentLevel; } set { LevelManager.CurrentLevel = value; } }
 
         float cameraMoveSpeed = 5f;
@@ -36,6 +38,9 @@ namespace AstroDroids.Scenes
         public int gridSize = 32;
 
         PathEditor curveEditor;
+        LevelBrowser levelBrowser;
+        bool showLBModal = false;
+        bool showSaveModal = false;
 
         bool isDraggingNode;
         bool isDraggingSpawnPosition;
@@ -61,8 +66,26 @@ namespace AstroDroids.Scenes
             //});
 
             curveEditor = new PathEditor(this);
+            levelBrowser = new LevelBrowser();
+            levelBrowser.LevelSelected += (levelName) =>
+            {
+                levelFileName = levelName;
+                level = new Level();
+                FileStream stream = File.OpenRead(Path.Combine("Content/Levels/", levelName + ".adlvl"));
+                BinaryReader reader = new BinaryReader(stream);
+                level.Load(reader, 0);
+                reader.Close();
 
-            level = new Level();
+                isDraggingNode = false;
+                isDraggingSelRect = false;
+                isDraggingSpawnPosition = false;
+                selectedSpawnPoint = null;
+                selectedNodes.Clear();
+
+                Screen.ResetCamera();
+            };
+
+            CreateNewLevel();
         }
 
         public override void Set()
@@ -246,7 +269,7 @@ namespace AstroDroids.Scenes
                         selectedNodes.Clear();
                         selectedSpawnPoint = null;
 
-                        if(lmb && !isDraggingSelRect)
+                        if (lmb && !isDraggingSelRect)
                         {
                             isDraggingSelRect = true;
                             selRectStart = mousePos;
@@ -305,7 +328,7 @@ namespace AstroDroids.Scenes
                 isDraggingNode = false;
                 isDraggingSpawnPosition = false;
 
-                if(isDraggingSelRect)
+                if (isDraggingSelRect)
                 {
                     isDraggingSelRect = false;
                     RectangleF selectionRect = new RectangleF(
@@ -434,13 +457,46 @@ namespace AstroDroids.Scenes
                     break;
             }
 
+            MenuBar();
             BottomBar();
+
+            if (showLBModal)
+            {
+                levelBrowser.ShowModal();
+                showLBModal = false;
+            }
+            levelBrowser.DrawImGui();
+
+            if (showSaveModal)
+            {
+                ImGui.OpenPopup("Save level");
+                showSaveModal = false;
+            }
+            if (ImGui.BeginPopupModal("Save level", ImGuiWindowFlags.AlwaysAutoResize))
+            {
+                ImGui.InputText("File name", ref levelFileName, 100);
+                if (ImGui.Button("Save"))
+                {
+                    if (!string.IsNullOrWhiteSpace(levelFileName))
+                    {
+                        levelFileName = levelFileName.Trim();
+                        SaveLevel(levelFileName);
+                        ImGui.CloseCurrentPopup();
+                    }
+                }
+
+                if (ImGui.Button("Cancel"))
+                {
+                    ImGui.CloseCurrentPopup();
+                }
+                ImGui.EndPopup();
+            }
         }
 
         void NodeSettings()
         {
             ImGui.Begin("Node settings");
-            if(selectedNodes.Count > 1)
+            if (selectedNodes.Count > 1)
             {
                 ImGui.Text("Node multi-editing is not supported");
             }
@@ -516,18 +572,18 @@ namespace AstroDroids.Scenes
                     if (spawner.HasPath)
                     {
                         float speed = spawner.PathSpeed;
-                        if(ImGui.InputFloat("Speed", ref speed))
+                        if (ImGui.InputFloat("Speed", ref speed))
                         {
                             spawner.PathSpeed = speed;
                         }
 
                         LoopingMode loopMode = spawner.PathLoop;
-                        if(ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
+                        if (ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
                         {
-                            foreach(var mode in Enum.GetValues<LoopingMode>())
+                            foreach (var mode in Enum.GetValues<LoopingMode>())
                             {
                                 bool isSelected = mode == spawner.PathLoop;
-                                if(ImGui.Selectable(mode.ToString(), isSelected))
+                                if (ImGui.Selectable(mode.ToString(), isSelected))
                                 {
                                     spawner.PathLoop = mode;
                                 }
@@ -580,6 +636,45 @@ namespace AstroDroids.Scenes
             ImGui.End();
         }
 
+        void MenuBar()
+        {
+            if (ImGui.BeginMainMenuBar())
+            {
+                if (ImGui.BeginMenu("File"))
+                {
+                    if (ImGui.MenuItem("New"))
+                    {
+                        CreateNewLevel();
+                    }
+
+                    if (ImGui.MenuItem("Open"))
+                    {
+                        showLBModal = true;
+                    }
+
+                    if (ImGui.MenuItem("Save"))
+                    {
+                        if (string.IsNullOrWhiteSpace(levelFileName))
+                        {
+                            showSaveModal = true;
+                        }
+                        else
+                        {
+                            SaveLevel(levelFileName);
+                        }
+                    }
+
+                    if (ImGui.MenuItem("Save as"))
+                    {
+                        showSaveModal = true;
+                    }
+
+                    ImGui.EndMenu();
+                }
+
+                ImGui.EndMainMenuBar();
+            }
+        }
         void BottomBar()
         {
             int bottomBarHeight = 55;
@@ -619,6 +714,28 @@ namespace AstroDroids.Scenes
                 Screen.SetCameraZoom(savedCameraZoom);
                 Screen.SetCameraPosition(savedCameraPos);
             }
+        }
+
+        void CreateNewLevel()
+        {
+            isDraggingNode = false;
+            isDraggingSelRect = false;
+            isDraggingSpawnPosition = false;
+            selectedSpawnPoint = null;
+            selectedNodes.Clear();
+
+            levelFileName = string.Empty;
+            level = new Level();
+
+            Screen.ResetCamera();
+        }
+
+        void SaveLevel(string path)
+        {
+            FileStream stream = File.OpenWrite(Path.Combine("Content/Levels/", path + ".adlvl"));
+            BinaryWriter writer = new BinaryWriter(stream);
+            level.Save(writer);
+            writer.Close();
         }
     }
 }
