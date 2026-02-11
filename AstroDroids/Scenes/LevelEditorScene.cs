@@ -67,6 +67,9 @@ namespace AstroDroids.Scenes
         Vector2 savedCameraPos;
         float savedCameraZoom;
 
+        int selectedEnemyType = 0;
+        int selectedEnemy = -1;
+
         public LevelEditorScene()
         {
             World = new GameWorld();
@@ -539,11 +542,47 @@ namespace AstroDroids.Scenes
                 {
                     ImGui.SeparatorText("Spawner settings");
 
-                    string enemyId = spawner.EnemyId;
-                    if (ImGui.InputText("Enemy ID", ref enemyId, 100))
+                    ImGui.Text("Enemies");
+                    List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
+                    if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1,0)))
                     {
-                        spawner.EnemyId = enemyId;
+                        for (int i = 0; i < spawner.EnemyIDs.Count; i++)
+                        {
+                            int enemyId = spawner.EnemyIDs[i];
+                            if (ImGui.Selectable($"{enemyList[enemyId].Name}##EnemyID{i}", i == selectedEnemy))
+                            {
+                                selectedEnemy = i;
+                            }
+                        }
+
+                        ImGui.EndListBox();
                     }
+
+                    if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name))
+                    {
+                        for (int i = 0; i < enemyList.Count; i++)
+                        {
+                            if (ImGui.Selectable(enemyList[i].Name, i == selectedEnemyType))
+                            {
+                                selectedEnemyType = i;
+                            }
+                        }
+
+                        ImGui.EndCombo();
+                    }
+
+                    ImGui.SameLine();
+
+                    if (ImGui.Button("Add"))
+                    {
+                        spawner.EnemyIDs.Add(selectedEnemyType);
+                    }
+
+                    //string enemyId = spawner.EnemyId;
+                    //if (ImGui.InputText("Enemy ID", ref enemyId, 100))
+                    //{
+                    //    spawner.EnemyId = enemyId;
+                    //}
 
                     bool followsCamera = spawner.FollowsCamera;
                     if (ImGui.Checkbox("Follows Camera", ref followsCamera))
@@ -551,11 +590,11 @@ namespace AstroDroids.Scenes
                         spawner.FollowsCamera = followsCamera;
                     }
 
-                    int enemyCount = spawner.EnemyCount;
-                    if (ImGui.InputInt("Enemy Count", ref enemyCount))
-                    {
-                        spawner.EnemyCount = enemyCount;
-                    }
+                    //int enemyCount = spawner.EnemyCount;
+                    //if (ImGui.InputInt("Enemy Count", ref enemyCount))
+                    //{
+                    //    spawner.EnemyCount = enemyCount;
+                    //}
 
                     float enemyDelay = spawner.DelayBetweenEnemies;
                     if (ImGui.InputFloat("Enemy Delay", ref enemyDelay))

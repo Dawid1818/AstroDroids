@@ -22,6 +22,11 @@ namespace AstroDroids.Entities.Hostile
 
         float angle = 0f;
 
+        public BasicEnemy() : base(new Transform(0, 0), 1, 32f, 32f)
+        {
+            texture = TextureManager.Get("Ships/Basic/Basic");
+        }
+
         public BasicEnemy(Vector2 position, EntityCell cell) : base(new Transform(position.X, position.Y), 1, 32f, 32f)
         {
             //this.cell = cell;

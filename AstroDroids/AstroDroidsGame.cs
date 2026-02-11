@@ -36,6 +36,7 @@ namespace AstroDroids
             TextureManager.Initialize(this);
             SoundManager.Initialize();
             Screen.Initialize(this);
+            EntityDatabase.Initialize();
             LevelManager.Initialize();
 
             //SceneManager.SetScene(new GameScene());

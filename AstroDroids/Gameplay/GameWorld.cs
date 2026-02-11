@@ -55,9 +55,15 @@ namespace AstroDroids.Gameplay
 
         IEnumerator SpawnEnemies(EnemySpawner spawner)
         {
-            for (int i = 0; i < spawner.EnemyCount; i++)
+            for (int i = 0; i < spawner.EnemyIDs.Count; i++)
             {
-                BasicEnemy enemy = new BasicEnemy(spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition, null);
+                int id = spawner.EnemyIDs[i];
+
+                Type type = EntityDatabase.GetEnemyType(id);
+                Enemy enemy = (Enemy)Activator.CreateInstance(type);
+                enemy.Transform.Position = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
+
+                //BasicEnemy enemy = new BasicEnemy(spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition, null);
                 if (spawner.HasPath)
                 {
                     enemy.PathManager = new PathManager(spawner.Path);

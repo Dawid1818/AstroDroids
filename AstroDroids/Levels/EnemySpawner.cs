@@ -3,19 +3,21 @@ using AstroDroids.Entities;
 using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
 using System.IO;
+using System.Collections.Generic;
 
 namespace AstroDroids.Levels
 {
     public class EnemySpawner : Entity, ISaveable
     {
-        public string EnemyId { get; set; } = string.Empty;
+        public List<int> EnemyIDs = new List<int>();
+        //public string EnemyId { get; set; } = string.Empty;
         public bool FollowsCamera { get; set; } = false;
         public bool HasPath { get; set; } = false;
         public CompositePath Path { get; set; } = null;
         public float PathSpeed { get; set; } = 1f;
         public LoopingMode PathLoop { get; set; } = LoopingMode.Off;
         public PathPoint SpawnPosition { get; set; } = null;
-        public int EnemyCount { get; set; } = 1;
+        //public int EnemyCount { get; set; } = 1;
         public float DelayBetweenEnemies { get; set; } = 1f;
 
         public int MinPath { get; set; } = -1;
@@ -26,11 +28,17 @@ namespace AstroDroids.Levels
 
             HasPath = reader.ReadBoolean();
 
+            EnemyIDs.Clear();
+            //EnemyId = reader.ReadString();
+            int enemyCount = reader.ReadInt32();
+            for (int i = 0; i < enemyCount; i++)
+            {
+                EnemyIDs.Add(reader.ReadInt32());
+            }
 
-            EnemyId = reader.ReadString();
             FollowsCamera = reader.ReadBoolean();
 
-            EnemyCount = reader.ReadInt32();
+            //EnemyCount = reader.ReadInt32();
             DelayBetweenEnemies = reader.ReadSingle();
 
             if (HasPath)
@@ -56,10 +64,16 @@ namespace AstroDroids.Levels
 
             writer.Write(HasPath);
 
-            writer.Write(EnemyId);
+            //writer.Write(EnemyId);
+            writer.Write(EnemyIDs.Count);
+            foreach (var id in EnemyIDs)
+            {
+                writer.Write(id);
+            }
+
             writer.Write(FollowsCamera);
 
-            writer.Write(EnemyCount);
+            //writer.Write(EnemyCount);
             writer.Write(DelayBetweenEnemies);
 
             if (HasPath)
