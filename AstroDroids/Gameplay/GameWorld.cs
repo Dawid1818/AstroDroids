@@ -56,10 +56,13 @@ namespace AstroDroids.Gameplay
             for (int i = 0; i < spawner.EnemyCount; i++)
             {
                 BasicEnemy enemy = new BasicEnemy(spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition, null);
-                enemy.PathManager = new PathManager(spawner.Path);
-                enemy.PathManager.Speed = spawner.PathSpeed;
-                enemy.PathManager.Loop = spawner.PathLoop;
-                enemy.PathManager.MinPath = spawner.MinPath;
+                if (spawner.HasPath)
+                {
+                    enemy.PathManager = new PathManager(spawner.Path);
+                    enemy.PathManager.Speed = spawner.PathSpeed;
+                    enemy.PathManager.Loop = spawner.PathLoop;
+                    enemy.PathManager.MinPath = spawner.MinPath;
+                }
                 AddEnemy(enemy, spawner.FollowsCamera);
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
@@ -208,7 +211,7 @@ namespace AstroDroids.Gameplay
 
         internal void SetProgress(float yStart)
         {
-            Vector2 newCamera = new Vector2(Screen.GetCameraPosition().X, yStart + Screen.ScreenHeight / 2f);
+            Vector2 newCamera = new Vector2(Screen.ScreenWidth / 2f, yStart + Screen.ScreenHeight / 2f);
             Screen.SetCameraPosition(newCamera);
 
             foreach (var spawner in Spawners)

@@ -66,7 +66,7 @@ namespace AstroDroids.Entities.Friendly
             }
             else if (LocalRight > Scene.World.Bounds.Right)
             {
-                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width, Transform.LocalPosition.X);
+                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width, Transform.LocalPosition.Y);
             }
 
             if (Transform.LocalPosition.Y < Scene.World.Bounds.Top)
