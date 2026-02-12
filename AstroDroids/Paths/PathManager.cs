@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace AstroDroids.Paths
 {
@@ -14,16 +15,27 @@ namespace AstroDroids.Paths
 
         IPath Path;
 
+        public PathManager()
+        {
+
+        }
+
         public PathManager(IPath path)
+        {
+            SetPath(path);
+        }
+
+        public void SetPath(IPath path)
         {
             Path = path;
             Position = Path.GetPoint(0f);
             Time = 0f;
+            Active = true;
         }
 
         public void Update(GameTime gameTime)
         {
-            if (!Active)
+            if (!Active || Path == null)
                 return;
 
             if (!Reverse)

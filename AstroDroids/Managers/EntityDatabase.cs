@@ -14,6 +14,7 @@ namespace AstroDroids.Managers
         public static void Initialize()
         {
             RegisterEnemy(0, typeof(Entities.Hostile.BasicEnemy));
+            RegisterEnemy(1, typeof(Entities.Hostile.SpinLaser));
         }
 
         static void RegisterEnemy(int id, Type entity)

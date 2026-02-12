@@ -1,7 +1,6 @@
 ﻿
 using AstroDroids.Paths;
 using AstroDroids.Gameplay;
-using MonoGame.Extended;
 
 namespace AstroDroids.Entities
 {
@@ -19,6 +18,11 @@ namespace AstroDroids.Entities
 
         public Enemy(Transform collider, int health, float width, float height) : base(collider, health, width, height)
         {
+        }
+
+        public virtual void Spawned()
+        {
+
         }
 
         public override void Destroyed()

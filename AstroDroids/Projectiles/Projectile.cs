@@ -1,5 +1,4 @@
 ﻿using AstroDroids.Entities;
-using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles
 {

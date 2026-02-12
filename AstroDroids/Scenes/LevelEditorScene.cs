@@ -489,6 +489,11 @@ namespace AstroDroids.Scenes
                 ImGui.OpenPopup("Save Level");
                 showSaveModal = false;
             }
+
+            ImGuiIOPtr io = ImGui.GetIO();
+
+            if (ImGui.IsPopupOpen("Save Level"))
+                ImGui.SetNextWindowPos(new Numeric.Vector2(io.DisplaySize.X * 0.5f, io.DisplaySize.Y * 0.5f), ImGuiCond.Always, new Numeric.Vector2(0.5f, 0.5f));
             if (ImGui.BeginPopupModal("Save Level", ImGuiWindowFlags.AlwaysAutoResize))
             {
                 ImGui.InputText("File name", ref levelFileName, 100);
@@ -576,6 +581,17 @@ namespace AstroDroids.Scenes
                     if (ImGui.Button("Add"))
                     {
                         spawner.EnemyIDs.Add(selectedEnemyType);
+                    }
+
+                    ImGui.SameLine();
+
+                    if (ImGui.Button("Remove"))
+                    {
+                        if(selectedEnemy >= 0 && selectedEnemy < spawner.EnemyIDs.Count)
+                        {
+                            spawner.EnemyIDs.RemoveAt(selectedEnemy);
+                            selectedEnemy = -1;
+                        }
                     }
 
                     //string enemyId = spawner.EnemyId;

@@ -4,9 +4,6 @@ using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended;
-using System;
-using System.Collections.Generic;
 
 namespace AstroDroids.Entities.Hostile
 {

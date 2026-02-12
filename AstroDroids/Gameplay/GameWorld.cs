@@ -10,6 +10,9 @@ using AstroDroids.Managers;
 using AstroDroids.Paths;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
+using MonoGame.Extended.Particles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +33,12 @@ namespace AstroDroids.Gameplay
         public List<EntityGroup> EntityGroups { get; } = new List<EntityGroup>();
         public List<EntityGroup> EntityGroupsToRemove { get; } = new List<EntityGroup>();
 
+        public List<Entity> Warnings { get; } = new List<Entity>();
+        public List<Entity> WarningsToRemove { get; } = new List<Entity>();
+
+        public List<ParticleEffect> Effects { get; } = new List<ParticleEffect>();
+        public List<ParticleEffect> EffectsToRemove { get; } = new List<ParticleEffect>();
+
         List<EnemySpawner> Spawners = new List<EnemySpawner>();
         List<EnemySpawner> SpawnersToRemove = new List<EnemySpawner>();
         List<EventNode> Events = new List<EventNode>();
@@ -38,9 +47,9 @@ namespace AstroDroids.Gameplay
         List<Player> Players = new List<Player>();
         List<Player> PlayersToRemove = new List<Player>();
 
-        CameraEntity camEntity = new CameraEntity();
+        public CameraEntity camEntity { get; private set; } = new CameraEntity();
 
-        Random rnd = new Random();
+        public Random rnd { get; private set; } = new Random();
 
         CoroutineManager coroutineManager = new CoroutineManager();
 
@@ -72,9 +81,15 @@ namespace AstroDroids.Gameplay
                     enemy.PathManager.MinPath = spawner.MinPath;
                 }
                 AddEnemy(enemy, spawner.FollowsCamera);
+                enemy.Spawned();
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
             }
+        }
+
+        public void StartCoroutine(IEnumerator coro)
+        {
+            coroutineManager.StartCoroutine(coro);
         }
 
         public void Update(GameTime gameTime)
@@ -113,6 +128,17 @@ namespace AstroDroids.Gameplay
             }
             PlayersToRemove.Clear();
 
+            foreach (var item in Warnings)
+            {
+                item.Update(gameTime);
+            }
+
+            foreach (var item in WarningsToRemove)
+            {
+                Warnings.Remove(item);
+            }
+            WarningsToRemove.Clear();
+
             foreach (var item in EntityGroups)
             {
                 item.Update(gameTime);
@@ -145,6 +171,17 @@ namespace AstroDroids.Gameplay
                 Projectiles.Remove(item);
             }
             ProjectilesToRemove.Clear();
+
+            foreach (var item in Effects)
+            {
+                item.Update(gameTime);
+            }
+
+            foreach (var item in EffectsToRemove)
+            {
+                Effects.Remove(item);
+            }
+            EffectsToRemove.Clear();
         }
 
         public void Draw(GameTime gameTime)
@@ -152,9 +189,16 @@ namespace AstroDroids.Gameplay
             if (Starfield != null)
                 Starfield.Draw();
 
-            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied);
+
+            Screen.spriteBatch.DrawRectangle(new RectangleF(0, camEntity.Transform.Position.Y, Bounds.Width, Bounds.Height), Color.Gray, 2f);
 
             foreach (var item in Players)
+            {
+                item.Draw(gameTime);
+            }
+
+            foreach (var item in Warnings)
             {
                 item.Draw(gameTime);
             }
@@ -170,6 +214,40 @@ namespace AstroDroids.Gameplay
             }
 
             Screen.spriteBatch.End();
+
+            Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied);
+
+            foreach (var item in Effects)
+            {
+                Screen.spriteBatch.Draw(item);
+            }
+
+            Screen.spriteBatch.End();
+        }
+
+        public void AddEffect(ParticleEffect effect)
+        {
+            Effects.Add(effect);
+        }
+
+        public void RemoveEffect(ParticleEffect effect)
+        {
+            EffectsToRemove.Add(effect);
+        }
+
+        public void AddWarning(Entity entity, bool followsCamera)
+        {
+            if (followsCamera)
+            {
+                entity.Transform.SetParent(camEntity.Transform);
+                //entity.Transform.LocalPosition -= camEntity.Transform.Position;
+            }
+            Warnings.Add(entity);
+        }
+
+        public void RemoveWarning(Entity entity)
+        {
+            WarningsToRemove.Add(entity);
         }
 
         public void AddEnemy(AliveEntity enemy, bool followsCamera)
