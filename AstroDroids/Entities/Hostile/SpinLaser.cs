@@ -30,7 +30,6 @@ namespace AstroDroids.Entities.Hostile
             Moving
         }
 
-        public float attackTimer = 0f;
         Vector2 destination;
 
         Texture2D texture;
@@ -38,6 +37,7 @@ namespace AstroDroids.Entities.Hostile
         float angle = 0f;
         float waitTimer = 0f;
         float targetAngle = 0f;
+        float attackTimer = 0f;
         BeamWarning warning;
 
         SpinLaserState state = SpinLaserState.Idle;
@@ -116,7 +116,7 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Update(GameTime gameTime)
         {
-            if (PathManager != null)
+            if (PathManager != null && state == SpinLaserState.Moving)
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
@@ -136,7 +136,13 @@ namespace AstroDroids.Entities.Hostile
             {
                 if (PathManager != null)
                 {
-                    state = SpinLaserState.IdleMoved;
+                    attackTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (!PathManager.Active || attackTimer >= 1f)
+                    {
+                        attackTimer = 0f;
+                        state = SpinLaserState.IdleMoved;
+                    }
                 }
                 else
                 {
