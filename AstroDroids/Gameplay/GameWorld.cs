@@ -70,7 +70,6 @@ namespace AstroDroids.Gameplay
 
                 Type type = EntityDatabase.GetEnemyType(id);
                 Enemy enemy = (Enemy)Activator.CreateInstance(type);
-                enemy.Transform.Position = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
 
                 //BasicEnemy enemy = new BasicEnemy(spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition, null);
                 if (spawner.HasPath)
@@ -81,6 +80,8 @@ namespace AstroDroids.Gameplay
                     enemy.PathManager.MinPath = spawner.MinPath;
                 }
                 AddEnemy(enemy, spawner.FollowsCamera);
+
+                enemy.Transform.LocalPosition = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
             }
@@ -192,12 +193,12 @@ namespace AstroDroids.Gameplay
 
             Screen.spriteBatch.DrawRectangle(new RectangleF(0, camEntity.Transform.Position.Y, Bounds.Width, Bounds.Height), Color.Gray, 2f);
 
-            foreach (var item in Players)
+            foreach (var item in Warnings)
             {
                 item.Draw(gameTime);
             }
 
-            foreach (var item in Warnings)
+            foreach (var item in Players)
             {
                 item.Draw(gameTime);
             }

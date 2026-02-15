@@ -134,6 +134,8 @@ namespace AstroDroids.Entities.Hostile
             }
             else if (state == SpinLaserState.Moving)
             {
+                Vector2 posBeforeMove = Transform.LocalPosition;
+
                 if (PathManager != null)
                 {
                     attackTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -153,6 +155,15 @@ namespace AstroDroids.Entities.Hostile
                     {
                         state = SpinLaserState.IdleMoved;
                     }
+                }
+
+                if(posBeforeMove.X < Transform.LocalPosition.X)
+                {
+                    angle += 0.1f;
+                }
+                else if (posBeforeMove.X > Transform.LocalPosition.X)
+                {
+                    angle -= 0.1f;
                 }
             }
             else if (state == SpinLaserState.IdleMoved)
