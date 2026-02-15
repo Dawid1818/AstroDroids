@@ -164,9 +164,7 @@ namespace AstroDroids.Entities.Hostile
                     Player target = Scene.World.GetRandomPlayer();
                     if (target != null)
                     {
-                        Vector2 p1 = Transform.LocalPosition;
-                        Vector2 p2 = target.LocalCenter;
-                        targetAngle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
+                        targetAngle = GameHelper.AngleBetween(Transform.LocalPosition, target.LocalCenter);
 
                         warning = new BeamWarning(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), (float)targetAngle, 900);
                         Scene.World.AddWarning(warning, true);

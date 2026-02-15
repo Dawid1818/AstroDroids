@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Helpers
@@ -25,6 +26,26 @@ namespace AstroDroids.Helpers
                 };
 
             return new BezierPath(points);
+        }
+
+        public static float AngleBetween(Vector2 p1, Vector2 p2)
+        {
+            return (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
+        }
+
+        public static Vector2 DirFromAngle(float angle)
+        {
+            return new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+        }
+
+        public static float AngleFromDir(Vector2 dir)
+        {
+            return (float)Math.Atan2(dir.Y, dir.X);
+        }
+
+        public static Vector2 OrbitPos(Vector2 center, float orbitAngle, float distance)
+        {
+            return center + DirFromAngle(orbitAngle) * distance;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AstroDroids.Entities
     {
         protected int Score = 10;
 
-        bool destroyed = false;
+        public bool destroyed { get; private set; } = false;
 
         public PathManager PathManager { get; set; }
 
