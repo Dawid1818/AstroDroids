@@ -10,6 +10,8 @@ namespace AstroDroids.Entities.Hostile
     {
         Texture2D texture;
 
+        RandomMoveManager RMM;
+
         public DroneController() : base(new Transform(0, 0), 1, 49f, 69f)
         {
             texture = TextureManager.Get("Ships/DroneController/DroneController");
@@ -30,6 +32,8 @@ namespace AstroDroids.Entities.Hostile
             ProjectileDrone drone3 = new ProjectileDrone(this, 50, 0);
             drone1.Transform.Position = Transform.Position + new Vector2(0, 50);
             Scene.World.AddEnemy(drone3, true);
+
+            RMM = new RandomMoveManager(Transform.LocalPosition);
         }
 
         public override void Destroyed()
@@ -43,6 +47,15 @@ namespace AstroDroids.Entities.Hostile
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
+            }
+            else
+            {
+                RMM.Update(gameTime);
+                Transform.LocalPosition = RMM.Position;
+                if(!RMM.Active)
+                {
+                    RMM.SetNewPath(true);
+                }
             }
         }
 

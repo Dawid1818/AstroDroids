@@ -21,6 +21,7 @@ namespace AstroDroids.Paths
         {
             Position = startPos;
             TravelManager = new PathManager();
+            TravelManager.Position = startPos;
         }
 
         public void Update(GameTime gameTime)

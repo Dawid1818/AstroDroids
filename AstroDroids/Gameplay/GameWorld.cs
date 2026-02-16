@@ -78,9 +78,10 @@ namespace AstroDroids.Gameplay
                     enemy.PathManager.MinPath = spawner.MinPath;
                 }
 
-                enemy.Transform.LocalPosition = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
+                AddEnemy(enemy, spawner.FollowsCamera, false);
 
-                AddEnemy(enemy, spawner.FollowsCamera);
+                enemy.Transform.LocalPosition = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
+                enemy.Spawned();
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
             }
@@ -266,7 +267,7 @@ namespace AstroDroids.Gameplay
             WarningsToRemove.Add(entity);
         }
 
-        public void AddEnemy(Enemy enemy, bool followsCamera)
+        public void AddEnemy(Enemy enemy, bool followsCamera, bool invokeSpawned = true)
         {
             if (followsCamera)
             {
@@ -275,7 +276,9 @@ namespace AstroDroids.Gameplay
             }
 
             Enemies.Add(enemy);
-            enemy.Spawned();
+
+            if(invokeSpawned)
+                enemy.Spawned();
         }
 
         public void RemoveEnemy(AliveEntity enemy)
