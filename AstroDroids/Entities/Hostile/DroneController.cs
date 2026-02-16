@@ -13,6 +13,8 @@ namespace AstroDroids.Entities.Hostile
         public DroneController() : base(new Transform(0, 0), 1, 49f, 69f)
         {
             texture = TextureManager.Get("Ships/DroneController/DroneController");
+
+            AddCircleCollider(Vector2.Zero, 35);
         }
 
         public override void Spawned()

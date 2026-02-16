@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Collisions;
+using AstroDroids.Gameplay;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using System.Collections.Generic;
@@ -81,10 +82,10 @@ namespace AstroDroids.Entities
             Colliders.Add(new CapsuleCollider(PointA, PointB, radius));
         }
 
-        public Vector2 ClampPosition(Vector2 position)
+        public static Vector2 ClampPosition(Vector2 position, GameWorld world)
         {
-            float clampedX = MathHelper.Clamp(position.X, Scene.World.Bounds.Left, Scene.World.Bounds.Right - Width);
-            float clampedY = MathHelper.Clamp(position.Y, Scene.World.Bounds.Top, Scene.World.Bounds.Bottom - Height);
+            float clampedX = MathHelper.Clamp(position.X, world.Bounds.Left, world.Bounds.Right);
+            float clampedY = MathHelper.Clamp(position.Y, world.Bounds.Top, world.Bounds.Bottom);
             return new Vector2(clampedX, clampedY);
         }
     }

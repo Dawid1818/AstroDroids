@@ -1,5 +1,4 @@
-﻿using AstroDroids.Collisions;
-using AstroDroids.Entities.Friendly;
+﻿using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Warnings;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
@@ -8,15 +7,12 @@ using AstroDroids.Paths;
 using AstroDroids.Projectiles.Hostile;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended;
 using MonoGame.Extended.Graphics;
 using MonoGame.Extended.Particles;
 using MonoGame.Extended.Particles.Data;
 using MonoGame.Extended.Particles.Modifiers;
 using MonoGame.Extended.Particles.Modifiers.Interpolators;
 using MonoGame.Extended.Particles.Profiles;
-using System;
-using System.Collections.Generic;
 
 namespace AstroDroids.Entities.Hostile
 {
@@ -31,8 +27,6 @@ namespace AstroDroids.Entities.Hostile
             Moving
         }
 
-        Vector2 destination;
-
         Texture2D texture;
 
         float angle = 0f;
@@ -43,15 +37,13 @@ namespace AstroDroids.Entities.Hostile
 
         SpinLaserState state = SpinLaserState.Idle;
 
-        int maxMoveDistance = 300;
         ParticleEffect chargeEffect;
 
-        PathManager TravelManager;
-        BezierPath bezier;
+        RandomMoveManager RMM;
 
         public SpinLaser() : base(new Transform(0, 0), 1, 32f, 32f)
         {
-            TravelManager = new PathManager();
+            //TravelManager = new PathManager();
             texture = TextureManager.Get("Ships/SpinLaser/SpinLaser");
 
             AddCircleCollider(Vector2.Zero, 16f);
@@ -105,13 +97,14 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Spawned()
         {
+            RMM = new RandomMoveManager(Transform.LocalPosition);
             Scene.World.AddEffect(chargeEffect);
         }
 
         public override void Destroyed()
         {
             Scene.World.RemoveEffect(chargeEffect);
-            if(warning != null)
+            if (warning != null)
                 Scene.World.RemoveWarning(warning);
 
             base.Destroyed();
@@ -125,104 +118,99 @@ namespace AstroDroids.Entities.Hostile
                 Transform.Position = PathManager.Position;
             }
 
-            if (state == SpinLaserState.Idle)
+            switch (state)
             {
-                destination = Transform.LocalPosition + new Vector2(Scene.World.rnd.Next(-maxMoveDistance, maxMoveDistance), Scene.World.rnd.Next(-maxMoveDistance, maxMoveDistance));
-                destination = ClampPosition(destination);
+                case SpinLaserState.Idle:
+                    RMM.SetNewPath();
+                    state = SpinLaserState.Moving;
+                    break;
+                case SpinLaserState.Moving:
+                    Vector2 posBeforeMove = Transform.LocalPosition;
 
-                bezier = GameHelper.CreateBezier(Transform.LocalPosition, destination);
-                TravelManager.SetPath(bezier);
-
-                state = SpinLaserState.Moving;
-            }
-            else if (state == SpinLaserState.Moving)
-            {
-                Vector2 posBeforeMove = Transform.LocalPosition;
-
-                if (PathManager != null)
-                {
-                    attackTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                    if (!PathManager.Active || attackTimer >= 1f)
+                    if (PathManager != null)
                     {
-                        attackTimer = 0f;
-                        state = SpinLaserState.IdleMoved;
-                    }
-                }
-                else
-                {
-                    TravelManager.Update(gameTime);
-                    Transform.LocalPosition = TravelManager.Position;
+                        attackTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                    if(!TravelManager.Active)
-                    {
-                        state = SpinLaserState.IdleMoved;
-                    }
-                }
-
-                if(posBeforeMove.X < Transform.LocalPosition.X)
-                {
-                    angle += 0.1f;
-                }
-                else if (posBeforeMove.X > Transform.LocalPosition.X)
-                {
-                    angle -= 0.1f;
-                }
-            }
-            else if (state == SpinLaserState.IdleMoved)
-            {
-                waitTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (waitTimer >= 0.6f)
-                {
-                    Player target = Scene.World.GetRandomPlayer();
-                    if (target != null)
-                    {
-                        targetAngle = GameHelper.AngleBetween(Transform.LocalPosition, target.GetLocalPosition());
-
-                        warning = new BeamWarning(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), (float)targetAngle, 900);
-                        Scene.World.AddWarning(warning, true);
-
-
-                        state = SpinLaserState.Spinning;
+                        if (!PathManager.Active || attackTimer >= 1f)
+                        {
+                            attackTimer = 0f;
+                            state = SpinLaserState.IdleMoved;
+                        }
                     }
                     else
                     {
+                        RMM.Update(gameTime);
+                        Transform.LocalPosition = RMM.Position;
+
+                        if (!RMM.Active)
+                        {
+                            state = SpinLaserState.IdleMoved;
+                        }
+                    }
+
+                    if (posBeforeMove.X < Transform.LocalPosition.X)
+                    {
+                        angle += 0.1f;
+                    }
+                    else if (posBeforeMove.X > Transform.LocalPosition.X)
+                    {
+                        angle -= 0.1f;
+                    }
+                    break;
+                case SpinLaserState.IdleMoved:
+                    waitTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (waitTimer >= 0.6f)
+                    {
+                        Player target = Scene.World.GetRandomPlayer();
+                        if (target != null)
+                        {
+                            targetAngle = GameHelper.AngleBetween(Transform.LocalPosition, target.GetLocalPosition());
+
+                            warning = new BeamWarning(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), (float)targetAngle, 900);
+                            Scene.World.AddWarning(warning, true);
+
+
+                            state = SpinLaserState.Spinning;
+                        }
+                        else
+                        {
+                            state = SpinLaserState.Idle;
+                        }
+
+                        waitTimer = 0f;
+                    }
+                    break;
+                case SpinLaserState.Spinning:
+                    chargeEffect.AutoTrigger = true;
+                    angle += 0.5f * waitTimer;
+                    waitTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (waitTimer >= 1f)
+                    {
+                        Scene.World.AddProjectile(new SpinLaserBeam(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), 0, 0, (float)targetAngle));
+
+                        if (warning != null)
+                        {
+                            Scene.World.RemoveWarning(warning);
+                            warning = null;
+                        }
+
+                        waitTimer = 1f;
+                        state = SpinLaserState.StoppingSpin;
+                        chargeEffect.AutoTrigger = false;
+                    }
+                    break;
+                case SpinLaserState.StoppingSpin:
+                    angle += 0.5f * waitTimer;
+                    waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (waitTimer <= 0)
+                    {
                         state = SpinLaserState.Idle;
                     }
-
-                    waitTimer = 0f;
-                }
-            }
-            else if (state == SpinLaserState.Spinning)
-            {
-                chargeEffect.AutoTrigger = true;
-                angle += 0.5f * waitTimer;
-                waitTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (waitTimer >= 1f)
-                {
-                    Scene.World.AddProjectile(new SpinLaserBeam(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), 0, 0, (float)targetAngle));
-
-                    if (warning != null)
-                    {
-                        Scene.World.RemoveWarning(warning);
-                        warning = null;
-                    }
-
-                    waitTimer = 1f;
-                    state = SpinLaserState.StoppingSpin;
-                    chargeEffect.AutoTrigger = false;
-                }
-            }
-            else if (state == SpinLaserState.StoppingSpin)
-            {
-                angle += 0.5f * waitTimer;
-                waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (waitTimer <= 0)
-                {
-                    state = SpinLaserState.Idle;
-                }
+                    break;
+                default:
+                    break;
             }
 
             chargeEffect.Position = Transform.LocalPosition;

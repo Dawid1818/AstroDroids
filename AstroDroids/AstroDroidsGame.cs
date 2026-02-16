@@ -5,6 +5,7 @@ using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace AstroDroids
 {
@@ -12,7 +13,9 @@ namespace AstroDroids
     {
         public GraphicsDeviceManager Graphics { get; private set; }
 
-        public static bool Debug { get; set; } = true;
+        public static bool Debug { get; set; } = false;
+
+        public static Random rnd { get; private set; } = new Random();
 
         public AstroDroidsGame()
         {

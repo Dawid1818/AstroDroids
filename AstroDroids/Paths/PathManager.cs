@@ -17,7 +17,7 @@ namespace AstroDroids.Paths
 
         public PathManager()
         {
-
+            Active = false;
         }
 
         public PathManager(IPath path)

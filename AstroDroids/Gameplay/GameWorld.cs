@@ -50,8 +50,6 @@ namespace AstroDroids.Gameplay
 
         public CameraEntity camEntity { get; private set; } = new CameraEntity();
 
-        public Random rnd { get; private set; } = new Random();
-
         CoroutineManager coroutineManager = new CoroutineManager();
 
         public void Initialize()
@@ -79,9 +77,10 @@ namespace AstroDroids.Gameplay
                     enemy.PathManager.Loop = spawner.PathLoop;
                     enemy.PathManager.MinPath = spawner.MinPath;
                 }
-                AddEnemy(enemy, spawner.FollowsCamera);
 
                 enemy.Transform.LocalPosition = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
+
+                AddEnemy(enemy, spawner.FollowsCamera);
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
             }
@@ -310,7 +309,7 @@ namespace AstroDroids.Gameplay
             if (Players.Count == 0)
                 return null;
 
-            return Players[rnd.Next(Players.Count)];
+            return Players[AstroDroidsGame.rnd.Next(Players.Count)];
         }
 
         public List<Player> GetPlayers()
