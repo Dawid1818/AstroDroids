@@ -4,7 +4,6 @@ using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 
 namespace AstroDroids.Projectiles.Hostile
 {
@@ -20,6 +19,8 @@ namespace AstroDroids.Projectiles.Hostile
             this.angle = angle;
 
             movementDirection = GameHelper.DirFromAngle(angle);
+
+            AddCircleCollider(Vector2.Zero, 16);
         }
 
         public override void Update(GameTime gameTime)
@@ -28,6 +29,17 @@ namespace AstroDroids.Projectiles.Hostile
                 Despawn();
 
             Transform.LocalPosition += movementDirection * speed;
+
+            foreach (var item in Scene.World.GetPlayers())
+            {
+                if (item.Intersects(this))
+                {
+                    item.Damage(1, false);
+                    Despawn();
+
+                    return;
+                }
+            }
 
             t += (float)gameTime.ElapsedGameTime.TotalSeconds;
         }

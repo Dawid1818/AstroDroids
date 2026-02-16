@@ -1,4 +1,5 @@
-﻿using AstroDroids.Coroutines;
+﻿using AstroDroids.Collisions;
+using AstroDroids.Coroutines;
 using AstroDroids.Drawables;
 using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
@@ -71,7 +72,6 @@ namespace AstroDroids.Gameplay
                 Type type = EntityDatabase.GetEnemyType(id);
                 Enemy enemy = (Enemy)Activator.CreateInstance(type);
 
-                //BasicEnemy enemy = new BasicEnemy(spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition, null);
                 if (spawner.HasPath)
                 {
                     enemy.PathManager = new PathManager(spawner.Path);
@@ -201,16 +201,22 @@ namespace AstroDroids.Gameplay
             foreach (var item in Players)
             {
                 item.Draw(gameTime);
+
+                RenderColliders(item);
             }
 
             foreach (var item in Enemies)
             {
                 item.Draw(gameTime);
+
+                RenderColliders(item);
             }
 
             foreach (var item in Projectiles)
             {
                 item.Draw(gameTime);
+
+                RenderColliders(item);
             }
 
             Screen.spriteBatch.End();
@@ -223,6 +229,17 @@ namespace AstroDroids.Gameplay
             }
 
             Screen.spriteBatch.End();
+        }
+
+        void RenderColliders(CollidableEntity entity)
+        {
+            if (AstroDroidsGame.Debug)
+            {
+                foreach (var col in entity.Colliders)
+                {
+                    col.DrawDebug(entity.Transform);
+                }
+            }
         }
 
         public void AddEffect(ParticleEffect effect)
@@ -294,6 +311,11 @@ namespace AstroDroids.Gameplay
                 return null;
 
             return Players[rnd.Next(Players.Count)];
+        }
+
+        public List<Player> GetPlayers()
+        {
+            return Players;
         }
 
         public void AddPlayer(Player player)

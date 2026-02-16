@@ -1,4 +1,5 @@
-﻿using AstroDroids.Entities.Friendly;
+﻿using AstroDroids.Collisions;
+using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Warnings;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
@@ -52,6 +53,8 @@ namespace AstroDroids.Entities.Hostile
         {
             TravelManager = new PathManager();
             texture = TextureManager.Get("Ships/SpinLaser/SpinLaser");
+
+            AddCircleCollider(Vector2.Zero, 16f);
 
             chargeEffect = new ParticleEffect("ChargeBeam")
             {
@@ -175,7 +178,7 @@ namespace AstroDroids.Entities.Hostile
                     Player target = Scene.World.GetRandomPlayer();
                     if (target != null)
                     {
-                        targetAngle = GameHelper.AngleBetween(Transform.LocalPosition, target.LocalCenter);
+                        targetAngle = GameHelper.AngleBetween(Transform.LocalPosition, target.GetLocalPosition());
 
                         warning = new BeamWarning(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), (float)targetAngle, 900);
                         Scene.World.AddWarning(warning, true);

@@ -22,6 +22,8 @@ namespace AstroDroids.Entities.Hostile
         public BasicEnemy() : base(new Transform(0, 0), 1, 32f, 32f)
         {
             texture = TextureManager.Get("Ships/Basic/Basic");
+
+            AddCircleCollider(Vector2.Zero, 16f);
         }
 
         public BasicEnemy(Vector2 position, EntityCell cell) : base(new Transform(position.X, position.Y), 1, 32f, 32f)

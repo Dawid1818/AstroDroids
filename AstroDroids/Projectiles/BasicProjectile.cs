@@ -2,7 +2,6 @@
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
-using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles
 {
@@ -10,7 +9,7 @@ namespace AstroDroids.Projectiles
     {
         public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y), 16, 16)
         {
-
+            AddCircleCollider(Vector2.Zero, 8f);
         }
 
         public override void Update(GameTime gameTime)
@@ -37,7 +36,7 @@ namespace AstroDroids.Projectiles
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), ToRectangle(), Color.White);
+            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), ToRectangle(), null, Color.White, 0f, new Vector2(0.5f, 0.5f), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0f);
         }
     }
 }

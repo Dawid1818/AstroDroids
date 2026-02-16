@@ -1,11 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using MonoGame.Extended;
-using AstroDroids.Graphics;
-using AstroDroids.Managers;
-using AstroDroids.Input;
+﻿using AstroDroids.Drawables;
 using AstroDroids.Gameplay;
+using AstroDroids.Input;
+using AstroDroids.Managers;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AstroDroids.Drawables;
 
 namespace AstroDroids.Entities.Friendly
 {
@@ -14,20 +12,22 @@ namespace AstroDroids.Entities.Friendly
         int playerIndex;
         float speed = 10f;
 
-        Texture2D shipTexture;
         Texture2D exhaustTexture;
 
         CompositeShip ship;
 
         float thrusterPower = 1f;
 
+        public float Angle { get; private set; } = 0f;
+
         public Player(int playerIndex, Vector2 position) : base(new Transform(position.X, position.Y), 1, 110, 98)
         {
             this.playerIndex = playerIndex;
-            shipTexture = TextureManager.Get("Ships/Player/PlayerShip");
             exhaustTexture = TextureManager.Get("Ships/Player/Exhaust");
 
             ship = new CompositeShip();
+
+            AddCircleCollider(Vector2.Zero, 55f);
         }
 
         public override void Update(GameTime gameTime)
@@ -60,22 +60,22 @@ namespace AstroDroids.Entities.Friendly
 
             Transform.LocalPosition += movement;
 
-            if (Transform.LocalPosition.X < Scene.World.Bounds.Left)
+            if (Transform.LocalPosition.X - Width / 2f < Scene.World.Bounds.Left)
             {
-                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Left, Transform.LocalPosition.Y);
+                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Left + Width / 2f, Transform.LocalPosition.Y);
             }
-            else if (LocalRight > Scene.World.Bounds.Right)
+            else if (Transform.LocalPosition.X + Width / 2f > Scene.World.Bounds.Right)
             {
-                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width, Transform.LocalPosition.Y);
+                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width / 2f, Transform.LocalPosition.Y);
             }
 
-            if (Transform.LocalPosition.Y < Scene.World.Bounds.Top)
+            if (Transform.LocalPosition.Y - Height / 2f < Scene.World.Bounds.Top)
             {
-                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Top);
+                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Top + Height / 2f);
             }
-            else if (LocalBottom > Scene.World.Bounds.Bottom)
+            else if (Transform.LocalPosition.Y + Height / 2f > Scene.World.Bounds.Bottom)
             {
-                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Bottom - Height);
+                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Bottom - Height / 2f);
             }
 
             foreach (var enemy in Scene.World.Enemies)
@@ -94,7 +94,7 @@ namespace AstroDroids.Entities.Friendly
             //Screen.spriteBatch.Draw(exhaustTexture, new Rectangle((int)GetPosition().X, (int)Collider.Bottom, 20, exhaustTexture.Height), Color.White);
             //Screen.spriteBatch.Draw(exhaustTexture, new Rectangle((int)Collider.Right - 20, (int)Collider.Bottom, 20, exhaustTexture.Height), Color.White);
             //Screen.spriteBatch.Draw(shipTexture, Collider.ToRectangle(), Color.White);
-            ship.Draw(GetPosition());
+            ship.Draw(GetPosition(), Angle);
 
             GameState.CurrentWeapon.DrawEffects(this, gameTime);
         }

@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AstroDroids.Collisions;
+using Microsoft.Xna.Framework;
 using MonoGame.Extended;
+using System.Collections.Generic;
 
 namespace AstroDroids.Entities
 {
@@ -18,6 +20,8 @@ namespace AstroDroids.Entities
         public Vector2 Center { get { return new Vector2(Transform.Position.X + Width / 2f, Transform.Position.Y + Height / 2f); } }
         public Vector2 LocalCenter { get { return new Vector2(Transform.LocalPosition.X + Width / 2f, Transform.LocalPosition.Y + Height / 2f); } }
 
+        public List<Collider> Colliders { get; private set; } = new List<Collider>();
+        //public List<BoundingCircle2D> Colliders { get; private set; } = new List<BoundingCircle2D>();
 
         public CollidableEntity() : base()
         {
@@ -47,7 +51,34 @@ namespace AstroDroids.Entities
 
         public bool Intersects(CollidableEntity other)
         {
-            return ToRectangleF().Intersects(other.ToRectangleF());
+            foreach (var item in Colliders)
+            {
+                foreach (var otherCol in other.Colliders)
+                {
+                    if (otherCol.Intersects(item, other.Transform, Transform))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        //Original collision code before new collision shapes were added
+        //public bool Intersects(CollidableEntity other)
+        //{
+        //    return ToRectangleF().Intersects(other.ToRectangleF());
+        //}
+
+        protected void AddCircleCollider(Vector2 offset, float radius)
+        {
+            Colliders.Add(new CircleCollider(offset, radius));
+        }
+
+        protected void AddCapsuleCollider(Vector2 PointA, Vector2 PointB, float radius)
+        {
+            Colliders.Add(new CapsuleCollider(PointA, PointB, radius));
         }
 
         public Vector2 ClampPosition(Vector2 position)

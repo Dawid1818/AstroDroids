@@ -1,8 +1,10 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles.Hostile
 {
@@ -15,6 +17,7 @@ namespace AstroDroids.Projectiles.Hostile
         public SpinLaserBeam(Transform collider, float width, float height, float angle) : base(collider, width, height)
         {
             this.angle = angle;
+            AddCapsuleCollider(Vector2.Zero, GameHelper.OrbitPos(Vector2.Zero, angle, 1000), 16f);
         }
 
         public override void Update(GameTime gameTime)
@@ -25,6 +28,14 @@ namespace AstroDroids.Projectiles.Hostile
                 t = 1f;
             }else if(t <= 0 && state == 1)
                 Despawn();
+
+            foreach (var item in Scene.World.GetPlayers())
+            {
+                if (item.Intersects(this))
+                {
+                    item.Damage(100, false);
+                }
+            } 
 
             if (state == 0)
                 t += (float)gameTime.ElapsedGameTime.TotalSeconds * 5f;

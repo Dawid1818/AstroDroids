@@ -43,17 +43,17 @@ namespace AstroDroids.Drawables
             Parts.Add(new ShipPart(texture, offset, color));
         }
 
-        public void Draw(Vector2 Position)
+        public void Draw(Vector2 Position, float angle)
         {
             foreach (var part in Parts)
             {
-                DrawPart(part, Position + part.Offset);
+                DrawPart(part, Position + part.Offset, angle);
             }
         }
 
-        void DrawPart(ShipPart part, Vector2 position)
+        void DrawPart(ShipPart part, Vector2 position, float angle)
         {
-            Screen.spriteBatch.Draw(part.Texture, position, part.Color);
+            Screen.spriteBatch.Draw(part.Texture, position, null, part.Color, angle, new Vector2(part.Texture.Width / 2, part.Texture.Height / 2), 1f, SpriteEffects.None, 0f);
         }
     }
 }
