@@ -1,5 +1,4 @@
-﻿using AstroDroids.Collisions;
-using AstroDroids.Coroutines;
+﻿using AstroDroids.Coroutines;
 using AstroDroids.Drawables;
 using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
@@ -43,6 +42,9 @@ namespace AstroDroids.Gameplay
         List<EnemySpawner> Spawners = new List<EnemySpawner>();
         List<EnemySpawner> SpawnersToRemove = new List<EnemySpawner>();
         List<EventNode> Events = new List<EventNode>();
+        List<EventNode> EventsToRemove = new List<EventNode>();
+        List<LaserBarrierGroupNode> LaserBarrierSpawners = new List<LaserBarrierGroupNode>();
+        List<LaserBarrierGroupNode> LaserBarrierSpawnersToRemove = new List<LaserBarrierGroupNode>();
 
         //public Player Player { get; set; }
         List<Player> Players = new List<Player>();
@@ -59,6 +61,9 @@ namespace AstroDroids.Gameplay
 
             Events.Clear();
             Events.AddRange(LevelManager.CurrentLevel.Events);
+
+            LaserBarrierSpawners.Clear();
+            LaserBarrierSpawners.AddRange(LevelManager.CurrentLevel.LaserBarriers);
         }
 
         IEnumerator SpawnEnemies(EnemySpawner spawner)
@@ -87,6 +92,35 @@ namespace AstroDroids.Gameplay
             }
         }
 
+        void SpawnBarriers(LaserBarrierGroupNode spawner)
+        {
+            Dictionary<int, LaserBarrier> barriers = new Dictionary<int, LaserBarrier>();
+
+            foreach (var node in spawner.Nodes.Values)
+            {
+                var barrier = new LaserBarrier(node.Position, node.Id, node.Health);
+                barriers[node.Id] = barrier;
+            }
+
+            foreach (var node in spawner.Nodes.Values)
+            {
+                var barrier = barriers[node.Id];
+
+                var connections = new List<LaserBarrier>();
+
+                foreach (var connectedId in node.Connections)
+                {
+                    if (barriers.TryGetValue(connectedId, out var targetBarrier))
+                    {
+                        connections.Add(targetBarrier);
+                    }
+                }
+
+                barrier.SetConnections(connections);
+                AddEnemy(barrier, false, true);
+            }
+        }
+
         public void StartCoroutine(IEnumerator coro)
         {
             coroutineManager.StartCoroutine(coro);
@@ -96,14 +130,14 @@ namespace AstroDroids.Gameplay
         {
             coroutineManager.Update();
 
-            if(Starfield != null)
+            if (Starfield != null)
                 Starfield.Update();
 
             camEntity.Update(gameTime);
 
             foreach (var spawner in Spawners)
             {
-                if(spawner.Transform.Position.Y > camEntity.Transform.Position.Y)
+                if (spawner.Transform.Position.Y > camEntity.Transform.Position.Y)
                 {
                     SpawnersToRemove.Add(spawner);
 
@@ -116,6 +150,22 @@ namespace AstroDroids.Gameplay
                 Spawners.Remove(item);
             }
             SpawnersToRemove.Clear();
+
+            foreach (var spawner in LaserBarrierSpawners)
+            {
+                if (spawner.Transform.Position.Y > camEntity.Transform.Position.Y)
+                {
+                    LaserBarrierSpawnersToRemove.Add(spawner);
+
+                    SpawnBarriers(spawner);
+                }
+            }
+
+            foreach (var item in LaserBarrierSpawnersToRemove)
+            {
+                LaserBarrierSpawners.Remove(item);
+            }
+            LaserBarrierSpawnersToRemove.Clear();
 
             foreach (var item in Players)
             {
@@ -277,7 +327,7 @@ namespace AstroDroids.Gameplay
 
             Enemies.Add(enemy);
 
-            if(invokeSpawned)
+            if (invokeSpawned)
                 enemy.Spawned();
         }
 
@@ -286,9 +336,10 @@ namespace AstroDroids.Gameplay
             EnemiesToRemove.Add(enemy);
         }
 
-        public void AddProjectile(Projectile projectile)
+        public void AddProjectile(Projectile projectile, bool followsCamera)
         {
-            projectile.Transform.SetParent(camEntity.Transform);
+            if(followsCamera)
+                projectile.Transform.SetParent(camEntity.Transform);
             Projectiles.Add(projectile);
         }
 

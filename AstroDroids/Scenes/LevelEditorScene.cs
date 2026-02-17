@@ -22,7 +22,8 @@ namespace AstroDroids.Scenes
     enum EditorMode
     {
         Main,
-        Path
+        Path,
+        Barrier
     }
 
     enum BackgroundViewMode
@@ -49,6 +50,7 @@ namespace AstroDroids.Scenes
 
         LevelSettingsEditor levelSettingsEditor;
         PathEditor curveEditor;
+        LaserBarrierEditor barrierEditor;
         LevelBrowser levelBrowser;
         bool showLBModal = false;
         bool showSaveModal = false;
@@ -76,6 +78,7 @@ namespace AstroDroids.Scenes
 
             levelSettingsEditor = new LevelSettingsEditor(this);
             curveEditor = new PathEditor(this);
+            barrierEditor = new LaserBarrierEditor(this);
             levelBrowser = new LevelBrowser();
             levelBrowser.LevelSelected += (levelName) =>
             {
@@ -109,6 +112,9 @@ namespace AstroDroids.Scenes
                     break;
                 case EditorMode.Path:
                     curveEditor.Update(gameTime);
+                    break;
+                case EditorMode.Barrier:
+                    barrierEditor.Update(gameTime);
                     break;
                 default:
                     break;
@@ -201,6 +207,9 @@ namespace AstroDroids.Scenes
                 case EditorMode.Path:
                     curveEditor.Draw(gameTime);
                     break;
+                case EditorMode.Barrier:
+                    barrierEditor.Draw(gameTime);
+                    break;
                 default:
                     break;
             }
@@ -280,6 +289,26 @@ namespace AstroDroids.Scenes
 
                     if (foundNode == null)
                     {
+                        foreach (var laserBarrierNode in level.LaserBarriers)
+                        {
+                            RectangleF col = new RectangleF(laserBarrierNode.Transform.Position.X - 16f, laserBarrierNode.Transform.Position.Y - 16f, 32f, 32f);
+                            if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
+                            {
+                                if (lmb)
+                                {
+                                    isDraggingNode = true;
+                                    isDraggingSpawnPosition = false;
+                                }
+
+                                foundNode = laserBarrierNode;
+                                selectedSpawnPoint = null;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (foundNode == null)
+                    {
                         selectedNodes.Clear();
                         selectedSpawnPoint = null;
 
@@ -331,6 +360,11 @@ namespace AstroDroids.Scenes
                                 }
                             }
 
+                            if(selectedNode is LaserBarrierGroupNode barrierGroup && !InputSystem.GetKey(Keys.LeftShift))
+                            {
+                                barrierGroup.Translate(deltaMousePos);
+                            }
+
                             selectedNode.Transform.Position += deltaMousePos;
                         }
                     }
@@ -368,6 +402,14 @@ namespace AstroDroids.Scenes
                             selectedNodes.Add(eventNode);
                         }
                     }
+                    foreach (var laserBarrierNode in level.LaserBarriers)
+                    {
+                        RectangleF col = new RectangleF(laserBarrierNode.Transform.Position.X - 16f, laserBarrierNode.Transform.Position.Y - 16f, 32f, 32f);
+                        if (selectionRect.Intersects(col))
+                        {
+                            selectedNodes.Add(laserBarrierNode);
+                        }
+                    }
                 }
             }
 
@@ -379,6 +421,8 @@ namespace AstroDroids.Scenes
                         level.RemoveSpawner(spawner);
                     else if (selectedNode is EventNode eventN)
                         level.RemoveEvent(eventN);
+                    else if (selectedNode is LaserBarrierGroupNode laserBarrierN)
+                        level.RemoveLaserBarrier(laserBarrierN);
                 }
 
                 selectedNodes.Clear();
@@ -393,6 +437,9 @@ namespace AstroDroids.Scenes
 
             if (InputSystem.GetKeyDown(Keys.V))
                 level.CreateEvent(mousePos);
+
+            if (InputSystem.GetKeyDown(Keys.B))
+                level.CreateLaserBarrier(mousePos);
 
             if (InputSystem.GetKeyDown(Keys.T))
                 LevelManager.Playtest(mousePos.Y);
@@ -436,12 +483,22 @@ namespace AstroDroids.Scenes
                 //}
             }
 
-            foreach (var spawner in level.Events)
+            foreach (var eventN in level.Events)
             {
-                if (selectedNodes.Contains(spawner))
-                    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Cyan, 16f);
+                if (selectedNodes.Contains(eventN))
+                    Screen.spriteBatch.DrawCircle(eventN.Transform.Position, 16f, 16, Color.Cyan, 16f);
                 else
-                    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Gray, 16f);
+                    Screen.spriteBatch.DrawCircle(eventN.Transform.Position, 16f, 16, Color.Gray, 16f);
+            }
+
+            foreach (var laserBarrierN in level.LaserBarriers)
+            {
+                if (selectedNodes.Contains(laserBarrierN))
+                    Screen.spriteBatch.DrawCircle(laserBarrierN.Transform.Position, 16f, 16, Color.Cyan, 16f);
+                else
+                    Screen.spriteBatch.DrawCircle(laserBarrierN.Transform.Position, 16f, 16, Color.Turquoise, 16f);
+
+                barrierEditor.DrawBarriers(laserBarrierN);
             }
 
             if (isDraggingSelRect)
@@ -466,6 +523,9 @@ namespace AstroDroids.Scenes
                     break;
                 case EditorMode.Path:
                     curveEditor.DrawImGui(gameTime);
+                    break;
+                case EditorMode.Barrier:
+                    barrierEditor.DrawImGui(gameTime);
                     break;
                 default:
                     break;
@@ -545,161 +605,15 @@ namespace AstroDroids.Scenes
 
                 if (selectedNode is EnemySpawner spawner)
                 {
-                    ImGui.SeparatorText("Spawner settings");
-
-                    ImGui.Text("Enemies");
-                    List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
-                    if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1,0)))
-                    {
-                        for (int i = 0; i < spawner.EnemyIDs.Count; i++)
-                        {
-                            int enemyId = spawner.EnemyIDs[i];
-                            if (ImGui.Selectable($"{enemyList[enemyId].Name}##EnemyID{i}", i == selectedEnemy))
-                            {
-                                selectedEnemy = i;
-                            }
-                        }
-
-                        ImGui.EndListBox();
-                    }
-
-                    if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name))
-                    {
-                        for (int i = 0; i < enemyList.Count; i++)
-                        {
-                            if (ImGui.Selectable(enemyList[i].Name, i == selectedEnemyType))
-                            {
-                                selectedEnemyType = i;
-                            }
-                        }
-
-                        ImGui.EndCombo();
-                    }
-
-                    ImGui.SameLine();
-
-                    if (ImGui.Button("Add"))
-                    {
-                        spawner.EnemyIDs.Add(selectedEnemyType);
-                    }
-
-                    ImGui.SameLine();
-
-                    if (ImGui.Button("Remove"))
-                    {
-                        if(selectedEnemy >= 0 && selectedEnemy < spawner.EnemyIDs.Count)
-                        {
-                            spawner.EnemyIDs.RemoveAt(selectedEnemy);
-                            selectedEnemy = -1;
-                        }
-                    }
-
-                    //string enemyId = spawner.EnemyId;
-                    //if (ImGui.InputText("Enemy ID", ref enemyId, 100))
-                    //{
-                    //    spawner.EnemyId = enemyId;
-                    //}
-
-                    bool followsCamera = spawner.FollowsCamera;
-                    if (ImGui.Checkbox("Follows Camera", ref followsCamera))
-                    {
-                        spawner.FollowsCamera = followsCamera;
-                    }
-
-                    //int enemyCount = spawner.EnemyCount;
-                    //if (ImGui.InputInt("Enemy Count", ref enemyCount))
-                    //{
-                    //    spawner.EnemyCount = enemyCount;
-                    //}
-
-                    float enemyDelay = spawner.DelayBetweenEnemies;
-                    if (ImGui.InputFloat("Enemy Delay", ref enemyDelay))
-                    {
-                        spawner.DelayBetweenEnemies = enemyDelay;
-                    }
-
-                    ImGui.SeparatorText("Path settings");
-
-                    bool hasPath = spawner.HasPath;
-                    if (ImGui.Checkbox("Has Path", ref hasPath))
-                    {
-                        spawner.HasPath = hasPath;
-
-                        if (spawner.HasPath)
-                        {
-                            CompositePath path = new CompositePath();
-                            spawner.Path = path;
-                            spawner.SpawnPosition = null;
-                            //path.Add(new LinePath(spawner.Transform.Position, spawner.Transform.Position + new Vector2(100, 0)));
-                            path.Add(new BezierPath(new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero }));
-                        }
-                        else
-                        {
-                            spawner.Path = null;
-                            spawner.SpawnPosition = spawner.Transform.Position;
-                        }
-                    }
-
-                    if (spawner.HasPath)
-                    {
-                        float speed = spawner.PathSpeed;
-                        if (ImGui.InputFloat("Speed", ref speed))
-                        {
-                            spawner.PathSpeed = speed;
-                        }
-
-                        LoopingMode loopMode = spawner.PathLoop;
-                        if (ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
-                        {
-                            foreach (var mode in Enum.GetValues<LoopingMode>())
-                            {
-                                bool isSelected = mode == spawner.PathLoop;
-                                if (ImGui.Selectable(mode.ToString(), isSelected))
-                                {
-                                    spawner.PathLoop = mode;
-                                }
-                                if (isSelected)
-                                    ImGui.SetItemDefaultFocus();
-                            }
-                            ImGui.EndCombo();
-                        }
-
-                        int minPath = spawner.MinPath;
-                        if (ImGui.InputInt("Min Path", ref minPath))
-                        {
-                            spawner.MinPath = Math.Clamp(minPath, -1, spawner.Path.Decompose().Count);
-                        }
-
-                        if (ImGui.Button("Edit path"))
-                        {
-                            if (spawner.FollowsCamera)
-                            {
-                                mode = EditorMode.Path;
-                                savedCameraPos = Screen.GetCameraPosition();
-                                savedCameraZoom = Screen.GetCameraZoom();
-                                savedCamera = true;
-                                Screen.ResetCamera();
-                                curveEditor.SetPath(spawner.Path);
-                                curveEditor.SetSpawner(spawner);
-                            }
-                            else
-                            {
-                                mode = EditorMode.Path;
-                                curveEditor.SetPath(spawner.Path);
-                                curveEditor.SetSpawner(spawner);
-                            }
-                        }
-                    }
+                    SpawnerProperties(spawner);
                 }
                 else if (selectedNode is EventNode eventN)
                 {
-                    ImGui.SeparatorText("Event settings");
-
-                    string eventId = eventN.EventId;
-                    if (ImGui.InputText("Event ID", ref eventId, 100))
-                    {
-                        eventN.EventId = eventId;
-                    }
+                    EventProperties(eventN);
+                }
+                else if (selectedNode is LaserBarrierGroupNode laserBarrierN)
+                {
+                    LaserBarrierProperties(laserBarrierN);
                 }
             }
             else
@@ -787,7 +701,7 @@ namespace AstroDroids.Scenes
         void BottomBar()
         {
             int bottomBarHeight = 55;
-            int bottomBarWidth = 355;
+            int bottomBarWidth = 475;
             int bottomBarSpacing = 5;
 
             ImGui.SetNextWindowSize(new Numeric.Vector2(bottomBarWidth, bottomBarHeight));
@@ -810,6 +724,11 @@ namespace AstroDroids.Scenes
             if (ImGui.Button("Create Event"))
             {
                 level.CreateEvent(Screen.GetCameraPosition());
+            }
+            ImGui.SameLine();
+            if (ImGui.Button("Create LBarrier"))
+            {
+                level.CreateLaserBarrier(Screen.GetCameraPosition());
             }
             ImGui.End();
         }
@@ -844,6 +763,176 @@ namespace AstroDroids.Scenes
         void SaveLevel(string path)
         {
             FileSaver.SaveObject(level, Path.Combine("Content/Levels/", path + ".adlvl"));
+        }
+
+        void SpawnerProperties(EnemySpawner spawner)
+        {
+            ImGui.SeparatorText("Spawner settings");
+
+            ImGui.Text("Enemies");
+            List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
+            if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1, 0)))
+            {
+                for (int i = 0; i < spawner.EnemyIDs.Count; i++)
+                {
+                    int enemyId = spawner.EnemyIDs[i];
+                    if (ImGui.Selectable($"{enemyList[enemyId].Name}##EnemyID{i}", i == selectedEnemy))
+                    {
+                        selectedEnemy = i;
+                    }
+                }
+
+                ImGui.EndListBox();
+            }
+
+            if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name))
+            {
+                for (int i = 0; i < enemyList.Count; i++)
+                {
+                    if (ImGui.Selectable(enemyList[i].Name, i == selectedEnemyType))
+                    {
+                        selectedEnemyType = i;
+                    }
+                }
+
+                ImGui.EndCombo();
+            }
+
+            ImGui.SameLine();
+
+            if (ImGui.Button("Add"))
+            {
+                spawner.EnemyIDs.Add(selectedEnemyType);
+            }
+
+            ImGui.SameLine();
+
+            if (ImGui.Button("Remove"))
+            {
+                if (selectedEnemy >= 0 && selectedEnemy < spawner.EnemyIDs.Count)
+                {
+                    spawner.EnemyIDs.RemoveAt(selectedEnemy);
+                    selectedEnemy = -1;
+                }
+            }
+
+            //string enemyId = spawner.EnemyId;
+            //if (ImGui.InputText("Enemy ID", ref enemyId, 100))
+            //{
+            //    spawner.EnemyId = enemyId;
+            //}
+
+            bool followsCamera = spawner.FollowsCamera;
+            if (ImGui.Checkbox("Follows Camera", ref followsCamera))
+            {
+                spawner.FollowsCamera = followsCamera;
+            }
+
+            //int enemyCount = spawner.EnemyCount;
+            //if (ImGui.InputInt("Enemy Count", ref enemyCount))
+            //{
+            //    spawner.EnemyCount = enemyCount;
+            //}
+
+            float enemyDelay = spawner.DelayBetweenEnemies;
+            if (ImGui.InputFloat("Enemy Delay", ref enemyDelay))
+            {
+                spawner.DelayBetweenEnemies = enemyDelay;
+            }
+
+            ImGui.SeparatorText("Path settings");
+
+            bool hasPath = spawner.HasPath;
+            if (ImGui.Checkbox("Has Path", ref hasPath))
+            {
+                spawner.HasPath = hasPath;
+
+                if (spawner.HasPath)
+                {
+                    CompositePath path = new CompositePath();
+                    spawner.Path = path;
+                    spawner.SpawnPosition = null;
+                    //path.Add(new LinePath(spawner.Transform.Position, spawner.Transform.Position + new Vector2(100, 0)));
+                    path.Add(new BezierPath(new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero }));
+                }
+                else
+                {
+                    spawner.Path = null;
+                    spawner.SpawnPosition = spawner.Transform.Position;
+                }
+            }
+
+            if (spawner.HasPath)
+            {
+                float speed = spawner.PathSpeed;
+                if (ImGui.InputFloat("Speed", ref speed))
+                {
+                    spawner.PathSpeed = speed;
+                }
+
+                LoopingMode loopMode = spawner.PathLoop;
+                if (ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
+                {
+                    foreach (var mode in Enum.GetValues<LoopingMode>())
+                    {
+                        bool isSelected = mode == spawner.PathLoop;
+                        if (ImGui.Selectable(mode.ToString(), isSelected))
+                        {
+                            spawner.PathLoop = mode;
+                        }
+                        if (isSelected)
+                            ImGui.SetItemDefaultFocus();
+                    }
+                    ImGui.EndCombo();
+                }
+
+                int minPath = spawner.MinPath;
+                if (ImGui.InputInt("Min Path", ref minPath))
+                {
+                    spawner.MinPath = Math.Clamp(minPath, -1, spawner.Path.Decompose().Count);
+                }
+
+                if (ImGui.Button("Edit path"))
+                {
+                    if (spawner.FollowsCamera)
+                    {
+                        mode = EditorMode.Path;
+                        savedCameraPos = Screen.GetCameraPosition();
+                        savedCameraZoom = Screen.GetCameraZoom();
+                        savedCamera = true;
+                        Screen.ResetCamera();
+                        curveEditor.SetPath(spawner.Path);
+                        curveEditor.SetSpawner(spawner);
+                    }
+                    else
+                    {
+                        mode = EditorMode.Path;
+                        curveEditor.SetPath(spawner.Path);
+                        curveEditor.SetSpawner(spawner);
+                    }
+                }
+            }
+        }
+        void EventProperties(EventNode eventN)
+        {
+            ImGui.SeparatorText("Event settings");
+
+            string eventId = eventN.EventId;
+            if (ImGui.InputText("Event ID", ref eventId, 100))
+            {
+                eventN.EventId = eventId;
+            }
+        }
+
+        void LaserBarrierProperties(LaserBarrierGroupNode laserBarrierN)
+        {
+            ImGui.SeparatorText("Laser Barrier settings");
+
+            if (ImGui.Button("Edit barrier"))
+            {
+                mode = EditorMode.Barrier;
+                barrierEditor.SetBarrier(laserBarrierN);
+            }
         }
     }
 }

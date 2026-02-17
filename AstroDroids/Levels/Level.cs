@@ -1,5 +1,5 @@
 ﻿using AstroDroids.Entities.Neutral;
-using AstroDroids.Exensions;
+using AstroDroids.Extensions;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
@@ -21,6 +21,7 @@ namespace AstroDroids.Levels
 
         public List<EnemySpawner> Spawners { get; private set; } = new List<EnemySpawner>();
         public List<EventNode> Events { get; private set; } = new List<EventNode>();
+        public List<LaserBarrierGroupNode> LaserBarriers { get; private set; } = new List<LaserBarrierGroupNode>();
 
         public virtual void StartLevel()
         {
@@ -51,6 +52,11 @@ namespace AstroDroids.Levels
             Events.Add(new EventNode() { Transform = new Entities.Transform(Position.X, Position.Y) });
         }
 
+        public void CreateLaserBarrier(Vector2 Position)
+        {
+            LaserBarriers.Add(new LaserBarrierGroupNode() { Transform = new Entities.Transform(Position.X, Position.Y) });
+        }
+
         public void RemoveSpawner(EnemySpawner spawner)
         {
             Spawners.Remove(spawner);
@@ -61,12 +67,17 @@ namespace AstroDroids.Levels
             Events.Remove(eventN);
         }
 
+        public void RemoveLaserBarrier(LaserBarrierGroupNode barrierN)
+        {
+            LaserBarriers.Remove(barrierN);
+        }
+
         public void Save(BinaryWriter writer)
         {
             writer.WriteFixedString(Magic);
 
             //file format version placeholder
-            writer.Write(0);
+            writer.Write(1);
 
             writer.Write(Name);
             writer.Write(BackgroundId);
@@ -82,6 +93,12 @@ namespace AstroDroids.Levels
             {
                 eventN.Save(writer);
             }
+
+            writer.Write(LaserBarriers.Count);
+            foreach (var barrierN in LaserBarriers)
+            {
+                barrierN.Save(writer);
+            }
         }
 
         public void Load(BinaryReader reader, int version)
@@ -92,7 +109,7 @@ namespace AstroDroids.Levels
             }
 
             //file format version placeholder
-            reader.ReadInt32();
+            int actualVersion = reader.ReadInt32();
 
             Name = reader.ReadString();
             BackgroundId = reader.ReadInt32();
@@ -113,6 +130,18 @@ namespace AstroDroids.Levels
                 EventNode eventN = new EventNode();
                 eventN.Load(reader, version);
                 Events.Add(eventN);
+            }
+
+            if (actualVersion >= 1)
+            {
+                LaserBarriers = new List<LaserBarrierGroupNode>();
+                int barriersCount = reader.ReadInt32();
+                for (int i = 0; i < barriersCount; i++)
+                {
+                    LaserBarrierGroupNode barrierN = new LaserBarrierGroupNode();
+                    barrierN.Load(reader, version);
+                    LaserBarriers.Add(barrierN);
+                }
             }
         }
     }

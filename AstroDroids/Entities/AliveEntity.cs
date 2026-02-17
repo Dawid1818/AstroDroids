@@ -6,6 +6,8 @@ namespace AstroDroids.Entities
     {
         int Health;
 
+        public virtual bool CanBeDamaged { get; protected set; } = true;
+
         public AliveEntity() : base()
         {
             Health = 1;
@@ -21,6 +23,9 @@ namespace AstroDroids.Entities
 
         public virtual void Damage(int damage, bool produceSound)
         {
+            if (!CanBeDamaged)
+                return;
+
             Health -= damage;
             
             if(Health <= 0)

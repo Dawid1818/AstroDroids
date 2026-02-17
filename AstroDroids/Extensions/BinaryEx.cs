@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace AstroDroids.Exensions
+namespace AstroDroids.Extensions
 {
     public static class BinaryEx
     {
