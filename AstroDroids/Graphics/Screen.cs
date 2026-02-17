@@ -1,8 +1,10 @@
 ﻿using AstroDroids.Input;
+using FontStashSharp;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameGum;
+using System.IO;
 
 namespace AstroDroids.Graphics
 {
@@ -27,6 +29,8 @@ namespace AstroDroids.Graphics
         public static Effect Infinite { get; private set; }
         public static Viewport Viewport { get { return graphicsManager.GraphicsDevice.Viewport; } }
 
+        static FontSystem fontSystem;
+
         public static void Initialize(AstroDroidsGame game)
         {
             graphicsManager = game.Graphics;
@@ -40,7 +44,22 @@ namespace AstroDroids.Graphics
 
             Infinite = game.Content.Load<Effect>("Shaders/Infinite");
 
+            fontSystem = new FontSystem();
+            fontSystem.AddFont(File.ReadAllBytes("Content/Fonts/VCR_OSD_MONO_1.001.ttf"));
+
             gameWnd = game.Window;
+        }
+
+        public static void DrawText(string text, Vector2 position, Color color, float size)
+        {
+            SpriteFontBase font = fontSystem.GetFont(size);
+            spriteBatch.DrawString(font, text, position, color, effect: FontSystemEffect.Stroked, effectAmount: 1);
+        }
+
+        public static Vector2 MeasureText(string text, float size)
+        {
+            SpriteFontBase font = fontSystem.GetFont(size);
+            return font.MeasureString(text, effect: FontSystemEffect.Stroked, effectAmount: 1);
         }
 
         public static void Update(GameTime gameTime)

@@ -10,6 +10,7 @@ using AstroDroids.Managers;
 using AstroDroids.Paths;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
@@ -173,7 +174,7 @@ namespace AstroDroids.Scenes
                 Screen.spriteBatch.End();
             }
 
-            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.AlphaBlend);
             Matrix cam = Screen.GetCameraMatrix();
             Matrix invCam = Matrix.Invert(cam);
 
@@ -231,7 +232,6 @@ namespace AstroDroids.Scenes
             {
                 if (!isDraggingNode && !isDraggingSpawnPosition && !isDraggingSelRect)
                 {
-                    //bool foundNode = false;
                     Entity foundNode = null;
 
                     foreach (var spawner in level.Spawners)
@@ -360,7 +360,7 @@ namespace AstroDroids.Scenes
                                 }
                             }
 
-                            if(selectedNode is LaserBarrierGroupNode barrierGroup && !InputSystem.GetKey(Keys.LeftShift))
+                            if (selectedNode is LaserBarrierGroupNode barrierGroup && !InputSystem.GetKey(Keys.LeftShift))
                             {
                                 barrierGroup.Translate(deltaMousePos);
                             }
@@ -368,7 +368,6 @@ namespace AstroDroids.Scenes
                             selectedNode.Transform.Position += deltaMousePos;
                         }
                     }
-                    //UpdateUI();
                 }
             }
             else if (isDraggingNode || isDraggingSpawnPosition || isDraggingSelRect)
@@ -453,50 +452,29 @@ namespace AstroDroids.Scenes
 
             foreach (var spawner in level.Spawners)
             {
-                //if (spawner == selectedNode)
-                //{
-                //    if (!spawner.HasPath)
-                //        Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
-
-                //    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Cyan, 16f);
-
-                //    if (!spawner.HasPath)
-                //    {
-                //        Screen.spriteBatch.DrawCircle(spawner.SpawnPosition, 16f, 16, Color.Red, 16f);
-                //    }
-                //}
-                //else
-                //{
                 if (!spawner.HasPath)
                     Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
                 else
                 {
-                    PathVisualizer.DrawPath(spawner.Path);
+                    PathVisualizer.DrawPath(spawner.Path, this);
                 }
 
-                Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, selectedNodes.Contains(spawner) ? Color.Cyan : Color.Orange, 16f);
+                DrawNode("S", spawner.Transform.Position, selectedNodes.Contains(spawner) ? Color.Cyan : Color.Orange, Color.Green);
 
                 if (!spawner.HasPath)
                 {
-                    Screen.spriteBatch.DrawCircle(spawner.SpawnPosition, 16f, 16, Color.Red, 16f);
+                    DrawNode(string.Empty, spawner.SpawnPosition, Color.Red, Color.Green);
                 }
-                //}
             }
 
             foreach (var eventN in level.Events)
             {
-                if (selectedNodes.Contains(eventN))
-                    Screen.spriteBatch.DrawCircle(eventN.Transform.Position, 16f, 16, Color.Cyan, 16f);
-                else
-                    Screen.spriteBatch.DrawCircle(eventN.Transform.Position, 16f, 16, Color.Gray, 16f);
+                DrawNode("E", eventN.Transform.Position, selectedNodes.Contains(eventN) ? Color.Cyan : Color.Gray, Color.White);
             }
 
             foreach (var laserBarrierN in level.LaserBarriers)
             {
-                if (selectedNodes.Contains(laserBarrierN))
-                    Screen.spriteBatch.DrawCircle(laserBarrierN.Transform.Position, 16f, 16, Color.Cyan, 16f);
-                else
-                    Screen.spriteBatch.DrawCircle(laserBarrierN.Transform.Position, 16f, 16, Color.Turquoise, 16f);
+                DrawNode("B", laserBarrierN.Transform.Position, selectedNodes.Contains(laserBarrierN) ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
 
                 barrierEditor.DrawBarriers(laserBarrierN);
             }
@@ -716,6 +694,8 @@ namespace AstroDroids.Scenes
                 LevelManager.Playtest(0f);
             }
             ImGui.SameLine();
+            if (mode != EditorMode.Main)
+                ImGui.BeginDisabled();
             if (ImGui.Button("Create Spawner"))
             {
                 level.CreateSpawner(Screen.GetCameraPosition());
@@ -730,6 +710,8 @@ namespace AstroDroids.Scenes
             {
                 level.CreateLaserBarrier(Screen.GetCameraPosition());
             }
+            if (mode != EditorMode.Main)
+                ImGui.EndDisabled();
             ImGui.End();
         }
 
@@ -816,23 +798,11 @@ namespace AstroDroids.Scenes
                 }
             }
 
-            //string enemyId = spawner.EnemyId;
-            //if (ImGui.InputText("Enemy ID", ref enemyId, 100))
-            //{
-            //    spawner.EnemyId = enemyId;
-            //}
-
             bool followsCamera = spawner.FollowsCamera;
             if (ImGui.Checkbox("Follows Camera", ref followsCamera))
             {
                 spawner.FollowsCamera = followsCamera;
             }
-
-            //int enemyCount = spawner.EnemyCount;
-            //if (ImGui.InputInt("Enemy Count", ref enemyCount))
-            //{
-            //    spawner.EnemyCount = enemyCount;
-            //}
 
             float enemyDelay = spawner.DelayBetweenEnemies;
             if (ImGui.InputFloat("Enemy Delay", ref enemyDelay))
@@ -933,6 +903,14 @@ namespace AstroDroids.Scenes
                 mode = EditorMode.Barrier;
                 barrierEditor.SetBarrier(laserBarrierN);
             }
+        }
+
+        public void DrawNode(string label, Vector2 position, Color color, Color borderColor, float fontSize = 24)
+        {
+            Screen.spriteBatch.DrawCircle(position, 16f, 16, color, 16f);
+            Screen.spriteBatch.DrawCircle(position, 16f, 16, borderColor, 1f);
+            Vector2 measurement = Screen.MeasureText(label, fontSize);
+            Screen.DrawText(label, position - new Vector2(measurement.X / 2f, measurement.Y / 2f), Color.White, fontSize);
         }
     }
 }

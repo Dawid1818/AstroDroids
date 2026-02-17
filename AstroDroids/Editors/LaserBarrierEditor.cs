@@ -1,4 +1,5 @@
-﻿using AstroDroids.Graphics;
+﻿using AstroDroids.Entities.Hostile;
+using AstroDroids.Graphics;
 using AstroDroids.Input;
 using AstroDroids.Levels;
 using AstroDroids.Scenes;
@@ -7,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
+using System.Xml.Linq;
 
 namespace AstroDroids.Editors
 {
@@ -74,6 +76,13 @@ namespace AstroDroids.Editors
                     return;
                 }
 
+                if (InputSystem.GetKeyDown(Keys.Delete) && selectedNode != null)
+                {
+                    BarrierGroup.Nodes.Remove(selectedNode.Id);
+                    selectedNode = null;
+                    isDraggingPoint = false;
+                }
+
                 if (InputSystem.GetKeyDown(Keys.C))
                 {
                     BarrierGroup.Nodes.Add(BarrierGroup.AvailableId, new LaserBarrierNode() { Id = BarrierGroup.AvailableId, Position = mousePos });
@@ -135,13 +144,13 @@ namespace AstroDroids.Editors
             //Draw nodes themselves
             foreach (var node in group.Nodes.Values)
             {
-                Screen.spriteBatch.DrawCircle(node.Position, 16f, 16, node.Health >= 0 ? Color.Blue : Color.Red, 16f);
+                scene.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? Color.Blue : Color.Red, Color.DarkSlateGray);
             }
         }
 
         public void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.DrawCircle(BarrierGroup.Transform.Position, 16f, 16, Color.Yellow, 16f);
+            scene.DrawNode("B", BarrierGroup.Transform.Position, Color.DarkViolet, Color.DarkSlateGray);
 
             DrawBarriers(BarrierGroup);
         }

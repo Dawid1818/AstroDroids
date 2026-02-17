@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Fonts/ARCADECLASSIC.TTF
+/copy:Fonts/ARCADECLASSIC.TTF
+
+#begin Fonts/VCR_OSD_MONO_1.001.ttf
+/copy:Fonts/VCR_OSD_MONO_1.001.ttf
+
 #begin Shaders/Infinite.fx
 /importer:EffectImporter
 /processor:EffectProcessor

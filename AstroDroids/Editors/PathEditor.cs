@@ -113,30 +113,7 @@ namespace AstroDroids.Editors
 
         public void Draw(GameTime gameTime)
         {
-            PathVisualizer.DrawPath(Path, spawner.Transform.Position, selectedPath);
-            //float t = 0f;
-            //PathPoint lastPos = Path.GetPoint(t);
-            //while (t < 1f)
-            //{
-            //    t += 0.01f;
-            //    PathPoint nextPos = Path.GetPoint(t);
-            //    Screen.spriteBatch.DrawLine(lastPos, nextPos, Color.Green, 4f);
-            //    lastPos = nextPos;
-            //}
-
-            //if(spawner != null)
-            //    Screen.spriteBatch.DrawCircle(spawner.Transform.Position, 16f, 16, Color.Yellow, 16f);
-
-            //foreach (var path in Path.Decompose())
-            //{
-            //    var keyPoints = path.KeyPoints;
-            //    for (int i = 0; i < keyPoints.Length; i++)
-            //    {
-            //        PathPoint point = keyPoints[i];
-
-            //        Screen.spriteBatch.DrawCircle(point, 16f, 16, Color.Red, 16f);
-            //    }
-            //}
+            PathVisualizer.DrawPath(Path, scene, spawner.Transform.Position, selectedPath);
         }
 
         public void DrawImGui(GameTime gameTime)
