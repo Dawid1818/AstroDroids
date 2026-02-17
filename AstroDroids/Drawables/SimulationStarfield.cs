@@ -7,7 +7,7 @@ namespace AstroDroids.Drawables
 {
     internal class SimulationStarfield : Starfield
     {
-        int gridSize = 32;
+        int gridSize = 64;
 
         Vector2 offset1 = Vector2.Zero;
         Vector2 offset2 = Vector2.Zero;

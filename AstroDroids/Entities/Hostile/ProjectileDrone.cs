@@ -116,7 +116,7 @@ namespace AstroDroids.Entities.Hostile
 
         void Shoot()
         {
-            Vector2 spawnPos = GameHelper.OrbitPos(Transform.LocalPosition, angle, 21);
+            Vector2 spawnPos = GameHelper.OrbitPos(Transform.Position, angle, 21);
 
             Scene.World.AddProjectile(new LaserProjectile(new Transform(spawnPos.X, spawnPos.Y), 32, 16, angle), true);
         }

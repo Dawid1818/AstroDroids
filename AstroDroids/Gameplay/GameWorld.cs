@@ -16,6 +16,7 @@ using MonoGame.Extended.Particles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using static HexaGen.Runtime.MemoryPool;
 
 namespace AstroDroids.Gameplay
 {
@@ -211,8 +212,9 @@ namespace AstroDroids.Gameplay
             }
             EnemiesToRemove.Clear();
 
-            foreach (var item in Projectiles)
+            for (int i = 0; i < Projectiles.Count; i++)
             {
+                Projectile item = Projectiles[i];
                 item.Update(gameTime);
             }
 
@@ -262,8 +264,9 @@ namespace AstroDroids.Gameplay
                 RenderColliders(item);
             }
 
-            foreach (var item in Projectiles)
+            for (int i = 0; i < Projectiles.Count; i++)
             {
+                Projectile item = Projectiles[i];
                 item.Draw(gameTime);
 
                 RenderColliders(item);
@@ -338,8 +341,12 @@ namespace AstroDroids.Gameplay
 
         public void AddProjectile(Projectile projectile, bool followsCamera)
         {
-            if(followsCamera)
+            if (followsCamera)
+            {
                 projectile.Transform.SetParent(camEntity.Transform);
+                projectile.Transform.LocalPosition -= camEntity.Transform.Position;
+            }
+
             Projectiles.Add(projectile);
         }
 

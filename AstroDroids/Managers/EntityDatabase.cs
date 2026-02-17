@@ -1,9 +1,6 @@
-﻿using AstroDroids.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Managers
 {
@@ -16,6 +13,7 @@ namespace AstroDroids.Managers
             RegisterEnemy(0, typeof(Entities.Hostile.BasicEnemy));
             RegisterEnemy(1, typeof(Entities.Hostile.SpinLaser));
             RegisterEnemy(2, typeof(Entities.Hostile.DroneController));
+            RegisterEnemy(3, typeof(Entities.Hostile.ProximityMine));
         }
 
         static void RegisterEnemy(int id, Type entity)

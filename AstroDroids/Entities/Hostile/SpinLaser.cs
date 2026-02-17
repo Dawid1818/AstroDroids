@@ -188,7 +188,7 @@ namespace AstroDroids.Entities.Hostile
 
                     if (waitTimer >= 1f)
                     {
-                        Scene.World.AddProjectile(new SpinLaserBeam(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), 0, 0, (float)targetAngle), true);
+                        Scene.World.AddProjectile(new SpinLaserBeam(new Transform(Transform.Position.X, Transform.Position.Y), 0, 0, (float)targetAngle), true);
 
                         if (warning != null)
                         {
