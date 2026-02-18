@@ -10,14 +10,12 @@ namespace AstroDroids.Levels
     public class EnemySpawner : Entity, ISaveable
     {
         public List<int> EnemyIDs = new List<int>();
-        //public string EnemyId { get; set; } = string.Empty;
         public bool FollowsCamera { get; set; } = false;
         public bool HasPath { get; set; } = false;
         public CompositePath Path { get; set; } = null;
         public float PathSpeed { get; set; } = 1f;
         public LoopingMode PathLoop { get; set; } = LoopingMode.Off;
         public PathPoint SpawnPosition { get; set; } = null;
-        //public int EnemyCount { get; set; } = 1;
         public float DelayBetweenEnemies { get; set; } = 1f;
 
         public int MinPath { get; set; } = -1;

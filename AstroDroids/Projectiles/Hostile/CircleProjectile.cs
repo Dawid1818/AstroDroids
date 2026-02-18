@@ -1,9 +1,7 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
-using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles.Hostile

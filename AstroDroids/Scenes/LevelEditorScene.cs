@@ -798,12 +798,6 @@ namespace AstroDroids.Scenes
                 }
             }
 
-            bool followsCamera = spawner.FollowsCamera;
-            if (ImGui.Checkbox("Follows Camera", ref followsCamera))
-            {
-                spawner.FollowsCamera = followsCamera;
-            }
-
             float enemyDelay = spawner.DelayBetweenEnemies;
             if (ImGui.InputFloat("Enemy Delay", ref enemyDelay))
             {
@@ -830,6 +824,12 @@ namespace AstroDroids.Scenes
                     spawner.Path = null;
                     spawner.SpawnPosition = spawner.Transform.Position;
                 }
+            }
+
+            bool followsCamera = spawner.FollowsCamera;
+            if (ImGui.Checkbox("Follows Camera", ref followsCamera))
+            {
+                spawner.FollowsCamera = followsCamera;
             }
 
             if (spawner.HasPath)

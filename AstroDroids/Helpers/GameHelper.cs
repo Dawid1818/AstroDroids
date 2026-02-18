@@ -47,5 +47,16 @@ namespace AstroDroids.Helpers
         {
             return center + DirFromAngle(orbitAngle) * distance;
         }
+
+        public static Vector2 RotateAroundPoint(Vector2 point, Vector2 center, float angle)
+        {
+            Vector2 offset = point - center;
+
+            float cos = (float)Math.Cos(angle);
+            float sin = (float)Math.Sin(angle);
+            Vector2 rotatedOffset = new Vector2(offset.X * cos - offset.Y * sin, offset.X * sin + offset.Y * cos);
+
+            return center + rotatedOffset;
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace AstroDroids.Entities.Hostile
 
             if (player != null)
             {
-                angle = GameHelper.AngleBetween(Transform.LocalPosition, player.GetLocalPosition());
+                angle = GameHelper.AngleBetween(Transform.Position, player.GetPosition());
             }
 
             switch (state)
