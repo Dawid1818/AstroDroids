@@ -1,4 +1,5 @@
-﻿using AstroDroids.Helpers;
+﻿using AstroDroids.Gameplay;
+using AstroDroids.Helpers;
 using AstroDroids.Levels;
 using AstroDroids.Scenes;
 using System.Collections;
@@ -35,7 +36,7 @@ namespace AstroDroids.Managers
             return CurrentLevel.LevelScript();
         }
 
-        internal static void Playtest(float yStart)
+        internal static void Playtest(int startPoint)
         {
             backedLevel = CurrentLevel;
             CurrentLevel = new Level();
@@ -47,9 +48,10 @@ namespace AstroDroids.Managers
 
             GameScene scene = new GameScene();
 
-            SceneManager.SetScene(scene);
+            scene.World = new GameWorld();
+            scene.World.SetProgress(startPoint);
 
-            scene.World.SetProgress(yStart);
+            SceneManager.SetScene(scene);
         }
 
         internal static void QuitPlaytest()

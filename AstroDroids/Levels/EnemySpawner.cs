@@ -17,12 +17,15 @@ namespace AstroDroids.Levels
         public LoopingMode PathLoop { get; set; } = LoopingMode.Off;
         public PathPoint SpawnPosition { get; set; } = null;
         public float DelayBetweenEnemies { get; set; } = 1f;
+        public double InitialDelay { get; set; } = 0f;
 
         public int MinPath { get; set; } = -1;
 
         public void Load(BinaryReader reader, int version)
         {
             Transform.Position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+
+            InitialDelay = reader.ReadDouble();
 
             HasPath = reader.ReadBoolean();
 
@@ -59,6 +62,8 @@ namespace AstroDroids.Levels
         {
             writer.Write(Transform.Position.X);
             writer.Write(Transform.Position.Y);
+
+            writer.Write(InitialDelay);
 
             writer.Write(HasPath);
 

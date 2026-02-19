@@ -5,7 +5,7 @@ namespace AstroDroids.Scenes
 {
     public class Scene
     {
-        public GameWorld World { get; protected set; }
+        public GameWorld World { get; set; }
 
         public Scene() { }
 

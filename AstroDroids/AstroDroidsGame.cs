@@ -26,6 +26,7 @@ namespace AstroDroids
             Graphics.PreferredBackBufferWidth = Screen.ScreenWidth;
             Graphics.PreferredBackBufferHeight = Screen.ScreenHeight;
             Window.AllowUserResizing = true;
+            Graphics.GraphicsProfile = GraphicsProfile.HiDef;
         }
 
         protected override void Initialize()

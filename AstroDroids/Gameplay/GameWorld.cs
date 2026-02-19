@@ -16,7 +16,6 @@ using MonoGame.Extended.Particles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using static HexaGen.Runtime.MemoryPool;
 
 namespace AstroDroids.Gameplay
 {
@@ -40,14 +39,11 @@ namespace AstroDroids.Gameplay
         public List<ParticleEffect> Effects { get; } = new List<ParticleEffect>();
         public List<ParticleEffect> EffectsToRemove { get; } = new List<ParticleEffect>();
 
-        List<EnemySpawner> Spawners = new List<EnemySpawner>();
-        List<EnemySpawner> SpawnersToRemove = new List<EnemySpawner>();
-        List<EventNode> Events = new List<EventNode>();
-        List<EventNode> EventsToRemove = new List<EventNode>();
-        List<LaserBarrierGroupNode> LaserBarrierSpawners = new List<LaserBarrierGroupNode>();
-        List<LaserBarrierGroupNode> LaserBarrierSpawnersToRemove = new List<LaserBarrierGroupNode>();
+        List<AttackWave> AttackWaves = new List<AttackWave>();
+        List<AttackWave> AttackWavesToRemove = new List<AttackWave>();
 
-        //public Player Player { get; set; }
+        int startPoint = 0;
+
         List<Player> Players = new List<Player>();
         List<Player> PlayersToRemove = new List<Player>();
 
@@ -55,20 +51,64 @@ namespace AstroDroids.Gameplay
 
         CoroutineManager coroutineManager = new CoroutineManager();
 
+        public double speed { get; set; } = 2;
+
+        int ongoingWaves = 0;
+
         public void Initialize()
         {
-            Spawners.Clear();
-            Spawners.AddRange(LevelManager.CurrentLevel.Spawners);
+            AttackWaves.Clear();
+            AttackWaves.AddRange(LevelManager.CurrentLevel.AttackWaves.Slice(startPoint, LevelManager.CurrentLevel.AttackWaves.Count - startPoint));
 
-            Events.Clear();
-            Events.AddRange(LevelManager.CurrentLevel.Events);
+            if(AttackWaves.Count > 0)
+                StartCoroutine(ProcessWaves());
+        }
 
-            LaserBarrierSpawners.Clear();
-            LaserBarrierSpawners.AddRange(LevelManager.CurrentLevel.LaserBarriers);
+        IEnumerator ProcessWaves()
+        {
+            if (AttackWaves[0].Delay > 0)
+                yield return new WaitForSeconds(AttackWaves[0].Delay);
+
+            for (int i = 0; i < AttackWaves.Count; i++)
+            {
+                AttackWave item = AttackWaves[i];
+
+                foreach (var spawner in item.Spawners)
+                {
+                    ongoingWaves++;
+                    StartCoroutine(SpawnEnemies(spawner));
+                }
+
+                foreach (var barrier in item.LaserBarriers)
+                {
+                    ongoingWaves++;
+                    StartCoroutine(SpawnBarriers(barrier));
+                }
+
+                foreach (var eventN in item.Events)
+                {
+                    ongoingWaves++;
+                    StartCoroutine(ProcessEvents(eventN));
+                }
+
+                if (i != AttackWaves.Count - 1)
+                {
+                    AttackWave nextWave = AttackWaves[i + 1];
+                    if (nextWave.WaitForPreviousWave && ongoingWaves > 0)
+                        yield return new WaitUntil(() => ongoingWaves == 0);
+
+                    yield return new WaitForSeconds(nextWave.Delay);
+                }
+            }
+
+            yield return null;
         }
 
         IEnumerator SpawnEnemies(EnemySpawner spawner)
         {
+            if (spawner.InitialDelay > 0)
+                yield return new WaitForSeconds(spawner.InitialDelay);
+
             for (int i = 0; i < spawner.EnemyIDs.Count; i++)
             {
                 int id = spawner.EnemyIDs[i];
@@ -91,9 +131,11 @@ namespace AstroDroids.Gameplay
 
                 yield return new WaitForSeconds(spawner.DelayBetweenEnemies);
             }
+
+            ongoingWaves--;
         }
 
-        void SpawnBarriers(LaserBarrierGroupNode spawner)
+        IEnumerator SpawnBarriers(LaserBarrierGroupNode spawner)
         {
             Dictionary<int, LaserBarrier> barriers = new Dictionary<int, LaserBarrier>();
 
@@ -118,8 +160,35 @@ namespace AstroDroids.Gameplay
                 }
 
                 barrier.SetConnections(connections);
-                AddEnemy(barrier, false, true);
+
+                if (spawner.InitialDelay == 0)
+                {
+                    AddEnemy(barrier, false, true);
+                }
             }
+
+            if (spawner.InitialDelay > 0)
+            {
+                yield return new WaitForSeconds(spawner.InitialDelay);
+
+                foreach (var node in spawner.Nodes.Values)
+                {
+                    var barrier = barriers[node.Id];
+
+                    AddEnemy(barrier, false, true);
+                }
+            }
+
+            ongoingWaves--;
+        }
+
+        IEnumerator ProcessEvents(EventNode eventN)
+        {
+            if (eventN.InitialDelay > 0)
+                yield return new WaitForSeconds(eventN.InitialDelay);
+
+            //run event from Level class
+            ongoingWaves--;
         }
 
         public void StartCoroutine(IEnumerator coro)
@@ -135,38 +204,6 @@ namespace AstroDroids.Gameplay
                 Starfield.Update();
 
             camEntity.Update(gameTime);
-
-            foreach (var spawner in Spawners)
-            {
-                if (spawner.Transform.Position.Y > camEntity.Transform.Position.Y)
-                {
-                    SpawnersToRemove.Add(spawner);
-
-                    coroutineManager.StartCoroutine(SpawnEnemies(spawner));
-                }
-            }
-
-            foreach (var item in SpawnersToRemove)
-            {
-                Spawners.Remove(item);
-            }
-            SpawnersToRemove.Clear();
-
-            foreach (var spawner in LaserBarrierSpawners)
-            {
-                if (spawner.Transform.Position.Y > camEntity.Transform.Position.Y)
-                {
-                    LaserBarrierSpawnersToRemove.Add(spawner);
-
-                    SpawnBarriers(spawner);
-                }
-            }
-
-            foreach (var item in LaserBarrierSpawnersToRemove)
-            {
-                LaserBarrierSpawners.Remove(item);
-            }
-            LaserBarrierSpawnersToRemove.Clear();
 
             foreach (var item in Players)
             {
@@ -241,7 +278,7 @@ namespace AstroDroids.Gameplay
             if (Starfield != null)
                 Starfield.Draw();
 
-            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied);
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
 
             Screen.spriteBatch.DrawRectangle(new RectangleF(0, camEntity.Transform.Position.Y, Bounds.Width, Bounds.Height), Color.Gray, 2f);
 
@@ -271,10 +308,6 @@ namespace AstroDroids.Gameplay
 
                 RenderColliders(item);
             }
-
-            Screen.spriteBatch.End();
-
-            Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied);
 
             foreach (var item in Effects)
             {
@@ -389,23 +422,12 @@ namespace AstroDroids.Gameplay
             PlayersToRemove.Add(player);
         }
 
-        internal void SetProgress(float yStart)
+        internal void SetProgress(int startPoint)
         {
-            Vector2 newCamera = new Vector2(Screen.ScreenWidth / 2f, yStart + Screen.ScreenHeight / 2f);
-            Screen.SetCameraPosition(newCamera);
+            this.startPoint = startPoint;
 
-            foreach (var spawner in Spawners)
-            {
-                if (spawner.Transform.Position.Y > yStart)
-                {
-                    SpawnersToRemove.Add(spawner);
-                }
-            }
-            foreach (var item in SpawnersToRemove)
-            {
-                Spawners.Remove(item);
-            }
-            SpawnersToRemove.Clear();
+            Vector2 newCamera = new Vector2(Screen.ScreenWidth / 2f, Screen.ScreenHeight / 2f);
+            Screen.SetCameraPosition(newCamera);
         }
     }
 }

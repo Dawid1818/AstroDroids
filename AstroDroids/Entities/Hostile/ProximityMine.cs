@@ -52,6 +52,10 @@ namespace AstroDroids.Entities.Hostile
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
             }
+            else
+            {
+                DefaultMove();
+            }
 
             switch (state)
             {
@@ -70,7 +74,7 @@ namespace AstroDroids.Entities.Hostile
 
                     t += (float)gameTime.ElapsedGameTime.TotalSeconds * 2f;
 
-                    if(t >= 1f)
+                    if (t >= 1f)
                     {
                         Damage(100, false);
                     }

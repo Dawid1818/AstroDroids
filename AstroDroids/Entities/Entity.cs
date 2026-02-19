@@ -21,5 +21,10 @@ namespace AstroDroids.Entities
 
         public virtual void Update(GameTime gameTime) { }
         public virtual void Draw(GameTime gameTime) { }
+
+        protected void DefaultMove()
+        {
+            Transform.Position = new Vector2(Transform.Position.X, Transform.Position.Y + (float)Scene.World.speed);
+        }
     }
 }

@@ -86,7 +86,8 @@ namespace AstroDroids.Entities.Hostile
                     {
                         attackTimer = 0f;
 
-                        Shoot();
+                        if (player != null)
+                            Shoot();
                     }
                     break;
                 case ProjectileDroneState.Idle:

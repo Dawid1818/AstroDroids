@@ -1,6 +1,7 @@
 ﻿
 using AstroDroids.Paths;
 using AstroDroids.Gameplay;
+using Microsoft.Xna.Framework;
 
 namespace AstroDroids.Entities
 {

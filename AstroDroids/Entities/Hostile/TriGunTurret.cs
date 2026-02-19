@@ -40,6 +40,8 @@ namespace AstroDroids.Entities.Hostile
         {
             Player player = Scene.World.GetRandomPlayer();
 
+            DefaultMove();
+
             if (player != null)
             {
                 angle = GameHelper.AngleBetween(Transform.Position, player.GetPosition());
@@ -80,7 +82,7 @@ namespace AstroDroids.Entities.Hostile
             Screen.spriteBatch.Draw(cannonTexture, cannon2Pos, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
             Screen.spriteBatch.Draw(cannonTexture, cannon3Pos, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
 
-            Screen.spriteBatch.Draw(topTexture, Transform.Position, null, Color.White, angle, new Vector2(topTexture.Width / 2, topTexture.Height / 2), 1f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(topTexture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, 42, 42), null, Color.White, angle, new Vector2(topTexture.Width / 2, topTexture.Height / 2), SpriteEffects.None, 0f);
         }
     }
 }

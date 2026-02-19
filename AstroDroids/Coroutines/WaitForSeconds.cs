@@ -7,7 +7,7 @@ namespace AstroDroids.Coroutines
         DateTime startTime;
         TimeSpan waitTime;
 
-        public WaitForSeconds(float seconds)
+        public WaitForSeconds(double seconds)
         {
             waitTime = TimeSpan.FromSeconds(seconds);
             startTime = DateTime.Now;

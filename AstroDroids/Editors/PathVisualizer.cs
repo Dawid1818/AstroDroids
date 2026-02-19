@@ -9,7 +9,7 @@ namespace AstroDroids.Editors
 {
     public class PathVisualizer
     {
-        public static void DrawPath(CompositePath Path, LevelEditorScene scene, PathPoint referencePoint = null, IPath selectedPath = null)
+        public static void DrawPath(CompositePath Path, LevelEditorScene scene, PathPoint referencePoint = null, IPath selectedPath = null, bool highlightAll = false)
         {
             float t = 0f;
             PathPoint lastPos = Path.GetPoint(t);
@@ -38,7 +38,7 @@ namespace AstroDroids.Editors
 
                     PathPoint point = keyPoints[j];
 
-                    scene.DrawNode($"{i}:{j}", point, selectedPath == path ? Color.Cyan : Color.Red, Color.Green, 14);
+                    scene.DrawNode($"{i}:{j}", point, selectedPath == path || highlightAll ? Color.Cyan : Color.Red, Color.Green, 14);
                 }
 
                 first = false;

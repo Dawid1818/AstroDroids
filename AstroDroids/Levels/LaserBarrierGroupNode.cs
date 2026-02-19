@@ -9,12 +9,15 @@ namespace AstroDroids.Levels
 {
     public class LaserBarrierGroupNode : Entity, ISaveable
     {
+        public double InitialDelay { get; set; } = 0f;
         public int AvailableId { get; set; } = 0;
         public Dictionary<int, LaserBarrierNode> Nodes { get; private set; } = new Dictionary<int, LaserBarrierNode>();
 
         public void Load(BinaryReader reader, int version)
         {
             Transform.Position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+
+            InitialDelay = reader.ReadDouble();
 
             AvailableId = reader.ReadInt32();
 
@@ -33,6 +36,8 @@ namespace AstroDroids.Levels
         {
             writer.Write(Transform.Position.X);
             writer.Write(Transform.Position.Y);
+
+            writer.Write(InitialDelay);
 
             writer.Write(AvailableId);
 

@@ -75,6 +75,10 @@ namespace AstroDroids.Entities.Hostile
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
             }
+            else
+            {
+                DefaultMove();
+            }
 
             for (int i = connections.Count - 1; i >= 0; i--)
             {

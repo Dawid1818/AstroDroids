@@ -23,6 +23,8 @@ namespace AstroDroids.Projectiles.Hostile
 
         public override void Update(GameTime gameTime)
         {
+            DefaultMove();
+
             foreach (var item in Scene.World.GetPlayers())
             {
                 if (item.Intersects(this))

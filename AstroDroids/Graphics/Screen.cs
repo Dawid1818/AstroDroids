@@ -96,7 +96,7 @@ namespace AstroDroids.Graphics
 
         public static void ResetCamera()
         {
-            CameraPosition = new Vector2(graphicsManager.GraphicsDevice.Viewport.Width / 2f, graphicsManager.GraphicsDevice.Viewport.Height / 2f);
+            CameraPosition = new Vector2(ScreenWidth / 2f, ScreenHeight / 2f);
             ScreenScale = 1.0f;
         }
 

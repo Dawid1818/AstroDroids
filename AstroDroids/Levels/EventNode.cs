@@ -7,11 +7,14 @@ namespace AstroDroids.Levels
     public class EventNode : Entity
     {
         public string EventId = string.Empty;
+        public double InitialDelay { get; set; } = 0f;
         public void Load(BinaryReader reader, int version)
         {
             Transform.Position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
 
             EventId = reader.ReadString();
+
+            InitialDelay = reader.ReadDouble();
         }
 
         public void Save(BinaryWriter writer)
@@ -20,6 +23,8 @@ namespace AstroDroids.Levels
             writer.Write(Transform.Position.Y);
 
             writer.Write(EventId);
+
+            writer.Write(InitialDelay);
         }
     }
 }

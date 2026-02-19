@@ -40,6 +40,10 @@ namespace AstroDroids.Entities.Hostile
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
             }
+            else
+            {
+                DefaultMove();
+            }
 
             //if (Path != null)
             //{

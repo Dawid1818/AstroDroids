@@ -33,7 +33,8 @@ namespace AstroDroids.Scenes
 
             GameState.NewState();
 
-            World = new GameWorld();
+            if(World == null)
+                World = new GameWorld();
 
             World.Initialize();
 
@@ -62,8 +63,6 @@ namespace AstroDroids.Scenes
 
             World.Update(gameTime);
 
-            Screen.MoveCamera(new Vector2(0, -2));
-
             if(InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
             {
                 LevelManager.QuitPlaytest();
@@ -72,10 +71,6 @@ namespace AstroDroids.Scenes
 
         public override void Draw(GameTime gameTime)
         {
-            //Screen.spriteBatch.Draw(TextureManager.GetStarfield(), Vector2.Zero, Color.White);
-
-            //Screen.spriteBatch.End();
-
             Matrix projection = Matrix.CreateOrthographicOffCenter(0, Screen.ScreenWidth, Screen.ScreenHeight, 0, 0, 1);
             Matrix uv_transform = Screen.GetUVTransform(TextureManager.GetStarfield(), new Vector2(0, 0), 1f, Screen.Viewport);
 

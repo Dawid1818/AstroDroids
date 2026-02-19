@@ -43,16 +43,17 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Update(GameTime gameTime)
         {
-            if (PathManager != null)
+            if (PathManager != null && PathManager.Active)
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
+                RMM.UpdatePosition(PathManager.Position);
             }
             else
             {
                 RMM.Update(gameTime);
                 Transform.LocalPosition = RMM.Position;
-                if(!RMM.Active)
+                if (!RMM.Active)
                 {
                     RMM.SetNewPath(true);
                 }
