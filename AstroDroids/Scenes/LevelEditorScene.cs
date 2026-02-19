@@ -120,6 +120,9 @@ namespace AstroDroids.Scenes
                 if (InputSystem.GetKey(Keys.D))
                     cameraTranslation.X += cameraMoveSpeed;
 
+                if (InputSystem.GetKeyDown(Keys.G))
+                    DrawGrid = !DrawGrid;
+
                 Screen.MoveCamera(cameraTranslation);
 
                 int scrollDelta = InputSystem.GetScrollDelta();

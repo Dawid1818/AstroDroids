@@ -1,14 +1,17 @@
-﻿using AstroDroids.Paths;
+﻿using AstroDroids.Extensions;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Levels;
+using AstroDroids.Paths;
 using AstroDroids.Scenes;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using AstroDroids.Extensions;
+using System.IO;
 using System.Linq;
 
 namespace AstroDroids.Editors
@@ -49,6 +52,24 @@ namespace AstroDroids.Editors
 
             if (Path != null)
             {
+                if (InputSystem.GetKeyDown(Keys.C))
+                {
+                    AddNewSubpath(mousePos);
+                }
+
+                if (InputSystem.GetKeyDown(Keys.Delete) && selectedPath != null)
+                {
+                    DeleteSelectedPath();
+                }
+
+                if(InputSystem.GetKeyDown(Keys.D1))
+                {
+                    PathSelection = 0;
+                }else if(InputSystem.GetKeyDown(Keys.D2))
+                {
+                    PathSelection = 1;
+                }
+
                 if (InputSystem.GetLMB())
                 {
                     if (!isDraggingPoint)
@@ -91,11 +112,11 @@ namespace AstroDroids.Editors
                         draggedPoint.X = mousePos.X;
                         draggedPoint.Y = mousePos.Y;
 
-                        if(draggedPoint == selectedPath.EndPoint)
+                        if (draggedPoint == selectedPath.EndPoint)
                         {
                             int ind = paths.IndexOf(selectedPath);
                             ind++;
-                            if(ind < paths.Count)
+                            if (ind < paths.Count)
                             {
                                 paths[ind].StartPoint.X = mousePos.X;
                                 paths[ind].StartPoint.Y = mousePos.Y;
@@ -151,25 +172,7 @@ namespace AstroDroids.Editors
 
             if(ImGui.Button("Add"))
             {
-                IPath path = null;
-                switch (PathSelection)
-                {
-                    case 0:
-                    default:
-                        path = new LinePath();
-                        break;
-                    case 1:
-                        path = new BezierPath();
-                        break;
-                }
-
-                if(paths.LastOrDefault() is IPath lastPath)
-                {
-                    path.StartPoint.X = lastPath.EndPoint.X;
-                    path.StartPoint.Y = lastPath.EndPoint.Y;
-                }
-
-                Path.Add(path);
+                AddNewSubpath(Vector2.Zero);
             }
 
             ImGui.SameLine();
@@ -177,8 +180,7 @@ namespace AstroDroids.Editors
             ImGui.BeginDisabled(selectedPath == null);
             if(ImGui.Button("Remove") && selectedPath != null)
             {
-                Path.Remove(selectedPath);
-                selectedPath = null;
+                DeleteSelectedPath();
             }
             ImGui.SameLine();
             if (ImGui.Button("Up") && selectedPath != null)
@@ -199,6 +201,55 @@ namespace AstroDroids.Editors
             }
 
             ImGui.End();
+        }
+
+        void DeleteSelectedPath()
+        {
+            Path.Remove(selectedPath);
+            selectedPath = null;
+
+            List<IPath> paths = Path.Decompose();
+
+            for (int i = 1; i < paths.Count; i++)
+            {
+                IPath path = paths[i];
+
+                if (i != 0)
+                {
+                    if (paths[i - 1] is IPath prevPath)
+                    {
+                        path.StartPoint.X = prevPath.EndPoint.X;
+                        path.StartPoint.Y = prevPath.EndPoint.Y;
+                    }
+                }
+            }
+        }
+
+        void AddNewSubpath(Vector2 end)
+        {
+            IPath path = null;
+            Vector2 start = Vector2.Zero;
+
+            if (Path.Decompose().LastOrDefault() is IPath lastPath)
+            {
+                start.X = lastPath.EndPoint.X;
+                start.Y = lastPath.EndPoint.Y;
+            }
+
+            switch (PathSelection)
+            {
+                case 0:
+                default:
+                    path = new LinePath(start, end);
+                    break;
+                case 1:
+                    path = GameHelper.CreateBezier(start, end);
+                    path.EndPoint.X = end.X;
+                    path.EndPoint.Y = end.Y;
+                    break;
+            }
+
+            Path.Add(path);
         }
 
         string GetPathTypeName(int id)
