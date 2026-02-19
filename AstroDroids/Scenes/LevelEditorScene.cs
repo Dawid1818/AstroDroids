@@ -59,10 +59,6 @@ namespace AstroDroids.Scenes
         Vector2 savedCameraPos;
         float savedCameraZoom;
 
-        AttackWave wave;
-
-        int selectedWave = -1;
-
         public LevelEditorScene()
         {
             World = new GameWorld();
@@ -383,17 +379,17 @@ namespace AstroDroids.Scenes
                 ImGui.BeginDisabled();
             if (ImGui.Button("Create Spawner"))
             {
-                waveEditor.wave.CreateSpawner(Screen.GetCameraPosition());
+                waveEditor.AllNodes.Add(waveEditor.wave.CreateSpawner(Screen.GetCameraPosition()));
             }
             ImGui.SameLine();
             if (ImGui.Button("Create Event"))
             {
-                waveEditor.wave.CreateEvent(Screen.GetCameraPosition());
+                waveEditor.AllNodes.Add(waveEditor.wave.CreateEvent(Screen.GetCameraPosition()));
             }
             ImGui.SameLine();
             if (ImGui.Button("Create LBarrier"))
             {
-                waveEditor.wave.CreateLaserBarrier(Screen.GetCameraPosition());
+                waveEditor.AllNodes.Add(waveEditor.wave.CreateLaserBarrier(Screen.GetCameraPosition()));
             }
             if (mode != EditorMode.Main || waveEditor.wave == null)
                 ImGui.EndDisabled();

@@ -19,6 +19,7 @@ namespace AstroDroids.Editors
     public class AttackWaveEditor
     {
         Level level { get { return LevelManager.CurrentLevel; } set { LevelManager.CurrentLevel = value; } }
+        public List<Entity> AllNodes { get; private set; } = new List<Entity>();
 
         public AttackWave wave { get; private set; }
         LevelEditorScene scene;
@@ -51,7 +52,26 @@ namespace AstroDroids.Editors
             isDraggingSpawnPosition = false;
             selectedSpawnPoint = null;
             selectedNodes.Clear();
+            AllNodes.Clear();
             wave = null;
+        }
+
+        void LoadAllNodes()
+        {
+            foreach (var item in wave.Spawners)
+            {
+                AllNodes.Add(item);
+            }
+
+            foreach (var item in wave.Events)
+            {
+                AllNodes.Add(item);
+            }
+
+            foreach (var item in wave.LaserBarriers)
+            {
+                AllNodes.Add(item);
+            }
         }
 
         public void Update()
@@ -73,26 +93,31 @@ namespace AstroDroids.Editors
                 {
                     Entity foundNode = null;
 
-                    foreach (var spawner in wave.Spawners)
+                    foreach (var node in AllNodes)
                     {
                         RectangleF col;
-                        if (!spawner.HasPath)
+
+                        if (node is EnemySpawner spawner)
                         {
-                            col = new RectangleF(spawner.SpawnPosition.X - 16f, spawner.SpawnPosition.Y - 16f, 32f, 32f);
-                            if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
+
+                            if (!spawner.HasPath)
                             {
-                                if (lmb)
+                                col = new RectangleF(spawner.SpawnPosition.X - 16f, spawner.SpawnPosition.Y - 16f, 32f, 32f);
+                                if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
                                 {
-                                    isDraggingNode = false;
-                                    isDraggingSpawnPosition = true;
+                                    if (lmb)
+                                    {
+                                        isDraggingNode = false;
+                                        isDraggingSpawnPosition = true;
+                                    }
+                                    foundNode = node;
+                                    selectedSpawnPoint = spawner.SpawnPosition;
+                                    break;
                                 }
-                                foundNode = spawner;
-                                selectedSpawnPoint = spawner.SpawnPosition;
-                                break;
                             }
                         }
 
-                        col = new RectangleF(spawner.Transform.Position.X - 16f, spawner.Transform.Position.Y - 16f, 32f, 32f);
+                        col = new RectangleF(node.Transform.Position.X - 16f, node.Transform.Position.Y - 16f, 32f, 32f);
                         if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
                         {
                             if (lmb)
@@ -100,49 +125,9 @@ namespace AstroDroids.Editors
                                 isDraggingNode = true;
                                 isDraggingSpawnPosition = false;
                             }
-                            foundNode = spawner;
+                            foundNode = node;
                             selectedSpawnPoint = null;
                             break;
-                        }
-                    }
-
-                    if (foundNode == null)
-                    {
-                        foreach (var eventNode in wave.Events)
-                        {
-                            RectangleF col = new RectangleF(eventNode.Transform.Position.X - 16f, eventNode.Transform.Position.Y - 16f, 32f, 32f);
-                            if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
-                            {
-                                if (lmb)
-                                {
-                                    isDraggingNode = true;
-                                    isDraggingSpawnPosition = false;
-                                }
-
-                                foundNode = eventNode;
-                                selectedSpawnPoint = null;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (foundNode == null)
-                    {
-                        foreach (var laserBarrierNode in wave.LaserBarriers)
-                        {
-                            RectangleF col = new RectangleF(laserBarrierNode.Transform.Position.X - 16f, laserBarrierNode.Transform.Position.Y - 16f, 32f, 32f);
-                            if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
-                            {
-                                if (lmb)
-                                {
-                                    isDraggingNode = true;
-                                    isDraggingSpawnPosition = false;
-                                }
-
-                                foundNode = laserBarrierNode;
-                                selectedSpawnPoint = null;
-                                break;
-                            }
                         }
                     }
 
@@ -224,28 +209,13 @@ namespace AstroDroids.Editors
                         Math.Abs(mousePos.Y - selRectStart.Y)
                     );
                     selectedNodes.Clear();
-                    foreach (var spawner in wave.Spawners)
+
+                    foreach (var node in AllNodes)
                     {
-                        RectangleF col = new RectangleF(spawner.Transform.Position.X - 16f, spawner.Transform.Position.Y - 16f, 32f, 32f);
+                        RectangleF col = new RectangleF(node.Transform.Position.X - 16f, node.Transform.Position.Y - 16f, 32f, 32f);
                         if (selectionRect.Intersects(col))
                         {
-                            selectedNodes.Add(spawner);
-                        }
-                    }
-                    foreach (var eventNode in wave.Events)
-                    {
-                        RectangleF col = new RectangleF(eventNode.Transform.Position.X - 16f, eventNode.Transform.Position.Y - 16f, 32f, 32f);
-                        if (selectionRect.Intersects(col))
-                        {
-                            selectedNodes.Add(eventNode);
-                        }
-                    }
-                    foreach (var laserBarrierNode in wave.LaserBarriers)
-                    {
-                        RectangleF col = new RectangleF(laserBarrierNode.Transform.Position.X - 16f, laserBarrierNode.Transform.Position.Y - 16f, 32f, 32f);
-                        if (selectionRect.Intersects(col))
-                        {
-                            selectedNodes.Add(laserBarrierNode);
+                            selectedNodes.Add(node);
                         }
                     }
                 }
@@ -261,6 +231,8 @@ namespace AstroDroids.Editors
                         wave.RemoveEvent(eventN);
                     else if (selectedNode is LaserBarrierGroupNode laserBarrierN)
                         wave.RemoveLaserBarrier(laserBarrierN);
+
+                    AllNodes.Remove(selectedNode);
                 }
 
                 selectedNodes.Clear();
@@ -268,13 +240,13 @@ namespace AstroDroids.Editors
             }
 
             if (InputSystem.GetKeyDown(Keys.C))
-                wave.CreateSpawner(mousePos);
+                AllNodes.Add(wave.CreateSpawner(mousePos));
 
             if (InputSystem.GetKeyDown(Keys.V))
-                wave.CreateEvent(mousePos);
+                AllNodes.Add(wave.CreateEvent(mousePos));
 
             if (InputSystem.GetKeyDown(Keys.B))
-                wave.CreateLaserBarrier(mousePos);
+                AllNodes.Add(wave.CreateLaserBarrier(mousePos));
 
             if (InputSystem.GetKeyDown(Keys.T) && wave != null)
                 LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
@@ -289,33 +261,34 @@ namespace AstroDroids.Editors
 
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
 
-            foreach (var spawner in wave.Spawners)
+            foreach (var node in AllNodes)
             {
-                if (!spawner.HasPath)
-                    Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
-                else
+                if (node is EnemySpawner spawner)
                 {
-                    PathVisualizer.DrawPath(spawner.Path, scene, highlightAll: selectedNodes.Contains(spawner));
+                    if (!spawner.HasPath)
+                        Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
+                    else
+                    {
+                        PathVisualizer.DrawPath(spawner.Path, scene, highlightAll: selectedNodes.Contains(spawner));
+                    }
+
+                    scene.DrawNode("S", spawner.Transform.Position, selectedNodes.Contains(spawner) ? Color.Cyan : Color.Orange, Color.Green);
+
+                    if (!spawner.HasPath)
+                    {
+                        scene.DrawNode(string.Empty, spawner.SpawnPosition, Color.Red, Color.Green);
+                    }
                 }
-
-                scene.DrawNode("S", spawner.Transform.Position, selectedNodes.Contains(spawner) ? Color.Cyan : Color.Orange, Color.Green);
-
-                if (!spawner.HasPath)
+                else if (node is EventNode eventN)
                 {
-                    scene.DrawNode(string.Empty, spawner.SpawnPosition, Color.Red, Color.Green);
+                    scene.DrawNode("E", eventN.Transform.Position, selectedNodes.Contains(eventN) ? Color.Cyan : Color.Gray, Color.White);
                 }
-            }
+                else if (node is LaserBarrierGroupNode laserBarrierN)
+                {
+                    scene.DrawNode("B", laserBarrierN.Transform.Position, selectedNodes.Contains(laserBarrierN) ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
 
-            foreach (var eventN in wave.Events)
-            {
-                scene.DrawNode("E", eventN.Transform.Position, selectedNodes.Contains(eventN) ? Color.Cyan : Color.Gray, Color.White);
-            }
-
-            foreach (var laserBarrierN in wave.LaserBarriers)
-            {
-                scene.DrawNode("B", laserBarrierN.Transform.Position, selectedNodes.Contains(laserBarrierN) ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
-
-                scene.barrierEditor.DrawBarriers(laserBarrierN);
+                    scene.barrierEditor.DrawBarriers(laserBarrierN);
+                }
             }
 
             if (isDraggingSelRect)
@@ -347,6 +320,8 @@ namespace AstroDroids.Editors
                             if (wave != thisWave)
                             {
                                 wave = thisWave;
+
+                                LoadAllNodes();
 
                                 isDraggingNode = false;
                                 isDraggingSelRect = false;

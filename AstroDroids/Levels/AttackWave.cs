@@ -75,20 +75,28 @@ namespace AstroDroids.Levels
             }
         }
 
-        public void CreateSpawner(Vector2 Position)
+        public EnemySpawner CreateSpawner(Vector2 Position)
         {
             //Spawners.Add(new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), Curve = new Curves.BezierPath(new List<Vector2>() { Position, Position, Position, Position }) });
-            Spawners.Add(new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), SpawnPosition = Position });
+            EnemySpawner spawner = new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), SpawnPosition = Position };
+            Spawners.Add(spawner);
+            return spawner;
         }
 
-        public void CreateEvent(Vector2 Position)
+        public EventNode CreateEvent(Vector2 Position)
         {
-            Events.Add(new EventNode() { Transform = new Entities.Transform(Position.X, Position.Y) });
+            EventNode node = new EventNode() { Transform = new Entities.Transform(Position.X, Position.Y) };
+            Events.Add(node);
+            return node;
         }
 
-        public void CreateLaserBarrier(Vector2 Position)
+        public LaserBarrierGroupNode CreateLaserBarrier(Vector2 Position)
         {
-            LaserBarriers.Add(new LaserBarrierGroupNode() { Transform = new Entities.Transform(Position.X, Position.Y) });
+            LaserBarrierGroupNode node = new LaserBarrierGroupNode() { Transform = new Entities.Transform(Position.X, Position.Y) };
+
+            LaserBarriers.Add(node);
+
+            return node;
         }
 
         public void RemoveSpawner(EnemySpawner spawner)
