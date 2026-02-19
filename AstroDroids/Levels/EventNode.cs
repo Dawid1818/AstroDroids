@@ -1,10 +1,11 @@
 ﻿using AstroDroids.Entities;
+using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
 using System.IO;
 
 namespace AstroDroids.Levels
 {
-    public class EventNode : Entity
+    public class EventNode : Entity, ISaveable
     {
         public string EventId = string.Empty;
         public double InitialDelay { get; set; } = 0f;

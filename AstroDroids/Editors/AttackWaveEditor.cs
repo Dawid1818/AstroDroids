@@ -2,6 +2,7 @@
 using AstroDroids.Extensions;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
+using AstroDroids.Interfaces;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
@@ -12,6 +13,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Numeric = System.Numerics;
 
 namespace AstroDroids.Editors
@@ -35,6 +37,9 @@ namespace AstroDroids.Editors
 
         int selectedEnemyType = 0;
         int selectedEnemy = -1;
+
+        MemoryStream copyBuffer;
+
         public AttackWaveEditor(LevelEditorScene scene)
         {
             this.scene = scene;
@@ -240,10 +245,28 @@ namespace AstroDroids.Editors
             }
 
             if (InputSystem.GetKeyDown(Keys.C))
-                AllNodes.Add(wave.CreateSpawner(mousePos));
+            {
+                if (InputSystem.GetKey(Keys.LeftControl))
+                {
+                    CopyNodes();
+                }
+                else
+                {
+                    AllNodes.Add(wave.CreateSpawner(mousePos));
+                }
+            }
 
             if (InputSystem.GetKeyDown(Keys.V))
-                AllNodes.Add(wave.CreateEvent(mousePos));
+            {
+                if (InputSystem.GetKey(Keys.LeftControl))
+                {
+                    PasteNodes();
+                }
+                else
+                {
+                    AllNodes.Add(wave.CreateEvent(mousePos));
+                }
+            }
 
             if (InputSystem.GetKeyDown(Keys.B))
                 AllNodes.Add(wave.CreateLaserBarrier(mousePos));
@@ -252,6 +275,116 @@ namespace AstroDroids.Editors
                 LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
 
             prevMousePos = mousePos;
+        }
+
+        void CopyNodes()
+        {
+            if (selectedNodes.Count == 0)
+                return;
+
+            if (copyBuffer != null)
+            {
+                copyBuffer.Dispose();
+                copyBuffer = null;
+            }
+
+            copyBuffer = new MemoryStream();
+            BinaryWriter writer = new BinaryWriter(copyBuffer, System.Text.Encoding.UTF8, true);
+
+            writer.Write(selectedNodes[0].Transform.Position.X);
+            writer.Write(selectedNodes[0].Transform.Position.Y);
+
+            writer.Write(selectedNodes.Count);
+            foreach (var item in selectedNodes)
+            {
+                ISaveable saveable = item as ISaveable;
+
+                switch (saveable)
+                {
+                    case EnemySpawner spawner:
+                        writer.Write(0);
+                        break;
+                    case EventNode eventN:
+                        writer.Write(1);
+                        break;
+                    case LaserBarrierGroupNode barrierGroupN:
+                        writer.Write(2);
+                        break;
+                    default:
+                        return;
+                }
+
+                saveable.Save(writer);
+            }
+            writer.Dispose();
+        }
+
+        void PasteNodes()
+        {
+            if (copyBuffer == null)
+                return;
+
+            copyBuffer.Position = 0;
+
+            BinaryReader reader = new BinaryReader(copyBuffer, System.Text.Encoding.UTF8, true);
+
+            Vector2 startPos = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+            Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+
+            Vector2 delta = mousePos - startPos;
+
+            int count = reader.ReadInt32();
+
+            for (int i = 0; i < count; i++)
+            {
+                int val = reader.ReadInt32();
+
+                ISaveable node;
+
+                switch (val)
+                {
+                    case 0:
+                        node = new EnemySpawner();
+                        node.Load(reader, 0);
+                        EnemySpawner spawner = node as EnemySpawner;
+                        wave.Spawners.Add(spawner);
+
+                        if (!spawner.HasPath)
+                        {
+                            spawner.SpawnPosition += delta;
+                        }
+                        else
+                        {
+                            spawner.Path.Translate(delta);
+                        }
+
+                        break;
+                    case 1:
+                        node = new EventNode();
+                        node.Load(reader, 0);
+                        wave.Events.Add(node as EventNode);
+                        break;
+                    case 2:
+                        node = new LaserBarrierGroupNode();
+                        node.Load(reader, 0);
+                        LaserBarrierGroupNode laserGroupN = node as LaserBarrierGroupNode;
+                        wave.LaserBarriers.Add(laserGroupN);
+
+                        laserGroupN.Translate(delta);
+                        break;
+                    default:
+                        reader.Dispose();
+                        return;
+                }
+
+                Entity entNode = (node as Entity);
+
+                AllNodes.Add(entNode);
+
+                entNode.Transform.Position += delta;
+            }
+
+            reader.Dispose();
         }
 
         public void Draw()
@@ -321,6 +454,7 @@ namespace AstroDroids.Editors
                             {
                                 wave = thisWave;
 
+                                AllNodes.Clear();
                                 LoadAllNodes();
 
                                 isDraggingNode = false;
