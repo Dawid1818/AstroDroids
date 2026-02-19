@@ -1,7 +1,6 @@
 ﻿
-using AstroDroids.Paths;
 using AstroDroids.Gameplay;
-using Microsoft.Xna.Framework;
+using AstroDroids.Paths;
 
 namespace AstroDroids.Entities
 {
@@ -28,7 +27,7 @@ namespace AstroDroids.Entities
 
         public override void Destroyed()
         {
-            if(destroyed) return;
+            if (destroyed) return;
 
             //spawn explosion later
             GameState.AddScore(Score);

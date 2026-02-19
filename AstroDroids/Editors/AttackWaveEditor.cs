@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Entities;
+using AstroDroids.Entities.Hostile;
 using AstroDroids.Extensions;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
@@ -271,6 +272,9 @@ namespace AstroDroids.Editors
             if (InputSystem.GetKeyDown(Keys.B))
                 AllNodes.Add(wave.CreateLaserBarrier(mousePos));
 
+            if (InputSystem.GetKeyDown(Keys.N))
+                AllNodes.Add(wave.CreateBackgroundObject(mousePos));
+
             if (InputSystem.GetKeyDown(Keys.T) && wave != null)
                 LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
 
@@ -309,6 +313,9 @@ namespace AstroDroids.Editors
                         break;
                     case LaserBarrierGroupNode barrierGroupN:
                         writer.Write(2);
+                        break;
+                    case BackgroundObjectNode bgObjN:
+                        writer.Write(3);
                         break;
                     default:
                         return;
@@ -372,6 +379,12 @@ namespace AstroDroids.Editors
 
                         laserGroupN.Translate(delta);
                         break;
+                    case 3:
+                        node = new BackgroundObjectNode();
+                        node.Load(reader, 0);
+                        BackgroundObjectNode bgObjN = node as BackgroundObjectNode;
+                        wave.BackgroundObjects.Add(bgObjN);
+                        break;
                     default:
                         reader.Dispose();
                         return;
@@ -396,16 +409,18 @@ namespace AstroDroids.Editors
 
             foreach (var node in AllNodes)
             {
+                bool selected = selectedNodes.Contains(node);
+
                 if (node is EnemySpawner spawner)
                 {
                     if (!spawner.HasPath)
                         Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
                     else
                     {
-                        PathVisualizer.DrawPath(spawner.Path, scene, highlightAll: selectedNodes.Contains(spawner));
+                        PathVisualizer.DrawPath(spawner.Path, scene, highlightAll: selected);
                     }
 
-                    scene.DrawNode("S", spawner.Transform.Position, selectedNodes.Contains(spawner) ? Color.Cyan : Color.Orange, Color.Green);
+                    scene.DrawNode("S", spawner.Transform.Position, selected ? Color.Cyan : Color.Orange, Color.Green);
 
                     if (!spawner.HasPath)
                     {
@@ -414,13 +429,19 @@ namespace AstroDroids.Editors
                 }
                 else if (node is EventNode eventN)
                 {
-                    scene.DrawNode("E", eventN.Transform.Position, selectedNodes.Contains(eventN) ? Color.Cyan : Color.Gray, Color.White);
+                    scene.DrawNode("E", eventN.Transform.Position, selected ? Color.Cyan : Color.Gray, Color.White);
                 }
                 else if (node is LaserBarrierGroupNode laserBarrierN)
                 {
-                    scene.DrawNode("B", laserBarrierN.Transform.Position, selectedNodes.Contains(laserBarrierN) ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
+                    scene.DrawNode("BA", laserBarrierN.Transform.Position, selected ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
 
                     scene.barrierEditor.DrawBarriers(laserBarrierN);
+                }
+                else if (node is BackgroundObjectNode bgObjN)
+                {
+                    Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)bgObjN.Transform.Position.X, (int)bgObjN.Transform.Position.Y, 64, 64), Color.White);
+                    //placeholder
+                    scene.DrawNode("BG", bgObjN.Transform.Position, selected ? Color.Cyan : Color.LightSkyBlue, Color.DarkSlateGray);
                 }
             }
 
@@ -565,6 +586,10 @@ namespace AstroDroids.Editors
                 else if (selectedNode is LaserBarrierGroupNode laserBarrierN)
                 {
                     LaserBarrierProperties(laserBarrierN);
+                }
+                else if (selectedNode is BackgroundObjectNode bgObjN)
+                {
+                    BackgroundObjectProperties(bgObjN);
                 }
             }
             else
@@ -744,6 +769,17 @@ namespace AstroDroids.Editors
             {
                 scene.mode = EditorMode.Barrier;
                 scene.barrierEditor.SetBarrier(laserBarrierN);
+            }
+        }
+
+        void BackgroundObjectProperties(BackgroundObjectNode bgObjN)
+        {
+            ImGui.SeparatorText("Background object settings");
+
+            double initialDelay = bgObjN.InitialDelay;
+            if (ImGui.InputDouble("Initial delay", ref initialDelay))
+            {
+                bgObjN.InitialDelay = initialDelay;
             }
         }
     }

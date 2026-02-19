@@ -363,7 +363,7 @@ namespace AstroDroids.Scenes
         void BottomBar()
         {
             int bottomBarHeight = 55;
-            int bottomBarWidth = 475;
+            int bottomBarWidth = 553;
             int bottomBarSpacing = 5;
 
             ImGui.SetNextWindowSize(new Numeric.Vector2(bottomBarWidth, bottomBarHeight));
@@ -393,6 +393,11 @@ namespace AstroDroids.Scenes
             if (ImGui.Button("Create LBarrier"))
             {
                 waveEditor.AllNodes.Add(waveEditor.wave.CreateLaserBarrier(Screen.GetCameraPosition()));
+            }
+            ImGui.SameLine();
+            if (ImGui.Button("Create BG"))
+            {
+                waveEditor.AllNodes.Add(waveEditor.wave.CreateBackgroundObject(Screen.GetCameraPosition()));
             }
             if (mode != EditorMode.Main || waveEditor.wave == null)
                 ImGui.EndDisabled();

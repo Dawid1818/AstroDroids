@@ -11,7 +11,6 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace AstroDroids.Editors
@@ -62,10 +61,11 @@ namespace AstroDroids.Editors
                     DeleteSelectedPath();
                 }
 
-                if(InputSystem.GetKeyDown(Keys.D1))
+                if (InputSystem.GetKeyDown(Keys.D1))
                 {
                     PathSelection = 0;
-                }else if(InputSystem.GetKeyDown(Keys.D2))
+                }
+                else if (InputSystem.GetKeyDown(Keys.D2))
                 {
                     PathSelection = 1;
                 }
@@ -145,7 +145,7 @@ namespace AstroDroids.Editors
 
             ImGui.SetNextItemWidth(-1);
 
-            if(ImGui.BeginListBox("##Paths"))
+            if (ImGui.BeginListBox("##Paths"))
             {
                 for (int i = 0; i < paths.Count; i++)
                 {
@@ -170,7 +170,7 @@ namespace AstroDroids.Editors
                 ImGui.EndCombo();
             }
 
-            if(ImGui.Button("Add"))
+            if (ImGui.Button("Add"))
             {
                 AddNewSubpath(Vector2.Zero);
             }
@@ -178,7 +178,7 @@ namespace AstroDroids.Editors
             ImGui.SameLine();
 
             ImGui.BeginDisabled(selectedPath == null);
-            if(ImGui.Button("Remove") && selectedPath != null)
+            if (ImGui.Button("Remove") && selectedPath != null)
             {
                 DeleteSelectedPath();
             }
@@ -194,7 +194,7 @@ namespace AstroDroids.Editors
             }
             ImGui.EndDisabled();
 
-            if(ImGui.Button("Return"))
+            if (ImGui.Button("Return"))
             {
                 Path = null;
                 scene.ReturnFromEditor();

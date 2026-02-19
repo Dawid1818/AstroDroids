@@ -12,6 +12,7 @@ namespace AstroDroids.Levels
         public List<EnemySpawner> Spawners { get; private set; } = new List<EnemySpawner>();
         public List<EventNode> Events { get; private set; } = new List<EventNode>();
         public List<LaserBarrierGroupNode> LaserBarriers { get; private set; } = new List<LaserBarrierGroupNode>();
+        public List<BackgroundObjectNode> BackgroundObjects { get; private set; } = new List<BackgroundObjectNode>();
         public bool WaitForPreviousWave { get; set; } = false;
 
         public void Load(BinaryReader reader, int version)
@@ -47,6 +48,15 @@ namespace AstroDroids.Levels
                 barrierN.Load(reader, version);
                 LaserBarriers.Add(barrierN);
             }
+
+            BackgroundObjects = new List<BackgroundObjectNode>();
+            int bgObjectsCount = reader.ReadInt32();
+            for (int i = 0; i < bgObjectsCount; i++)
+            {
+                BackgroundObjectNode bgObjN = new BackgroundObjectNode();
+                bgObjN.Load(reader, version);
+                BackgroundObjects.Add(bgObjN);
+            }
         }
 
         public void Save(BinaryWriter writer)
@@ -73,11 +83,16 @@ namespace AstroDroids.Levels
             {
                 barrierN.Save(writer);
             }
+
+            writer.Write(BackgroundObjects.Count);
+            foreach (var bgObjN in BackgroundObjects)
+            {
+                bgObjN.Save(writer);
+            }
         }
 
         public EnemySpawner CreateSpawner(Vector2 Position)
         {
-            //Spawners.Add(new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), Curve = new Curves.BezierPath(new List<Vector2>() { Position, Position, Position, Position }) });
             EnemySpawner spawner = new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), SpawnPosition = Position };
             Spawners.Add(spawner);
             return spawner;
@@ -99,6 +114,13 @@ namespace AstroDroids.Levels
             return node;
         }
 
+        public BackgroundObjectNode CreateBackgroundObject(Vector2 Position)
+        {
+            BackgroundObjectNode bgobject = new BackgroundObjectNode() { Transform = new Entities.Transform(Position.X, Position.Y) };
+            BackgroundObjects.Add(bgobject);
+            return bgobject;
+        }
+
         public void RemoveSpawner(EnemySpawner spawner)
         {
             Spawners.Remove(spawner);
@@ -112,6 +134,11 @@ namespace AstroDroids.Levels
         public void RemoveLaserBarrier(LaserBarrierGroupNode barrierN)
         {
             LaserBarriers.Remove(barrierN);
+        }
+
+        public void RemoveBackgroundObject(BackgroundObjectNode bgobject)
+        {
+            BackgroundObjects.Remove(bgobject);
         }
     }
 }

@@ -27,6 +27,9 @@ namespace AstroDroids.Gameplay
         public List<AliveEntity> Enemies { get; } = new List<AliveEntity>();
         public List<AliveEntity> EnemiesToRemove { get; } = new List<AliveEntity>();
 
+        public List<Entity> BackgroundObjects { get; } = new List<Entity>();
+        public List<Entity> BackgroundObjectsToRemove { get; } = new List<Entity>();
+
         public List<Projectile> Projectiles { get; } = new List<Projectile>();
         public List<Projectile> ProjectilesToRemove { get; } = new List<Projectile>();
 
@@ -91,6 +94,12 @@ namespace AstroDroids.Gameplay
                     StartCoroutine(ProcessEvents(eventN));
                 }
 
+                foreach (var eventN in item.BackgroundObjects)
+                {
+                    ongoingWaves++;
+                    StartCoroutine(SpawnBackgroundObjects(eventN));
+                }
+
                 if (i != AttackWaves.Count - 1)
                 {
                     AttackWave nextWave = AttackWaves[i + 1];
@@ -102,6 +111,17 @@ namespace AstroDroids.Gameplay
             }
 
             yield return null;
+        }
+
+        IEnumerator SpawnBackgroundObjects(BackgroundObjectNode bgObjectN)
+        {
+            if (bgObjectN.InitialDelay > 0)
+                yield return new WaitForSeconds(bgObjectN.InitialDelay);
+
+            BackgroundObject bgObj = new BackgroundObject() { Transform = new Transform(bgObjectN.Transform.Position.X, bgObjectN.Transform.Position.Y) };
+            AddBackgroundObject(bgObj);
+
+            ongoingWaves--;
         }
 
         IEnumerator SpawnEnemies(EnemySpawner spawner)
@@ -271,6 +291,17 @@ namespace AstroDroids.Gameplay
                 Effects.Remove(item);
             }
             EffectsToRemove.Clear();
+
+            foreach (var item in BackgroundObjects)
+            {
+                item.Update(gameTime);
+            }
+
+            foreach (var item in BackgroundObjectsToRemove)
+            {
+                BackgroundObjects.Remove(item);
+            }
+            BackgroundObjectsToRemove.Clear();
         }
 
         public void Draw(GameTime gameTime)
@@ -281,6 +312,11 @@ namespace AstroDroids.Gameplay
             Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
 
             Screen.spriteBatch.DrawRectangle(new RectangleF(0, camEntity.Transform.Position.Y, Bounds.Width, Bounds.Height), Color.Gray, 2f);
+
+            foreach (var item in BackgroundObjects)
+            {
+                item.Draw(gameTime);
+            }
 
             foreach (var item in Warnings)
             {
@@ -336,6 +372,16 @@ namespace AstroDroids.Gameplay
         public void RemoveEffect(ParticleEffect effect)
         {
             EffectsToRemove.Add(effect);
+        }
+
+        public void AddBackgroundObject(BackgroundObject bgObj)
+        {
+            BackgroundObjects.Add(bgObj);
+        }
+
+        public void RemoveBackgroundObject(BackgroundObject bgObj)
+        {
+            BackgroundObjects.Remove(bgObj);
         }
 
         public void AddWarning(Entity entity, bool followsCamera)
