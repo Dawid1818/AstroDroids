@@ -189,7 +189,7 @@ namespace AstroDroids.Scenes
             switch (mode)
             {
                 case EditorMode.Main:
-                    MainDraw();
+                    MainDraw(gameTime);
                     break;
                 case EditorMode.Path:
                     curveEditor.Draw(gameTime);
@@ -212,9 +212,9 @@ namespace AstroDroids.Scenes
                 Screen.ResetCamera();
         }
 
-        void MainDraw()
+        void MainDraw(GameTime gameTime)
         {
-            waveEditor.Draw();
+            waveEditor.Draw(gameTime);
         }
 
         public override void DrawImGui(GameTime gameTime)

@@ -1,5 +1,4 @@
 ﻿using AstroDroids.Entities;
-using AstroDroids.Entities.Hostile;
 using AstroDroids.Extensions;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
@@ -10,6 +9,7 @@ using AstroDroids.Paths;
 using AstroDroids.Scenes;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
@@ -75,6 +75,11 @@ namespace AstroDroids.Editors
             }
 
             foreach (var item in wave.LaserBarriers)
+            {
+                AllNodes.Add(item);
+            }
+
+            foreach (var item in wave.BackgroundObjects)
             {
                 AllNodes.Add(item);
             }
@@ -400,7 +405,7 @@ namespace AstroDroids.Editors
             reader.Dispose();
         }
 
-        public void Draw()
+        public void Draw(GameTime gameTime)
         {
             if (wave == null)
                 return;
@@ -439,8 +444,7 @@ namespace AstroDroids.Editors
                 }
                 else if (node is BackgroundObjectNode bgObjN)
                 {
-                    Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)bgObjN.Transform.Position.X, (int)bgObjN.Transform.Position.Y, 64, 64), Color.White);
-                    //placeholder
+                    bgObjN.Draw(gameTime);
                     scene.DrawNode("BG", bgObjN.Transform.Position, selected ? Color.Cyan : Color.LightSkyBlue, Color.DarkSlateGray);
                 }
             }
@@ -780,6 +784,38 @@ namespace AstroDroids.Editors
             if (ImGui.InputDouble("Initial delay", ref initialDelay))
             {
                 bgObjN.InitialDelay = initialDelay;
+            }
+
+            float angle = bgObjN.Angle;
+            if (ImGui.InputFloat("Rotation", ref angle))
+            {
+                bgObjN.Angle = angle;
+            }
+
+            bool flip = bgObjN.FlipH;
+            if(ImGui.Checkbox("Flip Horizontally", ref flip))
+            {
+                bgObjN.FlipH = flip;
+            }
+
+            flip = bgObjN.FlipV;
+            if (ImGui.Checkbox("Flip Vertically", ref flip))
+            {
+                bgObjN.FlipV = flip;
+            }
+
+            if (ImGui.BeginCombo("Texture", bgObjN.TextureName))
+            {
+                foreach (var item in TextureManager.GetBackgroundObjects())
+                {
+                    if(ImGui.Selectable(item.Name, bgObjN.TextureName == item.Name))
+                    {
+                        bgObjN.TextureName = item.Name;
+                        bgObjN.UpdateTexture();
+                    }
+                }
+
+                ImGui.EndCombo();
             }
         }
     }

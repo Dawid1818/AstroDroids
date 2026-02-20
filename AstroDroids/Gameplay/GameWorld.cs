@@ -118,7 +118,7 @@ namespace AstroDroids.Gameplay
             if (bgObjectN.InitialDelay > 0)
                 yield return new WaitForSeconds(bgObjectN.InitialDelay);
 
-            BackgroundObject bgObj = new BackgroundObject() { Transform = new Transform(bgObjectN.Transform.Position.X, bgObjectN.Transform.Position.Y) };
+            BackgroundObject bgObj = new BackgroundObject(bgObjectN.TextureName, bgObjectN.Angle, bgObjectN.FlipH, bgObjectN.FlipV) { Transform = new Transform(bgObjectN.Transform.Position.X, bgObjectN.Transform.Position.Y) };
             AddBackgroundObject(bgObj);
 
             ongoingWaves--;

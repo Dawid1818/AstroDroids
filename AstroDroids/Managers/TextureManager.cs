@@ -14,6 +14,7 @@ namespace AstroDroids.Managers
 
         static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         static List<Texture2D> starfields = new List<Texture2D>();
+        static List<Texture2D> backgroundobjects = new List<Texture2D>();
 
         public static void Initialize(AstroDroidsGame game)
         {
@@ -49,6 +50,7 @@ namespace AstroDroids.Managers
                 if (!textures.ContainsKey(textureName))
                 {
                     Texture2D texture = content.Load<Texture2D>(relativePath);
+                    texture.Name = textureName;
                     textures.Add(relativePath.Substring(9), texture);
                 }
             });
@@ -60,6 +62,8 @@ namespace AstroDroids.Managers
         {
             //Add starfields in order
             starfields.Add(textures["Starfields/BlueStarfield"]);
+
+            backgroundobjects.Add(textures["Background Objects/Arrow"]);
         }
 
         public static Texture2D GetPixelTexture() 
@@ -75,6 +79,23 @@ namespace AstroDroids.Managers
         public static List<Texture2D> GetStarfields()
         {
             return starfields;
+        }
+
+        public static List<Texture2D> GetBackgroundObjects()
+        {
+            return backgroundobjects;
+        }
+
+        public static Texture2D GetBackgroundObject(string name)
+        {
+            if (textures.TryGetValue($"Background Objects/{name}", out Texture2D texture))
+            {
+                return texture;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
