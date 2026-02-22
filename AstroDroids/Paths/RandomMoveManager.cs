@@ -49,10 +49,10 @@ namespace AstroDroids.Paths
 
             if (useBezier)
             {
-                TravelManager.SetPath(GameHelper.CreateBezier(Position, destination));
+                TravelManager.SetPath(GameHelper.CreateBezier(Position, destination), 1f);
             }
             else
-                TravelManager.SetPath(new LinePath(Position, destination));
+                TravelManager.SetPath(new LinePath(Position, destination), 1f);
         }
     }
 }

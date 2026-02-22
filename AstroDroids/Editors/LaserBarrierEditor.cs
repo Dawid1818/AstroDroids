@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Entities.Hostile;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Levels;
 using AstroDroids.Scenes;
@@ -144,13 +145,13 @@ namespace AstroDroids.Editors
             //Draw nodes themselves
             foreach (var node in group.Nodes.Values)
             {
-                scene.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? Color.Blue : Color.Red, Color.DarkSlateGray);
+                GameHelper.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? Color.Blue : Color.Red, Color.DarkSlateGray);
             }
         }
 
         public void Draw(GameTime gameTime)
         {
-            scene.DrawNode("B", BarrierGroup.Transform.Position, Color.DarkViolet, Color.DarkSlateGray);
+            GameHelper.DrawNode("B", BarrierGroup.Transform.Position, Color.DarkViolet, Color.DarkSlateGray);
 
             DrawBarriers(BarrierGroup);
         }

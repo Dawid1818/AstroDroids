@@ -1,5 +1,7 @@
-﻿using AstroDroids.Paths;
+﻿using AstroDroids.Graphics;
+using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 
@@ -57,6 +59,14 @@ namespace AstroDroids.Helpers
             Vector2 rotatedOffset = new Vector2(offset.X * cos - offset.Y * sin, offset.X * sin + offset.Y * cos);
 
             return center + rotatedOffset;
+        }
+
+        public static void DrawNode(string label, Vector2 position, Color color, Color borderColor, float fontSize = 24)
+        {
+            Screen.spriteBatch.DrawCircle(position, 16f, 16, color, 16f);
+            Screen.spriteBatch.DrawCircle(position, 16f, 16, borderColor, 1f);
+            Vector2 measurement = Screen.MeasureText(label, fontSize);
+            Screen.DrawText(label, position - new Vector2(measurement.X / 2f, measurement.Y / 2f), Color.White, fontSize);
         }
     }
 }

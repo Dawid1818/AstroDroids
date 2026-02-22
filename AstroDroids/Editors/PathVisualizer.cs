@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Paths;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
@@ -9,7 +10,7 @@ namespace AstroDroids.Editors
 {
     public class PathVisualizer
     {
-        public static void DrawPath(CompositePath Path, LevelEditorScene scene, PathPoint referencePoint = null, IPath selectedPath = null, bool highlightAll = false)
+        public static void DrawPath(CompositePath Path, PathPoint referencePoint = null, IPath selectedPath = null, bool highlightAll = false)
         {
             float t = 0f;
             PathPoint lastPos = Path.GetPoint(t);
@@ -22,7 +23,9 @@ namespace AstroDroids.Editors
             }
 
             if (referencePoint != null)
-                scene.DrawNode("S", referencePoint, Color.Orange, Color.Green);
+            {
+                GameHelper.DrawNode("R", referencePoint, Color.Orange, Color.Green);
+            }
 
             var Paths = new List<IPath>(Path.Decompose());
             //Paths.Reverse();
@@ -38,7 +41,7 @@ namespace AstroDroids.Editors
 
                     PathPoint point = keyPoints[j];
 
-                    scene.DrawNode($"{i}:{j}", point, selectedPath == path || highlightAll ? Color.Cyan : Color.Red, Color.Green, 14);
+                    GameHelper.DrawNode($"{i}:{j}", point, selectedPath == path || highlightAll ? Color.Cyan : Color.Red, Color.Green, 14);
                 }
 
                 first = false;

@@ -37,7 +37,7 @@ namespace AstroDroids.Paths
             Point1 = new PathPoint(0f, 0f);
             Point2 = new PathPoint(0f, 0f);
 
-            Length = Point2.DistanceFrom(Point1);
+            RecalculateLength();
         }
 
         public LinePath(PathPoint point1, PathPoint point2)
@@ -45,14 +45,14 @@ namespace AstroDroids.Paths
             Point1 = point1;
             Point2 = point2;
 
-            Length = Point2.DistanceFrom(Point1);
+            RecalculateLength();
         }
 
-        public PathPoint GetPoint(float t)
+        public PathPoint GetPoint(double t)
         {
             return new PathPoint(
-                Point1.X + (Point2.X - Point1.X) * t,
-                Point1.Y + (Point2.Y - Point1.Y) * t
+                Point1.X + (Point2.X - Point1.X) * (float)t,
+                Point1.Y + (Point2.Y - Point1.Y) * (float)t
             );
         }
 
@@ -65,6 +65,8 @@ namespace AstroDroids.Paths
         {
             Point1 = new PathPoint(reader.ReadSingle(), reader.ReadSingle());
             Point2 = new PathPoint(reader.ReadSingle(), reader.ReadSingle());
+
+            Length = reader.ReadDouble();
         }
 
         public void Save(BinaryWriter writer)
@@ -74,12 +76,21 @@ namespace AstroDroids.Paths
 
             writer.Write(Point2.X);
             writer.Write(Point2.Y);
+
+            writer.Write(Length);
         }
 
         public void Translate(PathPoint dist)
         {
-            Point1 += dist;
-            Point2 += dist;
+            Point1.X += dist.X;
+            Point1.Y += dist.Y;
+            Point2.X += dist.X;
+            Point2.Y += dist.Y;
+        }
+
+        public void RecalculateLength()
+        {
+            Length = Point2.DistanceFrom(Point1);
         }
     }
 }

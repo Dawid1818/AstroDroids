@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Extensions;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Interfaces;
 using AstroDroids.Levels;
@@ -27,6 +28,7 @@ namespace AstroDroids.Editors
         public AttackWave wave { get; private set; }
         LevelEditorScene scene;
 
+        Entity draggedNode;
         bool isDraggingNode;
         bool isDraggingSpawnPosition;
         PathPoint selectedSpawnPoint;
@@ -133,6 +135,7 @@ namespace AstroDroids.Editors
                         {
                             if (lmb)
                             {
+                                draggedNode = node;
                                 isDraggingNode = true;
                                 isDraggingSpawnPosition = false;
                             }
@@ -164,8 +167,10 @@ namespace AstroDroids.Editors
                         }
                     }
                 }
-                else
+                else if(draggedNode != null)
                 {
+                    Vector2 startPos = draggedNode.Transform.Position;
+
                     if (scene.DrawGrid)
                     {
                         mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
@@ -173,6 +178,8 @@ namespace AstroDroids.Editors
 
                         deltaMousePos = mousePos - prevMousePos;
                     }
+
+                    Vector2 delta = mousePos - startPos;
 
                     if (isDraggingSpawnPosition)
                     {
@@ -183,24 +190,25 @@ namespace AstroDroids.Editors
                     {
                         foreach (var selectedNode in selectedNodes)
                         {
-                            if (selectedNode is EnemySpawner spawner && !spawner.FollowsCamera && !InputSystem.GetKey(Keys.LeftShift))
+                            if (selectedNode is MovableNode movable && !movable.FollowsCamera && !InputSystem.GetKey(Keys.LeftShift))
                             {
-                                if (spawner.HasPath)
+                                if (movable.HasPath)
                                 {
-                                    spawner.Path.Translate(deltaMousePos);
+                                    movable.Path.Translate(delta);
                                 }
                                 else
                                 {
-                                    spawner.SpawnPosition += deltaMousePos;
+                                    if(movable is EnemySpawner spawner)
+                                        spawner.SpawnPosition += delta;
                                 }
                             }
 
                             if (selectedNode is LaserBarrierGroupNode barrierGroup && !InputSystem.GetKey(Keys.LeftShift))
                             {
-                                barrierGroup.Translate(deltaMousePos);
+                                barrierGroup.Translate(delta);
                             }
 
-                            selectedNode.Transform.Position += deltaMousePos;
+                            selectedNode.Transform.Position += delta;
                         }
                     }
                 }
@@ -242,6 +250,8 @@ namespace AstroDroids.Editors
                         wave.RemoveEvent(eventN);
                     else if (selectedNode is LaserBarrierGroupNode laserBarrierN)
                         wave.RemoveLaserBarrier(laserBarrierN);
+                    else if (selectedNode is BackgroundObjectNode bgObjN)
+                        wave.RemoveBackgroundObject(bgObjN);
 
                     AllNodes.Remove(selectedNode);
                 }
@@ -258,7 +268,11 @@ namespace AstroDroids.Editors
                 }
                 else
                 {
-                    AllNodes.Add(wave.CreateSpawner(mousePos));
+                    EnemySpawner spawner = wave.CreateSpawner(mousePos);
+                    selectedNodes.Clear();
+                    isDraggingNode = false;
+                    selectedNodes.Add(spawner);
+                    AllNodes.Add(spawner);
                 }
             }
 
@@ -270,15 +284,31 @@ namespace AstroDroids.Editors
                 }
                 else
                 {
-                    AllNodes.Add(wave.CreateEvent(mousePos));
+                    EventNode eventN = wave.CreateEvent(mousePos);
+                    selectedNodes.Clear();
+                    isDraggingNode = false;
+                    selectedNodes.Add(eventN);
+                    AllNodes.Add(eventN);
                 }
             }
 
             if (InputSystem.GetKeyDown(Keys.B))
-                AllNodes.Add(wave.CreateLaserBarrier(mousePos));
+            {
+                LaserBarrierGroupNode laserBarrierN = wave.CreateLaserBarrier(mousePos);
+                selectedNodes.Clear();
+                isDraggingNode = false;
+                selectedNodes.Add(laserBarrierN);
+                AllNodes.Add(laserBarrierN);
+            }
 
             if (InputSystem.GetKeyDown(Keys.N))
-                AllNodes.Add(wave.CreateBackgroundObject(mousePos));
+            {
+                BackgroundObjectNode bgObjN = wave.CreateBackgroundObject(mousePos);
+                selectedNodes.Clear();
+                isDraggingNode = false;
+                selectedNodes.Add(bgObjN);
+                AllNodes.Add(bgObjN);
+            }
 
             if (InputSystem.GetKeyDown(Keys.T) && wave != null)
                 LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
@@ -422,30 +452,36 @@ namespace AstroDroids.Editors
                         Screen.spriteBatch.DrawLine(spawner.Transform.Position, spawner.SpawnPosition, Color.Green, 4f);
                     else
                     {
-                        PathVisualizer.DrawPath(spawner.Path, scene, highlightAll: selected);
+                        PathVisualizer.DrawPath(spawner.Path, highlightAll: selected);
                     }
 
-                    scene.DrawNode("S", spawner.Transform.Position, selected ? Color.Cyan : Color.Orange, Color.Green);
+                    GameHelper.DrawNode("S", spawner.Transform.Position, selected ? Color.Cyan : Color.Orange, Color.Green);
 
                     if (!spawner.HasPath)
                     {
-                        scene.DrawNode(string.Empty, spawner.SpawnPosition, Color.Red, Color.Green);
+                        GameHelper.DrawNode(string.Empty, spawner.SpawnPosition, Color.Red, Color.Green);
                     }
                 }
                 else if (node is EventNode eventN)
                 {
-                    scene.DrawNode("E", eventN.Transform.Position, selected ? Color.Cyan : Color.Gray, Color.White);
+                    GameHelper.DrawNode("E", eventN.Transform.Position, selected ? Color.Cyan : Color.Gray, Color.White);
                 }
                 else if (node is LaserBarrierGroupNode laserBarrierN)
                 {
-                    scene.DrawNode("BA", laserBarrierN.Transform.Position, selected ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
+                    GameHelper.DrawNode("BA", laserBarrierN.Transform.Position, selected ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
 
                     scene.barrierEditor.DrawBarriers(laserBarrierN);
                 }
                 else if (node is BackgroundObjectNode bgObjN)
                 {
                     bgObjN.Draw(gameTime);
-                    scene.DrawNode("BG", bgObjN.Transform.Position, selected ? Color.Cyan : Color.LightSkyBlue, Color.DarkSlateGray);
+
+                    if (bgObjN.HasPath)
+                    {
+                        PathVisualizer.DrawPath(bgObjN.Path, highlightAll: selected);
+                    }
+
+                    GameHelper.DrawNode("BG", bgObjN.Transform.Position, selected ? Color.Cyan : Color.LightSkyBlue, Color.DarkSlateGray);
                 }
             }
 
@@ -687,60 +723,8 @@ namespace AstroDroids.Editors
                     spawner.SpawnPosition = spawner.Transform.Position;
                 }
             }
-
-            bool followsCamera = spawner.FollowsCamera;
-            if (ImGui.Checkbox("Follows Camera", ref followsCamera))
-            {
-                spawner.FollowsCamera = followsCamera;
-            }
-
-            if (spawner.HasPath)
-            {
-                float speed = spawner.PathSpeed;
-                if (ImGui.InputFloat("Speed", ref speed))
-                {
-                    spawner.PathSpeed = speed;
-                }
-
-                LoopingMode loopMode = spawner.PathLoop;
-                if (ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
-                {
-                    foreach (var mode in Enum.GetValues<LoopingMode>())
-                    {
-                        bool isSelected = mode == spawner.PathLoop;
-                        if (ImGui.Selectable(mode.ToString(), isSelected))
-                        {
-                            spawner.PathLoop = mode;
-                        }
-                        if (isSelected)
-                            ImGui.SetItemDefaultFocus();
-                    }
-                    ImGui.EndCombo();
-                }
-
-                int minPath = spawner.MinPath;
-                if (ImGui.InputInt("Min Path", ref minPath))
-                {
-                    spawner.MinPath = Math.Clamp(minPath, -1, spawner.Path.Decompose().Count);
-                }
-
-                if (ImGui.Button("Edit path"))
-                {
-                    if (spawner.FollowsCamera)
-                    {
-                        scene.mode = EditorMode.Path;
-                        Screen.ResetCamera();
-                        scene.curveEditor.SetPath(spawner.Path);
-                        scene.curveEditor.SetSpawner(spawner);
-                    }
-                    else
-                    {
-                        scene.mode = EditorMode.Path;
-                        scene.curveEditor.SetPath(spawner.Path);
-                        scene.curveEditor.SetSpawner(spawner);
-                    }
-                }
-            }
+            
+            PathSettings(spawner);
         }
         void EventProperties(EventNode eventN)
         {
@@ -793,7 +777,7 @@ namespace AstroDroids.Editors
             }
 
             bool flip = bgObjN.FlipH;
-            if(ImGui.Checkbox("Flip Horizontally", ref flip))
+            if (ImGui.Checkbox("Flip Horizontally", ref flip))
             {
                 bgObjN.FlipH = flip;
             }
@@ -808,7 +792,7 @@ namespace AstroDroids.Editors
             {
                 foreach (var item in TextureManager.GetBackgroundObjects())
                 {
-                    if(ImGui.Selectable(item.Name, bgObjN.TextureName == item.Name))
+                    if (ImGui.Selectable(item.Name, bgObjN.TextureName == item.Name))
                     {
                         bgObjN.TextureName = item.Name;
                         bgObjN.UpdateTexture();
@@ -816,6 +800,94 @@ namespace AstroDroids.Editors
                 }
 
                 ImGui.EndCombo();
+            }
+
+            ImGui.SeparatorText("Path settings");
+
+            bool hasPath = bgObjN.HasPath;
+            if (ImGui.Checkbox("Has Path", ref hasPath))
+            {
+                bgObjN.HasPath = hasPath;
+
+                if (bgObjN.HasPath)
+                {
+                    CompositePath path = new CompositePath();
+                    bgObjN.Path = path;
+                    //path.Add(new LinePath(spawner.Transform.Position, spawner.Transform.Position + new Vector2(100, 0)));
+                    path.Add(new BezierPath(new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero }));
+                }
+                else
+                {
+                    bgObjN.Path = null;
+                }
+            }
+
+            PathSettings(bgObjN);
+        }
+        void PathSettings(MovableNode movable)
+        {
+            bool followsCamera = movable.FollowsCamera;
+            if (ImGui.Checkbox("Follows Camera", ref followsCamera))
+            {
+                movable.FollowsCamera = followsCamera;
+            }
+
+            if (movable.HasPath)
+            {
+                float speed = movable.PathSpeed;
+                if (ImGui.InputFloat("Speed", ref speed))
+                {
+                    movable.PathSpeed = speed;
+                }
+
+                if (movable.Path.Length > 0)
+                {
+                    float travelTime = (float)movable.Path.Length / movable.PathSpeed;
+
+                    if (ImGui.InputFloat("Time", ref travelTime))
+                    {
+                        if (movable.Path.Length > 0)
+                        {
+                            movable.PathSpeed = (float)movable.Path.Length / travelTime;
+                        }
+                    }
+                }
+                else
+                {
+                    ImGui.BeginDisabled();
+                    float travelTime = 0f;
+                    ImGui.InputFloat("Time", ref travelTime);
+                    ImGui.EndDisabled();
+                }
+
+                    LoopingMode loopMode = movable.PathLoop;
+                if (ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
+                {
+                    foreach (var mode in Enum.GetValues<LoopingMode>())
+                    {
+                        bool isSelected = mode == movable.PathLoop;
+                        if (ImGui.Selectable(mode.ToString(), isSelected))
+                        {
+                            movable.PathLoop = mode;
+                        }
+                        if (isSelected)
+                            ImGui.SetItemDefaultFocus();
+                    }
+                    ImGui.EndCombo();
+                }
+
+                int minPath = movable.MinPath;
+                if (ImGui.InputInt("Min Path", ref minPath))
+                {
+                    movable.MinPath = Math.Clamp(minPath, -1, movable.Path.Decompose().Count);
+                }
+
+                if (ImGui.Button("Edit path"))
+                {
+                    scene.mode = EditorMode.Path;
+                    scene.curveEditor.SetPath(movable.Path);
+                    scene.curveEditor.SetSpawner(movable);
+                }
             }
         }
     }

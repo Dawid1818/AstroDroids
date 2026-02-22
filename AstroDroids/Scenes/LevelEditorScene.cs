@@ -431,13 +431,5 @@ namespace AstroDroids.Scenes
         {
             FileSaver.SaveObject(level, Path.Combine("Content/Levels/", path + ".adlvl"));
         }
-
-        public void DrawNode(string label, Vector2 position, Color color, Color borderColor, float fontSize = 24)
-        {
-            Screen.spriteBatch.DrawCircle(position, 16f, 16, color, 16f);
-            Screen.spriteBatch.DrawCircle(position, 16f, 16, borderColor, 1f);
-            Vector2 measurement = Screen.MeasureText(label, fontSize);
-            Screen.DrawText(label, position - new Vector2(measurement.X / 2f, measurement.Y / 2f), Color.White, fontSize);
-        }
     }
 }

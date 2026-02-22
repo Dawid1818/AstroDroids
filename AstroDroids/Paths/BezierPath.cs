@@ -20,19 +20,21 @@ namespace AstroDroids.Paths
         public PathPoint StartPoint { get => Points[0]; set => Points[0] = value; }
         public PathPoint EndPoint { get => Points[3]; set => Points[3] = value; }
 
-        public double Length => throw new NotImplementedException();
+        public double Length { get; private set; }
 
         public BezierPath()
         {
             Points = new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero };
+            RecalculateLength();
         }
 
         public BezierPath(List<PathPoint> points)
         {
             Points = points;
+            RecalculateLength();
         }
 
-        public PathPoint GetPoint(float t)
+        public PathPoint GetPoint(double t)
         {
             if (Points.Count == 0)
             {
@@ -128,6 +130,8 @@ namespace AstroDroids.Paths
                 writer.Write(item.X);
                 writer.Write(item.Y);
             }
+
+            writer.Write(Length);
         }
 
         public void Load(BinaryReader reader, int version)
@@ -140,13 +144,31 @@ namespace AstroDroids.Paths
                 float y = reader.ReadSingle();
                 Points.Add(new Vector2(x, y));
             }
+
+            Length = reader.ReadDouble();
         }
 
         public void Translate(PathPoint dist)
         {
             for (int i = 0; i < Points.Count; i++)
             {
-                Points[i] += dist;
+                Points[i].X += dist.X;
+                Points[i].Y += dist.Y;
+            }
+        }
+
+        public void RecalculateLength()
+        {
+            Length = 0;
+
+            float t = 0f;
+            PathPoint lastPos = GetPoint(t);
+            while (t < 1f)
+            {
+                t += 0.01f;
+                PathPoint nextPos = GetPoint(t);
+                Length += nextPos.DistanceFrom(lastPos);
+                lastPos = nextPos;
             }
         }
     }

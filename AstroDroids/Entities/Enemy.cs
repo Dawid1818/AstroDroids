@@ -11,6 +11,7 @@ namespace AstroDroids.Entities
         public bool destroyed { get; private set; } = false;
 
         public PathManager PathManager { get; set; }
+        public bool FollowsCamera { get; set; }
 
         public Enemy() : base()
         {

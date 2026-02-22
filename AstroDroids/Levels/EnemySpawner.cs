@@ -1,27 +1,19 @@
-﻿using AstroDroids.Paths;
-using AstroDroids.Entities;
-using AstroDroids.Interfaces;
+﻿using AstroDroids.Entities;
+using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 
 namespace AstroDroids.Levels
 {
-    public class EnemySpawner : Entity, ISaveable
+    public class EnemySpawner : MovableNode
     {
         public List<int> EnemyIDs = new List<int>();
-        public bool FollowsCamera { get; set; } = false;
-        public bool HasPath { get; set; } = false;
-        public CompositePath Path { get; set; } = null;
-        public float PathSpeed { get; set; } = 1f;
-        public LoopingMode PathLoop { get; set; } = LoopingMode.Off;
         public PathPoint SpawnPosition { get; set; } = null;
         public float DelayBetweenEnemies { get; set; } = 1f;
         public double InitialDelay { get; set; } = 0f;
 
-        public int MinPath { get; set; } = -1;
-
-        public void Load(BinaryReader reader, int version)
+        public override void Load(BinaryReader reader, int version)
         {
             Transform.Position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
 
@@ -30,35 +22,23 @@ namespace AstroDroids.Levels
             HasPath = reader.ReadBoolean();
 
             EnemyIDs.Clear();
-            //EnemyId = reader.ReadString();
             int enemyCount = reader.ReadInt32();
             for (int i = 0; i < enemyCount; i++)
             {
                 EnemyIDs.Add(reader.ReadInt32());
             }
 
-            FollowsCamera = reader.ReadBoolean();
-
-            //EnemyCount = reader.ReadInt32();
             DelayBetweenEnemies = reader.ReadSingle();
 
-            if (HasPath)
+            base.Load(reader, version);
+
+            if (!HasPath)
             {
-                Path = new CompositePath();
-                Path.Load(reader, version);
-                PathSpeed = reader.ReadSingle();
-                PathLoop = (LoopingMode)reader.ReadInt32();
-                MinPath = reader.ReadInt32();
-                SpawnPosition = null;
-            }
-            else
-            {
-                Path = null;
                 SpawnPosition = new PathPoint(reader.ReadSingle(), reader.ReadSingle());
             }
         }
 
-        public void Save(BinaryWriter writer)
+        public override void Save(BinaryWriter writer)
         {
             writer.Write(Transform.Position.X);
             writer.Write(Transform.Position.Y);
@@ -67,26 +47,17 @@ namespace AstroDroids.Levels
 
             writer.Write(HasPath);
 
-            //writer.Write(EnemyId);
             writer.Write(EnemyIDs.Count);
             foreach (var id in EnemyIDs)
             {
                 writer.Write(id);
             }
 
-            writer.Write(FollowsCamera);
-
-            //writer.Write(EnemyCount);
             writer.Write(DelayBetweenEnemies);
 
-            if (HasPath)
-            {
-                Path.Save(writer);
-                writer.Write(PathSpeed);
-                writer.Write((int)PathLoop);
-                writer.Write(MinPath);
-            }
-            else
+            base.Save(writer);
+
+            if (!HasPath)
             {
                 writer.Write(SpawnPosition.X);
                 writer.Write(SpawnPosition.Y);

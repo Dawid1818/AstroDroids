@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -16,18 +15,29 @@ namespace AstroDroids.Paths
 
         public double Length { get; private set; }
 
-        public PathPoint GetPoint(float t)
+        public PathPoint GetPoint(double t)
         {
-            if(paths.Count == 0)
+            if (paths.Count == 0)
                 return PathPoint.Zero;
 
-            float endOfPaths = 1f / paths.Count;
+            double targetDistance = t * Length;
 
-            int pathIndex = Math.Min((int)(t / endOfPaths), paths.Count - 1);
+            double accumulated = 0f;
 
-            float localT = (t - (pathIndex * endOfPaths)) / endOfPaths;
+            foreach (var path in paths)
+            {
+                if (accumulated + path.Length >= targetDistance)
+                {
+                    double localDistance = targetDistance - accumulated;
+                    double localT = localDistance / path.Length;
 
-            return paths[pathIndex].GetPoint(localT);
+                    return path.GetPoint(localT);
+                }
+
+                accumulated += path.Length;
+            }
+
+            return paths[paths.Count - 1].GetPoint(1);
         }
 
         public void Load(BinaryReader reader, int version)
@@ -59,6 +69,8 @@ namespace AstroDroids.Paths
 
                 paths.Add(path);
             }
+
+            RecalculateLength();
         }
 
         public void Save(BinaryWriter writer)
@@ -119,6 +131,16 @@ namespace AstroDroids.Paths
             foreach (var path in paths)
             {
                 path.Translate(dist);
+            }
+        }
+
+        public void RecalculateLength()
+        {
+            Length = 0;
+            foreach (var path in paths)
+            {
+                path.RecalculateLength();
+                Length += path.Length;
             }
         }
     }

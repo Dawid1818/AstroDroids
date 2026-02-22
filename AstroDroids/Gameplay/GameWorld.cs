@@ -119,6 +119,16 @@ namespace AstroDroids.Gameplay
                 yield return new WaitForSeconds(bgObjectN.InitialDelay);
 
             BackgroundObject bgObj = new BackgroundObject(bgObjectN.TextureName, bgObjectN.Angle, bgObjectN.FlipH, bgObjectN.FlipV) { Transform = new Transform(bgObjectN.Transform.Position.X, bgObjectN.Transform.Position.Y) };
+
+            if (bgObjectN.HasPath)
+            {
+                bgObj.PathManager = new PathManager(bgObjectN.Path, bgObjectN.PathSpeed);
+                bgObj.PathManager.Loop = bgObjectN.PathLoop;
+                bgObj.PathManager.MinPath = bgObjectN.MinPath;
+            }
+
+            bgObj.FollowsCamera = bgObjectN.FollowsCamera;
+
             AddBackgroundObject(bgObj);
 
             ongoingWaves--;
@@ -138,11 +148,12 @@ namespace AstroDroids.Gameplay
 
                 if (spawner.HasPath)
                 {
-                    enemy.PathManager = new PathManager(spawner.Path);
-                    enemy.PathManager.Speed = spawner.PathSpeed;
+                    enemy.PathManager = new PathManager(spawner.Path, spawner.PathSpeed);
                     enemy.PathManager.Loop = spawner.PathLoop;
                     enemy.PathManager.MinPath = spawner.MinPath;
                 }
+
+                enemy.FollowsCamera = spawner.FollowsCamera;
 
                 AddEnemy(enemy, spawner.FollowsCamera, false);
 
@@ -381,7 +392,7 @@ namespace AstroDroids.Gameplay
 
         public void RemoveBackgroundObject(BackgroundObject bgObj)
         {
-            BackgroundObjects.Remove(bgObj);
+            BackgroundObjectsToRemove.Add(bgObj);
         }
 
         public void AddWarning(Entity entity, bool followsCamera)

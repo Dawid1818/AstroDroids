@@ -10,8 +10,9 @@ namespace AstroDroids.Paths
         public PathPoint EndPoint { get; }
 
         public double Length { get; }
-        public PathPoint GetPoint(float t);
+        public PathPoint GetPoint(double t);
 
         public void Translate(PathPoint dist);
+        public void RecalculateLength();
     }
 }

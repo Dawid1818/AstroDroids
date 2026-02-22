@@ -1,4 +1,5 @@
-﻿using AstroDroids.Extensions;
+﻿using AstroDroids.Entities;
+using AstroDroids.Extensions;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Input;
@@ -17,7 +18,7 @@ namespace AstroDroids.Editors
 {
     public class PathEditor
     {
-        EnemySpawner spawner;
+        Entity spawner;
         CompositePath Path;
 
         LevelEditorScene scene;
@@ -39,7 +40,7 @@ namespace AstroDroids.Editors
             this.Path = path;
         }
 
-        public void SetSpawner(EnemySpawner spawner)
+        public void SetSpawner(Entity spawner)
         {
             this.spawner = spawner;
         }
@@ -122,6 +123,8 @@ namespace AstroDroids.Editors
                                 paths[ind].StartPoint.Y = mousePos.Y;
                             }
                         }
+
+                        Path.RecalculateLength();
                     }
                 }
                 else if (isDraggingPoint)
@@ -134,7 +137,7 @@ namespace AstroDroids.Editors
 
         public void Draw(GameTime gameTime)
         {
-            PathVisualizer.DrawPath(Path, scene, spawner.Transform.Position, selectedPath);
+            PathVisualizer.DrawPath(Path, spawner.Transform.Position, selectedPath);
         }
 
         public void DrawImGui(GameTime gameTime)
@@ -223,6 +226,8 @@ namespace AstroDroids.Editors
                     }
                 }
             }
+
+            Path.RecalculateLength();
         }
 
         void AddNewSubpath(Vector2 end)
@@ -250,6 +255,8 @@ namespace AstroDroids.Editors
             }
 
             Path.Add(path);
+
+            Path.RecalculateLength();
         }
 
         string GetPathTypeName(int id)

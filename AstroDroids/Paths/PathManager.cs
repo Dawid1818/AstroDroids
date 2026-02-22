@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System.IO;
 
 namespace AstroDroids.Paths
 {
@@ -7,11 +6,45 @@ namespace AstroDroids.Paths
     {
         public bool Active { get; set; } = true;
         public PathPoint Position { get; set; } = PathPoint.Zero;
-        public float Speed { get; set; } = 1;
-        public float Time { get; set; } = 0f;
+        public double Time { get; set; } = 0f;
         public LoopingMode Loop { get; set; } = LoopingMode.Off;
         public bool Reverse { get; set; } = false;
         public int MinPath = -1;
+
+        float travelTime;
+        float speed;
+
+        public float TravelTime 
+        {
+            get
+            {
+                return travelTime;
+            }
+            set
+            {
+                travelTime = value;
+                if (Path != null && Path.Length > 0)
+                {
+                    speed = (float)Path.Length / travelTime;
+                }
+            }
+        }
+
+        public float Speed
+        {
+            get
+            {
+                return speed;
+            }
+            set
+            {
+                speed = value;
+                if (Path != null && Path.Length > 0)
+                {
+                    travelTime = (float)Path.Length / speed;
+                }
+            }
+        }
 
         IPath Path;
 
@@ -20,28 +53,36 @@ namespace AstroDroids.Paths
             Active = false;
         }
 
-        public PathManager(IPath path)
+        public PathManager(IPath path, float speed)
         {
-            SetPath(path);
+            SetPath(path, speed);
         }
 
-        public void SetPath(IPath path)
+        public void SetPath(IPath path, float speed)
         {
             Path = path;
             Position = Path.GetPoint(0f);
             Time = 0f;
+
+            Speed = speed;
+
             Active = true;
+        }
+
+        public IPath GetPath()
+        {
+            return Path;
         }
 
         public void Update(GameTime gameTime)
         {
-            if (!Active || Path == null)
+            if (!Active || Path == null || Path.Length == 0)
                 return;
 
             if (!Reverse)
-                Time += (float)gameTime.ElapsedGameTime.TotalSeconds * Speed;
+                Time += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds) / Path.Length;
             else
-                Time -= (float)gameTime.ElapsedGameTime.TotalSeconds * Speed;
+                Time -= (speed * (float)gameTime.ElapsedGameTime.TotalSeconds) / Path.Length;
 
             Position = Path.GetPoint(Time);
 
@@ -118,6 +159,11 @@ namespace AstroDroids.Paths
                 default:
                     break;
             }
+        }
+
+        public void Translate(Vector2 delta)
+        {
+            Path.Translate(delta);
         }
     }
     public enum LoopingMode

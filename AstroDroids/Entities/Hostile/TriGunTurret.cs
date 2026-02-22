@@ -40,8 +40,6 @@ namespace AstroDroids.Entities.Hostile
         {
             Player player = Scene.World.GetRandomPlayer();
 
-            DefaultMove();
-
             if (player != null)
             {
                 angle = GameHelper.AngleBetween(Transform.Position, player.GetPosition());
@@ -51,10 +49,17 @@ namespace AstroDroids.Entities.Hostile
             cannon2Pos = GameHelper.RotateAroundPoint(Transform.Position + cannon2Offset, Transform.Position, angle);
             cannon3Pos = GameHelper.RotateAroundPoint(Transform.Position + cannon3Offset, Transform.Position, angle);
 
-            if (PathManager != null)
+            if (PathManager != null && PathManager.Active)
             {
+                if (!FollowsCamera)
+                    PathManager.Translate(new Vector2(0, (float)Scene.World.speed));
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
+            }
+            else
+            {
+                if (!FollowsCamera)
+                    DefaultMove();
             }
 
             attackTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;

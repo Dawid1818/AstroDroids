@@ -1,5 +1,7 @@
-﻿using AstroDroids.Graphics;
+﻿using AstroDroids.Editors;
+using AstroDroids.Graphics;
 using AstroDroids.Managers;
+using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -9,8 +11,9 @@ namespace AstroDroids.Entities.Neutral
     {
         float angle;
         Texture2D texture;
-
         SpriteEffects Effects;
+        public PathManager PathManager { get; set; }
+        public bool FollowsCamera { get; set; }
 
         public BackgroundObject(string textureName, float angle, bool flipH, bool flipV)
         {
@@ -31,10 +34,26 @@ namespace AstroDroids.Entities.Neutral
                 return;
             }
 
-            DefaultMove();
+            if (PathManager != null && PathManager.Active)
+            {
+                if(!FollowsCamera)
+                    PathManager.Translate(new Vector2(0, (float)Scene.World.speed));
+                PathManager.Update(gameTime);
+                Transform.Position = PathManager.Position;
+            }
+            else
+            {
+                if (!FollowsCamera)
+                    DefaultMove();
+            }
         }
         public override void Draw(GameTime gameTime)
         {
+            if(PathManager != null)
+            {
+                PathVisualizer.DrawPath((CompositePath)PathManager.GetPath());
+            }
+
             if (texture != null)
                 Screen.spriteBatch.Draw(texture, Transform.Position, null, Color.White, MathHelper.ToRadians(angle), new Vector2(texture.Width / 2f, texture.Height / 2f), 1f, Effects, 0f);
         }
