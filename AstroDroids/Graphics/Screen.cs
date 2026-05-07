@@ -81,6 +81,11 @@ namespace AstroDroids.Graphics
              * Matrix.CreateTranslation(screenCenter.X, screenCenter.Y, 0);
         }
 
+        public static GraphicsDeviceManager GetGraphicsManager()
+        {
+            return graphicsManager;
+        }
+
         public static Vector2 ScreenToWorldSpace(Vector2 point)
         {
             Vector2 vec = new Vector2(point.X, point.Y);
@@ -152,6 +157,11 @@ namespace AstroDroids.Graphics
                 Matrix.CreateTranslation(offset.X, offset.Y, 0f) *
                 Screen.GetCameraMatrix() *
                 Matrix.CreateScale(1f / v.Width, 1f / v.Height, 1f);
+        }
+
+        public static ImGuiRenderer GetImGuiRenderer()
+        {
+            return imGuiRenderer;
         }
     }
 }

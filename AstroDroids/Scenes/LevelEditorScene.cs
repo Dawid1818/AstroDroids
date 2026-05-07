@@ -61,6 +61,8 @@ namespace AstroDroids.Scenes
 
         public LevelEditorScene()
         {
+            EntityDatabase.InitializePreviews();
+
             World = new GameWorld();
 
             levelSettingsEditor = new LevelSettingsEditor(this);

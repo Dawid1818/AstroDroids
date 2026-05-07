@@ -125,6 +125,7 @@ namespace AstroDroids.Editors
                                     }
                                     foundNode = node;
                                     selectedSpawnPoint = spawner.SpawnPosition;
+                                    draggedNode = node;
                                     break;
                                 }
                             }
@@ -665,14 +666,27 @@ namespace AstroDroids.Editors
                 ImGui.EndListBox();
             }
 
-            if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name))
+            var avaSpace = ImGui.GetContentRegionAvail();
+            ImGui.PushItemWidth(avaSpace.X - 100);
+            if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name, ImGuiComboFlags.HeightLarge))
             {
                 for (int i = 0; i < enemyList.Count; i++)
                 {
-                    if (ImGui.Selectable(enemyList[i].Name, i == selectedEnemyType))
-                    {
-                        selectedEnemyType = i;
-                    }
+                    selectableButton(enemyList[i].Name, i == selectedEnemyType, 0, 72, () => { selectedEnemyType = i; }, () => {
+                        float yPos = ImGui.GetCursorPosY();
+                        ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 4);
+                        ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
+                        ImGui.Image(EntityDatabase.GetEntityPreview(i), new Numeric.Vector2(64, 64));
+                        ImGui.SameLine();
+                        var textSize = ImGui.CalcTextSize(enemyList[i].Name);
+                        ImGui.SetCursorPosY(yPos + 72 / 2 - textSize.Y / 2);
+                        ImGui.Text(enemyList[i].Name);
+                    });
+
+                    //if (ImGui.Selectable(enemyList[i].Name, i == selectedEnemyType))
+                    //{
+                    //    selectedEnemyType = i;
+                    //}
                 }
 
                 ImGui.EndCombo();
@@ -726,6 +740,24 @@ namespace AstroDroids.Editors
             
             PathSettings(spawner);
         }
+
+        void selectableButton(string label, bool selected, float width, float height, Action onSelect = null, Action content = null)
+        {
+            ImGui.BeginGroup();
+
+            if (ImGui.Selectable($"##{label}", selected, ImGuiSelectableFlags.None, new Numeric.Vector2(width, height)))
+            {
+                onSelect?.Invoke();
+            }
+
+            var min = ImGui.GetItemRectMin();
+
+            ImGui.SetCursorScreenPos(min);
+            content?.Invoke();
+
+            ImGui.EndGroup();
+        }
+
         void EventProperties(EventNode eventN)
         {
             ImGui.SeparatorText("Event settings");
