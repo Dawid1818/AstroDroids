@@ -11,6 +11,7 @@ namespace AstroDroids.Paths
         public Vector2 Position { get; private set; }
         public bool Active { get; private set; }
         public int maxMoveDistance { get; set; } = 300;
+        public float Speed { get { return TravelManager.Speed; } set {  TravelManager.Speed = value; }  }
 
         Vector2 destination;
         PathManager TravelManager;
@@ -22,6 +23,7 @@ namespace AstroDroids.Paths
             Position = startPos;
             TravelManager = new PathManager();
             TravelManager.Position = startPos;
+            TravelManager.Speed = 100f;
         }
 
         public void UpdatePosition(Vector2 pos)
@@ -49,10 +51,10 @@ namespace AstroDroids.Paths
 
             if (useBezier)
             {
-                TravelManager.SetPath(GameHelper.CreateBezier(Position, destination), 1f);
+                TravelManager.SetPath(GameHelper.CreateBezier(Position, destination), TravelManager.Speed);
             }
             else
-                TravelManager.SetPath(new LinePath(Position, destination), 1f);
+                TravelManager.SetPath(new LinePath(Position, destination), TravelManager.Speed);
         }
     }
 }
