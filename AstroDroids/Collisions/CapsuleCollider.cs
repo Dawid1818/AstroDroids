@@ -43,5 +43,14 @@ namespace AstroDroids.Collisions
             Screen.spriteBatch.DrawCircle(worldShape.PointB, worldShape.Radius, 16, Color.Yellow);
             Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)worldShape.PointA.X, (int)worldShape.PointA.Y, (int)Vector2.Distance(worldShape.PointA, worldShape.PointB), (int)(worldShape.Radius * 2f)), null, Color.Yellow, GameHelper.AngleBetween(worldShape.PointA, worldShape.PointB), new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
         }
+
+        public override RectangleF Bounds(Transform transform)
+        {
+            Vector2 radiusVector = new Vector2(Radius, Radius);
+            Vector2 min = Vector2.Min(transform.Position + LocalOffset, transform.Position + PointB) - radiusVector;
+            Vector2 max = Vector2.Max(transform.Position + LocalOffset, transform.Position + PointB) + radiusVector;
+
+            return new RectangleF(min.X, min.Y, max.X - min.X, max.Y - min.Y);
+        }
     }
 }

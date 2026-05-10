@@ -19,14 +19,14 @@ namespace AstroDroids.Entities.Hostile
 
         float angle = 0f;
 
-        public BasicEnemy() : base(new Transform(0, 0), 1, 32f, 32f)
+        public BasicEnemy() : base(new Transform(0, 0), 1)
         {
             texture = TextureManager.Get("Ships/Basic/Basic");
 
             AddCircleCollider(Vector2.Zero, 16f);
         }
 
-        public BasicEnemy(Vector2 position, EntityCell cell) : base(new Transform(position.X, position.Y), 1, 32f, 32f)
+        public BasicEnemy(Vector2 position, EntityCell cell) : base(new Transform(position.X, position.Y), 1)
         {
             //this.cell = cell;
             //curve = new BezierCurve(new List<Vector2>() { new Vector2(30, -32), new Vector2(30, 300), new Vector2(600, 300), cell.Position });
@@ -67,7 +67,7 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, ToRectangle(), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
         }
     }
 }

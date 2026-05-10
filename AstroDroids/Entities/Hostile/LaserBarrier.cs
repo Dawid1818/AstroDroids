@@ -15,7 +15,7 @@ namespace AstroDroids.Entities.Hostile
         Texture2D texture;
         public int Id { get; private set; }
 
-        public LaserBarrier() : base(new Transform(0, 0), 1, 32f, 32f)
+        public LaserBarrier() : base(new Transform(0, 0), 1)
         {
             //placeholder texture
             texture = TextureManager.Get("Ships/Basic/Basic");
@@ -23,7 +23,7 @@ namespace AstroDroids.Entities.Hostile
             AddCircleCollider(Vector2.Zero, 16f);
         }
 
-        public LaserBarrier(Vector2 position, int id, int health) : base(new Transform(position.X, position.Y), 1, 32f, 32f)
+        public LaserBarrier(Vector2 position, int id, int health) : base(new Transform(position.X, position.Y), 1)
         {
             Id = id;
             texture = TextureManager.Get("Ships/Basic/Basic");
@@ -95,7 +95,7 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, ToRectangle(), null, CanBeDamaged ? Color.Blue : Color.Red, 0f, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, CanBeDamaged ? Color.Blue : Color.Red, 0f, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
         }
     }
 }

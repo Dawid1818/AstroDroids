@@ -4,6 +4,7 @@ using AstroDroids.Input;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 
 namespace AstroDroids.Entities.Friendly
 {
@@ -20,7 +21,7 @@ namespace AstroDroids.Entities.Friendly
 
         public float Angle { get; private set; } = 0f;
 
-        public Player(int playerIndex, Vector2 position) : base(new Transform(position.X, position.Y), 1, 110, 98)
+        public Player(int playerIndex, Vector2 position) : base(new Transform(position.X, position.Y), 1)
         {
             this.playerIndex = playerIndex;
             exhaustTexture = TextureManager.Get("Ships/Player/Exhaust");
@@ -60,22 +61,22 @@ namespace AstroDroids.Entities.Friendly
 
             Transform.LocalPosition += movement;
 
-            if (Transform.LocalPosition.X - Width / 2f < Scene.World.Bounds.Left)
+            if (Transform.LocalPosition.X - Width < Scene.World.Bounds.Left)
             {
-                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Left + Width / 2f, Transform.LocalPosition.Y);
+                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Left + Width, Transform.LocalPosition.Y);
             }
-            else if (Transform.LocalPosition.X + Width / 2f > Scene.World.Bounds.Right)
+            else if (Transform.LocalPosition.X + Width > Scene.World.Bounds.Right)
             {
-                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width / 2f, Transform.LocalPosition.Y);
+                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width, Transform.LocalPosition.Y);
             }
 
-            if (Transform.LocalPosition.Y - Height / 2f < Scene.World.Bounds.Top)
+            if (Transform.LocalPosition.Y - Height < Scene.World.Bounds.Top)
             {
-                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Top + Height / 2f);
+                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Top + Height);
             }
-            else if (Transform.LocalPosition.Y + Height / 2f > Scene.World.Bounds.Bottom)
+            else if (Transform.LocalPosition.Y + Height > Scene.World.Bounds.Bottom)
             {
-                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Bottom - Height / 2f);
+                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Bottom - Height);
             }
 
             foreach (var enemy in Scene.World.Enemies)

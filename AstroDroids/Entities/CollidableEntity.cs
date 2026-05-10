@@ -8,21 +8,10 @@ namespace AstroDroids.Entities
 {
     public class CollidableEntity : Entity
     {
-        public float Width { get; set; }
-        public float Height { get; set; }
-        public float Left { get { return Transform.Position.X; } }
-        public float Right { get { return Transform.Position.X + Width; } }
-        public float LocalLeft { get { return Transform.LocalPosition.X; } }
-        public float LocalRight { get { return Transform.LocalPosition.X + Width; } }
-        public float Top { get { return Transform.Position.Y; } }
-        public float LocalTop { get { return Transform.LocalPosition.Y; } }
-        public float Bottom { get { return Transform.Position.Y + Height; } }
-        public float LocalBottom { get { return Transform.LocalPosition.Y + Height; } }
-        public Vector2 Center { get { return new Vector2(Transform.Position.X + Width / 2f, Transform.Position.Y + Height / 2f); } }
-        public Vector2 LocalCenter { get { return new Vector2(Transform.LocalPosition.X + Width / 2f, Transform.LocalPosition.Y + Height / 2f); } }
+        public float Width { get; private set; } = 0;
+        public float Height { get; private set; } = 0;
 
         public List<Collider> Colliders { get; private set; } = new List<Collider>();
-        //public List<BoundingCircle2D> Colliders { get; private set; } = new List<BoundingCircle2D>();
 
         public CollidableEntity() : base()
         {
@@ -32,12 +21,6 @@ namespace AstroDroids.Entities
         public CollidableEntity(Transform transform) : base(transform)
         {
 
-        }
-
-        public CollidableEntity(Transform transform, float width, float height) : base(transform)
-        {
-            Width = width;
-            Height = height;
         }
 
         public Rectangle ToRectangle()
@@ -66,20 +49,50 @@ namespace AstroDroids.Entities
             return false;
         }
 
-        //Original collision code before new collision shapes were added
-        //public bool Intersects(CollidableEntity other)
-        //{
-        //    return ToRectangleF().Intersects(other.ToRectangleF());
-        //}
-
         protected void AddCircleCollider(Vector2 offset, float radius)
         {
             Colliders.Add(new CircleCollider(offset, radius));
+            RecalculateBounds();
         }
 
         protected void AddCapsuleCollider(Vector2 PointA, Vector2 PointB, float radius)
         {
             Colliders.Add(new CapsuleCollider(PointA, PointB, radius));
+            RecalculateBounds();
+        }
+
+        void RecalculateBounds()
+        {
+            if (Colliders.Count == 0)
+            {
+                Width = 0;
+                Height = 0;
+                return;
+            }
+
+            float minX = float.MaxValue;
+            float maxX = float.MinValue;
+            float minY = float.MaxValue;
+            float maxY = float.MinValue;
+
+            foreach (var item in Colliders)
+            {
+                RectangleF bounds = item.Bounds(Transform);
+                if (bounds.Right > maxX)
+                    maxX = bounds.Right;
+
+                if (bounds.Left < minX)
+                    minX = bounds.Left;
+
+                if (bounds.Bottom > maxY)
+                    maxY = bounds.Bottom;
+
+                if (bounds.Top < minY)
+                    minY = bounds.Top;
+            }
+
+            Width = maxX - minX;
+            Height = maxY - minY;
         }
 
         public static Vector2 ClampPosition(Vector2 position, GameWorld world)

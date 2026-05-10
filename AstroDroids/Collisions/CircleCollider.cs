@@ -35,5 +35,10 @@ namespace AstroDroids.Collisions
         {
             Screen.spriteBatch.DrawCircle(transform.Position + LocalOffset, Radius, 16, Color.Yellow);
         }
+
+        public override RectangleF Bounds(Transform transform)
+        {
+            return new RectangleF((transform.Position.X + LocalOffset.X) - Radius / 2, (transform.Position.Y + LocalOffset.Y) - Radius / 2, Radius, Radius);
+        }
     }
 }

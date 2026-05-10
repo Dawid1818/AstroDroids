@@ -17,12 +17,12 @@ namespace AstroDroids.Entities.Hostile
         ProximityMineState state = ProximityMineState.Idle;
         public float t = 0f;
 
-        public ProximityMine() : base(new Transform(0, 0), 1, 32f, 32f)
+        public ProximityMine() : base(new Transform(0, 0), 1)
         {
             AddCircleCollider(Vector2.Zero, 32f);
         }
 
-        public ProximityMine(Vector2 position, EntityCell cell) : base(new Transform(position.X, position.Y), 1, 32f, 32f)
+        public ProximityMine(Vector2 position, EntityCell cell) : base(new Transform(position.X, position.Y), 1)
         {
             AddCircleCollider(Vector2.Zero, 32f);
         }

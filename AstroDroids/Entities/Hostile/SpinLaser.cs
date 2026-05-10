@@ -41,12 +41,12 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
-        public SpinLaser() : base(new Transform(0, 0), 1, 32f, 32f)
+        public SpinLaser() : base(new Transform(0, 0), 1)
         {
             //TravelManager = new PathManager();
             texture = TextureManager.Get("Ships/SpinLaser/SpinLaser");
 
-            AddCircleCollider(Vector2.Zero, 16f);
+            AddCircleCollider(Vector2.Zero, 32f);
 
             chargeEffect = new ParticleEffect("ChargeBeam")
             {
@@ -218,7 +218,7 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, ToRectangle(), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
 
             //debugging the generated path
             //if(bezier != null)

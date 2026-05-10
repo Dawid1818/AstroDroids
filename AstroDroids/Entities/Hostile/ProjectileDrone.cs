@@ -33,7 +33,7 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
-        public ProjectileDrone(DroneController controller, float distance, float startAngle) : base(new Transform(0, 0), 1, 42f, 40f)
+        public ProjectileDrone(DroneController controller, float distance, float startAngle) : base(new Transform(0, 0), 1)
         {
             this.controller = controller;
             texture = TextureManager.Get("Ships/DroneController/ProjectileDrone");
@@ -124,7 +124,7 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, ToRectangle(), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
         }
     }
 }
