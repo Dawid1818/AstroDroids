@@ -4,6 +4,7 @@ using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using AstroDroids.Helpers;
 
 namespace AstroDroids.Entities.Hostile
 {
@@ -11,26 +12,15 @@ namespace AstroDroids.Entities.Hostile
     {
         public float t = 0f;
 
-        //BezierCurve curve;
-
-        EntityCell cell;
-
         Texture2D texture;
 
-        float angle = 0f;
+        float angle = 3.14f;
 
         public BasicEnemy() : base(new Transform(0, 0), 1)
         {
-            texture = TextureManager.Get("Ships/Basic/Basic");
+            texture = TextureManager.Get("Ships/Basic/tinyShip9");
 
             AddCircleCollider(Vector2.Zero, 16f);
-        }
-
-        public BasicEnemy(Vector2 position, EntityCell cell) : base(new Transform(position.X, position.Y), 1)
-        {
-            //this.cell = cell;
-            //curve = new BezierCurve(new List<Vector2>() { new Vector2(30, -32), new Vector2(30, 300), new Vector2(600, 300), cell.Position });
-            texture = TextureManager.Get("Ships/Basic/Basic");
         }
 
         public override void Update(GameTime gameTime)
@@ -39,10 +29,17 @@ namespace AstroDroids.Entities.Hostile
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
+                angle = GameHelper.AngleFromDir(PathManager.Direction) + 1.571f;
+
+                if (!PathManager.Active)
+                {
+                    Despawn();
+                }
             }
             else
             {
-                DefaultMove();
+                if(!FollowsCamera)
+                    DefaultMove();
             }
 
             //if (Path != null)
@@ -67,7 +64,7 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
         }
     }
 }

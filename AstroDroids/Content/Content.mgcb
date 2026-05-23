@@ -49,6 +49,18 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Ships/Basic/Basic.png
 
+#begin Textures/Ships/Basic/tinyShip9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/Basic/tinyShip9.png
+
 #begin Textures/Ships/DroneController/DroneController.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -61,6 +73,18 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Ships/DroneController/DroneController.png
 
+#begin Textures/Ships/DroneController/DroneControllerv2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/DroneController/DroneControllerv2.png
+
 #begin Textures/Ships/DroneController/ProjectileDrone.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -72,6 +96,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Ships/DroneController/ProjectileDrone.png
+
+#begin Textures/Ships/DroneController/tinyShip12.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/DroneController/tinyShip12.png
+
+#begin Textures/Ships/DroneController/tinyShip18.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/DroneController/tinyShip18.png
 
 #begin Textures/Ships/Player/Exhaust.png
 /importer:TextureImporter
@@ -217,6 +265,18 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Ships/Player/PlayerShip.png
 
+#begin Textures/Ships/Player/PlayerShipPrototype.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/Player/PlayerShipPrototype.png
+
 #begin Textures/Ships/SpinLaser/SpinLaser.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -228,6 +288,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Ships/SpinLaser/SpinLaser.png
+
+#begin Textures/Ships/SpinLaser/tinyShip2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/SpinLaser/tinyShip2.png
 
 #begin Textures/Starfields/BlueStarfield.png
 /importer:TextureImporter
@@ -252,6 +324,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Turrets/Base/TurretBase.png
+
+#begin Textures/Turrets/Base/TurretBasev2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Turrets/Base/TurretBasev2.png
+
+#begin Textures/Turrets/TriGun/DoubleGunCannon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Turrets/TriGun/DoubleGunCannon.png
 
 #begin Textures/Turrets/TriGun/TriGunCannon.png
 /importer:TextureImporter

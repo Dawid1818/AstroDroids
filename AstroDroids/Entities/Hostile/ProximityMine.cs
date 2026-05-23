@@ -42,7 +42,7 @@ namespace AstroDroids.Entities.Hostile
 
         void SpawnProjectile(float angle)
         {
-            Scene.World.AddProjectile(new CircleProjectile(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), 16, 16, MathHelper.ToRadians(angle)), true);
+            Scene.World.AddProjectile(new CircleProjectile(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), MathHelper.ToRadians(angle)), true);
         }
 
         public override void Update(GameTime gameTime)

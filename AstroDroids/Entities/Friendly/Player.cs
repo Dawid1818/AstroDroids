@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Drawables;
 using AstroDroids.Gameplay;
+using AstroDroids.Graphics;
 using AstroDroids.Input;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
@@ -14,6 +15,7 @@ namespace AstroDroids.Entities.Friendly
         float speed = 10f;
 
         Texture2D exhaustTexture;
+        Texture2D prototypeTexture;
 
         CompositeShip ship;
 
@@ -25,6 +27,7 @@ namespace AstroDroids.Entities.Friendly
         {
             this.playerIndex = playerIndex;
             exhaustTexture = TextureManager.Get("Ships/Player/Exhaust");
+            prototypeTexture = TextureManager.Get("Ships/Player/PlayerShipPrototype");
 
             ship = new CompositeShip();
 
@@ -95,7 +98,10 @@ namespace AstroDroids.Entities.Friendly
             //Screen.spriteBatch.Draw(exhaustTexture, new Rectangle((int)GetPosition().X, (int)Collider.Bottom, 20, exhaustTexture.Height), Color.White);
             //Screen.spriteBatch.Draw(exhaustTexture, new Rectangle((int)Collider.Right - 20, (int)Collider.Bottom, 20, exhaustTexture.Height), Color.White);
             //Screen.spriteBatch.Draw(shipTexture, Collider.ToRectangle(), Color.White);
-            ship.Draw(GetPosition(), Angle);
+            //Screen.spriteBatch.Draw(prototypeTexture, new Vector2(Transform.Position.X, Transform.Position.Y), Color.White);
+            Screen.spriteBatch.Draw(prototypeTexture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, Angle, new Vector2(prototypeTexture.Width / 2, prototypeTexture.Height / 2), 1f, SpriteEffects.None, 0f);
+
+            //ship.Draw(GetPosition(), Angle);
 
             GameState.CurrentWeapon.DrawEffects(this, gameTime);
         }

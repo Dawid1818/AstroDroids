@@ -6,6 +6,7 @@ namespace AstroDroids.Paths
     {
         public bool Active { get; set; } = true;
         public PathPoint Position { get; set; } = PathPoint.Zero;
+        public Vector2 Direction { get; set; } = Vector2.Zero;
         public double Time { get; set; } = 0f;
         public LoopingMode Loop { get; set; } = LoopingMode.Off;
         public bool Reverse { get; set; } = false;
@@ -85,6 +86,7 @@ namespace AstroDroids.Paths
                 Time -= (speed * (float)gameTime.ElapsedGameTime.TotalSeconds) / Path.Length;
 
             Position = Path.GetPoint(Time);
+            Direction = Path.GetDirection(Time);
 
             switch (Loop)
             {

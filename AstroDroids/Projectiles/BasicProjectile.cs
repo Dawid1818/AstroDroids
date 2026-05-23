@@ -7,7 +7,7 @@ namespace AstroDroids.Projectiles
 {
     public class BasicProjectile : Projectile
     {
-        public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y), 16, 16)
+        public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y))
         {
             AddCircleCollider(Vector2.Zero, 8f);
         }

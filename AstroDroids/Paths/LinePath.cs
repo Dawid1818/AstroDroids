@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace AstroDroids.Paths
 {
@@ -91,6 +92,16 @@ namespace AstroDroids.Paths
         public void RecalculateLength()
         {
             Length = Point2.DistanceFrom(Point1);
+        }
+
+        public Vector2 GetDirection(double t)
+        {
+            Vector2 dir = Point2 - Point1;
+
+            if (dir != Vector2.Zero)
+                dir.Normalize();
+
+            return dir;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -142,6 +143,31 @@ namespace AstroDroids.Paths
                 path.RecalculateLength();
                 Length += path.Length;
             }
+        }
+
+        public Vector2 GetDirection(double t)
+        {
+            if (paths.Count == 0)
+                return PathPoint.Zero;
+
+            double targetDistance = t * Length;
+
+            double accumulated = 0f;
+
+            foreach (var path in paths)
+            {
+                if (accumulated + path.Length >= targetDistance)
+                {
+                    double localDistance = targetDistance - accumulated;
+                    double localT = localDistance / path.Length;
+
+                    return path.GetDirection(localT);
+                }
+
+                accumulated += path.Length;
+            }
+
+            return paths[paths.Count - 1].GetDirection(1);
         }
     }
 }

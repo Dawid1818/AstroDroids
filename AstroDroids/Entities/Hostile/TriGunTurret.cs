@@ -13,7 +13,7 @@ namespace AstroDroids.Entities.Hostile
         public float t = 0f;
 
         Texture2D baseTexture;
-        Texture2D topTexture;
+        //Texture2D topTexture;
         Texture2D cannonTexture;
 
         float attackTimer;
@@ -29,9 +29,11 @@ namespace AstroDroids.Entities.Hostile
 
         public TriGunTurret() : base(new Transform(0, 0), 1)
         {
-            baseTexture = TextureManager.Get("Turrets/Base/TurretBase");
-            topTexture = TextureManager.Get("Turrets/TriGun/TriGunTop");
-            cannonTexture = TextureManager.Get("Turrets/TriGun/TriGunCannon");
+            //baseTexture = TextureManager.Get("Turrets/Base/TurretBase");
+            baseTexture = TextureManager.Get("Turrets/Base/TurretBasev2");
+            //topTexture = TextureManager.Get("Turrets/TriGun/TriGunTop");
+            //cannonTexture = TextureManager.Get("Turrets/TriGun/TriGunCannon");
+            cannonTexture = TextureManager.Get("Turrets/TriGun/DoubleGunCannon");
 
             AddCircleCollider(Vector2.Zero, 32f);
         }
@@ -74,20 +76,20 @@ namespace AstroDroids.Entities.Hostile
 
         void Shoot()
         {
-            Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon1Pos.X, cannon1Pos.Y), 32, 16, angle), true);
-            Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon2Pos.X, cannon2Pos.Y), 32, 16, angle), true);
-            Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon3Pos.X, cannon3Pos.Y), 32, 16, angle), true);
+            Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon1Pos.X, cannon1Pos.Y), angle), true);
+            //Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon2Pos.X, cannon2Pos.Y), angle), true);
+            Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon3Pos.X, cannon3Pos.Y), angle), true);
         }
 
         public override void Draw(GameTime gameTime)
         {
             Screen.spriteBatch.Draw(baseTexture, Transform.Position, null, Color.White, 0f, new Vector2(baseTexture.Width / 2, baseTexture.Height / 2), 1f, SpriteEffects.None, 0f);
 
-            Screen.spriteBatch.Draw(cannonTexture, cannon1Pos, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
-            Screen.spriteBatch.Draw(cannonTexture, cannon2Pos, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
-            Screen.spriteBatch.Draw(cannonTexture, cannon3Pos, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(cannonTexture, Transform.Position, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
+            //Screen.spriteBatch.Draw(cannonTexture, cannon2Pos, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
+            //Screen.spriteBatch.Draw(cannonTexture, cannon3Pos, null, Color.White, angle, new Vector2(cannonTexture.Width / 2, cannonTexture.Height / 2), 1f, SpriteEffects.None, 0f);
 
-            Screen.spriteBatch.Draw(topTexture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, 42, 42), null, Color.White, angle, new Vector2(topTexture.Width / 2, topTexture.Height / 2), SpriteEffects.None, 0f);
+            //Screen.spriteBatch.Draw(topTexture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, 42, 42), null, Color.White, angle, new Vector2(topTexture.Width / 2, topTexture.Height / 2), SpriteEffects.None, 0f);
         }
     }
 }

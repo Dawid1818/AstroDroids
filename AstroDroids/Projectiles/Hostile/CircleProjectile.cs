@@ -12,7 +12,7 @@ namespace AstroDroids.Projectiles.Hostile
         Vector2 movementDirection;
         float speed = 10f;
 
-        public CircleProjectile(Transform collider, float width, float height, float angle) : base(collider, width, height)
+        public CircleProjectile(Transform collider, float angle) : base(collider)
         {
             movementDirection = GameHelper.DirFromAngle(angle);
 

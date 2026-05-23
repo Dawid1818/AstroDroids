@@ -13,7 +13,7 @@ namespace AstroDroids.Projectiles.Hostile
         float length = 0;
         bool red = false;
 
-        public LaserBarrierBeam(Transform collider, float width, float height, float angle, float length, bool red) : base(collider, width, height)
+        public LaserBarrierBeam(Transform collider, float angle, float length, bool red) : base(collider)
         {
             this.angle = angle;
             this.length = length;

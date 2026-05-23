@@ -36,7 +36,8 @@ namespace AstroDroids.Entities.Hostile
         public ProjectileDrone(DroneController controller, float distance, float startAngle) : base(new Transform(0, 0), 1)
         {
             this.controller = controller;
-            texture = TextureManager.Get("Ships/DroneController/ProjectileDrone");
+            //texture = TextureManager.Get("Ships/DroneController/ProjectileDrone");
+            texture = TextureManager.Get("Ships/DroneController/tinyShip18");
             orbitAngle = startAngle;
             distanceToController = distance;
 
@@ -119,12 +120,12 @@ namespace AstroDroids.Entities.Hostile
         {
             Vector2 spawnPos = GameHelper.OrbitPos(Transform.Position, angle, 21);
 
-            Scene.World.AddProjectile(new LaserProjectile(new Transform(spawnPos.X, spawnPos.Y), 32, 16, angle), true);
+            Scene.World.AddProjectile(new LaserProjectile(new Transform(spawnPos.X, spawnPos.Y), angle), true);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, Color.White, angle + 1.571f, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
         }
     }
 }

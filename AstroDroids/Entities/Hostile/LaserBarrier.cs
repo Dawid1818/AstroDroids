@@ -40,7 +40,7 @@ namespace AstroDroids.Entities.Hostile
         {
             foreach (var item in connections)
             {
-                LaserBarrierBeam beam = new LaserBarrierBeam(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), 0, 0, (float)GameHelper.AngleBetween(Transform.LocalPosition, item.Transform.LocalPosition), Vector2.Distance(Transform.LocalPosition, item.Transform.LocalPosition), !CanBeDamaged);
+                LaserBarrierBeam beam = new LaserBarrierBeam(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), (float)GameHelper.AngleBetween(Transform.LocalPosition, item.Transform.LocalPosition), Vector2.Distance(Transform.LocalPosition, item.Transform.LocalPosition), !CanBeDamaged);
                 beams.Add(item, beam);
                 Scene.World.AddProjectile(beam, false);
             }

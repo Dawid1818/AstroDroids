@@ -36,13 +36,13 @@ namespace AstroDroids.Managers
                 Enemy enemy = (Enemy)Activator.CreateInstance(entity.Value);
                 Rectangle bounds = enemy.ToRectangle();
 
-                RenderTarget2D target = new RenderTarget2D(manager.GraphicsDevice, bounds.Width, bounds.Height);
+                RenderTarget2D target = new RenderTarget2D(manager.GraphicsDevice, bounds.Width + (bounds.Width), bounds.Height + (bounds.Height));
 
                 manager.GraphicsDevice.SetRenderTarget(target);
                 manager.GraphicsDevice.Clear(Color.Transparent);
 
                 Screen.spriteBatch.Begin();
-                enemy.Transform.Position = new Vector2(bounds.Width / 2, bounds.Height / 2);
+                enemy.Transform.Position = new Vector2((bounds.Width / 2) + (bounds.Width) / 2, (bounds.Height / 2) + (bounds.Height) / 2);
                 enemy.Draw(new GameTime());
                 Screen.spriteBatch.End();
 

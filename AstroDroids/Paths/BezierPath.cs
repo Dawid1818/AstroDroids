@@ -94,7 +94,7 @@ namespace AstroDroids.Paths
             return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
         }
 
-        public Vector2 GetDirection(float t)
+        public Vector2 GetDirection(double t)
         {
             int n = Points.Count - 1;
             if (n == 0)

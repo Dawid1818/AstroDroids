@@ -43,6 +43,10 @@ namespace AstroDroids.Editors
 
         MemoryStream copyBuffer;
 
+        bool scrollToBottom = false;
+        bool scrollToItem = false;
+        int itemToScroll = -1;
+
         public AttackWaveEditor(LevelEditorScene scene)
         {
             this.scene = scene;
@@ -652,22 +656,43 @@ namespace AstroDroids.Editors
 
             ImGui.Text("Enemies");
             List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
-            if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1, 0)))
+            Vector2 availableSpace = ImGui.GetContentRegionAvail();
+            if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1, availableSpace.Y - ((spawner.Path != null && spawner.HasPath) ? 260 : 120))))
             {
                 for (int i = 0; i < spawner.EnemyIDs.Count; i++)
                 {
                     int enemyId = spawner.EnemyIDs[i];
-                    if (ImGui.Selectable($"{enemyList[enemyId].Name}##EnemyID{i}", i == selectedEnemy))
+
+                    selectableButton($"##{enemyList[enemyId].Name}EnemyID{i}", i == selectedEnemy, 0, 56, () => { selectedEnemy = i; }, () => {
+                        float yPos = ImGui.GetCursorPosY();
+                        ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 4);
+                        ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
+                        ImGui.Image(EntityDatabase.GetEntityPreview(enemyId), new Numeric.Vector2(48, 48));
+                        ImGui.SameLine();
+                        var textSize = ImGui.CalcTextSize(enemyList[enemyId].Name);
+                        ImGui.SetCursorPosY(yPos + 56 / 2 - textSize.Y / 2);
+                        ImGui.Text(enemyList[enemyId].Name);
+                    });
+
+                    if (scrollToItem && i == itemToScroll)
                     {
-                        selectedEnemy = i;
+                        ImGui.SetScrollHereY();
+                        itemToScroll = -1;
+                        scrollToItem = false;
                     }
+                }
+
+                if (scrollToBottom)
+                {
+                    ImGui.SetScrollHereY(1);
+                    scrollToBottom = false;
                 }
 
                 ImGui.EndListBox();
             }
 
             var avaSpace = ImGui.GetContentRegionAvail();
-            ImGui.PushItemWidth(avaSpace.X - 100);
+            ImGui.PushItemWidth(avaSpace.X - 170);
             if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name, ImGuiComboFlags.HeightLarge))
             {
                 for (int i = 0; i < enemyList.Count; i++)
@@ -697,6 +722,9 @@ namespace AstroDroids.Editors
             if (ImGui.Button("Add"))
             {
                 spawner.EnemyIDs.Add(selectedEnemyType);
+
+                selectedEnemy = spawner.EnemyIDs.Count - 1;
+                scrollToBottom = true;
             }
 
             ImGui.SameLine();
@@ -706,9 +734,36 @@ namespace AstroDroids.Editors
                 if (selectedEnemy >= 0 && selectedEnemy < spawner.EnemyIDs.Count)
                 {
                     spawner.EnemyIDs.RemoveAt(selectedEnemy);
-                    selectedEnemy = -1;
+
+                    if (selectedEnemy >= spawner.EnemyIDs.Count)
+                        selectedEnemy = spawner.EnemyIDs.Count - 1;
+                        //selectedEnemy = -1;
                 }
             }
+
+            ImGui.SameLine();
+
+            ImGui.BeginDisabled(selectedEnemy == -1);
+            if (ImGui.Button("Up") && selectedEnemy != -1)
+            {
+                if (spawner.EnemyIDs.MoveItemUp(selectedEnemy))
+                {
+                    selectedEnemy--;
+                    itemToScroll = selectedEnemy;
+                    scrollToItem = true;
+                }
+            }
+            ImGui.SameLine();
+            if (ImGui.Button("Down") && selectedEnemy != -1)
+            {
+                if (spawner.EnemyIDs.MoveItemDown(selectedEnemy))
+                {
+                    selectedEnemy++;
+                    itemToScroll = selectedEnemy;
+                    scrollToItem = true;
+                }
+            }
+            ImGui.EndDisabled();
 
             float enemyDelay = spawner.DelayBetweenEnemies;
             if (ImGui.InputFloat("Enemy Delay", ref enemyDelay))
@@ -912,6 +967,68 @@ namespace AstroDroids.Editors
                 if (ImGui.InputInt("Min Path", ref minPath))
                 {
                     movable.MinPath = Math.Clamp(minPath, -1, movable.Path.Decompose().Count);
+                }
+
+                if (ImGui.Button("Horizontal Flip"))
+                {
+                    float min = float.MaxValue;
+                    float max = float.MinValue;
+
+                    foreach (var path in movable.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            if (point.X > max)
+                                max = point.X;
+
+                            if (point.X < min)
+                                min = point.X;
+                        }
+                    }
+
+                    float between = (max + min) / 2;
+
+                    foreach (var path in movable.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            float dist = between - point.X;
+
+                            point.X += dist * 2;
+                        }
+                    }
+                }
+
+                ImGui.SameLine();
+
+                if (ImGui.Button("Vertical Flip"))
+                {
+                    float min = float.MaxValue;
+                    float max = float.MinValue;
+
+                    foreach (var path in movable.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            if (point.Y > max)
+                                max = point.Y;
+
+                            if (point.Y < min)
+                                min = point.Y;
+                        }
+                    }
+
+                    float between = (max + min) / 2;
+
+                    foreach (var path in movable.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            float dist = between - point.Y;
+
+                            point.Y += dist * 2;
+                        }
+                    }
                 }
 
                 if (ImGui.Button("Edit path"))

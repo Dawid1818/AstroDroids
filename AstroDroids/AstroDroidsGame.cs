@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Runtime.InteropServices;
 
 namespace AstroDroids
 {
@@ -16,6 +17,9 @@ namespace AstroDroids
         public static bool Debug { get; set; } = false;
 
         public static Random rnd { get; private set; } = new Random();
+
+        [DllImport("SDL2.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SDL_MaximizeWindow(IntPtr window);
 
         public AstroDroidsGame()
         {
@@ -32,6 +36,9 @@ namespace AstroDroids
         protected override void Initialize()
         {
             base.Initialize();
+
+            Window.Position = new Point(0, 0);
+            SDL_MaximizeWindow(Window.Handle);
         }
 
         protected override void LoadContent()
