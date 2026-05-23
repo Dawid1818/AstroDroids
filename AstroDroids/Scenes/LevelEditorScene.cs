@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Numeric = System.Numerics;
 
@@ -77,6 +78,8 @@ namespace AstroDroids.Scenes
                 FileSaver.RestoreObject(level, Path.Combine("Content/Levels/", levelName + ".adlvl"));
 
                 waveEditor.Reset();
+
+                RestoreStarfield();
 
                 Screen.ResetCamera();
             };
@@ -424,9 +427,22 @@ namespace AstroDroids.Scenes
             levelFileName = string.Empty;
             level = new Level();
 
-            World.Starfield = new SimulationStarfield();
+            RestoreStarfield();
 
             Screen.ResetCamera();
+        }
+
+        void RestoreStarfield()
+        {
+            if (LevelManager.CurrentLevel.BackgroundId == 0)
+            {
+                World.Starfield = new SimulationStarfield();
+            }
+            else
+            {
+                List<Texture2D> starfields = TextureManager.GetStarfields();
+                World.Starfield = new ImageStarfield(starfields[LevelManager.CurrentLevel.BackgroundId - 1]);
+            }
         }
 
         void SaveLevel(string path)
