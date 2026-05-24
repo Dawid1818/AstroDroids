@@ -1,4 +1,5 @@
-﻿using AstroDroids.Entities.Friendly;
+﻿using AstroDroids.Entities.Effects;
+using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Warnings;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
@@ -40,19 +41,17 @@ namespace AstroDroids.Entities.Hostile
 
         SpinLaserState state = SpinLaserState.Idle;
 
-        ParticleEffect chargeEffect;
+        ParticleEffectEntity chargeEffectEntity;
 
         RandomMoveManager RMM;
 
         public SpinLaser() : base(new Transform(0, 0), 1)
         {
-            //TravelManager = new PathManager();
-            //texture = TextureManager.Get("Ships/SpinLaser/SpinLaser");
             texture = TextureManager.Get("Ships/SpinLaser/tinyShip2");
 
             AddCircleCollider(Vector2.Zero, 16f);
 
-            chargeEffect = new ParticleEffect("ChargeBeam")
+            ParticleEffect chargeEffect = new ParticleEffect("ChargeBeam")
             {
                 Position = Transform.Position,
                 AutoTrigger = false,
@@ -97,17 +96,19 @@ namespace AstroDroids.Entities.Hostile
             });
 
             chargeEffect.Emitters.Add(emitter);
+
+            chargeEffectEntity = new ParticleEffectEntity(chargeEffect);
         }
 
         public override void Spawned()
         {
             RMM = new RandomMoveManager(Transform.LocalPosition);
-            Scene.World.AddEffect(chargeEffect);
+            Scene.World.AddEffect(chargeEffectEntity);
         }
 
         public override void Destroyed()
         {
-            Scene.World.RemoveEffect(chargeEffect);
+            Scene.World.RemoveEffect(chargeEffectEntity);
             if (warning != null)
                 Scene.World.RemoveWarning(warning);
 
@@ -157,15 +158,6 @@ namespace AstroDroids.Entities.Hostile
                     if(target != null)
                         targetAngle = GameHelper.AngleBetween(Transform.LocalPosition, target.GetLocalPosition());
                     Turn(gameTime);
-
-                    //if (posBeforeMove.X < Transform.LocalPosition.X)
-                    //{
-                    //    angle += 0.1f;
-                    //}
-                    //else if (posBeforeMove.X > Transform.LocalPosition.X)
-                    //{
-                    //    angle -= 0.1f;
-                    //}
                     break;
                 case SpinLaserState.IdleMoved:
                     waitTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -196,8 +188,7 @@ namespace AstroDroids.Entities.Hostile
                     }
                     break;
                 case SpinLaserState.Spinning:
-                    chargeEffect.AutoTrigger = true;
-                    //angle += 0.5f * waitTimer;
+                    chargeEffectEntity.effect.AutoTrigger = true;
                     waitTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                     if (waitTimer >= 1f)
@@ -214,11 +205,10 @@ namespace AstroDroids.Entities.Hostile
 
                         waitTimer = 1f;
                         state = SpinLaserState.StoppingSpin;
-                        chargeEffect.AutoTrigger = false;
+                        chargeEffectEntity.effect.AutoTrigger = false;
                     }
                     break;
                 case SpinLaserState.StoppingSpin:
-                    //angle += 0.5f * waitTimer;
                     waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                     if (waitTimer <= 0)
                     {
@@ -229,8 +219,7 @@ namespace AstroDroids.Entities.Hostile
                     break;
             }
 
-            chargeEffect.Position = GameHelper.RotateAroundPoint(Transform.Position + new Vector2(texture.Width/2f, 0), Transform.Position, angle);
-            //chargeEffect.Position = Transform.LocalPosition;
+            chargeEffectEntity.effect.Position = GameHelper.RotateAroundPoint(Transform.Position + new Vector2(texture.Width/2f, 0), Transform.Position, angle);
         }
 
         void Turn(GameTime gameTime)

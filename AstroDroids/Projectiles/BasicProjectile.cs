@@ -2,21 +2,41 @@
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace AstroDroids.Projectiles
 {
     public class BasicProjectile : Projectile
     {
+        Texture2D texture;
+        float speed = 20f;
+
+        bool fade = false;
+        float fadePercentage = 0;
         public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y))
         {
-            AddCircleCollider(Vector2.Zero, 8f);
+            texture = TextureManager.GetProjectile("BasicWeapon/04");
+            AddCapsuleCollider(new Vector2(0, -20f), new Vector2(0f, 15), 10f);
         }
 
         public override void Update(GameTime gameTime)
         {
-            Transform.Translate(new Vector2(0f, -5f));
+            if(fade)
+            {
+                if(fadePercentage >= texture.Height)
+                {
+                    Despawn();
+                }
+                else
+                {
+                    fadePercentage += speed;
+                }
+                return;
+            }
 
-            if (Transform.LocalPosition.Y + 16 < 0)
+            Transform.Translate(new Vector2(0f, -speed));
+
+            if (Transform.LocalPosition.Y + texture.Height < 0)
             {
                 Despawn();
             }
@@ -26,7 +46,7 @@ namespace AstroDroids.Projectiles
                 {
                     if (enemy.Intersects(this))
                     {
-                        Despawn();
+                        fade = true;
                         enemy.Damage(1, true);
                         break;
                     }
@@ -36,7 +56,7 @@ namespace AstroDroids.Projectiles
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), ToRectangle(), null, Color.White, 0f, new Vector2(0.5f, 0.5f), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, Transform.Position, new Rectangle(0, (int)fadePercentage, texture.Width, texture.Height), Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height / 2f), 1f, SpriteEffects.None, 0f);
         }
     }
 }

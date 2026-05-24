@@ -1,4 +1,5 @@
-﻿using AstroDroids.Coroutines;
+﻿using AstroDroids.Collections;
+using AstroDroids.Coroutines;
 using AstroDroids.Drawables;
 using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
@@ -12,7 +13,6 @@ using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
-using MonoGame.Extended.Particles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,23 +24,17 @@ namespace AstroDroids.Gameplay
         public readonly Rectangle Bounds = new Rectangle(0, 0, 800, 600);
         public Starfield Starfield { get; set; }
 
-        public List<AliveEntity> Enemies { get; } = new List<AliveEntity>();
-        public List<AliveEntity> EnemiesToRemove { get; } = new List<AliveEntity>();
+        public EntityList<AliveEntity> Enemies { get; } = new EntityList<AliveEntity>();
 
-        public List<Entity> BackgroundObjects { get; } = new List<Entity>();
-        public List<Entity> BackgroundObjectsToRemove { get; } = new List<Entity>();
+        public EntityList<Entity> BackgroundObjects { get; } = new EntityList<Entity>();
 
-        public List<Projectile> Projectiles { get; } = new List<Projectile>();
-        public List<Projectile> ProjectilesToRemove { get; } = new List<Projectile>();
+        public EntityList<Projectile> Projectiles { get; } = new EntityList<Projectile>();
 
-        public List<EntityGroup> EntityGroups { get; } = new List<EntityGroup>();
-        public List<EntityGroup> EntityGroupsToRemove { get; } = new List<EntityGroup>();
+        public EntityList<EntityGroup> EntityGroups { get; } = new EntityList<EntityGroup>();
 
-        public List<Entity> Warnings { get; } = new List<Entity>();
-        public List<Entity> WarningsToRemove { get; } = new List<Entity>();
+        public EntityList<Entity> Warnings { get; } = new EntityList<Entity>();
 
-        public List<ParticleEffect> Effects { get; } = new List<ParticleEffect>();
-        public List<ParticleEffect> EffectsToRemove { get; } = new List<ParticleEffect>();
+        public EntityList<Entity> Effects { get; } = new EntityList<Entity>();
 
         List<AttackWave> AttackWaves = new List<AttackWave>();
         List<AttackWave> AttackWavesToRemove = new List<AttackWave>();
@@ -247,72 +241,17 @@ namespace AstroDroids.Gameplay
             }
             PlayersToRemove.Clear();
 
-            foreach (var item in Warnings)
-            {
-                item.Update(gameTime);
-            }
+            Warnings.Update(gameTime);
 
-            foreach (var item in WarningsToRemove)
-            {
-                Warnings.Remove(item);
-            }
-            WarningsToRemove.Clear();
+            EntityGroups.Update(gameTime);
 
-            foreach (var item in EntityGroups)
-            {
-                item.Update(gameTime);
-            }
+            Enemies.Update(gameTime);
 
-            foreach (var item in EntityGroupsToRemove)
-            {
-                EntityGroups.Remove(item);
-            }
-            EntityGroupsToRemove.Clear();
+            Projectiles.Update(gameTime);
 
-            foreach (var item in Enemies)
-            {
-                item.Update(gameTime);
-            }
+            Effects.Update(gameTime);
 
-            foreach (var item in EnemiesToRemove)
-            {
-                Enemies.Remove(item);
-            }
-            EnemiesToRemove.Clear();
-
-            for (int i = 0; i < Projectiles.Count; i++)
-            {
-                Projectile item = Projectiles[i];
-                item.Update(gameTime);
-            }
-
-            foreach (var item in ProjectilesToRemove)
-            {
-                Projectiles.Remove(item);
-            }
-            ProjectilesToRemove.Clear();
-
-            foreach (var item in Effects)
-            {
-                item.Update(gameTime);
-            }
-
-            foreach (var item in EffectsToRemove)
-            {
-                Effects.Remove(item);
-            }
-            EffectsToRemove.Clear();
-
-            foreach (var item in BackgroundObjects)
-            {
-                item.Update(gameTime);
-            }
-
-            foreach (var item in BackgroundObjectsToRemove)
-            {
-                BackgroundObjects.Remove(item);
-            }
-            BackgroundObjectsToRemove.Clear();
+            BackgroundObjects.Update(gameTime);
         }
 
         public void Draw(GameTime gameTime)
@@ -324,15 +263,9 @@ namespace AstroDroids.Gameplay
 
             Screen.spriteBatch.DrawRectangle(new RectangleF(0, camEntity.Transform.Position.Y, Bounds.Width, Bounds.Height), Color.Gray, 2f);
 
-            foreach (var item in BackgroundObjects)
-            {
-                item.Draw(gameTime);
-            }
+            BackgroundObjects.Draw(gameTime);
 
-            foreach (var item in Warnings)
-            {
-                item.Draw(gameTime);
-            }
+            Warnings.Draw(gameTime);
 
             foreach (var item in Players)
             {
@@ -341,25 +274,11 @@ namespace AstroDroids.Gameplay
                 RenderColliders(item);
             }
 
-            foreach (var item in Enemies)
-            {
-                item.Draw(gameTime);
+            Enemies.Draw(gameTime);
 
-                RenderColliders(item);
-            }
+            Projectiles.Draw(gameTime);
 
-            for (int i = 0; i < Projectiles.Count; i++)
-            {
-                Projectile item = Projectiles[i];
-                item.Draw(gameTime);
-
-                RenderColliders(item);
-            }
-
-            foreach (var item in Effects)
-            {
-                Screen.spriteBatch.Draw(item);
-            }
+            Effects.Draw(gameTime);
 
             Screen.spriteBatch.End();
         }
@@ -375,14 +294,14 @@ namespace AstroDroids.Gameplay
             }
         }
 
-        public void AddEffect(ParticleEffect effect)
+        public void AddEffect(Entity effect)
         {
             Effects.Add(effect);
         }
 
-        public void RemoveEffect(ParticleEffect effect)
+        public void RemoveEffect(Entity effect)
         {
-            EffectsToRemove.Add(effect);
+            Effects.Remove(effect);
         }
 
         public void AddBackgroundObject(BackgroundObject bgObj)
@@ -392,7 +311,7 @@ namespace AstroDroids.Gameplay
 
         public void RemoveBackgroundObject(BackgroundObject bgObj)
         {
-            BackgroundObjectsToRemove.Add(bgObj);
+            BackgroundObjects.Remove(bgObj);
         }
 
         public void AddWarning(Entity entity, bool followsCamera)
@@ -400,14 +319,13 @@ namespace AstroDroids.Gameplay
             if (followsCamera)
             {
                 entity.Transform.SetParent(camEntity.Transform);
-                //entity.Transform.LocalPosition -= camEntity.Transform.Position;
             }
             Warnings.Add(entity);
         }
 
         public void RemoveWarning(Entity entity)
         {
-            WarningsToRemove.Add(entity);
+            Warnings.Remove(entity);
         }
 
         public void AddEnemy(Enemy enemy, bool followsCamera, bool invokeSpawned = true)
@@ -426,7 +344,7 @@ namespace AstroDroids.Gameplay
 
         public void RemoveEnemy(AliveEntity enemy)
         {
-            EnemiesToRemove.Add(enemy);
+            Enemies.Remove(enemy);
         }
 
         public void AddProjectile(Projectile projectile, bool followsCamera)
@@ -442,7 +360,7 @@ namespace AstroDroids.Gameplay
 
         public void RemoveProjectile(Projectile projectile)
         {
-            ProjectilesToRemove.Add(projectile);
+            Projectiles.Remove(projectile);
         }
 
         public void AddEntityGroup(EntityGroup group)
@@ -452,7 +370,7 @@ namespace AstroDroids.Gameplay
 
         public void RemoveEntityGroup(EntityGroup group)
         {
-            EntityGroupsToRemove.Add(group);
+            EntityGroups.Remove(group);
         }
 
         public Player GetRandomPlayer()

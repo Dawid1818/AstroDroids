@@ -97,5 +97,17 @@ namespace AstroDroids.Managers
                 return null;
             }
         }
+
+        public static Texture2D GetProjectile(string name)
+        {
+            if (textures.TryGetValue($"Projectiles/{name}", out Texture2D texture))
+            {
+                return texture;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 using AstroDroids.Gameplay;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
+using MonoGame.Extended.ECS;
 using System.Collections.Generic;
 
 namespace AstroDroids.Entities
@@ -100,6 +101,16 @@ namespace AstroDroids.Entities
             float clampedX = MathHelper.Clamp(position.X, world.Bounds.Left, world.Bounds.Right);
             float clampedY = MathHelper.Clamp(position.Y, world.Bounds.Top, world.Bounds.Bottom);
             return new Vector2(clampedX, clampedY);
+        }
+
+        public override void DrawDebug(GameTime gameTime)
+        {
+            base.DrawDebug(gameTime);
+
+            foreach (var col in Colliders)
+            {
+                col.DrawDebug(Transform);
+            }
         }
     }
 }

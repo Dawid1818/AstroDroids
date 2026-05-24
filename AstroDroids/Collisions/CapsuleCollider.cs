@@ -41,7 +41,7 @@ namespace AstroDroids.Collisions
             var worldShape = GetWorldShape(transform);
             Screen.spriteBatch.DrawCircle(worldShape.PointA, worldShape.Radius, 16, Color.Yellow);
             Screen.spriteBatch.DrawCircle(worldShape.PointB, worldShape.Radius, 16, Color.Yellow);
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)worldShape.PointA.X, (int)worldShape.PointA.Y, (int)Vector2.Distance(worldShape.PointA, worldShape.PointB), (int)(worldShape.Radius * 2f)), null, Color.Yellow, GameHelper.AngleBetween(worldShape.PointA, worldShape.PointB), new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)worldShape.PointA.X, (int)worldShape.PointA.Y, (int)Vector2.Distance(worldShape.PointA, worldShape.PointB), (int)(worldShape.Radius * 2f)), null, new Color(Color.Yellow.R, Color.Yellow.G, Color.Yellow.B, 0.5f), GameHelper.AngleBetween(worldShape.PointA, worldShape.PointB), new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
         }
 
         public override RectangleF Bounds(Transform transform)
