@@ -33,7 +33,7 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
-        public ProjectileDrone(DroneController controller, float distance, float startAngle) : base(new Transform(0, 0), 1)
+        public ProjectileDrone(DroneController controller, float distance, float startAngle) : base(new Transform(0, 0), 5)
         {
             this.controller = controller;
             //texture = TextureManager.Get("Ships/DroneController/ProjectileDrone");

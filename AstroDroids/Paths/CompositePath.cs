@@ -169,5 +169,18 @@ namespace AstroDroids.Paths
 
             return paths[paths.Count - 1].GetDirection(1);
         }
+
+        public float GetSegmentStartTime(int index)
+        {
+            if (paths.Count == 0)
+                return 0f;
+
+            double accumulated = 0;
+
+            for (int i = 0; i < index; i++)
+                accumulated += paths[i].Length;
+
+            return (float)(accumulated / Length);
+        }
     }
 }

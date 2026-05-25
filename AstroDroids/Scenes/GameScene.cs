@@ -19,6 +19,8 @@ namespace AstroDroids.Scenes
 
         CoroutineManager coroutineManager = new CoroutineManager();
 
+        float yPos = 0f;
+
         public GameScene()
         {
 
@@ -63,6 +65,8 @@ namespace AstroDroids.Scenes
 
             World.Update(gameTime);
 
+            yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
+
             if(InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
             {
                 LevelManager.QuitPlaytest();
@@ -72,7 +76,7 @@ namespace AstroDroids.Scenes
         public override void Draw(GameTime gameTime)
         {
             Matrix projection = Matrix.CreateOrthographicOffCenter(0, Screen.ScreenWidth, Screen.ScreenHeight, 0, 0, 1);
-            Matrix uv_transform = Screen.GetUVTransform(TextureManager.GetStarfield(), new Vector2(0, 0), 1f, Screen.Viewport);
+            Matrix uv_transform = Screen.GetUVTransform(TextureManager.GetStarfield(), new Vector2(0, -yPos), 1f, Screen.Viewport);
 
             Screen.Infinite.Parameters["view_projection"].SetValue(projection);
             Screen.Infinite.Parameters["uv_transform"].SetValue(Matrix.Invert(uv_transform));

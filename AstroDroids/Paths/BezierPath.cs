@@ -170,6 +170,11 @@ namespace AstroDroids.Paths
                 Length += nextPos.DistanceFrom(lastPos);
                 lastPos = nextPos;
             }
+
+            if(double.IsNaN(Length) || double.IsInfinity(Length))
+            {
+                Length = 0;
+            }
         }
     }
 }

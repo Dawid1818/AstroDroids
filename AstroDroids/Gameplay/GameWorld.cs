@@ -277,7 +277,7 @@ namespace AstroDroids.Gameplay
 
             Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
 
-            Screen.spriteBatch.DrawRectangle(new RectangleF(0, camEntity.Transform.Position.Y, Bounds.Width, Bounds.Height), Color.Gray, 2f);
+            //Screen.spriteBatch.DrawRectangle(new RectangleF(0, 0, Bounds.Width, Bounds.Height), Color.Gray, 2f);
 
             BackgroundObjects.Draw(gameTime);
 

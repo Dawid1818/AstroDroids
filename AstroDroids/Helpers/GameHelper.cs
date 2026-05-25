@@ -11,7 +11,19 @@ namespace AstroDroids.Helpers
     {
         public static BezierPath CreateBezier(Vector2 start, Vector2 end)
         {
-            Vector2 dir = Vector2.Normalize(end - start);
+            Vector2 delta = end - start;
+
+            Vector2 dir;
+
+            if (delta.LengthSquared() < 0.000001f)
+            {
+                dir = Vector2.Zero;
+            }
+            else
+            {
+                dir = Vector2.Normalize(delta);
+            }
+
             Vector2 perp = new Vector2(-dir.Y, dir.X);
 
             float distance = Vector2.Distance(start, end);

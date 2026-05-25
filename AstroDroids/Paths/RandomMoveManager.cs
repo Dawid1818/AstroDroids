@@ -1,5 +1,4 @@
-﻿using AstroDroids.Entities;
-using AstroDroids.Helpers;
+﻿using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
@@ -15,6 +14,8 @@ namespace AstroDroids.Paths
 
         Vector2 destination;
         PathManager TravelManager;
+
+        const float margin = 100f;
 
         protected Scene Scene { get { return SceneManager.GetScene(); } }
 
@@ -46,8 +47,17 @@ namespace AstroDroids.Paths
         public void SetNewPath(bool useBezier = true)
         {
             Active = true;
-            destination = Position + new Vector2(AstroDroidsGame.rnd.Next(-maxMoveDistance, maxMoveDistance), AstroDroidsGame.rnd.Next(-maxMoveDistance, maxMoveDistance));
-            destination = CollidableEntity.ClampPosition(destination, Scene.World);
+
+            float angle = (float)(AstroDroidsGame.rnd.NextDouble() * MathHelper.TwoPi);
+            float distance = (float)(AstroDroidsGame.rnd.NextDouble() * maxMoveDistance);
+
+            Vector2 offset = GameHelper.DirFromAngle(angle);
+
+            destination = Position + offset * distance;
+
+            destination.X = MathHelper.Clamp(destination.X, margin, Scene.World.Bounds.Width - margin);
+
+            destination.Y = MathHelper.Clamp(destination.Y, margin, Scene.World.Bounds.Height - margin);
 
             if (useBezier)
             {

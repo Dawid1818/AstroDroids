@@ -107,7 +107,7 @@ namespace AstroDroids.Paths
                         {
                             if (MinPath != -1 && Path is CompositePath composite)
                             {
-                                Time = (float)MinPath / composite.Decompose().Count;
+                                Time = composite.GetSegmentStartTime(MinPath);
                             }
                             else
                             {
@@ -149,7 +149,7 @@ namespace AstroDroids.Paths
                         if (MinPath != -1 && Path is CompositePath composite && Time <= (float)MinPath / composite.Decompose().Count)
                         {
                             Reverse = false;
-                            Time = (float)MinPath / composite.Decompose().Count;
+                            Time = composite.GetSegmentStartTime(MinPath);
                         }
                         else if (Time <= 0f)
                         {

@@ -5,6 +5,8 @@ using FontStashSharp;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
 using MonoGameGum;
 using System;
 using System.IO;
@@ -129,6 +131,14 @@ namespace AstroDroids.Graphics
                 spriteBatch.Draw(RenderTarget, DestinationRectangle, Color.White);
 
                 spriteBatch.End();
+
+                spriteBatch.Begin();
+
+                spriteBatch.DrawRectangle(new Rectangle(0, 0, DestinationRectangle.Left, gameWnd.ClientBounds.Height), Color.Blue);
+
+                spriteBatch.DrawRectangle(new Rectangle(DestinationRectangle.Right, 0, gameWnd.ClientBounds.Width - DestinationRectangle.Right, gameWnd.ClientBounds.Height), Color.Blue);
+
+                spriteBatch.End();
             }
         }
 
@@ -153,15 +163,39 @@ namespace AstroDroids.Graphics
 
         public static Vector2 ScreenToWorldSpace(Vector2 point)
         {
-            Vector2 vec = new Vector2(point.X, point.Y);
             Matrix invertedMatrix = Matrix.Invert(GetCameraMatrix());
-            return Vector2.Transform(vec, invertedMatrix);
+            return Vector2.Transform(point, invertedMatrix);
         }
 
         public static Vector2 ScreenToWorldSpaceMouse()
         {
             var mousePos = InputSystem.GetMousePos();
             return ScreenToWorldSpace(mousePos);
+        }
+
+        public static Vector2 VirtualScreenToWorldSpaceMouse()
+        {
+            Vector2 virtualMouse = GetVirtualMousePosition();
+            return VirtualScreenToWorldSpace(virtualMouse);
+        }
+
+        public static Vector2 VirtualScreenToWorldSpace(Vector2 point)
+        {
+            Matrix invertedMatrix = Matrix.Invert(GetCameraMatrix());
+            return Vector2.Transform(point, invertedMatrix);
+        }
+
+        public static Vector2 GetVirtualMousePosition()
+        {
+            MouseState mouse = Mouse.GetState();
+
+            Rectangle dest = DestinationRectangle;
+
+            float x = (mouse.X - dest.X) * ScreenWidth / (float)dest.Width;
+
+            float y = (mouse.Y - dest.Y) * ScreenHeight / (float)dest.Height;
+
+            return new Vector2(x, y);
         }
 
         public static void ResetCamera()
