@@ -1,10 +1,14 @@
 ﻿using AstroDroids.Input;
+using AstroDroids.Managers;
+using AstroDroids.Scenes;
 using FontStashSharp;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameGum;
+using System;
 using System.IO;
+using System.Reflection.Metadata.Ecma335;
 
 namespace AstroDroids.Graphics
 {
@@ -13,8 +17,8 @@ namespace AstroDroids.Graphics
         public const int ScreenWidth = 800;
         public const int ScreenHeight = 600;
 
-        public static int ActualScreenWidth { get { return gameWnd.ClientBounds.Width; } }
-        public static int ActualScreenHeight { get { return gameWnd.ClientBounds.Height; } }
+        public static int ActualScreenWidth { get { return !(SceneManager.GetScene() is LevelEditorScene) ? ScreenWidth : gameWnd.ClientBounds.Width; } }
+        public static int ActualScreenHeight { get { return !(SceneManager.GetScene() is LevelEditorScene) ? ScreenHeight : gameWnd.ClientBounds.Height; } }
 
         public static SpriteBatch spriteBatch { get; private set; }
         public static GumService GumUI => GumService.Default;
@@ -30,6 +34,10 @@ namespace AstroDroids.Graphics
         public static Viewport Viewport { get { return graphicsManager.GraphicsDevice.Viewport; } }
 
         static FontSystem fontSystem;
+
+
+        public static RenderTarget2D RenderTarget;
+        public static Rectangle DestinationRectangle;
 
         public static void Initialize(AstroDroidsGame game)
         {
@@ -48,7 +56,29 @@ namespace AstroDroids.Graphics
             fontSystem.AddFont(File.ReadAllBytes("Content/Fonts/VCR_OSD_MONO_1.001.ttf"));
 
             gameWnd = game.Window;
+
+            RenderTarget = new RenderTarget2D(game.GraphicsDevice, ScreenWidth, ScreenHeight);
+            game.Window.ClientSizeChanged += (_, _) => UpdateViewport();
         }
+
+        static void UpdateViewport()
+        {
+            int windowWidth = graphicsManager.GraphicsDevice.PresentationParameters.BackBufferWidth;
+            int windowHeight = graphicsManager.GraphicsDevice.PresentationParameters.BackBufferHeight;
+
+            float scaleX = (float)windowWidth / ScreenWidth;
+            float scaleY = (float)windowHeight / ScreenHeight;
+
+            float scale = MathF.Min(scaleX, scaleY);
+
+            int width = (int)(ScreenWidth * scale);
+            int height = (int)(ScreenHeight * scale);
+
+            int x = (windowWidth - width) / 2;
+            int y = (windowHeight - height) / 2;
+
+            DestinationRectangle = new Rectangle(x, y, width, height);
+        }   
 
         public static void DrawText(string text, Vector2 position, Color color, float size)
         {
@@ -65,6 +95,41 @@ namespace AstroDroids.Graphics
         public static void Update(GameTime gameTime)
         {
             GumUI.Update(gameTime);
+        }
+
+        public static void Draw(GameTime gameTime)
+        {
+            bool useVirtualResolution = !(SceneManager.GetScene() is LevelEditorScene);
+
+            if (useVirtualResolution)
+                graphicsManager.GraphicsDevice.SetRenderTarget(RenderTarget);
+
+            graphicsManager.GraphicsDevice.Clear(Color.Black);
+
+            //Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
+
+            DrawImGuiBefore(gameTime);
+
+            SceneManager.Draw(gameTime);
+
+            //Screen.spriteBatch.End();
+
+            DrawImGuiAfter();
+
+            DrawGum(gameTime);
+
+            if (useVirtualResolution)
+            {
+                graphicsManager.GraphicsDevice.SetRenderTarget(null);
+
+                graphicsManager.GraphicsDevice.Clear(Color.Black);
+
+                spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+
+                spriteBatch.Draw(RenderTarget, DestinationRectangle, Color.White);
+
+                spriteBatch.End();
+            }
         }
 
         public static void DrawGum(GameTime gameTime)

@@ -75,19 +75,7 @@ namespace AstroDroids
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
-
-            //Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix());
-
-            Screen.DrawImGuiBefore(gameTime);
-
-            SceneManager.Draw(gameTime);
-
-            //Screen.spriteBatch.End();
-
-            Screen.DrawImGuiAfter();
-
-            Screen.DrawGum(gameTime);
+            Screen.Draw(gameTime);
 
             base.Draw(gameTime);
         }
