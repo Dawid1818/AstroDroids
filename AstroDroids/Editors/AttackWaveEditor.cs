@@ -567,6 +567,28 @@ namespace AstroDroids.Editors
             }
         }
 
+        string getDescForWaitStyle(WaveWaitStyle style)
+        {
+            return style switch
+            {
+                WaveWaitStyle.None => "",
+                WaveWaitStyle.WaitForPreviousWave => ", waits for enemies to spawn",
+                WaveWaitStyle.WaitForAllEnemiesDefeated => ", waits for no enemies",
+                _ => "",
+            };
+        }
+
+        string getFriendlyWaitStyleName(WaveWaitStyle style)
+        {
+            return style switch
+            {
+                WaveWaitStyle.None => "None",
+                WaveWaitStyle.WaitForPreviousWave => "Wait for enemies to spawn",
+                WaveWaitStyle.WaitForAllEnemiesDefeated => "Wait until no enemies",
+                _ => "",
+            };
+        }
+
         public void DrawImGui()
         {
             if (ImGui.Begin("Attack Waves"))
@@ -574,13 +596,16 @@ namespace AstroDroids.Editors
                 Vector2 windowPos = ImGui.GetWindowPos();
 
                 List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
-                if (ImGui.BeginListBox("##WaveList", new Numeric.Vector2(-1, 0)))
+
+                Vector2 availableSpace = ImGui.GetContentRegionAvail();
+
+                if (ImGui.BeginListBox("##WaveList", new Numeric.Vector2(-1, availableSpace.Y - 120)))
                 {
                     for (int i = 0; i < level.AttackWaves.Count; i++)
                     {
                         AttackWave thisWave = level.AttackWaves[i];
 
-                        string label = $"{thisWave.Name} - Delay: {thisWave.Delay}{(thisWave.WaitForPreviousWave ? ", waits" : "")}";
+                        string label = $"{i} - {thisWave.Name} - Delay: {thisWave.Delay}{getDescForWaitStyle(thisWave.WaitStyle)}";
 
                         if (ImGui.Selectable($"{label}##Wave{i}", thisWave == wave))
                         {
@@ -609,10 +634,10 @@ namespace AstroDroids.Editors
 
                             ImGui.BeginTooltip();
 
+                            ImGui.Text("Attack Wave");
                             ImGui.Text(label);
                             waveHovered = thisWave;
 
-                            // textureId is the IntPtr returned by your renderer
                             ImGui.Image(waveRef, new Numeric.Vector2(440, 340));
 
                             ImGui.EndTooltip();
@@ -645,7 +670,7 @@ namespace AstroDroids.Editors
                 {
                     level.AttackWaves.MoveItemDown(wave);
                 }
-
+                ImGui.SameLine();
                 if (ImGui.Button("Playtest from this wave"))
                 {
                     LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
@@ -669,10 +694,25 @@ namespace AstroDroids.Editors
                         wave.Delay = delay;
                     }
 
-                    bool waitForPreviousWave = wave.WaitForPreviousWave;
-                    if (ImGui.Checkbox("Wait for Previous Wave", ref waitForPreviousWave))
+                    WaveWaitStyle waitStyle = wave.WaitStyle;
+                    if(ImGui.BeginCombo("Wait Style", getFriendlyWaitStyleName(waitStyle)))
                     {
-                        wave.WaitForPreviousWave = waitForPreviousWave;
+                        if(ImGui.Selectable("None", waitStyle == WaveWaitStyle.None))
+                        {
+                            wave.WaitStyle = WaveWaitStyle.None;
+                        }
+
+                        if(ImGui.Selectable(getFriendlyWaitStyleName(WaveWaitStyle.WaitForPreviousWave), waitStyle == WaveWaitStyle.WaitForPreviousWave))
+                        {
+                            wave.WaitStyle = WaveWaitStyle.WaitForPreviousWave;
+                        }
+
+                        if(ImGui.Selectable(getFriendlyWaitStyleName(WaveWaitStyle.WaitForAllEnemiesDefeated), waitStyle == WaveWaitStyle.WaitForAllEnemiesDefeated))
+                        {
+                            wave.WaitStyle = WaveWaitStyle.WaitForAllEnemiesDefeated;
+                        }
+
+                        ImGui.EndCombo();
                     }
                 }
                 else

@@ -97,8 +97,24 @@ namespace AstroDroids.Gameplay
                 if (i != AttackWaves.Count - 1)
                 {
                     AttackWave nextWave = AttackWaves[i + 1];
-                    if (nextWave.WaitForPreviousWave && ongoingWaves > 0)
-                        yield return new WaitUntil(() => ongoingWaves == 0);
+
+                    switch (nextWave.WaitStyle)
+                    {
+                        case WaveWaitStyle.None:
+                            break;
+                        case WaveWaitStyle.WaitForPreviousWave:
+                            if(ongoingWaves > 0)
+                                yield return new WaitUntil(() => ongoingWaves == 0);
+                            break;
+                        case WaveWaitStyle.WaitForAllEnemiesDefeated:
+                            if(ongoingWaves > 0 || Enemies.Count > 0)
+                                yield return new WaitUntil(() => Enemies.Count == 0 && ongoingWaves == 0);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    yield return new WaitUntil(() => ongoingWaves == 0);
 
                     yield return new WaitForSeconds(nextWave.Delay);
                 }

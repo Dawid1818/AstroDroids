@@ -17,6 +17,8 @@ namespace AstroDroids.Collections
 
         public T this[int index] => items[index];
 
+        public int Count => items.Count;
+
         public EntityList() { }
 
         public void Add(T item)

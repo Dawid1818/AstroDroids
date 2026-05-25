@@ -11,6 +11,13 @@ using System.IO;
 
 namespace AstroDroids.Levels
 {
+    public enum WaveWaitStyle
+    {
+        None,
+        WaitForPreviousWave,
+        WaitForAllEnemiesDefeated
+    }
+
     public class AttackWave : ISaveable
     {
         public string Name { get; set; } = "New Attack Wave";
@@ -19,14 +26,14 @@ namespace AstroDroids.Levels
         public List<EventNode> Events { get; private set; } = new List<EventNode>();
         public List<LaserBarrierGroupNode> LaserBarriers { get; private set; } = new List<LaserBarrierGroupNode>();
         public List<BackgroundObjectNode> BackgroundObjects { get; private set; } = new List<BackgroundObjectNode>();
-        public bool WaitForPreviousWave { get; set; } = false;
+        public WaveWaitStyle WaitStyle { get; set; } = WaveWaitStyle.None;
 
         public void Load(BinaryReader reader, int version)
         {
             Name = reader.ReadString();
 
             Delay = reader.ReadDouble();
-            WaitForPreviousWave = reader.ReadBoolean();
+            WaitStyle = (WaveWaitStyle)reader.ReadInt32();
 
             Spawners = new List<EnemySpawner>();
             int spawnerCount = reader.ReadInt32();
@@ -70,7 +77,7 @@ namespace AstroDroids.Levels
             writer.Write(Name);
 
             writer.Write(Delay);
-            writer.Write(WaitForPreviousWave);
+            writer.Write((int)WaitStyle);
 
             writer.Write(Spawners.Count);
             foreach (var spawner in Spawners)
