@@ -1,5 +1,11 @@
-﻿using AstroDroids.Interfaces;
+﻿using AstroDroids.Entities;
+using AstroDroids.Graphics;
+using AstroDroids.Interfaces;
+using AstroDroids.Managers;
+using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 

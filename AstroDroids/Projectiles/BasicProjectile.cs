@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Entities;
+using AstroDroids.Entities.Effects;
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
@@ -9,7 +10,7 @@ namespace AstroDroids.Projectiles
     public class BasicProjectile : Projectile
     {
         Texture2D texture;
-        float speed = 20f;
+        float speed = 25f;
 
         bool fade = false;
         float fadePercentage = 0;
@@ -46,6 +47,9 @@ namespace AstroDroids.Projectiles
                 {
                     if (enemy.Intersects(this))
                     {
+                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y));
+                        Scene.World.AddEffect(hitEffect);
+
                         fade = true;
                         enemy.Damage(1, true);
                         break;

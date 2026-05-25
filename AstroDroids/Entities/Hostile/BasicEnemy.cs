@@ -40,6 +40,11 @@ namespace AstroDroids.Entities.Hostile
             {
                 if(!FollowsCamera)
                     DefaultMove();
+
+                if(Transform.Position.Y > Scene.World.Bounds.Bottom + texture.Height)
+                {
+                    Despawn();
+                }
             }
 
             //if (Path != null)

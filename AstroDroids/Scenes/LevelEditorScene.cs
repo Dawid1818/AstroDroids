@@ -147,6 +147,9 @@ namespace AstroDroids.Scenes
 
         public override void Draw(GameTime gameTime)
         {
+            if (mode == EditorMode.Main)
+                waveEditor.DrawPreviews();
+
             Vector2 cameraPos = Screen.GetCameraPosition();
 
             Matrix projection = Matrix.CreateOrthographicOffCenter(0, Screen.ScreenWidth, Screen.ScreenHeight, 0, 0, 1);

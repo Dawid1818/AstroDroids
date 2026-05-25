@@ -8,11 +8,13 @@ using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using AstroDroids.Scenes;
+using Gum.DataTypes;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
+using MonoGame.Extended.Timers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,9 +49,21 @@ namespace AstroDroids.Editors
         bool scrollToItem = false;
         int itemToScroll = -1;
 
+        RenderTarget2D wavePreview;
+        ImTextureRef waveRef;
+        AttackWave waveHovered;
+
         public AttackWaveEditor(LevelEditorScene scene)
         {
             this.scene = scene;
+
+            Rectangle source = scene.World.Bounds;
+            Rectangle bounds = new Rectangle(source.X, source.Y, source.Width, source.Height);
+            bounds.Inflate(80, 80);
+
+            wavePreview = new RenderTarget2D(Screen.GetGraphicsManager().GraphicsDevice, bounds.Width, bounds.Height);
+
+            waveRef = Screen.GetImGuiRenderer().BindTexture(wavePreview);
         }
 
         public void SetWave(AttackWave wave)
@@ -68,8 +82,10 @@ namespace AstroDroids.Editors
             wave = null;
         }
 
-        void LoadAllNodes()
+        List<Entity> LoadAllNodes(AttackWave wave)
         {
+            List<Entity> AllNodes = new List<Entity>();
+
             foreach (var item in wave.Spawners)
             {
                 AllNodes.Add(item);
@@ -89,6 +105,8 @@ namespace AstroDroids.Editors
             {
                 AllNodes.Add(item);
             }
+
+            return AllNodes;
         }
 
         public void Update()
@@ -447,6 +465,64 @@ namespace AstroDroids.Editors
 
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
 
+            DrawWave(gameTime, wave, selectedNodes);
+
+            if (isDraggingSelRect)
+            {
+                RectangleF selectionRect = new RectangleF(
+                    Math.Min(selRectStart.X, mousePos.X),
+                    Math.Min(selRectStart.Y, mousePos.Y),
+                    Math.Abs(mousePos.X - selRectStart.X),
+                    Math.Abs(mousePos.Y - selRectStart.Y)
+                );
+
+                Screen.spriteBatch.DrawRectangle(selectionRect, Color.Cyan, 2f);
+            }
+        }
+
+        public void DrawPreviews()
+        {
+            if (waveHovered != null)
+            {
+                DrawPreview(waveHovered);
+            }
+        }
+
+        public void DrawPreview(AttackWave wave)
+        {
+            GraphicsDeviceManager manager = Screen.GetGraphicsManager();
+            manager.GraphicsDevice.SetRenderTarget(wavePreview);
+            //manager.GraphicsDevice.Clear(Color.Transparent);
+
+            Vector2 screenCenter = new Vector2(manager.GraphicsDevice.Viewport.Width / 2f, manager.GraphicsDevice.Viewport.Height / 2f);
+
+            Matrix m = Matrix.CreateTranslation(-(Screen.ScreenWidth / 2f), -(Screen.ScreenHeight / 2f), 0)
+             * Matrix.CreateScale(1f)
+             * Matrix.CreateTranslation(screenCenter.X, screenCenter.Y, 0);
+
+            Screen.spriteBatch.Begin(transformMatrix: m);
+            Screen.spriteBatch.DrawRectangle(0, 0, 800, 600, Color.White, 5);
+            DrawWave(new GameTime(), wave, new List<Entity>());
+            Screen.spriteBatch.End();
+
+            manager.GraphicsDevice.SetRenderTarget(null);
+
+
+            //entityPreviews.Add(entity.Key, textureRef);
+        }
+
+        public void DrawWave(GameTime gameTime, AttackWave wave, List<Entity> selectedNodes)
+        {
+            List<Entity> AllNodes;
+            if(this.wave == wave)
+            {
+                AllNodes = this.AllNodes;
+            }
+            else
+            {
+                AllNodes = LoadAllNodes(wave);
+            }
+
             foreach (var node in AllNodes)
             {
                 bool selected = selectedNodes.Contains(node);
@@ -489,24 +565,14 @@ namespace AstroDroids.Editors
                     GameHelper.DrawNode("BG", bgObjN.Transform.Position, selected ? Color.Cyan : Color.LightSkyBlue, Color.DarkSlateGray);
                 }
             }
-
-            if (isDraggingSelRect)
-            {
-                RectangleF selectionRect = new RectangleF(
-                    Math.Min(selRectStart.X, mousePos.X),
-                    Math.Min(selRectStart.Y, mousePos.Y),
-                    Math.Abs(mousePos.X - selRectStart.X),
-                    Math.Abs(mousePos.Y - selRectStart.Y)
-                );
-
-                Screen.spriteBatch.DrawRectangle(selectionRect, Color.Cyan, 2f);
-            }
         }
 
         public void DrawImGui()
         {
             if (ImGui.Begin("Attack Waves"))
             {
+                Vector2 windowPos = ImGui.GetWindowPos();
+
                 List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
                 if (ImGui.BeginListBox("##WaveList", new Numeric.Vector2(-1, 0)))
                 {
@@ -514,14 +580,16 @@ namespace AstroDroids.Editors
                     {
                         AttackWave thisWave = level.AttackWaves[i];
 
-                        if (ImGui.Selectable($"{thisWave.Name} - Delay: {thisWave.Delay}{(thisWave.WaitForPreviousWave ? ", waits" : "")}##Wave{i}", thisWave == wave))
+                        string label = $"{thisWave.Name} - Delay: {thisWave.Delay}{(thisWave.WaitForPreviousWave ? ", waits" : "")}";
+
+                        if (ImGui.Selectable($"{label}##Wave{i}", thisWave == wave))
                         {
                             if (wave != thisWave)
                             {
                                 wave = thisWave;
 
                                 AllNodes.Clear();
-                                LoadAllNodes();
+                                AllNodes = LoadAllNodes(wave);
 
                                 isDraggingNode = false;
                                 isDraggingSelRect = false;
@@ -529,6 +597,25 @@ namespace AstroDroids.Editors
                                 selectedSpawnPoint = null;
                                 selectedNodes.Clear();
                             }
+                        }
+
+                        if (ImGui.IsItemHovered())
+                        {
+                            Vector2 windowSize = ImGui.GetWindowSize();
+
+                            ImGui.SetNextWindowPos(new Numeric.Vector2(
+                                windowPos.X + windowSize.X + 30,
+                                windowPos.Y));
+
+                            ImGui.BeginTooltip();
+
+                            ImGui.Text(label);
+                            waveHovered = thisWave;
+
+                            // textureId is the IntPtr returned by your renderer
+                            ImGui.Image(waveRef, new Numeric.Vector2(440, 340));
+
+                            ImGui.EndTooltip();
                         }
                     }
 

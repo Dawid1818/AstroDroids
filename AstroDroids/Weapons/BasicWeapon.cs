@@ -23,7 +23,7 @@ namespace AstroDroids.Weapons
 
                     Scene.World.AddProjectile(projectile, true);
 
-                    currentCooldown = 0.2f;
+                    currentCooldown = 0.1f;
                 }
             }
 
