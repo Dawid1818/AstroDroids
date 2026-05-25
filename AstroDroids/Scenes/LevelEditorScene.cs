@@ -60,6 +60,8 @@ namespace AstroDroids.Scenes
         Vector2 savedCameraPos;
         float savedCameraZoom;
 
+        float savedTimer = 0f;
+
         public LevelEditorScene()
         {
             EntityDatabase.InitializePreviews();
@@ -113,20 +115,41 @@ namespace AstroDroids.Scenes
             {
                 Vector2 cameraTranslation = Vector2.Zero;
 
-                if (InputSystem.GetKey(Keys.W))
-                    cameraTranslation.Y -= cameraMoveSpeed;
+                if (!InputSystem.GetKey(Keys.LeftControl))
+                {
+                    if (InputSystem.GetKey(Keys.W))
+                        cameraTranslation.Y -= cameraMoveSpeed;
 
-                if (InputSystem.GetKey(Keys.S))
-                    cameraTranslation.Y += cameraMoveSpeed;
+                    if (InputSystem.GetKey(Keys.S))
+                        cameraTranslation.Y += cameraMoveSpeed;
 
-                if (InputSystem.GetKey(Keys.A))
-                    cameraTranslation.X -= cameraMoveSpeed;
+                    if (InputSystem.GetKey(Keys.A))
+                        cameraTranslation.X -= cameraMoveSpeed;
 
-                if (InputSystem.GetKey(Keys.D))
-                    cameraTranslation.X += cameraMoveSpeed;
+                    if (InputSystem.GetKey(Keys.D))
+                        cameraTranslation.X += cameraMoveSpeed;
 
-                if (InputSystem.GetKeyDown(Keys.G))
-                    DrawGrid = !DrawGrid;
+                    if (InputSystem.GetKeyDown(Keys.G))
+                        DrawGrid = !DrawGrid;
+                }
+
+                if(InputSystem.GetKey(Keys.LeftControl))
+                {
+                    if (InputSystem.GetKeyDown(Keys.S))
+                    {
+                        if (string.IsNullOrWhiteSpace(levelFileName))
+                        {
+                            showSaveModal = true;
+                        }
+                        else
+                        {
+                            SaveLevel(levelFileName);
+                        }
+                    }else if(InputSystem.GetKeyDown(Keys.O))
+                    {
+                        showLBModal = true;
+                    }
+                }
 
                 Screen.MoveCamera(cameraTranslation);
 
@@ -143,6 +166,9 @@ namespace AstroDroids.Scenes
             }
 
             World.Starfield.Update();
+
+            if(savedTimer > 0)
+                savedTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public override void Draw(GameTime gameTime)
@@ -285,6 +311,17 @@ namespace AstroDroids.Scenes
                     ImGui.CloseCurrentPopup();
                 }
                 ImGui.EndPopup();
+            }
+
+            if(savedTimer > 0)
+            {
+                ImGui.SetNextWindowPos(new Numeric.Vector2(10, 30));
+
+                ImGui.PushStyleVar(ImGuiStyleVar.Alpha, savedTimer);
+                ImGui.Begin("Level Saved", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize);
+                ImGui.Text("Level saved!");
+                ImGui.End();
+                ImGui.PopStyleVar();
             }
         }
 
@@ -451,6 +488,7 @@ namespace AstroDroids.Scenes
         void SaveLevel(string path)
         {
             FileSaver.SaveObject(level, Path.Combine("Content/Levels/", path + ".adlvl"));
+            savedTimer = 3f;
         }
     }
 }

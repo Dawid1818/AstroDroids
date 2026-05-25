@@ -781,7 +781,7 @@ namespace AstroDroids.Editors
                 spawner.InitialDelay = initialDelay;
             }
 
-            ImGui.Text("Enemies");
+            ImGui.Text($"Enemies ({spawner.EnemyIDs.Count})");
             List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
             Vector2 availableSpace = ImGui.GetContentRegionAvail();
             if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1, availableSpace.Y - ((spawner.Path != null && spawner.HasPath) ? 260 : 120))))
