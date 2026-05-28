@@ -16,7 +16,7 @@ namespace AstroDroids.Editors
             PathPoint lastPos = Path.GetPoint(t);
             while (t < 1f)
             {
-                t += 0.01f;
+                t += 0.001f;
                 PathPoint nextPos = Path.GetPoint(t);
                 Screen.spriteBatch.DrawLine(lastPos, nextPos, Color.Green, 4f);
                 lastPos = nextPos;

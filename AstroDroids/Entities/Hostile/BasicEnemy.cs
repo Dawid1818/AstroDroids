@@ -5,6 +5,7 @@ using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using AstroDroids.Helpers;
+using AstroDroids.Drawables;
 
 namespace AstroDroids.Entities.Hostile
 {
@@ -13,18 +14,24 @@ namespace AstroDroids.Entities.Hostile
         public float t = 0f;
 
         Texture2D texture;
+        AnimatedSprite sprite;
 
         float angle = 3.14f;
 
         public BasicEnemy() : base(new Transform(0, 0), 2)
         {
-            texture = TextureManager.Get("Ships/Basic/tinyShip9");
+            //texture = TextureManager.Get("Ships/Basic/tinyShip9");
+            texture = TextureManager.Get("Ships/Basic/tinyShip9Sheet");
+
+            sprite = new AnimatedSprite(texture, 5, 34, 30, 1, 5, 10f);
 
             AddCircleCollider(Vector2.Zero, 16f);
         }
 
         public override void Update(GameTime gameTime)
         {
+            sprite.Update(gameTime);
+
             if(PathManager != null)
             {
                 PathManager.Update(gameTime);
@@ -69,7 +76,8 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
+            sprite.Draw(new Vector2(Transform.Position.X, Transform.Position.Y), angle);
+            //Screen.spriteBatch.Draw(texture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
         }
     }
 }

@@ -291,6 +291,12 @@ namespace AstroDroids.Editors
                 }
                 else
                 {
+                    if (scene.DrawGrid)
+                    {
+                        mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
+                        mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
+                    }
+
                     EnemySpawner spawner = wave.CreateSpawner(mousePos);
                     selectedNodes.Clear();
                     isDraggingNode = false;
@@ -307,6 +313,12 @@ namespace AstroDroids.Editors
                 }
                 else
                 {
+                    if (scene.DrawGrid)
+                    {
+                        mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
+                        mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
+                    }
+
                     EventNode eventN = wave.CreateEvent(mousePos);
                     selectedNodes.Clear();
                     isDraggingNode = false;
@@ -317,6 +329,12 @@ namespace AstroDroids.Editors
 
             if (InputSystem.GetKeyDown(Keys.B))
             {
+                if (scene.DrawGrid)
+                {
+                    mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
+                    mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
+                }
+
                 LaserBarrierGroupNode laserBarrierN = wave.CreateLaserBarrier(mousePos);
                 selectedNodes.Clear();
                 isDraggingNode = false;
@@ -326,6 +344,12 @@ namespace AstroDroids.Editors
 
             if (InputSystem.GetKeyDown(Keys.N))
             {
+                if (scene.DrawGrid)
+                {
+                    mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
+                    mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
+                }
+
                 BackgroundObjectNode bgObjN = wave.CreateBackgroundObject(mousePos);
                 selectedNodes.Clear();
                 isDraggingNode = false;
@@ -671,6 +695,14 @@ namespace AstroDroids.Editors
                     level.AttackWaves.MoveItemDown(wave);
                 }
                 ImGui.SameLine();
+                if(ImGui.Button("Duplicate") && wave != null)
+                {
+                    AttackWave newWave = new AttackWave();
+                    FileSaver.CloneObject(wave, newWave);
+                    int index = level.AttackWaves.IndexOf(wave);
+                    level.AttackWaves.Insert(index+1, newWave);
+                }
+                ImGui.SameLine();
                 if (ImGui.Button("Playtest from this wave"))
                 {
                     LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
@@ -796,9 +828,10 @@ namespace AstroDroids.Editors
                         ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
                         ImGui.Image(EntityDatabase.GetEntityPreview(enemyId), new Numeric.Vector2(48, 48));
                         ImGui.SameLine();
-                        var textSize = ImGui.CalcTextSize(enemyList[enemyId].Name);
+                        string label = $"{i} - {enemyList[enemyId].Name}";
+                        var textSize = ImGui.CalcTextSize(label);
                         ImGui.SetCursorPosY(yPos + 56 / 2 - textSize.Y / 2);
-                        ImGui.Text(enemyList[enemyId].Name);
+                        ImGui.Text(label);
                     });
 
                     if (scrollToItem && i == itemToScroll)
@@ -819,7 +852,7 @@ namespace AstroDroids.Editors
             }
 
             var avaSpace = ImGui.GetContentRegionAvail();
-            ImGui.PushItemWidth(avaSpace.X - 170);
+            ImGui.PushItemWidth(avaSpace.X - 230);
             if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name, ImGuiComboFlags.HeightLarge))
             {
                 for (int i = 0; i < enemyList.Count; i++)
@@ -852,6 +885,17 @@ namespace AstroDroids.Editors
 
                 selectedEnemy = spawner.EnemyIDs.Count - 1;
                 scrollToBottom = true;
+            }
+
+            ImGui.SameLine();
+
+            if (ImGui.Button("Insert"))
+            {
+                spawner.EnemyIDs.Insert(selectedEnemy + 1, selectedEnemyType);
+
+                selectedEnemy = selectedEnemy + 1;
+                scrollToItem = true;
+                itemToScroll = selectedEnemy;
             }
 
             ImGui.SameLine();

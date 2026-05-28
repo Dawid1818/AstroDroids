@@ -54,6 +54,12 @@ namespace AstroDroids.Editors
             {
                 if (InputSystem.GetKeyDown(Keys.C))
                 {
+                    if (scene.DrawGrid)
+                    {
+                        mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
+                        mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
+                    }
+
                     AddNewSubpath(mousePos);
                 }
 
