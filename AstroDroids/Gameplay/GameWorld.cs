@@ -52,6 +52,8 @@ namespace AstroDroids.Gameplay
 
         int ongoingWaves = 0;
 
+        double timePassed = 0;
+
         public void Initialize()
         {
             AttackWaves.Clear();
@@ -239,6 +241,8 @@ namespace AstroDroids.Gameplay
 
         public void Update(GameTime gameTime)
         {
+            timePassed += gameTime.ElapsedGameTime.TotalSeconds;
+
             coroutineManager.Update();
 
             if (Starfield != null)
@@ -274,6 +278,13 @@ namespace AstroDroids.Gameplay
         {
             if (Starfield != null)
                 Starfield.Draw();
+
+            if (AstroDroidsGame.Debug)
+            {
+                Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
+                Screen.DrawText($"Time: {TimeSpan.FromSeconds(timePassed).ToString(@"hh\:mm\:ss")}", new Vector2(10, 30), Color.White, 10f);
+                Screen.spriteBatch.End();
+            }
 
             Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
 
@@ -411,6 +422,18 @@ namespace AstroDroids.Gameplay
         public void RemovePlayer(Player player)
         {
             PlayersToRemove.Add(player);
+        }
+
+        public void RequestPlayerRespawn(int index)
+        {
+            //Can check for life amount here later?
+            coroutineManager.StartCoroutine(RespawnPlayer(index));
+        }
+
+        IEnumerator RespawnPlayer(int index)
+        {
+            yield return new WaitForSeconds(2);
+            AddPlayer(new Player(index, new Vector2(Bounds.Width / 2 - 16, Bounds.Bottom - 64)));
         }
 
         internal void SetProgress(int startPoint)

@@ -119,7 +119,7 @@ namespace AstroDroids.Entities.Hostile
         {
             Player target = Scene.World.GetRandomPlayer();
 
-            if (PathManager != null && state == SpinLaserState.Moving)
+            if (PathManager != null)
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
@@ -190,6 +190,13 @@ namespace AstroDroids.Entities.Hostile
                 case SpinLaserState.Spinning:
                     chargeEffectEntity.effect.AutoTrigger = true;
                     waitTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (warning != null)
+                    {
+                        Vector2 forwardPoint = GameHelper.RotateAroundPoint(Transform.Position + new Vector2(texture.Width / 2f, 0), Transform.Position, angle);
+
+                        warning.Transform.Position = forwardPoint;
+                    }
 
                     if (waitTimer >= 1f)
                     {

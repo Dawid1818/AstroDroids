@@ -120,6 +120,7 @@ namespace AstroDroids.Entities.Friendly
         {
             Scene.World.RemovePlayer(this);
             GameState.RemoveLife();
+            Scene.World.RequestPlayerRespawn(playerIndex);
         }
     }
 }

@@ -12,6 +12,11 @@ namespace AstroDroids.Entities.Warnings
         int length;
         public BeamWarning(Transform transform, float angle, int length) : base(transform)
         {
+            UpdateParameters(angle, length);
+        }
+
+        public void UpdateParameters(float angle, int length)
+        {
             this.angle = angle;
             this.length = length;
         }
