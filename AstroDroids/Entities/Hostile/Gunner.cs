@@ -4,14 +4,35 @@ using AstroDroids.Entities.Friendly;
 using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles.Hostile;
+using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 namespace AstroDroids.Entities.Hostile
 {
+    public class GunnerSpawnData : IEnemySpawnData
+    {
+        public bool FacePlayerDuringPath = false;
+
+        public void DrawEditor()
+        {
+            ImGui.Checkbox("Face player during path", ref FacePlayerDuringPath);
+        }
+
+        public void Load(BinaryReader reader, int version)
+        {
+            FacePlayerDuringPath = reader.ReadBoolean();
+        }
+
+        public void Save(BinaryWriter writer)
+        {
+            writer.Write(FacePlayerDuringPath);   
+        }
+    }
     public class Gunner : Enemy
     {
         public Texture2D texture;
@@ -26,12 +47,19 @@ namespace AstroDroids.Entities.Hostile
 
         bool firing = false;
 
+        bool facePlayer = false;
+
         public Gunner() : base(Vector2.Zero, 10)
         {
             texture = TextureManager.Get("Ships/Gunner/tinyShip20");
             AddCircleCollider(Vector2.Zero, 22f);
 
             sprite = new AnimatedSprite(texture, 5, 44, 44, 1, 5, 10f);
+        }
+
+        public override void ApplySpawnData(IEnemySpawnData spawnData)
+        {
+            facePlayer = ((GunnerSpawnData)spawnData).FacePlayerDuringPath;
         }
 
         public override void Update(GameTime gameTime)
@@ -58,7 +86,10 @@ namespace AstroDroids.Entities.Hostile
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
-                angle = GameHelper.AngleFromDir(PathManager.Direction) + 1.571f;
+
+                if(!facePlayer)
+                    angle = GameHelper.AngleFromDir(PathManager.Direction) + 1.571f;
+
 
                 //if (!PathManager.Active)
                 //{

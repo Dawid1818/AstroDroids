@@ -153,9 +153,9 @@ namespace AstroDroids.Gameplay
 
             for (int i = 0; i < spawner.EnemyIDs.Count; i++)
             {
-                int id = spawner.EnemyIDs[i];
+                EnemySpawnEntry entry = spawner.EnemyIDs[i];
 
-                Type type = EntityDatabase.GetEnemyType(id);
+                Type type = EntityDatabase.GetEnemyType(entry.EnemyID);
                 Enemy enemy = (Enemy)Activator.CreateInstance(type);
 
                 if (spawner.HasPath)
@@ -167,7 +167,7 @@ namespace AstroDroids.Gameplay
 
                 enemy.FollowsCamera = spawner.FollowsCamera;
 
-                AddEnemy(enemy, spawner.FollowsCamera, false);
+                AddEnemy(enemy, spawner.FollowsCamera, false, entry.SpawnData);
 
                 enemy.Transform.LocalPosition = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
                 enemy.Spawned();
@@ -355,7 +355,7 @@ namespace AstroDroids.Gameplay
             Warnings.Remove(entity);
         }
 
-        public void AddEnemy(Enemy enemy, bool followsCamera, bool invokeSpawned = true)
+        public void AddEnemy(Enemy enemy, bool followsCamera, bool invokeSpawned = true, IEnemySpawnData spawnData = null)
         {
             if (followsCamera)
             {
@@ -364,6 +364,13 @@ namespace AstroDroids.Gameplay
             }
 
             Enemies.Add(enemy);
+
+            if (spawnData == null)
+                spawnData = EntityDatabase.CreateEnemySpawnData(enemy.GetType());
+
+            //If the enemy entity hasn't been registered, the spawn data will not be found (for example in case of the laser barriers), so we just skip doing that in this case
+            if(spawnData != null)
+                enemy.ApplySpawnData(spawnData);
 
             if (invokeSpawned)
                 enemy.Spawned();

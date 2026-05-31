@@ -1,5 +1,4 @@
-﻿using AstroDroids.Entities.Hostile;
-using AstroDroids.Entities.Neutral;
+﻿using AstroDroids.Entities.Neutral;
 using AstroDroids.Extensions;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
@@ -35,7 +34,7 @@ namespace AstroDroids.Levels
             EntityGroup group = new EntityGroup(position, rows, cols, cellWidth, cellHeight, spacing);
 
             Scene.World.AddEntityGroup(group);
-            return group; 
+            return group;
         }
 
         public AttackWave CreateAttackWave()
@@ -69,7 +68,7 @@ namespace AstroDroids.Levels
 
         public void Load(BinaryReader reader, int version)
         {
-            if(reader.ReadFixedString(Magic.Length) != Magic)
+            if (reader.ReadFixedString(Magic.Length) != Magic)
             {
                 throw new InvalidDataException("Invalid level file, Magic string doesn't match.");
             }

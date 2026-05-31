@@ -8,7 +8,7 @@ namespace AstroDroids.Levels
 {
     public class EnemySpawner : MovableNode
     {
-        public List<int> EnemyIDs = new List<int>();
+        public List<EnemySpawnEntry> EnemyIDs = new List<EnemySpawnEntry>();
         public PathPoint SpawnPosition { get; set; } = null;
         public float DelayBetweenEnemies { get; set; } = 1f;
         public double InitialDelay { get; set; } = 0f;
@@ -25,7 +25,9 @@ namespace AstroDroids.Levels
             int enemyCount = reader.ReadInt32();
             for (int i = 0; i < enemyCount; i++)
             {
-                EnemyIDs.Add(reader.ReadInt32());
+                EnemySpawnEntry entry = new EnemySpawnEntry();
+                entry.Load(reader, version);
+                EnemyIDs.Add(entry);
             }
 
             DelayBetweenEnemies = reader.ReadSingle();
@@ -50,7 +52,7 @@ namespace AstroDroids.Levels
             writer.Write(EnemyIDs.Count);
             foreach (var id in EnemyIDs)
             {
-                writer.Write(id);
+                id.Save(writer);
             }
 
             writer.Write(DelayBetweenEnemies);

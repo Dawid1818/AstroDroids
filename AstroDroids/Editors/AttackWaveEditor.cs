@@ -8,16 +8,15 @@ using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using AstroDroids.Scenes;
-using Gum.DataTypes;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
-using MonoGame.Extended.Timers;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Numeric = System.Numerics;
 
 namespace AstroDroids.Editors
@@ -190,7 +189,7 @@ namespace AstroDroids.Editors
                         }
                     }
                 }
-                else if(draggedNode != null)
+                else if (draggedNode != null)
                 {
                     Vector2 startPos = draggedNode.Transform.Position;
 
@@ -221,7 +220,7 @@ namespace AstroDroids.Editors
                                 }
                                 else
                                 {
-                                    if(movable is EnemySpawner spawner)
+                                    if (movable is EnemySpawner spawner)
                                         spawner.SpawnPosition += delta;
                                 }
                             }
@@ -538,7 +537,7 @@ namespace AstroDroids.Editors
         public void DrawWave(GameTime gameTime, AttackWave wave, List<Entity> selectedNodes)
         {
             List<Entity> AllNodes;
-            if(this.wave == wave)
+            if (this.wave == wave)
             {
                 AllNodes = this.AllNodes;
             }
@@ -695,12 +694,12 @@ namespace AstroDroids.Editors
                     level.AttackWaves.MoveItemDown(wave);
                 }
                 ImGui.SameLine();
-                if(ImGui.Button("Duplicate") && wave != null)
+                if (ImGui.Button("Duplicate") && wave != null)
                 {
                     AttackWave newWave = new AttackWave();
                     FileSaver.CloneObject(wave, newWave);
                     int index = level.AttackWaves.IndexOf(wave);
-                    level.AttackWaves.Insert(index+1, newWave);
+                    level.AttackWaves.Insert(index + 1, newWave);
                 }
                 ImGui.SameLine();
                 if (ImGui.Button("Playtest from this wave"))
@@ -727,19 +726,19 @@ namespace AstroDroids.Editors
                     }
 
                     WaveWaitStyle waitStyle = wave.WaitStyle;
-                    if(ImGui.BeginCombo("Wait Style", getFriendlyWaitStyleName(waitStyle)))
+                    if (ImGui.BeginCombo("Wait Style", getFriendlyWaitStyleName(waitStyle)))
                     {
-                        if(ImGui.Selectable("None", waitStyle == WaveWaitStyle.None))
+                        if (ImGui.Selectable("None", waitStyle == WaveWaitStyle.None))
                         {
                             wave.WaitStyle = WaveWaitStyle.None;
                         }
 
-                        if(ImGui.Selectable(getFriendlyWaitStyleName(WaveWaitStyle.WaitForPreviousWave), waitStyle == WaveWaitStyle.WaitForPreviousWave))
+                        if (ImGui.Selectable(getFriendlyWaitStyleName(WaveWaitStyle.WaitForPreviousWave), waitStyle == WaveWaitStyle.WaitForPreviousWave))
                         {
                             wave.WaitStyle = WaveWaitStyle.WaitForPreviousWave;
                         }
 
-                        if(ImGui.Selectable(getFriendlyWaitStyleName(WaveWaitStyle.WaitForAllEnemiesDefeated), waitStyle == WaveWaitStyle.WaitForAllEnemiesDefeated))
+                        if (ImGui.Selectable(getFriendlyWaitStyleName(WaveWaitStyle.WaitForAllEnemiesDefeated), waitStyle == WaveWaitStyle.WaitForAllEnemiesDefeated))
                         {
                             wave.WaitStyle = WaveWaitStyle.WaitForAllEnemiesDefeated;
                         }
@@ -816,13 +815,14 @@ namespace AstroDroids.Editors
             ImGui.Text($"Enemies ({spawner.EnemyIDs.Count})");
             List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
             Vector2 availableSpace = ImGui.GetContentRegionAvail();
-            if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1, availableSpace.Y - ((spawner.Path != null && spawner.HasPath) ? 260 : 120))))
+            if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1, availableSpace.Y - ((spawner.Path != null && spawner.HasPath) ? 280 : 140))))
             {
                 for (int i = 0; i < spawner.EnemyIDs.Count; i++)
                 {
-                    int enemyId = spawner.EnemyIDs[i];
+                    int enemyId = spawner.EnemyIDs[i].EnemyID;
 
-                    selectableButton($"##{enemyList[enemyId].Name}EnemyID{i}", i == selectedEnemy, 0, 56, () => { selectedEnemy = i; }, () => {
+                    selectableButton($"##{enemyList[enemyId].Name}EnemyID{i}", i == selectedEnemy, 0, 56, () => { selectedEnemy = i; }, () =>
+                    {
                         float yPos = ImGui.GetCursorPosY();
                         ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 4);
                         ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
@@ -852,12 +852,13 @@ namespace AstroDroids.Editors
             }
 
             var avaSpace = ImGui.GetContentRegionAvail();
-            ImGui.PushItemWidth(avaSpace.X - 230);
+            ImGui.PushItemWidth(avaSpace.X);
             if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name, ImGuiComboFlags.HeightLarge))
             {
                 for (int i = 0; i < enemyList.Count; i++)
                 {
-                    selectableButton(enemyList[i].Name, i == selectedEnemyType, 0, 72, () => { selectedEnemyType = i; }, () => {
+                    selectableButton(enemyList[i].Name, i == selectedEnemyType, 0, 72, () => { selectedEnemyType = i; }, () =>
+                    {
                         float yPos = ImGui.GetCursorPosY();
                         ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 4);
                         ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
@@ -877,11 +878,11 @@ namespace AstroDroids.Editors
                 ImGui.EndCombo();
             }
 
-            ImGui.SameLine();
+            ImGui.PopItemWidth();
 
             if (ImGui.Button("Add"))
             {
-                spawner.EnemyIDs.Add(selectedEnemyType);
+                spawner.EnemyIDs.Add(new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = EntityDatabase.CreateEnemySpawnData(selectedEnemyType) });
 
                 selectedEnemy = spawner.EnemyIDs.Count - 1;
                 scrollToBottom = true;
@@ -891,7 +892,7 @@ namespace AstroDroids.Editors
 
             if (ImGui.Button("Insert"))
             {
-                spawner.EnemyIDs.Insert(selectedEnemy + 1, selectedEnemyType);
+                spawner.EnemyIDs.Insert(selectedEnemy + 1, new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = EntityDatabase.CreateEnemySpawnData(selectedEnemyType) });
 
                 selectedEnemy = selectedEnemy + 1;
                 scrollToItem = true;
@@ -908,7 +909,7 @@ namespace AstroDroids.Editors
 
                     if (selectedEnemy >= spawner.EnemyIDs.Count)
                         selectedEnemy = spawner.EnemyIDs.Count - 1;
-                        //selectedEnemy = -1;
+                    //selectedEnemy = -1;
                 }
             }
 
@@ -933,6 +934,13 @@ namespace AstroDroids.Editors
                     itemToScroll = selectedEnemy;
                     scrollToItem = true;
                 }
+            }
+            ImGui.SameLine();
+            if (ImGui.Button("Duplicate") && selectedEnemy != -1)
+            {
+                EnemySpawnEntry newEntry = new EnemySpawnEntry();
+                FileSaver.CloneObject(spawner.EnemyIDs[selectedEnemy], newEntry);
+                spawner.EnemyIDs.Insert(selectedEnemy + 1, newEntry);
             }
             ImGui.EndDisabled();
 
@@ -963,8 +971,22 @@ namespace AstroDroids.Editors
                     spawner.SpawnPosition = spawner.Transform.Position;
                 }
             }
-            
+
             PathSettings(spawner);
+
+            ImGui.Begin("Enemy settings");
+
+            if (selectedEnemy != -1 && selectedEnemy < spawner.EnemyIDs.Count)
+            {
+                int enemyId = spawner.EnemyIDs[selectedEnemy].EnemyID;
+                ImGui.SeparatorText($"{enemyList[enemyId].Name} settings");
+                spawner.EnemyIDs[selectedEnemy].SpawnData?.DrawEditor();
+            }
+            else
+            {
+                ImGui.SeparatorText("No enemy selected");
+            }
+            ImGui.End();
         }
 
         void selectableButton(string label, bool selected, float width, float height, Action onSelect = null, Action content = null)
@@ -1118,7 +1140,7 @@ namespace AstroDroids.Editors
                     ImGui.EndDisabled();
                 }
 
-                    LoopingMode loopMode = movable.PathLoop;
+                LoopingMode loopMode = movable.PathLoop;
                 if (ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
                 {
                     foreach (var mode in Enum.GetValues<LoopingMode>())

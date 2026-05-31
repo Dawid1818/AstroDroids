@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Entities;
+using AstroDroids.Entities.Hostile;
 using AstroDroids.Graphics;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
@@ -11,18 +12,18 @@ namespace AstroDroids.Managers
 {
     public class EntityDatabase
     {
-        static Dictionary<int, Type> entityTypes = new Dictionary<int, Type>();
+        static Dictionary<int, EntityRegistration> entityTypes = new Dictionary<int, EntityRegistration>();
         static Dictionary<int, ImTextureRef> entityPreviews = new Dictionary<int, ImTextureRef>();
         static bool previewsInitialized = false;
 
         public static void Initialize()
         {
-            RegisterEnemy(0, typeof(Entities.Hostile.BasicEnemy));
-            RegisterEnemy(1, typeof(Entities.Hostile.SpinLaser));
-            RegisterEnemy(2, typeof(Entities.Hostile.DroneController));
-            RegisterEnemy(3, typeof(Entities.Hostile.ProximityMine));
-            RegisterEnemy(4, typeof(Entities.Hostile.TriGunTurret));
-            RegisterEnemy(5, typeof(Entities.Hostile.Gunner));
+            RegisterEnemy(0, typeof(Entities.Hostile.BasicEnemy), typeof(DefaultSpawnData));
+            RegisterEnemy(1, typeof(Entities.Hostile.SpinLaser), typeof(DefaultSpawnData));
+            RegisterEnemy(2, typeof(Entities.Hostile.DroneController), typeof(DefaultSpawnData));
+            RegisterEnemy(3, typeof(Entities.Hostile.ProximityMine), typeof(DefaultSpawnData));
+            RegisterEnemy(4, typeof(Entities.Hostile.TriGunTurret), typeof(DefaultSpawnData));
+            RegisterEnemy(5, typeof(Entities.Hostile.Gunner), typeof(GunnerSpawnData));
         }
 
         public static void InitializePreviews()
@@ -34,7 +35,7 @@ namespace AstroDroids.Managers
 
             foreach (var entity in entityTypes)
             {
-                Enemy enemy = (Enemy)Activator.CreateInstance(entity.Value);
+                Enemy enemy = (Enemy)Activator.CreateInstance(entity.Value.EnemyType);
                 Rectangle bounds = enemy.ToRectangle();
 
                 RenderTarget2D target = new RenderTarget2D(manager.GraphicsDevice, bounds.Width + (bounds.Width), bounds.Height + (bounds.Height));
@@ -57,21 +58,56 @@ namespace AstroDroids.Managers
             previewsInitialized = true;
         }
 
-        static void RegisterEnemy(int id, Type entity)
+        static void RegisterEnemy(int id, Type entity, Type spawnData)
         {
-            entityTypes[id] = entity;
+            entityTypes[id] = new EntityRegistration { EnemyType = entity, SpawnDataType = spawnData };
         }
 
         public static Type GetEnemyType(int id)
         {
-            if (entityTypes.TryGetValue(id, out Type type))
+            if (entityTypes.TryGetValue(id, out EntityRegistration registration))
             {
-                return type;
+                return registration.EnemyType;
             }
             else
             {
                 throw new Exception($"Enemy with ID {id} not found in EntityDatabase.");
             }
+        }
+
+        public static Type GetEnemySpawnDataType(int id)
+        {
+            if (entityTypes.TryGetValue(id, out EntityRegistration registration))
+            {
+                return registration.SpawnDataType;
+            }
+            else
+            {
+                throw new Exception($"Enemy with ID {id} not found in EntityDatabase.");
+            }
+        }
+
+        public static IEnemySpawnData CreateEnemySpawnData(int id)
+        {
+            Type spawnDataType = GetEnemySpawnDataType(id);
+            if (spawnDataType != null)
+            {
+                return (IEnemySpawnData)Activator.CreateInstance(spawnDataType);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static IEnemySpawnData CreateEnemySpawnData(Type enemyType)
+        {
+            var registration = entityTypes.Values.FirstOrDefault(r => r.EnemyType == enemyType);
+            if (registration != null)
+            {
+                return (IEnemySpawnData)Activator.CreateInstance(registration.SpawnDataType);
+            }
+            return null;
         }
 
         public static ImTextureRef GetEntityPreview(int id)
@@ -88,7 +124,7 @@ namespace AstroDroids.Managers
 
         public static List<Type> GetAllEnemyTypes()
         {
-            return entityTypes.Values.ToList();
+            return entityTypes.Values.Select(r => r.EnemyType).ToList();
         }
     }
 }
