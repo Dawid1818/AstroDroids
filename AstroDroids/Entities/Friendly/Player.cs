@@ -23,7 +23,7 @@ namespace AstroDroids.Entities.Friendly
 
         public float Angle { get; private set; } = 0f;
 
-        public Player(int playerIndex, Vector2 position) : base(new Transform(position.X, position.Y), 1)
+        public Player(int playerIndex, Vector2 position) : base(new Transform(position), 1)
         {
             this.playerIndex = playerIndex;
             exhaustTexture = TextureManager.Get("Ships/Player/Exhaust");

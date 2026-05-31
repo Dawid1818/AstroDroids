@@ -15,7 +15,7 @@ namespace AstroDroids.Entities.Hostile
         Texture2D texture;
         public int Id { get; private set; }
 
-        public LaserBarrier() : base(new Transform(0, 0), 1)
+        public LaserBarrier() : base(Vector2.Zero, 1)
         {
             //placeholder texture
             texture = TextureManager.Get("Ships/Basic/Basic");
@@ -23,7 +23,7 @@ namespace AstroDroids.Entities.Hostile
             AddCircleCollider(Vector2.Zero, 16f);
         }
 
-        public LaserBarrier(Vector2 position, int id, int health) : base(new Transform(position.X, position.Y), 1)
+        public LaserBarrier(Vector2 position, int id, int health) : base(position, 1)
         {
             Id = id;
             texture = TextureManager.Get("Ships/Basic/Basic");
@@ -40,7 +40,7 @@ namespace AstroDroids.Entities.Hostile
         {
             foreach (var item in connections)
             {
-                LaserBarrierBeam beam = new LaserBarrierBeam(new Transform(Transform.LocalPosition.X, Transform.LocalPosition.Y), (float)GameHelper.AngleBetween(Transform.LocalPosition, item.Transform.LocalPosition), Vector2.Distance(Transform.LocalPosition, item.Transform.LocalPosition), !CanBeDamaged);
+                LaserBarrierBeam beam = new LaserBarrierBeam(Transform.LocalPosition, (float)GameHelper.AngleBetween(Transform.LocalPosition, item.Transform.LocalPosition), Vector2.Distance(Transform.LocalPosition, item.Transform.LocalPosition), !CanBeDamaged);
                 beams.Add(item, beam);
                 Scene.World.AddProjectile(beam, false);
             }

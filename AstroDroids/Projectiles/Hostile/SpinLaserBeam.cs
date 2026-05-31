@@ -14,7 +14,7 @@ namespace AstroDroids.Projectiles.Hostile
         float angle;
         int state = 0;
 
-        public SpinLaserBeam(Transform collider, float angle) : base(collider)
+        public SpinLaserBeam(Vector2 position, float angle) : base(position)
         {
             this.angle = angle;
             AddCapsuleCollider(Vector2.Zero, GameHelper.OrbitPos(Vector2.Zero, angle, 1000), 16f);

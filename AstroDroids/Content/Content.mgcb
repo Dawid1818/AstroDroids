@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Background Objects/Arrow.png
 
+#begin Textures/Effects/StandardExplosion/Explosion.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Effects/StandardExplosion/Explosion.png
+
 #begin Textures/Projectiles/BasicWeapon/01.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -204,6 +216,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Ships/DroneController/tinyShip18.png
+
+#begin Textures/Ships/Gunner/tinyShip20.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/Gunner/tinyShip20.png
 
 #begin Textures/Ships/Player/Exhaust.png
 /importer:TextureImporter

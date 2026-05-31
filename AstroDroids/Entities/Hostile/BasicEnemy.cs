@@ -18,7 +18,7 @@ namespace AstroDroids.Entities.Hostile
 
         float angle = 3.14f;
 
-        public BasicEnemy() : base(new Transform(0, 0), 2)
+        public BasicEnemy() : base(Vector2.Zero, 2)
         {
             //texture = TextureManager.Get("Ships/Basic/tinyShip9");
             texture = TextureManager.Get("Ships/Basic/tinyShip9Sheet");
@@ -76,7 +76,7 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            sprite.Draw(new Vector2(Transform.Position.X, Transform.Position.Y), angle);
+            sprite.Draw(new Vector2(Transform.Position.X, Transform.Position.Y), angle, 1f);
             //Screen.spriteBatch.Draw(texture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
         }
     }

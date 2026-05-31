@@ -33,7 +33,7 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
-        public ProjectileDrone(DroneController controller, float distance, float startAngle) : base(new Transform(0, 0), 5)
+        public ProjectileDrone(DroneController controller, float distance, float startAngle) : base(Vector2.Zero, 5)
         {
             this.controller = controller;
             //texture = TextureManager.Get("Ships/DroneController/ProjectileDrone");
@@ -120,7 +120,7 @@ namespace AstroDroids.Entities.Hostile
         {
             Vector2 spawnPos = GameHelper.OrbitPos(Transform.Position, angle, 21);
 
-            Scene.World.AddProjectile(new LaserProjectile(new Transform(spawnPos.X, spawnPos.Y), angle), true);
+            Scene.World.AddProjectile(new LaserProjectile(spawnPos, angle), true);
         }
 
         public override void Draw(GameTime gameTime)

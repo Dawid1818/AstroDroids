@@ -14,7 +14,7 @@ namespace AstroDroids.Projectiles.Hostile
         Vector2 movementDirection;
         float speed = 10f;
 
-        public LaserProjectile(Transform collider, float angle) : base(collider)
+        public LaserProjectile(Vector2 position, float angle) : base(position)
         {
             this.angle = angle;
 

@@ -45,7 +45,7 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
-        public SpinLaser() : base(new Transform(0, 0), 5)
+        public SpinLaser() : base(Vector2.Zero, 5)
         {
             texture = TextureManager.Get("Ships/SpinLaser/tinyShip2");
 
@@ -202,7 +202,7 @@ namespace AstroDroids.Entities.Hostile
                     {
                         Vector2 forwardPoint = GameHelper.RotateAroundPoint(Transform.Position + new Vector2(texture.Width / 2f, 0), Transform.Position, angle);
 
-                        Scene.World.AddProjectile(new SpinLaserBeam(new Transform(forwardPoint.X, forwardPoint.Y), (float)angle), true);
+                        Scene.World.AddProjectile(new SpinLaserBeam(forwardPoint, (float)angle), true);
 
                         if (warning != null)
                         {

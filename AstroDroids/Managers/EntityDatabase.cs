@@ -22,6 +22,7 @@ namespace AstroDroids.Managers
             RegisterEnemy(2, typeof(Entities.Hostile.DroneController));
             RegisterEnemy(3, typeof(Entities.Hostile.ProximityMine));
             RegisterEnemy(4, typeof(Entities.Hostile.TriGunTurret));
+            RegisterEnemy(5, typeof(Entities.Hostile.Gunner));
         }
 
         public static void InitializePreviews()

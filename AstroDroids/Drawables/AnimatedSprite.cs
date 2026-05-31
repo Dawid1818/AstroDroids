@@ -16,9 +16,9 @@ namespace AstroDroids.Drawables
 
         float timer = 0f;
 
-        int frameCount;
+        public int frameCount { get; private set; }
         float frameDuration = 0f;
-        int frame = 0;
+        public int frame { get; private set; } = 0;
 
         public AnimatedSprite(Texture2D texture, int columns, int frameWidth, int frameHeight, int padding, int frameCount, float framesPerSecond)
         {
@@ -35,26 +35,21 @@ namespace AstroDroids.Drawables
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if(timer >= frameDuration)
+            while (timer >= frameDuration)
             {
-                timer = 0f;
-                frame++;
-
-                if(frame >= frameCount)
-                {
-                    frame = 0;
-                }
+                timer -= frameDuration;
+                frame = (frame + 1) % frameCount;
             }
         }
 
-        public void Draw(Vector2 position, float angle)
+        public void Draw(Vector2 position, float angle, float scale)
         {
             int column = frame % columns;
             int row = frame / columns;
 
             Rectangle source = new Rectangle(column * (frameWidth + padding), row * (frameHeight + padding), frameWidth, frameHeight);
 
-            Screen.spriteBatch.Draw(texture, position, source, Color.White, angle, new Vector2(frameWidth / 2f, frameHeight / 2f), 1f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, position, source, Color.White, angle, new Vector2(frameWidth / 2f, frameHeight / 2f), scale, SpriteEffects.None, 0f);
         }
     }
 }

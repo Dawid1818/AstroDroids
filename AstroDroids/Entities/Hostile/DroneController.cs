@@ -12,7 +12,7 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
-        public DroneController() : base(new Transform(0, 0), 20)
+        public DroneController() : base(Vector2.Zero, 20)
         {
             //texture = TextureManager.Get("Ships/DroneController/DroneController");
             texture = TextureManager.Get("Ships/DroneController/DroneControllerv2");

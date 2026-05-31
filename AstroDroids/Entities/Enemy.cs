@@ -1,6 +1,8 @@
 ﻿
+using AstroDroids.Entities.Effects;
 using AstroDroids.Gameplay;
 using AstroDroids.Paths;
+using Microsoft.Xna.Framework;
 
 namespace AstroDroids.Entities
 {
@@ -17,7 +19,7 @@ namespace AstroDroids.Entities
         {
         }
 
-        public Enemy(Transform collider, int health) : base(collider, health)
+        public Enemy(Vector2 position, int health) : base(new Transform(position), health)
         {
         }
 
@@ -30,7 +32,8 @@ namespace AstroDroids.Entities
         {
             if (destroyed) return;
 
-            //spawn explosion later
+            Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 0.6f));
+
             GameState.AddScore(Score);
             Despawn();
 

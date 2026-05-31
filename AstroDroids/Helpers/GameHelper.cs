@@ -73,6 +73,22 @@ namespace AstroDroids.Helpers
             return center + rotatedOffset;
         }
 
+        public static List<float> SpreadAngle(float startAngle, float amount, float spacing)
+        {
+            List<float> angles = new List<float>();
+
+            float spacingRad = MathHelper.ToRadians(spacing);
+            float angle = startAngle - spacingRad * (amount - 1) / 2f;
+
+            for (int i = 0; i < amount; i++)
+            {
+                angles.Add(angle);
+                angle += spacingRad;
+            }
+
+            return angles;
+        }
+
         public static void DrawNode(string label, Vector2 position, Color color, Color borderColor, float fontSize = 24)
         {
             Screen.spriteBatch.DrawCircle(position, 16f, 16, color, 16f);

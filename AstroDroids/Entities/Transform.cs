@@ -41,6 +41,12 @@ namespace AstroDroids.Entities
             Y = y;
         }
 
+        public Transform(Vector2 position)
+        {
+            X = position.X;
+            Y = position.Y;
+        }
+
         public void Translate(Vector2 translation)
         {
             x += translation.X;

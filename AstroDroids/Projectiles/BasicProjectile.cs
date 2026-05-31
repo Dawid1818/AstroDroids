@@ -14,7 +14,7 @@ namespace AstroDroids.Projectiles
 
         bool fade = false;
         float fadePercentage = 0;
-        public BasicProjectile(Vector2 position) : base(new Transform(position.X, position.Y))
+        public BasicProjectile(Vector2 position) : base(position)
         {
             texture = TextureManager.GetProjectile("BasicWeapon/04");
             AddCapsuleCollider(new Vector2(0, -20f), new Vector2(0f, 15), 10f);

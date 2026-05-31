@@ -27,7 +27,7 @@ namespace AstroDroids.Entities.Hostile
         Vector2 cannon2Pos;
         Vector2 cannon3Pos;
 
-        public TriGunTurret() : base(new Transform(0, 0), 1)
+        public TriGunTurret() : base(Vector2.Zero, 1)
         {
             //baseTexture = TextureManager.Get("Turrets/Base/TurretBase");
             baseTexture = TextureManager.Get("Turrets/Base/TurretBasev2");
@@ -76,9 +76,9 @@ namespace AstroDroids.Entities.Hostile
 
         void Shoot()
         {
-            Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon1Pos.X, cannon1Pos.Y), angle), true);
-            //Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon2Pos.X, cannon2Pos.Y), angle), true);
-            Scene.World.AddProjectile(new CircleProjectile(new Transform(cannon3Pos.X, cannon3Pos.Y), angle), true);
+            Scene.World.AddProjectile(new CircleProjectile(cannon1Pos, angle, 10f, 16f), true);
+            //Scene.World.AddProjectile(new CircleProjectile(cannon2Pos, angle), true);
+            Scene.World.AddProjectile(new CircleProjectile(cannon3Pos, angle, 10f, 16f), true);
         }
 
         public override void Draw(GameTime gameTime)

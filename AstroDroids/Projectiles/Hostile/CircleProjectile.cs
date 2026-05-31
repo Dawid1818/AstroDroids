@@ -11,12 +11,15 @@ namespace AstroDroids.Projectiles.Hostile
         float t = 0f;
         Vector2 movementDirection;
         float speed = 10f;
+        float size = 16f;
 
-        public CircleProjectile(Transform collider, float angle) : base(collider)
+        public CircleProjectile(Vector2 position, float angle, float speed, float size) : base(position)
         {
             movementDirection = GameHelper.DirFromAngle(angle);
+            this.speed = speed;
+            this.size = size;
 
-            AddCircleCollider(Vector2.Zero, 16);
+            AddCircleCollider(Vector2.Zero, size);
         }
 
         public override void Update(GameTime gameTime)
@@ -42,8 +45,8 @@ namespace AstroDroids.Projectiles.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.DrawCircle(Transform.Position, 16, 16, Color.OrangeRed, 16);
-            Screen.spriteBatch.DrawCircle(Transform.Position, 12, 12, Color.DarkOrange, 12);
+            Screen.spriteBatch.DrawCircle(Transform.Position, size, 16, Color.OrangeRed, size);
+            Screen.spriteBatch.DrawCircle(Transform.Position, size - 4f, 16, Color.DarkOrange, size - 4);
         }
     }
 }
