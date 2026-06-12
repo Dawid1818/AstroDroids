@@ -12,7 +12,6 @@ using AstroDroids.Paths;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,6 +53,8 @@ namespace AstroDroids.Gameplay
 
         double timePassed = 0;
 
+        int currentWave = 0;
+
         public void Initialize()
         {
             AttackWaves.Clear();
@@ -70,6 +71,8 @@ namespace AstroDroids.Gameplay
 
             for (int i = 0; i < AttackWaves.Count; i++)
             {
+                currentWave = i;
+
                 AttackWave item = AttackWaves[i];
 
                 foreach (var spawner in item.Spawners)
@@ -274,17 +277,18 @@ namespace AstroDroids.Gameplay
             BackgroundObjects.Update(gameTime);
         }
 
+        float debugY = 30;
+
+        public void DrawDebugText(string text)
+        {
+            Screen.DrawText(text, new Vector2(10, debugY), Color.White, 12f);
+            debugY += 20;
+        }
+
         public void Draw(GameTime gameTime)
         {
             if (Starfield != null)
                 Starfield.Draw();
-
-            if (AstroDroidsGame.Debug)
-            {
-                Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
-                Screen.DrawText($"Time: {TimeSpan.FromSeconds(timePassed).ToString(@"hh\:mm\:ss")}", new Vector2(10, 30), Color.White, 10f);
-                Screen.spriteBatch.End();
-            }
 
             Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
 
@@ -308,6 +312,21 @@ namespace AstroDroids.Gameplay
             Effects.Draw(gameTime);
 
             Screen.spriteBatch.End();
+
+            if (AstroDroidsGame.Debug)
+            {
+                debugY = 30f;
+
+                Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
+                DrawDebugText($"Time: {TimeSpan.FromSeconds(timePassed).ToString(@"hh\:mm\:ss")}");
+                DrawDebugText($"Enemies: {Enemies.Count}");
+                DrawDebugText($"Projectiles: {Projectiles.Count}");
+                DrawDebugText($"Warnings: {Warnings.Count}");
+                DrawDebugText($"Background Objects: {BackgroundObjects.Count}");
+                DrawDebugText($"Effects: {Effects.Count}");
+                DrawDebugText($"Waves: {currentWave + 1}/{AttackWaves.Count}");
+                Screen.spriteBatch.End();
+            }
         }
 
         void RenderColliders(CollidableEntity entity)
