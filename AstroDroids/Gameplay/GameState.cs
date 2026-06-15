@@ -16,7 +16,7 @@ namespace AstroDroids.Gameplay
             Lives = 3;
             Score = 0;
             Firepower = 1;
-            CurrentWeapon = new BasicWeapon();
+            CurrentWeapon = new PulseCannon();
         }
 
         public static void AddScore(int amount)

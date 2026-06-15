@@ -31,6 +31,11 @@ namespace AstroDroids.Collisions
             return false;
         }
 
+        public override bool Intersects(Rectangle other, Transform myTransform)
+        {
+            return GetWorldShape(myTransform).Intersects(new BoundingBox2D(new Vector2(other.X, other.Y), new Vector2(other.Width, other.Height)));
+        }
+
         public override void DrawDebug(Transform transform)
         {
             Screen.spriteBatch.DrawCircle(transform.Position + LocalOffset, Radius, 16, Color.Yellow);

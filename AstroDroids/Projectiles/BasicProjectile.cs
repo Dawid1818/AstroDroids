@@ -1,12 +1,20 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Entities.Effects;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace AstroDroids.Projectiles
 {
+    public enum BasicProjectileType
+    {
+        WeakCyan,
+        WeakOrange,
+        WeakRed
+    }
     public class BasicProjectile : Projectile
     {
         Texture2D texture;
@@ -14,10 +22,28 @@ namespace AstroDroids.Projectiles
 
         bool fade = false;
         float fadePercentage = 0;
-        public BasicProjectile(Vector2 position) : base(position)
+
+        BasicProjectileType type;
+        float angle;
+
+        public BasicProjectile(Vector2 position, BasicProjectileType type, float angle) : base(position)
         {
-            texture = TextureManager.GetProjectile("BasicWeapon/04");
-            AddCapsuleCollider(new Vector2(0, -20f), new Vector2(0f, 15), 10f);
+            switch (type)
+            {
+                default:
+                case BasicProjectileType.WeakCyan:
+                    texture = TextureManager.GetProjectile("BasicWeapon/04");
+                    break;
+                case BasicProjectileType.WeakOrange:
+                    texture = TextureManager.GetProjectile("BasicWeapon/06");
+                    break;
+                case BasicProjectileType.WeakRed:
+                    texture = TextureManager.GetProjectile("BasicWeapon/05");
+                    break;
+            }
+            AddCapsuleCollider(GameHelper.OrbitPos(Vector2.Zero, angle, 20f), GameHelper.OrbitPos(Vector2.Zero, angle, -10f), 10f);
+            this.angle = angle;
+            this.type = type;
         }
 
         public override void Update(GameTime gameTime)
@@ -35,9 +61,9 @@ namespace AstroDroids.Projectiles
                 return;
             }
 
-            Transform.Translate(new Vector2(0f, -speed));
+            Transform.Translate(new Vector2(MathF.Cos(angle) * speed, MathF.Sin(angle) * speed));
 
-            if (Transform.LocalPosition.Y + texture.Height < 0)
+            if (!Intersects(Scene.World.Bounds))
             {
                 Despawn();
             }
@@ -60,7 +86,7 @@ namespace AstroDroids.Projectiles
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, Transform.Position, new Rectangle(0, (int)fadePercentage, texture.Width, texture.Height), Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height / 2f), 1f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, Transform.Position, new Rectangle(0, (int)0, texture.Width, texture.Height), Color.White, angle, new Vector2(texture.Width / 2f, texture.Height / 2f), 1f, SpriteEffects.None, 0f);
         }
     }
 }

@@ -34,6 +34,19 @@ namespace AstroDroids.Entities
             return new RectangleF(Transform.Position.X, Transform.Position.Y, Width, Height);
         }
 
+        public bool Intersects(Rectangle other)
+        {
+            foreach (var item in Colliders)
+            {
+                if(item.Intersects(other, Transform))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool Intersects(CollidableEntity other)
         {
             foreach (var item in Colliders)

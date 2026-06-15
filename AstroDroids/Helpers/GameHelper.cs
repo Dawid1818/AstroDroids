@@ -49,12 +49,12 @@ namespace AstroDroids.Helpers
 
         public static Vector2 DirFromAngle(float angle)
         {
-            return new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+            return new Vector2(MathF.Cos(angle), MathF.Sin(angle));
         }
 
         public static float AngleFromDir(Vector2 dir)
         {
-            return (float)Math.Atan2(dir.Y, dir.X);
+            return MathF.Atan2(dir.Y, dir.X);
         }
 
         public static Vector2 OrbitPos(Vector2 center, float orbitAngle, float distance)
@@ -66,8 +66,8 @@ namespace AstroDroids.Helpers
         {
             Vector2 offset = point - center;
 
-            float cos = (float)Math.Cos(angle);
-            float sin = (float)Math.Sin(angle);
+            float cos = MathF.Cos(angle);
+            float sin = MathF.Sin(angle);
             Vector2 rotatedOffset = new Vector2(offset.X * cos - offset.Y * sin, offset.X * sin + offset.Y * cos);
 
             return center + rotatedOffset;

@@ -67,7 +67,16 @@ namespace AstroDroids.Scenes
 
             yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
 
-            if(InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
+            if(InputSystem.GetKeyDown(Keys.F5))
+            {
+                GameState.Firepower += 1;
+                if(GameState.Firepower > 5)
+                {
+                    GameState.Firepower = 1;
+                }
+            }
+
+            if (InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
             {
                 LevelManager.QuitPlaytest();
             }
