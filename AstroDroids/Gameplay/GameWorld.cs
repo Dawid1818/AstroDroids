@@ -298,16 +298,16 @@ namespace AstroDroids.Gameplay
 
             Warnings.Draw(gameTime);
 
+            Enemies.Draw(gameTime);
+
+            Projectiles.Draw(gameTime);
+
             foreach (var item in Players)
             {
                 item.Draw(gameTime);
 
                 RenderColliders(item);
             }
-
-            Enemies.Draw(gameTime);
-
-            Projectiles.Draw(gameTime);
 
             Effects.Draw(gameTime);
 
