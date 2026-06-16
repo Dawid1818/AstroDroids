@@ -36,7 +36,7 @@ namespace AstroDroids.Entities.Friendly
         public override void Update(GameTime gameTime)
         {
             //Firing
-            GameState.CurrentWeapon.Update(this, gameTime);
+            GameState.UpdateCurrentWeapon(this, gameTime);
 
             //Player movement
             Vector2 movement = Vector2.Zero;
@@ -102,7 +102,7 @@ namespace AstroDroids.Entities.Friendly
 
             //ship.Draw(GetPosition(), Angle);
 
-            GameState.CurrentWeapon.DrawEffects(this, gameTime);
+            GameState.DrawCurrentWeapon(this, gameTime);
         }
 
         public Vector2 GetPosition()

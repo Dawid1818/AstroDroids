@@ -9,13 +9,13 @@ using System;
 
 namespace AstroDroids.Projectiles
 {
-    public enum BasicProjectileType
+    public enum PulseCannonProjectileType
     {
         WeakCyan,
         WeakOrange,
         WeakRed
     }
-    public class BasicProjectile : Projectile
+    public class PulseCannonProjectile : Projectile
     {
         Texture2D texture;
         float speed = 25f;
@@ -23,21 +23,21 @@ namespace AstroDroids.Projectiles
         bool fade = false;
         float fadePercentage = 0;
 
-        BasicProjectileType type;
+        PulseCannonProjectileType type;
         float angle;
 
-        public BasicProjectile(Vector2 position, BasicProjectileType type, float angle) : base(position)
+        public PulseCannonProjectile(Vector2 position, PulseCannonProjectileType type, float angle) : base(position)
         {
             switch (type)
             {
                 default:
-                case BasicProjectileType.WeakCyan:
+                case PulseCannonProjectileType.WeakCyan:
                     texture = TextureManager.GetProjectile("BasicWeapon/04");
                     break;
-                case BasicProjectileType.WeakOrange:
+                case PulseCannonProjectileType.WeakOrange:
                     texture = TextureManager.GetProjectile("BasicWeapon/06");
                     break;
-                case BasicProjectileType.WeakRed:
+                case PulseCannonProjectileType.WeakRed:
                     texture = TextureManager.GetProjectile("BasicWeapon/05");
                     break;
             }
@@ -73,7 +73,7 @@ namespace AstroDroids.Projectiles
                 {
                     if (enemy.Intersects(this))
                     {
-                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y));
+                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), Color.Cyan);
                         Scene.World.AddEffect(hitEffect);
 
                         fade = true;

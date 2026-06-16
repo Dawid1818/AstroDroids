@@ -290,7 +290,7 @@ namespace AstroDroids.Gameplay
             if (Starfield != null)
                 Starfield.Draw();
 
-            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointWrap);
 
             //Screen.spriteBatch.DrawRectangle(new RectangleF(0, 0, Bounds.Width, Bounds.Height), Color.Gray, 2f);
 

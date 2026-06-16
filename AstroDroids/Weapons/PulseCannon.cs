@@ -32,36 +32,36 @@ namespace AstroDroids.Weapons
                         default:
                         case 1:
                             if(!otherShot)
-                                SpawnProjectile(player, leftWeaponPod, BasicProjectileType.WeakCyan, (1 * phase));
+                                SpawnProjectile(player, leftWeaponPod, PulseCannonProjectileType.WeakCyan, (1 * phase));
                             else
-                                SpawnProjectile(player, rightWeaponPod, BasicProjectileType.WeakCyan, -(1 * phase));
+                                SpawnProjectile(player, rightWeaponPod, PulseCannonProjectileType.WeakCyan, -(1 * phase));
                             break;
                         case 2:
-                            SpawnProjectile(player, leftWeaponPod, BasicProjectileType.WeakCyan, (1 * phase));
-                            SpawnProjectile(player, rightWeaponPod, BasicProjectileType.WeakCyan, -(1 * phase));
+                            SpawnProjectile(player, leftWeaponPod, PulseCannonProjectileType.WeakCyan, (1 * phase));
+                            SpawnProjectile(player, rightWeaponPod, PulseCannonProjectileType.WeakCyan, -(1 * phase));
                             break;
                         case 3:
-                            SpawnProjectile(player, leftWeaponPod, BasicProjectileType.WeakCyan, (1 * phase));
-                            SpawnProjectile(player, rightWeaponPod, BasicProjectileType.WeakCyan, -(1 * phase));
-                            SpawnProjectile(player, middleWeaponPod, BasicProjectileType.WeakOrange, 0);
+                            SpawnProjectile(player, leftWeaponPod, PulseCannonProjectileType.WeakCyan, (1 * phase));
+                            SpawnProjectile(player, rightWeaponPod, PulseCannonProjectileType.WeakCyan, -(1 * phase));
+                            SpawnProjectile(player, middleWeaponPod, PulseCannonProjectileType.WeakOrange, 0);
                             break;
                         case 4:
-                            SpawnProjectile(player, leftWeaponPod, BasicProjectileType.WeakCyan, (1 * phase));
-                            SpawnProjectile(player, rightWeaponPod, BasicProjectileType.WeakCyan, -(1 * phase));
-                            SpawnProjectile(player, middleWeaponPod, BasicProjectileType.WeakOrange, 0);
+                            SpawnProjectile(player, leftWeaponPod, PulseCannonProjectileType.WeakCyan, (1 * phase));
+                            SpawnProjectile(player, rightWeaponPod, PulseCannonProjectileType.WeakCyan, -(1 * phase));
+                            SpawnProjectile(player, middleWeaponPod, PulseCannonProjectileType.WeakOrange, 0);
 
                             if (!otherShot)
-                                SpawnProjectile(player, rearLeftWeaponPod, BasicProjectileType.WeakCyan, -(1 * phase));
+                                SpawnProjectile(player, rearLeftWeaponPod, PulseCannonProjectileType.WeakCyan, -(1 * phase));
                             else
-                                SpawnProjectile(player, rearRightWeaponPod, BasicProjectileType.WeakCyan, (1 * phase));
+                                SpawnProjectile(player, rearRightWeaponPod, PulseCannonProjectileType.WeakCyan, (1 * phase));
                             break;
                         case 5:
-                            SpawnProjectile(player, leftWeaponPod, BasicProjectileType.WeakOrange, (1 * phase));
-                            SpawnProjectile(player, rightWeaponPod, BasicProjectileType.WeakOrange, -(1 * phase));
-                            SpawnProjectile(player, middleWeaponPod, BasicProjectileType.WeakRed, 0);
+                            SpawnProjectile(player, leftWeaponPod, PulseCannonProjectileType.WeakOrange, (1 * phase));
+                            SpawnProjectile(player, rightWeaponPod, PulseCannonProjectileType.WeakOrange, -(1 * phase));
+                            SpawnProjectile(player, middleWeaponPod, PulseCannonProjectileType.WeakRed, 0);
 
-                            SpawnProjectile(player, rearLeftWeaponPod, BasicProjectileType.WeakCyan, -(1 * phase));
-                            SpawnProjectile(player, rearRightWeaponPod, BasicProjectileType.WeakCyan, (1 * phase));
+                            SpawnProjectile(player, rearLeftWeaponPod, PulseCannonProjectileType.WeakCyan, -(1 * phase));
+                            SpawnProjectile(player, rearRightWeaponPod, PulseCannonProjectileType.WeakCyan, (1 * phase));
                             break;
                     }
 
@@ -85,9 +85,9 @@ namespace AstroDroids.Weapons
                 currentCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
-        void SpawnProjectile(Player player, Vector2 relative, BasicProjectileType type, float angle)
+        void SpawnProjectile(Player player, Vector2 relative, PulseCannonProjectileType type, float angle)
         {
-            BasicProjectile projectile = new BasicProjectile(player.GetPosition() + relative, type, MathHelper.ToRadians(-90 + angle));
+            PulseCannonProjectile projectile = new PulseCannonProjectile(player.GetPosition() + relative, type, MathHelper.ToRadians(-90 + angle));
             Scene.World.AddProjectile(projectile, true);
         }
     }

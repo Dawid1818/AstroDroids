@@ -2,11 +2,6 @@
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Weapons
 {
@@ -20,6 +15,11 @@ namespace AstroDroids.Weapons
         }
 
         public virtual void DrawEffects(Player player, GameTime gameTime)
+        {
+
+        }
+
+        public virtual void ResetState()
         {
 
         }

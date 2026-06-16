@@ -44,12 +44,53 @@ namespace AstroDroids.Drawables
 
         public void Draw(Vector2 position, float angle, float scale)
         {
+            Rectangle source = GetCurrentFrameSource();
+
+            Screen.spriteBatch.Draw(texture, position, source, Color.White, angle, new Vector2(frameWidth / 2f, frameHeight / 2f), scale, SpriteEffects.None, 0f);
+        }
+
+        public void Draw(Vector2 position, float angle, float scale, Vector2 origin, Color color)
+        {
+            Rectangle source = GetCurrentFrameSource();
+
+            Screen.spriteBatch.Draw(texture, position, source, color, angle, origin, scale, SpriteEffects.None, 0f);
+        }
+
+        public void DrawPartial(Vector2 position, float angle, float scale, Vector2 origin, Color color, float length)
+        {
+            Rectangle source = GetCurrentFrameSource();
+
+            source.Y += source.Height - (int)length;
+            source.Height = (int)length;
+
+            Screen.spriteBatch.Draw(texture, position, source, color, angle, new Vector2(origin.X, length), scale, SpriteEffects.None, 0f);
+        }
+
+        public void Draw(Vector2 position, float angle, Vector2 scale, Vector2 origin, Color color)
+        {
+            Rectangle source = GetCurrentFrameSource();
+
+            Screen.spriteBatch.Draw(texture, position, source, color, angle, origin, scale, SpriteEffects.None, 0f);
+        }
+
+        public void DrawPartial(Vector2 position, float angle, Vector2 scale, Vector2 origin, Color color, float length)
+        {
+            Rectangle source = GetCurrentFrameSource();
+
+            int intLength = (int)length;
+
+            source.Y += source.Height - intLength;
+            source.Height = intLength;
+
+            Screen.spriteBatch.Draw(texture, position, source, color, angle, new Vector2(origin.X, intLength), scale, SpriteEffects.None, 0f);
+        }
+
+        public Rectangle GetCurrentFrameSource()
+        {
             int column = frame % columns;
             int row = frame / columns;
 
-            Rectangle source = new Rectangle(column * (frameWidth + padding), row * (frameHeight + padding), frameWidth, frameHeight);
-
-            Screen.spriteBatch.Draw(texture, position, source, Color.White, angle, new Vector2(frameWidth / 2f, frameHeight / 2f), scale, SpriteEffects.None, 0f);
+            return new Rectangle(column * (frameWidth + padding), row * (frameHeight + padding), frameWidth, frameHeight);
         }
     }
 }
