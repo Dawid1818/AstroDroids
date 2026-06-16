@@ -22,6 +22,13 @@ namespace AstroDroids.Entities.Friendly
 
         public float Angle { get; private set; } = 0f;
 
+        public Vector2 RightWeaponPod { get { return new Vector2((Width / 2f) + 4, -Height); } }
+        public Vector2 LeftWeaponPod { get { return new Vector2(-((Width / 2f) + 2), -Height); } }
+        public Vector2 MiddleWeaponPod { get { return new Vector2(1, -Height); } }
+
+        public Vector2 RearRightWeaponPod { get { return new Vector2((Width / 2f) + 12, Height - 20); } }
+        public Vector2 RearLeftWeaponPod { get { return new Vector2(-((Width / 2f) + 10), Height - 20); } }
+
         public Player(int playerIndex, Vector2 position) : base(new Transform(position), 1)
         {
             this.playerIndex = playerIndex;

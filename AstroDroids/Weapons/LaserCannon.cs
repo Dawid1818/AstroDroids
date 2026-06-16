@@ -19,13 +19,6 @@ namespace AstroDroids.Weapons
 
         public override void Update(Player player, GameTime gameTime)
         {
-            Vector2 rightWeaponPod = new Vector2((player.Width / 2f) + 4, -player.Height);
-            Vector2 leftWeaponPod = new Vector2(-((player.Width / 2f) + 2), -player.Height);
-            Vector2 middleWeaponPod = new Vector2(1, -player.Height);
-
-            Vector2 rearRightWeaponPod = new Vector2((player.Width / 2f) + 12, player.Height - 20);
-            Vector2 rearLeftWeaponPod = new Vector2(-((player.Width / 2f) + 10), player.Height - 20);
-
             if (InputSystem.IsActionHeld(GameAction.Fire))
             {
                 if (currentCooldown <= 0f)
@@ -35,28 +28,28 @@ namespace AstroDroids.Weapons
                         default:
                         case 1:
                             if(!otherShot)
-                                SpawnProjectile(player, leftWeaponPod, 2);
+                                SpawnProjectile(player, player.LeftWeaponPod, 2);
                             else
-                                SpawnProjectile(player, rightWeaponPod, -2);
+                                SpawnProjectile(player, player.RightWeaponPod, -2);
                             break;
                         case 2:
-                            SpawnProjectile(player, leftWeaponPod, 2);
-                            SpawnProjectile(player, rightWeaponPod, -2);
+                            SpawnProjectile(player, player.LeftWeaponPod, 2);
+                            SpawnProjectile(player, player.RightWeaponPod, -2);
                             break;
                         case 3:
-                            SpawnProjectile(player, leftWeaponPod, 2);
-                            SpawnProjectile(player, rightWeaponPod, -2);
+                            SpawnProjectile(player, player.LeftWeaponPod, 2);
+                            SpawnProjectile(player, player.RightWeaponPod, -2);
                             break;
                         case 4:
-                            SpawnProjectile(player, leftWeaponPod, 2);
-                            SpawnProjectile(player, rightWeaponPod, -2);
+                            SpawnProjectile(player, player.LeftWeaponPod, 2);
+                            SpawnProjectile(player, player.RightWeaponPod, -2);
                             break;
                         case 5:
-                            SpawnProjectile(player, leftWeaponPod, 2);
-                            SpawnProjectile(player, rightWeaponPod, -2);
+                            SpawnProjectile(player, player.LeftWeaponPod, 2);
+                            SpawnProjectile(player, player.RightWeaponPod, -2);
 
-                            SpawnProjectile(player, rearLeftWeaponPod, 2);
-                            SpawnProjectile(player, rearRightWeaponPod, -2);
+                            SpawnProjectile(player, player.RearLeftWeaponPod, 2);
+                            SpawnProjectile(player, player.RearRightWeaponPod, -2);
                             break;
                     }
 
@@ -90,42 +83,33 @@ namespace AstroDroids.Weapons
 
         public override void DrawEffects(Player player, GameTime gameTime)
         {
-            Vector2 rightWeaponPod = new Vector2((player.Width / 2f) + 4, -player.Height);
-            Vector2 leftWeaponPod = new Vector2(-((player.Width / 2f) + 2), -player.Height);
-            Vector2 middleWeaponPod = new Vector2(1, -player.Height);
-
-            Vector2 rearRightWeaponPod = new Vector2((player.Width / 2f) + 12, player.Height - 20);
-            Vector2 rearLeftWeaponPod = new Vector2(-((player.Width / 2f) + 10), player.Height - 20);
-
-            float chargem = 12 * charge;
-
             switch (GameState.Firepower)
             {
                 default:
                 case 1:
                     if (!otherShot)
-                        DrawChargeIndicator(player, leftWeaponPod);
+                        DrawChargeIndicator(player, player.LeftWeaponPod);
                     else
-                        DrawChargeIndicator(player, rightWeaponPod);
+                        DrawChargeIndicator(player, player.RightWeaponPod);
                     break;
                 case 2:
-                    DrawChargeIndicator(player, leftWeaponPod);
-                    DrawChargeIndicator(player, rightWeaponPod);
+                    DrawChargeIndicator(player, player.LeftWeaponPod);
+                    DrawChargeIndicator(player, player.RightWeaponPod);
                     break;
                 case 3:
-                    DrawChargeIndicator(player, leftWeaponPod);
-                    DrawChargeIndicator(player, rightWeaponPod);
+                    DrawChargeIndicator(player, player.LeftWeaponPod);
+                    DrawChargeIndicator(player, player.RightWeaponPod);
                     break;
                 case 4:
-                    DrawChargeIndicator(player, leftWeaponPod);
-                    DrawChargeIndicator(player, rightWeaponPod);
+                    DrawChargeIndicator(player, player.LeftWeaponPod);
+                    DrawChargeIndicator(player, player.RightWeaponPod);
                     break;
                 case 5:
-                    DrawChargeIndicator(player, leftWeaponPod);
-                    DrawChargeIndicator(player, rightWeaponPod);
+                    DrawChargeIndicator(player, player.LeftWeaponPod);
+                    DrawChargeIndicator(player, player.RightWeaponPod);
 
-                    DrawChargeIndicator(player, rearLeftWeaponPod);
-                    DrawChargeIndicator(player, rearRightWeaponPod);
+                    DrawChargeIndicator(player, player.RearLeftWeaponPod);
+                    DrawChargeIndicator(player, player.RearRightWeaponPod);
                     break;
             }
         }
@@ -133,7 +117,6 @@ namespace AstroDroids.Weapons
         void DrawChargeIndicator(Player player, Vector2 relative)
         {
             float chargem = 12 * charge;
-
 
             Screen.spriteBatch.DrawCircle(player.GetPosition() + relative, chargem, (int)chargem, Color.White, chargem, 0);
         }
