@@ -28,6 +28,7 @@ namespace AstroDroids.Gameplay
             Weapons = new List<Weapon>();
             Weapons.Add(new PulseCannon());
             Weapons.Add(new LaserCannon());
+            Weapons.Add(new PlasmaMortar());
         }
 
         public static void AddScore(int amount)

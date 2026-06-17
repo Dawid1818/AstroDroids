@@ -1,11 +1,8 @@
 ﻿using AstroDroids.Entities;
 using Microsoft.Xna.Framework;
-using System;
+using MonoGame.Extended.Collections;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Collections
 {
@@ -14,6 +11,9 @@ namespace AstroDroids.Collections
     {
         List<T> items { get; } = new List<T>();
         List<T> itemsToRemove { get; } = new List<T>();
+        List<T> itemsToAdd { get; } = new List<T>();
+
+        bool currentlyEnumerating = false;
 
         public T this[int index] => items[index];
 
@@ -23,6 +23,11 @@ namespace AstroDroids.Collections
 
         public void Add(T item)
         {
+            if (currentlyEnumerating)
+            {
+                itemsToAdd.Add(item);
+                return;
+            }
             items.Add(item);
         }
 
@@ -38,21 +43,30 @@ namespace AstroDroids.Collections
 
         public void Update(GameTime gameTime)
         {
+            currentlyEnumerating = true;
             foreach (var item in items)
             {
                 item.Update(gameTime);
             }
 
+            foreach (var item in itemsToAdd)
+            {
+                items.Add(item);
+            }
+            itemsToAdd.Clear();
+
             foreach (var item in itemsToRemove)
             {
                 RemoveImmediate(item);
             }
+            currentlyEnumerating = false;
 
             itemsToRemove.Clear();
         }
 
         public void Draw(GameTime gameTime)
         {
+            currentlyEnumerating = true;
             foreach (var item in items)
             {
                 item.Draw(gameTime);
@@ -60,6 +74,7 @@ namespace AstroDroids.Collections
                 if (AstroDroidsGame.Debug)
                     item.DrawDebug(gameTime);
             }
+            currentlyEnumerating = false;
         }
 
         public IEnumerator<T> GetEnumerator()

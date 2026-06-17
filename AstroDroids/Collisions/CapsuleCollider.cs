@@ -41,6 +41,11 @@ namespace AstroDroids.Collisions
             return GetWorldShape(myTransform).Intersects(new BoundingBox2D(new Vector2(other.X, other.Y), new Vector2(other.Width, other.Height)));
         }
 
+        public override bool Intersects(CircleF other, Transform myTransform)
+        {
+            return GetWorldShape(myTransform).Intersects(new BoundingCircle2D(other.Center, other.Radius));
+        }
+
         public override void DrawDebug(Transform transform)
         {
             var worldShape = GetWorldShape(transform);

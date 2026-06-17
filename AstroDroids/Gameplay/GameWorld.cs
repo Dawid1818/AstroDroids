@@ -325,6 +325,7 @@ namespace AstroDroids.Gameplay
                 DrawDebugText($"Background Objects: {BackgroundObjects.Count}");
                 DrawDebugText($"Effects: {Effects.Count}");
                 DrawDebugText($"Waves: {currentWave + 1}/{AttackWaves.Count}");
+                DrawDebugText($"Current Weapon: {GameState.CurrentWeapon}");
                 DrawDebugText($"Firepower: {GameState.Firepower}/5");
                 Screen.spriteBatch.End();
             }

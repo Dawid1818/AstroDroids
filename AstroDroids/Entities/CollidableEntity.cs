@@ -47,6 +47,19 @@ namespace AstroDroids.Entities
             return false;
         }
 
+        public bool Intersects(CircleF other)
+        {
+            foreach (var item in Colliders)
+            {
+                if (item.Intersects(other, Transform))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool Intersects(CollidableEntity other)
         {
             foreach (var item in Colliders)
