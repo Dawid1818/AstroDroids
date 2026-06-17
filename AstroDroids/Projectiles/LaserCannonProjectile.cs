@@ -27,15 +27,41 @@ namespace AstroDroids.Projectiles
         AnimatedSprite sprite;
 
         float beamScale = 1f;
+        int powerLevel = 1;
 
-        public LaserCannonProjectile(Vector2 position, float angle, float charge) : base(position)
+        public LaserCannonProjectile(Vector2 position, float angle, float charge, int powerLevel) : base(position)
         {
             this.charge = charge;
+            this.powerLevel = int.Clamp(powerLevel, 1, 5);
+
+            switch (this.powerLevel)
+            {
+                default:
+                case 1:
+                    damage = (int)MathF.Ceiling(2 * charge);
+                    beamScale = charge/3f;
+                    break;
+                case 2:
+                    damage = (int)MathF.Ceiling(3 * charge);
+                    beamScale = charge/2.5f;
+                    break;
+                case 3:
+                    damage = (int)MathF.Ceiling(4 * charge);
+                    beamScale = charge/2f;
+                    break;
+                case 4:
+                    damage = (int)MathF.Ceiling(5 * charge);
+                    beamScale = charge/1.5f;
+                    break;
+                case 5:
+                    damage = (int)MathF.Ceiling(6 * charge);
+                    beamScale = charge;
+                    break;
+            }
+
             sprite = new AnimatedSprite(TextureManager.Get("Projectiles/LaserCannon/Laser.1"), 9, 105, 256, 0, 32, 50f);
 
-            beamScale = charge;
-
-            AddCapsuleCollider(Vector2.Zero, GameHelper.OrbitPos(Vector2.Zero, angle, 1000), (16 * charge) / 2f);
+            AddCapsuleCollider(Vector2.Zero, GameHelper.OrbitPos(Vector2.Zero, angle, 1000), (16 * beamScale) / 2f);
 
             this.angle = angle;
         }

@@ -1,10 +1,13 @@
 ﻿using AstroDroids.Entities.Effects;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
+using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using MonoGame.Extended.Graphics;
 using MonoGame.Extended.Particles;
 using MonoGame.Extended.Particles.Data;
@@ -12,7 +15,6 @@ using MonoGame.Extended.Particles.Modifiers;
 using MonoGame.Extended.Particles.Modifiers.Containers;
 using MonoGame.Extended.Particles.Modifiers.Interpolators;
 using MonoGame.Extended.Particles.Profiles;
-using System;
 
 namespace AstroDroids.Weapons
 {
@@ -20,14 +22,19 @@ namespace AstroDroids.Weapons
     {
         float currentCooldown = 0f;
 
-        float phase = 0;
-        int direction = 1;
         bool otherShot = false;
         float charge = 0.1f;
+        bool charging = false;
 
         ParticleEffectEntity chargeEffectEntity;
         ParticleEmitter chargeEmitter;
         float triggerTimer = 0f;
+
+        int rightStartAngle = 10;
+        int leftStartAngle = -10;
+
+        int leftTargetAngle = 2;
+        int rightTargetAngle = -2;
 
         public LaserCannon()
         {
@@ -92,53 +99,62 @@ namespace AstroDroids.Weapons
             {
                 if (currentCooldown <= 0f)
                 {
-                    switch (GameState.Firepower)
-                    {
-                        default:
-                        case 1:
-                            if(!otherShot)
-                                SpawnProjectile(player, player.LeftWeaponPod, 2);
-                            else
-                                SpawnProjectile(player, player.RightWeaponPod, -2);
-                            break;
-                        case 2:
-                            SpawnProjectile(player, player.LeftWeaponPod, 2);
-                            SpawnProjectile(player, player.RightWeaponPod, -2);
-                            break;
-                        case 3:
-                            SpawnProjectile(player, player.LeftWeaponPod, 2);
-                            SpawnProjectile(player, player.RightWeaponPod, -2);
-                            break;
-                        case 4:
-                            SpawnProjectile(player, player.LeftWeaponPod, 2);
-                            SpawnProjectile(player, player.RightWeaponPod, -2);
-                            break;
-                        case 5:
-                            SpawnProjectile(player, player.LeftWeaponPod, 2);
-                            SpawnProjectile(player, player.RightWeaponPod, -2);
+                    charging = true;
 
-                            SpawnProjectile(player, player.RearLeftWeaponPod, 2);
-                            SpawnProjectile(player, player.RearRightWeaponPod, -2);
-                            break;
+                    if (charge < 1f)
+                    {
+                        charge += (float)gameTime.ElapsedGameTime.TotalSeconds + (0.015f * ((float)GameState.Firepower / GameState.MaxFirepower));
+
+                        if (charge > 1f)
+                            charge = 1f;
                     }
-
-                    phase += direction;
-
-                    if (phase > 5)
-                    {
-                        direction = -1;
-                    }else if(phase < 0)
-                    {
-                        direction = 1;
-                    }
-
-                    currentCooldown = 0.5f;
-                    charge = 0.1f;
-
-                    otherShot = !otherShot;
-
-                    ClearParticles();
                 }
+            }
+            else if (charging)
+            {
+                switch (GameState.Firepower)
+                {
+                    default:
+                    case 1:
+                        if (!otherShot)
+                            SpawnProjectile(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        else
+                            SpawnProjectile(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                    case 2:
+                        SpawnProjectile(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        SpawnProjectile(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                    case 3:
+                        SpawnProjectile(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        SpawnProjectile(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+
+                        if (!otherShot)
+                            SpawnProjectile(player, player.RearLeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        else
+                            SpawnProjectile(player, player.RearRightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                    case 4:
+                        SpawnProjectile(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        SpawnProjectile(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+
+                        SpawnProjectile(player, player.RearLeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        SpawnProjectile(player, player.RearRightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                    case 5:
+                        SpawnProjectile(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        SpawnProjectile(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+
+                        SpawnProjectile(player, player.RearLeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        SpawnProjectile(player, player.RearRightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                }
+
+                charging = false;
+                charge = 0f;
+                ClearParticles();
+
+                otherShot = !otherShot;
             }
 
             triggerTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -165,10 +181,18 @@ namespace AstroDroids.Weapons
                     case 3:
                         DrawChargeIndicator(player.LeftWeaponPod);
                         DrawChargeIndicator(player.RightWeaponPod);
+
+                        if (!otherShot)
+                            DrawChargeIndicator(player.RearLeftWeaponPod);
+                        else
+                            DrawChargeIndicator(player.RearRightWeaponPod);
                         break;
                     case 4:
                         DrawChargeIndicator(player.LeftWeaponPod);
                         DrawChargeIndicator(player.RightWeaponPod);
+
+                        DrawChargeIndicator(player.RearLeftWeaponPod);
+                        DrawChargeIndicator(player.RearRightWeaponPod);
                         break;
                     case 5:
                         DrawChargeIndicator(player.LeftWeaponPod);
@@ -184,14 +208,115 @@ namespace AstroDroids.Weapons
 
             if (currentCooldown > 0)
                 currentCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            else if(charge < 1f)
-            {
-                charge += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (charge > 1f)
-                    charge = 1f;
-            }
         }
+
+        //Old automatic laser cannon behavior
+        //public override void Update(Player player, GameTime gameTime)
+        //{
+        //    if (InputSystem.IsActionHeld(GameAction.Fire))
+        //    {
+        //        if (currentCooldown <= 0f)
+        //        {
+        //            switch (GameState.Firepower)
+        //            {
+        //                default:
+        //                case 1:
+        //                    if(!otherShot)
+        //                        SpawnProjectile(player, player.LeftWeaponPod, 2);
+        //                    else
+        //                        SpawnProjectile(player, player.RightWeaponPod, -2);
+        //                    break;
+        //                case 2:
+        //                    SpawnProjectile(player, player.LeftWeaponPod, 2);
+        //                    SpawnProjectile(player, player.RightWeaponPod, -2);
+        //                    break;
+        //                case 3:
+        //                    SpawnProjectile(player, player.LeftWeaponPod, 2);
+        //                    SpawnProjectile(player, player.RightWeaponPod, -2);
+        //                    break;
+        //                case 4:
+        //                    SpawnProjectile(player, player.LeftWeaponPod, 2);
+        //                    SpawnProjectile(player, player.RightWeaponPod, -2);
+        //                    break;
+        //                case 5:
+        //                    SpawnProjectile(player, player.LeftWeaponPod, 2);
+        //                    SpawnProjectile(player, player.RightWeaponPod, -2);
+
+        //                    SpawnProjectile(player, player.RearLeftWeaponPod, 2);
+        //                    SpawnProjectile(player, player.RearRightWeaponPod, -2);
+        //                    break;
+        //            }
+
+        //            phase += direction;
+
+        //            if (phase > 5)
+        //            {
+        //                direction = -1;
+        //            }else if(phase < 0)
+        //            {
+        //                direction = 1;
+        //            }
+
+        //            currentCooldown = 0.5f;
+        //            charge = 0.1f;
+
+        //            otherShot = !otherShot;
+
+        //            ClearParticles();
+        //        }
+        //    }
+
+        //    triggerTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        //    chargeEmitter.Offset = player.Transform.Position;
+
+        //    if (triggerTimer >= 0.1f)
+        //    {
+        //        chargeEmitter.Parameters.Quantity = new ParticleInt32Parameter((int)(12 * charge));
+
+        //        switch (GameState.Firepower)
+        //        {
+        //            default:
+        //            case 1:
+        //                if (!otherShot)
+        //                    DrawChargeIndicator(player.LeftWeaponPod);
+        //                else
+        //                    DrawChargeIndicator(player.RightWeaponPod);
+        //                break;
+        //            case 2:
+        //                DrawChargeIndicator(player.LeftWeaponPod);
+        //                DrawChargeIndicator(player.RightWeaponPod);
+        //                break;
+        //            case 3:
+        //                DrawChargeIndicator(player.LeftWeaponPod);
+        //                DrawChargeIndicator(player.RightWeaponPod);
+        //                break;
+        //            case 4:
+        //                DrawChargeIndicator(player.LeftWeaponPod);
+        //                DrawChargeIndicator(player.RightWeaponPod);
+        //                break;
+        //            case 5:
+        //                DrawChargeIndicator(player.LeftWeaponPod);
+        //                DrawChargeIndicator(player.RightWeaponPod);
+
+        //                DrawChargeIndicator(player.RearLeftWeaponPod);
+        //                DrawChargeIndicator(player.RearRightWeaponPod);
+        //                break;
+        //        }
+
+        //        triggerTimer = 0f;
+        //    }
+
+        //    if (currentCooldown > 0)
+        //        currentCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+        //    else if(charge < 1f)
+        //    {
+        //        charge += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        //        if (charge > 1f)
+        //            charge = 1f;
+        //    }
+        //}
 
         void ClearParticles()
         {
@@ -200,7 +325,59 @@ namespace AstroDroids.Weapons
 
         public override void DrawEffects(Player player, GameTime gameTime)
         {
+            if(charging)
+            {
+                switch (GameState.Firepower)
+                {
+                    default:
+                    case 1:
+                        if (!otherShot)
+                        {
+                            DrawAimIndicator(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        }
+                        else
+                        {
+                            DrawAimIndicator(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+                        }
+                        break;
+                    case 2:
+                        DrawAimIndicator(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        DrawAimIndicator(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                    case 3:
+                        DrawAimIndicator(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        DrawAimIndicator(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
 
+                        if (!otherShot)
+                            DrawAimIndicator(player, player.RearLeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        else
+                            DrawAimIndicator(player, player.RearRightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                    case 4:
+                        DrawAimIndicator(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        DrawAimIndicator(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+
+                        DrawAimIndicator(player, player.RearLeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        DrawAimIndicator(player, player.RearRightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                    case 5:
+                        DrawAimIndicator(player, player.LeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        DrawAimIndicator(player, player.RightWeaponPod, rightTargetAngle, rightStartAngle);
+
+                        DrawAimIndicator(player, player.RearLeftWeaponPod, leftTargetAngle, leftStartAngle);
+                        DrawAimIndicator(player, player.RearRightWeaponPod, rightTargetAngle, rightStartAngle);
+                        break;
+                }
+            }
+        }
+
+        void DrawAimIndicator(Player player, Vector2 pos, float targetAngle, float startAngle)
+        {
+            float actualTargetAngle = -90 + targetAngle;
+            float actualAngle = float.Lerp(-90 + startAngle, actualTargetAngle, charge);
+            Vector2 targetPos = GameHelper.OrbitPos(player.GetPosition() + pos, MathHelper.ToRadians(actualAngle), 1000);
+
+            Screen.spriteBatch.DrawLine(player.GetPosition() + pos, targetPos, new Color((byte)255, (byte)255, (byte)255, (byte)(charge * 127)), 2);
         }
 
         void DrawChargeIndicator(Vector2 relative)
@@ -210,16 +387,23 @@ namespace AstroDroids.Weapons
 
         void SpawnProjectile(Player player, Vector2 relative, float angle)
         {
-            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle), charge);
+            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle), charge, GameState.Firepower);
+            Scene.World.AddProjectile(projectile, true);
+        }
+
+        void SpawnProjectile(Player player, Vector2 relative, float targetAngle, float startAngle)
+        {
+            float actualTargetAngle = -90 + targetAngle;
+            float actualAngle = float.Lerp(-90 + startAngle, actualTargetAngle, charge);
+
+            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(actualAngle), charge, GameState.Firepower);
             Scene.World.AddProjectile(projectile, true);
         }
 
         public override void ResetState()
         {
-            phase = 0;
-            direction = 1;
             otherShot = false;
-            charge = 0.1f;
+            charge = 0;
         }
     }
 }

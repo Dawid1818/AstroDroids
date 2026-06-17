@@ -13,6 +13,7 @@ namespace AstroDroids.Gameplay
         static int Lives = 3;
         static int Score = 0;
         public static int Firepower { get; set; } = 1;
+        public const int MaxFirepower = 5;
 
         public static int CurrentWeapon { get; set; } = 0;
 
