@@ -36,7 +36,7 @@ namespace AstroDroids.Entities
 
         public virtual void Destroyed()
         {
-
+            
         }
     }
 }

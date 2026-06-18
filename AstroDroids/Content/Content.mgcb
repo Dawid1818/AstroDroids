@@ -133,6 +133,18 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Projectiles/LaserCannon/Laser.1.png
 
+#begin Textures/Projectiles/PlasmaMortar/PlasmaMortar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Projectiles/PlasmaMortar/PlasmaMortar.png
+
 #begin Textures/Ships/Basic/Basic.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -396,6 +408,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Ships/Player/PlayerShipPrototype.png
+
+#begin Textures/Ships/SnakeBoss/SnakeBoss.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/SnakeBoss/SnakeBoss.png
+
+#begin Textures/Ships/SnakeBoss/SnakeBossNocockpit.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Ships/SnakeBoss/SnakeBossNocockpit.png
 
 #begin Textures/Ships/SpinLaser/SpinLaser.png
 /importer:TextureImporter

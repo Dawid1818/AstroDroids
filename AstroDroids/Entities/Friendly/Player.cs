@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Drawables;
+using AstroDroids.Entities.Effects;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
@@ -127,6 +128,7 @@ namespace AstroDroids.Entities.Friendly
             Scene.World.RemovePlayer(this);
             GameState.RemoveLife();
             Scene.World.RequestPlayerRespawn(playerIndex);
+            Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 1f));
         }
     }
 }

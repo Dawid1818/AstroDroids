@@ -1,6 +1,8 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Entities.Hostile;
+using AstroDroids.Entities.Hostile.Bosses;
 using AstroDroids.Graphics;
+using FontStashSharp;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,12 +20,13 @@ namespace AstroDroids.Managers
 
         public static void Initialize()
         {
-            RegisterEnemy(0, typeof(Entities.Hostile.BasicEnemy), typeof(DefaultSpawnData));
-            RegisterEnemy(1, typeof(Entities.Hostile.SpinLaser), typeof(DefaultSpawnData));
-            RegisterEnemy(2, typeof(Entities.Hostile.DroneController), typeof(DefaultSpawnData));
-            RegisterEnemy(3, typeof(Entities.Hostile.ProximityMine), typeof(DefaultSpawnData));
-            RegisterEnemy(4, typeof(Entities.Hostile.TriGunTurret), typeof(DefaultSpawnData));
-            RegisterEnemy(5, typeof(Entities.Hostile.Gunner), typeof(GunnerSpawnData));
+            RegisterEnemy(0, typeof(BasicEnemy), typeof(DefaultSpawnData));
+            RegisterEnemy(1, typeof(SpinLaser), typeof(DefaultSpawnData));
+            RegisterEnemy(2, typeof(DroneController), typeof(DefaultSpawnData));
+            RegisterEnemy(3, typeof(ProximityMine), typeof(DefaultSpawnData));
+            RegisterEnemy(4, typeof(TriGunTurret), typeof(DefaultSpawnData));
+            RegisterEnemy(5, typeof(Gunner), typeof(GunnerSpawnData));
+            RegisterEnemy(6, typeof(SnakeBoss), typeof(DefaultSpawnData));
         }
 
         public static void InitializePreviews()
@@ -37,8 +40,16 @@ namespace AstroDroids.Managers
             {
                 Enemy enemy = (Enemy)Activator.CreateInstance(entity.Value.EnemyType);
                 Rectangle bounds = enemy.ToRectangle();
+                RenderTarget2D target;
 
-                RenderTarget2D target = new RenderTarget2D(manager.GraphicsDevice, bounds.Width + (bounds.Width), bounds.Height + (bounds.Height));
+                if(bounds.Width == 0 || bounds.Height == 0)
+                {
+                    target = new RenderTarget2D(manager.GraphicsDevice, 32, 32);
+                    entityPreviews.Add(entity.Key, Screen.GetImGuiRenderer().BindTexture(target));
+                    continue;
+                }
+
+                target = new RenderTarget2D(manager.GraphicsDevice, bounds.Width + (bounds.Width), bounds.Height + (bounds.Height));
 
                 manager.GraphicsDevice.SetRenderTarget(target);
                 manager.GraphicsDevice.Clear(Color.Transparent);

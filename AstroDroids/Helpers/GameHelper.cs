@@ -42,6 +42,27 @@ namespace AstroDroids.Helpers
             return new BezierPath(points);
         }
 
+        public static BezierPath CreateBezier(Vector2 start, Vector2 end, float currentAngle)
+        {
+            Vector2 startDir = DirFromAngle(currentAngle);
+
+            Vector2 endDir;
+
+            Vector2 delta = end - start;
+
+            if (delta.LengthSquared() < 0.000001f)
+                endDir = startDir;
+            else
+                endDir = Vector2.Normalize(delta);
+
+            float distance = Vector2.Distance(start, end);
+
+            Vector2 cp1 = start + startDir * distance * 0.35f;
+            Vector2 cp2 = end - endDir * distance * 0.35f;
+
+            return new BezierPath(new List<PathPoint>() { start, cp1, cp2, end });
+        }
+
         public static float AngleBetween(Vector2 p1, Vector2 p2)
         {
             return (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);

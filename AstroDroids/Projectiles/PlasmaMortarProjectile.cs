@@ -1,8 +1,11 @@
-﻿using AstroDroids.Entities;
+﻿using AstroDroids.Drawables;
+using AstroDroids.Entities;
 using AstroDroids.Entities.Effects;
+using AstroDroids.Extensions;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
+using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using System;
 
@@ -10,9 +13,12 @@ namespace AstroDroids.Projectiles
 {
     public class PlasmaMortarProjectile : Projectile
     {
+        AnimatedSprite sprite;
+
         float speed = 500f;
 
         float angle;
+        float displayAngle;
 
         int clusterAmount = 0;
         bool isCluster = false;
@@ -23,6 +29,10 @@ namespace AstroDroids.Projectiles
 
         public PlasmaMortarProjectile(Vector2 position, float angle, bool isCluster, int powerLevel, float launchForce) : base(position)
         {
+            sprite = new AnimatedSprite(TextureManager.Get("Projectiles/PlasmaMortar/PlasmaMortar"), 4, 128, 128, 0, 16, 50f);
+
+            displayAngle = (float)(AstroDroidsGame.rnd.NextDouble() * Math.Tau);
+
             speed = speed * launchForce;
             switch (powerLevel)
             {
@@ -69,7 +79,15 @@ namespace AstroDroids.Projectiles
 
         public override void Update(GameTime gameTime)
         {
+            sprite.Update(gameTime);
+
             var velocity = new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * speed;
+
+            Vector2 dir = GameHelper.DirFromAngle(angle);
+            float turnSpeed = 0.005f * speed * dir.X;
+
+            displayAngle += turnSpeed;
+
             Transform.Translate(velocity * (float)gameTime.ElapsedGameTime.TotalSeconds);
 
             speed *= 1f - (2.5f * (float)gameTime.ElapsedGameTime.TotalSeconds);
@@ -124,7 +142,7 @@ namespace AstroDroids.Projectiles
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.DrawCircle(Transform.Position, size, (int)size / 2, Color.Blue, size);
+            sprite.Draw(Transform.Position, displayAngle, (14f + powerLevel * 2f) / 50f);
         }
     }
 }

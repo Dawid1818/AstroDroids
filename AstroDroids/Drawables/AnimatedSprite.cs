@@ -49,6 +49,13 @@ namespace AstroDroids.Drawables
             Screen.spriteBatch.Draw(texture, position, source, Color.White, angle, new Vector2(frameWidth / 2f, frameHeight / 2f), scale, SpriteEffects.None, 0f);
         }
 
+        public void Draw(Vector2 position, float angle, float scale, Color color)
+        {
+            Rectangle source = GetCurrentFrameSource();
+
+            Screen.spriteBatch.Draw(texture, position, source, color, angle, new Vector2(frameWidth / 2f, frameHeight / 2f), scale, SpriteEffects.None, 0f);
+        }
+
         public void Draw(Vector2 position, float angle, float scale, Vector2 origin, Color color)
         {
             Rectangle source = GetCurrentFrameSource();
