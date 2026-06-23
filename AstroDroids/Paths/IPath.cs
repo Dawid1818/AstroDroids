@@ -15,5 +15,7 @@ namespace AstroDroids.Paths
         public void Translate(PathPoint dist);
         public void RecalculateLength();
         public Vector2 GetDirection(double t);
+        PathPoint GetPointAtDistance(double distance);
+        double GetParameterAtDistance(double distance);
     }
 }

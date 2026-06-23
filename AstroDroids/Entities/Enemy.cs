@@ -50,6 +50,14 @@ namespace AstroDroids.Entities
         {
         }
 
+        public override void SetHealth(int health)
+        {
+            if (health > 0)
+                destroyed = false;
+
+            base.SetHealth(health);
+        }
+
         public override void Destroyed()
         {
             if (destroyed) return;

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace AstroDroids
@@ -35,6 +36,8 @@ namespace AstroDroids
         private int _scrollWheelValue;
         private int _horizontalScrollWheelValue;
         private readonly Keys[] _allKeys = Enum.GetValues<Keys>();
+
+        public bool InputReady { get; private set; } = false;
 
         public ImGuiRenderer(Game game)
         {
@@ -206,13 +209,19 @@ namespace AstroDroids
 
         public virtual void BeforeLayout(GameTime gameTime)
         {
-            ImGui.GetIO().DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            ImGuiIOPtr io = ImGui.GetIO();
+            io.DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             UpdateInput();
-            ImGui.NewFrame();
+            if(InputReady)
+                ImGui.NewFrame();
         }
 
         public virtual void AfterLayout()
         {
+            if (!InputReady)
+                return;
+
             ImGui.Render();
 
             unsafe
@@ -318,6 +327,9 @@ namespace AstroDroids
             io.DisplaySize = new System.Numerics.Vector2(backBufferWidth, backBufferHeight);
 
             io.DisplayFramebufferScale = System.Numerics.Vector2.One;
+
+            if(!InputReady)
+                InputReady = true;
         }
 
         private bool TryMapKeys(Keys key, out ImGuiKey imguiKey)

@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace AstroDroids.Entities
 {
@@ -8,6 +9,8 @@ namespace AstroDroids.Entities
     {
         public Transform Transform { get; set; }
         protected Scene Scene { get { return SceneManager.GetScene(); } }
+
+        protected Random Random { get { return AstroDroidsGame.rnd; } }
 
         public Entity()
         {

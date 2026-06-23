@@ -1,5 +1,5 @@
-﻿using AstroDroids.Drawables;
-using AstroDroids.Editors;
+﻿using AstroDroids.Editors;
+using AstroDroids.Entities.Friendly;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Input;
@@ -7,9 +7,7 @@ using AstroDroids.Managers;
 using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended;
 using System;
-using System.IO;
 
 namespace AstroDroids.Entities.Hostile.Bosses
 {
@@ -25,12 +23,18 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         RandomMoveManager RMM;
 
-        float speed = 2f;
+        float speed = 100f;
+        float turnSpeed = 3f;
+
+        Vector2 targetPos;
+
+        bool followPlayer = true;
+
         public SnakeBossSegment(SnakeBoss boss, SnakeBossSegment parentSegment, int historyOffset) : base(Vector2.Zero, 10)
         {
             this.boss = boss;
             this.parentSegment = parentSegment;
-            if(parentSegment == null)
+            if (parentSegment == null)
                 texture = TextureManager.Get("Ships/SnakeBoss/SnakeBoss");
             else
                 texture = TextureManager.Get("Ships/SnakeBoss/SnakeBossNocockpit");
@@ -42,11 +46,25 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             RMM = new RandomMoveManager(Transform.LocalPosition);
             RMM.maxMoveDistance = 1000;
-            RMM.SetNewPath(angle);
+            RMM.SetNewPath2(angle);
+
+            //targetPos = new Vector2(AstroDroidsGame.rnd.Next(Scene.World.Bounds.Width), AstroDroidsGame.rnd.Next(Scene.World.Bounds.Height));
+            targetPos = new Vector2(Transform.Position.X - 10, Transform.Position.Y + 30);
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (InputSystem.GetKeyDown(Microsoft.Xna.Framework.Input.Keys.I))
+            {
+                followPlayer = !followPlayer;
+
+                if (!followPlayer)
+                {
+                    RMM.UpdatePosition(Transform.Position);
+                    RMM.SetNewPath2(angle);
+                }
+            }
+
             if (parentSegment != null)
             {
                 if (boss.PositionHistory.Count > historyOffset + 1)
@@ -65,15 +83,36 @@ namespace AstroDroids.Entities.Hostile.Bosses
             }
             else
             {
-                RMM.Update(gameTime);
-                Transform.LocalPosition = RMM.Position;
-
-                if (!RMM.Active)
+                if (!followPlayer)
                 {
-                    RMM.SetNewPath(angle);
-                }
+                    RMM.Update(gameTime);
+                    Transform.LocalPosition = RMM.Position;
 
-                angle = RMM.MovementAngle;
+                    if (!RMM.Active)
+                    {
+                        //RMM.SetNewPath2(GameHelper.AngleFromDir(RMM.GetPath().GetDirection(1.0f)));
+                        RMM.SetNewPath2(angle);
+
+                        //RMM.SetNewPath3(player.Transform.Position, angle);
+                    }
+
+                    angle = RMM.MovementAngle;
+                }
+                else
+                {
+                    Player player = Scene.World.GetRandomPlayer();
+                    if (player != null)
+                    {
+                        Vector2 desiredDirection = (player.Transform.Position - Transform.Position);
+                        desiredDirection.Normalize();
+
+                        Vector2 lerp = Vector2.Lerp(GameHelper.DirFromAngle(angle), desiredDirection, turnSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                        lerp.Normalize();
+                        angle = GameHelper.AngleFromDir(lerp);
+
+                        Transform.Translate(new Vector2(MathF.Cos(angle) * speed * (float)gameTime.ElapsedGameTime.TotalSeconds, MathF.Sin(angle) * speed * (float)gameTime.ElapsedGameTime.TotalSeconds));
+                    }
+                }
 
                 boss.PositionHistory.Insert(0, Transform.Position);
 
@@ -88,19 +127,14 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             Screen.spriteBatch.Draw(texture, Transform.Position, null, CanBeDamaged ? Color.White : Color.Red, angle + MathHelper.ToRadians(90), new Vector2(texture.Width / 2f, texture.Height / 2f), 1f, SpriteEffects.None, 0f);
 
-            if(parentSegment == null)
-            {
-                IPath Path = RMM.GetPath();
+            //Screen.spriteBatch.DrawCircle(targetPos.X, targetPos.Y, 12, 12, Color.White);
 
-                float t = 0f;
-                PathPoint lastPos = Path.GetPoint(t);
-                while (t < 1f)
-                {
-                    t += 0.001f;
-                    PathPoint nextPos = Path.GetPoint(t);
-                    Screen.spriteBatch.DrawLine(lastPos, nextPos, Color.Green, 4f);
-                    lastPos = nextPos;
-                }
+            if (parentSegment == null)
+            {
+                if(!followPlayer)
+                PathVisualizer.DrawPath(RMM.GetPath());
+
+                //walker.Draw(Screen.spriteBatch);
             }
         }
 

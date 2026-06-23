@@ -1,4 +1,5 @@
-﻿using AstroDroids.Graphics;
+﻿using AstroDroids.ErrorHandling;
+using AstroDroids.Graphics;
 using AstroDroids.Input;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
@@ -36,6 +37,8 @@ namespace AstroDroids
         protected override void Initialize()
         {
             base.Initialize();
+
+            NativeErrorHandler.Setup();
 
             Window.Position = new Point(0, 0);
             SDL_MaximizeWindow(Window.Handle);

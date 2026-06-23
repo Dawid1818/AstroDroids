@@ -16,7 +16,6 @@ using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Numeric = System.Numerics;
 
 namespace AstroDroids.Editors
@@ -110,6 +109,18 @@ namespace AstroDroids.Editors
 
         public void Update()
         {
+            if (InputSystem.GetKeyDown(Keys.T))
+            {
+                if (wave != null)
+                {
+                    LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
+                }
+                else
+                {
+                    LevelManager.Playtest(0);
+                }
+            }
+
             if (wave == null)
                 return;
 
@@ -355,9 +366,6 @@ namespace AstroDroids.Editors
                 selectedNodes.Add(bgObjN);
                 AllNodes.Add(bgObjN);
             }
-
-            if (InputSystem.GetKeyDown(Keys.T) && wave != null)
-                LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
 
             prevMousePos = mousePos;
         }

@@ -49,24 +49,26 @@ namespace AstroDroids.Entities.Friendly
             //Player movement
             Vector2 movement = Vector2.Zero;
 
+            float actualSpeed = InputSystem.IsActionHeld(GameAction.Focus) ? speed / 2f : speed;
+
             if (InputSystem.IsActionHeld(GameAction.Up))
             {
-                movement.Y -= speed;
+                movement.Y -= actualSpeed;
             }
 
             if (InputSystem.IsActionHeld(GameAction.Down))
             {
-                movement.Y += speed;
+                movement.Y += actualSpeed;
             }
 
             if (InputSystem.IsActionHeld(GameAction.Left))
             {
-                movement.X -= speed;
+                movement.X -= actualSpeed;
             }
 
             if (InputSystem.IsActionHeld(GameAction.Right))
             {
-                movement.X += speed;
+                movement.X += actualSpeed;
             }
 
             Transform.LocalPosition += movement;
@@ -91,7 +93,7 @@ namespace AstroDroids.Entities.Friendly
 
             foreach (var enemy in Scene.World.Enemies)
             {
-                if (enemy.Intersects(this))
+                if (enemy.Collidable && enemy.Intersects(this))
                 {
                     enemy.Damage(5, true);
                     Damage(1, false);

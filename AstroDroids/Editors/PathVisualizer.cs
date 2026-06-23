@@ -1,7 +1,6 @@
 ﻿using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Paths;
-using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using System.Collections.Generic;
@@ -47,5 +46,27 @@ namespace AstroDroids.Editors
                 first = false;
             }
         }
+
+        public static void DrawPath(IPath Path)
+        {
+            float t = 0f;
+            PathPoint lastPos = Path.GetPoint(t);
+            while (t < 1f)
+            {
+                t += 0.001f;
+                PathPoint nextPos = Path.GetPoint(t);
+                Screen.spriteBatch.DrawLine(lastPos, nextPos, Color.Green, 4f);
+                lastPos = nextPos;
+            }
+
+            var keyPoints = Path.KeyPoints;
+            for (int j = 0; j < keyPoints.Length; j++)
+            {
+                PathPoint point = keyPoints[j];
+
+                GameHelper.DrawNode($"{j}", point, Color.Red, Color.Green, 14);
+            }
+        }
     }
 }
+

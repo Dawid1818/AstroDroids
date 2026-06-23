@@ -1,11 +1,9 @@
-﻿using AstroDroids.Paths;
-using AstroDroids.Entities.Neutral;
-using AstroDroids.Graphics;
+﻿using AstroDroids.Drawables;
+using AstroDroids.Helpers;
 using AstroDroids.Managers;
+using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AstroDroids.Helpers;
-using AstroDroids.Drawables;
 
 namespace AstroDroids.Entities.Hostile
 {
@@ -32,7 +30,7 @@ namespace AstroDroids.Entities.Hostile
         {
             sprite.Update(gameTime);
 
-            if(PathManager != null)
+            if (PathManager != null)
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
@@ -45,10 +43,10 @@ namespace AstroDroids.Entities.Hostile
             }
             else
             {
-                if(!FollowsCamera)
+                if (!FollowsCamera)
                     DefaultMove();
 
-                if(Transform.Position.Y > Scene.World.Bounds.Bottom + texture.Height)
+                if (Transform.Position.Y > Scene.World.Bounds.Bottom + texture.Height)
                 {
                     Despawn();
                 }

@@ -7,7 +7,11 @@ namespace AstroDroids.Paths
         public bool Active { get; set; } = true;
         public PathPoint Position { get; set; } = PathPoint.Zero;
         public Vector2 Direction { get; set; } = Vector2.Zero;
-        public double Time { get; set; } = 0f;
+        public double CurrentDistance { get; set; } = 0f;
+        public float Time
+        {
+            get { return Path != null && Path.Length > 0 ? (float)(CurrentDistance / Path.Length) : 0f; }
+        }
         public LoopingMode Loop { get; set; } = LoopingMode.Off;
         public bool Reverse { get; set; } = false;
         public int MinPath = -1;
@@ -63,7 +67,8 @@ namespace AstroDroids.Paths
         {
             Path = path;
             Position = Path.GetPoint(0f);
-            Time = 0f;
+            CurrentDistance = 0f;
+            //Time = 0f;
 
             Speed = speed;
 
@@ -78,94 +83,76 @@ namespace AstroDroids.Paths
         public void Update(GameTime gameTime)
         {
             if (!Active || Path == null || Path.Length == 0)
+            {
+                Active = false;
                 return;
+            }
 
+            float distanceDelta = speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (!Reverse)
-                Time += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds) / Path.Length;
+                CurrentDistance += distanceDelta;
             else
-                Time -= (speed * (float)gameTime.ElapsedGameTime.TotalSeconds) / Path.Length;
+                CurrentDistance -= distanceDelta;
 
-            Position = Path.GetPoint(Time);
-            Direction = Path.GetDirection(Time);
+            double minDistance = GetMinPathDistance();
 
             switch (Loop)
             {
                 case LoopingMode.Off:
-                    if (!Reverse && Time >= 1f)
+                    if (!Reverse && CurrentDistance >= Path.Length)
                     {
+                        CurrentDistance = Path.Length;
                         Active = false;
                     }
-                    else if (Reverse && Time <= 0f)
+                    else if (Reverse && CurrentDistance <= 0f)
                     {
+                        CurrentDistance = 0f;
                         Active = false;
                     }
                     break;
+
                 case LoopingMode.Loop:
-                    if (!Reverse)
+                    if (!Reverse && CurrentDistance >= Path.Length)
                     {
-                        if (Time >= 1f)
-                        {
-                            if (MinPath != -1 && Path is CompositePath composite)
-                            {
-                                Time = composite.GetSegmentStartTime(MinPath);
-                            }
-                            else
-                            {
-                                Time = 0f;
-                            }
-                        }
+                        CurrentDistance = minDistance;
                     }
-                    else if (Reverse)
+                    else if (Reverse && CurrentDistance <= minDistance)
                     {
-                        if (MinPath != -1 && Path is CompositePath composite && Time <= (float)MinPath / composite.Decompose().Count)
-                        {
-                            Time = 1f;
-                        }
-                        else if (Time <= 0f)
-                        {
-                            Time = 1f;
-                        }
+                        CurrentDistance = Path.Length;
                     }
                     break;
+
                 case LoopingMode.Oscillate:
-                    if (!Reverse)
+                    if (!Reverse && CurrentDistance >= Path.Length)
                     {
-                        if (Time >= 1f)
-                        {
-                            if (MinPath != -1 && Path is CompositePath composite)
-                            {
-                                Reverse = true;
-                                Time = 1f;
-                            }
-                            else
-                            {
-                                Reverse = true;
-                                Time = 1f;
-                            }
-                        }
+                        CurrentDistance = Path.Length;
+                        Reverse = true;
                     }
-                    else if (Reverse)
+                    else if (Reverse && CurrentDistance <= minDistance)
                     {
-                        if (MinPath != -1 && Path is CompositePath composite && Time <= (float)MinPath / composite.Decompose().Count)
-                        {
-                            Reverse = false;
-                            Time = composite.GetSegmentStartTime(MinPath);
-                        }
-                        else if (Time <= 0f)
-                        {
-                            Reverse = false;
-                            Time = 0f;
-                        }
+                        CurrentDistance = minDistance;
+                        Reverse = false;
                     }
-                    break;
-                default:
                     break;
             }
+
+            double t = Path.GetParameterAtDistance(CurrentDistance);
+            Position = Path.GetPoint(t);
+            Direction = Path.GetDirection(t);
         }
 
         public void Translate(Vector2 delta)
         {
             Path.Translate(delta);
+        }
+
+        private double GetMinPathDistance()
+        {
+            if (MinPath != -1 && Path is CompositePath composite)
+            {
+                return composite.GetSegmentStartDistance(MinPath);
+            }
+            return 0f;
         }
     }
     public enum LoopingMode

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using System.IO;
 
 namespace AstroDroids.Paths
@@ -102,6 +103,21 @@ namespace AstroDroids.Paths
                 dir.Normalize();
 
             return dir;
+        }
+
+        public PathPoint GetPointAtDistance(double distance)
+        {
+            double t = Math.Clamp(distance / Length, 0, 1);
+            return GetPoint(t);
+        }
+
+        public double GetParameterAtDistance(double targetDistance)
+        {
+            if (Length <= 0) return 0.0;
+
+            double t = targetDistance / Length;
+
+            return Math.Clamp(t, 0.0, 1.0);
         }
     }
 }

@@ -2,7 +2,7 @@
   "profiles": {
     "AstroDroids": {
       "commandName": "Project",
-      "nativeDebugging": false
+      "debugEngines": "managed"
     }
   }
 }

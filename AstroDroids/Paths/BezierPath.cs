@@ -7,6 +7,9 @@ namespace AstroDroids.Paths
 {
     public class BezierPath : IPath
     {
+        private List<double> arcLengths = new List<double>();
+        private const int LUT_RESOLUTION = 100;
+
         List<PathPoint> Points = new List<PathPoint>();
 
         public PathPoint[] KeyPoints
@@ -160,21 +163,50 @@ namespace AstroDroids.Paths
         public void RecalculateLength()
         {
             Length = 0;
+            arcLengths.Clear();
+            arcLengths.Add(0);
 
-            float t = 0f;
-            PathPoint lastPos = GetPoint(t);
-            while (t < 1f)
+            float step = 1f / LUT_RESOLUTION;
+            PathPoint lastPos = GetPoint(0f);
+
+            for (int i = 1; i <= LUT_RESOLUTION; i++)
             {
-                t += 0.01f;
+                float t = i * step;
                 PathPoint nextPos = GetPoint(t);
                 Length += nextPos.DistanceFrom(lastPos);
+                arcLengths.Add(Length);
                 lastPos = nextPos;
             }
 
-            if(double.IsNaN(Length) || double.IsInfinity(Length))
-            {
+            if (double.IsNaN(Length) || double.IsInfinity(Length))
                 Length = 0;
+        }
+
+        public double GetParameterAtDistance(double targetDistance)
+        {
+            if (targetDistance <= 0) return 0f;
+            if (targetDistance >= Length) return 1f;
+
+            for (int i = 0; i < arcLengths.Count - 1; i++)
+            {
+                if (targetDistance >= arcLengths[i] && targetDistance <= arcLengths[i + 1])
+                {
+                    double segmentLength = arcLengths[i + 1] - arcLengths[i];
+                    double segmentFraction = (targetDistance - arcLengths[i]) / segmentLength;
+
+                    double tStart = (double)i / LUT_RESOLUTION;
+                    double tEnd = (double)(i + 1) / LUT_RESOLUTION;
+
+                    return tStart + (segmentFraction * (tEnd - tStart));
+                }
             }
+            return 1f;
+        }
+
+        public PathPoint GetPointAtDistance(double distance)
+        {
+            double t = GetParameterAtDistance(distance);
+            return GetPoint(t);
         }
     }
 }

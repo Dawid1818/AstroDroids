@@ -5,10 +5,10 @@ using AstroDroids.Graphics;
 using AstroDroids.Input;
 using AstroDroids.Managers;
 using AstroDroids.Screens;
+using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGameGum;
 using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
@@ -18,6 +18,8 @@ namespace AstroDroids.Scenes
         GameScreenGum ui;
 
         CoroutineManager coroutineManager = new CoroutineManager();
+
+        bool paused = false;
 
         float yPos = 0f;
 
@@ -33,10 +35,10 @@ namespace AstroDroids.Scenes
 
             //LevelManager.LoadLevel(0);
 
-            GameState.NewState();
-
-            if(World == null)
+            if (World == null)
                 World = new GameWorld();
+
+            GameState.NewState();
 
             World.Initialize();
 
@@ -61,16 +63,24 @@ namespace AstroDroids.Scenes
 
         public override void Update(GameTime gameTime)
         {
-            coroutineManager.Update();
+            if (InputSystem.GetKeyDown(Keys.P))
+            {
+                paused = !paused;
+            }
 
-            World.Update(gameTime);
+            if (!paused)
+            {
+                coroutineManager.Update();
 
-            yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
+                World.Update(gameTime);
 
-            if(InputSystem.GetKeyDown(Keys.F5))
+                yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
+            }
+
+            if (InputSystem.GetKeyDown(Keys.F5))
             {
                 GameState.Firepower += 1;
-                if(GameState.Firepower > 5)
+                if (GameState.Firepower > 5)
                 {
                     GameState.Firepower = 1;
                 }
@@ -91,6 +101,13 @@ namespace AstroDroids.Scenes
             Screen.Infinite.Parameters["uv_transform"].SetValue(Matrix.Invert(uv_transform));
 
             World.Draw(gameTime);
+
+            if (paused)
+            {
+                Screen.spriteBatch.Begin();
+                Screen.DrawText("Paused", new Vector2(10, 10), Color.White, 12f);
+                Screen.spriteBatch.End();
+            }
         }
     }
 }

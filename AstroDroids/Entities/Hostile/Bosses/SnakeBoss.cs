@@ -23,7 +23,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public override void Spawned()
         {
-            for (int i = 0; i < 10; i++)
+            int segmentCount = 10;
+            for (int i = 0; i < segmentCount; i++)
             {
                 SnakeBossSegment segment;
 
@@ -33,8 +34,17 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     segment = new SnakeBossSegment(this, segments[i - 1], i * 40);
 
                 segment.Transform.Position = Transform.Position + new Vector2(-(i * 20), 0);
-                Scene.World.AddEnemy(segment, true);
                 segments.Add(segment);
+            }
+
+            for (int i = 0; i < MaxHistory; i++)
+            {
+                PositionHistory.Add(Transform.Position + new Vector2(-(i), 0));
+            }
+
+            for (int i = segmentCount - 1; i >= 0; i--)
+            {
+                Scene.World.AddEnemy(segments[i], true);
             }
         }
 

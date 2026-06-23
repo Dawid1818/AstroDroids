@@ -46,6 +46,23 @@ namespace AstroDroids.Projectiles
             this.type = type;
         }
 
+        Color GetHitColor()
+        {
+            switch (type)
+            {
+                default:
+                case PulseCannonProjectileType.WeakCyan:
+                    return Color.Cyan;
+                    break;
+                case PulseCannonProjectileType.WeakOrange:
+                    return Color.Orange;
+                    break;
+                case PulseCannonProjectileType.WeakRed:
+                    return Color.Red;
+                    break;
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
             if(fade)
@@ -73,7 +90,7 @@ namespace AstroDroids.Projectiles
                 {
                     if (enemy.Intersects(this))
                     {
-                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), Color.Cyan);
+                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), GetHitColor());
                         Scene.World.AddEffect(hitEffect);
 
                         fade = true;

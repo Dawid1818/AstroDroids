@@ -73,20 +73,25 @@ namespace AstroDroids.Scenes
             barrierEditor = new LaserBarrierEditor(this);
             waveEditor = new AttackWaveEditor(this);
             levelBrowser = new LevelBrowser();
-            levelBrowser.LevelSelected += (levelName) =>
-            {
-                levelFileName = levelName;
-                level = new Level();
-                FileSaver.RestoreObject(level, Path.Combine("Content/Levels/", levelName + ".adlvl"));
-
-                waveEditor.Reset();
-
-                RestoreStarfield();
-
-                Screen.ResetCamera();
-            };
+            levelBrowser.LevelSelected += LoadLevel;
 
             CreateNewLevel();
+
+            //temporary
+            LoadLevel("DroneBosstest");
+        }
+
+        public void LoadLevel(string name)
+        {
+            levelFileName = name;
+            level = new Level();
+            FileSaver.RestoreObject(level, Path.Combine("Content/Levels/", name + ".adlvl"));
+
+            waveEditor.Reset();
+
+            RestoreStarfield();
+
+            Screen.ResetCamera();
         }
 
         public override void Set()

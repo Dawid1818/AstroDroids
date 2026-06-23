@@ -2,6 +2,7 @@
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace AstroDroids.Paths
 {
@@ -101,6 +102,46 @@ namespace AstroDroids.Paths
             destination.Y = MathHelper.Clamp(destination.Y, margin, Scene.World.Bounds.Height - margin);
 
             TravelManager.SetPath(GameHelper.CreateBezier(Position, destination, currentAngle), TravelManager.Speed);
+        }
+
+        public void SetNewPath2(float currentAngle)
+        {
+            float margin = 0;
+
+            Active = true;
+
+            float maxTurn = 360;
+
+            float selectedTurn = MathHelper.Lerp(-maxTurn, maxTurn, (float)AstroDroidsGame.rnd.NextDouble());
+            //selectedTurn = 0; //override
+
+            float turn = MathHelper.ToRadians(selectedTurn);
+
+            float newAngle = currentAngle + turn;
+
+            float distance = (float)(AstroDroidsGame.rnd.NextDouble() + 1d) * maxMoveDistance;
+            distance = 300; //override
+
+            Vector2 direction = GameHelper.DirFromAngle(newAngle);
+
+            destination = Position + direction * distance;  
+
+            //destination.X = MathHelper.Clamp(destination.X, margin, Scene.World.Bounds.Width - margin);
+
+            //destination.Y = MathHelper.Clamp(destination.Y, margin, Scene.World.Bounds.Height - margin);
+
+            destination.X = GameHelper.WrapValue(destination.X, 0, Scene.World.Bounds.Width);
+
+            destination.Y = GameHelper.WrapValue(destination.Y, 0, Scene.World.Bounds.Height);
+
+            TravelManager.SetPath(GameHelper.CreateCatmull(Position, destination, currentAngle), TravelManager.Speed);
+        }
+
+        public void SetNewPath3(Vector2 position, float currentAngle)
+        {
+            Active = true;
+
+            TravelManager.SetPath(GameHelper.CreateCatmull(Position, position, currentAngle), TravelManager.Speed);
         }
 
         public IPath GetPath()

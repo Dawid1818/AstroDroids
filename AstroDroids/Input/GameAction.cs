@@ -8,6 +8,7 @@ namespace AstroDroids.Input
         Left,
         Right,
         Fire,
-        NextWeapon
+        NextWeapon,
+        Focus
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Graphics;
+using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
@@ -6,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace AstroDroids.Entities.Hostile
 {
-    public class DroneController : Enemy
+    public class DroneController : Enemy, IDroneController
     {
         Texture2D texture;
 
@@ -27,11 +28,11 @@ namespace AstroDroids.Entities.Hostile
             Scene.World.AddEnemy(drone1, true);
 
             ProjectileDrone drone2 = new ProjectileDrone(this, 50, -90);
-            drone1.Transform.Position = Transform.Position + new Vector2(50, 0);
+            drone2.Transform.Position = Transform.Position + new Vector2(50, 0);
             Scene.World.AddEnemy(drone2, true);
 
             ProjectileDrone drone3 = new ProjectileDrone(this, 50, 0);
-            drone1.Transform.Position = Transform.Position + new Vector2(0, 50);
+            drone3.Transform.Position = Transform.Position + new Vector2(0, 50);
             Scene.World.AddEnemy(drone3, true);
 
             RMM = new RandomMoveManager(Transform.LocalPosition);
@@ -64,6 +65,11 @@ namespace AstroDroids.Entities.Hostile
         public override void Draw(GameTime gameTime)
         {
             Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, Color.White, MathHelper.ToRadians(180), new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+        }
+
+        public void DroneDestroyed(ProjectileDrone drone)
+        {
+            
         }
     }
 }

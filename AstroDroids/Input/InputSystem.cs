@@ -27,6 +27,7 @@ namespace AstroDroids.Input
                 { GameAction.Right, new ButtonInputAction(Keys.Right) },
                 { GameAction.Fire, new ButtonInputAction(Keys.Z) },
                 { GameAction.NextWeapon, new ButtonInputAction(Keys.X) },
+                { GameAction.Focus, new ButtonInputAction(Keys.C) },
             };
         }
 

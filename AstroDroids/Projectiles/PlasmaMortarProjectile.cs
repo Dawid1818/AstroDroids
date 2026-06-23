@@ -1,8 +1,6 @@
 ﻿using AstroDroids.Drawables;
 using AstroDroids.Entities;
 using AstroDroids.Entities.Effects;
-using AstroDroids.Extensions;
-using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;

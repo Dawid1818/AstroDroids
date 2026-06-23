@@ -1,4 +1,5 @@
-﻿using AstroDroids.Scenes;
+﻿using AstroDroids.Graphics;
+using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 
 namespace AstroDroids.Managers
@@ -26,7 +27,8 @@ namespace AstroDroids.Managers
         public static void Draw(GameTime gameTime)
         {
             scene?.Draw(gameTime);
-            scene?.DrawImGui(gameTime);
+            if(Screen.GetImGuiRenderer().InputReady)
+                scene?.DrawImGui(gameTime);
         }
     }
 }

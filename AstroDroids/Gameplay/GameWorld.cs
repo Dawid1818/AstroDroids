@@ -2,6 +2,7 @@
 using AstroDroids.Coroutines;
 using AstroDroids.Drawables;
 using AstroDroids.Entities;
+using AstroDroids.Entities.Effects;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Neutral;
@@ -10,6 +11,7 @@ using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using AstroDroids.Projectiles;
+using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -60,7 +62,7 @@ namespace AstroDroids.Gameplay
             AttackWaves.Clear();
             AttackWaves.AddRange(LevelManager.CurrentLevel.AttackWaves.Slice(startPoint, LevelManager.CurrentLevel.AttackWaves.Count - startPoint));
 
-            if(AttackWaves.Count > 0)
+            if (AttackWaves.Count > 0)
                 StartCoroutine(ProcessWaves());
         }
 
@@ -108,11 +110,11 @@ namespace AstroDroids.Gameplay
                         case WaveWaitStyle.None:
                             break;
                         case WaveWaitStyle.WaitForPreviousWave:
-                            if(ongoingWaves > 0)
+                            if (ongoingWaves > 0)
                                 yield return new WaitUntil(() => ongoingWaves == 0);
                             break;
                         case WaveWaitStyle.WaitForAllEnemiesDefeated:
-                            if(ongoingWaves > 0 || Enemies.Count > 0)
+                            if (ongoingWaves > 0 || Enemies.Count > 0)
                                 yield return new WaitUntil(() => Enemies.Count == 0 && ongoingWaves == 0);
                             break;
                         default:
@@ -163,7 +165,10 @@ namespace AstroDroids.Gameplay
 
                 if (spawner.HasPath)
                 {
+                    //var flattened = GameHelper.FlattenComposite(spawner.Path.Decompose().Cast<CatmullRomPath>().ToList());
+
                     enemy.PathManager = new PathManager(spawner.Path, spawner.PathSpeed);
+                    //enemy.PathManager = new PathManager(flattened, spawner.PathSpeed);
                     enemy.PathManager.Loop = spawner.PathLoop;
                     enemy.PathManager.MinPath = spawner.MinPath;
                 }
@@ -327,6 +332,7 @@ namespace AstroDroids.Gameplay
                 DrawDebugText($"Waves: {currentWave + 1}/{AttackWaves.Count}");
                 DrawDebugText($"Current Weapon: {GameState.CurrentWeapon}");
                 DrawDebugText($"Firepower: {GameState.Firepower}/5");
+                DrawDebugText($"Coroutines: {coroutineManager.Coroutines.Count}");
                 Screen.spriteBatch.End();
             }
         }
@@ -390,7 +396,7 @@ namespace AstroDroids.Gameplay
                 spawnData = EntityDatabase.CreateEnemySpawnData(enemy.GetType());
 
             //If the enemy entity hasn't been registered, the spawn data will not be found (for example in case of the laser barriers), so we just skip doing that in this case
-            if(spawnData != null)
+            if (spawnData != null)
                 enemy.ApplySpawnData(spawnData);
 
             if (invokeSpawned)

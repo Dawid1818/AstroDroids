@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StandardElementSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>Container</Name>
   <State>
@@ -155,6 +155,14 @@
       <Name>Rotation</Name>
       <Value xsi:type="xsd:float">0</Value>
       <Category>Flip and Rotation</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>SourceShaderFile</Name>
+      <Value xsi:type="xsd:string"></Value>
+      <Category>Rendering</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

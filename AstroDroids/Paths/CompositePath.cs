@@ -32,6 +32,8 @@ namespace AstroDroids.Paths
                     double localDistance = targetDistance - accumulated;
                     double localT = localDistance / path.Length;
 
+                    if (double.IsNaN(localT))
+                        return PathPoint.Zero;
                     return path.GetPoint(localT);
                 }
 
@@ -64,6 +66,10 @@ namespace AstroDroids.Paths
                         path = new BezierPath();
                         path.Load(reader, version);
                         break;
+                    case 3:
+                        path = new CatmullRomPath();
+                        path.Load(reader, version);
+                        break;
                     default:
                         break;
                 }
@@ -85,6 +91,8 @@ namespace AstroDroids.Paths
                     writer.Write(1);
                 else if (path is BezierPath)
                     writer.Write(2);
+                else if (path is CatmullRomPath)
+                    writer.Write(3);
 
                 path.Save(writer);
             }
@@ -154,17 +162,41 @@ namespace AstroDroids.Paths
 
             double accumulated = 0f;
 
-            foreach (var path in paths)
+            double blendDistanceWindow = 60.0;
+
+            for (int i = 0; i < paths.Count; i++)
             {
-                if (accumulated + path.Length >= targetDistance)
+                var currentPath = paths[i];
+
+                if (accumulated + currentPath.Length >= targetDistance)
                 {
                     double localDistance = targetDistance - accumulated;
-                    double localT = localDistance / path.Length;
+                    double localT = localDistance / currentPath.Length;
 
-                    return path.GetDirection(localT);
+                    Vector2 currentDir = currentPath.GetDirection(localT);
+
+                    if (i < paths.Count - 1)
+                    {
+                        double distanceToEndOfSegment = currentPath.Length - localDistance;
+
+                        if (distanceToEndOfSegment < blendDistanceWindow)
+                        {
+                            float blendFactor = (float)(1.0 - (distanceToEndOfSegment / blendDistanceWindow));
+
+                            blendFactor = blendFactor * blendFactor * (3.0f - 2.0f * blendFactor);
+
+                            Vector2 nextDir = paths[i + 1].GetDirection(0.0);
+
+                            Vector2 blendedDir = Vector2.Lerp(currentDir, nextDir, blendFactor);
+
+                            return blendedDir != Vector2.Zero ? Vector2.Normalize(blendedDir) : Vector2.Zero;
+                        }
+                    }
+
+                    return currentDir;
                 }
 
-                accumulated += path.Length;
+                accumulated += currentPath.Length;
             }
 
             return paths[paths.Count - 1].GetDirection(1);
@@ -181,6 +213,72 @@ namespace AstroDroids.Paths
                 accumulated += paths[i].Length;
 
             return (float)(accumulated / Length);
+        }
+
+        public PathPoint GetPointAtDistance(double distance)
+        {
+            if (paths.Count == 0) return PathPoint.Zero;
+            if (distance <= 0) return paths[0].GetPointAtDistance(0);
+
+            double remainingDistance = distance;
+
+            foreach (var path in paths)
+            {
+                if (remainingDistance <= path.Length)
+                {
+                    return path.GetPointAtDistance(remainingDistance);
+                }
+                remainingDistance -= path.Length;
+            }
+
+            return paths[paths.Count - 1].GetPointAtDistance(paths[paths.Count - 1].Length);
+        }
+
+        public double GetParameterAtDistance(double targetDistance)
+        {
+            if (Length <= 0 || paths.Count == 0) return 0.0;
+            if (targetDistance <= 0) return 0.0;
+            if (targetDistance >= Length) return 1.0;
+
+            double accumulatedDistance = 0.0;
+
+            for (int i = 0; i < paths.Count; i++)
+            {
+                var path = paths[i];
+
+                if (accumulatedDistance + path.Length >= targetDistance)
+                {
+                    double localDistance = targetDistance - accumulatedDistance;
+
+                    double localT = path.GetParameterAtDistance(localDistance);
+
+                    double pathStartGlobalT = accumulatedDistance / Length;
+                    double pathEndGlobalT = (accumulatedDistance + path.Length) / Length;
+
+                    return MathHelper.Lerp((float)pathStartGlobalT, (float)pathEndGlobalT, (float)localT);
+                }
+
+                accumulatedDistance += path.Length;
+            }
+
+            return 1.0;
+        }
+
+        public double GetSegmentStartDistance(int index)
+        {
+            if (paths.Count == 0 || index <= 0)
+                return 0.0;
+
+            if (index >= paths.Count)
+                return Length;
+
+            double accumulated = 0.0;
+            for (int i = 0; i < index; i++)
+            {
+                accumulated += paths[i].Length;
+            }
+
+            return accumulated;
         }
     }
 }

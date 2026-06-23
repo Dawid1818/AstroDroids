@@ -3,7 +3,6 @@ using AstroDroids.Extensions;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Input;
-using AstroDroids.Levels;
 using AstroDroids.Paths;
 using AstroDroids.Scenes;
 using Hexa.NET.ImGui;
@@ -176,6 +175,8 @@ namespace AstroDroids.Editors
                     PathSelection = 0;
                 if (ImGui.Selectable("Bezier Path", PathSelection == 1))
                     PathSelection = 1;
+                if (ImGui.Selectable("Catmull-Rom Path", PathSelection == 2))
+                    PathSelection = 2;
                 ImGui.EndCombo();
             }
 
@@ -258,6 +259,11 @@ namespace AstroDroids.Editors
                     path.EndPoint.X = end.X;
                     path.EndPoint.Y = end.Y;
                     break;
+                case 2:
+                    path = GameHelper.CreateCatmull(start, end);
+                    path.EndPoint.X = end.X;
+                    path.EndPoint.Y = end.Y;
+                    break;
             }
 
             Path.Add(path);
@@ -274,6 +280,8 @@ namespace AstroDroids.Editors
                     return "Line Path";
                 case 1:
                     return "Bezier Path";
+                case 2:
+                    return "Catmull-Rom Path";
             }
         }
         string GetPathTypeName(IPath path)
@@ -284,6 +292,8 @@ namespace AstroDroids.Editors
                 return "Line Path";
             else if (path is BezierPath)
                 return "Bezier Path";
+            else if (path is CatmullRomPath)
+                return "Catmull-Rom Path";
             else
                 return "Unknown path";
         }

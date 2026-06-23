@@ -12,6 +12,8 @@ namespace AstroDroids.Entities
         public float Width { get; private set; } = 0;
         public float Height { get; private set; } = 0;
 
+        public virtual bool Collidable { get; protected set; } = true;
+
         public List<Collider> Colliders { get; private set; } = new List<Collider>();
 
         public CollidableEntity() : base()
