@@ -109,15 +109,18 @@ namespace AstroDroids.Editors
 
         public void Update()
         {
-            if (InputSystem.GetKeyDown(Keys.T))
+            if (!ImGui.GetIO().WantCaptureMouse)
             {
-                if (wave != null)
+                if (InputSystem.GetKeyDown(Keys.T))
                 {
-                    LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
-                }
-                else
-                {
-                    LevelManager.Playtest(0);
+                    if (wave != null)
+                    {
+                        LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
+                    }
+                    else
+                    {
+                        LevelManager.Playtest(0);
+                    }
                 }
             }
 
@@ -1237,6 +1240,16 @@ namespace AstroDroids.Editors
                     scene.mode = EditorMode.Path;
                     scene.curveEditor.SetPath(movable.Path);
                     scene.curveEditor.SetSpawner(movable);
+                }
+
+                ImGui.SameLine();
+
+                if (ImGui.Button("Clone to Level Paths"))
+                {
+                    CompositePath newPath = new CompositePath();
+                    FileSaver.CloneObject(movable.Path, newPath);
+
+                    level.Paths.Add(new NamedPath() { Path = newPath });
                 }
             }
         }

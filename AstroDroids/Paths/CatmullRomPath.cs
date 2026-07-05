@@ -9,8 +9,8 @@ namespace AstroDroids.Paths
     {
         private List<double> arcLengths = new List<double>();
         private const int LUT_RESOLUTION = 100;
-
-        List<PathPoint> Points = new List<PathPoint>();
+        public List<PathPoint> KeyPoints { get; private set; } = new List<PathPoint>();
+        public int MinimumPoints { get; } = 4;
 
         private PathPoint? phantomStart = null;
         private PathPoint? phantomEnd = null;
@@ -25,37 +25,28 @@ namespace AstroDroids.Paths
             phantomEnd = p;
             RecalculateLength();
         }
-
-        public PathPoint[] KeyPoints
-        {
-            get
-            {
-                return Points.ToArray();
-            }
-        }
-
-        public PathPoint StartPoint { get => Points[0]; set => Points[0] = value; }
-        public PathPoint EndPoint { get => Points[Points.Count-1]; set => Points[Points.Count-1] = value; }
+        public PathPoint StartPoint { get => KeyPoints[0]; set => KeyPoints[0] = value; }
+        public PathPoint EndPoint { get => KeyPoints[KeyPoints.Count-1]; set => KeyPoints[KeyPoints.Count-1] = value; }
 
         public double Length { get; private set; }
 
         public CatmullRomPath()
         {
-            Points = new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero };
+            KeyPoints = new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero };
             RecalculateLength();
         }
 
         public CatmullRomPath(List<PathPoint> points)
         {
-            Points = points;
+            KeyPoints = points;
             RecalculateLength();
         }
 
         public PathPoint GetPoint(double t)
         {
-            int numPoints = Points.Count;
+            int numPoints = KeyPoints.Count;
             if (numPoints == 0) return PathPoint.Zero;
-            if (numPoints == 1) return Points[0];
+            if (numPoints == 1) return KeyPoints[0];
 
             t = Math.Clamp(t, 0.0, 1.0);
 
@@ -69,10 +60,10 @@ namespace AstroDroids.Paths
             }
             double u = globalT - index;
 
-            Vector2 p0 = (index - 1 < 0) ? (phantomStart ?? Points[0]) : Points[index - 1];
-            Vector2 p1 = Points[index];
-            Vector2 p2 = Points[index + 1];
-            Vector2 p3 = (index + 2 >= numPoints) ? (phantomEnd ?? Points[numPoints - 1]) : Points[index + 2];
+            Vector2 p0 = (index - 1 < 0) ? (phantomStart ?? KeyPoints[0]) : KeyPoints[index - 1];
+            Vector2 p1 = KeyPoints[index];
+            Vector2 p2 = KeyPoints[index + 1];
+            Vector2 p3 = (index + 2 >= numPoints) ? (phantomEnd ?? KeyPoints[numPoints - 1]) : KeyPoints[index + 2];
 
             if (p1 == p2) return p1;
 
@@ -100,26 +91,26 @@ namespace AstroDroids.Paths
 
         public int GetPointCount()
         {
-            return Points.Count;
+            return KeyPoints.Count;
         }
 
         public Vector2 GetPointAtIndex(int index)
         {
-            if (index < 0 || index >= Points.Count)
+            if (index < 0 || index >= KeyPoints.Count)
             {
                 throw new IndexOutOfRangeException("Index out of range");
             }
 
-            return Points[index];
+            return KeyPoints[index];
         }
 
         public void SetPointAtIndex(int index, Vector2 point)
         {
-            if (index < 0 || index >= Points.Count)
+            if (index < 0 || index >= KeyPoints.Count)
             {
                 throw new IndexOutOfRangeException("Index out of range");
             }
-            Points[index] = point;
+            KeyPoints[index] = point;
         }
 
         public Vector2 GetDirection(double t)
@@ -142,8 +133,8 @@ namespace AstroDroids.Paths
 
         public void Save(BinaryWriter writer)
         {
-            writer.Write(Points.Count);
-            foreach (var item in Points)
+            writer.Write(KeyPoints.Count);
+            foreach (var item in KeyPoints)
             {
                 writer.Write(item.X);
                 writer.Write(item.Y);
@@ -155,12 +146,12 @@ namespace AstroDroids.Paths
         public void Load(BinaryReader reader, int version)
         {
             int pointCount = reader.ReadInt32();
-            Points.Clear();
+            KeyPoints.Clear();
             for (int i = 0; i < pointCount; i++)
             {
                 float x = reader.ReadSingle();
                 float y = reader.ReadSingle();
-                Points.Add(new Vector2(x, y));
+                KeyPoints.Add(new Vector2(x, y));
             }
 
             Length = reader.ReadDouble();
@@ -168,10 +159,10 @@ namespace AstroDroids.Paths
 
         public void Translate(PathPoint dist)
         {
-            for (int i = 0; i < Points.Count; i++)
+            for (int i = 0; i < KeyPoints.Count; i++)
             {
-                Points[i].X += dist.X;
-                Points[i].Y += dist.Y;
+                KeyPoints[i].X += dist.X;
+                KeyPoints[i].Y += dist.Y;
             }
         }
 

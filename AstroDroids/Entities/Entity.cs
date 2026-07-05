@@ -1,7 +1,9 @@
-﻿using AstroDroids.Managers;
+﻿using AstroDroids.Levels;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using System;
+using System.Linq;
 
 namespace AstroDroids.Entities
 {
@@ -30,6 +32,23 @@ namespace AstroDroids.Entities
         protected void DefaultMove()
         {
             Transform.Position = new Vector2(Transform.Position.X, Transform.Position.Y + (float)Scene.World.speed);
+        }
+
+        protected NamedPath GetPath(string name)
+        {
+            return LevelManager.CurrentLevel.Paths.FirstOrDefault(x => x.Name == name);
+        }
+
+        protected NamedPath GetPath(int index)
+        {
+            if(index >= 0 && index < LevelManager.CurrentLevel.Paths.Count)
+            {
+                return LevelManager.CurrentLevel.Paths[index];
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

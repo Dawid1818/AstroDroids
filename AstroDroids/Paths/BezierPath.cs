@@ -10,36 +10,30 @@ namespace AstroDroids.Paths
         private List<double> arcLengths = new List<double>();
         private const int LUT_RESOLUTION = 100;
 
-        List<PathPoint> Points = new List<PathPoint>();
+        public int MinimumPoints { get; } = 4;
 
-        public PathPoint[] KeyPoints
-        {
-            get
-            {
-                return Points.ToArray();
-            }
-        }
+        public List<PathPoint> KeyPoints { get; private set; } = new List<PathPoint>();
 
-        public PathPoint StartPoint { get => Points[0]; set => Points[0] = value; }
-        public PathPoint EndPoint { get => Points[3]; set => Points[3] = value; }
+        public PathPoint StartPoint { get => KeyPoints[0]; set => KeyPoints[0] = value; }
+        public PathPoint EndPoint { get => KeyPoints[KeyPoints.Count - 1]; set => KeyPoints[KeyPoints.Count - 1] = value; }
 
         public double Length { get; private set; }
 
         public BezierPath()
         {
-            Points = new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero };
+            KeyPoints = new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero };
             RecalculateLength();
         }
 
         public BezierPath(List<PathPoint> points)
         {
-            Points = points;
+            KeyPoints = points;
             RecalculateLength();
         }
 
         public PathPoint GetPoint(double t)
         {
-            if (Points.Count == 0)
+            if (KeyPoints.Count == 0)
             {
                 return PathPoint.Zero;
             }
@@ -48,11 +42,11 @@ namespace AstroDroids.Paths
 
             PathPoint result = Vector2.Zero;
 
-            for (int i = 0; i < Points.Count; i++)
+            for (int i = 0; i < KeyPoints.Count; i++)
             {
-                var binom = binomialCoefficient(Points.Count - 1, i);
-                var term = Math.Pow(1 - t, Points.Count - 1 - i) * Math.Pow(t, i);
-                result += (float)(binom * term) * Points[i];
+                var binom = binomialCoefficient(KeyPoints.Count - 1, i);
+                var term = Math.Pow(1 - t, KeyPoints.Count - 1 - i) * Math.Pow(t, i);
+                result += (float)(binom * term) * KeyPoints[i];
             }
 
             return result;
@@ -60,26 +54,26 @@ namespace AstroDroids.Paths
 
         public int GetPointCount()
         {
-            return Points.Count;
+            return KeyPoints.Count;
         }
 
         public Vector2 GetPointAtIndex(int index)
         {
-            if (index < 0 || index >= Points.Count)
+            if (index < 0 || index >= KeyPoints.Count)
             {
                 throw new IndexOutOfRangeException("Index out of range");
             }
 
-            return Points[index];
+            return KeyPoints[index];
         }
 
         public void SetPointAtIndex(int index, Vector2 point)
         {
-            if (index < 0 || index >= Points.Count)
+            if (index < 0 || index >= KeyPoints.Count)
             {
                 throw new IndexOutOfRangeException("Index out of range");
             }
-            Points[index] = point;
+            KeyPoints[index] = point;
         }
 
         float binomialCoefficient(float n, float k)
@@ -99,7 +93,7 @@ namespace AstroDroids.Paths
 
         public Vector2 GetDirection(double t)
         {
-            int n = Points.Count - 1;
+            int n = KeyPoints.Count - 1;
             if (n == 0)
             {
                 return Vector2.Zero;
@@ -113,7 +107,7 @@ namespace AstroDroids.Paths
             {
                 float binom = binomialCoefficient(n - 1, i);
                 float term = (float)(Math.Pow(1 - t, n - 1 - i) * Math.Pow(t, i));
-                Vector2 diff = Points[i + 1] - Points[i];
+                Vector2 diff = KeyPoints[i + 1] - KeyPoints[i];
                 result += binom * term * diff;
             }
 
@@ -127,8 +121,8 @@ namespace AstroDroids.Paths
 
         public void Save(BinaryWriter writer)
         {
-            writer.Write(Points.Count);
-            foreach (var item in Points)
+            writer.Write(KeyPoints.Count);
+            foreach (var item in KeyPoints)
             {
                 writer.Write(item.X);
                 writer.Write(item.Y);
@@ -140,12 +134,12 @@ namespace AstroDroids.Paths
         public void Load(BinaryReader reader, int version)
         {
             int pointCount = reader.ReadInt32();
-            Points.Clear();
+            KeyPoints.Clear();
             for (int i = 0; i < pointCount; i++)
             {
                 float x = reader.ReadSingle();
                 float y = reader.ReadSingle();
-                Points.Add(new Vector2(x, y));
+                KeyPoints.Add(new Vector2(x, y));
             }
 
             Length = reader.ReadDouble();
@@ -153,10 +147,10 @@ namespace AstroDroids.Paths
 
         public void Translate(PathPoint dist)
         {
-            for (int i = 0; i < Points.Count; i++)
+            for (int i = 0; i < KeyPoints.Count; i++)
             {
-                Points[i].X += dist.X;
-                Points[i].Y += dist.Y;
+                KeyPoints[i].X += dist.X;
+                KeyPoints[i].Y += dist.Y;
             }
         }
 

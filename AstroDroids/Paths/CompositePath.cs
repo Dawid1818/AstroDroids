@@ -9,7 +9,8 @@ namespace AstroDroids.Paths
     {
         List<IPath> paths = new List<IPath>();
 
-        public PathPoint[] KeyPoints => new PathPoint[] { StartPoint, EndPoint };
+        public int MinimumPoints { get; } = 0;
+        public List<PathPoint> KeyPoints => new List<PathPoint>() { StartPoint, EndPoint };
 
         public PathPoint StartPoint { get; private set; }
         public PathPoint EndPoint { get; private set; }
@@ -75,6 +76,12 @@ namespace AstroDroids.Paths
                 }
 
                 paths.Add(path);
+            }
+
+            if(paths.Count > 0)
+            {
+                StartPoint = paths[0].StartPoint;
+                EndPoint = paths.Last().EndPoint;
             }
 
             RecalculateLength();

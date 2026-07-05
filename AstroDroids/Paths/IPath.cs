@@ -1,13 +1,16 @@
 ﻿using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace AstroDroids.Paths
 {
     public interface IPath : ISaveable
     {
-        public PathPoint[] KeyPoints { get; }
+        public List<PathPoint> KeyPoints { get; }
         public PathPoint StartPoint { get; }
         public PathPoint EndPoint { get; }
+
+        public int MinimumPoints { get; }
 
         public double Length { get; }
         public PathPoint GetPoint(double t);

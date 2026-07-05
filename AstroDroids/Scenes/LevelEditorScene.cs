@@ -50,11 +50,13 @@ namespace AstroDroids.Scenes
         LevelSettingsEditor levelSettingsEditor;
         public PathEditor curveEditor { get; private set; }
         AttackWaveEditor waveEditor;
+        PathBrowser pathBrowser;
         public LaserBarrierEditor barrierEditor { get; private set; }
         LevelBrowser levelBrowser;
         bool showLBModal = false;
         bool showSaveModal = false;
         bool showLevelSettings = false;
+        bool showPathBrowser = false;
 
         bool savedCamera = false;
         Vector2 savedCameraPos;
@@ -75,10 +77,12 @@ namespace AstroDroids.Scenes
             levelBrowser = new LevelBrowser();
             levelBrowser.LevelSelected += LoadLevel;
 
+            pathBrowser = new PathBrowser(this);
+
             CreateNewLevel();
 
             //temporary
-            LoadLevel("DroneBosstest");
+            LoadLevel("SnakeBoss");
         }
 
         public void LoadLevel(string name)
@@ -88,6 +92,7 @@ namespace AstroDroids.Scenes
             FileSaver.RestoreObject(level, Path.Combine("Content/Levels/", name + ".adlvl"));
 
             waveEditor.Reset();
+            pathBrowser.Reset();
 
             RestoreStarfield();
 
@@ -179,7 +184,10 @@ namespace AstroDroids.Scenes
         public override void Draw(GameTime gameTime)
         {
             if (mode == EditorMode.Main)
+            {
                 waveEditor.DrawPreviews();
+                pathBrowser.DrawPreviews();
+            }
 
             Vector2 cameraPos = Screen.GetCameraPosition();
 
@@ -222,6 +230,8 @@ namespace AstroDroids.Scenes
 
             Screen.spriteBatch.DrawRectangle(0, 0, 800, 600, Color.White, 5);
 
+            Screen.spriteBatch.DrawCircle(new Vector2(400, 300), 2, 12, Color.White, 2);
+
             Screen.spriteBatch.DrawLine(new Vector2(0, topLeft.Y), new Vector2(0, bottomRight.Y), Color.White, 5f);
             Screen.spriteBatch.DrawLine(new Vector2(800, topLeft.Y), new Vector2(800, bottomRight.Y), Color.White, 5f);
 
@@ -262,6 +272,9 @@ namespace AstroDroids.Scenes
             {
                 case EditorMode.Main:
                     NodeSettings();
+
+                    if(showPathBrowser)
+                        pathBrowser.DrawImGui(gameTime, ref showPathBrowser);
                     break;
                 case EditorMode.Path:
                     curveEditor.DrawImGui(gameTime);
@@ -375,7 +388,12 @@ namespace AstroDroids.Scenes
                 {
                     if (ImGui.MenuItem("Settings"))
                     {
-                        showLevelSettings = true;
+                        showLevelSettings = !showLevelSettings;
+                    }
+
+                    if (ImGui.MenuItem("Paths"))
+                    {
+                        showPathBrowser = !showPathBrowser;
                     }
 
                     ImGui.EndMenu();
@@ -412,7 +430,7 @@ namespace AstroDroids.Scenes
         }
         void BottomBar()
         {
-            int bottomBarHeight = 55;
+            int bottomBarHeight = 70;
             int bottomBarWidth = 553;
             int bottomBarSpacing = 5;
 
@@ -421,6 +439,7 @@ namespace AstroDroids.Scenes
             ImGui.Begin("##Bottom Bar", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar);
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
             ImGui.Text($"Mouse X:{mousePos.X.ToString("0.00")} Y:{mousePos.Y.ToString("0.00")}");
+            ImGui.Text($"Dist X:{800 - mousePos.X} Dist Y:{600 - mousePos.Y}");
             ImGui.Checkbox("Grid", ref drawGrid);
             ImGui.SameLine();
             if (ImGui.Button("Playtest"))
@@ -468,6 +487,7 @@ namespace AstroDroids.Scenes
         void CreateNewLevel()
         {
             waveEditor.Reset();
+            pathBrowser.Reset();
 
             levelFileName = string.Empty;
             level = new Level();

@@ -8,9 +8,13 @@ namespace AstroDroids.Managers
     public class CoroutineManager
     {
         public List<CoroutineInstance> Coroutines = new();
+        public List<CoroutineInstance> CoroutinesToRemove = new();
+
+        bool iterating = false;
 
         public void Update()
         {
+            iterating = true;
             foreach (var instance in Coroutines.ToList())
             {
                 while (instance.Stack.Count > 0)
@@ -42,14 +46,48 @@ namespace AstroDroids.Managers
                 if (instance.Stack.Count == 0)
                     Coroutines.Remove(instance);
             }
+            iterating = false;
+
+            foreach (var item in CoroutinesToRemove)
+            {
+                Coroutines.Remove(item);
+            }
+            CoroutinesToRemove.Clear();
         }
 
-        public void StartCoroutine(IEnumerator coroutine)
+        public CoroutineInstance StartCoroutine(IEnumerator coroutine)
         {
             CoroutineInstance instance = new();
             instance.Stack.Push(coroutine);
 
             Coroutines.Add(instance);
+
+            return instance;
+        }
+
+        public void StopAllCoroutines()
+        {
+            if(iterating)
+            {
+                CoroutinesToRemove.Clear();
+                Coroutines.AddRange(Coroutines);
+            }
+            else
+            {
+                Coroutines.Clear();
+            }
+        }
+
+        public void StopCoroutine(CoroutineInstance instance)
+        {
+            if(iterating)
+            {
+                CoroutinesToRemove.Add(instance);
+            }
+            else
+            {
+                Coroutines.Remove(instance);
+            }
         }
     }
 }

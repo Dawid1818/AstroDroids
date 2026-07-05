@@ -120,8 +120,7 @@ namespace AstroDroids.Helpers
 
             return new BezierPath(new List<PathPoint>() { start, cp1, cp2, end });
         }
-
-        public static CatmullRomPath CreateCatmull(Vector2 start, Vector2 end, float currentAngle)
+        public static CatmullRomPath CreateCatmull(Vector2 start, Vector2 end, float currentAngle, float? arrivalAngle = null)
         {
             Vector2 startDir = DirFromAngle(currentAngle);
             Vector2 delta = end - start;
@@ -134,27 +133,33 @@ namespace AstroDroids.Helpers
             float turnFactor = turnAngle / MathF.PI;
 
             Vector2 perp = new Vector2(-startDir.Y, startDir.X);
-
             float side = Vector2.Dot(perp, dir);
             float sideSign = MathF.Abs(side) > 0.0001f ? MathF.Sign(side) : 1f;
 
             float minHandle = 30f;
             float maxHandle = 140f;
             float handleLength = MathHelper.Lerp(minHandle, maxHandle, turnFactor);
-            handleLength = MathF.Min(handleLength, distance * 0.5f);
+            handleLength = MathF.Min(handleLength, distance * 0.4f);
 
             float bowAmount = MathHelper.Lerp(0f, handleLength * 1.2f, turnFactor) * sideSign;
 
             Vector2 phantom = start - startDir * handleLength;
             Vector2 cp1 = start + startDir * handleLength;
 
-            float aheadBlend = MathHelper.Lerp(0.5f, 0.1f, turnFactor);
-            Vector2 cp2 = (start + dir * distance * aheadBlend) + (startDir * handleLength * 0.8f) + perp * bowAmount;
+            Vector2 arrivalDir = arrivalAngle.HasValue
+                ? DirFromAngle(arrivalAngle.Value)
+                : dir;
+            Vector2 phantomEnd = end + arrivalDir * handleLength;
+            Vector2 cpLast = end - arrivalDir * handleLength;
 
-            List<PathPoint> points = new List<PathPoint>() { start, cp1, cp2, end };
+            float aheadBlend = MathHelper.Lerp(0.5f, 0.1f, turnFactor);
+            Vector2 cpMid = Vector2.Lerp(cp1, cpLast, 0.5f) + perp * bowAmount;
+
+            List<PathPoint> points = new List<PathPoint>() { start, cp1, cpMid, cpLast, end };
 
             var path = new CatmullRomPath(points);
             path.SetPhantomStart(phantom);
+            path.SetPhantomEnd(phantomEnd);
             return path;
         }
 
@@ -230,6 +235,18 @@ namespace AstroDroids.Helpers
             Screen.spriteBatch.DrawCircle(position, 16f, 16, borderColor, 1f);
             Vector2 measurement = Screen.MeasureText(label, fontSize);
             Screen.DrawText(label, position - new Vector2(measurement.X / 2f, measurement.Y / 2f), Color.White, fontSize);
+        }
+
+        public static List<int> GetAroundMinMax(int middle, int amount, int min, int max)
+        {
+            List<int> list = new List<int>();
+
+            for (int i = Math.Max(middle - amount, min); i < Math.Min(middle + amount + 1, max); i++)
+            {
+                list.Add(i);
+            }
+
+            return list;
         }
     }
 }

@@ -3,23 +3,44 @@ using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
+using System;
 
 namespace AstroDroids.Projectiles.Hostile
 {
     public class CircleProjectile : Projectile
     {
         float t = 0f;
-        Vector2 movementDirection;
+        float angle;
+        Vector2 movementDirection { get { return GameHelper.DirFromAngle(angle); } }
         float speed = 10f;
         float size = 16f;
 
+        Vector2 actualPosition;
+        float phase = 0f;
+        float phaseSpeed = 0f;
+        float phaseMax = 0f;
+        float perpSpeed = 0f;
+
         public CircleProjectile(Vector2 position, float angle, float speed, float size) : base(position)
         {
-            movementDirection = GameHelper.DirFromAngle(angle);
+            this.angle = angle;
             this.speed = speed;
             this.size = size;
 
             AddCircleCollider(Vector2.Zero, size);
+
+            actualPosition = position;
+        }
+
+        public void SetPerpSpeed(float speed)
+        {
+            perpSpeed = speed;
+        }
+
+        public void SetPhase(float phaseSpeed, float phaseMax)
+        {
+            this.phaseMax = phaseMax;
+            this.phaseSpeed = phaseSpeed;
         }
 
         public override void Update(GameTime gameTime)
@@ -27,7 +48,13 @@ namespace AstroDroids.Projectiles.Hostile
             if (t >= 3)
                 Despawn();
 
-            Transform.LocalPosition += movementDirection * speed;
+            Vector2 perpendicular = new(-movementDirection.Y, movementDirection.X);
+
+            angle += perpSpeed * gameTime.GetElapsedSeconds();
+
+            actualPosition += (movementDirection * speed);
+            Vector2 offset = perpendicular * MathF.Cos(phase) * phaseMax;
+            Transform.LocalPosition = actualPosition + offset;
 
             foreach (var item in Scene.World.GetPlayers())
             {
@@ -40,7 +67,8 @@ namespace AstroDroids.Projectiles.Hostile
                 }
             }
 
-            t += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            t += gameTime.GetElapsedSeconds();
+            phase += gameTime.GetElapsedSeconds() * phaseSpeed;
         }
 
         public override void Draw(GameTime gameTime)

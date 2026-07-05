@@ -2,7 +2,6 @@
 using AstroDroids.Coroutines;
 using AstroDroids.Drawables;
 using AstroDroids.Entities;
-using AstroDroids.Entities.Effects;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Neutral;
@@ -11,7 +10,6 @@ using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using AstroDroids.Projectiles;
-using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -242,9 +240,19 @@ namespace AstroDroids.Gameplay
             ongoingWaves--;
         }
 
-        public void StartCoroutine(IEnumerator coro)
+        public CoroutineInstance StartCoroutine(IEnumerator coro)
         {
-            coroutineManager.StartCoroutine(coro);
+            return coroutineManager.StartCoroutine(coro);
+        }
+
+        public void StopAllCoroutines()
+        {
+            coroutineManager.StopAllCoroutines();
+        }
+
+        public void StopCoroutine(CoroutineInstance instance)
+        {
+            coroutineManager.StopCoroutine(instance);
         }
 
         public void Update(GameTime gameTime)

@@ -18,6 +18,7 @@ namespace AstroDroids.Levels
 
         protected Scene Scene { get { return SceneManager.GetScene(); } }
         public List<AttackWave> AttackWaves { get; private set; } = new List<AttackWave>();
+        public List<NamedPath> Paths { get; private set; } = new List<NamedPath>();
 
         public virtual void StartLevel()
         {
@@ -44,9 +45,21 @@ namespace AstroDroids.Levels
             return wave;
         }
 
+        public NamedPath CreatePath()
+        {
+            NamedPath wave = new NamedPath();
+            Paths.Add(wave);
+            return wave;
+        }
+
         public void RemoveAttackWave(AttackWave wave)
         {
             AttackWaves.Remove(wave);
+        }
+
+        public void RemovePath(NamedPath path)
+        {
+            Paths.Remove(path);
         }
 
         public void Save(BinaryWriter writer)
@@ -54,7 +67,7 @@ namespace AstroDroids.Levels
             writer.WriteFixedString(Magic);
 
             //file format version placeholder
-            writer.Write(2);
+            writer.Write(3);
 
             writer.Write(Name);
             writer.Write(BackgroundId);
@@ -63,6 +76,12 @@ namespace AstroDroids.Levels
             foreach (var spawner in AttackWaves)
             {
                 spawner.Save(writer);
+            }
+
+            writer.Write(Paths.Count);
+            foreach (var path in Paths)
+            {
+                path.Save(writer);
             }
         }
 
@@ -84,8 +103,20 @@ namespace AstroDroids.Levels
             for (int i = 0; i < wavesCount; i++)
             {
                 AttackWave wave = new AttackWave();
-                wave.Load(reader, version);
+                wave.Load(reader, actualVersion);
                 AttackWaves.Add(wave);
+            }
+
+            Paths = new List<NamedPath>();
+            if (actualVersion >= 3)
+            {
+                int pathCount = reader.ReadInt32();
+                for (int i = 0; i < pathCount; i++)
+                {
+                    NamedPath path = new NamedPath();
+                    path.Load(reader, actualVersion);
+                    Paths.Add(path);
+                }
             }
         }
     }

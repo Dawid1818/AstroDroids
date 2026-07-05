@@ -26,8 +26,12 @@ namespace AstroDroids.Editors
         bool isDraggingPoint = false;
 
         IPath selectedPath = null;
+        PathPoint selectedPoint = null;
 
         int PathSelection = 0;
+
+        float shiftX = 0;
+        float shiftY = 0;
 
         public PathEditor(LevelEditorScene scene)
         {
@@ -37,6 +41,8 @@ namespace AstroDroids.Editors
         public void SetPath(CompositePath path)
         {
             this.Path = path;
+            selectedPath = null;
+            selectedPoint = null;
         }
 
         public void SetSpawner(Entity spawner)
@@ -59,12 +65,39 @@ namespace AstroDroids.Editors
                         mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
                     }
 
-                    AddNewSubpath(mousePos);
+                    if (InputSystem.GetKey(Keys.LeftShift))
+                        AddNewSubpath(mousePos);
+                    else if (selectedPath != null)
+                    {
+                        PathPoint newPoint = new PathPoint(mousePos.X, mousePos.Y);
+                        selectedPath.KeyPoints.Add(newPoint);
+                        selectedPath.RecalculateLength();
+                        Path.RecalculateLength();
+                        SyncPaths();
+
+                        selectedPoint = newPoint;
+                    }
+
                 }
 
-                if (InputSystem.GetKeyDown(Keys.Delete) && selectedPath != null)
+                if (InputSystem.GetKeyDown(Keys.Delete))
                 {
-                    DeleteSelectedPath();
+                    if (InputSystem.GetKey(Keys.LeftShift))
+                    {
+                        if (selectedPath != null)
+                            DeleteSelectedPath();
+                    }
+                    else if (selectedPoint != null)
+                    {
+                        if (selectedPath.KeyPoints.Count > selectedPath.MinimumPoints)
+                        {
+                            selectedPath.KeyPoints.Remove(selectedPoint);
+                            selectedPoint = null;
+                            selectedPath.RecalculateLength();
+                            SyncPaths();
+                        }
+                    }
+
                 }
 
                 if (InputSystem.GetKeyDown(Keys.D1))
@@ -85,7 +118,7 @@ namespace AstroDroids.Editors
                         foreach (var path in paths)
                         {
                             var keyPoints = path.KeyPoints;
-                            for (int i = 0; i < keyPoints.Length; i++)
+                            for (int i = 0; i < keyPoints.Count; i++)
                             {
                                 if (i == 0 && !first)
                                     continue;
@@ -96,6 +129,8 @@ namespace AstroDroids.Editors
                                 {
                                     isDraggingPoint = true;
                                     draggedPoint = point;
+
+                                    selectedPoint = point;
                                     selectedPath = path;
                                     break;
                                 }
@@ -142,11 +177,20 @@ namespace AstroDroids.Editors
 
         public void Draw(GameTime gameTime)
         {
-            PathVisualizer.DrawPath(Path, spawner.Transform.Position, selectedPath);
+            if (Path != null)
+            {
+                if (spawner != null)
+                    PathVisualizer.DrawPath(Path, spawner.Transform.Position, selectedPath);
+                else
+                    PathVisualizer.DrawPath(Path, selectedPath: selectedPath);
+            }
         }
 
         public void DrawImGui(GameTime gameTime)
         {
+            if (Path == null)
+                return;
+
             List<IPath> paths = Path.Decompose();
 
             ImGui.Begin("Path Editor");
@@ -160,6 +204,9 @@ namespace AstroDroids.Editors
                     IPath path = paths[i];
                     if (ImGui.Selectable($"{GetPathTypeName(path)}##PathSelectable{i}", selectedPath == path))
                     {
+                        if (selectedPath != path)
+                            selectedPoint = null;
+
                         selectedPath = path;
                     }
                 }
@@ -207,16 +254,136 @@ namespace AstroDroids.Editors
             if (ImGui.Button("Return"))
             {
                 Path = null;
+                selectedPath = null;
+                selectedPoint = null;
                 scene.ReturnFromEditor();
             }
 
             ImGui.End();
+
+            if (ImGui.Begin("Path settings"))
+            {
+                if (selectedPath != null)
+                {
+                    ImGui.SeparatorText("Path points");
+
+                    ImGui.SetNextItemWidth(-1);
+
+                    if (ImGui.BeginListBox("##Points"))
+                    {
+                        for (int i = 0; i < selectedPath.KeyPoints.Count; i++)
+                        {
+                            PathPoint point = selectedPath.KeyPoints[i];
+                            if (ImGui.Selectable($"Point {i}##PointSelectable{i}", selectedPoint == point))
+                            {
+                                selectedPoint = point;
+                            }
+                        }
+
+                        ImGui.EndListBox();
+                    }
+
+                    if (ImGui.Button("Add"))
+                    {
+                        PathPoint newPoint = PathPoint.Zero;
+                        selectedPath.KeyPoints.Add(newPoint);
+                        selectedPath.RecalculateLength();
+                        Path.RecalculateLength();
+                        SyncPaths();
+
+                        selectedPoint = newPoint;
+                    }
+
+                    ImGui.SameLine();
+
+                    ImGui.BeginDisabled(selectedPoint == null);
+
+                    if (ImGui.Button("Remove") && selectedPoint != null)
+                    {
+                        if (selectedPath.KeyPoints.Count > selectedPath.MinimumPoints)
+                        {
+                            selectedPath.KeyPoints.Remove(selectedPoint);
+                            selectedPoint = null;
+                            selectedPath.RecalculateLength();
+                            SyncPaths();
+                        }
+                    }
+                    ImGui.SameLine();
+                    if (ImGui.Button("Up") && selectedPoint != null)
+                    {
+                        selectedPath.KeyPoints.MoveItemUp(selectedPoint);
+                        selectedPath.RecalculateLength();
+                        SyncPaths();
+                    }
+                    ImGui.SameLine();
+                    if (ImGui.Button("Down") && selectedPoint != null)
+                    {
+                        selectedPath.KeyPoints.MoveItemDown(selectedPoint);
+                        selectedPath.RecalculateLength();
+                        SyncPaths();
+                    }
+                    ImGui.SameLine();
+                    if (ImGui.Button("Duplicate") && selectedPoint != null)
+                    {
+                        PathPoint newPoint = new PathPoint();
+                        FileSaver.CloneObject(selectedPoint, newPoint);
+                        int index = selectedPath.KeyPoints.IndexOf(selectedPoint);
+                        selectedPath.KeyPoints.Insert(index + 1, newPoint);
+                        selectedPath.RecalculateLength();
+                        SyncPaths();
+                    }
+
+                    ImGui.EndDisabled();
+
+                    ImGui.InputFloat("Shift X", ref shiftX);
+                    ImGui.InputFloat("Shift Y", ref shiftY);
+                    if (ImGui.Button("Shift path"))
+                    {
+                        selectedPath.Translate(new PathPoint(shiftX, shiftY));
+                        selectedPath.RecalculateLength();
+                        Path.RecalculateLength();
+                    }
+
+                    ImGui.SeparatorText("Point properties");
+
+                    if (selectedPoint != null)
+                    {
+                        float pos = selectedPoint.X;
+
+                        if (ImGui.InputFloat("X", ref pos))
+                        {
+                            selectedPoint.X = pos;
+                            selectedPath.RecalculateLength();
+                            Path.RecalculateLength();
+                        }
+
+                        pos = selectedPoint.Y;
+                        if (ImGui.InputFloat("Y", ref pos))
+                        {
+                            selectedPoint.Y = pos;
+                            selectedPath.RecalculateLength();
+                            Path.RecalculateLength();
+                        }
+                    }
+                    else
+                    {
+                        ImGui.Text("No point selected");
+                    }
+                }
+                else
+                {
+                    ImGui.Text("No path selected");
+                }
+
+                ImGui.End();
+            }
         }
 
         void DeleteSelectedPath()
         {
             Path.Remove(selectedPath);
             selectedPath = null;
+            selectedPoint = null;
 
             List<IPath> paths = Path.Decompose();
 
@@ -267,6 +434,27 @@ namespace AstroDroids.Editors
             }
 
             Path.Add(path);
+
+            Path.RecalculateLength();
+        }
+
+        void SyncPaths()
+        {
+            List<IPath> paths = Path.Decompose();
+
+            for (int i = 1; i < paths.Count; i++)
+            {
+                IPath path = paths[i];
+
+                if (i != 0)
+                {
+                    if (paths[i - 1] is IPath prevPath)
+                    {
+                        path.StartPoint.X = prevPath.EndPoint.X;
+                        path.StartPoint.Y = prevPath.EndPoint.Y;
+                    }
+                }
+            }
 
             Path.RecalculateLength();
         }

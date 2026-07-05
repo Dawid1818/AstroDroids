@@ -2,7 +2,6 @@
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 
 namespace AstroDroids.Paths
 {
@@ -113,7 +112,7 @@ namespace AstroDroids.Paths
             float maxTurn = 360;
 
             float selectedTurn = MathHelper.Lerp(-maxTurn, maxTurn, (float)AstroDroidsGame.rnd.NextDouble());
-            //selectedTurn = 0; //override
+            //selectedTurn = 180; //override
 
             float turn = MathHelper.ToRadians(selectedTurn);
 
@@ -144,9 +143,21 @@ namespace AstroDroids.Paths
             TravelManager.SetPath(GameHelper.CreateCatmull(Position, position, currentAngle), TravelManager.Speed);
         }
 
+        public void SetPath(IPath path, bool reverse = false)
+        {
+            Active = true;
+
+            TravelManager.SetPath(path, TravelManager.Speed, reverse);
+        }
+
         public IPath GetPath()
         {
             return TravelManager.GetPath();
+        }
+
+        public float GetProgress()
+        {
+            return TravelManager.Time;
         }
     }
 }

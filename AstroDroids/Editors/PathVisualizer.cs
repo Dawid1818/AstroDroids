@@ -33,7 +33,7 @@ namespace AstroDroids.Editors
             {
                 IPath path = Paths[i];
                 var keyPoints = path.KeyPoints;
-                for (int j = 0; j < keyPoints.Length; j++)
+                for (int j = 0; j < keyPoints.Count; j++)
                 {
                     if (j == 0 && !first)
                         continue;
@@ -47,7 +47,7 @@ namespace AstroDroids.Editors
             }
         }
 
-        public static void DrawPath(IPath Path)
+        public static void DrawPath(IPath Path, bool displayPoints)
         {
             float t = 0f;
             PathPoint lastPos = Path.GetPoint(t);
@@ -59,12 +59,15 @@ namespace AstroDroids.Editors
                 lastPos = nextPos;
             }
 
-            var keyPoints = Path.KeyPoints;
-            for (int j = 0; j < keyPoints.Length; j++)
+            if (displayPoints)
             {
-                PathPoint point = keyPoints[j];
+                var keyPoints = Path.KeyPoints;
+                for (int j = 0; j < keyPoints.Count; j++)
+                {
+                    PathPoint point = keyPoints[j];
 
-                GameHelper.DrawNode($"{j}", point, Color.Red, Color.Green, 14);
+                    GameHelper.DrawNode($"{j}", point, Color.Red, Color.Green, 14);
+                }
             }
         }
     }

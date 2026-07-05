@@ -19,7 +19,7 @@ namespace AstroDroids.Entities.Effects
             sprite = new AnimatedSprite(TextureManager.Get("Effects/StandardExplosion/Explosion"), 8, 128, 128, 0, 61, 150f);
             this.scale = scale;
 
-            angle = (float)(AstroDroidsGame.rnd.NextDouble() * Math.Tau);
+            angle = (float)(Random.NextDouble() * Math.Tau);
         }
 
         public override void Update(GameTime gameTime)

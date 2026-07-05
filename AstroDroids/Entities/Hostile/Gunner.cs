@@ -111,7 +111,7 @@ namespace AstroDroids.Entities.Hostile
         IEnumerator FireSequence()
         {
             List<float> angles = null;
-            int pattern = AstroDroidsGame.rnd.Next(3);  
+            int pattern = Random.Next(3);  
             switch (pattern)
             {
                 case 0:

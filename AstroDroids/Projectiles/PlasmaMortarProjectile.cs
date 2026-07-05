@@ -29,7 +29,7 @@ namespace AstroDroids.Projectiles
         {
             sprite = new AnimatedSprite(TextureManager.Get("Projectiles/PlasmaMortar/PlasmaMortar"), 4, 128, 128, 0, 16, 50f);
 
-            displayAngle = (float)(AstroDroidsGame.rnd.NextDouble() * Math.Tau);
+            displayAngle = (float)(Random.NextDouble() * Math.Tau);
 
             speed = speed * launchForce;
             switch (powerLevel)
@@ -131,7 +131,7 @@ namespace AstroDroids.Projectiles
             {
                 for (int i = 0; i < clusterAmount; i++)
                 {
-                    float angle = AstroDroidsGame.rnd.Next(0, 360);
+                    float angle = Random.Next(0, 360);
                     PlasmaMortarProjectile proj = new PlasmaMortarProjectile(Transform.Position, MathHelper.ToRadians(angle), true, powerLevel, 1f);
                     Scene.World.AddProjectile(proj, true);
                 }
