@@ -78,16 +78,20 @@ namespace AstroDroids.Entities
             return false;
         }
 
-        protected void AddCircleCollider(Vector2 offset, float radius)
+        protected CircleCollider AddCircleCollider(Vector2 offset, float radius)
         {
-            Colliders.Add(new CircleCollider(offset, radius));
+            CircleCollider collider = new CircleCollider(offset, radius);
+            Colliders.Add(collider);
             RecalculateBounds();
+            return collider;
         }
 
-        protected void AddCapsuleCollider(Vector2 PointA, Vector2 PointB, float radius)
+        protected CapsuleCollider AddCapsuleCollider(Vector2 PointA, Vector2 PointB, float radius)
         {
-            Colliders.Add(new CapsuleCollider(PointA, PointB, radius));
+            CapsuleCollider collider = new CapsuleCollider(PointA, PointB, radius);
+            Colliders.Add(collider);
             RecalculateBounds();
+            return collider;
         }
 
         void RecalculateBounds()

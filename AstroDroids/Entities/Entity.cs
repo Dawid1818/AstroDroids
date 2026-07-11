@@ -24,6 +24,11 @@ namespace AstroDroids.Entities
             Transform = transform;
         }
 
+        public Entity(Vector2 position)
+        {
+            Transform = new Transform(position);
+        }
+
         public virtual void Update(GameTime gameTime) { }
         public virtual void Draw(GameTime gameTime) { }
 
