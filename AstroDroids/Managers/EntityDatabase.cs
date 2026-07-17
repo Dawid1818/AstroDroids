@@ -2,7 +2,6 @@
 using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Hostile.Bosses;
 using AstroDroids.Graphics;
-using FontStashSharp;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -29,6 +28,7 @@ namespace AstroDroids.Managers
             RegisterEnemy(6, typeof(SnakeBoss), typeof(DefaultSpawnData));
             RegisterEnemy(7, typeof(DroneBoss), typeof(DefaultSpawnData));
             RegisterEnemy(8, typeof(ChallengerBoss), typeof(DefaultSpawnData));
+            RegisterEnemy(9, typeof(LBBoss), typeof(DefaultSpawnData));
         }
 
         public static void InitializePreviews()

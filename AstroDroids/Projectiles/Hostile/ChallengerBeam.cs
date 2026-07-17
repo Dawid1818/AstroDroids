@@ -22,6 +22,8 @@ namespace AstroDroids.Projectiles.Hostile
 
         public ChallengerBeam(Vector2 position, float angle, float length) : base(position)
         {
+            Friendly = false;
+
             _angle = angle;
             this.length = length;
 

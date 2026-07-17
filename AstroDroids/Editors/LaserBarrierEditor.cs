@@ -1,5 +1,4 @@
-﻿using AstroDroids.Entities.Hostile;
-using AstroDroids.Graphics;
+﻿using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Levels;
@@ -9,7 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
-using System.Xml.Linq;
+using System.Linq;
 
 namespace AstroDroids.Editors
 {
@@ -33,16 +32,19 @@ namespace AstroDroids.Editors
 
         public void SetBarrier(LaserBarrierGroupNode node)
         {
-            this.BarrierGroup = node;
+            BarrierGroup = node;
         }
 
         public void Update(GameTime gameTime)
         {
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
 
+            bool lmb = InputSystem.GetLMB();
+            bool rmbDown = InputSystem.GetRMBDown();
+
             if (BarrierGroup != null)
             {
-                if (connectionMode)
+                if (connectionMode || InputSystem.GetKey(Keys.LeftControl) || InputSystem.GetKey(Keys.LeftShift))
                 {
                     if (InputSystem.GetKeyDown(Keys.Escape))
                     {
@@ -50,7 +52,7 @@ namespace AstroDroids.Editors
                         return;
                     }
 
-                    if (InputSystem.GetLMBDown())
+                    if (lmb || rmbDown)
                     {
                         bool found = false;
 
@@ -63,8 +65,12 @@ namespace AstroDroids.Editors
 
                                 if (node != selectedNode)
                                 {
-                                    if (!selectedNode.Connections.Contains(node.Id))
-                                        selectedNode.Connections.Add(node.Id);
+                                    if (InputSystem.GetKey(Keys.LeftShift))
+                                        RemoveConnection(selectedNode, node);
+                                    else
+                                        AddConnection(selectedNode, node);
+                                    //if (!selectedNode.Connections.Contains(node.Id))
+                                    //    selectedNode.Connections.Add(node.Id);
                                 }
 
                                 break;
@@ -80,6 +86,7 @@ namespace AstroDroids.Editors
                 if (InputSystem.GetKeyDown(Keys.Delete) && selectedNode != null)
                 {
                     BarrierGroup.Nodes.Remove(selectedNode.Id);
+                    RemoveAllConnectionsFor(selectedNode);
                     selectedNode = null;
                     isDraggingPoint = false;
                 }
@@ -89,8 +96,11 @@ namespace AstroDroids.Editors
                     BarrierGroup.Nodes.Add(BarrierGroup.AvailableId, new LaserBarrierNode() { Id = BarrierGroup.AvailableId, Position = mousePos });
                     BarrierGroup.AvailableId = BarrierGroup.AvailableId + 1;
                 }
+                var io = ImGui.GetIO();
+                if (io.WantCaptureMouse || io.WantTextInput || io.WantCaptureKeyboard)
+                    return;
 
-                if (InputSystem.GetLMB())
+                if (lmb || rmbDown)
                 {
                     if (!isDraggingPoint)
                     {
@@ -99,7 +109,8 @@ namespace AstroDroids.Editors
                             RectangleF col = new RectangleF(node.Position.X - 16f, node.Position.Y - 16f, 32f, 32f);
                             if (col.Contains(Screen.ScreenToWorldSpaceMouse()))
                             {
-                                isDraggingPoint = true;
+                                if (lmb)
+                                    isDraggingPoint = true;
                                 selectedConnection = -1;
                                 selectedNode = node;
                                 break;
@@ -127,33 +138,35 @@ namespace AstroDroids.Editors
             }
         }
 
-        public void DrawBarriers(LaserBarrierGroupNode group)
+        public void DrawBarriers(LaserBarrierGroupNode group, LaserBarrierNode selected = null)
         {
             //Draw connections
-            foreach (var item in group.Nodes.Values)
+            foreach (var item in group.Connections)
             {
-                foreach (var id in item.Connections)
-                {
-                    group.Nodes.TryGetValue(id, out LaserBarrierNode value);
+                group.Nodes.TryGetValue(item.FirstBarrierID, out LaserBarrierNode from);
+                group.Nodes.TryGetValue(item.SecondBarrierID, out LaserBarrierNode to);
 
-                    if (value != null)
-                        Screen.spriteBatch.DrawLine(item.Position, value.Position, item.Health >= 0 ? Color.Blue : Color.Red, 5f);
+                Color color = Color.Red;
 
-                }
+                if (from.Health >= 0 || to.Health >= 0)
+                    color = Color.Blue;
+
+                if (to != null)
+                    Screen.spriteBatch.DrawLine(from.Position, to.Position, color, 5f);
             }
 
             //Draw nodes themselves
             foreach (var node in group.Nodes.Values)
             {
-                GameHelper.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? Color.Blue : Color.Red, Color.DarkSlateGray);
+                GameHelper.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? selected == node ? Color.Cyan : Color.Blue : selected == node ? Color.Orange : Color.Red, Color.DarkSlateGray);
             }
         }
 
         public void Draw(GameTime gameTime)
         {
-            GameHelper.DrawNode("B", BarrierGroup.Transform.Position, Color.DarkViolet, Color.DarkSlateGray);
+            GameHelper.DrawNode("BA", BarrierGroup.Transform.Position, Color.DarkViolet, Color.DarkSlateGray);
 
-            DrawBarriers(BarrierGroup);
+            DrawBarriers(BarrierGroup, selectedNode);
         }
 
         public void DrawImGui(GameTime gameTime)
@@ -224,16 +237,30 @@ namespace AstroDroids.Editors
                     selectedNode.Health = hp;
                 }
 
+                if (ImGui.BeginCombo("Type", selectedNode.Type.ToString()))
+                {
+                    if (ImGui.Selectable("Normal", selectedNode.Type == LaserBarrierType.Normal))
+                        selectedNode.Type = LaserBarrierType.Normal;
+
+                    if (ImGui.Selectable("Relay", selectedNode.Type == LaserBarrierType.Relay))
+                        selectedNode.Type = LaserBarrierType.Relay;
+
+                    ImGui.EndCombo();
+                }
+
+                var connections = BarrierGroup.Connections.Where(x => x.FirstBarrierID == selectedNode.Id || x.SecondBarrierID == selectedNode.Id).ToList();
+
                 ImGui.SetNextItemWidth(-1);
                 if (ImGui.BeginListBox("##Connections"))
                 {
-                    for (int i = 0; i < selectedNode.Connections.Count; i++)
+                    for (int i = 0; i < connections.Count; i++)
                     {
-                        BarrierGroup.Nodes.TryGetValue(selectedNode.Connections[i], out LaserBarrierNode barrier);
+                        var connection = connections[i];
+                        BarrierGroup.Nodes.TryGetValue(connection.FirstBarrierID == selectedNode.Id ? connection.SecondBarrierID : connection.FirstBarrierID, out LaserBarrierNode barrier);
 
                         if (barrier == null)
                         {
-                            ImGui.Text($"Missing barrier with id {selectedNode.Connections[i]}");
+                            ImGui.Text($"Missing barrier with id {((connection.FirstBarrierID == selectedNode.Id ? connection.SecondBarrierID : connection.FirstBarrierID))}");
                             continue;
                         }
 
@@ -267,13 +294,52 @@ namespace AstroDroids.Editors
                 ImGui.BeginDisabled(selectedConnection == -1);
                 if (ImGui.Button("Remove Connection"))
                 {
-                    selectedNode.Connections.Remove(selectedNode.Connections[selectedConnection]);
+                    RemoveConnection(BarrierGroup.Nodes.TryGetValue(connections[selectedConnection].FirstBarrierID, out LaserBarrierNode from) ? from : null, BarrierGroup.Nodes.TryGetValue(connections[selectedConnection].SecondBarrierID, out LaserBarrierNode to) ? to : null);
+                    //RemoveConnection(selectedNode, BarrierGroup.Nodes[selectedNode.Connections[selectedConnection]]);)
+                    //selectedNode.Connections.Remove(selectedNode.Connections[selectedConnection]);
                     selectedConnection = -1;
                 }
                 ImGui.EndDisabled();
+
+                if(selectedConnection != -1)
+                {
+                    ImGui.SeparatorText("Connection settings");
+                    ImGui.Checkbox("Blocks Player Projectiles", ref connections[selectedConnection].BlocksPlayerProjectiles);
+                }
             }
 
             ImGui.End();
+        }
+
+        void AddConnection(LaserBarrierNode from, LaserBarrierNode to)
+        {
+            if (BarrierGroup == null || from == null || to == null)
+                return;
+
+            var link = BarrierGroup.Connections.FirstOrDefault(x => (x.FirstBarrierID == from.Id && x.SecondBarrierID == to.Id) || (x.FirstBarrierID == to.Id && x.SecondBarrierID == from.Id));
+
+            if (link == default)
+            {
+                BarrierGroup.Connections.Add(new LaserBarrierConnection { FirstBarrierID = from.Id, SecondBarrierID = to.Id });
+            }
+        }
+
+        void RemoveAllConnectionsFor(LaserBarrierNode node)
+        {
+            if (BarrierGroup == null || node == null)
+                return;
+            BarrierGroup.Connections.RemoveAll(x => x.FirstBarrierID == node.Id || x.SecondBarrierID == node.Id);
+        }
+
+        void RemoveConnection(LaserBarrierNode from, LaserBarrierNode to)
+        {
+            if (BarrierGroup == null)
+                return;
+            var link = BarrierGroup.Connections.FirstOrDefault(x => (x.FirstBarrierID == from.Id && x.SecondBarrierID == to.Id) || (x.FirstBarrierID == to.Id && x.SecondBarrierID == from.Id));
+            if (link != default)
+            {
+                BarrierGroup.Connections.Remove(link);
+            }
         }
     }
 }

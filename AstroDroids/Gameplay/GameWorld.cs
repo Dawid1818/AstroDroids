@@ -10,6 +10,7 @@ using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using AstroDroids.Projectiles;
+using AstroDroids.Projectiles.Hostile;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -190,25 +191,27 @@ namespace AstroDroids.Gameplay
 
             foreach (var node in spawner.Nodes.Values)
             {
-                var barrier = new LaserBarrier(node.Position, node.Id, node.Health);
+                var barrier = new LaserBarrier(node.Position, node.Id, node.Health, new Vector2(0, 2), node.Type);
                 barriers[node.Id] = barrier;
             }
+
+            foreach (var connection in spawner.Connections)
+            {
+                var b1 = barriers[connection.FirstBarrierID];
+                var b2 = barriers[connection.SecondBarrierID];
+
+                b1.AddConnection(b2);
+                b2.AddConnection(b1);
+
+                LaserBarrierBeam beam = new LaserBarrierBeam(b1.Type == LaserBarrierType.Relay || b2.Type == LaserBarrierType.Relay ? LaserBarrierType.Relay : LaserBarrierType.Normal, b1, b2, b1.Transform.LocalPosition, !b1.CanBeDamaged, connection.BlocksPlayerProjectiles);
+                //beams.Add(item, beam);
+                AddProjectile(beam, false);
+            }
+
 
             foreach (var node in spawner.Nodes.Values)
             {
                 var barrier = barriers[node.Id];
-
-                var connections = new List<LaserBarrier>();
-
-                foreach (var connectedId in node.Connections)
-                {
-                    if (barriers.TryGetValue(connectedId, out var targetBarrier))
-                    {
-                        connections.Add(targetBarrier);
-                    }
-                }
-
-                barrier.SetConnections(connections);
 
                 if (spawner.InitialDelay == 0)
                 {

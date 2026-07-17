@@ -72,6 +72,7 @@ namespace AstroDroids.Entities
 
         public void Despawn()
         {
+            destroyed = true;
             Scene.World.RemoveEnemy(this);
         }
     }

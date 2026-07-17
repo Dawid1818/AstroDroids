@@ -30,6 +30,8 @@ namespace AstroDroids.Entities.Friendly
         public Vector2 RearRightWeaponPod { get { return new Vector2((Width / 2f) + 12, Height - 20); } }
         public Vector2 RearLeftWeaponPod { get { return new Vector2(-((Width / 2f) + 10), Height - 20); } }
 
+        bool destroyed = false;
+
         public Player(int playerIndex, Vector2 position) : base(new Transform(position), 1)
         {
             this.playerIndex = playerIndex;
@@ -43,6 +45,9 @@ namespace AstroDroids.Entities.Friendly
 
         public override void Update(GameTime gameTime)
         {
+            if (destroyed)
+                return;
+
             //Firing
             GameState.UpdateCurrentWeapon(this, gameTime);
 
@@ -127,10 +132,14 @@ namespace AstroDroids.Entities.Friendly
 
         public override void Destroyed()
         {
-            Scene.World.RemovePlayer(this);
-            GameState.RemoveLife();
-            Scene.World.RequestPlayerRespawn(playerIndex);
-            Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 1f));
+            if (!destroyed)
+            {
+                Scene.World.RemovePlayer(this);
+                GameState.RemoveLife();
+                Scene.World.RequestPlayerRespawn(playerIndex);
+                Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 1f));
+                destroyed = true;
+            }
         }
     }
 }

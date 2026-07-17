@@ -28,6 +28,8 @@ namespace AstroDroids.Projectiles.Hostile
 
         public ChallengerHomingMissile(Vector2 position, Entity target, float initialAngle) : base(position)
         {
+            Friendly = false;
+
             sprite = TextureManager.GetProjectile("BasicWeapon/02");
 
             Target = target;

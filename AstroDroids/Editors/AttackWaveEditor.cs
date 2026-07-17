@@ -761,9 +761,8 @@ namespace AstroDroids.Editors
                 {
                     ImGui.Text("No wave selected");
                 }
-
-                ImGui.End();
             }
+            ImGui.End();
 
             ImGui.Begin("Node settings");
             if (selectedNodes.Count > 1)

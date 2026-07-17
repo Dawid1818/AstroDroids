@@ -3,6 +3,7 @@ using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using FontStashSharp;
 using Gum.DataTypes;
+using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -246,6 +247,10 @@ namespace AstroDroids.Graphics
         internal static void DrawImGuiAfter()
         {
             imGuiRenderer.AfterLayout();
+
+            if (!ImGui.GetIO().WantCaptureMouse)
+                if (ImGui.IsMouseClicked(ImGuiMouseButton.Right) || ImGui.IsMouseClicked(ImGuiMouseButton.Middle))
+                    ImGuiP.FocusWindow(null);
         }
 
         internal static Matrix GetUVTransform(Texture2D t, Vector2 offset, float scale, Viewport v)

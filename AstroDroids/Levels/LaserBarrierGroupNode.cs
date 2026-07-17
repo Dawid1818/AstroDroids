@@ -1,7 +1,6 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -12,6 +11,7 @@ namespace AstroDroids.Levels
         public double InitialDelay { get; set; } = 0f;
         public int AvailableId { get; set; } = 0;
         public Dictionary<int, LaserBarrierNode> Nodes { get; private set; } = new Dictionary<int, LaserBarrierNode>();
+        public List<LaserBarrierConnection> Connections { get; private set; } = new List<LaserBarrierConnection>();
 
         public void Load(BinaryReader reader, int version)
         {
@@ -30,6 +30,15 @@ namespace AstroDroids.Levels
                 node.Load(reader, version);
                 Nodes.Add(id, node);
             }
+
+            Connections = new List<LaserBarrierConnection>();
+            int connectionCount = reader.ReadInt32();
+            for (int i = 0; i < connectionCount; i++)
+            {
+                LaserBarrierConnection connection = new LaserBarrierConnection();
+                connection.Load(reader, version);
+                Connections.Add(connection);
+            }
         }
 
         public void Save(BinaryWriter writer)
@@ -46,6 +55,12 @@ namespace AstroDroids.Levels
             {
                 writer.Write(pair.Key);
                 pair.Value.Save(writer);
+            }
+
+            writer.Write(Connections.Count);
+            foreach (var item in Connections)
+            {
+                item.Save(writer);
             }
         }
 

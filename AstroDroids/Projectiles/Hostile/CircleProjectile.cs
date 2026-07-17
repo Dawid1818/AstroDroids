@@ -23,6 +23,8 @@ namespace AstroDroids.Projectiles.Hostile
 
         public CircleProjectile(Vector2 position, float angle, float speed, float size) : base(position)
         {
+            Friendly = false;
+
             this.angle = angle;
             this.speed = speed;
             this.size = size;

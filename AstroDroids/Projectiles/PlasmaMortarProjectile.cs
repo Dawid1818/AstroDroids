@@ -27,6 +27,8 @@ namespace AstroDroids.Projectiles
 
         public PlasmaMortarProjectile(Vector2 position, float angle, bool isCluster, int powerLevel, float launchForce) : base(position)
         {
+            Friendly = true;
+
             sprite = new AnimatedSprite(TextureManager.Get("Projectiles/PlasmaMortar/PlasmaMortar"), 4, 128, 128, 0, 16, 50f);
 
             displayAngle = (float)(Random.NextDouble() * Math.Tau);
@@ -104,6 +106,16 @@ namespace AstroDroids.Projectiles
                 foreach (var enemy in Scene.World.Enemies)
                 {
                     if (enemy.Intersects(this))
+                    {
+                        Explode();
+                        Despawn();
+                        break;
+                    }
+                }
+
+                foreach (var projectile in Scene.World.Projectiles)
+                {
+                    if (!projectile.Friendly && projectile.BlocksPlayerProjectiles && projectile.Intersects(this))
                     {
                         Explode();
                         Despawn();

@@ -10,6 +10,7 @@ namespace AstroDroids.Entities.Hostile
 {
     public class TriGunTurret : Enemy
     {
+        bool becameActive = false;
         public float t = 0f;
 
         Texture2D baseTexture;
@@ -35,11 +36,38 @@ namespace AstroDroids.Entities.Hostile
             //cannonTexture = TextureManager.Get("Turrets/TriGun/TriGunCannon");
             cannonTexture = TextureManager.Get("Turrets/TriGun/DoubleGunCannon");
 
-            AddCircleCollider(Vector2.Zero, 32f);
+            AddCircleCollider(Vector2.Zero, 24f);
+        }
+
+        public override void Spawned()
+        {
+            if (Intersects(Scene.World.Bounds))
+            {
+                becameActive = true;
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (!becameActive)
+            {
+                if (Intersects(Scene.World.Bounds))
+                {
+                    becameActive = true;
+                }
+                else
+                {
+                    if (t >= 10f)
+                        Despawn();
+
+                    t += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }
+            if (!Intersects(Scene.World.Bounds) && becameActive)
+            {
+                Despawn();
+            }
+
             Player player = Scene.World.GetRandomPlayer();
 
             if (player != null)
@@ -76,9 +104,9 @@ namespace AstroDroids.Entities.Hostile
 
         void Shoot()
         {
-            Scene.World.AddProjectile(new CircleProjectile(cannon1Pos, angle, 10f, 16f), true);
+            Scene.World.AddProjectile(new CircleProjectile(cannon1Pos, angle, 8f, 8f), true);
             //Scene.World.AddProjectile(new CircleProjectile(cannon2Pos, angle), true);
-            Scene.World.AddProjectile(new CircleProjectile(cannon3Pos, angle, 10f, 16f), true);
+            Scene.World.AddProjectile(new CircleProjectile(cannon3Pos, angle, 8f, 8f), true);
         }
 
         public override void Draw(GameTime gameTime)

@@ -31,6 +31,8 @@ namespace AstroDroids.Projectiles
 
         public LaserCannonProjectile(Vector2 position, float angle, float charge, int powerLevel) : base(position)
         {
+            Friendly = true;
+
             this.charge = charge;
             this.powerLevel = int.Clamp(powerLevel, 1, 5);
 

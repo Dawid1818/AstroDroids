@@ -28,6 +28,8 @@ namespace AstroDroids.Projectiles
 
         public PulseCannonProjectile(Vector2 position, PulseCannonProjectileType type, float angle) : base(position)
         {
+            Friendly = true;
+
             switch (type)
             {
                 default:
@@ -95,6 +97,18 @@ namespace AstroDroids.Projectiles
 
                         fade = true;
                         enemy.Damage(1, true);
+                        break;
+                    }
+                }
+
+                foreach (var projectile in Scene.World.Projectiles)
+                {
+                    if (!projectile.Friendly && projectile.BlocksPlayerProjectiles && projectile.Intersects(this))
+                    {
+                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), GetHitColor());
+                        Scene.World.AddEffect(hitEffect);
+
+                        fade = true;
                         break;
                     }
                 }

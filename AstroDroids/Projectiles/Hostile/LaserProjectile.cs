@@ -21,6 +21,8 @@ namespace AstroDroids.Projectiles.Hostile
 
         public LaserProjectile(Vector2 position, float angle) : base(position)
         {
+            Friendly = false;
+
             this.angle = angle;
 
             texture = TextureManager.GetProjectile("BasicWeapon/02");
