@@ -68,8 +68,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 PoweredBarriersAttack,
                 PoweredBarriers2Attack,
                 SlalomAttack,
-                ConstructAttack,
-                TunnelAttack
+                ConstructAttack         
             };
 
             //attackActions = new List<Func<IEnumerator>>()
@@ -77,10 +76,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
             //    TunnelAttack
             //};
 
-            attackActions = new List<Func<IEnumerator>>()
-            {
-                DiagonalGatesAttack
-            };
+            //attackActions = new List<Func<IEnumerator>>()
+            //{
+            //    DiagonalGatesAttack
+            //};
 
             while (true)
             {
@@ -90,6 +89,16 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 {
                     yield return attack();
                     yield return new WaitForSeconds(2f);
+
+                    if(GetHealth() <= 200)
+                    {
+                        break;
+                    }
+                }
+
+                if(GetHealth() <= 200)
+                {
+                    yield return TunnelAttack();
                 }
             }
         }
@@ -766,6 +775,11 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return null;
             }
         }
+
+        //IEnumerator GenerateFlower2()
+        //{
+
+        //}
 
         IEnumerator ConstructAttack()
         {
