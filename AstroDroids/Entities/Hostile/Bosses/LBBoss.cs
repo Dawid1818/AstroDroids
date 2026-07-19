@@ -68,7 +68,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 PoweredBarriersAttack,
                 PoweredBarriers2Attack,
                 SlalomAttack,
-                ConstructAttack         
+                ConstructAttack
             };
 
             //attackActions = new List<Func<IEnumerator>>()
@@ -78,7 +78,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             //attackActions = new List<Func<IEnumerator>>()
             //{
-            //    DiagonalGatesAttack
+            //    ConstructAttack
             //};
 
             while (true)
@@ -90,13 +90,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     yield return attack();
                     yield return new WaitForSeconds(2f);
 
-                    if(GetHealth() <= 200)
+                    if (GetHealth() <= 300)
                     {
                         break;
                     }
                 }
 
-                if(GetHealth() <= 200)
+                if (GetHealth() <= 300)
                 {
                     yield return TunnelAttack();
                 }
@@ -149,7 +149,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             {
                 Transform.Position = targetPos;
 
-                if (Flight == LBBossFlightMode.Freeroam) 
+                if (Flight == LBBossFlightMode.Freeroam)
                     targetPos = new Vector2(Random.Next(60, Scene.World.Bounds.Width - 60), Random.Next(60, 160));
             }
             else
@@ -377,7 +377,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             for (int i = 0; i < 5; i++)
             {
-                int side = Random.Next(4);
+                int side = Random.Next(2);
                 //side = 3;
 
                 float barrierWidth = 16;
@@ -466,7 +466,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 for (int j = 0; j < 3; j++)
                 {
-                    LaserBarrier normalBarrier = new LaserBarrier(new Vector2(Random.Next(30, Scene.World.Bounds.Width - 30), -50), 0, 1, new Vector2(0, 2), LaserBarrierType.Normal);
+                    LaserBarrier normalBarrier = new LaserBarrier(new Vector2(Random.Next(30, Scene.World.Bounds.Width - 30), -Random.Next(50, 80)), 0, 1, new Vector2(0, 2), LaserBarrierType.Normal);
                     normals.Add(normalBarrier);
                 }
 
@@ -571,7 +571,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                     if (spawnTurrets == 1)
                     {
-                        stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position + new Vector2(stickingDist, -stickingDist), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
+                        stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position + new Vector2(stickingDist + 40, -stickingDist), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
                         stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position + new Vector2(stickingDist + 20, 0), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
                         stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position + new Vector2(stickingDist, stickingDist), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
                     }
@@ -585,7 +585,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     {
                         stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position - new Vector2(stickingDist, -stickingDist), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
                         stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position - new Vector2(stickingDist + 20, 0), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
-                        stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position - new Vector2(stickingDist, stickingDist), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
+                        stickingOut.Add(new LaserBarrier(innerBarrier.Transform.Position - new Vector2(stickingDist + 40, stickingDist), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal));
                     }
                 }
 
@@ -606,7 +606,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 float time = 3f;
 
                 if (spawnTurrets == 1)
-                    time = 3f;
+                    time = 4f;
                 else
                     time = 1f;
 
@@ -760,13 +760,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
             return barriers;
         }
 
-        IEnumerator Spinny(List<LaserBarrier> barriers, LaserBarrier host)
+        IEnumerator Spinny(List<LaserBarrier> barriers, LaserBarrier host, float angle)
         {
             while (true)
             {
                 foreach (var item in barriers)
                 {
-                    item.Transform.Position = GameHelper.RotateAroundPoint(item.Transform.Position, host.Transform.Position, 0.1f);
+                    item.Transform.Position = GameHelper.RotateAroundPoint(item.Transform.Position, host.Transform.Position, angle);
                 }
 
                 if (host.destroyed)
@@ -776,10 +776,72 @@ namespace AstroDroids.Entities.Hostile.Bosses
             }
         }
 
-        //IEnumerator GenerateFlower2()
-        //{
+        List<LaserBarrier> GenerateFlowerFull(LaserBarrier barrier, Vector2 moveDir)
+        {
+            List<LaserBarrier> barriers = new List<LaserBarrier>();
 
-        //}
+            barriers.AddRange(GenerateFlower(barrier, 0, moveDir));
+            barriers.AddRange(GenerateFlower(barrier, 45, moveDir));
+            barriers.AddRange(GenerateFlower(barrier, 90, moveDir));
+            barriers.AddRange(GenerateFlower(barrier, 135, moveDir));
+            barriers.AddRange(GenerateFlower(barrier, 180, moveDir));
+            barriers.AddRange(GenerateFlower(barrier, 225, moveDir));
+            barriers.AddRange(GenerateFlower(barrier, 270, moveDir));
+            barriers.AddRange(GenerateFlower(barrier, 315, moveDir));
+
+            return barriers;
+        }
+
+        List<LaserBarrier> GenerateD(LaserBarrier barrier, Vector2 moveDir)
+        {
+            List<LaserBarrier> barriers = new List<LaserBarrier>();
+            //32x32
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X + 32, barrier.Transform.Position.Y + 32), 0, 5, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X + 42, barrier.Transform.Position.Y + 64), 0, 5, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X + 32, barrier.Transform.Position.Y + 96), 0, 5, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X, barrier.Transform.Position.Y + 128), 0, 5, moveDir, LaserBarrierType.Normal));
+
+            ConnectBarriers(barrier, barriers[0], false);
+            ConnectBarriers(barriers[0], barriers[1], false);
+            ConnectBarriers(barriers[1], barriers[2], false);
+            ConnectBarriers(barriers[2], barriers[3], false);
+            ConnectBarriers(barriers[3], barrier, false);
+
+            foreach (var item in barriers)
+            {
+                Scene.World.AddEnemy(item, false, true);
+            }
+
+            return barriers;
+        }
+
+        List<LaserBarrier> GenerateArrow(LaserBarrier barrier, Vector2 moveDir)
+        {
+            List<LaserBarrier> barriers = new List<LaserBarrier>();
+            float dist = 64;
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X + dist, barrier.Transform.Position.Y - dist), 0, 5, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X, barrier.Transform.Position.Y + dist), 0, 5, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X - dist, barrier.Transform.Position.Y - dist), 0, 5, moveDir, LaserBarrierType.Normal));
+
+            ConnectBarriers(barrier, barriers[0], true);
+            ConnectBarriers(barriers[0], barriers[1], true);
+            ConnectBarriers(barriers[1], barriers[2], true);
+            ConnectBarriers(barriers[2], barrier, true);
+
+            foreach (var item in barriers)
+            {
+                Scene.World.AddEnemy(item, false, true);
+            }
+
+
+            TriGunTurret turret = new TriGunTurret();
+            turret.Transform.Position = barriers[1].Transform.Position;
+            turret.Transform.LocalPosition -= barriers[1].Transform.Position;
+            turret.Transform.SetParent(barriers[1].Transform);
+            Scene.World.AddEnemy(turret, false, true);
+
+            return barriers;
+        }
 
         IEnumerator ConstructAttack()
         {
@@ -787,24 +849,55 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             for (int i = 0; i < 6; i++)
             {
-                Vector2 start = new Vector2(Random.Next(200, Scene.World.Bounds.Width - 200), -150);
-                Vector2 moveDir = new Vector2(0, 2);
-                LaserBarrier barrier = new LaserBarrier(start, 0, 1, moveDir, LaserBarrierType.Normal);
+                int choice = Random.Next(3);
+                //choice = 0;
 
-                List<LaserBarrier> barriers = new List<LaserBarrier>();
+                int spinDir = Random.Next(2);
+                float angle = spinDir == 0 ? 0.1f : -0.1f;
+                switch (choice)
+                {
+                    case 0: //spiral/flower
+                    default:
+                        {
+                            Vector2 start = new Vector2(Random.Next(200, Scene.World.Bounds.Width - 200), -150);
+                            Vector2 moveDir = new Vector2(0, 2);
+                            LaserBarrier barrier = new LaserBarrier(start, 0, 1, moveDir, LaserBarrierType.Normal);
 
-                barriers.AddRange(GenerateFlower(barrier, 0, moveDir));
-                barriers.AddRange(GenerateFlower(barrier, 45, moveDir));
-                barriers.AddRange(GenerateFlower(barrier, 90, moveDir));
-                barriers.AddRange(GenerateFlower(barrier, 135, moveDir));
-                barriers.AddRange(GenerateFlower(barrier, 180, moveDir));
-                barriers.AddRange(GenerateFlower(barrier, 225, moveDir));
-                barriers.AddRange(GenerateFlower(barrier, 270, moveDir));
-                barriers.AddRange(GenerateFlower(barrier, 315, moveDir));
+                            List<LaserBarrier> barriers = GenerateFlowerFull(barrier, moveDir);
 
-                Scene.World.StartCoroutine(Spinny(barriers, barrier));
+                            Scene.World.StartCoroutine(Spinny(barriers, barrier, angle));
 
-                Scene.World.AddEnemy(barrier, false, true);
+                            Scene.World.AddEnemy(barrier, false, true);
+                        }
+                        break;
+                    case 1: //d shape
+                        {
+                            Vector2 start = new Vector2(Random.Next(200, Scene.World.Bounds.Width - 200), -150);
+                            Vector2 moveDir = new Vector2(0, 2);
+                            LaserBarrier barrier = new LaserBarrier(start, 0, 5, moveDir, LaserBarrierType.Normal);
+
+                            List<LaserBarrier> barriers = GenerateD(barrier, moveDir);
+
+                            Scene.World.StartCoroutine(Spinny(barriers, barrier, angle));
+
+                            Scene.World.AddEnemy(barrier, false, true);
+                        }
+                        break;
+                    case 2: //arrow shape
+                        {
+                            Vector2 start = new Vector2(Random.Next(200, Scene.World.Bounds.Width - 200), -150);
+                            Vector2 moveDir = new Vector2(0, 2);
+                            LaserBarrier barrier = new LaserBarrier(start, 0, 5, moveDir, LaserBarrierType.Normal);
+
+                            Scene.World.AddEnemy(barrier, false, true);
+
+                            List<LaserBarrier> barriers = GenerateArrow(barrier, moveDir);
+
+                            Scene.World.StartCoroutine(Spinny(barriers, barrier, angle));
+                        }
+                        break;
+                }
+
 
                 yield return new WaitForSeconds(3f);
             }

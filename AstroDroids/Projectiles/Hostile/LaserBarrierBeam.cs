@@ -7,7 +7,7 @@ using AstroDroids.Levels;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles.Hostile
 {
@@ -21,6 +21,10 @@ namespace AstroDroids.Projectiles.Hostile
         CapsuleCollider col;
         LaserBarrierType type;
 
+        Texture2D texture;
+        float beamSpeed = 200f;
+        float textureOffset = 0f;
+
         public LaserBarrierBeam(LaserBarrierType type, LaserBarrier owner, LaserBarrier target, Vector2 position, bool red, bool blocksPlayerProjectiles) : base(position)
         {
             Friendly = false;
@@ -30,6 +34,8 @@ namespace AstroDroids.Projectiles.Hostile
             BlocksPlayerProjectiles = blocksPlayerProjectiles;
             Owner = owner;
             Target = target;
+
+            texture = TextureManager.Get("Laser Barriers/Beam2");
 
             if (owner != null && target != null)
             {
@@ -47,12 +53,12 @@ namespace AstroDroids.Projectiles.Hostile
             else
                 Transform.Position = Owner.Transform.Position;
 
-            if(CheckIfValid())
+            if (CheckIfValid())
             {
                 angle = GameHelper.AngleBetween(Owner.Transform.LocalPosition, Target.Transform.LocalPosition);
                 length = Vector2.Distance(Owner.Transform.LocalPosition, Target.Transform.LocalPosition);
 
-                if(col != null)
+                if (col != null)
                     col.PointB = GameHelper.OrbitPos(Vector2.Zero, angle, length);
             }
             else
@@ -68,16 +74,7 @@ namespace AstroDroids.Projectiles.Hostile
                 }
             }
 
-            //if(blocksPlayerProjectiles)
-            //{
-            //    foreach (var item in Scene.World.Projectiles)
-            //    {
-            //        if(item.Friendly && item.Intersects(this))
-            //        {
-            //            item.Despawn();
-            //        }
-            //    }
-            //}
+            textureOffset -= beamSpeed * gameTime.GetElapsedSeconds();
         }
 
         bool CheckIfValid()
@@ -103,7 +100,20 @@ namespace AstroDroids.Projectiles.Hostile
             else
                 red = this.red;
 
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, (int)length, 32), null, red ? new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)127) : new Color(Color.Blue.R, Color.Blue.G, Color.Blue.B, (byte)127), angle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
+            Color beamColor;
+
+            if (BlocksPlayerProjectiles)
+                beamColor = new Color(Color.Orange.R, Color.Orange.G, Color.Orange.B, (byte)255);
+            else
+                beamColor = red ? new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)255) : new Color(Color.Cyan.R, Color.Cyan.G, Color.Cyan.B, (byte)255);
+
+            Rectangle sourceRectangle = new Rectangle((int)textureOffset, 0, (int)length, texture.Height);
+
+            Vector2 origin = new Vector2(0f, texture.Height / 2f);
+
+            Screen.spriteBatch.Draw(texture, Transform.Position, sourceRectangle, new Color(beamColor.R, beamColor.G, beamColor.B, (byte)127), angle, origin, new Vector2(1f, 1.4f), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, Transform.Position, sourceRectangle, beamColor, angle, origin, 1.0f, SpriteEffects.None, 0f);
+            //Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, (int)length, 32), null, red ? new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)127) : new Color(Color.Blue.R, Color.Blue.G, Color.Blue.B, (byte)127), angle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
         }
     }
 }

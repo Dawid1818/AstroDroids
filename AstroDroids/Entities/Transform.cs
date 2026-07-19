@@ -57,5 +57,10 @@ namespace AstroDroids.Entities
         {
             this.parent = parent;
         }
+
+        public Transform GetParent()
+        {
+            return parent;
+        }
     }
 }

@@ -5,6 +5,7 @@ using AstroDroids.Managers;
 using AstroDroids.Projectiles.Hostile;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using System.Collections.Generic;
 
 namespace AstroDroids.Entities.Hostile
@@ -171,6 +172,7 @@ namespace AstroDroids.Entities.Hostile
             Texture2D texture = CanBeDamaged ? blueTexture : redTexture;
 
             Screen.spriteBatch.Draw(texture, Transform.Position, null, CanBeDamaged ? Color.White : Color.Red, 0f, new Vector2(texture.Width / 2, texture.Height / 2), 1.2f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.DrawCircle(Transform.Position, 4, 8, CanBeDamaged ? Color.Cyan : Color.Red, 4);
         }
     }
 }

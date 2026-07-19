@@ -22,6 +22,7 @@ namespace AstroDroids.Gameplay
     public class GameWorld
     {
         public readonly Rectangle Bounds = new Rectangle(0, 0, 800, 600);
+        public readonly Rectangle ExpandedBounds = new Rectangle(-100, -100, 900, 700);
         public Starfield Starfield { get; set; }
 
         public EntityList<AliveEntity> Enemies { get; } = new EntityList<AliveEntity>();

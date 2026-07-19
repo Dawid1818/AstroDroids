@@ -63,7 +63,7 @@ namespace AstroDroids.Entities.Hostile
                     t += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }
-            if (!Intersects(Scene.World.Bounds) && becameActive)
+            if (!Intersects(Scene.World.ExpandedBounds) && becameActive)
             {
                 Despawn();
             }
@@ -88,7 +88,7 @@ namespace AstroDroids.Entities.Hostile
             }
             else
             {
-                if (!FollowsCamera)
+                if (!FollowsCamera && Transform.GetParent() == null)
                     DefaultMove();
             }
 
@@ -104,9 +104,9 @@ namespace AstroDroids.Entities.Hostile
 
         void Shoot()
         {
-            Scene.World.AddProjectile(new CircleProjectile(cannon1Pos, angle, 8f, 8f), true);
+            Scene.World.AddProjectile(new CircleProjectile(cannon1Pos, angle, 5f, 8f), true);
             //Scene.World.AddProjectile(new CircleProjectile(cannon2Pos, angle), true);
-            Scene.World.AddProjectile(new CircleProjectile(cannon3Pos, angle, 8f, 8f), true);
+            Scene.World.AddProjectile(new CircleProjectile(cannon3Pos, angle, 5f, 8f), true);
         }
 
         public override void Draw(GameTime gameTime)
