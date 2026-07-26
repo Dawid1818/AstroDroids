@@ -1,15 +1,13 @@
 //Code for Controls/ButtonConfirm (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class ButtonConfirm : global::Gum.Forms.Controls.Button
 {
@@ -19,10 +17,7 @@ partial class ButtonConfirm : global::Gum.Forms.Controls.Button
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/ButtonConfirm");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/ButtonConfirm - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/ButtonConfirm") ?? throw new System.InvalidOperationException("Could not find an element named Controls/ButtonConfirm - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new ButtonConfirm(visual);
             return visual;
@@ -73,11 +68,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public TextRuntime TextInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
-    public override string Text
-    {
-        get => TextInstance.Text;
-        set => TextInstance.Text = value;
-    }
 
     public ButtonConfirm(InteractiveGue visual) : base(visual)
     {

@@ -1,15 +1,13 @@
 //Code for Controls/MenuItem (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class MenuItem : global::Gum.Forms.Controls.MenuItem
 {
@@ -19,10 +17,7 @@ partial class MenuItem : global::Gum.Forms.Controls.MenuItem
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/MenuItem");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/MenuItem - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/MenuItem") ?? throw new System.InvalidOperationException("Could not find an element named Controls/MenuItem - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new MenuItem(visual);
             return visual;
@@ -74,11 +69,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ContainerRuntime ContainerInstance { get; protected set; }
     public ContainerRuntime SubItemContainerInstance { get; protected set; }
 
-    public override string Header
-    {
-        get => TextInstance.Text;
-        set => TextInstance.Text = value;
-    }
 
     public MenuItem(InteractiveGue visual) : base(visual)
     {

@@ -1,16 +1,14 @@
 //Code for Controls/ButtonStandardIcon (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using AstroDroids.Components.Elements;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class ButtonStandardIcon : global::Gum.Forms.Controls.Button
 {
@@ -20,10 +18,7 @@ partial class ButtonStandardIcon : global::Gum.Forms.Controls.Button
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/ButtonStandardIcon");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/ButtonStandardIcon - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/ButtonStandardIcon") ?? throw new System.InvalidOperationException("Could not find an element named Controls/ButtonStandardIcon - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new ButtonStandardIcon(visual);
             return visual;
@@ -81,11 +76,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         set => Icon.IconCategoryState = value;
     }
 
-    public override string Text
-    {
-        get => TextInstance.Text;
-        set => TextInstance.Text = value;
-    }
 
     public ButtonStandardIcon(InteractiveGue visual) : base(visual)
     {

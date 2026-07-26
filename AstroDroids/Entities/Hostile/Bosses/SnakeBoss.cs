@@ -68,7 +68,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         bool continuosBreak = false;
 
-        public SnakeBoss() : base(Vector2.Zero, 2)
+        public SnakeBoss() : base(Vector2.Zero, 1000)
         {
 
         }
@@ -123,6 +123,16 @@ namespace AstroDroids.Entities.Hostile.Bosses
             }
 
             bossBehavior = Scene.World.StartCoroutine(BossBehavior());
+
+            Scene.World.BossEntity = this;
+        }
+
+        public override void Destroyed()
+        {
+            base.Destroyed();
+
+            if (Scene.World.BossEntity == this)
+                Scene.World.BossEntity = null;
         }
 
         bool started = false;
@@ -205,11 +215,15 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 Scene.World.StartCoroutine(DestroySequence());
             }
+
+            int totalHealth = segments.Sum(x=> x.GetHealth());
+
+            SetHealth(totalHealth);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.DrawText($"Boss Health: {segments.Sum(x => x.GetHealth())}/1000", new Vector2(20, 10), Color.White, 12f);
+            //Screen.DrawText($"Boss Health: {segments.Sum(x => x.GetHealth())}/1000", new Vector2(20, 10), Color.White, 12f);
         }
 
         void ForEachSegment(Action<int, SnakeBossSegment> action)
@@ -237,6 +251,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
             }
 
             Despawn();
+
+            if (Scene.World.BossEntity == this)
+                Scene.World.BossEntity = null;
         }
 
         #region Attacks

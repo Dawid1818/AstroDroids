@@ -107,6 +107,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
             }
 
             Scene.World.StartCoroutine(BossBehavior());
+
+            Scene.World.BossEntity = this;
         }
 
         ProjectileDrone createDrone()

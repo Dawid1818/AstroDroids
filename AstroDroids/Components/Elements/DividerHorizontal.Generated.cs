@@ -1,15 +1,14 @@
 //Code for Elements/DividerHorizontal (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
+using Gum.StateAnimation.Runtime;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Elements;
 partial class DividerHorizontal : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -19,10 +18,7 @@ partial class DividerHorizontal : global::Gum.Forms.Controls.FrameworkElement
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Elements/DividerHorizontal");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Elements/DividerHorizontal - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Elements/DividerHorizontal") ?? throw new System.InvalidOperationException("Could not find an element named Elements/DividerHorizontal - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new DividerHorizontal(visual);
             return visual;

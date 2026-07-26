@@ -1,17 +1,15 @@
 //Code for Controls/ComboBox (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using AstroDroids.Components.Controls;
 using AstroDroids.Components.Elements;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class ComboBox : global::Gum.Forms.Controls.ComboBox
 {
@@ -21,10 +19,7 @@ partial class ComboBox : global::Gum.Forms.Controls.ComboBox
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/ComboBox");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/ComboBox - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/ComboBox") ?? throw new System.InvalidOperationException("Could not find an element named Controls/ComboBox - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new ComboBox(visual);
             return visual;

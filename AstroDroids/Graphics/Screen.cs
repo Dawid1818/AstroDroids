@@ -59,7 +59,8 @@ namespace AstroDroids.Graphics
 
             gameWnd = game.Window;
 
-            RenderTarget = new RenderTarget2D(game.GraphicsDevice, ScreenWidth, ScreenHeight);
+            RenderTarget = new RenderTarget2D(game.GraphicsDevice, ScreenWidth, ScreenHeight, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.PreserveContents);
+            //RenderTarget = new RenderTarget2D(game.GraphicsDevice, ScreenWidth, ScreenHeight);
             game.Window.ClientSizeChanged += (_, _) => UpdateViewport();
         }
 
@@ -119,6 +120,8 @@ namespace AstroDroids.Graphics
             DrawImGuiAfter();
 
             DrawGum(gameTime);
+
+            SceneManager.DrawDebug(gameTime);
 
             if (useVirtualResolution)
             {

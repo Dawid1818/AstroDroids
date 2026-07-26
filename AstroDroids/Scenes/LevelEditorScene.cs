@@ -82,7 +82,7 @@ namespace AstroDroids.Scenes
             CreateNewLevel();
 
             //temporary
-            LoadLevel("FirstBoss");
+            //LoadLevel("FirstBoss");
         }
 
         public void LoadLevel(string name)

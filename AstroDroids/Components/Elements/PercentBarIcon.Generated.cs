@@ -1,16 +1,14 @@
 //Code for Elements/PercentBarIcon (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using AstroDroids.Components.Elements;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Elements;
 partial class PercentBarIcon : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -20,10 +18,7 @@ partial class PercentBarIcon : global::Gum.Forms.Controls.FrameworkElement
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Elements/PercentBarIcon");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Elements/PercentBarIcon - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Elements/PercentBarIcon") ?? throw new System.InvalidOperationException("Could not find an element named Elements/PercentBarIcon - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new PercentBarIcon(visual);
             return visual;

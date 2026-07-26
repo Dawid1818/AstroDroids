@@ -38,6 +38,8 @@ namespace AstroDroids.Weapons
 
         public LaserCannon()
         {
+            WeaponIcon = TextureManager.Get("UI/Weapons/LaserCannon");
+
             ParticleEffect chargeEffect = new ParticleEffect("LaserCannonCharge")
             {
                 AutoTrigger = false            

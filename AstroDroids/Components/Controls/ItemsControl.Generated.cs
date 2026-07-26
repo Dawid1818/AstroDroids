@@ -1,16 +1,15 @@
 //Code for Controls/ItemsControl (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using AstroDroids.Components.Controls;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
+using Gum.StateAnimation.Runtime;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class ItemsControl : global::Gum.Forms.Controls.ItemsControl
 {
@@ -20,10 +19,7 @@ partial class ItemsControl : global::Gum.Forms.Controls.ItemsControl
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/ItemsControl");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/ItemsControl - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/ItemsControl") ?? throw new System.InvalidOperationException("Could not find an element named Controls/ItemsControl - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new ItemsControl(visual);
             return visual;

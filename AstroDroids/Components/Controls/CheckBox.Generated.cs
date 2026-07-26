@@ -1,16 +1,14 @@
 //Code for Controls/CheckBox (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using AstroDroids.Components.Elements;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class CheckBox : global::Gum.Forms.Controls.CheckBox
 {
@@ -20,10 +18,7 @@ partial class CheckBox : global::Gum.Forms.Controls.CheckBox
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/CheckBox");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/CheckBox - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/CheckBox") ?? throw new System.InvalidOperationException("Could not find an element named Controls/CheckBox - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new CheckBox(visual);
             return visual;
@@ -90,11 +85,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public Icon Check { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
-    public string Text
-    {
-        get => TextInstance.Text;
-        set => TextInstance.Text = value;
-    }
 
     public CheckBox(InteractiveGue visual) : base(visual)
     {

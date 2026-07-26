@@ -1,15 +1,13 @@
 //Code for Controls/PasswordBox (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class PasswordBox : global::Gum.Forms.Controls.PasswordBox
 {
@@ -19,10 +17,7 @@ partial class PasswordBox : global::Gum.Forms.Controls.PasswordBox
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/PasswordBox");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/PasswordBox - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/PasswordBox") ?? throw new System.InvalidOperationException("Could not find an element named Controls/PasswordBox - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new PasswordBox(visual);
             return visual;

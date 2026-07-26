@@ -30,5 +30,10 @@ namespace AstroDroids.Managers
             if(Screen.GetImGuiRenderer().InputReady)
                 scene?.DrawImGui(gameTime);
         }
+
+        public static void DrawDebug(GameTime gameTime)
+        {
+            scene?.DrawDebug(gameTime);
+        }
     }
 }

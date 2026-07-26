@@ -47,6 +47,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
             RMM.SetNewPath2(angle);
 
             attackLoop = Scene.World.StartCoroutine(BossBehavior());
+
+            Scene.World.BossEntity = this;
         }
 
         IEnumerator BossBehavior()
@@ -126,7 +128,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             Screen.spriteBatch.Draw(texture, Transform.Position, null, CanBeDamaged ? Color.White : Color.Red, angle, new Vector2(texture.Width / 2f, texture.Height / 2f), 1f, SpriteEffects.None, 0f);
 
-            Screen.DrawText($"Boss Health: {GetHealth()}/1000", new Vector2(20, 10), Color.White, 12f);
+            //Screen.DrawText($"Boss Health: {GetHealth()}/1000", new Vector2(20, 10), Color.White, 12f);
         }
 
         public override void Destroyed()
@@ -138,6 +140,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 Scene.World.StopCoroutine(attackLoop);
                 attackLoop = null;
             }
+
+            if (Scene.World.BossEntity == this)
+                Scene.World.BossEntity = null;
         }
 
         public void GoTowards(Vector2 position, float? arrivalAngle = null)

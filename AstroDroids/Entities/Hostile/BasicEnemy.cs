@@ -20,7 +20,7 @@ namespace AstroDroids.Entities.Hostile
         {
             //texture = TextureManager.Get("Ships/Basic/tinyShip9");
             texture = TextureManager.Get("Ships/Basic/tinyShip9Sheet");
-
+            Score = 100;
             sprite = new AnimatedSprite(texture, 5, 34, 30, 1, 5, 10f);
 
             AddCircleCollider(Vector2.Zero, 16f);

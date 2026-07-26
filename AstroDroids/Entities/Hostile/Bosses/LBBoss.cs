@@ -56,6 +56,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
             targetPos = new Vector2(Random.NextSingle(60, Scene.World.Bounds.Width - 60), Random.Next(60, 160));
 
             angle = MathHelper.ToRadians(-90);
+
+            Scene.World.BossEntity = this;
         }
 
         IEnumerator BossBehavior()
@@ -189,7 +191,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             Screen.spriteBatch.Draw(texture, Transform.Position, null, CanBeDamaged ? Color.White : Color.Red, angle, new Vector2(texture.Width / 2f, texture.Height / 2f), 1f, SpriteEffects.None, 0f);
 
-            Screen.DrawText($"Boss Health: {GetHealth()}/1000", new Vector2(20, 10), Color.White, 12f);
+            //Screen.DrawText($"Boss Health: {GetHealth()}/1000", new Vector2(20, 10), Color.White, 12f);
         }
 
         public override void Destroyed()
@@ -201,6 +203,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 Scene.World.StopCoroutine(attackLoop);
                 attackLoop = null;
             }
+
+            if (Scene.World.BossEntity == this)
+                Scene.World.BossEntity = null;
         }
 
         public void GoTowards(Vector2 position, float? arrivalAngle = null)

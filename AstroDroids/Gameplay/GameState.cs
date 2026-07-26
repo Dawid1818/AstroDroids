@@ -3,6 +3,7 @@ using AstroDroids.Entities.Friendly;
 using AstroDroids.Input;
 using AstroDroids.Weapons;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 
@@ -69,6 +70,26 @@ namespace AstroDroids.Gameplay
             {
                 //game over
             }
+        }
+
+        public static int GetLives()
+        {
+            return Lives;
+        }
+
+        public static int GetFirepower()
+        {
+            return Firepower;
+        }
+
+        public static Texture2D GetWeaponIcon()
+        {
+            return Weapons[CurrentWeapon].WeaponIcon;
+        }
+
+        public static int GetScore()
+        {
+            return Score;
         }
     }
 }

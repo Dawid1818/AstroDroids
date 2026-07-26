@@ -1,10 +1,8 @@
-﻿using AstroDroids.Collisions;
-using AstroDroids.Coroutines;
+﻿using AstroDroids.Coroutines;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Managers;
-using AstroDroids.Paths;
 using AstroDroids.Projectiles.Hostile;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -72,6 +70,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 Scene.World.StopCoroutine(missilesLoop);
                 missilesLoop = null;
             }
+
+            if (Scene.World.BossEntity == this)
+                Scene.World.BossEntity = null;
         }
 
         public override void Spawned()
@@ -88,6 +89,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
             cannons.Add(Right1Cannon);
 
             attackLoop = Scene.World.StartCoroutine(BossBehavior());
+
+            Scene.World.BossEntity = this;
         }
 
         Asteroid spawnAsteroid(float xPos, Vector2 pushDir)
@@ -243,7 +246,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             Screen.spriteBatch.Draw(texture, Transform.Position, null, CanBeDamaged ? Color.White : Color.Red, angle, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.7f, SpriteEffects.None, 0f);
 
-            Screen.DrawText($"Boss Health: {GetHealth()}/1000", new Vector2(20, 10), Color.White, 12f);
+            //Screen.DrawText($"Boss Health: {GetHealth()}/1000", new Vector2(20, 10), Color.White, 12f);
 
             if (AstroDroidsGame.Debug)
             {

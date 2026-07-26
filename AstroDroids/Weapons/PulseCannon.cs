@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Input;
+using AstroDroids.Managers;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
 
@@ -13,6 +14,11 @@ namespace AstroDroids.Weapons
         float phase = 0;
         int direction = 1;
         bool otherShot = false;
+
+        public PulseCannon()
+        {
+            WeaponIcon = TextureManager.Get("UI/Weapons/PulseCannon");
+        }
 
         public override void Update(Player player, GameTime gameTime)
         {

@@ -1,15 +1,13 @@
 //Code for Elements/Divider (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Elements;
 partial class Divider : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -19,10 +17,7 @@ partial class Divider : global::Gum.Forms.Controls.FrameworkElement
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Elements/Divider");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Elements/Divider - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Elements/Divider") ?? throw new System.InvalidOperationException("Could not find an element named Elements/Divider - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new Divider(visual);
             return visual;

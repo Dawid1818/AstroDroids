@@ -1,15 +1,13 @@
 //Code for Controls/Label (Text)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class Label : global::Gum.Forms.Controls.Label
 {
@@ -19,10 +17,7 @@ partial class Label : global::Gum.Forms.Controls.Label
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.TextRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/Label");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/Label - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/Label") ?? throw new System.InvalidOperationException("Could not find an element named Controls/Label - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new Label(visual);
             return visual;

@@ -29,6 +29,8 @@ namespace AstroDroids.Gameplay
         float targetZoom = 1f;
         RectangleF targetBounds = new RectangleF(0, 0, 800, 600);
 
+        public AliveEntity BossEntity { get; set; }
+
         public Starfield Starfield { get; set; }
 
         public EntityList<CollidableEntity> AllCollidables { get; } = new EntityList<CollidableEntity>();
@@ -345,7 +347,7 @@ namespace AstroDroids.Gameplay
             BackgroundObjects.Update(gameTime);
         }
 
-        float debugY = 30;
+        float debugY = 40;
 
         public void DrawDebugText(string text)
         {
@@ -382,10 +384,13 @@ namespace AstroDroids.Gameplay
             Effects.Draw(gameTime);
 
             Screen.spriteBatch.End();
+        }
 
+        public void DrawDebug()
+        {
             if (AstroDroidsGame.Debug)
             {
-                debugY = 30f;
+                debugY = 40f;
 
                 Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
                 DrawDebugText($"Time: {TimeSpan.FromSeconds(timePassed).ToString(@"hh\:mm\:ss")}");

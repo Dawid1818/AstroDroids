@@ -1,16 +1,14 @@
 //Code for Controls/ScrollViewer (Container)
-using GumRuntime;
-using System.Linq;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using AstroDroids.Components.Controls;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
-
+using System.Linq;
 namespace AstroDroids.Components.Controls;
 partial class ScrollViewer : global::Gum.Forms.Controls.ScrollViewer
 {
@@ -20,10 +18,7 @@ partial class ScrollViewer : global::Gum.Forms.Controls.ScrollViewer
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/ScrollViewer");
-#if DEBUG
-if(element == null) throw new System.InvalidOperationException("Could not find an element named Controls/ScrollViewer - did you forget to load a Gum project?");
-#endif
+            var element = ObjectFinder.Self.GetElementSave("Controls/ScrollViewer") ?? throw new System.InvalidOperationException("Could not find an element named Controls/ScrollViewer - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new ScrollViewer(visual);
             return visual;

@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Input;
+using AstroDroids.Managers;
 using AstroDroids.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
@@ -18,6 +19,11 @@ namespace AstroDroids.Weapons
         Vector2 playerPreviousVelocityPosition;
         float playerExtraAngle = 0;
         float playerExtraAngleMax = 45;
+
+        public PlasmaMortar()
+        {
+            WeaponIcon = TextureManager.Get("UI/Weapons/PlasmaMortar");
+        }
 
         public override void Update(Player player, GameTime gameTime)
         {
