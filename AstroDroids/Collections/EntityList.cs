@@ -33,7 +33,12 @@ namespace AstroDroids.Collections
 
         public void Remove(T item)
         {
-            itemsToRemove.Add(item);
+            if (currentlyEnumerating)
+            {
+                itemsToRemove.Add(item);
+                return;
+            }
+            items.Remove(item);
         }
 
         public void RemoveImmediate(T item)

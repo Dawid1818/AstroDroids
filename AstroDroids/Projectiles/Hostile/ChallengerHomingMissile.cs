@@ -42,6 +42,11 @@ namespace AstroDroids.Projectiles.Hostile
             AddCircleCollider(Vector2.Zero, 10);
         }
 
+        public void SetHomingMaxTime(float time)
+        {
+            homingMaxTime = time;
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (Target != null && !(homingTimer > homingMaxTime))
@@ -66,6 +71,18 @@ namespace AstroDroids.Projectiles.Hostile
             if (homingTimer > homingMaxTime && !Colliders[0].Intersects(Scene.World.Bounds, Transform))
             {
                 Despawn();
+            }
+
+            foreach (var item in Scene.World.Neutrals)
+            {
+                if (item.Intersects(this))
+                {
+                    item.Damage(1, false);
+                    item.Push(GameHelper.DirectionFromTo(item.Transform.Position, Transform.Position));
+                    Despawn();
+
+                    return;
+                }
             }
 
             foreach (var item in Scene.World.GetPlayers())

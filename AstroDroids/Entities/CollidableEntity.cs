@@ -36,11 +36,37 @@ namespace AstroDroids.Entities
             return new RectangleF(Transform.Position.X, Transform.Position.Y, Width, Height);
         }
 
+        public bool Intersects(Ray2D other)
+        {
+            foreach (var item in Colliders)
+            {
+                if (item.Intersects(other, Transform))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool Intersects(Rectangle other)
         {
             foreach (var item in Colliders)
             {
                 if(item.Intersects(other, Transform))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool Intersects(RectangleF other)
+        {
+            foreach (var item in Colliders)
+            {
+                if (item.Intersects(other, Transform))
                 {
                     return true;
                 }
@@ -143,6 +169,11 @@ namespace AstroDroids.Entities
             {
                 col.DrawDebug(Transform);
             }
+        }
+
+        public virtual void Push(Vector2 direction)
+        {
+
         }
     }
 }

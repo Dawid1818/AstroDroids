@@ -58,6 +58,18 @@ namespace AstroDroids.Projectiles.Hostile
             Vector2 offset = perpendicular * MathF.Cos(phase) * phaseMax;
             Transform.LocalPosition = actualPosition + offset;
 
+            foreach (var item in Scene.World.Neutrals)
+            {
+                if (item.Intersects(this))
+                {
+                    item.Damage(1, false);
+                    item.Push(GameHelper.DirectionFromTo(item.Transform.Position, Transform.Position));
+                    Despawn();
+
+                    return;
+                }
+            }
+
             foreach (var item in Scene.World.GetPlayers())
             {
                 if (item.Intersects(this))

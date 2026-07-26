@@ -93,6 +93,12 @@ namespace AstroDroids.Projectiles
                         hits.Add(enemy);
                 }
 
+                foreach (var neutral in Scene.World.Neutrals)
+                {
+                    if (neutral.Intersects(this))
+                        hits.Add(neutral);
+                }
+
                 hits.Sort((a, b) =>
                 {
                     float da = Vector2.DistanceSquared(Transform.Position, a.Transform.Position);

@@ -112,7 +112,7 @@ namespace AstroDroids.Weapons
         void SpawnProjectile(Player player, Vector2 relative, GameTime gameTime, float angle, float launchForce, bool isCluster)
         {
             float extraPower = float.Clamp(-playerVelocity.Y, 0, 0.7f);
-            PlasmaMortarProjectile projectile = new PlasmaMortarProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle + playerExtraAngle), isCluster, GameState.Firepower, launchForce + extraPower);
+            PlasmaMortarProjectile projectile = new PlasmaMortarProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle + playerExtraAngle) + player.Angle, isCluster, GameState.Firepower, launchForce + extraPower);
             Scene.World.AddProjectile(projectile, true);
         }
     }

@@ -153,7 +153,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     orbitDistanceY = 50f;
                     break;
                 case DronePositionStyle.Random:
-                    Rectangle newBounds = Scene.World.Bounds;
+                    RectangleF newBounds = Scene.World.Bounds;
                     newBounds.Inflate(-32f, -32f);
 
                     foreach (var drone in drones)
@@ -245,13 +245,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
             {
                 int dir = Random.Next(2);
 
-                Vector2 desiredPos = new Vector2(dir == 0 ? 15 : Scene.World.Bounds.Width - 15, Random.Next(Scene.World.Bounds.Height));
+                Vector2 desiredPos = new Vector2(dir == 0 ? 15 : Scene.World.Bounds.Width - 15, Random.NextSingle(Scene.World.Bounds.Height));
 
                 droneEntry.RandomDestination = desiredPos;
             }
             else if (style == DronePositionStyle.Random)
             {
-                Rectangle newBounds = Scene.World.Bounds;
+                RectangleF newBounds = Scene.World.Bounds;
                 newBounds.Inflate(-32f, -32f);
 
                 droneEntry.RandomDestination = GameHelper.RandomPosition(newBounds);
@@ -387,7 +387,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             }
 
             if (phase2)
-                MoveTowards(this, Scene.World.Bounds.Center.ToVector2(), true, 0.6f);
+                MoveTowards(this, Scene.World.Bounds.Center, true, 0.6f);
 
             if (drones.Count > 0)
             {

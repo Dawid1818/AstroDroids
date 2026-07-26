@@ -88,6 +88,20 @@ namespace AstroDroids.Projectiles
             }
             else
             {
+                foreach (var neutral in Scene.World.Neutrals)
+                {
+                    if (neutral.Intersects(this))
+                    {
+                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), GetHitColor());
+                        Scene.World.AddEffect(hitEffect);
+
+                        fade = true;
+                        neutral.Damage(1, true);
+                        neutral.Push(GameHelper.DirectionFromTo(neutral.Transform.Position, Transform.Position));
+                        break;
+                    }
+                }
+
                 foreach (var enemy in Scene.World.Enemies)
                 {
                     if (enemy.Intersects(this))
@@ -97,6 +111,7 @@ namespace AstroDroids.Projectiles
 
                         fade = true;
                         enemy.Damage(1, true);
+                        enemy.Push(GameHelper.DirectionFromTo(enemy.Transform.Position, Transform.Position));
                         break;
                     }
                 }

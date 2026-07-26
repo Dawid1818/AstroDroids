@@ -36,7 +36,17 @@ namespace AstroDroids.Collisions
             return false;
         }
 
+        public override bool Intersects(Ray2D other, Transform myTransform)
+        {
+            return other.Intersects(GetWorldShape(myTransform));
+        }
+
         public override bool Intersects(Rectangle other, Transform myTransform)
+        {
+            return GetWorldShape(myTransform).Intersects(new BoundingBox2D(new Vector2(other.X, other.Y), new Vector2(other.Width, other.Height)));
+        }
+
+        public override bool Intersects(RectangleF other, Transform myTransform)
         {
             return GetWorldShape(myTransform).Intersects(new BoundingBox2D(new Vector2(other.X, other.Y), new Vector2(other.Width, other.Height)));
         }

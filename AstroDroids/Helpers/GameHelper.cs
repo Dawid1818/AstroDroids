@@ -168,6 +168,11 @@ namespace AstroDroids.Helpers
             return (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
         }
 
+        public static Vector2 DirectionFromTo(Vector2 p1, Vector2 p2)
+        {
+            return Vector2.Normalize(p1 - p2); 
+        }
+
         public static Vector2 DirFromAngle(float angle)
         {
             return new Vector2(MathF.Cos(angle), MathF.Sin(angle));
@@ -227,6 +232,11 @@ namespace AstroDroids.Helpers
         public static Vector2 RandomPosition(Rectangle bounds)
         {
             return new Vector2(AstroDroidsGame.rnd.Next(bounds.X, bounds.Width + bounds.X), AstroDroidsGame.rnd.Next(bounds.Y, bounds.Height + bounds.Y));
+        }
+
+        public static Vector2 RandomPosition(RectangleF bounds)
+        {
+            return new Vector2(AstroDroidsGame.rnd.NextSingle(bounds.X, bounds.Width + bounds.X), AstroDroidsGame.rnd.NextSingle(bounds.Y, bounds.Height + bounds.Y));
         }
 
         public static void DrawNode(string label, Vector2 position, Color color, Color borderColor, float fontSize = 24)

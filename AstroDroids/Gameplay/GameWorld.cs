@@ -13,6 +13,7 @@ using AstroDroids.Projectiles;
 using AstroDroids.Projectiles.Hostile;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,11 +22,19 @@ namespace AstroDroids.Gameplay
 {
     public class GameWorld
     {
-        public readonly Rectangle Bounds = new Rectangle(0, 0, 800, 600);
-        public readonly Rectangle ExpandedBounds = new Rectangle(-100, -100, 900, 700);
+        public readonly RectangleF BaseBounds = new RectangleF(0, 0, 800, 600);
+        public RectangleF Bounds = new Rectangle(0, 0, 800, 600);
+        public RectangleF ExpandedBounds = new Rectangle(-100, -100, 900, 700);
+
+        float targetZoom = 1f;
+        RectangleF targetBounds = new RectangleF(0, 0, 800, 600);
+
         public Starfield Starfield { get; set; }
 
+        public EntityList<CollidableEntity> AllCollidables { get; } = new EntityList<CollidableEntity>();
+
         public EntityList<AliveEntity> Enemies { get; } = new EntityList<AliveEntity>();
+        public EntityList<AliveEntity> Neutrals { get; } = new EntityList<AliveEntity>();
 
         public EntityList<Entity> BackgroundObjects { get; } = new EntityList<Entity>();
 
@@ -259,9 +268,49 @@ namespace AstroDroids.Gameplay
             coroutineManager.StopCoroutine(instance);
         }
 
+        bool NearlyEqual(RectangleF a, RectangleF b, float limit = 0.01f)
+        {
+            return MathF.Abs(a.X - b.X) < limit &&
+                   MathF.Abs(a.Y - b.Y) < limit &&
+                   MathF.Abs(a.Width - b.Width) < limit &&
+                   MathF.Abs(a.Height - b.Height) < limit;
+        }
+
         public void Update(GameTime gameTime)
         {
             timePassed += gameTime.ElapsedGameTime.TotalSeconds;
+
+            float t = 1f - MathF.Exp(-5f * gameTime.GetElapsedSeconds());
+
+            if (!NearlyEqual(Bounds, targetBounds))
+            {
+                Bounds.Width = MathHelper.Lerp(Bounds.Width, targetBounds.Width, t);
+                Bounds.Height = MathHelper.Lerp(Bounds.Height, targetBounds.Height, t);
+
+                Bounds.X = MathHelper.Lerp(Bounds.X, targetBounds.X, t);
+                Bounds.Y = MathHelper.Lerp(Bounds.Y, targetBounds.Y, t);
+            }
+            else
+            {
+                Bounds.Width = targetBounds.Width;
+                Bounds.Height = targetBounds.Height;
+                Bounds.X = targetBounds.X;
+                Bounds.Y = targetBounds.Y;
+            }
+
+            const float ZoomLimit = 0.001f;
+
+            float curZoom = Screen.GetCameraZoom();
+
+            if (MathF.Abs(curZoom - targetZoom) > ZoomLimit)
+            {
+                curZoom = MathHelper.Lerp(curZoom, targetZoom, t);
+
+                if (MathF.Abs(curZoom - targetZoom) < ZoomLimit)
+                    curZoom = targetZoom;
+
+                Screen.SetCameraZoom(curZoom);
+            }
 
             coroutineManager.Update();
 
@@ -286,6 +335,8 @@ namespace AstroDroids.Gameplay
             EntityGroups.Update(gameTime);
 
             Enemies.Update(gameTime);
+
+            Neutrals.Update(gameTime);
 
             Projectiles.Update(gameTime);
 
@@ -317,6 +368,8 @@ namespace AstroDroids.Gameplay
 
             Enemies.Draw(gameTime);
 
+            Neutrals.Draw(gameTime);
+
             Projectiles.Draw(gameTime);
 
             foreach (var item in Players)
@@ -337,6 +390,7 @@ namespace AstroDroids.Gameplay
                 Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied, samplerState: SamplerState.LinearClamp);
                 DrawDebugText($"Time: {TimeSpan.FromSeconds(timePassed).ToString(@"hh\:mm\:ss")}");
                 DrawDebugText($"Enemies: {Enemies.Count}");
+                DrawDebugText($"Neutrals: {Neutrals.Count}");
                 DrawDebugText($"Projectiles: {Projectiles.Count}");
                 DrawDebugText($"Warnings: {Warnings.Count}");
                 DrawDebugText($"Background Objects: {BackgroundObjects.Count}");
@@ -403,6 +457,7 @@ namespace AstroDroids.Gameplay
             }
 
             Enemies.Add(enemy);
+            AllCollidables.Add(enemy);
 
             if (spawnData == null)
                 spawnData = EntityDatabase.CreateEnemySpawnData(enemy.GetType());
@@ -415,9 +470,38 @@ namespace AstroDroids.Gameplay
                 enemy.Spawned();
         }
 
+        public void AddNeutral(Enemy neutral, bool followsCamera, bool invokeSpawned = true, IEnemySpawnData spawnData = null)
+        {
+            if (followsCamera)
+            {
+                neutral.Transform.SetParent(camEntity.Transform);
+                neutral.Transform.LocalPosition -= camEntity.Transform.Position;
+            }
+
+            Neutrals.Add(neutral);
+            AllCollidables.Add(neutral);
+
+            if (spawnData == null)
+                spawnData = EntityDatabase.CreateEnemySpawnData(neutral.GetType());
+
+            //If the enemy entity hasn't been registered, the spawn data will not be found (for example in case of the laser barriers), so we just skip doing that in this case
+            if (spawnData != null)
+                neutral.ApplySpawnData(spawnData);
+
+            if (invokeSpawned)
+                neutral.Spawned();
+        }
+
+        public void RemoveNeutral(AliveEntity neutral)
+        {
+            Neutrals.Remove(neutral);
+            AllCollidables.Remove(neutral);
+        }
+
         public void RemoveEnemy(AliveEntity enemy)
         {
             Enemies.Remove(enemy);
+            AllCollidables.Remove(enemy);
         }
 
         public void AddProjectile(Projectile projectile, bool followsCamera)
@@ -429,11 +513,13 @@ namespace AstroDroids.Gameplay
             }
 
             Projectiles.Add(projectile);
+            AllCollidables.Add(projectile);
         }
 
         public void RemoveProjectile(Projectile projectile)
         {
             Projectiles.Remove(projectile);
+            AllCollidables.Remove(projectile);
         }
 
         public void AddEntityGroup(EntityGroup group)
@@ -463,11 +549,13 @@ namespace AstroDroids.Gameplay
         {
             player.Transform.SetParent(camEntity.Transform);
             Players.Add(player);
+            AllCollidables.Add(player);
         }
 
         public void RemovePlayer(Player player)
         {
             PlayersToRemove.Add(player);
+            AllCollidables.Remove(player);
         }
 
         public void RequestPlayerRespawn(int index)
@@ -488,6 +576,17 @@ namespace AstroDroids.Gameplay
 
             Vector2 newCamera = new Vector2(Screen.ScreenWidth / 2f, Screen.ScreenHeight / 2f);
             Screen.SetCameraPosition(newCamera);
+        }
+
+        public void SetZoom(float scale)
+        {
+            targetBounds.Width = BaseBounds.Width / scale;
+            targetBounds.Height = BaseBounds.Height / scale;
+
+            targetBounds.X = BaseBounds.X + (BaseBounds.Width - targetBounds.Width) / 2;
+            targetBounds.Y = BaseBounds.Y + (BaseBounds.Height - targetBounds.Height) / 2;
+
+            targetZoom = scale;
         }
     }
 }

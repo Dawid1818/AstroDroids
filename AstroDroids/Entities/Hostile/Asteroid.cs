@@ -3,7 +3,7 @@ using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
+using MonoGame.Extended;
 
 namespace AstroDroids.Entities.Hostile
 {
@@ -14,19 +14,40 @@ namespace AstroDroids.Entities.Hostile
         Texture2D texture;
 
         float angle = 3.14f;
+        Vector2 velocity = Vector2.Zero;
 
-        float speed = 10f;
+        bool becameActive = false;
 
-        public Asteroid() : base(Vector2.Zero, 2)
+        public Asteroid() : base(Vector2.Zero, 10)
         {
-            //texture = TextureManager.Get("Ships/Basic/tinyShip9");
-            texture = TextureManager.Get("Ships/Basic/tinyShip9Sheet");
+            IsNeutral = true;
+
+            texture = TextureManager.Get("Asteroids/Asteroid 01 - Base");
 
             AddCircleCollider(Vector2.Zero, 16f);
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (!becameActive)
+            {
+                if (Intersects(Scene.World.Bounds))
+                {
+                    becameActive = true;
+                }
+                else
+                {
+                    if (t >= 10f)
+                        Despawn();
+
+                    t += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }
+            if (!Intersects(Scene.World.Bounds) && becameActive)
+            {
+                Despawn();
+            }
+
             if (PathManager != null)
             {
                 PathManager.Update(gameTime);
@@ -42,7 +63,7 @@ namespace AstroDroids.Entities.Hostile
             {
                 if (!FollowsCamera)
                 {
-                    Transform.Translate(new Vector2(MathF.Cos(angle) * speed * (float)gameTime.ElapsedGameTime.TotalSeconds, MathF.Sin(angle) * speed * (float)gameTime.ElapsedGameTime.TotalSeconds));
+                    Transform.Position += (velocity);
                 }
 
                 if (Transform.Position.Y > Scene.World.Bounds.Bottom + texture.Height)
@@ -50,11 +71,40 @@ namespace AstroDroids.Entities.Hostile
                     Despawn();
                 }
             }
+
+            foreach (var item in Scene.World.GetPlayers())
+            {
+                if (item.Intersects(this))
+                {
+                    item.Damage(50, false);
+                    Damage(50, false);
+
+                    return;
+                }
+            }
+
+            foreach (var item in Scene.World.Enemies)
+            {
+                if (item.Intersects(this))
+                {
+                    item.Damage(50, false);
+                    Damage(50, false);
+
+                    return;
+                }
+            }
+
+            angle += velocity.X * gameTime.GetElapsedSeconds();
         }
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, position: new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
+        }
+
+        public override void Push(Vector2 direction)
+        {
+            velocity += direction;
         }
     }
 }

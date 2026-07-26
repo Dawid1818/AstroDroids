@@ -2,6 +2,7 @@
 using AstroDroids.Entities.Effects;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
@@ -23,12 +24,12 @@ namespace AstroDroids.Entities.Friendly
 
         public float Angle { get; private set; } = 0f;
 
-        public Vector2 RightWeaponPod { get { return new Vector2((Width / 2f) + 4, -Height); } }
-        public Vector2 LeftWeaponPod { get { return new Vector2(-((Width / 2f) + 2), -Height); } }
-        public Vector2 MiddleWeaponPod { get { return new Vector2(1, -Height); } }
+        public Vector2 RightWeaponPod { get { return GameHelper.RotateAroundPoint(new Vector2((Width / 2f) + 4, -Height), Vector2.Zero, Angle); } }
+        public Vector2 LeftWeaponPod { get { return GameHelper.RotateAroundPoint(new Vector2(-((Width / 2f) + 2), -Height), Vector2.Zero, Angle); } }
+        public Vector2 MiddleWeaponPod { get { return GameHelper.RotateAroundPoint(new Vector2(1, -Height), Vector2.Zero, Angle); } }
 
-        public Vector2 RearRightWeaponPod { get { return new Vector2((Width / 2f) + 12, Height - 20); } }
-        public Vector2 RearLeftWeaponPod { get { return new Vector2(-((Width / 2f) + 10), Height - 20); } }
+        public Vector2 RearRightWeaponPod { get { return GameHelper.RotateAroundPoint(new Vector2((Width / 2f) + 12, Height - 20), Vector2.Zero, Angle); } }
+        public Vector2 RearLeftWeaponPod { get { return GameHelper.RotateAroundPoint(new Vector2(-((Width / 2f) + 10), Height - 20), Vector2.Zero, Angle); } }
 
         bool destroyed = false;
 
@@ -53,6 +54,9 @@ namespace AstroDroids.Entities.Friendly
 
             //Player movement
             Vector2 movement = Vector2.Zero;
+
+            //Angle = MathHelper.ToRadians(180);
+            //Angle += 0.01f;
 
             float actualSpeed = InputSystem.IsActionHeld(GameAction.Focus) ? speed / 2f : speed;
 

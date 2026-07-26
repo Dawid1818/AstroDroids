@@ -375,7 +375,7 @@ namespace AstroDroids.Weapons
         {
             float actualTargetAngle = -90 + targetAngle;
             float actualAngle = float.Lerp(-90 + startAngle, actualTargetAngle, charge);
-            Vector2 targetPos = GameHelper.OrbitPos(player.GetPosition() + pos, MathHelper.ToRadians(actualAngle), 1000);
+            Vector2 targetPos = GameHelper.OrbitPos(player.GetPosition() + pos, MathHelper.ToRadians(actualAngle) + player.Angle, 1000);
 
             Screen.spriteBatch.DrawLine(player.GetPosition() + pos, targetPos, new Color((byte)255, (byte)255, (byte)255, (byte)(charge * 127)), 2);
         }
@@ -396,7 +396,7 @@ namespace AstroDroids.Weapons
             float actualTargetAngle = -90 + targetAngle;
             float actualAngle = float.Lerp(-90 + startAngle, actualTargetAngle, charge);
 
-            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(actualAngle), charge, GameState.Firepower);
+            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(actualAngle) + player.Angle, charge, GameState.Firepower);
             Scene.World.AddProjectile(projectile, true);
         }
 

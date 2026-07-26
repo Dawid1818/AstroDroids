@@ -11,7 +11,6 @@ using MonoGame.Extended;
 using MonoGameGum;
 using System;
 using System.IO;
-using System.Reflection.Metadata.Ecma335;
 
 namespace AstroDroids.Graphics
 {
@@ -81,7 +80,7 @@ namespace AstroDroids.Graphics
             int y = (windowHeight - height) / 2;
 
             DestinationRectangle = new Rectangle(x, y, width, height);
-        }   
+        }
 
         public static void DrawText(string text, Vector2 position, Color color, float size)
         {

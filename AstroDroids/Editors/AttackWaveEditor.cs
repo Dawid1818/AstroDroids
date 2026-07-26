@@ -55,7 +55,7 @@ namespace AstroDroids.Editors
         {
             this.scene = scene;
 
-            Rectangle source = scene.World.Bounds;
+            Rectangle source = scene.World.Bounds.ToRectangle();
             Rectangle bounds = new Rectangle(source.X, source.Y, source.Width, source.Height);
             bounds.Inflate(80, 80);
 

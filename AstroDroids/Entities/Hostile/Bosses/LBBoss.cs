@@ -53,7 +53,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             attackLoop = Scene.World.StartCoroutine(BossBehavior());
 
-            targetPos = new Vector2(Random.Next(60, Scene.World.Bounds.Width - 60), Random.Next(60, 160));
+            targetPos = new Vector2(Random.NextSingle(60, Scene.World.Bounds.Width - 60), Random.Next(60, 160));
 
             angle = MathHelper.ToRadians(-90);
         }
@@ -150,7 +150,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 Transform.Position = targetPos;
 
                 if (Flight == LBBossFlightMode.Freeroam)
-                    targetPos = new Vector2(Random.Next(60, Scene.World.Bounds.Width - 60), Random.Next(60, 160));
+                    targetPos = new Vector2(Random.NextSingle(60, Scene.World.Bounds.Width - 60), Random.Next(60, 160));
             }
             else
             {
@@ -466,7 +466,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 for (int j = 0; j < 3; j++)
                 {
-                    LaserBarrier normalBarrier = new LaserBarrier(new Vector2(Random.Next(30, Scene.World.Bounds.Width - 30), -Random.Next(50, 80)), 0, 1, new Vector2(0, 2), LaserBarrierType.Normal);
+                    LaserBarrier normalBarrier = new LaserBarrier(new Vector2(Random.NextSingle(30, Scene.World.Bounds.Width - 30), -Random.Next(50, 80)), 0, 1, new Vector2(0, 2), LaserBarrierType.Normal);
                     normals.Add(normalBarrier);
                 }
 
@@ -527,8 +527,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 LaserBarrier barrierLeft = new LaserBarrier(new Vector2(-16, -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
                 LaserBarrier barrierRight = new LaserBarrier(new Vector2(Scene.World.Bounds.Width + 16, -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
 
-                List<LaserBarrier> box1 = createBox(Random.Next(10, Scene.World.Bounds.Width / 2), -Random.Next(80, 150), 72, 72);
-                List<LaserBarrier> box2 = createBox(Random.Next(Scene.World.Bounds.Width / 2, Scene.World.Bounds.Width - 82), -Random.Next(80, 150), 72, 72);
+                List<LaserBarrier> box1 = createBox(Random.NextSingle(10, Scene.World.Bounds.Width / 2), -Random.Next(80, 150), 72, 72);
+                List<LaserBarrier> box2 = createBox(Random.NextSingle(Scene.World.Bounds.Width / 2, Scene.World.Bounds.Width - 82), -Random.Next(80, 150), 72, 72);
 
                 ConnectBarriers(box1[4], box2[4], false);
                 ConnectBarriers(box1[4], barrierLeft, false);
@@ -567,7 +567,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 if (choice == 0)
                 {
                     outsideBarrier = new LaserBarrier(new Vector2(-16, -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
-                    innerBarrier = new LaserBarrier(new Vector2(Random.Next(16, Scene.World.Bounds.Width / 2), -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
+                    innerBarrier = new LaserBarrier(new Vector2(Random.NextSingle(16, Scene.World.Bounds.Width / 2), -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
 
                     if (spawnTurrets == 1)
                     {
@@ -579,7 +579,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 else
                 {
                     outsideBarrier = new LaserBarrier(new Vector2(Scene.World.Bounds.Width + 16, -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
-                    innerBarrier = new LaserBarrier(new Vector2(Random.Next(Scene.World.Bounds.Width / 2, Scene.World.Bounds.Width - 16), -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
+                    innerBarrier = new LaserBarrier(new Vector2(Random.NextSingle(Scene.World.Bounds.Width / 2, Scene.World.Bounds.Width - 16), -85), 0, -1, new Vector2(0, 2), LaserBarrierType.Normal);
 
                     if (spawnTurrets == 1)
                     {
@@ -623,7 +623,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             Flight = LBBossFlightMode.Locked;
 
             float width = 200;
-            float xSafe = Random.Next(0, Scene.World.Bounds.Width - (int)width);
+            float xSafe = Random.NextSingle(0, Scene.World.Bounds.Width - (int)width);
 
             int steps = Random.Next(5, 10);
             float dir = Random.Next(2) == 0 ? 10 : -10;
@@ -859,7 +859,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     case 0: //spiral/flower
                     default:
                         {
-                            Vector2 start = new Vector2(Random.Next(200, Scene.World.Bounds.Width - 200), -150);
+                            Vector2 start = new Vector2(Random.NextSingle(200, Scene.World.Bounds.Width - 200), -150);
                             Vector2 moveDir = new Vector2(0, 2);
                             LaserBarrier barrier = new LaserBarrier(start, 0, 1, moveDir, LaserBarrierType.Normal);
 
@@ -872,7 +872,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         break;
                     case 1: //d shape
                         {
-                            Vector2 start = new Vector2(Random.Next(200, Scene.World.Bounds.Width - 200), -150);
+                            Vector2 start = new Vector2(Random.NextSingle(200, Scene.World.Bounds.Width - 200), -150);
                             Vector2 moveDir = new Vector2(0, 2);
                             LaserBarrier barrier = new LaserBarrier(start, 0, 5, moveDir, LaserBarrierType.Normal);
 
@@ -885,7 +885,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         break;
                     case 2: //arrow shape
                         {
-                            Vector2 start = new Vector2(Random.Next(200, Scene.World.Bounds.Width - 200), -150);
+                            Vector2 start = new Vector2(Random.NextSingle(200, Scene.World.Bounds.Width - 200), -150);
                             Vector2 moveDir = new Vector2(0, 2);
                             LaserBarrier barrier = new LaserBarrier(start, 0, 5, moveDir, LaserBarrierType.Normal);
 

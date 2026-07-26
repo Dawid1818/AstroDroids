@@ -80,7 +80,7 @@ namespace AstroDroids.Weapons
 
         void SpawnProjectile(Player player, Vector2 relative, PulseCannonProjectileType type, float angle)
         {
-            PulseCannonProjectile projectile = new PulseCannonProjectile(player.GetPosition() + relative, type, MathHelper.ToRadians(-90 + angle));
+            PulseCannonProjectile projectile = new PulseCannonProjectile(player.GetPosition() + relative, type, MathHelper.ToRadians(-90 + angle) + player.Angle);
             Scene.World.AddProjectile(projectile, true);
         }
     }

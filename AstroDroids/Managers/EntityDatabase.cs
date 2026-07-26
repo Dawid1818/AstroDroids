@@ -29,6 +29,7 @@ namespace AstroDroids.Managers
             RegisterEnemy(7, typeof(DroneBoss), typeof(DefaultSpawnData));
             RegisterEnemy(8, typeof(ChallengerBoss), typeof(DefaultSpawnData));
             RegisterEnemy(9, typeof(LBBoss), typeof(DefaultSpawnData));
+            RegisterEnemy(10, typeof(FirstBoss), typeof(DefaultSpawnData));
         }
 
         public static void InitializePreviews()

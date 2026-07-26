@@ -33,6 +33,8 @@ namespace AstroDroids.Entities
         public PathManager PathManager { get; set; }
         public bool FollowsCamera { get; set; }
 
+        public bool IsNeutral { get; internal set; } = false;
+
         public Enemy() : base()
         {
         }
@@ -73,7 +75,11 @@ namespace AstroDroids.Entities
         public void Despawn()
         {
             destroyed = true;
-            Scene.World.RemoveEnemy(this);
+
+            if (IsNeutral)
+                Scene.World.RemoveNeutral(this);
+            else
+                Scene.World.RemoveEnemy(this);
         }
     }
 }

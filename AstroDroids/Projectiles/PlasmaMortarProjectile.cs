@@ -6,6 +6,7 @@ using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using System;
+using System.Linq;
 
 namespace AstroDroids.Projectiles
 {
@@ -103,6 +104,16 @@ namespace AstroDroids.Projectiles
             }
             else
             {
+                foreach (var neutral in Scene.World.Neutrals)
+                {
+                    if (neutral.Intersects(this))
+                    {
+                        Explode();
+                        Despawn();
+                        break;
+                    }
+                }
+
                 foreach (var enemy in Scene.World.Enemies)
                 {
                     if (enemy.Intersects(this))
@@ -131,11 +142,21 @@ namespace AstroDroids.Projectiles
 
             CircleF blast = new CircleF(Transform.Position, size * 2.5f);
 
+            foreach (var neutral in Scene.World.Neutrals.ToList())
+            {
+                if (neutral.Intersects(blast))
+                {
+                    neutral.Damage(damage, false);
+                    neutral.Push(GameHelper.DirectionFromTo(neutral.Transform.Position, Transform.Position));
+                }
+            }
+
             foreach (var enemy in Scene.World.Enemies)
             {
                 if (enemy.Intersects(blast))
                 {
                     enemy.Damage(damage, false);
+                    enemy.Push(GameHelper.DirectionFromTo(enemy.Transform.Position, Transform.Position));
                 }
             }
 
