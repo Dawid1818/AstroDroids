@@ -30,6 +30,22 @@ namespace AstroDroids.Scenes
 
         }
 
+        public void DisplayBossWarning()
+        {
+            ui.BossWarning.Visible = true;
+            ui.Visual.PlayAnimation(ui.Show);
+        }
+
+        public void HideBossWarning()
+        {
+            ui.Visual.PlayAnimation(ui.Hide);
+        }
+
+        public void DisableBossWarning()
+        {
+            ui.BossWarning.Visible = false;
+        }
+
         public override void Set()
         {
             ui = new GameScreenGum();
@@ -84,7 +100,7 @@ namespace AstroDroids.Scenes
             ui.PowerLabel.Text = $"{GameState.GetFirepower()}/5";
             ui.WeaponPanelIcon.Texture = GameState.GetWeaponIcon();
 
-            if(World.BossEntity != null)
+            if (World.BossEntity != null)
             {
                 ui.BossPanel.Visible = true;
                 ui.BossHPBar.BarPercent = (float)World.BossEntity.GetHealth() / World.BossEntity.GetStartingHealth() * 100f;
@@ -171,6 +187,12 @@ namespace AstroDroids.Scenes
             if (InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
             {
                 LevelManager.QuitPlaytest();
+            }
+
+            if (ui.BossWarning.Visible)
+            {
+                ui.BossWarningBottomLines.FindVisual<SpriteRuntime>("LinesSprite").TextureLeft += 1;
+                ui.BossWarningTopLines.FindVisual<SpriteRuntime>("LinesSprite").TextureLeft += 1;
             }
         }
 

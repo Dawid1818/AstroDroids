@@ -1,9 +1,11 @@
-﻿using AstroDroids.Entities.Neutral;
+﻿using AstroDroids.Entities;
+using AstroDroids.Entities.Neutral;
 using AstroDroids.Extensions;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -14,20 +16,50 @@ namespace AstroDroids.Levels
     {
         public const string Magic = "adlvl";
         public string Name { get; set; } = string.Empty;
+        public int EventHandlerId { get; set; } = 0;
         public int BackgroundId { get; set; } = 0;
 
         protected Scene Scene { get { return SceneManager.GetScene(); } }
         public List<AttackWave> AttackWaves { get; private set; } = new List<AttackWave>();
         public List<NamedPath> Paths { get; private set; } = new List<NamedPath>();
 
+        //runtime only
+        LevelEventHandler eventHandler = new LevelEventHandler();
+
         public virtual void StartLevel()
         {
 
         }
 
+        public void RegisterEvents()
+        {
+            if (eventHandler != null)
+            {
+                eventHandler.RegisterEvents();
+            }
+        }
+
+        public Dictionary<int, LevelEvent> GetEvents()
+        {
+            if (eventHandler != null)
+            {
+                return eventHandler.GetEvents();
+            }
+            else
+            {
+                return new Dictionary<int, LevelEvent>();
+            }
+        }
+
         public virtual IEnumerator LevelScript()
         {
             yield break;
+        }
+
+        public void RunEvent(int id)
+        {
+            if (eventHandler != null)
+                eventHandler.RunEvent(id);
         }
 
         protected EntityGroup CreateGroup(Vector2 position, int rows, int cols, float cellWidth, float cellHeight, float spacing)
@@ -67,9 +99,12 @@ namespace AstroDroids.Levels
             writer.WriteFixedString(Magic);
 
             //file format version placeholder
-            writer.Write(3);
+            writer.Write(4);
 
             writer.Write(Name);
+
+            writer.Write(EventHandlerId);
+
             writer.Write(BackgroundId);
 
             writer.Write(AttackWaves.Count);
@@ -96,6 +131,18 @@ namespace AstroDroids.Levels
             int actualVersion = reader.ReadInt32();
 
             Name = reader.ReadString();
+
+            if(actualVersion >= 4)
+            {
+                EventHandlerId = reader.ReadInt32();
+
+                eventHandler = GameDatabase.CreateEventHandler(EventHandlerId);
+            }
+            else
+            {
+                eventHandler = new LevelEventHandler();
+            }
+
             BackgroundId = reader.ReadInt32();
 
             AttackWaves = new List<AttackWave>();
@@ -118,6 +165,11 @@ namespace AstroDroids.Levels
                     Paths.Add(path);
                 }
             }
+        }
+
+        internal void ReloadEventHandler()
+        {
+            eventHandler = GameDatabase.CreateEventHandler(EventHandlerId);
         }
     }
 }

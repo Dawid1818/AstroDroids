@@ -406,7 +406,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                         foreach (DroneEntry droneEntry in drones)
                         {
-                            Vector2 desiredPos = new Vector2(x + droneWidth * 0.5f, 150);
+                            Vector2 desiredPos = new Vector2(x + droneWidth * 0.5f, 200);
 
                             if (MoveTowards(droneEntry.Drone, desiredPos, false, 1f))
                             {

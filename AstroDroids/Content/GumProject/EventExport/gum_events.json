@@ -1050,6 +1050,440 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-07-26T11:21:43.1911137Z"
+      },
+      {
+        "NewName": "GameScreenGum.CautionLinesInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-26T18:10:33.466841Z"
+      },
+      {
+        "NewName": "Elements/CautionLines1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-26T18:15:30.8091361Z"
+      },
+      {
+        "NewName": "GameScreenGum.CautionLines1Instance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-26T18:15:37.8691027Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Elements/CautionLines1",
+        "ElementType": "Components",
+        "EventType": 1,
+        "TimestampUtc": "2026-07-26T18:17:19.933425Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "GameScreenGum.Elements/CautionLines1 CautionLines1Instance in GameScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-26T18:17:24.009567Z"
+      },
+      {
+        "NewName": "GameScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-26T18:28:09.7602983Z"
+      },
+      {
+        "NewName": "GameScreenGum.CautionLinesInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-26T18:29:23.4415041Z"
+      },
+      {
+        "NewName": "GameScreenGum.ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-26T18:29:56.4377172Z"
+      },
+      {
+        "NewName": "GameScreenGum.TextInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-26T18:31:04.5720229Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarning",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:40:09.2360844Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarning",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:40:09.2376758Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarning",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:40:09.2490279Z"
+      },
+      {
+        "NewName": "GameScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-26T18:41:28.0605052Z"
+      },
+      {
+        "NewName": "Elements/CautionLines1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-26T18:44:11.4343701Z"
+      },
+      {
+        "NewName": "Elements/CautionLinesWrapped",
+        "OldName": "Elements/CautionLines1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-07-26T18:44:18.5399018Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningTextClip",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:34.1885754Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningTextClip",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:34.189948Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningTextClip",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:34.1998923Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningBG",
+        "OldName": "GameScreenGum.ColoredRectangleInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:45.2843536Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningBG",
+        "OldName": "GameScreenGum.ColoredRectangleInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:45.285632Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningBG",
+        "OldName": "GameScreenGum.ColoredRectangleInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:45.2987255Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningTopLines",
+        "OldName": "GameScreenGum.CautionLinesInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:51.6259271Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningTopLines",
+        "OldName": "GameScreenGum.CautionLinesInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:51.6297864Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningTopLines",
+        "OldName": "GameScreenGum.CautionLinesInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:51.6382097Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningBottomLines",
+        "OldName": "GameScreenGum.CautionLinesInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:55.8469989Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningBottomLines",
+        "OldName": "GameScreenGum.CautionLinesInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:55.848442Z"
+      },
+      {
+        "NewName": "GameScreenGum.BossWarningBottomLines",
+        "OldName": "GameScreenGum.CautionLinesInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-26T18:45:55.8579492Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-27T14:05:41.9954389Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ShipIcon",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:05:43.4584046Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:06:01.5425581Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:06:21.0066766Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:06:34.0879035Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:06:36.288935Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:19.2791805Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance4",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:19.5999774Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance5",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:19.9637408Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance6",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:20.271166Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance7",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:20.5998728Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance8",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:20.9589425Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance9",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:21.2823364Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance10",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:22.6206872Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance11",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:22.9479755Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance12",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:23.2766671Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance13",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:23.5884926Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance14",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:23.9704187Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance15",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:24.3131142Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance16",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:31.3841369Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance17",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:31.7231208Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance18",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:32.0713696Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance19",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:32.4478737Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColoredRectangleInstance20",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:07:32.7816304Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance20 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-27T14:07:42.3243438Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance19 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-27T14:07:55.4844594Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance18 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-27T14:07:55.4855407Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance17 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-27T14:07:55.4958694Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance16 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-27T14:07:55.5045092Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SliderInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:08:19.768003Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.TextInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:08:27.9350325Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SliderInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:09:11.9240802Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.TextInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:09:12.015371Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SliderInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:09:20.2572075Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.TextInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-27T14:09:20.2944755Z"
       }
     ]
   }

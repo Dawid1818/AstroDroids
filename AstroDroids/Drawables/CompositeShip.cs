@@ -26,16 +26,12 @@ namespace AstroDroids.Drawables
 
         public CompositeShip()
         {
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Hull"), new Vector2(0, 0), Color.Green);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_HullOutline"), new Vector2(0, 0), Color.White);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_CockpitGlass"), new Vector2(0, 0), Color.Red);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_CockpitOutline"), new Vector2(0, 0), Color.White);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Decals"), new Vector2(0, 0), Color.Yellow);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_DecalsOutline"), new Vector2(0, 0), Color.White);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Engines"), new Vector2(0, 0), Color.Orange);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_EnginesOutline"), new Vector2(0, 0), Color.White);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_WeaponPods"), new Vector2(0, 0), Color.Pink);
-            AddPart(TextureManager.Get("Ships/Player/PlayerShip_WeaponPodsOutline"), new Vector2(0, 0), Color.White);
+            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Body"), new Vector2(0, 0), Color.White);
+            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Weapons"), new Vector2(0, 0), Color.White);
+            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Engines"), new Vector2(0, 0), Color.White);
+            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Cockpit"), new Vector2(0, 0), Color.White);
+            AddPart(TextureManager.Get("Ships/Player/PlayerShip_CockpitGlass"), new Vector2(0, 0), Color.White);
+            AddPart(TextureManager.Get("Ships/Player/PlayerShip_Wings"), new Vector2(0, 0), Color.White);
         }
 
         void AddPart(Texture2D texture, Vector2 offset, Color color)
@@ -43,17 +39,24 @@ namespace AstroDroids.Drawables
             Parts.Add(new ShipPart(texture, offset, color));
         }
 
-        public void Draw(Vector2 Position, float angle)
+        public void Draw(Vector2 Position, float angle, float scale)
         {
+            Screen.spriteBatch.End();
+            Screen.spriteBatch.Begin(effect: Screen.Test, transformMatrix: Screen.GetCameraMatrix(), samplerState: SamplerState.LinearWrap);
+
             foreach (var part in Parts)
             {
-                DrawPart(part, Position + part.Offset, angle);
+                DrawPart(part, Position + part.Offset, angle, scale);
             }
+
+            Screen.spriteBatch.End();
+
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointWrap);
         }
 
-        void DrawPart(ShipPart part, Vector2 position, float angle)
+        void DrawPart(ShipPart part, Vector2 position, float angle, float scale)
         {
-            Screen.spriteBatch.Draw(part.Texture, position, null, part.Color, angle, new Vector2(part.Texture.Width / 2, part.Texture.Height / 2), 1f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(part.Texture, position, null, part.Color, angle, new Vector2(part.Texture.Width / 2, part.Texture.Height / 2), scale, SpriteEffects.None, 0f);
         }
     }
 }

@@ -29,6 +29,7 @@ namespace AstroDroids.Managers
         public static void StartLevel()
         {
             CurrentLevel.StartLevel();
+            CurrentLevel.RegisterEvents();
         }
 
         public static IEnumerator GetLevelScript()

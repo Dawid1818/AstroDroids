@@ -117,9 +117,9 @@ namespace AstroDroids.Entities.Friendly
             //Screen.spriteBatch.Draw(exhaustTexture, new Rectangle((int)Collider.Right - 20, (int)Collider.Bottom, 20, exhaustTexture.Height), Color.White);
             //Screen.spriteBatch.Draw(shipTexture, Collider.ToRectangle(), Color.White);
             //Screen.spriteBatch.Draw(prototypeTexture, new Vector2(Transform.Position.X, Transform.Position.Y), Color.White);
-            Screen.spriteBatch.Draw(prototypeTexture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, Angle, new Vector2(prototypeTexture.Width / 2, prototypeTexture.Height / 2), 0.5f, SpriteEffects.None, 0f);
+            //Screen.spriteBatch.Draw(prototypeTexture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, Angle, new Vector2(prototypeTexture.Width / 2, prototypeTexture.Height / 2), 0.5f, SpriteEffects.None, 0f);
 
-            //ship.Draw(GetPosition(), Angle);
+            ship.Draw(GetPosition(), Angle, 0.5f);
 
             GameState.DrawCurrentWeapon(this, gameTime);
         }

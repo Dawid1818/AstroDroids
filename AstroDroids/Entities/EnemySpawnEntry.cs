@@ -13,7 +13,7 @@ namespace AstroDroids.Entities
         public void Load(BinaryReader reader, int version)
         {
             EnemyID = reader.ReadInt32();
-            SpawnData = (IEnemySpawnData)Activator.CreateInstance(EntityDatabase.GetEnemySpawnDataType(EnemyID));
+            SpawnData = (IEnemySpawnData)Activator.CreateInstance(GameDatabase.GetEnemySpawnDataType(EnemyID));
             SpawnData.Load(reader, version);
         }
 

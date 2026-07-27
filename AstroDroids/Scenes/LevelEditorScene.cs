@@ -66,7 +66,7 @@ namespace AstroDroids.Scenes
 
         public LevelEditorScene()
         {
-            EntityDatabase.InitializePreviews();
+            GameDatabase.InitializePreviews();
 
             World = new GameWorld();
 
@@ -97,6 +97,8 @@ namespace AstroDroids.Scenes
             RestoreStarfield();
 
             Screen.ResetCamera();
+
+            level.RegisterEvents();
         }
 
         public override void Set()
@@ -495,6 +497,8 @@ namespace AstroDroids.Scenes
             RestoreStarfield();
 
             Screen.ResetCamera();
+
+            level.RegisterEvents();
         }
 
         void RestoreStarfield()

@@ -7,13 +7,13 @@ namespace AstroDroids.Levels
 {
     public class EventNode : Entity, ISaveable
     {
-        public string EventId = string.Empty;
+        public int EventId = -1;
         public double InitialDelay { get; set; } = 0f;
         public void Load(BinaryReader reader, int version)
         {
             Transform.Position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
 
-            EventId = reader.ReadString();
+            EventId = reader.ReadInt32();
 
             InitialDelay = reader.ReadDouble();
         }

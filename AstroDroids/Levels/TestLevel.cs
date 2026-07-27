@@ -1,11 +1,21 @@
-﻿using AstroDroids.Coroutines;
-using AstroDroids.Entities.Hostile;
-using AstroDroids.Entities.Neutral;
-using Microsoft.Xna.Framework;
+﻿using AstroDroids.Gameplay;
 using System.Collections;
 
 namespace AstroDroids.Levels
 {
+    public class TestLevelEventHandler : LevelEventHandler
+    {
+        public override void RegisterEvents()
+        {
+            base.RegisterEvents();
+
+            AddEvent(10, "Event from derived event handler", () =>
+            {
+                GameState.AddScore(1000);
+            });
+        }
+    }
+
     public class TestLevel : Level
     {
         public override void StartLevel()

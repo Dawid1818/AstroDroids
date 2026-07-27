@@ -629,7 +629,7 @@ namespace AstroDroids.Editors
             {
                 Vector2 windowPos = ImGui.GetWindowPos();
 
-                List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
+                List<Type> enemyList = GameDatabase.GetAllEnemyTypes();
 
                 Vector2 availableSpace = ImGui.GetContentRegionAvail();
 
@@ -823,7 +823,7 @@ namespace AstroDroids.Editors
             }
 
             ImGui.Text($"Enemies ({spawner.EnemyIDs.Count})");
-            List<Type> enemyList = EntityDatabase.GetAllEnemyTypes();
+            List<Type> enemyList = GameDatabase.GetAllEnemyTypes();
             Vector2 availableSpace = ImGui.GetContentRegionAvail();
             if (ImGui.BeginListBox("##EnemyList", new Numeric.Vector2(-1, availableSpace.Y - ((spawner.Path != null && spawner.HasPath) ? 280 : 140))))
             {
@@ -836,7 +836,7 @@ namespace AstroDroids.Editors
                         float yPos = ImGui.GetCursorPosY();
                         ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 4);
                         ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
-                        ImGui.Image(EntityDatabase.GetEntityPreview(enemyId), new Numeric.Vector2(48, 48));
+                        ImGui.Image(GameDatabase.GetEntityPreview(enemyId), new Numeric.Vector2(48, 48));
                         ImGui.SameLine();
                         string label = $"{i} - {enemyList[enemyId].Name}";
                         var textSize = ImGui.CalcTextSize(label);
@@ -872,7 +872,7 @@ namespace AstroDroids.Editors
                         float yPos = ImGui.GetCursorPosY();
                         ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 4);
                         ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
-                        ImGui.Image(EntityDatabase.GetEntityPreview(i), new Numeric.Vector2(64, 64));
+                        ImGui.Image(GameDatabase.GetEntityPreview(i), new Numeric.Vector2(64, 64));
                         ImGui.SameLine();
                         var textSize = ImGui.CalcTextSize(enemyList[i].Name);
                         ImGui.SetCursorPosY(yPos + 72 / 2 - textSize.Y / 2);
@@ -892,7 +892,7 @@ namespace AstroDroids.Editors
 
             if (ImGui.Button("Add"))
             {
-                spawner.EnemyIDs.Add(new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = EntityDatabase.CreateEnemySpawnData(selectedEnemyType) });
+                spawner.EnemyIDs.Add(new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = GameDatabase.CreateEnemySpawnData(selectedEnemyType) });
 
                 selectedEnemy = spawner.EnemyIDs.Count - 1;
                 scrollToBottom = true;
@@ -902,7 +902,7 @@ namespace AstroDroids.Editors
 
             if (ImGui.Button("Insert"))
             {
-                spawner.EnemyIDs.Insert(selectedEnemy + 1, new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = EntityDatabase.CreateEnemySpawnData(selectedEnemyType) });
+                spawner.EnemyIDs.Insert(selectedEnemy + 1, new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = GameDatabase.CreateEnemySpawnData(selectedEnemyType) });
 
                 selectedEnemy = selectedEnemy + 1;
                 scrollToItem = true;
@@ -1020,10 +1020,19 @@ namespace AstroDroids.Editors
         {
             ImGui.SeparatorText("Event settings");
 
-            string eventId = eventN.EventId;
-            if (ImGui.InputText("Event ID", ref eventId, 100))
+            var events = level.GetEvents();
+
+            if (ImGui.BeginCombo("Event", events.TryGetValue(eventN.EventId, out LevelEvent val) ? val.Name : $"Event with ID {eventN.EventId} not found!"))
             {
-                eventN.EventId = eventId;
+                foreach (var even in events)
+                {
+                    if (ImGui.Selectable(even.Value.Name, eventN.EventId == even.Key))
+                    {
+                        eventN.EventId = even.Key;
+                    }
+                }
+
+                ImGui.EndCombo();
             }
 
             double initialDelay = eventN.InitialDelay;

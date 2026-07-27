@@ -151,7 +151,7 @@ namespace AstroDroids.Projectiles
                 }
             }
 
-            foreach (var enemy in Scene.World.Enemies)
+            foreach (var enemy in Scene.World.Enemies.ToList())
             {
                 if (enemy.Intersects(blast))
                 {

@@ -62,6 +62,8 @@ namespace AstroDroids.Gameplay
 
         public double speed { get; set; } = 2;
 
+        public bool PauseWaves { get; set; } = false;
+
         int ongoingWaves = 0;
 
         double timePassed = 0;
@@ -134,6 +136,9 @@ namespace AstroDroids.Gameplay
 
                     yield return new WaitUntil(() => ongoingWaves == 0);
 
+                    if (PauseWaves)
+                        yield return new WaitUntil(() => !PauseWaves);
+
                     yield return new WaitForSeconds(nextWave.Delay);
                 }
             }
@@ -171,7 +176,7 @@ namespace AstroDroids.Gameplay
             {
                 EnemySpawnEntry entry = spawner.EnemyIDs[i];
 
-                Type type = EntityDatabase.GetEnemyType(entry.EnemyID);
+                Type type = GameDatabase.GetEnemyType(entry.EnemyID);
                 Enemy enemy = (Enemy)Activator.CreateInstance(type);
 
                 if (spawner.HasPath)
@@ -252,6 +257,8 @@ namespace AstroDroids.Gameplay
                 yield return new WaitForSeconds(eventN.InitialDelay);
 
             //run event from Level class
+            LevelManager.CurrentLevel.RunEvent(eventN.EventId);
+
             ongoingWaves--;
         }
 
@@ -465,7 +472,7 @@ namespace AstroDroids.Gameplay
             AllCollidables.Add(enemy);
 
             if (spawnData == null)
-                spawnData = EntityDatabase.CreateEnemySpawnData(enemy.GetType());
+                spawnData = GameDatabase.CreateEnemySpawnData(enemy.GetType());
 
             //If the enemy entity hasn't been registered, the spawn data will not be found (for example in case of the laser barriers), so we just skip doing that in this case
             if (spawnData != null)
@@ -487,7 +494,7 @@ namespace AstroDroids.Gameplay
             AllCollidables.Add(neutral);
 
             if (spawnData == null)
-                spawnData = EntityDatabase.CreateEnemySpawnData(neutral.GetType());
+                spawnData = GameDatabase.CreateEnemySpawnData(neutral.GetType());
 
             //If the enemy entity hasn't been registered, the spawn data will not be found (for example in case of the laser barriers), so we just skip doing that in this case
             if (spawnData != null)

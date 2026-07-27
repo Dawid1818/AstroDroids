@@ -33,6 +33,7 @@ namespace AstroDroids.Graphics
         static float ScreenScale = 1.0f;
 
         public static Effect Infinite { get; private set; }
+        public static Effect Test { get; private set; }
         public static Viewport Viewport { get { return graphicsManager.GraphicsDevice.Viewport; } }
 
         static FontSystem fontSystem;
@@ -48,11 +49,14 @@ namespace AstroDroids.Graphics
 
             gumProject = GumUI.Initialize(game, "GumProject/AstroDroidsGum.gumx");
 
+            GumUI.LoadAnimations();
+
             CameraPosition = new Vector2(graphicsManager.GraphicsDevice.Viewport.Width / 2f, graphicsManager.GraphicsDevice.Viewport.Height / 2f);
 
             imGuiRenderer = new ImGuiRenderer(game);
 
             Infinite = game.Content.Load<Effect>("Shaders/Infinite");
+            Test = game.Content.Load<Effect>("Shaders/Test");
 
             fontSystem = new FontSystem();
             fontSystem.AddFont(File.ReadAllBytes("Content/Fonts/VCR_OSD_MONO_1.001.ttf"));

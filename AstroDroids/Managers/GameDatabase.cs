@@ -2,6 +2,9 @@
 using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Hostile.Bosses;
 using AstroDroids.Graphics;
+using AstroDroids.Levels;
+using FlatRedBall.Glue.StateInterpolation;
+using FontStashSharp;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,11 +14,14 @@ using System.Linq;
 
 namespace AstroDroids.Managers
 {
-    public class EntityDatabase
+    public class GameDatabase
     {
         static Dictionary<int, EntityRegistration> entityTypes = new Dictionary<int, EntityRegistration>();
         static Dictionary<int, ImTextureRef> entityPreviews = new Dictionary<int, ImTextureRef>();
+        static Dictionary<int, ImTextureRef> starfieldPreviews = new Dictionary<int, ImTextureRef>();
         static bool previewsInitialized = false;
+
+        static Dictionary<int, Type> eventHandlers = new Dictionary<int, Type>();
 
         public static void Initialize()
         {
@@ -30,6 +36,9 @@ namespace AstroDroids.Managers
             RegisterEnemy(8, typeof(ChallengerBoss), typeof(DefaultSpawnData));
             RegisterEnemy(9, typeof(LBBoss), typeof(DefaultSpawnData));
             RegisterEnemy(10, typeof(FirstBoss), typeof(DefaultSpawnData));
+
+            RegisterEventHandler(0, typeof(LevelEventHandler));
+            RegisterEventHandler(1, typeof(TestLevelEventHandler));
         }
 
         public static void InitializePreviews()
@@ -69,12 +78,38 @@ namespace AstroDroids.Managers
                 entityPreviews.Add(entity.Key, textureRef);
             }
 
+            List<Texture2D> starfields = TextureManager.GetStarfields();
+            for (int i = 0; i < starfields.Count; i++)
+            {
+                RenderTarget2D target;
+
+                target = new RenderTarget2D(manager.GraphicsDevice, 128, 128);
+
+                manager.GraphicsDevice.SetRenderTarget(target);
+                manager.GraphicsDevice.Clear(Color.Transparent);
+
+                Screen.spriteBatch.Begin();
+                Screen.spriteBatch.Draw(starfields[i], new Rectangle(0, 0, 128, 128), Color.White);
+                Screen.spriteBatch.End();
+
+                manager.GraphicsDevice.SetRenderTarget(null);
+
+                var textureRef = Screen.GetImGuiRenderer().BindTexture(target);
+
+                starfieldPreviews.Add(i + 1, textureRef);
+            }
+
             previewsInitialized = true;
         }
 
         static void RegisterEnemy(int id, Type entity, Type spawnData)
         {
             entityTypes[id] = new EntityRegistration { EnemyType = entity, SpawnDataType = spawnData };
+        }
+
+        static void RegisterEventHandler(int id, Type eventHandlerType)
+        {
+            eventHandlers[id] = eventHandlerType;
         }
 
         public static Type GetEnemyType(int id)
@@ -85,7 +120,19 @@ namespace AstroDroids.Managers
             }
             else
             {
-                throw new Exception($"Enemy with ID {id} not found in EntityDatabase.");
+                throw new Exception($"Enemy with ID {id} not found in GameDatabase.");
+            }
+        }
+
+        public static Type GetEventHandlerType(int id)
+        {
+            if (eventHandlers.TryGetValue(id, out Type eventHType))
+            {
+                return eventHType;
+            }
+            else
+            {
+                throw new Exception($"Level Event Handler with ID {id} not found in GameDatabase.");
             }
         }
 
@@ -97,7 +144,20 @@ namespace AstroDroids.Managers
             }
             else
             {
-                throw new Exception($"Enemy with ID {id} not found in EntityDatabase.");
+                throw new Exception($"Enemy with ID {id} not found in GameDatabase.");
+            }
+        }
+
+        public static LevelEventHandler CreateEventHandler(int id)
+        {
+            Type eventHandlerType = GetEventHandlerType(id);
+            if (eventHandlerType != null)
+            {
+                return (LevelEventHandler)Activator.CreateInstance(eventHandlerType);
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -132,13 +192,30 @@ namespace AstroDroids.Managers
             }
             else
             {
-                throw new Exception($"Entity Preview with ID {id} not found in EntityDatabase.");
+                throw new Exception($"Entity Preview with ID {id} not found in GameDatabase.");
+            }
+        }
+
+        public static ImTextureRef GetStarfieldPreview(int id)
+        {
+            if (starfieldPreviews.TryGetValue(id, out ImTextureRef textureRef))
+            {
+                return textureRef;
+            }
+            else
+            {
+                throw new Exception($"Starfield Preview with ID {id} not found in GameDatabase.");
             }
         }
 
         public static List<Type> GetAllEnemyTypes()
         {
             return entityTypes.Values.Select(r => r.EnemyType).ToList();
+        }
+
+        public static Dictionary<int, Type> GetAllEventHandlers()
+        {
+            return eventHandlers;
         }
     }
 }
