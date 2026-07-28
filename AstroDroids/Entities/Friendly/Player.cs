@@ -1,4 +1,5 @@
-﻿using AstroDroids.Drawables;
+﻿using AstroDroids.Data;
+using AstroDroids.Drawables;
 using AstroDroids.Entities.Effects;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
@@ -7,6 +8,7 @@ using AstroDroids.Input;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace AstroDroids.Entities.Friendly
 {
@@ -144,6 +146,11 @@ namespace AstroDroids.Entities.Friendly
                 Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 1f));
                 destroyed = true;
             }
+        }
+
+        public void ApplyCustomization(ShipCustomization customization)
+        {
+            ship.ApplyCustomization(customization);
         }
     }
 }

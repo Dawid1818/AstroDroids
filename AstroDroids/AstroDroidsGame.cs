@@ -54,7 +54,8 @@ namespace AstroDroids
             LevelManager.Initialize();
 
             //SceneManager.SetScene(new GameScene());
-            SceneManager.SetScene(new LevelEditorScene());
+            //SceneManager.SetScene(new LevelEditorScene());
+            SceneManager.SetScene(new ShipEditorScene());
         }
 
         protected override void Update(GameTime gameTime)

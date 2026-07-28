@@ -34,6 +34,12 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
             return gue;
         });
     }
+    public NineSliceRuntime ScorePanelBG { get; protected set; }
+    public NineSliceRuntime ScorePanelBG1 { get; protected set; }
+    public NineSliceRuntime ScorePanelBG2 { get; protected set; }
+    public SpriteRuntime SatTrack { get; protected set; }
+    public SpriteRuntime HueTrack { get; protected set; }
+    public SpriteRuntime ValTrack { get; protected set; }
     public SpriteRuntime ShipIcon { get; protected set; }
     public ContainerRuntime ContainerInstance { get; protected set; }
     public ColoredRectangleRuntime ColoredRectangleInstance { get; protected set; }
@@ -52,12 +58,19 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
     public ColoredRectangleRuntime ColoredRectangleInstance13 { get; protected set; }
     public ColoredRectangleRuntime ColoredRectangleInstance14 { get; protected set; }
     public ColoredRectangleRuntime ColoredRectangleInstance15 { get; protected set; }
-    public Slider SliderInstance { get; protected set; }
-    public TextRuntime TextInstance { get; protected set; }
-    public Slider SliderInstance1 { get; protected set; }
-    public TextRuntime TextInstance1 { get; protected set; }
-    public Slider SliderInstance2 { get; protected set; }
-    public TextRuntime TextInstance2 { get; protected set; }
+    public ColorSlider RSlider { get; protected set; }
+    public TextRuntime RLabel { get; protected set; }
+    public ColorSlider GSlider { get; protected set; }
+    public TextRuntime GLabel { get; protected set; }
+    public ColorSlider BSlider { get; protected set; }
+    public TextRuntime BLabel { get; protected set; }
+    public ContainerRuntime ContainerInstance1 { get; protected set; }
+    public ButtonStandard BodyBtn { get; protected set; }
+    public ButtonStandard WeaponsBtn { get; protected set; }
+    public ButtonStandard EnginesBtn { get; protected set; }
+    public ButtonStandard CockpitBtn { get; protected set; }
+    public ButtonStandard CockpitGlassBtn { get; protected set; }
+    public ButtonStandard WingsBtn { get; protected set; }
 
     public ShipCustomizationScreenGum(InteractiveGue visual) : base(visual)
     {
@@ -71,6 +84,12 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        ScorePanelBG = this.Visual?.GetGraphicalUiElementByName("ScorePanelBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        ScorePanelBG1 = this.Visual?.GetGraphicalUiElementByName("ScorePanelBG1") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        ScorePanelBG2 = this.Visual?.GetGraphicalUiElementByName("ScorePanelBG2") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        SatTrack = this.Visual?.GetGraphicalUiElementByName("SatTrack") as global::MonoGameGum.GueDeriving.SpriteRuntime;
+        HueTrack = this.Visual?.GetGraphicalUiElementByName("HueTrack") as global::MonoGameGum.GueDeriving.SpriteRuntime;
+        ValTrack = this.Visual?.GetGraphicalUiElementByName("ValTrack") as global::MonoGameGum.GueDeriving.SpriteRuntime;
         ShipIcon = this.Visual?.GetGraphicalUiElementByName("ShipIcon") as global::MonoGameGum.GueDeriving.SpriteRuntime;
         ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         ColoredRectangleInstance = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance") as global::MonoGameGum.GueDeriving.ColoredRectangleRuntime;
@@ -89,12 +108,19 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
         ColoredRectangleInstance13 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance13") as global::MonoGameGum.GueDeriving.ColoredRectangleRuntime;
         ColoredRectangleInstance14 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance14") as global::MonoGameGum.GueDeriving.ColoredRectangleRuntime;
         ColoredRectangleInstance15 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance15") as global::MonoGameGum.GueDeriving.ColoredRectangleRuntime;
-        SliderInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"SliderInstance");
-        TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::MonoGameGum.GueDeriving.TextRuntime;
-        SliderInstance1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"SliderInstance1");
-        TextInstance1 = this.Visual?.GetGraphicalUiElementByName("TextInstance1") as global::MonoGameGum.GueDeriving.TextRuntime;
-        SliderInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"SliderInstance2");
-        TextInstance2 = this.Visual?.GetGraphicalUiElementByName("TextInstance2") as global::MonoGameGum.GueDeriving.TextRuntime;
+        RSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"RSlider");
+        RLabel = this.Visual?.GetGraphicalUiElementByName("RLabel") as global::MonoGameGum.GueDeriving.TextRuntime;
+        GSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"GSlider");
+        GLabel = this.Visual?.GetGraphicalUiElementByName("GLabel") as global::MonoGameGum.GueDeriving.TextRuntime;
+        BSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"BSlider");
+        BLabel = this.Visual?.GetGraphicalUiElementByName("BLabel") as global::MonoGameGum.GueDeriving.TextRuntime;
+        ContainerInstance1 = this.Visual?.GetGraphicalUiElementByName("ContainerInstance1") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        BodyBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"BodyBtn");
+        WeaponsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"WeaponsBtn");
+        EnginesBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"EnginesBtn");
+        CockpitBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"CockpitBtn");
+        CockpitGlassBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"CockpitGlassBtn");
+        WingsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"WingsBtn");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

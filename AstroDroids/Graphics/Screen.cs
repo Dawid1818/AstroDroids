@@ -51,6 +51,9 @@ namespace AstroDroids.Graphics
 
             GumUI.LoadAnimations();
 
+            GumUI.CanvasWidth = ScreenWidth;
+            GumUI.CanvasHeight = ScreenHeight;
+
             CameraPosition = new Vector2(graphicsManager.GraphicsDevice.Viewport.Width / 2f, graphicsManager.GraphicsDevice.Viewport.Height / 2f);
 
             imGuiRenderer = new ImGuiRenderer(game);
@@ -85,6 +88,10 @@ namespace AstroDroids.Graphics
             int y = (windowHeight - height) / 2;
 
             DestinationRectangle = new Rectangle(x, y, width, height);
+
+            Matrix translation = Matrix.CreateTranslation(-x, -y, 0f);
+            Matrix scaling = Matrix.CreateScale(1f / scale, 1f / scale, 1f);
+            GumUI.Cursor.TransformMatrix = translation * scaling;
         }
 
         public static void DrawText(string text, Vector2 position, Color color, float size)

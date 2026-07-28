@@ -1484,6 +1484,433 @@
         "ElementType": "Screens",
         "EventType": 5,
         "TimestampUtc": "2026-07-27T14:09:20.2944755Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:10.2399595Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:13.4364847Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:15.118395Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.Controls/ButtonStandard ButtonStandardInstance2 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T07:26:18.5617575Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.Controls/ButtonStandard ButtonStandardInstance1 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T07:26:21.079863Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ContainerInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:26.6288969Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:46.1390847Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:47.1300063Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:47.8475268Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance4",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:50.9808035Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonStandardInstance5",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T07:26:51.5393072Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.BodyBtn",
+        "OldName": "ShipCustomizationScreenGum.ButtonStandardInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:28:29.6125195Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.WeaponsBtn",
+        "OldName": "ShipCustomizationScreenGum.ButtonStandardInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:28:33.0108457Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.EnginesBtn",
+        "OldName": "ShipCustomizationScreenGum.ButtonStandardInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:28:35.6535166Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.CockpitBtn",
+        "OldName": "ShipCustomizationScreenGum.ButtonStandardInstance3",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:28:37.9100493Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.CockpitGlassBtn",
+        "OldName": "ShipCustomizationScreenGum.ButtonStandardInstance4",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:28:42.0063071Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.WingsBtn",
+        "OldName": "ShipCustomizationScreenGum.ButtonStandardInstance5",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:28:45.1722061Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.RSlider",
+        "OldName": "ShipCustomizationScreenGum.SliderInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:37:44.0643405Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.GSlider",
+        "OldName": "ShipCustomizationScreenGum.SliderInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:37:49.1376606Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.BSlider",
+        "OldName": "ShipCustomizationScreenGum.SliderInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:37:51.5008282Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.GLabel",
+        "OldName": "ShipCustomizationScreenGum.TextInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:37:58.8728538Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.RLabel",
+        "OldName": "ShipCustomizationScreenGum.TextInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:38:03.2166255Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.BLabel",
+        "OldName": "ShipCustomizationScreenGum.TextInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T07:38:06.6336826Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SpriteInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T08:30:37.2648576Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SpriteInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T08:31:13.8391232Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SpriteInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T08:31:15.8389523Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.HueTrack",
+        "OldName": "ShipCustomizationScreenGum.SpriteInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T08:31:20.8380717Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SatTrack",
+        "OldName": "ShipCustomizationScreenGum.SpriteInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T08:31:24.5149208Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ValTrack",
+        "OldName": "ShipCustomizationScreenGum.SpriteInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-28T08:31:26.494776Z"
+      },
+      {
+        "NewName": "Controls/Slider1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-28T13:39:02.5670577Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider",
+        "OldName": "Controls/Slider1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-07-28T13:39:08.5106523Z"
+      },
+      {
+        "NewName": "Controls/ButtonStandard1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-28T13:41:43.812602Z"
+      },
+      {
+        "NewName": "Controls/ButtonColorSlider",
+        "OldName": "Controls/ButtonStandard1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-07-28T13:41:49.6501336Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).PolygonInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T13:48:57.4115141Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).Polygon PolygonInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T13:49:33.012802Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).PolygonInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T13:51:05.2125985Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).Polygon PolygonInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T13:51:41.3910616Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T13:52:02.7241345Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).ColoredRectangle ColoredRectangleInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T13:52:10.9419092Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).PolygonInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T13:52:13.1178708Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).Polygon PolygonInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T13:52:27.3752887Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ScorePanelBG",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T13:56:45.259547Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ScorePanelBG1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T13:57:20.8288388Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ScorePanelBG2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T13:57:27.7606908Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).PolygonInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:12:51.7408055Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).Polygon PolygonInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T14:14:25.1751904Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:14:48.6962474Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).ColoredRectangle ColoredRectangleInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T14:14:54.7410659Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).RectangleInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:14:57.0721158Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).Rectangle RectangleInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T14:14:59.3838163Z"
+      },
+      {
+        "NewName": "Controls/ColorSlider (Container).SpriteInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:15:03.3098703Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/ColorSlider (Container).Sprite SpriteInstance in Controls/ColorSlider (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T14:15:05.5421067Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.PolygonInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:15:14.3193604Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.Polygon PolygonInstance in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T14:17:02.4040237Z"
+      },
+      {
+        "NewName": "DemoScreenGum.PolygonInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:18:02.3461026Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "DemoScreenGum.Polygon PolygonInstance in DemoScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T14:22:04.4067126Z"
+      },
+      {
+        "NewName": "test",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-28T14:22:30.5955032Z"
+      },
+      {
+        "NewName": "DemoScreenGum.CircleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:22:34.4644463Z"
+      },
+      {
+        "NewName": "test.CircleInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:23:47.0791737Z"
+      },
+      {
+        "NewName": "test.PolygonInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-28T14:23:54.1345084Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "test.Polygon PolygonInstance in test",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-28T14:38:25.0566265Z"
       }
     ]
   }

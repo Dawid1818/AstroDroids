@@ -1,7 +1,9 @@
-﻿using AstroDroids.Graphics;
+﻿using AstroDroids.Data;
+using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Drawables
@@ -57,6 +59,16 @@ namespace AstroDroids.Drawables
         void DrawPart(ShipPart part, Vector2 position, float angle, float scale)
         {
             Screen.spriteBatch.Draw(part.Texture, position, null, part.Color, angle, new Vector2(part.Texture.Width / 2, part.Texture.Height / 2), scale, SpriteEffects.None, 0f);
+        }
+
+        internal void ApplyCustomization(ShipCustomization customization)
+        {
+            Parts[0].Color = customization.BodyColor.ToColor();
+            Parts[1].Color = customization.WeaponsColor.ToColor();
+            Parts[2].Color = customization.EnginesColor.ToColor();
+            Parts[3].Color = customization.CockpitColor.ToColor();
+            Parts[4].Color = customization.CockpitGlassColor.ToColor();
+            Parts[5].Color = customization.WingsColor.ToColor();
         }
     }
 }

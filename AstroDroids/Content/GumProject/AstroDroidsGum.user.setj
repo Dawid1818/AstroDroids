@@ -2,11 +2,17 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
+      "Screens/GameScreenGum",
+      "Screens/GameScreenGum/ScorePanel",
       "Screens/ShipCustomizationScreenGum",
-      "Screens/ShipCustomizationScreenGum/ContainerInstance",
       "Components",
       "Components/Controls",
-      "Components/Elements"
+      "Components/Controls/ButtonColorSlider",
+      "Components/Controls/ColorSlider",
+      "Components/Controls/ColorSlider/TrackInstance",
+      "Components/Elements",
+      "Behaviors",
+      "Behaviors/SliderBehavior"
     ]
   }
 }
