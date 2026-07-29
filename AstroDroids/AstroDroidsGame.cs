@@ -52,10 +52,12 @@ namespace AstroDroids
             Screen.Initialize(this);
             GameDatabase.Initialize();
             LevelManager.Initialize();
+            TransitionManager.Initialize();
 
             //SceneManager.SetScene(new GameScene());
             //SceneManager.SetScene(new LevelEditorScene());
-            SceneManager.SetScene(new ShipEditorScene());
+            //SceneManager.SetScene(new ShipEditorScene());
+            SceneManager.SetScene(new MainMenuScene());
         }
 
         protected override void Update(GameTime gameTime)

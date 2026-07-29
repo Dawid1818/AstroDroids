@@ -34,6 +34,7 @@ namespace AstroDroids.Graphics
 
         public static Effect Infinite { get; private set; }
         public static Effect Test { get; private set; }
+        public static Effect Transition { get; private set; }
         public static Viewport Viewport { get { return graphicsManager.GraphicsDevice.Viewport; } }
 
         static FontSystem fontSystem;
@@ -60,6 +61,7 @@ namespace AstroDroids.Graphics
 
             Infinite = game.Content.Load<Effect>("Shaders/Infinite");
             Test = game.Content.Load<Effect>("Shaders/Test");
+            Transition = game.Content.Load<Effect>("Shaders/Transition");
 
             fontSystem = new FontSystem();
             fontSystem.AddFont(File.ReadAllBytes("Content/Fonts/VCR_OSD_MONO_1.001.ttf"));
@@ -109,6 +111,7 @@ namespace AstroDroids.Graphics
         public static void Update(GameTime gameTime)
         {
             GumUI.Update(gameTime);
+            TransitionManager.Update(gameTime);
         }
 
         public static void Draw(GameTime gameTime)
@@ -128,9 +131,11 @@ namespace AstroDroids.Graphics
 
             //Screen.spriteBatch.End();
 
-            DrawImGuiAfter();
-
             DrawGum(gameTime);
+
+            TransitionManager.Draw(gameTime);
+
+            DrawImGuiAfter();
 
             SceneManager.DrawDebug(gameTime);
 
