@@ -129,12 +129,15 @@ namespace AstroDroids.Graphics
 
         public static void Update(GameTime gameTime)
         {
-            var control = GumUI.Cursor.FrameworkElementOver;
-
-            if (control != null && hoveredElement != control && InputSystem.GetLastInputMethod() == InputMethod.Mouse)
+            if (GumUI.Cursor != null)
             {
-                hoveredElement = control;
-                control.IsFocused = true;
+                var control = GumUI.Cursor.FrameworkElementOver;
+
+                if (control != null && hoveredElement != control && InputSystem.GetLastInputMethod() == InputMethod.Mouse)
+                {
+                    hoveredElement = control;
+                    control.IsFocused = true;
+                }
             }
 
             GumUI.Update(gameTime);

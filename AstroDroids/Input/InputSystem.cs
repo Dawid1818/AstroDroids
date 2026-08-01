@@ -1,6 +1,9 @@
-﻿using Gum.Forms.Controls;
+﻿using AstroDroids.Graphics;
+using Gum.Forms;
+using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using MonoGameGum.Input;
 using System;
 using System.Collections.Generic;
 
@@ -24,6 +27,9 @@ namespace AstroDroids.Input
 
         static InputMethod lastInputMethod = InputMethod.Keyboard;
 
+        static Cursor defaultCursor;
+        static DisabledCursor disabledCursor;
+
         public static void Initialize()
         {
             Actions = new Dictionary<GameAction, ButtonInputAction>
@@ -36,6 +42,9 @@ namespace AstroDroids.Input
                 { GameAction.NextWeapon, new ButtonInputAction(Keys.X) },
                 { GameAction.Focus, new ButtonInputAction(Keys.C) },
             };
+
+            defaultCursor = new Cursor(AstroDroidsGame.Instance.Window);
+            disabledCursor = new DisabledCursor();
         }
 
         public static void Begin()
@@ -56,7 +65,7 @@ namespace AstroDroids.Input
                 lastInputMethod = InputMethod.Mouse;
             }
 
-            if(GamePadInputChanged())
+            if (GamePadInputChanged())
             {
                 lastInputMethod = InputMethod.Gamepad;
             }
@@ -83,9 +92,9 @@ namespace AstroDroids.Input
 
         public static bool IsActionHeld(GameAction action)
         {
-            if(Actions.TryGetValue(action, out ButtonInputAction inputAction))
+            if (Actions.TryGetValue(action, out ButtonInputAction inputAction))
             {
-                if(kState.IsKeyDown(inputAction.KeyboardKey))
+                if (kState.IsKeyDown(inputAction.KeyboardKey))
                 {
                     return true;
                 }
@@ -98,7 +107,7 @@ namespace AstroDroids.Input
         {
             if (Actions.TryGetValue(action, out ButtonInputAction inputAction))
             {
-                if((kState.IsKeyDown(inputAction.KeyboardKey) && oldKState.IsKeyUp(inputAction.KeyboardKey)))
+                if ((kState.IsKeyDown(inputAction.KeyboardKey) && oldKState.IsKeyUp(inputAction.KeyboardKey)))
                 {
                     return true;
                 }
@@ -222,7 +231,16 @@ namespace AstroDroids.Input
             FrameworkElement.ClickCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Z, HeldKey = null, IsTriggeredOnRepeat = false });
             FrameworkElement.TabKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down, HeldKey = null, IsTriggeredOnRepeat = true });
             FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Up, HeldKey = null, IsTriggeredOnRepeat = true });
+        }
 
+        internal static void DisableUIMouse()
+        {
+            FormsUtilities.SetCursor(disabledCursor);
+        }
+
+        internal static void EnableUIMouse()
+        {
+            FormsUtilities.SetCursor(defaultCursor);
         }
     }
 }

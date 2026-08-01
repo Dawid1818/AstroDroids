@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Extensions;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
+using AstroDroids.Interfaces;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
@@ -8,10 +9,38 @@ using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using System.Collections.Generic;
+using System.IO;
 using Numeric = System.Numerics;
 
 namespace AstroDroids.Editors
 {
+    public class NamedPathBundle() : ISaveable
+    {
+        public List<NamedPath> Paths { get; set; } = new List<NamedPath>();
+
+        public void Load(BinaryReader reader, int version)
+        {
+            Paths.Clear();
+            int pathCount = reader.ReadInt32();
+            for (int i = 0; i < pathCount; i++)
+            {
+                NamedPath path = new NamedPath();
+                path.Load(reader, 0);
+                Paths.Add(path);
+            }
+        }
+
+        public void Save(BinaryWriter writer)
+        {
+            writer.Write(Paths.Count);
+            foreach (var path in Paths)
+            {
+                path.Save(writer);
+            }
+        }
+    }
+
     public class PathBrowser
     {
         Level level { get { return LevelManager.CurrentLevel; } set { LevelManager.CurrentLevel = value; } }
@@ -124,6 +153,29 @@ namespace AstroDroids.Editors
 
                 ImGui.EndDisabled();
 
+                ImGui.SameLine();
+
+                if (ImGui.Button("Export"))
+                {
+                    List<NamedPath> allPaths = new List<NamedPath>(level.Paths);
+
+                    NamedPathBundle bundle = new NamedPathBundle() { Paths = allPaths };
+
+                    FileSaver.SaveObject(bundle, "Paths.bundle");
+                }
+
+                ImGui.SameLine();
+
+                if (ImGui.Button("Import"))
+                {
+                    if (File.Exists("Paths.bundle"))
+                    {
+                        NamedPathBundle bundle = new NamedPathBundle();
+                        FileSaver.RestoreObject(bundle, "Paths.bundle");
+                        level.Paths.AddRange(bundle.Paths);
+                    }
+                }
+
                 ImGui.SeparatorText("Path settings");
 
                 if (selectedPath != null)
@@ -138,10 +190,9 @@ namespace AstroDroids.Editors
                 {
                     ImGui.Text("No path selected");
                 }
-
-
-                ImGui.End();
             }
+
+            ImGui.End();
         }
 
         public void DrawPreview(NamedPath path)

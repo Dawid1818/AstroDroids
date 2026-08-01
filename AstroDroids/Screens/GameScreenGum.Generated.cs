@@ -1,14 +1,14 @@
 //Code for GameScreenGum
 using AstroDroids.Components.Controls;
 using AstroDroids.Components.Elements;
+using Gum;
 using Gum.Converters;
 using Gum.DataTypes;
+using Gum.GueDeriving;
 using Gum.Managers;
 using Gum.StateAnimation.Runtime;
 using Gum.Wireframe;
 using GumRuntime;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
 namespace AstroDroids.Screens;
@@ -19,7 +19,7 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     {
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
-            var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
+            var visual = new global::Gum.GueDeriving.ContainerRuntime();
             var element = ObjectFinder.Self.GetElementSave("GameScreenGum") ?? throw new System.InvalidOperationException("Could not find an element named GameScreenGum - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new GameScreenGum(visual);
@@ -105,31 +105,35 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        BottomPanel = this.Visual?.GetGraphicalUiElementByName("BottomPanel") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        BottomPanelBG = this.Visual?.GetGraphicalUiElementByName("BottomPanelBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
-        ShipIcon = this.Visual?.GetGraphicalUiElementByName("ShipIcon") as global::MonoGameGum.GueDeriving.SpriteRuntime;
-        PowerIcon = this.Visual?.GetGraphicalUiElementByName("PowerIcon") as global::MonoGameGum.GueDeriving.SpriteRuntime;
+        BottomPanel = this.Visual?.GetGraphicalUiElementByName("BottomPanel") as global::Gum.GueDeriving.ContainerRuntime;
+        BottomPanelBG = this.Visual?.GetGraphicalUiElementByName("BottomPanelBG") as global::Gum.GueDeriving.NineSliceRuntime;
+        ShipIcon = this.Visual?.GetGraphicalUiElementByName("ShipIcon") as global::Gum.GueDeriving.SpriteRuntime;
+        PowerIcon = this.Visual?.GetGraphicalUiElementByName("PowerIcon") as global::Gum.GueDeriving.SpriteRuntime;
         LivesLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"LivesLabel");
         PowerLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"PowerLabel");
-        ScorePanelBG = this.Visual?.GetGraphicalUiElementByName("ScorePanelBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        ScorePanelBG = this.Visual?.GetGraphicalUiElementByName("ScorePanelBG") as global::Gum.GueDeriving.NineSliceRuntime;
         ScoreLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"ScoreLabel");
-        BossPanelBG = this.Visual?.GetGraphicalUiElementByName("BossPanelBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        BossPanelBG = this.Visual?.GetGraphicalUiElementByName("BossPanelBG") as global::Gum.GueDeriving.NineSliceRuntime;
         BossHPBar = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<PercentBar>(this.Visual,"BossHPBar");
-        ScorePanel = this.Visual?.GetGraphicalUiElementByName("ScorePanel") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        BossPanel = this.Visual?.GetGraphicalUiElementByName("BossPanel") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        WeaponPanelBG = this.Visual?.GetGraphicalUiElementByName("WeaponPanelBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
-        WeaponPanelIcon = this.Visual?.GetGraphicalUiElementByName("WeaponPanelIcon") as global::MonoGameGum.GueDeriving.SpriteRuntime;
-        WeaponPanel = this.Visual?.GetGraphicalUiElementByName("WeaponPanel") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        BossWarning = this.Visual?.GetGraphicalUiElementByName("BossWarning") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        BossWarningBG = this.Visual?.GetGraphicalUiElementByName("BossWarningBG") as global::MonoGameGum.GueDeriving.ColoredRectangleRuntime;
+        ScorePanel = this.Visual?.GetGraphicalUiElementByName("ScorePanel") as global::Gum.GueDeriving.ContainerRuntime;
+        BossPanel = this.Visual?.GetGraphicalUiElementByName("BossPanel") as global::Gum.GueDeriving.ContainerRuntime;
+        WeaponPanelBG = this.Visual?.GetGraphicalUiElementByName("WeaponPanelBG") as global::Gum.GueDeriving.NineSliceRuntime;
+        WeaponPanelIcon = this.Visual?.GetGraphicalUiElementByName("WeaponPanelIcon") as global::Gum.GueDeriving.SpriteRuntime;
+        WeaponPanel = this.Visual?.GetGraphicalUiElementByName("WeaponPanel") as global::Gum.GueDeriving.ContainerRuntime;
+        BossWarning = this.Visual?.GetGraphicalUiElementByName("BossWarning") as global::Gum.GueDeriving.ContainerRuntime;
+        BossWarningBG = this.Visual?.GetGraphicalUiElementByName("BossWarningBG") as global::Gum.GueDeriving.ColoredRectangleRuntime;
         BossWarningTopLines = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CautionLinesWrapped>(this.Visual,"BossWarningTopLines");
         BossWarningBottomLines = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CautionLinesWrapped>(this.Visual,"BossWarningBottomLines");
-        BossWarningTextClip = this.Visual?.GetGraphicalUiElementByName("BossWarningTextClip") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::MonoGameGum.GueDeriving.TextRuntime;
+        BossWarningTextClip = this.Visual?.GetGraphicalUiElementByName("BossWarningTextClip") as global::Gum.GueDeriving.ContainerRuntime;
+        TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::Gum.GueDeriving.TextRuntime;
         Show = this.Visual.GetAnimation("Show");
         Hide = this.Visual.GetAnimation("Hide");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
+    public void ApplyLocalization()
+    {
+        this.TextInstance.Text = GumService.Default.LocalizationService.Translate("T_BossWarning");
+    }
     partial void CustomInitialize();
 }

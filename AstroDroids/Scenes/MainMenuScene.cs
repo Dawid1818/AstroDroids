@@ -108,6 +108,7 @@ namespace AstroDroids.Scenes
         {
             transitioning = true;
             InputSystem.ClearUIKeys();
+            InputSystem.DisableUIMouse();
             InteractiveGue.CurrentInputReceiver = null;
 
             if (this.menuPage != null)
@@ -135,6 +136,7 @@ namespace AstroDroids.Scenes
 
             transitioning = false;
             InputSystem.AddUIKeys();
+            InputSystem.EnableUIMouse();
 
             yield return null;
         }
