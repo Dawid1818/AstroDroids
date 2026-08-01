@@ -55,6 +55,7 @@ namespace AstroDroids
             GameDatabase.Initialize();
             LevelManager.Initialize();
             TransitionManager.Initialize();
+            SaveManager.Initialize();
 
             //SceneManager.SetScene(new GameScene());
             //SceneManager.SetScene(new LevelEditorScene());

@@ -4,6 +4,7 @@ using AstroDroids.Data;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Graphics;
 using AstroDroids.Interfaces;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,8 +16,6 @@ namespace AstroDroids.Screens
     {
         MainMenuScene scene;
         Player player;
-
-        ShipCustomization customization = new ShipCustomization();
 
         int curPart = 0;
 
@@ -49,7 +48,7 @@ namespace AstroDroids.Screens
             ValTrack.Texture = valueTrack;
             HueTrack.Texture = hueTrack;
 
-            ShipColor targetColor = customization.GetColorByPart(0);
+            ShipColor targetColor = SaveManager.curSave.Ship.GetColorByPart(0);
             UpdateTracks(targetColor.Hue, targetColor.Saturation, targetColor.Value);
             SetRGB(targetColor);
         }
@@ -88,8 +87,8 @@ namespace AstroDroids.Screens
             GSlider.Value = (int)GSlider.Value;
             BSlider.Value = (int)BSlider.Value;
 
-            customization.SetColorByPart(curPart, new ShipColor() { Hue = (float)RSlider.Value, Saturation = (float)GSlider.Value / 100, Value = (float)BSlider.Value / 100 });
-            scene.World.GetPlayers()[0].ApplyCustomization(customization);
+            SaveManager.curSave.Ship.SetColorByPart(curPart, new ShipColor() { Hue = (float)RSlider.Value, Saturation = (float)GSlider.Value / 100, Value = (float)BSlider.Value / 100 });
+            scene.World.GetPlayers()[0].ApplyCustomization(SaveManager.curSave.Ship);
             UpdateTracks((float)RSlider.Value, (float)GSlider.Value / 100, (float)BSlider.Value / 100);
 
             RLabel.SetTextNoTranslate($"H: {(int)RSlider.Value}");
@@ -103,7 +102,7 @@ namespace AstroDroids.Screens
             int tag = (int)s.Visual.Tag;
             
             curPart = tag;
-            ShipColor targetColor = customization.GetColorByPart(curPart);
+            ShipColor targetColor = SaveManager.curSave.Ship.GetColorByPart(curPart);
             UpdateTracks(targetColor.Hue, targetColor.Saturation, targetColor.Value);
             SetRGB(targetColor);
         }
@@ -173,6 +172,7 @@ namespace AstroDroids.Screens
 
         void Return()
         {
+            SaveManager.SaveGame();
             scene.SetPage(new MainMenuScreenGum());
         }
 

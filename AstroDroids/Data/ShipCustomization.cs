@@ -1,9 +1,11 @@
 ﻿
+using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace AstroDroids.Data
 {
-    public struct ShipColor
+    public class ShipColor : ISaveable
     {
         public float Hue { get; set; }
         public float Saturation { get; set; }
@@ -19,9 +21,24 @@ namespace AstroDroids.Data
             color.ToHSV(out float h, out float s, out float v);
             return new ShipColor() { Hue = h, Saturation = s, Value = v };
         }
+
+        public void Save(BinaryWriter writer)
+        {
+            writer.Write(Hue);
+            writer.Write(Saturation);
+            writer.Write(Value);
+        }
+
+        public void Load(BinaryReader reader, int version)
+        {
+            Hue = reader.ReadSingle();
+            Saturation = reader.ReadSingle();
+            Value = reader.ReadSingle();
+        }
+
     }
 
-    public class ShipCustomization
+    public class ShipCustomization : ISaveable
     {
         private ShipColor[] colors = new ShipColor[6];
 
@@ -44,6 +61,37 @@ namespace AstroDroids.Data
         public void SetColorByPart(int part, ShipColor color)
         {
             colors[part] = color;
+        }
+
+        public void Save(BinaryWriter writer)
+        {
+            BodyColor.Save(writer);
+            WeaponsColor.Save(writer);
+            EnginesColor.Save(writer);
+            CockpitColor.Save(writer);
+            CockpitGlassColor.Save(writer);
+            WingsColor.Save(writer);
+        }
+
+        public void Load(BinaryReader reader, int version)
+        {
+            BodyColor = new ShipColor();
+            BodyColor.Load(reader, version);
+
+            WeaponsColor = new ShipColor();
+            WeaponsColor.Load(reader, version);
+
+            EnginesColor = new ShipColor();
+            EnginesColor.Load(reader, version);
+
+            CockpitColor = new ShipColor();
+            CockpitColor.Load(reader, version);
+
+            CockpitGlassColor = new ShipColor();
+            CockpitGlassColor.Load(reader, version);
+
+            WingsColor = new ShipColor();
+            WingsColor.Load(reader, version);
         }
     }
 }

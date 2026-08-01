@@ -559,6 +559,7 @@ namespace AstroDroids.Gameplay
 
         public void AddPlayer(Player player)
         {
+            player.ApplyCustomization(SaveManager.curSave.Ship);
             player.Transform.SetParent(camEntity.Transform);
             Players.Add(player);
             AllCollidables.Add(player);
