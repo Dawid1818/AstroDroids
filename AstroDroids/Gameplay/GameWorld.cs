@@ -572,7 +572,11 @@ namespace AstroDroids.Gameplay
 
         public void RequestPlayerRespawn(int index)
         {
-            //Can check for life amount here later?
+            if(GameStateManager.GetLives() <= 0)
+            {
+                //Game over
+                return;
+            }
             coroutineManager.StartCoroutine(RespawnPlayer(index));
         }
 

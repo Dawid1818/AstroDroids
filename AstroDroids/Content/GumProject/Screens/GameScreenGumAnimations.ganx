@@ -41,5 +41,25 @@
       <Animations />
       <Events />
     </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>ShowMissionStatus</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>MissionStatus/Hidden</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>MissionStatus/Shown</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
   </Animations>
 </ElementAnimationsSave>

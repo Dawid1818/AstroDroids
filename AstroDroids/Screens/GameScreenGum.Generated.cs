@@ -41,6 +41,11 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         Hidden,
         Shown,
     }
+    public enum MissionStatus
+    {
+        Hidden,
+        Shown,
+    }
 
     HideShow? _hideShowState;
     public HideShow? HideShowState
@@ -60,6 +65,31 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
                 else
                 {
                     var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "HideShow");
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+            }
+        }
+    }
+
+    MissionStatus? _missionStatusState;
+    public MissionStatus? MissionStatusState
+    {
+        get => _missionStatusState;
+        set
+        {
+            _missionStatusState = value;
+            if(value != null)
+            {
+                if(Visual.Categories.ContainsKey("MissionStatus"))
+                {
+                    var category = Visual.Categories["MissionStatus"];
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+                else
+                {
+                    var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "MissionStatus");
                     var state = category.States.Find(item => item.Name == value.ToString());
                     this.Visual.ApplyState(state);
                 }
@@ -87,6 +117,7 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public CautionLinesWrapped BossWarningBottomLines { get; protected set; }
     public ContainerRuntime BossWarningTextClip { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
+    public ContainerRuntime MissionStatusContainer { get; protected set; }
     public ContainerRuntime PauseMenu { get; protected set; }
     public NineSliceRuntime PauseMenuBG { get; protected set; }
     public TextRuntime PausedLabel { get; protected set; }
@@ -94,11 +125,13 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public ButtonGlow ResumeBtn { get; protected set; }
     public ButtonGlow SettingsBtn { get; protected set; }
     public ButtonGlow QuitBtn { get; protected set; }
+    public TextRuntime MissionStatusLabel { get; protected set; }
 
 
     #region Animation Fields
     public AnimationRuntime Show {get; protected set;}
     public AnimationRuntime Hide {get; protected set;}
+    public AnimationRuntime ShowMissionStatus {get; protected set;}
     #endregion
     public GameScreenGum(InteractiveGue visual) : base(visual)
     {
@@ -133,6 +166,7 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         BossWarningBottomLines = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CautionLinesWrapped>(this.Visual,"BossWarningBottomLines");
         BossWarningTextClip = this.Visual?.GetGraphicalUiElementByName("BossWarningTextClip") as global::Gum.GueDeriving.ContainerRuntime;
         TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::Gum.GueDeriving.TextRuntime;
+        MissionStatusContainer = this.Visual?.GetGraphicalUiElementByName("MissionStatusContainer") as global::Gum.GueDeriving.ContainerRuntime;
         PauseMenu = this.Visual?.GetGraphicalUiElementByName("PauseMenu") as global::Gum.GueDeriving.ContainerRuntime;
         PauseMenuBG = this.Visual?.GetGraphicalUiElementByName("PauseMenuBG") as global::Gum.GueDeriving.NineSliceRuntime;
         PausedLabel = this.Visual?.GetGraphicalUiElementByName("PausedLabel") as global::Gum.GueDeriving.TextRuntime;
@@ -140,13 +174,16 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         ResumeBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ResumeBtn");
         SettingsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"SettingsBtn");
         QuitBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"QuitBtn");
+        MissionStatusLabel = this.Visual?.GetGraphicalUiElementByName("MissionStatusLabel") as global::Gum.GueDeriving.TextRuntime;
         Show = this.Visual.GetAnimation("Show");
         Hide = this.Visual.GetAnimation("Hide");
+        ShowMissionStatus = this.Visual.GetAnimation("ShowMissionStatus");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
     public void ApplyLocalization()
     {
+        this.MissionStatusLabel.Text = GumService.Default.LocalizationService.Translate("T_MissionComplete");
         this.PausedLabel.Text = GumService.Default.LocalizationService.Translate("T_Paused");
         this.QuitBtn.Text = GumService.Default.LocalizationService.Translate("T_SaveandQuit");
         this.ResumeBtn.Text = GumService.Default.LocalizationService.Translate("T_Resume");

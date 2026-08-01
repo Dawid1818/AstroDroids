@@ -30,6 +30,9 @@ namespace AstroDroids.Levels
             AddEvent(2, "Finish Level", () =>
             {
                 //Scene.World.StartCoroutine(BossWarning());
+
+                GameScene gameScene = Scene as GameScene;
+                gameScene.FinishLevel();
             });
         }
 

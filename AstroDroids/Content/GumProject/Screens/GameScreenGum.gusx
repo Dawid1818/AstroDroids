@@ -340,6 +340,78 @@
     <Variable Type="float" Name="LivesLabel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">11</Value>
     </Variable>
+    <Variable Type="bool" Name="MissionStatusContainer.ClipsChildren" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="MissionStatusContainer.Parent" SetsValue="true" />
+    <Variable Type="bool" Name="MissionStatusContainer.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="MissionStatusContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">546</Value>
+    </Variable>
+    <Variable Type="float" Name="MissionStatusContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MissionStatusContainer.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MissionStatusContainer.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="MissionStatusContainer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="MissionStatusContainer.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MissionStatusContainer.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="MissionStatusLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">1</Value>
+    </Variable>
+    <Variable Type="int" Name="MissionStatusLabel.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">24</Value>
+    </Variable>
+    <Variable Type="bool" Name="MissionStatusLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MissionStatusLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="MissionStatusLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int?" Name="MissionStatusLabel.MaxLettersToShow" SetsValue="true" />
+    <Variable Type="string" Name="MissionStatusLabel.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">MissionStatusContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="MissionStatusLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_MissionComplete</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="MissionStatusLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="MissionStatusLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MissionStatusLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MissionStatusLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="MissionStatusLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="MissionStatusLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MissionStatusLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="MissionStatus" Name="MissionStatusState" SetsValue="true" />
     <Variable Type="int" Name="PausedLabel.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">18</Value>
     </Variable>
@@ -752,6 +824,21 @@
       </Variable>
     </State>
   </Category>
+  <Category>
+    <Name>MissionStatus</Name>
+    <State>
+      <Name>Hidden</Name>
+      <Variable Type="float" Name="MissionStatusContainer.Width" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Shown</Name>
+      <Variable Type="float" Name="MissionStatusContainer.Width" Category="Dimensions" SetsValue="true">
+        <Value xsi:type="xsd:float">546</Value>
+      </Variable>
+    </State>
+  </Category>
   <Instance Name="BottomPanel" BaseType="Container" />
   <Instance Name="BottomPanelBG" BaseType="NineSlice" />
   <Instance Name="ShipIcon" BaseType="Sprite" />
@@ -773,6 +860,7 @@
   <Instance Name="BossWarningBottomLines" BaseType="Elements/CautionLinesWrapped" />
   <Instance Name="BossWarningTextClip" BaseType="Container" />
   <Instance Name="TextInstance" BaseType="Text" />
+  <Instance Name="MissionStatusContainer" BaseType="Container" />
   <Instance Name="PauseMenu" BaseType="Container" />
   <Instance Name="PauseMenuBG" BaseType="NineSlice" />
   <Instance Name="PausedLabel" BaseType="Text" />
@@ -780,5 +868,6 @@
   <Instance Name="ResumeBtn" BaseType="Controls/ButtonGlow" />
   <Instance Name="SettingsBtn" BaseType="Controls/ButtonGlow" />
   <Instance Name="QuitBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="MissionStatusLabel" BaseType="Text" />
   <Behaviors />
 </ScreenSave>

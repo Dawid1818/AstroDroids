@@ -2947,6 +2947,62 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-08-01T12:38:45.0323977Z"
+      },
+      {
+        "NewName": "GameScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:55:03.745466Z"
+      },
+      {
+        "NewName": "GameScreenGum.MissionStatusContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:55:18.8229222Z"
+      },
+      {
+        "NewName": "GameScreenGum.MissionStatusContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:55:18.8244515Z"
+      },
+      {
+        "NewName": "GameScreenGum.MissionStatusContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:55:18.834536Z"
+      },
+      {
+        "NewName": "GameScreenGum.TextInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:55:21.7605698Z"
+      },
+      {
+        "NewName": "GameScreenGum.MissionStatusLabel",
+        "OldName": "GameScreenGum.TextInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:56:40.6365778Z"
+      },
+      {
+        "NewName": "GameScreenGum.MissionStatusLabel",
+        "OldName": "GameScreenGum.TextInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:56:40.6387611Z"
+      },
+      {
+        "NewName": "GameScreenGum.MissionStatusLabel",
+        "OldName": "GameScreenGum.TextInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:56:40.6500819Z"
       }
     ]
   }

@@ -32,6 +32,9 @@ namespace AstroDroids.Scenes
 
         bool transitioning = false;
 
+        bool gameLost = false;
+        bool levelFinished = false;
+
         public GameScene()
         {
 
@@ -93,23 +96,32 @@ namespace AstroDroids.Scenes
 
         public override void Update(GameTime gameTime)
         {
+            if(GameStateManager.GetLives() <= 0 && !gameLost)
+            {
+                gameLost = true;
+                coroutineManager.StartCoroutine(gameOverSequence());
+            }
+
             if (InputSystem.GetKeyDown(Keys.P))
             {
                 debugPaused = !debugPaused;
             }
 
-            if(InputSystem.GetKeyDown(Keys.Escape) && !transitioning)
+            if(InputSystem.GetKeyDown(Keys.Escape) && !transitioning && !gameLost && !levelFinished)
             {
                 SetPauseState(!paused);
             }
 
-            coroutineManager.Update();
-
-            if (!debugPaused && !paused)
+            if (!debugPaused)
             {
-                World.Update(gameTime);
+                coroutineManager.Update();
 
-                yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
+                if (!paused)
+                {
+                    World.Update(gameTime);
+
+                    yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
+                }
             }
 
             ui.ScoreLabel.Text = GameStateManager.GetScore().ToString();
@@ -126,13 +138,6 @@ namespace AstroDroids.Scenes
             {
                 ui.BossPanel.Visible = false;
             }
-
-            //if (World.Enemies.Count > 0)
-            //{
-            //    int totalHealth = World.Enemies[0].GetHealth();
-
-            //    ui.BossHPBar.BarPercent = totalHealth / 1000f * 100f;
-            //}
 
             byte bottomAlpha = 255;
             byte scoreAlpha = 255;
@@ -251,6 +256,32 @@ namespace AstroDroids.Scenes
             World.Draw(gameTime);
         }
 
+        IEnumerator gameOverSequence()
+        {
+            ui.MissionStatusContainer.Visible = true;
+            ui.MissionStatusLabel.Text = "T_GameOver";
+            ui.Visual.PlayAnimation(ui.ShowMissionStatus);
+
+            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped);
+
+            yield return new WaitForSeconds(2f);
+
+            SaveAndQuit();
+        }
+
+        IEnumerator missionFinishedSequence()
+        {
+            ui.MissionStatusContainer.Visible = true;
+            ui.MissionStatusLabel.Text = "T_MissionComplete";
+            ui.Visual.PlayAnimation(ui.ShowMissionStatus);
+
+            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped);
+
+            yield return new WaitForSeconds(2f);
+
+            SaveAndQuit();
+        }
+
         IEnumerator TransitionToSceneCoroutine(Scene scene)
         {
             transitioning = true;
@@ -269,6 +300,15 @@ namespace AstroDroids.Scenes
             transitioning = false;
             InputSystem.AddUIKeys();
             InputSystem.EnableUIMouse();
+        }
+
+        public void FinishLevel()
+        {
+            if (levelFinished || gameLost)
+                return;
+
+            levelFinished = true;
+            coroutineManager.StartCoroutine(missionFinishedSequence());
         }
 
         public override void DrawDebug(GameTime gameTime)
