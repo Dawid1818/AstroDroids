@@ -27,5 +27,125 @@
       <Animations />
       <Events />
     </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>SlideInLeft</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Left</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Idle</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>SlideInRight</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Right</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Idle</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>SlideInUp</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Up</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Idle</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>SlideOutLeft</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Idle</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Left</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>SlideOutRight</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Idle</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Right</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>SlideOutUp</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Idle</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>SlideCategory/Up</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
   </Animations>
 </ElementAnimationsSave>

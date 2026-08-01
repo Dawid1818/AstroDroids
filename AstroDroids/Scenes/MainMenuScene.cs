@@ -1,4 +1,5 @@
-﻿using AstroDroids.Drawables;
+﻿using AstroDroids.Coroutines;
+using AstroDroids.Drawables;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
@@ -6,9 +7,11 @@ using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Screens;
 using Gum.Forms.Controls;
+using Gum.Wireframe;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
@@ -25,6 +28,8 @@ namespace AstroDroids.Scenes
         float xPos = 0f;
 
         InputMethod inputMethod;
+
+        bool transitioning = false;
 
         public MainMenuScene()
         {
@@ -65,7 +70,7 @@ namespace AstroDroids.Scenes
                 SceneManager.SetScene(new MainMenuScene());
             }
 
-            if (menuPage != null)
+            if (menuPage != null && !transitioning)
             {
                 if (InputSystem.IsActionDown(GameAction.NextWeapon) || InputSystem.GetRMBDown() || InputSystem.GetButtonDown(Buttons.B))
                 {
@@ -99,8 +104,23 @@ namespace AstroDroids.Scenes
                 World.DrawDebug();
         }
 
-        public void SetPage(FrameworkElement page)
+        IEnumerator PageTransition(FrameworkElement page)
         {
+            transitioning = true;
+            InputSystem.ClearUIKeys();
+            InteractiveGue.CurrentInputReceiver = null;
+
+            if (this.menuPage != null)
+            {
+                this.menuPage.TransitionOut();
+                //(this.menuPage as FrameworkElement).Visual.AnimationController.OnCompleted += () => { transitioning = false; };
+                yield return new WaitUntil(this.menuPage.TransitionFinished);
+            }
+
+            if (this.menuPage != null)
+            {
+                this.menuPage.Uninitialize();
+            }
             this.menuPage = null;
             ui.HostPane.Children.Clear();
             ui.ClearHints();
@@ -112,6 +132,16 @@ namespace AstroDroids.Scenes
             }
 
             ui.HostPane.AddChild(page);
+
+            transitioning = false;
+            InputSystem.AddUIKeys();
+
+            yield return null;
+        }
+
+        public void SetPage(FrameworkElement page)
+        {
+            coroutineManager.StartCoroutine(PageTransition(page));
         }
     }
 }

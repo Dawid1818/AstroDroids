@@ -41,6 +41,13 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
         DisabledFocused,
         FocusedGlow,
         FocusedGlownt,
+        FocusedActive,
+    }
+    public enum SlideCategory
+    {
+        Idle,
+        Right,
+        Left,
     }
 
     ButtonCategory? _buttonCategoryState;
@@ -67,6 +74,31 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
             }
         }
     }
+
+    SlideCategory? _slideCategoryState;
+    public SlideCategory? SlideCategoryState
+    {
+        get => _slideCategoryState;
+        set
+        {
+            _slideCategoryState = value;
+            if(value != null)
+            {
+                if(Visual.Categories.ContainsKey("SlideCategory"))
+                {
+                    var category = Visual.Categories["SlideCategory"];
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+                else
+                {
+                    var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "SlideCategory");
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+            }
+        }
+    }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
     public NineSliceRuntime Background { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
@@ -74,6 +106,9 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
 
     #region Animation Fields
     public AnimationRuntime GlowFocused {get; protected set;}
+    public AnimationRuntime GlowActive {get; protected set;}
+    public AnimationRuntime SlideIn {get; protected set;}
+    public AnimationRuntime SlideOut {get; protected set;}
     #endregion
 
     public ButtonGlow(InteractiveGue visual) : base(visual)
@@ -92,6 +127,9 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::Gum.GueDeriving.NineSliceRuntime;
         TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::Gum.GueDeriving.TextRuntime;
         GlowFocused = this.Visual.GetAnimation("GlowFocused");
+        GlowActive = this.Visual.GetAnimation("GlowActive");
+        SlideIn = this.Visual.GetAnimation("SlideIn");
+        SlideOut = this.Visual.GetAnimation("SlideOut");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

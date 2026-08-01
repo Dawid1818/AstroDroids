@@ -13,11 +13,19 @@ namespace AstroDroids.Components.Controls
 
         partial void CustomInitialize()
         {
-            
+            //Click += (not, used) =>
+            //{
+            //    Visual.PlayAnimation(GlowActive);
+            //};
         }
 
         public override void UpdateState()
         {
+            if(Visual.AnimationController.CurrentAnimation != null && Visual.AnimationController.CurrentAnimation.Name == "GlowActive")
+            {
+                return;
+            }
+
             var state = base.GetDesiredState();
 
             bool isFocused = (state == "Focused" || state == "HighlightedFocused");

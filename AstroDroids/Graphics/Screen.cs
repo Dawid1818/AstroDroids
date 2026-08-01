@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGameGum;
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace AstroDroids.Graphics
@@ -67,12 +68,8 @@ namespace AstroDroids.Graphics
             GumUI.UseGamepadDefaults();
             GumUI.UseKeyboardDefaults();
 
-            //allow pressing Z to click buttons
-            FrameworkElement.ClickCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Z, HeldKey = null, IsTriggeredOnRepeat = false });
-
-            //allow pressing Up/Down to move between buttons
-            FrameworkElement.TabKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down, HeldKey = null, IsTriggeredOnRepeat = true });
-            FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Up, HeldKey = null, IsTriggeredOnRepeat = true });
+            InputSystem.ClearUIKeys();
+            InputSystem.AddUIKeys();
 
             GumUI.CanvasWidth = ScreenWidth;
             GumUI.CanvasHeight = ScreenHeight;
@@ -134,7 +131,7 @@ namespace AstroDroids.Graphics
         {
             var control = GumUI.Cursor.FrameworkElementOver;
 
-            if (control != null && hoveredElement != control)
+            if (control != null && hoveredElement != control && InputSystem.GetLastInputMethod() == InputMethod.Mouse)
             {
                 hoveredElement = control;
                 control.IsFocused = true;

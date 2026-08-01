@@ -24,8 +24,41 @@ namespace AstroDroids.Screens
             LeaderboardBtn.Click += LeaderboardBtn_Click;
             ExitBtn.Click += ExitBtn_Click;
 
+            //for animation purposes
+            PlayBtn.X = -600;
+            CustomizeBtn.X = -600;
+            SettingsBtn.X = -600;
+            LeaderboardBtn.X = -600;
+            CreditsBtn.X = -600;
+            ExitBtn.X = -600;
+
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
+
+            Visual.PlayAnimation(Enter);
+            Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
+        }
+
+        private void AnimationController_OnCompleted()
+        {
+            PlayBtn.IsFocused = true;
+            Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
+        }
+
+        public void TransitionOut()
+        {
+            //AnimationsState = Animations.Arrived
+            Visual.PlayAnimation(Leave);
+        }
+
+        public void Uninitialize()
+        {
+
+        }
+
+        public bool TransitionFinished()
+        {
+            return Visual.AnimationController.IsStopped;
         }
 
         private void PlayBtn_Click(object sender, EventArgs e)
@@ -56,7 +89,7 @@ namespace AstroDroids.Screens
 
         partial void CustomInitialize()
         {
-            PlayBtn.IsFocused = true;
+
         }
 
         public void BackPressed()

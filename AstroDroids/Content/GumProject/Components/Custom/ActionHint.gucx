@@ -25,9 +25,6 @@
     <Variable Type="float" Name="ActionIcon.Y" SetsValue="true">
       <Value xsi:type="xsd:float">1</Value>
     </Variable>
-    <Variable Type="float" Name="Height" SetsValue="true">
-      <Value xsi:type="xsd:float">48</Value>
-    </Variable>
     <Variable Type="float" Name="ActionIconShadow.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-16</Value>
     </Variable>
@@ -51,6 +48,9 @@
     </Variable>
     <Variable Type="float" Name="ActionIconShadow.Y" SetsValue="true">
       <Value xsi:type="xsd:float">3</Value>
+    </Variable>
+    <Variable Type="float" Name="Height" SetsValue="true">
+      <Value xsi:type="xsd:float">48</Value>
     </Variable>
     <Variable Type="float" Name="Label.DropshadowBlur" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>

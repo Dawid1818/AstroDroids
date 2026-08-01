@@ -9,6 +9,9 @@
     <Variable Type="float" Name="BossRushBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">414</Value>
     </Variable>
+    <Variable Type="string" Name="BossRushBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">BossRushContainer</Value>
+    </Variable>
     <Variable Type="string" Name="BossRushBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string">T_BossRush</Value>
     </Variable>
@@ -16,9 +19,21 @@
       <Value xsi:type="xsd:float">211</Value>
     </Variable>
     <Variable Type="float" Name="BossRushBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">562</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="float" Name="BossRushBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">414</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">211</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">562</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushContainer.Y" SetsValue="true">
       <Value xsi:type="xsd:float">45</Value>
     </Variable>
     <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
@@ -39,6 +54,9 @@
     <Variable Type="float" Name="StoryBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">414</Value>
     </Variable>
+    <Variable Type="string" Name="StoryBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">StoryContainer</Value>
+    </Variable>
     <Variable Type="string" Name="StoryBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string">T_StoryMode</Value>
     </Variable>
@@ -46,9 +64,21 @@
       <Value xsi:type="xsd:float">211</Value>
     </Variable>
     <Variable Type="float" Name="StoryBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">296</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="float" Name="StoryBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">414</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">211</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">296</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryContainer.Y" SetsValue="true">
       <Value xsi:type="xsd:float">45</Value>
     </Variable>
     <Variable IsFile="true" Type="string" Name="TutorialBtn.BannerImage" SetsValue="true">
@@ -57,6 +87,9 @@
     <Variable Type="float" Name="TutorialBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">414</Value>
     </Variable>
+    <Variable Type="string" Name="TutorialBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">TutorialContainer</Value>
+    </Variable>
     <Variable Type="string" Name="TutorialBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string">T_Tutorial</Value>
     </Variable>
@@ -64,15 +97,30 @@
       <Value xsi:type="xsd:float">211</Value>
     </Variable>
     <Variable Type="float" Name="TutorialBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">31</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="float" Name="TutorialBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">414</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">211</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">31</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialContainer.Y" SetsValue="true">
       <Value xsi:type="xsd:float">45</Value>
     </Variable>
   </State>
   <Instance Name="ReturnBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="TutorialContainer" BaseType="Container" />
   <Instance Name="TutorialBtn" BaseType="Controls/ButtonGlowGameMode" />
+  <Instance Name="StoryContainer" BaseType="Container" />
   <Instance Name="StoryBtn" BaseType="Controls/ButtonGlowGameMode" />
+  <Instance Name="BossRushContainer" BaseType="Container" />
   <Instance Name="BossRushBtn" BaseType="Controls/ButtonGlowGameMode" />
   <Behaviors />
 </ScreenSave>

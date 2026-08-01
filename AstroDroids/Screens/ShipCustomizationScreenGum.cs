@@ -34,8 +34,6 @@ namespace AstroDroids.Screens
 
         partial void CustomInitialize()
         {
-            BodyBtn.IsFocused = true;
-
             BodyBtn.Visual.Tag = 0;
             WeaponsBtn.Visual.Tag = 1;
             EnginesBtn.Visual.Tag = 2;
@@ -125,6 +123,8 @@ namespace AstroDroids.Screens
         {
             this.scene = scene;
 
+            BodyBtn.IsFocused = true;
+
             player = new Player(0, new Vector2(scene.World.Bounds.Width / 2 - 16, scene.World.Bounds.Height / 2 - 16));
             player.LockMovement = true;
             scene.World.AddPlayer(player);
@@ -146,7 +146,7 @@ namespace AstroDroids.Screens
             hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
         }
 
-        void Return()
+        public void Uninitialize()
         {
             if (saturationTrack != null)
                 saturationTrack.Dispose();
@@ -159,6 +159,20 @@ namespace AstroDroids.Screens
 
 
             scene.World.RemovePlayer(player);
+        }
+
+        public void TransitionOut()
+        {
+
+        }
+
+        public bool TransitionFinished()
+        {
+            return true;
+        }
+
+        void Return()
+        {
             scene.SetPage(new MainMenuScreenGum());
         }
 

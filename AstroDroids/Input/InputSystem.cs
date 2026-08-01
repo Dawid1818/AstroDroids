@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Gum.Forms.Controls;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Input
@@ -206,6 +208,21 @@ namespace AstroDroids.Input
         public static InputMethod GetLastInputMethod()
         {
             return lastInputMethod;
+        }
+
+        internal static void ClearUIKeys()
+        {
+            FrameworkElement.ClickCombos.Clear();
+            FrameworkElement.TabKeyCombos.Clear();
+            FrameworkElement.TabReverseKeyCombos.Clear();
+        }
+
+        internal static void AddUIKeys()
+        {
+            FrameworkElement.ClickCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Z, HeldKey = null, IsTriggeredOnRepeat = false });
+            FrameworkElement.TabKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down, HeldKey = null, IsTriggeredOnRepeat = true });
+            FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Up, HeldKey = null, IsTriggeredOnRepeat = true });
+
         }
     }
 }

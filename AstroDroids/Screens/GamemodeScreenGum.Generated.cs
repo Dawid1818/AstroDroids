@@ -5,6 +5,7 @@ using Gum.Converters;
 using Gum.DataTypes;
 using Gum.GueDeriving;
 using Gum.Managers;
+using Gum.StateAnimation.Runtime;
 using Gum.Wireframe;
 using GumRuntime;
 using RenderingLibrary.Graphics;
@@ -35,10 +36,18 @@ partial class GamemodeScreenGum : global::Gum.Forms.Controls.FrameworkElement
         });
     }
     public ButtonGlow ReturnBtn { get; protected set; }
+    public ContainerRuntime TutorialContainer { get; protected set; }
     public ButtonGlowGameMode TutorialBtn { get; protected set; }
+    public ContainerRuntime StoryContainer { get; protected set; }
     public ButtonGlowGameMode StoryBtn { get; protected set; }
+    public ContainerRuntime BossRushContainer { get; protected set; }
     public ButtonGlowGameMode BossRushBtn { get; protected set; }
 
+
+    #region Animation Fields
+    public AnimationRuntime Enter {get; protected set;}
+    public AnimationRuntime Leave {get; protected set;}
+    #endregion
     public GamemodeScreenGum(InteractiveGue visual) : base(visual)
     {
     }
@@ -52,9 +61,14 @@ partial class GamemodeScreenGum : global::Gum.Forms.Controls.FrameworkElement
     {
         base.ReactToVisualChanged();
         ReturnBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ReturnBtn");
+        TutorialContainer = this.Visual?.GetGraphicalUiElementByName("TutorialContainer") as global::Gum.GueDeriving.ContainerRuntime;
         TutorialBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlowGameMode>(this.Visual,"TutorialBtn");
+        StoryContainer = this.Visual?.GetGraphicalUiElementByName("StoryContainer") as global::Gum.GueDeriving.ContainerRuntime;
         StoryBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlowGameMode>(this.Visual,"StoryBtn");
+        BossRushContainer = this.Visual?.GetGraphicalUiElementByName("BossRushContainer") as global::Gum.GueDeriving.ContainerRuntime;
         BossRushBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlowGameMode>(this.Visual,"BossRushBtn");
+        Enter = this.Visual.GetAnimation("Enter");
+        Leave = this.Visual.GetAnimation("Leave");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

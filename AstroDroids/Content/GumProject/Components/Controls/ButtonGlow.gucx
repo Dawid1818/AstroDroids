@@ -88,6 +88,7 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="bool" Name="IsXamarinFormsControl" Category="Xamarin Forms" SetsValue="true" />
+    <Variable Type="SlideCategory" Name="SlideCategoryState" SetsValue="true" />
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
     <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
@@ -306,6 +307,48 @@
       </Variable>
       <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
         <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>FocusedActive</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Primary</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>SlideCategory</Name>
+    <State>
+      <Name>Idle</Name>
+      <Variable Type="float" Name="X" Category="Position" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Right</Name>
+      <Variable Type="float" Name="X" SetsValue="true">
+        <Value xsi:type="xsd:float">600</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Left</Name>
+      <Variable Type="float" Name="X" Category="Position" SetsValue="true">
+        <Value xsi:type="xsd:float">-600</Value>
       </Variable>
     </State>
   </Category>

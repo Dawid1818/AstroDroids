@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ElementAnimationsSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Animations>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>Enter</Name>
+      <States />
+      <Animations>
+        <AnimationReferenceSave>
+          <Name>TutorialBtn.SlideInLeft</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>StoryBtn.SlideInUp</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>BossRushBtn.SlideInRight</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>ReturnBtn.SlideIn</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+      </Animations>
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>Leave</Name>
+      <States />
+      <Animations>
+        <AnimationReferenceSave>
+          <Name>ReturnBtn.SlideOut</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>TutorialBtn.SlideOutLeft</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>StoryBtn.SlideOutUp</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>BossRushBtn.SlideOutRight</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+      </Animations>
+      <Events />
+    </AnimationSave>
+  </Animations>
+</ElementAnimationsSave>

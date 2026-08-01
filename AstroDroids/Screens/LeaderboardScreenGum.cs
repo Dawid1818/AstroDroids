@@ -20,6 +20,21 @@ namespace AstroDroids.Screens
             ReturnBtn.Click += ReturnBtn_Click;
         }
 
+        public void Uninitialize()
+        {
+
+        }
+
+        public void TransitionOut()
+        {
+
+        }
+
+        public bool TransitionFinished()
+        {
+            return true;
+        }
+
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
             scene.SetPage(new MainMenuScreenGum());

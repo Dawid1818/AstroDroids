@@ -2653,6 +2653,104 @@
         "ElementType": "Components",
         "EventType": 5,
         "TimestampUtc": "2026-07-31T21:14:24.2664444Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ButtonContainer",
+        "OldName": "MainMenuScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T07:00:52.1660894Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.LogoLabel",
+        "OldName": "MainMenuScreenGum.TextInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T07:00:56.3492438Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.LeaderboardBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T07:01:02.3106323Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.CreditsBtn",
+        "OldName": "MainMenuScreenGum.LeaderboardBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T07:01:05.6348344Z"
+      },
+      {
+        "NewName": "FocusedActive",
+        "OldName": "FocusedGlow1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-08-01T07:22:15.7132455Z"
+      },
+      {
+        "NewName": "Offset",
+        "OldName": "Enabled1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-08-01T07:47:41.1793925Z"
+      },
+      {
+        "NewName": "Left",
+        "OldName": "In",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-08-01T08:46:05.5024068Z"
+      },
+      {
+        "NewName": "Right",
+        "OldName": "Out",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-08-01T08:46:08.5398568Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T09:04:23.5579379Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.ContainerInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T09:04:36.7524321Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.ContainerInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T09:04:45.2229297Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.TutorialContainer",
+        "OldName": "GamemodeScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T09:48:30.8463581Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.StoryContainer",
+        "OldName": "GamemodeScreenGum.ContainerInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T09:48:33.5853529Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.BossRushContainer",
+        "OldName": "GamemodeScreenGum.ContainerInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T09:48:37.1921579Z"
       }
     ]
   }
