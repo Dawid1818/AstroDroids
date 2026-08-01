@@ -54,7 +54,7 @@ namespace AstroDroids.Entities.Friendly
                 return;
 
             //Firing
-            GameState.UpdateCurrentWeapon(this, gameTime);
+            GameStateManager.UpdateCurrentWeapon(this, gameTime);
 
             //Player movement
             Vector2 movement = Vector2.Zero;
@@ -128,7 +128,7 @@ namespace AstroDroids.Entities.Friendly
 
             ship.Draw(GetPosition(), Angle, 0.5f);
 
-            GameState.DrawCurrentWeapon(this, gameTime);
+            GameStateManager.DrawCurrentWeapon(this, gameTime);
         }
 
         public Vector2 GetPosition()
@@ -146,7 +146,7 @@ namespace AstroDroids.Entities.Friendly
             if (!destroyed)
             {
                 Scene.World.RemovePlayer(this);
-                GameState.RemoveLife();
+                GameStateManager.RemoveLife();
                 Scene.World.RequestPlayerRespawn(playerIndex);
                 Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 1f));
                 destroyed = true;

@@ -18,13 +18,18 @@ namespace AstroDroids.Levels
         {
             AddEvent(0, "Test Event!", () => 
             {
-                GameState.Firepower = GameState.MaxFirepower;
+                GameStateManager.Firepower = GameStateManager.MaxFirepower;
             });
 
             AddEvent(1, "Show Boss Warning", () =>
             {
                 Scene.World.PauseWaves = true;
                 Scene.World.StartCoroutine(BossWarning());
+            });
+
+            AddEvent(2, "Finish Level", () =>
+            {
+                //Scene.World.StartCoroutine(BossWarning());
             });
         }
 

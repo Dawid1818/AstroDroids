@@ -105,7 +105,7 @@ namespace AstroDroids.Weapons
 
                     if (charge < 1f)
                     {
-                        charge += (float)gameTime.ElapsedGameTime.TotalSeconds + (0.015f * ((float)GameState.Firepower / GameState.MaxFirepower));
+                        charge += (float)gameTime.ElapsedGameTime.TotalSeconds + (0.015f * ((float)GameStateManager.GetFirepower() / GameStateManager.MaxFirepower));
 
                         if (charge > 1f)
                             charge = 1f;
@@ -114,7 +114,7 @@ namespace AstroDroids.Weapons
             }
             else if (charging)
             {
-                switch (GameState.Firepower)
+                switch (GameStateManager.GetFirepower())
                 {
                     default:
                     case 1:
@@ -167,7 +167,7 @@ namespace AstroDroids.Weapons
             {
                 chargeEmitter.Parameters.Quantity = new ParticleInt32Parameter((int)(12 * charge));
 
-                switch (GameState.Firepower)
+                switch (GameStateManager.GetFirepower())
                 {
                     default:
                     case 1:
@@ -329,7 +329,7 @@ namespace AstroDroids.Weapons
         {
             if(charging)
             {
-                switch (GameState.Firepower)
+                switch (GameStateManager.GetFirepower())
                 {
                     default:
                     case 1:
@@ -389,7 +389,7 @@ namespace AstroDroids.Weapons
 
         void SpawnProjectile(Player player, Vector2 relative, float angle)
         {
-            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle), charge, GameState.Firepower);
+            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle), charge, GameStateManager.GetFirepower());
             Scene.World.AddProjectile(projectile, true);
         }
 
@@ -398,7 +398,7 @@ namespace AstroDroids.Weapons
             float actualTargetAngle = -90 + targetAngle;
             float actualAngle = float.Lerp(-90 + startAngle, actualTargetAngle, charge);
 
-            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(actualAngle) + player.Angle, charge, GameState.Firepower);
+            LaserCannonProjectile projectile = new LaserCannonProjectile(player.GetPosition() + relative, MathHelper.ToRadians(actualAngle) + player.Angle, charge, GameStateManager.GetFirepower());
             Scene.World.AddProjectile(projectile, true);
         }
 

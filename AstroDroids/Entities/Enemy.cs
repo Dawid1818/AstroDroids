@@ -66,7 +66,7 @@ namespace AstroDroids.Entities
 
             Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 0.6f));
 
-            GameState.AddScore(Score);
+            GameStateManager.AddScore(Score);
             Despawn();
 
             destroyed = true;

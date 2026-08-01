@@ -84,7 +84,7 @@ namespace AstroDroids.Scenes
             if (World == null)
                 World = new GameWorld();
 
-            GameState.NewState();
+            //GameStateManager.NewState();
 
             List<Texture2D> starfields = TextureManager.GetStarfields();
             World.Starfield = new ImageStarfield(starfields[0]);

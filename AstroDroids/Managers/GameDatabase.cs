@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Entities;
 using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Hostile.Bosses;
+using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Levels;
 using FlatRedBall.Glue.StateInterpolation;
@@ -23,6 +24,8 @@ namespace AstroDroids.Managers
 
         static Dictionary<int, Type> eventHandlers = new Dictionary<int, Type>();
 
+        static Dictionary<MissionType, GameMission> Missions = new Dictionary<MissionType, GameMission>();
+
         public static void Initialize()
         {
             RegisterEnemy(0, typeof(BasicEnemy), typeof(DefaultSpawnData));
@@ -39,6 +42,10 @@ namespace AstroDroids.Managers
 
             RegisterEventHandler(0, typeof(LevelEventHandler));
             RegisterEventHandler(1, typeof(TestLevelEventHandler));
+
+            RegisterMission(MissionType.Tutorial, new GameMission() { Name = "Tutorial", Type = MissionType.Tutorial, LevelNames = { "Tutorial" } });
+            RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2", "Level3", "Level4", "Level5" } });
+            RegisterMission(MissionType.BossRush, new GameMission() { Name = "BossRush", Type = MissionType.BossRush, LevelNames = { "BossRush" } });
         }
 
         public static void InitializePreviews()
@@ -112,6 +119,11 @@ namespace AstroDroids.Managers
             eventHandlers[id] = eventHandlerType;
         }
 
+        static void RegisterMission(MissionType type, GameMission mission)
+        {
+            Missions[type] = mission;
+        }
+
         public static Type GetEnemyType(int id)
         {
             if (entityTypes.TryGetValue(id, out EntityRegistration registration))
@@ -145,6 +157,18 @@ namespace AstroDroids.Managers
             else
             {
                 throw new Exception($"Enemy with ID {id} not found in GameDatabase.");
+            }
+        }
+
+        public static GameMission GetMission(MissionType type)
+        {
+            if (Missions.TryGetValue(type, out GameMission mission))
+            {
+                return mission;
+            }
+            else
+            {
+                throw new Exception($"Mission with type {type} not found in GameDatabase.");
             }
         }
 

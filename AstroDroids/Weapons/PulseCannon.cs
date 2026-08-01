@@ -26,7 +26,7 @@ namespace AstroDroids.Weapons
             {
                 if (currentCooldown <= 0f)
                 {
-                    switch (GameState.Firepower)
+                    switch (GameStateManager.GetFirepower())
                     {
                         default:
                         case 1:

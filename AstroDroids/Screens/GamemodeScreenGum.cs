@@ -1,6 +1,9 @@
 using AstroDroids.Components.Elements;
+using AstroDroids.Gameplay;
 using AstroDroids.Interfaces;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
+using System;
 
 namespace AstroDroids.Screens
 {
@@ -12,6 +15,7 @@ namespace AstroDroids.Screens
             this.scene = scene;
 
             ReturnBtn.Click += ReturnBtn_Click;
+            BossRushBtn.Click += BossRushBtn_Click;
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
@@ -19,6 +23,15 @@ namespace AstroDroids.Screens
 
             Visual.PlayAnimation(Enter);
             Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
+        }
+
+        private void BossRushBtn_Click(object sender, EventArgs e)
+        {
+            GameStateManager.NewState(GameDatabase.GetMission(MissionType.BossRush));
+
+            GameScene scene = new GameScene();
+
+            SceneManager.SetScene(scene);
         }
 
         private void AnimationController_OnCompleted()

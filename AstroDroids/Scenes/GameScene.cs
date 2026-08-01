@@ -48,15 +48,21 @@ namespace AstroDroids.Scenes
 
         public override void Set()
         {
+            Screen.GumUI.Root.Children.Clear();
+
             ui = new GameScreenGum();
             ui.AddToRoot();
 
             //LevelManager.LoadLevel(0);
 
+            if(GameStateManager.GetMissionType() != MissionType.Editor)
+            {
+                List<string> levels = GameStateManager.GetLevels();
+                LevelManager.LoadLevel(levels[GameStateManager.GetLevelIndex()]);
+            }
+
             if (World == null)
                 World = new GameWorld();
-
-            GameState.NewState();
 
             World.Initialize();
 
@@ -95,10 +101,10 @@ namespace AstroDroids.Scenes
                 yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
             }
 
-            ui.ScoreLabel.Text = GameState.GetScore().ToString();
-            ui.LivesLabel.Text = GameState.GetLives().ToString();
-            ui.PowerLabel.Text = $"{GameState.GetFirepower()}/5";
-            ui.WeaponPanelIcon.Texture = GameState.GetWeaponIcon();
+            ui.ScoreLabel.Text = GameStateManager.GetScore().ToString();
+            ui.LivesLabel.Text = GameStateManager.GetLives().ToString();
+            ui.PowerLabel.Text = $"{GameStateManager.GetFirepower()}/5";
+            ui.WeaponPanelIcon.Texture = GameStateManager.GetWeaponIcon();
 
             if (World.BossEntity != null)
             {
@@ -177,10 +183,10 @@ namespace AstroDroids.Scenes
 
             if (InputSystem.GetKeyDown(Keys.F5))
             {
-                GameState.Firepower += 1;
-                if (GameState.Firepower > 5)
+                GameStateManager.Firepower += 1;
+                if (GameStateManager.GetFirepower() > 5)
                 {
-                    GameState.Firepower = 1;
+                    GameStateManager.Firepower = 1;
                 }
             }
 

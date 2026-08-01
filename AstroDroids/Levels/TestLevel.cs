@@ -11,7 +11,7 @@ namespace AstroDroids.Levels
 
             AddEvent(10, "Event from derived event handler", () =>
             {
-                GameState.AddScore(1000);
+                GameStateManager.AddScore(1000);
             });
         }
     }

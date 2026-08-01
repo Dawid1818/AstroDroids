@@ -26,6 +26,12 @@ namespace AstroDroids.Managers
             CurrentLevel = new TestLevel();
         }
 
+        public static void LoadLevel(string levelName)
+        {
+            CurrentLevel = new Level();
+            FileSaver.RestoreObject(CurrentLevel, Path.Combine("Content/Levels/", levelName + ".adlvl"));
+        }
+
         public static void StartLevel()
         {
             CurrentLevel.StartLevel();
@@ -51,6 +57,8 @@ namespace AstroDroids.Managers
 
             scene.World = new GameWorld();
             scene.World.SetProgress(startPoint);
+
+            GameStateManager.NewState(new GameMission() { Name = "Editor", Type = MissionType.Editor });
 
             SceneManager.SetScene(scene);
         }
