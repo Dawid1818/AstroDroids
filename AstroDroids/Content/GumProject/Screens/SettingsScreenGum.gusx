@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>SettingsScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Return</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">56</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">411</Value>
+    </Variable>
+  </State>
+  <Instance Name="ReturnBtn" BaseType="Controls/ButtonGlow" />
+  <Behaviors />
+</ScreenSave>

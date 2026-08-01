@@ -74,8 +74,8 @@ namespace AstroDroids.Scenes
             ui = new ShipCustomizationScreenGum();
             ui.AddToRoot();
 
-            ui.PartChanged += Ui_PartChanged;
-            ui.ColorChanged += Ui_ColorChanged;
+            //ui.PartChanged += Ui_PartChanged;
+            //ui.ColorChanged += Ui_ColorChanged;
 
             ui.SatTrack.Texture = saturationTrack;
             ui.ValTrack.Texture = valueTrack;

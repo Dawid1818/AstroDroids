@@ -35,6 +35,8 @@ namespace AstroDroids.Entities.Friendly
 
         bool destroyed = false;
 
+        public bool LockMovement { get; set; } = false;
+
         public Player(int playerIndex, Vector2 position) : base(new Transform(position), 1)
         {
             this.playerIndex = playerIndex;
@@ -60,46 +62,49 @@ namespace AstroDroids.Entities.Friendly
             //Angle = MathHelper.ToRadians(180);
             //Angle += 0.01f;
 
-            float actualSpeed = InputSystem.IsActionHeld(GameAction.Focus) ? speed / 2f : speed;
+            if (!LockMovement)
+            {
+                float actualSpeed = InputSystem.IsActionHeld(GameAction.Focus) ? speed / 2f : speed;
 
-            if (InputSystem.IsActionHeld(GameAction.Up))
-            {
-                movement.Y -= actualSpeed;
-            }
+                if (InputSystem.IsActionHeld(GameAction.Up))
+                {
+                    movement.Y -= actualSpeed;
+                }
 
-            if (InputSystem.IsActionHeld(GameAction.Down))
-            {
-                movement.Y += actualSpeed;
-            }
+                if (InputSystem.IsActionHeld(GameAction.Down))
+                {
+                    movement.Y += actualSpeed;
+                }
 
-            if (InputSystem.IsActionHeld(GameAction.Left))
-            {
-                movement.X -= actualSpeed;
-            }
+                if (InputSystem.IsActionHeld(GameAction.Left))
+                {
+                    movement.X -= actualSpeed;
+                }
 
-            if (InputSystem.IsActionHeld(GameAction.Right))
-            {
-                movement.X += actualSpeed;
-            }
+                if (InputSystem.IsActionHeld(GameAction.Right))
+                {
+                    movement.X += actualSpeed;
+                }
 
-            Transform.LocalPosition += movement;
+                Transform.LocalPosition += movement;
 
-            if (Transform.LocalPosition.X - Width < Scene.World.Bounds.Left)
-            {
-                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Left + Width, Transform.LocalPosition.Y);
-            }
-            else if (Transform.LocalPosition.X + Width > Scene.World.Bounds.Right)
-            {
-                Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width, Transform.LocalPosition.Y);
-            }
+                if (Transform.LocalPosition.X - Width < Scene.World.Bounds.Left)
+                {
+                    Transform.LocalPosition = new Vector2(Scene.World.Bounds.Left + Width, Transform.LocalPosition.Y);
+                }
+                else if (Transform.LocalPosition.X + Width > Scene.World.Bounds.Right)
+                {
+                    Transform.LocalPosition = new Vector2(Scene.World.Bounds.Right - Width, Transform.LocalPosition.Y);
+                }
 
-            if (Transform.LocalPosition.Y - Height < Scene.World.Bounds.Top)
-            {
-                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Top + Height);
-            }
-            else if (Transform.LocalPosition.Y + Height > Scene.World.Bounds.Bottom)
-            {
-                Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Bottom - Height);
+                if (Transform.LocalPosition.Y - Height < Scene.World.Bounds.Top)
+                {
+                    Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Top + Height);
+                }
+                else if (Transform.LocalPosition.Y + Height > Scene.World.Bounds.Bottom)
+                {
+                    Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Scene.World.Bounds.Bottom - Height);
+                }
             }
 
             foreach (var enemy in Scene.World.Enemies)

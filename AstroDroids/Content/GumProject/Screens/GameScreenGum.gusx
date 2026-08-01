@@ -3,1281 +3,613 @@
   <Name>GameScreenGum</Name>
   <State>
     <Name>Default</Name>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>BossHPBar.BarColor</Name>
+    <Variable Type="ColorCategory" Name="BossHPBar.BarColor" SetsValue="true">
       <Value xsi:type="xsd:string">Danger</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>BarDecorCategory</Type>
-      <Name>BossHPBar.BarDecorCategoryState</Name>
+    <Variable Type="BarDecorCategory" Name="BossHPBar.BarDecorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">CautionLines</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BossHPBar.Parent</Name>
+    <Variable Type="string" Name="BossHPBar.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BossPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BossHPBar.Visible</Name>
+    <Variable Type="bool" Name="BossHPBar.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossHPBar.Width</Name>
+    <Variable Type="float" Name="BossHPBar.Width" SetsValue="true">
       <Value xsi:type="xsd:float">-10</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BossHPBar.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BossHPBar.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossHPBar.X</Name>
+    <Variable Type="float" Name="BossHPBar.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>BossHPBar.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="BossHPBar.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossHPBar.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossHPBar.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossHPBar.Y</Name>
+    <Variable Type="float" Name="BossHPBar.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BossHPBar.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="BossHPBar.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossHPBar.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossHPBar.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>BossPanel.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="BossPanel.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossPanel.Height</Name>
+    <Variable Type="float" Name="BossPanel.Height" SetsValue="true">
       <Value xsi:type="xsd:float">29</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BossPanel.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BossPanel.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BossPanel.Visible</Name>
+    <Variable Type="bool" Name="BossPanel.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossPanel.Width</Name>
+    <Variable Type="float" Name="BossPanel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">322</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BossPanel.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BossPanel.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossPanel.X</Name>
+    <Variable Type="float" Name="BossPanel.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>BossPanel.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="BossPanel.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossPanel.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossPanel.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossPanel.Y</Name>
+    <Variable Type="float" Name="BossPanel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BossPanel.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="BossPanel.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossPanel.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossPanel.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossPanelBG.Alpha</Name>
+    <Variable Type="int" Name="BossPanelBG.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>BossPanelBG.ColorCategoryState</Name>
+    <Variable Type="ColorCategory" Name="BossPanelBG.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BossPanelBG.Parent</Name>
+    <Variable Type="string" Name="BossPanelBG.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BossPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>StyleCategory</Type>
-      <Name>BossPanelBG.StyleCategoryState</Name>
+    <Variable Type="StyleCategory" Name="BossPanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BossWarning.ClipsChildren</Name>
+    <Variable Type="bool" Name="BossWarning.ClipsChildren" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarning.Height</Name>
+    <Variable Type="float" Name="BossWarning.Height" SetsValue="true">
       <Value xsi:type="xsd:float">89</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BossWarning.Visible</Name>
+    <Variable Type="bool" Name="BossWarning.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarning.Width</Name>
+    <Variable Type="float" Name="BossWarning.Width" SetsValue="true">
       <Value xsi:type="xsd:float">800</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarning.X</Name>
+    <Variable Type="float" Name="BossWarning.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>BossWarning.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="BossWarning.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossWarning.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossWarning.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarning.Y</Name>
+    <Variable Type="float" Name="BossWarning.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BossWarning.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="BossWarning.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossWarning.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossWarning.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningBG.Alpha</Name>
+    <Variable Type="int" Name="BossWarningBG.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">65</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningBG.Blue</Name>
+    <Variable Type="int" Name="BossWarningBG.Blue" SetsValue="true">
       <Value xsi:type="xsd:int">36</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningBG.Green</Name>
+    <Variable Type="int" Name="BossWarningBG.Green" SetsValue="true">
       <Value xsi:type="xsd:int">36</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningBG.Height</Name>
+    <Variable Type="float" Name="BossWarningBG.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BossWarningBG.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BossWarningBG.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BossWarningBG.Parent</Name>
+    <Variable Type="string" Name="BossWarningBG.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BossWarning</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningBG.Red</Name>
+    <Variable Type="int" Name="BossWarningBG.Red" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningBG.Width</Name>
+    <Variable Type="float" Name="BossWarningBG.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BossWarningBG.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BossWarningBG.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningBG.X</Name>
+    <Variable Type="float" Name="BossWarningBG.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>BossWarningBG.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="BossWarningBG.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossWarningBG.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossWarningBG.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningBG.Y</Name>
+    <Variable Type="float" Name="BossWarningBG.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BossWarningBG.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="BossWarningBG.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossWarningBG.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossWarningBG.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningBottomLines.Alpha</Name>
+    <Variable Type="int" Name="BossWarningBottomLines.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>Blend</Type>
-      <Name>BossWarningBottomLines.Blend</Name>
+    <Variable Type="Blend" Name="BossWarningBottomLines.Blend" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BossWarningBottomLines.IsRenderTarget</Name>
+    <Variable Type="bool" Name="BossWarningBottomLines.IsRenderTarget" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningBottomLines.LineAlpha</Name>
+    <Variable Type="int" Name="BossWarningBottomLines.LineAlpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BossWarningBottomLines.Parent</Name>
+    <Variable Type="string" Name="BossWarningBottomLines.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BossWarning</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningBottomLines.Width</Name>
+    <Variable Type="float" Name="BossWarningBottomLines.Width" SetsValue="true">
       <Value xsi:type="xsd:float">800</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningBottomLines.X</Name>
+    <Variable Type="float" Name="BossWarningBottomLines.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningBottomLines.Y</Name>
+    <Variable Type="float" Name="BossWarningBottomLines.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BossWarningBottomLines.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="BossWarningBottomLines.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossWarningBottomLines.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossWarningBottomLines.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BossWarningTextClip.ClipsChildren</Name>
+    <Variable Type="bool" Name="BossWarningTextClip.ClipsChildren" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningTextClip.Height</Name>
+    <Variable Type="float" Name="BossWarningTextClip.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-32</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BossWarningTextClip.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BossWarningTextClip.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BossWarningTextClip.Parent</Name>
+    <Variable Type="string" Name="BossWarningTextClip.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BossWarning</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningTextClip.Width</Name>
+    <Variable Type="float" Name="BossWarningTextClip.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BossWarningTextClip.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BossWarningTextClip.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningTextClip.X</Name>
+    <Variable Type="float" Name="BossWarningTextClip.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>BossWarningTextClip.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="BossWarningTextClip.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossWarningTextClip.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossWarningTextClip.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningTextClip.Y</Name>
+    <Variable Type="float" Name="BossWarningTextClip.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BossWarningTextClip.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="BossWarningTextClip.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BossWarningTextClip.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="BossWarningTextClip.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningTopLines.Alpha</Name>
+    <Variable Type="int" Name="BossWarningTopLines.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>Blend</Type>
-      <Name>BossWarningTopLines.Blend</Name>
+    <Variable Type="Blend" Name="BossWarningTopLines.Blend" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BossWarningTopLines.IsRenderTarget</Name>
+    <Variable Type="bool" Name="BossWarningTopLines.IsRenderTarget" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BossWarningTopLines.LineAlpha</Name>
+    <Variable Type="int" Name="BossWarningTopLines.LineAlpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BossWarningTopLines.Parent</Name>
+    <Variable Type="string" Name="BossWarningTopLines.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BossWarning</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningTopLines.Width</Name>
+    <Variable Type="float" Name="BossWarningTopLines.Width" SetsValue="true">
       <Value xsi:type="xsd:float">800</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningTopLines.X</Name>
+    <Variable Type="float" Name="BossWarningTopLines.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BossWarningTopLines.Y</Name>
+    <Variable Type="float" Name="BossWarningTopLines.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>BottomPanel.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="BottomPanel.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BottomPanel.Height</Name>
+    <Variable Type="float" Name="BottomPanel.Height" SetsValue="true">
       <Value xsi:type="xsd:float">11</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BottomPanel.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BottomPanel.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>BottomPanel.Visible</Name>
+    <Variable Type="bool" Name="BottomPanel.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BottomPanel.Width</Name>
+    <Variable Type="float" Name="BottomPanel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">111</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BottomPanel.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="BottomPanel.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BottomPanel.X</Name>
+    <Variable Type="float" Name="BottomPanel.X" SetsValue="true">
       <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BottomPanel.Y</Name>
+    <Variable Type="float" Name="BottomPanel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>BottomPanel.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="BottomPanel.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>BottomPanel.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="BottomPanel.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BottomPanelBG.Alpha</Name>
+    <Variable Type="int" Name="BottomPanelBG.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>BottomPanelBG.ColorCategoryState</Name>
+    <Variable Type="ColorCategory" Name="BottomPanelBG.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>BottomPanelBG.Parent</Name>
+    <Variable Type="string" Name="BottomPanelBG.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BottomPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>StyleCategory</Type>
-      <Name>BottomPanelBG.StyleCategoryState</Name>
+    <Variable Type="StyleCategory" Name="BottomPanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HideShow</Type>
-      <Name>HideShowState</Name>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>LivesLabel.Alpha</Name>
+    <Variable Type="HideShow" Name="HideShowState" SetsValue="true" />
+    <Variable Type="int" Name="LivesLabel.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>LivesLabel.Blue</Name>
+    <Variable Type="int" Name="LivesLabel.Blue" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>LivesLabel.FontSize</Name>
+    <Variable Type="int" Name="LivesLabel.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">18</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>LivesLabel.Green</Name>
+    <Variable Type="int" Name="LivesLabel.Green" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>LivesLabel.Parent</Name>
+    <Variable Type="string" Name="LivesLabel.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BottomPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>LivesLabel.Red</Name>
+    <Variable Type="int" Name="LivesLabel.Red" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>LivesLabel.Text</Name>
+    <Variable Type="string" Name="LivesLabel.Text" SetsValue="true">
       <Value xsi:type="xsd:string">3</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>LivesLabel.Width</Name>
+    <Variable Type="float" Name="LivesLabel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>LivesLabel.X</Name>
+    <Variable Type="float" Name="LivesLabel.X" SetsValue="true">
       <Value xsi:type="xsd:float">34</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>LivesLabel.Y</Name>
+    <Variable Type="float" Name="LivesLabel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">11</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PowerIcon.Height</Name>
+    <Variable Type="float" Name="PowerIcon.Height" SetsValue="true">
       <Value xsi:type="xsd:float">33.02327</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PowerIcon.Parent</Name>
+    <Variable Type="string" Name="PowerIcon.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BottomPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>PowerIcon.SourceFile</Name>
+    <Variable IsFile="true" Type="string" Name="PowerIcon.SourceFile" SetsValue="true">
       <Value xsi:type="xsd:string">Icons\ThunderIcon.png</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PowerIcon.Width</Name>
+    <Variable Type="float" Name="PowerIcon.Width" SetsValue="true">
       <Value xsi:type="xsd:float">33.023243</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PowerIcon.X</Name>
+    <Variable Type="float" Name="PowerIcon.X" SetsValue="true">
       <Value xsi:type="xsd:float">56</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PowerIcon.Y</Name>
+    <Variable Type="float" Name="PowerIcon.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>PowerIcon.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="PowerIcon.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>PowerIcon.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="PowerIcon.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>PowerLabel.Blue</Name>
+    <Variable Type="int" Name="PowerLabel.Blue" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>PowerLabel.FontSize</Name>
+    <Variable Type="int" Name="PowerLabel.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">18</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>PowerLabel.Green</Name>
+    <Variable Type="int" Name="PowerLabel.Green" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PowerLabel.Parent</Name>
+    <Variable Type="string" Name="PowerLabel.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BottomPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>PowerLabel.Red</Name>
+    <Variable Type="int" Name="PowerLabel.Red" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PowerLabel.Text</Name>
+    <Variable Type="string" Name="PowerLabel.Text" SetsValue="true">
       <Value xsi:type="xsd:string">1/5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PowerLabel.Width</Name>
+    <Variable Type="float" Name="PowerLabel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PowerLabel.X</Name>
+    <Variable Type="float" Name="PowerLabel.X" SetsValue="true">
       <Value xsi:type="xsd:float">77</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>PowerLabel.Y</Name>
+    <Variable Type="float" Name="PowerLabel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">11</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>ScoreLabel.FontSize</Name>
+    <Variable Type="int" Name="ScoreLabel.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">18</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ScoreLabel.Parent</Name>
+    <Variable Type="string" Name="ScoreLabel.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ScorePanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ScoreLabel.Text</Name>
+    <Variable Type="string" Name="ScoreLabel.Text" SetsValue="true">
       <Value xsi:type="xsd:string">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ScoreLabel.Width</Name>
+    <Variable Type="float" Name="ScoreLabel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">87</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ScoreLabel.X</Name>
+    <Variable Type="float" Name="ScoreLabel.X" SetsValue="true">
       <Value xsi:type="xsd:float">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ScoreLabel.Y</Name>
+    <Variable Type="float" Name="ScoreLabel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>ScorePanel.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="ScorePanel.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ScorePanel.Height</Name>
+    <Variable Type="float" Name="ScorePanel.Height" SetsValue="true">
       <Value xsi:type="xsd:float">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ScorePanel.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="ScorePanel.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>ScorePanel.Visible</Name>
+    <Variable Type="bool" Name="ScorePanel.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ScorePanel.Width</Name>
+    <Variable Type="float" Name="ScorePanel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">111</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ScorePanel.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="ScorePanel.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ScorePanel.X</Name>
+    <Variable Type="float" Name="ScorePanel.X" SetsValue="true">
       <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ScorePanel.Y</Name>
+    <Variable Type="float" Name="ScorePanel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>ScorePanel.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="ScorePanel.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ScorePanel.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="ScorePanel.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>ScorePanelBG.Alpha</Name>
+    <Variable Type="int" Name="ScorePanelBG.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>ScorePanelBG.ColorCategoryState</Name>
+    <Variable Type="ColorCategory" Name="ScorePanelBG.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ScorePanelBG.Parent</Name>
+    <Variable Type="string" Name="ScorePanelBG.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ScorePanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>StyleCategory</Type>
-      <Name>ScorePanelBG.StyleCategoryState</Name>
+    <Variable Type="StyleCategory" Name="ScorePanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ShipIcon.Height</Name>
+    <Variable Type="float" Name="ShipIcon.Height" SetsValue="true">
       <Value xsi:type="xsd:float">19.894161</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ShipIcon.Parent</Name>
+    <Variable Type="string" Name="ShipIcon.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BottomPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>ShipIcon.SourceFile</Name>
+    <Variable IsFile="true" Type="string" Name="ShipIcon.SourceFile" SetsValue="true">
       <Value xsi:type="xsd:string">PlayerShipPrototypeShape.png</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ShipIcon.Width</Name>
+    <Variable Type="float" Name="ShipIcon.Width" SetsValue="true">
       <Value xsi:type="xsd:float">19.894178</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ShipIcon.X</Name>
+    <Variable Type="float" Name="ShipIcon.X" SetsValue="true">
       <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ShipIcon.Y</Name>
+    <Variable Type="float" Name="ShipIcon.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>ShipIcon.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="ShipIcon.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ShipIcon.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="ShipIcon.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>TextInstance.FontSize</Name>
+    <Variable Type="int" Name="TextInstance.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">20</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance.HorizontalAlignment</Name>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance.Parent</Name>
+    <Variable Type="string" Name="TextInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BossWarningTextClip</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance.Text</Name>
+    <Variable Type="string" Name="TextInstance.Text" SetsValue="true">
       <Value xsi:type="xsd:string">! Warning !</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>TextInstance.VerticalAlignment</Name>
+    <Variable Type="VerticalAlignment" Name="TextInstance.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.X</Name>
+    <Variable Type="float" Name="TextInstance.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="TextInstance.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.Y</Name>
+    <Variable Type="float" Name="TextInstance.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>TextInstance.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="TextInstance.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="TextInstance.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>WeaponPanel.Alpha</Name>
+    <Variable Type="int" Name="WeaponPanel.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>Blend</Type>
-      <Name>WeaponPanel.Blend</Name>
+    <Variable Type="Blend" Name="WeaponPanel.Blend" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>WeaponPanel.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="WeaponPanel.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanel.Height</Name>
+    <Variable Type="float" Name="WeaponPanel.Height" SetsValue="true">
       <Value xsi:type="xsd:float">48</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>WeaponPanel.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="WeaponPanel.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>WeaponPanel.IsRenderTarget</Name>
+    <Variable Type="bool" Name="WeaponPanel.IsRenderTarget" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanel.Width</Name>
+    <Variable Type="float" Name="WeaponPanel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">48</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>WeaponPanel.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="WeaponPanel.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanel.X</Name>
+    <Variable Type="float" Name="WeaponPanel.X" SetsValue="true">
       <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanel.Y</Name>
+    <Variable Type="float" Name="WeaponPanel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-57</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>WeaponPanel.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="WeaponPanel.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>WeaponPanel.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="WeaponPanel.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>WeaponPanelBG.ColorCategoryState</Name>
+    <Variable Type="ColorCategory" Name="WeaponPanelBG.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>WeaponPanelBG.Parent</Name>
+    <Variable Type="string" Name="WeaponPanelBG.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">WeaponPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>StyleCategory</Type>
-      <Name>WeaponPanelBG.StyleCategoryState</Name>
+    <Variable Type="StyleCategory" Name="WeaponPanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanelIcon.Height</Name>
+    <Variable Type="float" Name="WeaponPanelIcon.Height" SetsValue="true">
       <Value xsi:type="xsd:float">42</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>WeaponPanelIcon.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="WeaponPanelIcon.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>WeaponPanelIcon.Parent</Name>
+    <Variable Type="string" Name="WeaponPanelIcon.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">WeaponPanel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>WeaponPanelIcon.SourceFile</Name>
+    <Variable IsFile="true" Type="string" Name="WeaponPanelIcon.SourceFile" SetsValue="true">
       <Value xsi:type="xsd:string">Icons\Weapons\PulseCannon.png</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanelIcon.Width</Name>
+    <Variable Type="float" Name="WeaponPanelIcon.Width" SetsValue="true">
       <Value xsi:type="xsd:float">42</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>WeaponPanelIcon.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="WeaponPanelIcon.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanelIcon.X</Name>
+    <Variable Type="float" Name="WeaponPanelIcon.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>WeaponPanelIcon.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="WeaponPanelIcon.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>WeaponPanelIcon.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="WeaponPanelIcon.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WeaponPanelIcon.Y</Name>
+    <Variable Type="float" Name="WeaponPanelIcon.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>WeaponPanelIcon.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="WeaponPanelIcon.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>WeaponPanelIcon.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="WeaponPanelIcon.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
   </State>
   <Category>
     <Name>HideShow</Name>
     <State>
       <Name>Hidden</Name>
-      <Variable>
-        <Type>float</Type>
-        <Name>BossWarning.Height</Name>
+      <Variable Type="float" Name="BossWarning.Height" SetsValue="true">
         <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Shown</Name>
-      <Variable>
-        <Type>float</Type>
-        <Name>BossWarning.Height</Name>
+      <Variable Type="float" Name="BossWarning.Height" SetsValue="true">
         <Value xsi:type="xsd:float">89</Value>
-        <SetsValue>true</SetsValue>
       </Variable>
     </State>
   </Category>
-  <Instance>
-    <Name>BottomPanel</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BottomPanelBG</Name>
-    <BaseType>NineSlice</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>ShipIcon</Name>
-    <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PowerIcon</Name>
-    <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>LivesLabel</Name>
-    <BaseType>Controls/Label</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PowerLabel</Name>
-    <BaseType>Controls/Label</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>ScorePanelBG</Name>
-    <BaseType>NineSlice</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>ScoreLabel</Name>
-    <BaseType>Controls/Label</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossPanelBG</Name>
-    <BaseType>NineSlice</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossHPBar</Name>
-    <BaseType>Elements/PercentBar</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>ScorePanel</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossPanel</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>WeaponPanelBG</Name>
-    <BaseType>NineSlice</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-    <Locked>true</Locked>
-  </Instance>
-  <Instance>
-    <Name>WeaponPanelIcon</Name>
-    <BaseType>Sprite</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>WeaponPanel</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossWarning</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossWarningBG</Name>
-    <BaseType>ColoredRectangle</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossWarningTopLines</Name>
-    <BaseType>Elements/CautionLinesWrapped</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossWarningBottomLines</Name>
-    <BaseType>Elements/CautionLinesWrapped</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>BossWarningTextClip</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>TextInstance</Name>
-    <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
+  <Instance Name="BottomPanel" BaseType="Container" />
+  <Instance Name="BottomPanelBG" BaseType="NineSlice" />
+  <Instance Name="ShipIcon" BaseType="Sprite" />
+  <Instance Name="PowerIcon" BaseType="Sprite" />
+  <Instance Name="LivesLabel" BaseType="Controls/Label" />
+  <Instance Name="PowerLabel" BaseType="Controls/Label" />
+  <Instance Name="ScorePanelBG" BaseType="NineSlice" />
+  <Instance Name="ScoreLabel" BaseType="Controls/Label" />
+  <Instance Name="BossPanelBG" BaseType="NineSlice" />
+  <Instance Name="BossHPBar" BaseType="Elements/PercentBar" />
+  <Instance Name="ScorePanel" BaseType="Container" />
+  <Instance Name="BossPanel" BaseType="Container" />
+  <Instance Name="WeaponPanelBG" BaseType="NineSlice" Locked="true" />
+  <Instance Name="WeaponPanelIcon" BaseType="Sprite" />
+  <Instance Name="WeaponPanel" BaseType="Container" />
+  <Instance Name="BossWarning" BaseType="Container" />
+  <Instance Name="BossWarningBG" BaseType="ColoredRectangle" />
+  <Instance Name="BossWarningTopLines" BaseType="Elements/CautionLinesWrapped" />
+  <Instance Name="BossWarningBottomLines" BaseType="Elements/CautionLinesWrapped" />
+  <Instance Name="BossWarningTextClip" BaseType="Container" />
+  <Instance Name="TextInstance" BaseType="Text" />
   <Behaviors />
 </ScreenSave>

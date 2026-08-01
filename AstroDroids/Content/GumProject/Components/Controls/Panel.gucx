@@ -4,12 +4,8 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
-    <Variable>
-      <Type>State</Type>
-      <Name>State</Name>
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
-      <Category>States and Visibility</Category>
-      <SetsValue>false</SetsValue>
     </Variable>
   </State>
   <Behaviors>

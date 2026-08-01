@@ -3,6 +3,7 @@ using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using FontStashSharp;
 using Gum.DataTypes;
+using Gum.Forms.Controls;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -43,6 +44,8 @@ namespace AstroDroids.Graphics
         public static RenderTarget2D RenderTarget;
         public static Rectangle DestinationRectangle;
 
+        static FrameworkElement? hoveredElement;
+
         public static void Initialize(AstroDroidsGame game)
         {
             graphicsManager = game.Graphics;
@@ -50,7 +53,26 @@ namespace AstroDroids.Graphics
 
             gumProject = GumUI.Initialize(game, "GumProject/AstroDroidsGum.gumx");
 
+            GumUI.LocalizationService.CurrentLanguage = 1;
+
             GumUI.LoadAnimations();
+
+            //if(GumUI.Gamepads.Length > 0)
+            //{
+            //    var gamepad = GumUI.Gamepads[0];
+            //    FrameworkElement.GamePadsForUiControl.Clear();
+            //    FrameworkElement.GamePadsForUiControl.Add(gamepad);
+            //}
+
+            GumUI.UseGamepadDefaults();
+            GumUI.UseKeyboardDefaults();
+
+            //allow pressing Z to click buttons
+            FrameworkElement.ClickCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Z, HeldKey = null, IsTriggeredOnRepeat = false });
+
+            //allow pressing Up/Down to move between buttons
+            FrameworkElement.TabKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down, HeldKey = null, IsTriggeredOnRepeat = true });
+            FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Up, HeldKey = null, IsTriggeredOnRepeat = true });
 
             GumUI.CanvasWidth = ScreenWidth;
             GumUI.CanvasHeight = ScreenHeight;
@@ -110,7 +132,16 @@ namespace AstroDroids.Graphics
 
         public static void Update(GameTime gameTime)
         {
+            var control = GumUI.Cursor.FrameworkElementOver;
+
+            if (control != null && hoveredElement != control)
+            {
+                hoveredElement = control;
+                control.IsFocused = true;
+            }
+
             GumUI.Update(gameTime);
+
             TransitionManager.Update(gameTime);
         }
 

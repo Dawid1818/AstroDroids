@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ElementAnimationsSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Animations>
+    <AnimationSave>
+      <Loops>true</Loops>
+      <Name>GlowFocused</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>ButtonCategory/FocusedGlownt</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>ButtonCategory/FocusedGlow</StateName>
+          <Time>0.5</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>ButtonCategory/FocusedGlownt</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+  </Animations>
+</ElementAnimationsSave>

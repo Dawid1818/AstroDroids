@@ -24,8 +24,8 @@ useFixedHeight=0
 forceZero=0
 
 # output file
-outWidth=256
-outHeight=256
+outWidth=8192
+outHeight=8192
 fontDescFormat=0
 textureFormat=png
 fourChnlPacked=0
@@ -34,8 +34,10 @@ fourChnlPacked=0
 outlineThickness=0
 
 # selected chars
-chars=32-126,160-255
+chars=32-126,160-383
 
 # output path
 outputPath=Font18Arial
 
+# kernsmith extensions
+autofit=1

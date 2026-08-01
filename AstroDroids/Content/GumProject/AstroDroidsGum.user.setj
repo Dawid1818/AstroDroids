@@ -2,11 +2,23 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
-      "Screens/LevelEditorScreenGum",
+      "Screens/GamemodeScreenGum",
+      "Screens/HintedScreenGum",
+      "Screens/HintedScreenGum/ActionHintsPanel",
+      "Screens/MainMenuScreenGum",
+      "Screens/MainMenuScreenGum/ContainerInstance",
+      "Screens/SettingsScreenGum",
+      "Screens/ShipCustomizationScreenGum",
       "Components",
       "Components/Controls",
+      "Components/Custom",
+      "Components/Custom/ActionHint",
+      "Components/Elements",
+      "Components/Elements/Icon",
+      "Components/Elements/Icon2",
       "Components/MenuPages",
-      "Components/MenuPages/Main"
+      "Components/MenuPages/Main",
+      "Behaviors"
     ]
   }
 }

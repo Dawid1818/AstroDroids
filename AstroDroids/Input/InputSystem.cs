@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using System.Numerics;
 
 namespace AstroDroids.Input
 {
@@ -12,10 +12,15 @@ namespace AstroDroids.Input
         static KeyboardState oldKState;
         static MouseState oldMState;
 
+        static GamePadState gState;
+        static GamePadState oldGState;
+
         static Dictionary<GameAction, ButtonInputAction> Actions;
 
         static int scroll = 0;
         static int oldScroll = 0;
+
+        static InputMethod lastInputMethod = InputMethod.Keyboard;
 
         public static void Initialize()
         {
@@ -35,14 +40,36 @@ namespace AstroDroids.Input
         {
             kState = Keyboard.GetState();
             mState = Mouse.GetState();
+            gState = GamePad.GetState(0);
 
             scroll = mState.ScrollWheelValue;
+
+            if (GetAnyKey())
+            {
+                lastInputMethod = InputMethod.Keyboard;
+            }
+
+            if (GetLMB() || GetRMB() || mState.X != oldMState.X || mState.Y != oldMState.Y)
+            {
+                lastInputMethod = InputMethod.Mouse;
+            }
+
+            if(GamePadInputChanged())
+            {
+                lastInputMethod = InputMethod.Gamepad;
+            }
+        }
+
+        static bool GamePadInputChanged()
+        {
+            return gState.IsConnected && gState.PacketNumber != oldGState.PacketNumber;
         }
 
         public static void End()
         {
             oldKState = kState;
             oldMState = mState;
+            oldGState = gState;
 
             oldScroll = scroll;
         }
@@ -106,6 +133,26 @@ namespace AstroDroids.Input
             return kState.IsKeyUp(key) && oldKState.IsKeyDown(key);
         }
 
+        public static bool GetAnyKey()
+        {
+            return kState.GetPressedKeyCount() > 0;
+        }
+
+        public static bool GetButtonDown(Buttons button)
+        {
+            return gState.IsConnected && gState.IsButtonDown(button) && oldGState.IsButtonUp(button);
+        }
+
+        public static bool GetButtonUp(Buttons button)
+        {
+            return gState.IsConnected && gState.IsButtonUp(button) && oldGState.IsButtonDown(button);
+        }
+
+        public static bool GetButton(Buttons button)
+        {
+            return gState.IsConnected && gState.IsButtonDown(button);
+        }
+
         public static Vector2 GetMousePos()
         {
             return new Vector2(mState.X, mState.Y);
@@ -154,6 +201,11 @@ namespace AstroDroids.Input
         public static bool GetMMBUp()
         {
             return mState.MiddleButton == ButtonState.Released && oldMState.MiddleButton == ButtonState.Pressed;
+        }
+
+        public static InputMethod GetLastInputMethod()
+        {
+            return lastInputMethod;
         }
     }
 }

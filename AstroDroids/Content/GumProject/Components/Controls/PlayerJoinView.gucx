@@ -4,183 +4,83 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
-    <Variable>
-      <Type>float</Type>
-      <Name>Height</Name>
+    <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">463</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>InnerPanelInstance.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="InnerPanelInstance.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InnerPanelInstance.Height</Name>
+    <Variable Type="float" Name="InnerPanelInstance.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>InnerPanelInstance.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="InnerPanelInstance.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InnerPanelInstance.StackSpacing</Name>
+    <Variable Type="float" Name="InnerPanelInstance.StackSpacing" SetsValue="true">
       <Value xsi:type="xsd:float">32</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InnerPanelInstance.Width</Name>
+    <Variable Type="float" Name="InnerPanelInstance.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>InnerPanelInstance.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="InnerPanelInstance.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InnerPanelInstance.X</Name>
+    <Variable Type="float" Name="InnerPanelInstance.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>InnerPanelInstance.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="InnerPanelInstance.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>InnerPanelInstance.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="InnerPanelInstance.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InnerPanelInstance.Y</Name>
+    <Variable Type="float" Name="InnerPanelInstance.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>InnerPanelInstance.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="InnerPanelInstance.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>InnerPanelInstance.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="InnerPanelInstance.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>IsOverrideInCodeGen</Name>
+    <Variable Type="bool" Name="IsOverrideInCodeGen" Category="Xamarin Forms" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
-      <Category>Xamarin Forms</Category>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>IsXamarinFormsControl</Name>
-      <Category>Xamarin Forms</Category>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinControlInstance.Parent</Name>
+    <Variable Type="bool" Name="IsXamarinFormsControl" Category="Xamarin Forms" SetsValue="true" />
+    <Variable Type="string" Name="PlayerJoinControlInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinControlInstance1.Parent</Name>
+    <Variable Type="string" Name="PlayerJoinControlInstance1.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinControlInstance2.Parent</Name>
+    <Variable Type="string" Name="PlayerJoinControlInstance2.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinControlInstance3.Parent</Name>
+    <Variable Type="string" Name="PlayerJoinControlInstance3.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinViewItem1.Parent</Name>
+    <Variable Type="string" Name="PlayerJoinViewItem1.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinViewItem2.Parent</Name>
+    <Variable Type="string" Name="PlayerJoinViewItem2.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinViewItem3.Parent</Name>
+    <Variable Type="string" Name="PlayerJoinViewItem3.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>PlayerJoinViewItem4.Parent</Name>
+    <Variable Type="string" Name="PlayerJoinViewItem4.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InnerPanelInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>State</Type>
-      <Name>State</Name>
-      <Category>States and Visibility</Category>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>Width</Name>
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
+    <Variable Type="float" Name="Width" SetsValue="true">
       <Value xsi:type="xsd:float">144</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
   </State>
-  <Instance>
-    <Name>InnerPanelInstance</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerJoinViewItem1</Name>
-    <BaseType>Controls/PlayerJoinViewItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerJoinViewItem2</Name>
-    <BaseType>Controls/PlayerJoinViewItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerJoinViewItem3</Name>
-    <BaseType>Controls/PlayerJoinViewItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerJoinViewItem4</Name>
-    <BaseType>Controls/PlayerJoinViewItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
+  <Instance Name="InnerPanelInstance" BaseType="Container" />
+  <Instance Name="PlayerJoinViewItem1" BaseType="Controls/PlayerJoinViewItem" />
+  <Instance Name="PlayerJoinViewItem2" BaseType="Controls/PlayerJoinViewItem" />
+  <Instance Name="PlayerJoinViewItem3" BaseType="Controls/PlayerJoinViewItem" />
+  <Instance Name="PlayerJoinViewItem4" BaseType="Controls/PlayerJoinViewItem" />
   <Behaviors>
     <ElementBehaviorReference>
       <BehaviorName>PlayerJoinViewBehavior</BehaviorName>

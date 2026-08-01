@@ -2051,6 +2051,608 @@
         "ElementType": "Components",
         "EventType": 5,
         "TimestampUtc": "2026-07-28T16:40:46.5714616Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ButtonStandardInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T06:28:45.3797037Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Container HostPanel in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-30T06:29:31.8721016Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.TextInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T06:29:53.1993201Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.PlayBtn",
+        "OldName": "MainMenuScreenGum.ButtonStandardInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T06:53:10.2719047Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T06:53:15.4889441Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.PlayBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T06:55:42.6145071Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.Customizebtn",
+        "OldName": "MainMenuScreenGum.PlayBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T07:00:15.2940042Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.CustomizeBtn",
+        "OldName": "MainMenuScreenGum.Customizebtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T07:06:54.1817067Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.CustomizeBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T07:06:55.7392386Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.OptionsBtn",
+        "OldName": "MainMenuScreenGum.CustomizeBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T07:06:58.17543Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.SettingsBt",
+        "OldName": "MainMenuScreenGum.OptionsBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T07:07:00.3336463Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.SettingsBtn",
+        "OldName": "MainMenuScreenGum.SettingsBt",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T07:07:01.8742738Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.SettingsBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T07:08:13.1012704Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ExitBtn",
+        "OldName": "MainMenuScreenGum.SettingsBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T07:08:15.129829Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.PlayBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T11:48:28.2752958Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.SettingsBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T12:18:50.2404258Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.LeaderboardBtn",
+        "OldName": "MainMenuScreenGum.SettingsBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T12:18:52.9802292Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonStandard PlayBtn1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-30T12:42:26.7390328Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.WingsBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T12:49:19.8013028Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ReturnBtn",
+        "OldName": "ShipCustomizationScreenGum.WingsBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-30T12:49:22.2908778Z"
+      },
+      {
+        "NewName": "Controls/ButtonStandard1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-30T13:20:28.0342469Z"
+      },
+      {
+        "NewName": "Controls/ButtonStandard2",
+        "OldName": "Controls/ButtonStandard1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-07-30T13:20:32.4754906Z"
+      },
+      {
+        "NewName": "Controls/ButtonGlow",
+        "OldName": "Controls/ButtonStandard2",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-07-30T13:33:23.9953792Z"
+      },
+      {
+        "NewName": "SettingsScreenGum",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-30T17:41:14.9781447Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.ReturnBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T17:41:20.5447407Z"
+      },
+      {
+        "NewName": "LeaderboardScreenGum",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-30T17:42:31.8330173Z"
+      },
+      {
+        "NewName": "LeaderboardScreenGum.ReturnBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T17:42:35.1022526Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-30T17:44:26.0946588Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.ReturnBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-30T17:44:28.12214Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.IconInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T13:26:19.1720821Z"
+      },
+      {
+        "NewName": "ControllerRightJoystick",
+        "OldName": "ControllerLeftJoystick1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T13:41:38.570363Z"
+      },
+      {
+        "NewName": "ControllerLeftJoystickPress",
+        "OldName": "ControllerLeftJoystick",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T13:42:16.1384411Z"
+      },
+      {
+        "NewName": "ControllerRightJoystickPress",
+        "OldName": "ControllerRightJoystick",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T13:42:18.835862Z"
+      },
+      {
+        "NewName": "ControllerRightJoystick",
+        "OldName": "ControllerRightJoystickPress1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T13:42:35.1529003Z"
+      },
+      {
+        "NewName": "ControllerLeftJoystick",
+        "OldName": "ControllerLeftJoystickPress1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T13:43:18.185859Z"
+      },
+      {
+        "NewName": "Custom/ActionHint",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-31T13:45:51.659695Z"
+      },
+      {
+        "NewName": "Custom/ActionHint (Container).TextInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T13:45:58.0174135Z"
+      },
+      {
+        "NewName": "Custom/ActionHint (Container).IconInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T13:46:12.4554838Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Elements/Icon IconInstance in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T13:49:51.5463255Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T13:50:04.4955206Z"
+      },
+      {
+        "NewName": "Elements/Icon1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-31T15:40:58.1971329Z"
+      },
+      {
+        "NewName": "Elements/Icon2",
+        "OldName": "Elements/Icon1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-07-31T15:41:09.182194Z"
+      },
+      {
+        "NewName": "XKey",
+        "OldName": "ZKey1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T16:31:16.0534261Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ContainerInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:32:08.5907033Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:35:25.0062158Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T16:36:26.6600227Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:36:42.3873723Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T16:37:59.5034613Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:38:06.6575884Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:45:24.2922742Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:45:25.1747052Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance3 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T16:47:49.7836637Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance2 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T16:47:50.478355Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:50:57.654609Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance2 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T16:51:04.3868013Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T16:51:06.7898169Z"
+      },
+      {
+        "NewName": "ArrowKeys",
+        "OldName": "XKey1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T17:03:48.5515652Z"
+      },
+      {
+        "NewName": "Custom/ActionHint (Container).IconInstance1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T18:28:08.3463519Z"
+      },
+      {
+        "NewName": "HintedScreenGum",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-31T19:28:39.1265706Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.HintsPanel",
+        "OldName": "MainMenuScreenGum.ContainerInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T19:28:44.2373231Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ActionHintsPanel",
+        "OldName": "MainMenuScreenGum.HintsPanel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T19:28:47.5604979Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Container ActionHintsPanel in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T19:28:49.4605634Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T19:28:49.5176613Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance2 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T19:28:49.5685084Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Custom/ActionHint ActionHintInstance1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-07-31T19:28:49.6221717Z"
+      },
+      {
+        "NewName": "HintedScreenGum.ActionHintsPanel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T19:28:53.8947626Z"
+      },
+      {
+        "NewName": "HintedScreenGum.ActionHintInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T19:28:53.9496088Z"
+      },
+      {
+        "NewName": "HintedScreenGum.ActionHintInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T19:28:54.0012277Z"
+      },
+      {
+        "NewName": "HintedScreenGum.ActionHintInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T19:28:54.0510427Z"
+      },
+      {
+        "NewName": "HintedScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T19:31:06.9966703Z"
+      },
+      {
+        "NewName": "HintedScreenGum.HostPane",
+        "OldName": "HintedScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T19:31:20.6293347Z"
+      },
+      {
+        "NewName": "Custom/ActionHint (Container).Label",
+        "OldName": "Custom/ActionHint (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T19:53:23.5076798Z"
+      },
+      {
+        "NewName": "Custom/ActionHint (Container).ActionIcon",
+        "OldName": "Custom/ActionHint (Container).IconInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T19:53:41.3591891Z"
+      },
+      {
+        "NewName": "Custom/ActionHint (Container).ActionIconShadow",
+        "OldName": "Custom/ActionHint (Container).IconInstance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T19:53:44.1414691Z"
+      },
+      {
+        "NewName": "MouseLMB",
+        "OldName": "ArrowKeys1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T20:19:02.0374766Z"
+      },
+      {
+        "NewName": "MouseRMB",
+        "OldName": "MouseLMB1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T20:19:43.2640012Z"
+      },
+      {
+        "NewName": "MouseNMB",
+        "OldName": "MouseRMB1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-07-31T20:23:30.1980054Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.ReturnBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T21:06:58.4488333Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.ReturnBtn2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T21:08:46.558719Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.ReturnBtn3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T21:08:56.4399065Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.TutorialBtn",
+        "OldName": "GamemodeScreenGum.ReturnBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T21:09:02.596879Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.StoryBtn",
+        "OldName": "GamemodeScreenGum.ReturnBtn2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T21:09:06.8817719Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum.BossRushBtn",
+        "OldName": "GamemodeScreenGum.ReturnBtn3",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-07-31T21:09:23.2036735Z"
+      },
+      {
+        "NewName": "Controls/ButtonGlow1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-07-31T21:12:08.4433255Z"
+      },
+      {
+        "NewName": "Controls/ButtonGlowGameMode",
+        "OldName": "Controls/ButtonGlow1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-07-31T21:12:17.5056068Z"
+      },
+      {
+        "NewName": "Controls/ButtonGlowGameMode (Container).SpriteInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-07-31T21:14:24.2664444Z"
       }
     ]
   }

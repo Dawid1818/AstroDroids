@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>GamemodeScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable IsFile="true" Type="string" Name="BossRushBtn.BannerImage" SetsValue="true">
+      <Value xsi:type="xsd:string">BossRushGameModeBanner.png</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">414</Value>
+    </Variable>
+    <Variable Type="string" Name="BossRushBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_BossRush</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">211</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">562</Value>
+    </Variable>
+    <Variable Type="float" Name="BossRushBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">45</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Return</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ReturnBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ReturnBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">490</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">414</Value>
+    </Variable>
+    <Variable Type="string" Name="StoryBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_StoryMode</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">211</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">296</Value>
+    </Variable>
+    <Variable Type="float" Name="StoryBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">45</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="TutorialBtn.BannerImage" SetsValue="true">
+      <Value xsi:type="xsd:string">TutorialGameModeBanner.png</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">414</Value>
+    </Variable>
+    <Variable Type="string" Name="TutorialBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Tutorial</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">211</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">31</Value>
+    </Variable>
+    <Variable Type="float" Name="TutorialBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">45</Value>
+    </Variable>
+  </State>
+  <Instance Name="ReturnBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="TutorialBtn" BaseType="Controls/ButtonGlowGameMode" />
+  <Instance Name="StoryBtn" BaseType="Controls/ButtonGlowGameMode" />
+  <Instance Name="BossRushBtn" BaseType="Controls/ButtonGlowGameMode" />
+  <Behaviors />
+</ScreenSave>

@@ -44,11 +44,15 @@ namespace AstroDroids.Gameplay
                 SelectNextWeapon();
             }
 
+            if (CurrentWeapon < 0 || CurrentWeapon > Weapons.Count - 1)
+                return;
             Weapons[CurrentWeapon].Update(player, gameTime);
         }
 
         public static void DrawCurrentWeapon(Player player, GameTime gameTime)
         {
+            if (CurrentWeapon < 0 || CurrentWeapon > Weapons.Count - 1)
+                return;
             Weapons[CurrentWeapon].DrawEffects(player, gameTime);
         }
 
@@ -59,6 +63,9 @@ namespace AstroDroids.Gameplay
             {
                 CurrentWeapon = 0;
             }
+
+            if (CurrentWeapon < 0 || CurrentWeapon > Weapons.Count - 1)
+                return;
             Weapons[CurrentWeapon].ResetState();
         }
 

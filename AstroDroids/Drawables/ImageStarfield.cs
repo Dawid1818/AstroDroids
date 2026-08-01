@@ -1,5 +1,4 @@
 ﻿using AstroDroids.Graphics;
-using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

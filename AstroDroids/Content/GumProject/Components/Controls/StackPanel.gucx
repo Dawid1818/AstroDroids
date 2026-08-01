@@ -4,18 +4,11 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>State</Type>
-      <Name>State</Name>
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
-      <Category>States and Visibility</Category>
-      <SetsValue>false</SetsValue>
     </Variable>
   </State>
   <Behaviors>

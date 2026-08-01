@@ -4,514 +4,241 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>Background.ColorCategoryState</Name>
+    <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>Background.Parent</Name>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>StyleCategory</Type>
-      <Name>Background.StyleCategoryState</Name>
+    <Variable Type="string" Name="Background.Parent" SetsValue="true" />
+    <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>ContainerInstance1.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="ContainerInstance1.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance1.Height</Name>
+    <Variable Type="float" Name="ContainerInstance1.Height" SetsValue="true">
       <Value xsi:type="xsd:float">31</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance1.Width</Name>
+    <Variable Type="float" Name="ContainerInstance1.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ContainerInstance1.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="ContainerInstance1.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance1.X</Name>
+    <Variable Type="float" Name="ContainerInstance1.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>ContainerInstance1.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="ContainerInstance1.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ContainerInstance1.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="ContainerInstance1.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance1.Y</Name>
+    <Variable Type="float" Name="ContainerInstance1.Y" SetsValue="true">
       <Value xsi:type="xsd:float">27</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>ContainerInstance1.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="ContainerInstance1.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ContainerInstance1.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="ContainerInstance1.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>ContainerInstance2.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="ContainerInstance2.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance2.Height</Name>
+    <Variable Type="float" Name="ContainerInstance2.Height" SetsValue="true">
       <Value xsi:type="xsd:float">31</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance2.Width</Name>
+    <Variable Type="float" Name="ContainerInstance2.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>ContainerInstance2.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="ContainerInstance2.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance2.X</Name>
+    <Variable Type="float" Name="ContainerInstance2.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>ContainerInstance2.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="ContainerInstance2.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ContainerInstance2.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="ContainerInstance2.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ContainerInstance2.Y</Name>
+    <Variable Type="float" Name="ContainerInstance2.Y" SetsValue="true">
       <Value xsi:type="xsd:float">228</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>ContainerInstance2.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="ContainerInstance2.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>ContainerInstance2.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="ContainerInstance2.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>Height</Name>
+    <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>InputDeviceContainerInstance.ChildrenLayout</Name>
+    <Variable Type="ChildrenLayout" Name="InputDeviceContainerInstance.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InputDeviceContainerInstance.Height</Name>
+    <Variable Type="float" Name="InputDeviceContainerInstance.Height" SetsValue="true">
       <Value xsi:type="xsd:float">20</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>InputDeviceContainerInstance.HeightUnits</Name>
+    <Variable Type="DimensionUnitType" Name="InputDeviceContainerInstance.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InputDeviceContainerInstance.StackSpacing</Name>
+    <Variable Type="float" Name="InputDeviceContainerInstance.StackSpacing" SetsValue="true">
       <Value xsi:type="xsd:float">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InputDeviceContainerInstance.Width</Name>
+    <Variable Type="float" Name="InputDeviceContainerInstance.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>InputDeviceContainerInstance.WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="InputDeviceContainerInstance.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InputDeviceContainerInstance.X</Name>
+    <Variable Type="float" Name="InputDeviceContainerInstance.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>InputDeviceContainerInstance.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="InputDeviceContainerInstance.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>InputDeviceContainerInstance.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="InputDeviceContainerInstance.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>InputDeviceContainerInstance.Y</Name>
+    <Variable Type="float" Name="InputDeviceContainerInstance.Y" SetsValue="true">
       <Value xsi:type="xsd:float">89</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>InputDeviceContainerInstance.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="InputDeviceContainerInstance.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>InputDeviceContainerInstance.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="InputDeviceContainerInstance.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>InputDeviceSelectionItemInstance.Parent</Name>
+    <Variable Type="string" Name="InputDeviceSelectionItemInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InputDeviceContainerInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>InputDeviceSelectionItemInstance1.Parent</Name>
+    <Variable Type="string" Name="InputDeviceSelectionItemInstance1.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InputDeviceContainerInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>InputDeviceSelectionItemInstance2.Parent</Name>
+    <Variable Type="string" Name="InputDeviceSelectionItemInstance2.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InputDeviceContainerInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>InputDeviceSelectionItemInstance3.Parent</Name>
+    <Variable Type="string" Name="InputDeviceSelectionItemInstance3.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">InputDeviceContainerInstance</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>IsOverrideInCodeGen</Name>
+    <Variable Type="bool" Name="IsOverrideInCodeGen" Category="Xamarin Forms" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
-      <Category>Xamarin Forms</Category>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>IsXamarinFormsControl</Name>
-      <Category>Xamarin Forms</Category>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>State</Type>
-      <Name>State</Name>
+    <Variable Type="bool" Name="IsXamarinFormsControl" Category="Xamarin Forms" SetsValue="true" />
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
-      <Category>States and Visibility</Category>
-      <SetsValue>false</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>TextInstance.ColorCategoryState</Name>
+    <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance.HorizontalAlignment</Name>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance.Parent</Name>
+    <Variable Type="string" Name="TextInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>StyleCategory</Type>
-      <Name>TextInstance.StyleCategoryState</Name>
+    <Variable Type="StyleCategory" Name="TextInstance.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">H1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance.Text</Name>
+    <Variable Type="string" Name="TextInstance.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Press A / Space to Join</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>TextInstance.VerticalAlignment</Name>
+    <Variable Type="VerticalAlignment" Name="TextInstance.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.X</Name>
+    <Variable Type="float" Name="TextInstance.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="TextInstance.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance.Y</Name>
+    <Variable Type="float" Name="TextInstance.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>TextInstance.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="TextInstance.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="TextInstance.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>ColorCategory</Type>
-      <Name>TextInstance1.ColorCategoryState</Name>
+    <Variable Type="ColorCategory" Name="TextInstance1.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance1.HorizontalAlignment</Name>
+    <Variable Type="HorizontalAlignment" Name="TextInstance1.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance1.Parent</Name>
+    <Variable Type="string" Name="TextInstance1.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance2</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>StyleCategory</Type>
-      <Name>TextInstance1.StyleCategoryState</Name>
+    <Variable Type="StyleCategory" Name="TextInstance1.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">H1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>TextInstance1.Text</Name>
+    <Variable Type="string" Name="TextInstance1.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Press Start / Enter to Continue</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>TextInstance1.VerticalAlignment</Name>
+    <Variable Type="VerticalAlignment" Name="TextInstance1.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance1.X</Name>
+    <Variable Type="float" Name="TextInstance1.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>TextInstance1.XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="TextInstance1.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance1.XUnits</Name>
+    <Variable Type="PositionUnitType" Name="TextInstance1.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>TextInstance1.Y</Name>
+    <Variable Type="float" Name="TextInstance1.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>TextInstance1.YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="TextInstance1.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>TextInstance1.YUnits</Name>
+    <Variable Type="PositionUnitType" Name="TextInstance1.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>Width</Name>
+    <Variable Type="float" Name="Width" SetsValue="true">
       <Value xsi:type="xsd:float">60</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>WidthUnits</Name>
+    <Variable Type="DimensionUnitType" Name="WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">4</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>X</Name>
+    <Variable Type="float" Name="X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>XOrigin</Name>
+    <Variable Type="HorizontalAlignment" Name="XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>XUnits</Name>
+    <Variable Type="PositionUnitType" Name="XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>Y</Name>
+    <Variable Type="float" Name="Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>YOrigin</Name>
+    <Variable Type="VerticalAlignment" Name="YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>YUnits</Name>
+    <Variable Type="PositionUnitType" Name="YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
   </State>
-  <Instance>
-    <Name>Background</Name>
-    <BaseType>NineSlice</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>TextInstance</Name>
-    <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>TextInstance1</Name>
-    <BaseType>Text</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>ContainerInstance1</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>InputDeviceContainerInstance</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>ContainerInstance2</Name>
-    <BaseType>Container</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>InputDeviceSelectionItemInstance</Name>
-    <BaseType>Controls/InputDeviceSelectionItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>InputDeviceSelectionItemInstance1</Name>
-    <BaseType>Controls/InputDeviceSelectionItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>InputDeviceSelectionItemInstance2</Name>
-    <BaseType>Controls/InputDeviceSelectionItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>InputDeviceSelectionItemInstance3</Name>
-    <BaseType>Controls/InputDeviceSelectionItem</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
+  <Instance Name="Background" BaseType="NineSlice" />
+  <Instance Name="TextInstance" BaseType="Text" />
+  <Instance Name="TextInstance1" BaseType="Text" />
+  <Instance Name="ContainerInstance1" BaseType="Container" />
+  <Instance Name="InputDeviceContainerInstance" BaseType="Container" />
+  <Instance Name="ContainerInstance2" BaseType="Container" />
+  <Instance Name="InputDeviceSelectionItemInstance" BaseType="Controls/InputDeviceSelectionItem" />
+  <Instance Name="InputDeviceSelectionItemInstance1" BaseType="Controls/InputDeviceSelectionItem" />
+  <Instance Name="InputDeviceSelectionItemInstance2" BaseType="Controls/InputDeviceSelectionItem" />
+  <Instance Name="InputDeviceSelectionItemInstance3" BaseType="Controls/InputDeviceSelectionItem" />
   <Behaviors>
     <ElementBehaviorReference>
       <BehaviorName>InputDeviceSelectorBehavior</BehaviorName>

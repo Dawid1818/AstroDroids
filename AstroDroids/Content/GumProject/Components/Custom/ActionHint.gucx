@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Custom/ActionHint</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="float" Name="ActionIcon.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-16</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="ActionIcon.IconCategoryState" ExposedAsName="Icon" SetsValue="true">
+      <Value xsi:type="xsd:string">ZKey</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIcon.IconHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">200</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIcon.IconWidth" SetsValue="true">
+      <Value xsi:type="xsd:float">200</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIcon.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-18</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIcon.X" SetsValue="true">
+      <Value xsi:type="xsd:float">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIcon.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">1</Value>
+    </Variable>
+    <Variable Type="float" Name="Height" SetsValue="true">
+      <Value xsi:type="xsd:float">48</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIconShadow.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-16</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="ActionIconShadow.IconCategoryState" ExposedAsName="IconShadow" SetsValue="true">
+      <Value xsi:type="xsd:string">ZKey</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="ActionIconShadow.IconColor" SetsValue="true">
+      <Value xsi:type="xsd:string">Black</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIconShadow.IconHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">200</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIconShadow.IconWidth" SetsValue="true">
+      <Value xsi:type="xsd:float">200</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIconShadow.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-18</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIconShadow.X" SetsValue="true">
+      <Value xsi:type="xsd:float">3</Value>
+    </Variable>
+    <Variable Type="float" Name="ActionIconShadow.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">3</Value>
+    </Variable>
+    <Variable Type="float" Name="Label.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Label.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="Label.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="Label.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">16</Value>
+    </Variable>
+    <Variable Type="bool" Name="Label.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Label.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="Label.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="Label.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="string" Name="Label.Text" ExposedAsName="Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Select</Value>
+    </Variable>
+    <Variable Type="bool" Name="Label.UseCustomFont" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="Label.X" SetsValue="true">
+      <Value xsi:type="xsd:float">60</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Label.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Label.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Label.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">16</Value>
+    </Variable>
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
+      <Value xsi:type="xsd:string">Default</Value>
+    </Variable>
+  </State>
+  <Instance Name="Label" BaseType="Text" />
+  <Instance Name="ActionIconShadow" BaseType="Elements/Icon2" />
+  <Instance Name="ActionIcon" BaseType="Elements/Icon2" />
+  <Behaviors />
+</ComponentSave>

@@ -11,7 +11,7 @@ namespace AstroDroids.Components.Controls
     {
         partial void CustomInitialize()
         {
-        
+            
         }
     }
 }

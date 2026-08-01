@@ -4,42 +4,22 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonStandardInstance.X</Name>
+    <Variable Type="float" Name="ButtonStandardInstance.X" SetsValue="true">
       <Value xsi:type="xsd:float">303</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ButtonStandardInstance.Y</Name>
+    <Variable Type="float" Name="ButtonStandardInstance.Y" SetsValue="true">
       <Value xsi:type="xsd:float">233</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>Height</Name>
+    <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">600</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>State</Type>
-      <Name>State</Name>
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
-      <Category>States and Visibility</Category>
-      <SetsValue>false</SetsValue>
     </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>Width</Name>
+    <Variable Type="float" Name="Width" SetsValue="true">
       <Value xsi:type="xsd:float">800</Value>
-      <SetsValue>true</SetsValue>
     </Variable>
   </State>
-  <Instance>
-    <Name>ButtonStandardInstance</Name>
-    <BaseType>Controls/ButtonStandard</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
+  <Instance Name="ButtonStandardInstance" BaseType="Controls/ButtonStandard" />
   <Behaviors />
 </ComponentSave>

@@ -13,6 +13,7 @@ namespace AstroDroids
 {
     public class AstroDroidsGame : Game
     {
+        public static AstroDroidsGame Instance { get; private set; }
         public GraphicsDeviceManager Graphics { get; private set; }
 
         public static bool Debug { get; set; } = false;
@@ -24,6 +25,7 @@ namespace AstroDroids
 
         public AstroDroidsGame()
         {
+            Instance = this;
             Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
