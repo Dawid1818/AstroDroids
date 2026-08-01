@@ -89,6 +89,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public override void Spawned()
         {
+            CanBeDamaged = false;
             LoadPath("SnakePath");
             LoadPath("SPath");
             LoadPath("SpiralPath");

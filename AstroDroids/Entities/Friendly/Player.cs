@@ -8,7 +8,7 @@ using AstroDroids.Input;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
+using MonoGame.Extended;
 
 namespace AstroDroids.Entities.Friendly
 {
@@ -37,6 +37,8 @@ namespace AstroDroids.Entities.Friendly
 
         public bool LockMovement { get; set; } = false;
 
+        float InvTime = 0f;
+
         public Player(int playerIndex, Vector2 position) : base(new Transform(position), 1)
         {
             this.playerIndex = playerIndex;
@@ -45,13 +47,25 @@ namespace AstroDroids.Entities.Friendly
 
             ship = new CompositeShip();
 
-            AddCircleCollider(Vector2.Zero, 27.5f);
+            AddCircleCollider(Vector2.Zero, 25f);
+
+            InvTime = 3f;
         }
 
         public override void Update(GameTime gameTime)
         {
             if (destroyed)
                 return;
+
+            if(InvTime > 0f)
+            {
+                CanBeDamaged = false;
+                InvTime -= gameTime.GetElapsedSeconds();
+            }
+            else
+            {
+                CanBeDamaged = true;
+            }
 
             //Firing
             GameStateManager.UpdateCurrentWeapon(this, gameTime);
@@ -107,6 +121,10 @@ namespace AstroDroids.Entities.Friendly
                 }
             }
 
+
+            if(InvTime > 0) {
+                return;
+            }
             foreach (var enemy in Scene.World.Enemies)
             {
                 if (enemy.Collidable && enemy.Intersects(this))
@@ -129,6 +147,11 @@ namespace AstroDroids.Entities.Friendly
             ship.Draw(GetPosition(), Angle, 0.5f);
 
             GameStateManager.DrawCurrentWeapon(this, gameTime);
+
+            if(InvTime > 0f)
+            {
+                Screen.spriteBatch.DrawCircle(GetPosition(), 42, 12, new Color(Color.Blue.R, Color.Blue.G, Color.Blue.B, (byte)127), 12);
+            }
         }
 
         public Vector2 GetPosition()

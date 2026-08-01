@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AstroDroids.Scenes
 {
@@ -212,6 +213,15 @@ namespace AstroDroids.Scenes
                 if (GameStateManager.Lives > 99)
                 {
                     GameStateManager.Lives = 99;
+                }
+            }
+
+            if (InputSystem.GetKeyDown(Keys.F7))
+            {
+                foreach (var item in World.Enemies.ToList())
+                {
+                    if (item.CanBeDamaged)
+                        item.Damage(20000, false);
                 }
             }
 
