@@ -206,6 +206,15 @@ namespace AstroDroids.Scenes
                 }
             }
 
+            if (InputSystem.GetKeyDown(Keys.F6))
+            {
+                GameStateManager.Lives += 1;
+                if (GameStateManager.Lives > 99)
+                {
+                    GameStateManager.Lives = 99;
+                }
+            }
+
             //if (InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
             //{
             //    LevelManager.QuitPlaytest();

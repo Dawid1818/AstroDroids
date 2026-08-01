@@ -543,7 +543,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
         }
         IEnumerator SpinFire()
         {
-            yield return SpinFireBase(30, 0.2f, 5, 30f, 6f);
+            yield return SpinFireBase(10, 0.7f, 4, 30f, 3f);
         }
 
         IEnumerator SpinFire2()

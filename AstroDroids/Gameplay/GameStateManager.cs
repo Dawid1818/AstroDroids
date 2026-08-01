@@ -10,7 +10,7 @@ namespace AstroDroids.Gameplay
 {
     public class GameStateManager
     {
-        //static int Lives = 3;
+        public static int Lives { get { return CurrentMissionProgress.Lives; } set { CurrentMissionProgress.Lives = value; } }
         //static int Score = 0;
         public static int Firepower { get { return CurrentMissionProgress.Firepower; } set { CurrentMissionProgress.Firepower = value; } }
         public const int MaxFirepower = 5;
