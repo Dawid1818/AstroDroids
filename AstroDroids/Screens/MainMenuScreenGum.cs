@@ -84,7 +84,7 @@ namespace AstroDroids.Screens
 
         private void ExitBtn_Click(object sender, EventArgs e)
         {
-            AstroDroidsGame.Instance.Exit();
+            scene.TransitionClose();
         }
 
         partial void CustomInitialize()

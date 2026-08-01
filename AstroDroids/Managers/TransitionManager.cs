@@ -15,7 +15,7 @@ namespace AstroDroids.Managers
 
     public class TransitionManager
     {
-        static TransitionState state = TransitionState.Idle;
+        public static TransitionState State { get; private set; } = TransitionState.Idle;
         static float progress = 0f;
 
         static List<Texture2D> transitionTxts = new List<Texture2D>();
@@ -38,7 +38,7 @@ namespace AstroDroids.Managers
 
         public static void Update(GameTime gameTime)
         {
-            if (state == TransitionState.Idle)
+            if (State == TransitionState.Idle)
                 return;
 
             float dt = gameTime.GetElapsedSeconds();
@@ -48,18 +48,18 @@ namespace AstroDroids.Managers
             if (progress >= 2f)
             {
                 progress = 2f;
-                SetState(state == TransitionState.In ? TransitionState.Out : TransitionState.Idle);
+                SetState(State == TransitionState.In ? TransitionState.Out : TransitionState.Idle);
             }
         }
 
         public static void Draw(GameTime gameTime)
         {
-            if (state == TransitionState.Idle)
+            if (State == TransitionState.Idle)
                 return;
 
             edgeWidthParam.SetValue(0.2f);
             progressParam.SetValue(1f - progress);
-            inverseParam.SetValue(state == TransitionState.Out);
+            inverseParam.SetValue(State == TransitionState.Out);
 
             Screen.spriteBatch.Begin(effect: Screen.Transition);
             Screen.spriteBatch.Draw(transitionTxt, Vector2.Zero, Color.White);
@@ -73,7 +73,7 @@ namespace AstroDroids.Managers
                 transitionTxt = transitionTxts[AstroDroidsGame.rnd.Next(transitionTxts.Count)];
             }
 
-            state = newState;
+            State = newState;
             progress = 0f;
         }
     }

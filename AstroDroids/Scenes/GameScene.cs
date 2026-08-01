@@ -1,4 +1,5 @@
-﻿using AstroDroids.Drawables;
+﻿using AstroDroids.Coroutines;
+using AstroDroids.Drawables;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
@@ -8,9 +9,11 @@ using AstroDroids.Screens;
 using Gum.Forms;
 using Gum.Forms.Controls;
 using Gum.GueDeriving;
+using Gum.Wireframe;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
@@ -21,9 +24,13 @@ namespace AstroDroids.Scenes
 
         CoroutineManager coroutineManager = new CoroutineManager();
 
+        bool debugPaused = false;
+
         bool paused = false;
 
         float yPos = 0f;
+
+        bool transitioning = false;
 
         public GameScene()
         {
@@ -51,9 +58,8 @@ namespace AstroDroids.Scenes
             Screen.GumUI.Root.Children.Clear();
 
             ui = new GameScreenGum();
+            ui.Initialize(this);
             ui.AddToRoot();
-
-            //LevelManager.LoadLevel(0);
 
             if(GameStateManager.GetMissionType() != MissionType.Editor)
             {
@@ -82,20 +88,25 @@ namespace AstroDroids.Scenes
 
             Screen.ResetCamera();
 
-            coroutineManager.StartCoroutine(LevelManager.GetLevelScript());
+            //coroutineManager.StartCoroutine(LevelManager.GetLevelScript());
         }
 
         public override void Update(GameTime gameTime)
         {
             if (InputSystem.GetKeyDown(Keys.P))
             {
-                paused = !paused;
+                debugPaused = !debugPaused;
             }
 
-            if (!paused)
+            if(InputSystem.GetKeyDown(Keys.Escape) && !transitioning)
             {
-                coroutineManager.Update();
+                SetPauseState(!paused);
+            }
 
+            coroutineManager.Update();
+
+            if (!debugPaused && !paused)
+            {
                 World.Update(gameTime);
 
                 yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
@@ -190,15 +201,42 @@ namespace AstroDroids.Scenes
                 }
             }
 
-            if (InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
-            {
-                LevelManager.QuitPlaytest();
-            }
+            //if (InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
+            //{
+            //    LevelManager.QuitPlaytest();
+            //}
 
             if (ui.BossWarning.Visible)
             {
                 ui.BossWarningBottomLines.FindVisual<SpriteRuntime>("LinesSprite").TextureLeft += 1;
                 ui.BossWarningTopLines.FindVisual<SpriteRuntime>("LinesSprite").TextureLeft += 1;
+            }
+        }
+
+        public void SaveAndQuit()
+        {
+            if (LevelManager.Playtesting)
+            {
+                LevelManager.QuitPlaytest();
+            }
+            else
+            {
+                coroutineManager.StartCoroutine(TransitionToSceneCoroutine(new MainMenuScene()));
+            }
+        }
+
+        public void SetPauseState(bool paused)
+        {
+            this.paused = paused;
+            ui.PauseMenu.Visible = paused;
+
+            if(paused)
+            {
+                ui.ResumeBtn.IsFocused = true;
+            }
+            else
+            {
+                InteractiveGue.CurrentInputReceiver = null;
             }
         }
 
@@ -213,9 +251,29 @@ namespace AstroDroids.Scenes
             World.Draw(gameTime);
         }
 
+        IEnumerator TransitionToSceneCoroutine(Scene scene)
+        {
+            transitioning = true;
+            InputSystem.ClearUIKeys();
+            InputSystem.DisableUIMouse();
+            InteractiveGue.CurrentInputReceiver = null;
+
+            TransitionManager.SetState(TransitionState.In);
+
+            yield return new WaitUntil(() => TransitionManager.State == TransitionState.Out);
+
+            Screen.GumUI.Root.Children.Clear();
+
+            SceneManager.SetScene(scene);
+
+            transitioning = false;
+            InputSystem.AddUIKeys();
+            InputSystem.EnableUIMouse();
+        }
+
         public override void DrawDebug(GameTime gameTime)
         {
-            if (paused)
+            if (debugPaused)
             {
                 Screen.spriteBatch.Begin();
                 Screen.DrawText("Paused", new Vector2(120, 10), Color.White, 12f);

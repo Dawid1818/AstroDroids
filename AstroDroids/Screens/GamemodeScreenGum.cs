@@ -29,9 +29,7 @@ namespace AstroDroids.Screens
         {
             GameStateManager.NewState(GameDatabase.GetMission(MissionType.BossRush));
 
-            GameScene scene = new GameScene();
-
-            SceneManager.SetScene(scene);
+            scene.TransitionToScene(new GameScene());
         }
 
         private void AnimationController_OnCompleted()

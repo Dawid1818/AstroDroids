@@ -2751,6 +2751,202 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-08-01T09:48:37.1921579Z"
+      },
+      {
+        "NewName": "GameScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:26:56.2609332Z"
+      },
+      {
+        "NewName": "GameScreenGum.PauseMenu",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:27:09.4658971Z"
+      },
+      {
+        "NewName": "GameScreenGum.PauseMenu",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:27:09.4689187Z"
+      },
+      {
+        "NewName": "GameScreenGum.PauseMenu",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:27:09.4812162Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScorePanelBG1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:28:00.512855Z"
+      },
+      {
+        "NewName": "GameScreenGum.PauseMenuBG",
+        "OldName": "GameScreenGum.ScorePanelBG1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:28:06.8181378Z"
+      },
+      {
+        "NewName": "GameScreenGum.PauseMenuBG",
+        "OldName": "GameScreenGum.ScorePanelBG1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:28:06.8203394Z"
+      },
+      {
+        "NewName": "GameScreenGum.PauseMenuBG",
+        "OldName": "GameScreenGum.ScorePanelBG1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:28:06.830344Z"
+      },
+      {
+        "NewName": "GameScreenGum.ButtonGlowInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:30:37.8710991Z"
+      },
+      {
+        "NewName": "GameScreenGum.TextInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:30:48.9161271Z"
+      },
+      {
+        "NewName": "GameScreenGum.ResumeBtn",
+        "OldName": "GameScreenGum.ButtonGlowInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:31:44.2340543Z"
+      },
+      {
+        "NewName": "GameScreenGum.ResumeBtn",
+        "OldName": "GameScreenGum.ButtonGlowInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:31:44.2357832Z"
+      },
+      {
+        "NewName": "GameScreenGum.ResumeBtn",
+        "OldName": "GameScreenGum.ButtonGlowInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:31:44.2468287Z"
+      },
+      {
+        "NewName": "GameScreenGum.ResumeBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:31:45.1044063Z"
+      },
+      {
+        "NewName": "GameScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:31:51.3241587Z"
+      },
+      {
+        "NewName": "GameScreenGum.ButtonContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:31:54.1967818Z"
+      },
+      {
+        "NewName": "GameScreenGum.ButtonContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:31:54.2156196Z"
+      },
+      {
+        "NewName": "GameScreenGum.ButtonContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:31:54.224611Z"
+      },
+      {
+        "NewName": "GameScreenGum.SettingsBtn",
+        "OldName": "GameScreenGum.ResumeBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:32:48.1757309Z"
+      },
+      {
+        "NewName": "GameScreenGum.SettingsBtn",
+        "OldName": "GameScreenGum.ResumeBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:32:48.1775178Z"
+      },
+      {
+        "NewName": "GameScreenGum.SettingsBtn",
+        "OldName": "GameScreenGum.ResumeBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:32:48.19066Z"
+      },
+      {
+        "NewName": "GameScreenGum.SettingsBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-01T12:33:29.4997518Z"
+      },
+      {
+        "NewName": "GameScreenGum.QuitBtn",
+        "OldName": "GameScreenGum.SettingsBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:33:32.55618Z"
+      },
+      {
+        "NewName": "GameScreenGum.QuitBtn",
+        "OldName": "GameScreenGum.SettingsBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:33:32.5578358Z"
+      },
+      {
+        "NewName": "GameScreenGum.QuitBtn",
+        "OldName": "GameScreenGum.SettingsBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:33:32.5678486Z"
+      },
+      {
+        "NewName": "GameScreenGum.PausedLabel",
+        "OldName": "GameScreenGum.TextInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:38:45.0199488Z"
+      },
+      {
+        "NewName": "GameScreenGum.PausedLabel",
+        "OldName": "GameScreenGum.TextInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:38:45.0215927Z"
+      },
+      {
+        "NewName": "GameScreenGum.PausedLabel",
+        "OldName": "GameScreenGum.TextInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-01T12:38:45.0323977Z"
       }
     ]
   }

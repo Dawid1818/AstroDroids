@@ -87,6 +87,13 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public CautionLinesWrapped BossWarningBottomLines { get; protected set; }
     public ContainerRuntime BossWarningTextClip { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
+    public ContainerRuntime PauseMenu { get; protected set; }
+    public NineSliceRuntime PauseMenuBG { get; protected set; }
+    public TextRuntime PausedLabel { get; protected set; }
+    public ContainerRuntime ButtonContainer { get; protected set; }
+    public ButtonGlow ResumeBtn { get; protected set; }
+    public ButtonGlow SettingsBtn { get; protected set; }
+    public ButtonGlow QuitBtn { get; protected set; }
 
 
     #region Animation Fields
@@ -126,6 +133,13 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         BossWarningBottomLines = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CautionLinesWrapped>(this.Visual,"BossWarningBottomLines");
         BossWarningTextClip = this.Visual?.GetGraphicalUiElementByName("BossWarningTextClip") as global::Gum.GueDeriving.ContainerRuntime;
         TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::Gum.GueDeriving.TextRuntime;
+        PauseMenu = this.Visual?.GetGraphicalUiElementByName("PauseMenu") as global::Gum.GueDeriving.ContainerRuntime;
+        PauseMenuBG = this.Visual?.GetGraphicalUiElementByName("PauseMenuBG") as global::Gum.GueDeriving.NineSliceRuntime;
+        PausedLabel = this.Visual?.GetGraphicalUiElementByName("PausedLabel") as global::Gum.GueDeriving.TextRuntime;
+        ButtonContainer = this.Visual?.GetGraphicalUiElementByName("ButtonContainer") as global::Gum.GueDeriving.ContainerRuntime;
+        ResumeBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ResumeBtn");
+        SettingsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"SettingsBtn");
+        QuitBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"QuitBtn");
         Show = this.Visual.GetAnimation("Show");
         Hide = this.Visual.GetAnimation("Hide");
         CustomInitialize();
@@ -133,6 +147,10 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
     public void ApplyLocalization()
     {
+        this.PausedLabel.Text = GumService.Default.LocalizationService.Translate("T_Paused");
+        this.QuitBtn.Text = GumService.Default.LocalizationService.Translate("T_SaveandQuit");
+        this.ResumeBtn.Text = GumService.Default.LocalizationService.Translate("T_Resume");
+        this.SettingsBtn.Text = GumService.Default.LocalizationService.Translate("T_Settings");
         this.TextInstance.Text = GumService.Default.LocalizationService.Translate("T_BossWarning");
     }
     partial void CustomInitialize();

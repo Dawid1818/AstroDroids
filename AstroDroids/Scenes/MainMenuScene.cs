@@ -141,9 +141,53 @@ namespace AstroDroids.Scenes
             yield return null;
         }
 
+        IEnumerator TransitionToSceneCoroutine(Scene scene)
+        {
+            transitioning = true;
+            InputSystem.ClearUIKeys();
+            InputSystem.DisableUIMouse();
+            InteractiveGue.CurrentInputReceiver = null;
+
+            TransitionManager.SetState(TransitionState.In);
+
+            yield return new WaitUntil(() => TransitionManager.State == TransitionState.Out);
+
+            Screen.GumUI.Root.Children.Clear();
+
+            SceneManager.SetScene(scene);
+
+            transitioning = false;
+            InputSystem.AddUIKeys();
+            InputSystem.EnableUIMouse();
+        }
+
+        IEnumerator TransitionCloseGame()
+        {
+            transitioning = true;
+            InputSystem.ClearUIKeys();
+            InputSystem.DisableUIMouse();
+            InteractiveGue.CurrentInputReceiver = null;
+
+            TransitionManager.SetState(TransitionState.In);
+
+            yield return new WaitUntil(() => TransitionManager.State == TransitionState.Out);
+
+            AstroDroidsGame.Instance.Exit();
+        }
+
         public void SetPage(FrameworkElement page)
         {
             coroutineManager.StartCoroutine(PageTransition(page));
+        }
+
+        public void TransitionToScene(Scene scene)
+        {
+            coroutineManager.StartCoroutine(TransitionToSceneCoroutine(scene));
+        }
+
+        public void TransitionClose()
+        {
+            coroutineManager.StartCoroutine(TransitionCloseGame());
         }
     }
 }
