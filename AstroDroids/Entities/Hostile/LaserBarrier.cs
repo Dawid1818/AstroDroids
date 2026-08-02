@@ -1,5 +1,4 @@
 ﻿using AstroDroids.Graphics;
-using AstroDroids.Helpers;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles.Hostile;
@@ -21,11 +20,11 @@ namespace AstroDroids.Entities.Hostile
         public int Id { get; private set; }
 
         float t = 0f;
+        public bool fasterExpiration { get; set; } = false;
         //bool becameActive = false;
 
         public LaserBarrier() : base(Vector2.Zero, 1)
         {
-            //placeholder texture
             blueTexture = TextureManager.Get("Laser Barriers/accesory_002b");
             redTexture = TextureManager.Get("Laser Barriers/accesory_002r");
 
@@ -111,12 +110,19 @@ namespace AstroDroids.Entities.Hostile
             //    Despawn();
             //}
 
-            if(!Intersects(Scene.World.Bounds))
+            if (!Intersects(Scene.World.Bounds))
             {
                 if (t >= 10f)
                     Despawn();
 
-                t += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (fasterExpiration)
+                {
+                    Despawn();
+                }
+                else
+                {
+                    t += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
             }
 
             if (PathManager != null)

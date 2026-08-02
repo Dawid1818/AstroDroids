@@ -34,12 +34,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
         LBBossFlightMode Flight = LBBossFlightMode.Freeroam;
 
         CoroutineInstance attackLoop;
+        CoroutineInstance extraLoop;
 
         Vector2 targetPos;
 
         float speed = 50f;
 
-        public LBBoss() : base(Vector2.Zero, 1000)
+        public LBBoss() : base(Vector2.Zero, 2000)
         {
             AddCircleCollider(Vector2.Zero, 60);
             texture = TextureManager.Get("Ships/LBBoss/ship_020");
@@ -204,8 +205,22 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 attackLoop = null;
             }
 
+            if (extraLoop != null)
+            {
+                Scene.World.StopCoroutine(extraLoop);
+                extraLoop = null;
+            }
+
             if (Scene.World.BossEntity == this)
                 Scene.World.BossEntity = null;
+
+            foreach (var item in Scene.World.Enemies)
+            {
+                if(item is LaserBarrier barrier)
+                {
+                    barrier.fasterExpiration = true;
+                }
+            }
         }
 
         public void GoTowards(Vector2 position, float? arrivalAngle = null)
@@ -236,7 +251,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator HorizontalGatesAttack()
         {
-            var instance = Scene.World.StartCoroutine(GunDown(2));
+            extraLoop = Scene.World.StartCoroutine(GunDown(2));
 
             for (int i = 0; i < 5; i++)
             {
@@ -270,12 +285,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return new WaitForSeconds(2f);
             }
 
-            Scene.World.StopCoroutine(instance);
+            Scene.World.StopCoroutine(extraLoop);
+            extraLoop = null;
         }
 
         IEnumerator TriGatesAttack()
         {
-            var instance = Scene.World.StartCoroutine(GunDown(1));
+            extraLoop = Scene.World.StartCoroutine(GunDown(1));
 
             int side = Random.Next(3);
 
@@ -373,12 +389,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return new WaitForSeconds(time);
             }
 
-            Scene.World.StopCoroutine(instance);
+            Scene.World.StopCoroutine(extraLoop);
+            extraLoop = null;
         }
 
         IEnumerator DiagonalGatesAttack()
         {
-            var instance = Scene.World.StartCoroutine(GunDown(2));
+            extraLoop = Scene.World.StartCoroutine(GunDown(2));
 
             for (int i = 0; i < 5; i++)
             {
@@ -453,13 +470,12 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return new WaitForSeconds(time);
             }
 
-            Scene.World.StopCoroutine(instance);
+            Scene.World.StopCoroutine(extraLoop);
+            extraLoop = null;
         }
 
         IEnumerator PoweredBarriersAttack()
         {
-            //var instance = Scene.World.StartCoroutine(GunDown());
-
             for (int i = 0; i < 5; i++)
             {
                 //side = 3;
@@ -491,8 +507,6 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 yield return new WaitForSeconds(time);
             }
-
-            //Scene.World.StopCoroutine(instance);
         }
 
         List<LaserBarrier> createBox(float posX, float posY, float width, float height)
@@ -523,7 +537,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator PoweredBarriers2Attack()
         {
-            var instance = Scene.World.StartCoroutine(GunDown(4));
+            extraLoop = Scene.World.StartCoroutine(GunDown(4));
 
             for (int i = 0; i < 5; i++)
             {
@@ -547,13 +561,12 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return new WaitForSeconds(time);
             }
 
-            Scene.World.StopCoroutine(instance);
+            Scene.World.StopCoroutine(extraLoop);
+            extraLoop = null;
         }
 
         IEnumerator SlalomAttack()
         {
-            //var instance = Scene.World.StartCoroutine(GunDown());
-
             float stickingDist = 64;
 
             for (int i = 0; i < 5; i++)
@@ -617,14 +630,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 yield return new WaitForSeconds(time);
             }
-
-            //Scene.World.StopCoroutine(instance);
         }
 
         IEnumerator TunnelAttack()
         {
-            //var instance = Scene.World.StartCoroutine(GunDown());
-
             Flight = LBBossFlightMode.Locked;
 
             float width = 200;
@@ -734,8 +743,6 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 yield return new WaitForSeconds(0.2f);
             }
-
-            //Scene.World.StopCoroutine(instance);
         }
 
         List<LaserBarrier> GenerateFlower(LaserBarrier center, float angle, Vector2 moveDir)
@@ -850,7 +857,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator ConstructAttack()
         {
-            var instance = Scene.World.StartCoroutine(GunDown(3));
+            extraLoop = Scene.World.StartCoroutine(GunDown(3));
 
             for (int i = 0; i < 6; i++)
             {
@@ -907,7 +914,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return new WaitForSeconds(3f);
             }
 
-            Scene.World.StopCoroutine(instance);
+            Scene.World.StopCoroutine(extraLoop);
+            extraLoop = null;
 
             yield return null;
         }

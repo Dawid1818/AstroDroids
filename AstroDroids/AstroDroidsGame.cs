@@ -42,7 +42,7 @@ namespace AstroDroids
 
             NativeErrorHandler.Setup();
 
-            Window.Position = new Point(0, 0);
+            //Window.Position = new Point(0, 0);
             SDL_MaximizeWindow(Window.Handle);
         }
 

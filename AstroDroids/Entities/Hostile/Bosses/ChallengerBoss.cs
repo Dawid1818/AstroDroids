@@ -282,7 +282,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             Scene.World.RemoveWarning(beam3W);
             Scene.World.RemoveWarning(beam4W);
 
-            while (y <= 5)
+            while (y <= 2)
             {
                 ChallengerBeam beam = new ChallengerBeam(Transform.Position, MathHelper.ToRadians(-90), 1024f);
                 ChallengerBeam beam2 = new ChallengerBeam(Transform.Position, MathHelper.ToRadians(90), 1024f);
@@ -377,7 +377,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             Scene.World.RemoveWarning(beam3W);
             Scene.World.RemoveWarning(beam4W);
 
-            while (y <= 5)
+            while (y <= 2)
             {
                 ChallengerBeam beam = new ChallengerBeam(Transform.Position, MathHelper.ToRadians(-90), 1024f);
                 ChallengerBeam beam2 = new ChallengerBeam(Transform.Position, MathHelper.ToRadians(90), 1024f);
