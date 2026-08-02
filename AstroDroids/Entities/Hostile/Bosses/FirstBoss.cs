@@ -110,7 +110,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 if (target == null)
                 {
-                    yield return new WaitForSeconds(3f);
+                    yield return new WaitForSeconds(5f);
                     continue;
                 }
 
@@ -122,7 +122,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 missile.SetHomingMaxTime(7f);
                 Scene.World.AddProjectile(missile, true);
 
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(5f);
             }
         }
 
@@ -294,7 +294,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     for (int k = 0; k < cannons.Count; k++)
                     {
                         if (k == 1 || k == 4)
-                            FireShotgun(k, MathHelper.ToRadians(90), 3, 35f, 6f);
+                            FireShotgun(k, MathHelper.ToRadians(90), 3, 45f, 6f);
                     }
 
                     yield return new WaitForSeconds(0.3f);
@@ -315,13 +315,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 for (int j = 0; j < cannons.Count; j++)
                 {
                     if (j == 0 || j == 5)
-                        FireShotgun(j, MathHelper.ToRadians(j == 0 ? 65 : 115), 1, 35f, 6f);
+                        FireShotgun(j, MathHelper.ToRadians(j == 0 ? 50 : 130), 1, 35f, 6f);
 
                     if (j == 2 || j == 3)
                     {
                         if (i % 5 == 0)
                         {
-                            FireShotgun(j, MathHelper.ToRadians(phase ? 90 : j == 2 ? 80 : 100), 1, 35f, 6f);
+                            FireShotgun(j, MathHelper.ToRadians(phase ? 90 : j == 2 ? 70 : 110), 1, 35f, 6f);
                         }
                     }
                 }
@@ -347,7 +347,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         FireShotgun(j, MathHelper.ToRadians(j == 1 ? 90 - offset : 90 + offset), 1, 35f, 6f, 0, 0);
                 }
 
-                offset += 20;
+                offset += 35;
 
                 yield return new WaitForSeconds(0.1f);
             }
@@ -366,19 +366,19 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 for (int j = 0; j < cannons.Count; j++)
                 {
                     if (j == 1 || j == 4)
-                        FireShotgun(j, MathHelper.ToRadians(j == 1 ? 90 - offset : 90 + offset), 1, 35f, 6f, 10, 10);
+                        FireShotgun(j, MathHelper.ToRadians(j == 1 ? 90 - offset : 90 + offset), 1, 35f, 6f, 5, 10);
                 }
 
                 if (!phase)
                 {
-                    offset += 20;
+                    offset += 35;
 
                     if (offset > 100)
                         phase = !phase;
                 }
                 else
                 {
-                    offset -= 20;
+                    offset -= 35;
 
                     if (offset < -100)
                         phase = !phase;
