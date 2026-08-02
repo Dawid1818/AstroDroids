@@ -27,7 +27,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
         VerticalRightWall,
         VerticalLeftWall,
         SPath,
-        SpiralPath
+        SpiralPath,
+        WavePath,
+        SPath2,
+        WaveTopPath
     }
 
     public class SnakeBoss : Enemy
@@ -44,7 +47,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
             SnakeBossAttackType.VerticalRightWall,
             SnakeBossAttackType.VerticalLeftWall,
             SnakeBossAttackType.SPath,
-            SnakeBossAttackType.SpiralPath
+            SnakeBossAttackType.SpiralPath,
+            SnakeBossAttackType.WavePath,
+            SnakeBossAttackType.SPath2,
+            SnakeBossAttackType.WaveTopPath
         ];
 
         List<SnakeBossSegment> segments = new List<SnakeBossSegment>();
@@ -53,6 +59,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         CoroutineInstance bossBehavior;
         CoroutineInstance continousAttack;
+        CoroutineInstance extraLoop;
 
         bool eliminated = false;
 
@@ -93,6 +100,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
             LoadPath("SnakePath");
             LoadPath("SPath");
             LoadPath("SpiralPath");
+            LoadPath("WavePath");
+            LoadPath("SPath2");
+            LoadPath("WaveTop");
 
             int segmentCount = 10;
             for (int i = 0; i < segmentCount; i++)
@@ -170,15 +180,15 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 switch (attackType)
                 {
                     default:
-                    case SnakeBossAttackType.Wandering1: //alright
+                    case SnakeBossAttackType.Wandering1:
                         StopContinousAttack();
                         yield return Wandering1Attack();
                         break;
-                    case SnakeBossAttackType.TargetingPlayer1: //alright
+                    case SnakeBossAttackType.TargetingPlayer1:
                         StopContinousAttack();
                         yield return TargetingPlayer1Attack();
                         break;
-                    case SnakeBossAttackType.SnakePath: //alright
+                    case SnakeBossAttackType.SnakePath:
                         yield return SnakePathAttack();
                         break;
                     case SnakeBossAttackType.VerticalRightWall:
@@ -192,6 +202,15 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         break;
                     case SnakeBossAttackType.SpiralPath:
                         yield return SpiralPathAttack();
+                        break;
+                    case SnakeBossAttackType.WavePath:
+                        yield return WavePathAttack();
+                        break;
+                    case SnakeBossAttackType.SPath2:
+                        yield return SPath2Attack();
+                        break;
+                    case SnakeBossAttackType.WaveTopPath:
+                        yield return WaveTopPathAttack();
                         break;
                 }
 
@@ -212,6 +231,11 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 if (continousAttack != null)
                 {
                     Scene.World.StopCoroutine(continousAttack);
+                }
+
+                if(extraLoop != null)
+                {
+                    Scene.World.StopCoroutine(extraLoop);
                 }
 
                 Scene.World.StartCoroutine(DestroySequence());
@@ -287,7 +311,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator Wandering1Attack()
         {
-            var traveler = Scene.World.StartCoroutine(TravelRandomly());
+            extraLoop = Scene.World.StartCoroutine(TravelRandomly());
 
             head.AimAtPlayer();
 
@@ -314,7 +338,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return new WaitForSeconds(1f);
             }
 
-            Scene.World.StopCoroutine(traveler);
+            Scene.World.StopCoroutine(extraLoop);
+            extraLoop = null;
         }
 
         IEnumerator TargetingPlayer1Attack()
@@ -324,8 +349,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             for (int i = 0; i < 50; i++)
             {
-                head.Fire(3, 15, 4f, 0, 0);
-                yield return new WaitForSeconds(0.1f);
+                head.Fire(3, 10, 4f, 0, 0);
+                yield return new WaitForSeconds(0.2f);
             }
         }
 
@@ -403,7 +428,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                         yield return new WaitForSeconds(1);
 
-                        for (int i = 0; i < 5; i++)
+                        for (int i = 0; i < 3; i++)
                         {
                             ForEachSegment((i, s) => s.Fire(2, 5));
 
@@ -500,22 +525,33 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                         yield return new WaitForSeconds(1);
 
-                        for (int i = 0; i < 5; i++)
+                        for (int i = 0; i < 3; i++)
                         {
-                            ForEachSegment((i, s) =>
-                            {
-                                if (i == 0)
-                                    s.Fire(shots: 3, 5, 5, 10, 10);
-                                if (i == segments.Count - 1)
-                                    s.Fire(shots: 3, 5, 5, 10, 10);
-                                else
-                                    s.Fire(shots: 1, 5, 5, 10, 10);
-                            });
+                            //ForEachSegment((i, s) =>
+                            //{
 
-                            yield return new WaitForSeconds(0.6);
+                            //});
+
+                            for (int j = 0; j < segments.Count; j++)
+                            {
+                                SnakeBossSegment s = segments[j];
+                                //if (segment.CanBeDamaged)
+                                if (j == 0)
+                                    s.Fire(shots: 2, 15, 5, 5, 10);
+                                else if (j == segments.Count - 1)
+                                    s.Fire(shots: 2, 15, 5, 5, 10);
+                                else
+                                    s.Fire(shots: 1, 5, 5, 5, 10);
+
+                                yield return new WaitForSeconds(seconds: 0.1f);
+                            }
+
+                            yield return new WaitForSeconds(seconds: 0.5);
                         }
                         break;
                 }
+
+                yield return new WaitForSeconds(1f);
 
                 attacksDone++;
 
@@ -542,6 +578,39 @@ namespace AstroDroids.Entities.Hostile.Bosses
             yield return TravelToPath(paths["SpiralPath"], choice == 0);
 
             head.GoFollowPath(paths["SpiralPath"], choice == 0);
+
+            yield return new WaitUntil(head.DestinationReached);
+        }
+
+        IEnumerator WavePathAttack()
+        {
+            int choice = Random.Next(2);
+
+            yield return TravelToPath(paths["WavePath"], choice == 0);
+
+            head.GoFollowPath(paths["WavePath"], choice == 0);
+
+            yield return new WaitUntil(head.DestinationReached);
+        }
+
+        IEnumerator SPath2Attack()
+        {
+            int choice = Random.Next(2);
+
+            yield return TravelToPath(paths["SPath2"], choice == 0);
+
+            head.GoFollowPath(paths["SPath2"], choice == 0);
+
+            yield return new WaitUntil(head.DestinationReached);
+        }
+
+        IEnumerator WaveTopPathAttack()
+        {
+            int choice = Random.Next(2);
+
+            yield return TravelToPath(paths["WaveTop"], choice == 0);
+
+            head.GoFollowPath(paths["WaveTop"], choice == 0);
 
             yield return new WaitUntil(head.DestinationReached);
         }
