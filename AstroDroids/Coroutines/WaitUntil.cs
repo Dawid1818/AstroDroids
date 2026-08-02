@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 
 namespace AstroDroids.Coroutines
 {
@@ -10,7 +11,7 @@ namespace AstroDroids.Coroutines
         {
             this.condition = condition;
         }
-        public override bool Execute()
+        public override bool Execute(GameTime gameTime)
         {
             return condition();
         }

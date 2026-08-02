@@ -321,7 +321,7 @@ namespace AstroDroids.Gameplay
                 Screen.SetCameraZoom(curZoom);
             }
 
-            coroutineManager.Update();
+            coroutineManager.Update(gameTime);
 
             if (Starfield != null)
                 Starfield.Update();

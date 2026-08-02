@@ -146,6 +146,9 @@ namespace AstroDroids.Editors
                 group.Nodes.TryGetValue(item.FirstBarrierID, out LaserBarrierNode from);
                 group.Nodes.TryGetValue(item.SecondBarrierID, out LaserBarrierNode to);
 
+                if (from == null || to == null)
+                    continue;
+
                 Color color = Color.Red;
 
                 if (from.Health >= 0 || to.Health >= 0)
@@ -201,7 +204,9 @@ namespace AstroDroids.Editors
             if (ImGui.Button("Remove##RemoveBarrier") && selectedNode != null)
             {
                 BarrierGroup.Nodes.Remove(selectedNode.Id);
+                RemoveAllConnectionsFor(selectedNode);
                 selectedNode = null;
+                isDraggingPoint = false;
             }
             ImGui.EndDisabled();
 

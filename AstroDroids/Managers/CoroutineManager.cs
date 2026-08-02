@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Coroutines;
+using Microsoft.Xna.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace AstroDroids.Managers
 
         bool iterating = false;
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             iterating = true;
             foreach (var instance in Coroutines.ToList())
@@ -23,7 +24,7 @@ namespace AstroDroids.Managers
 
                     if (current.Current is Coroutine wait)
                     {
-                        if (!wait.Execute())
+                        if (!wait.Execute(gameTime))
                             break;
                     }
 

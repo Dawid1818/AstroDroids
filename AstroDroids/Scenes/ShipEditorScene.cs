@@ -130,7 +130,7 @@ namespace AstroDroids.Scenes
                 SceneManager.SetScene(new ShipEditorScene());
             }
 
-            coroutineManager.Update();
+            coroutineManager.Update(gameTime);
 
             World.Update(gameTime);
         }

@@ -115,7 +115,7 @@ namespace AstroDroids.Scenes
 
             if (!debugPaused)
             {
-                coroutineManager.Update();
+                coroutineManager.Update(gameTime);
 
                 if (!paused)
                 {
@@ -310,7 +310,7 @@ namespace AstroDroids.Scenes
 
             TransitionManager.SetState(TransitionState.In);
 
-            yield return new WaitUntil(() => TransitionManager.State == TransitionState.Out);
+            yield return new WaitUntil(() => TransitionManager.State == TransitionState.Out || TransitionManager.State == TransitionState.Idle);
 
             Screen.GumUI.Root.Children.Clear();
 

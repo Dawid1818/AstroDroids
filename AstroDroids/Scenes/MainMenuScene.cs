@@ -59,7 +59,7 @@ namespace AstroDroids.Scenes
 
         public override void Update(GameTime gameTime)
         {
-            coroutineManager.Update();
+            coroutineManager.Update(gameTime);
 
             World.Update(gameTime);
 

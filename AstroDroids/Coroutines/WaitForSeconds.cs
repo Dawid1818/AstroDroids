@@ -1,26 +1,22 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 
 namespace AstroDroids.Coroutines
 {
     public class WaitForSeconds : Coroutine
     {
-        DateTime startTime;
-        TimeSpan waitTime;
+        private readonly TimeSpan waitTime;
+        private TimeSpan elapsed;
 
         public WaitForSeconds(double seconds)
         {
             waitTime = TimeSpan.FromSeconds(seconds);
-            startTime = DateTime.Now;
         }
 
-        public override bool Execute()
+        public override bool Execute(GameTime gameTime)
         {
-            if(DateTime.Now - startTime >= waitTime)
-            {
-                return true;
-            }
-
-            return false;
+            elapsed += gameTime.ElapsedGameTime;
+            return elapsed >= waitTime;
         }
     }
 }
