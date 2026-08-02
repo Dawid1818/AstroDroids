@@ -75,7 +75,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         bool continuosBreak = false;
 
-        public SnakeBoss() : base(Vector2.Zero, 1000)
+        public SnakeBoss() : base(Vector2.Zero, 1500)
         {
 
         }
@@ -347,10 +347,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
             head.GoTargetPlayer();
             head.AimAtPlayer();
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 30; i++)
             {
                 head.Fire(3, 10, 4f, 0, 0);
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.5f);
             }
         }
 

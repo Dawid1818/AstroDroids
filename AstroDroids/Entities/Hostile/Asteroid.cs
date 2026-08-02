@@ -18,7 +18,7 @@ namespace AstroDroids.Entities.Hostile
 
         bool becameActive = false;
 
-        public Asteroid() : base(Vector2.Zero, 10)
+        public Asteroid() : base(Vector2.Zero, 20)
         {
             IsNeutral = true;
 

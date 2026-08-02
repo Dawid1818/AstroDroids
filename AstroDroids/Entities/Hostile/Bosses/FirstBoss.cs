@@ -148,7 +148,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 foreach (var attack in attackActions)
                 {
                     yield return attack();
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(1.5f);
                 }
             }
         }
@@ -267,7 +267,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator CannonBurst1Attack()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
@@ -453,10 +453,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     missile = new ChallengerHomingMissile(RightMissile + Transform.Position, Scene.World.GetRandomPlayer(), MathHelper.ToRadians(-90));
                     missile.SetHomingMaxTime(7f);
                     Scene.World.AddProjectile(missile, true);
-                    yield return new WaitForSeconds(0.5);
+                    yield return new WaitForSeconds(1f);
                 }
 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1.5f);
             }
         }
 

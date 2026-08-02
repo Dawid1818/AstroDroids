@@ -242,6 +242,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             droneEntry.Drone.SetHealth(20);
             droneEntry.Drone.Transform.Position = Transform.Position;
             Scene.World.AddEnemy(droneEntry.Drone, true);
+            droneEntry.Drone.SetCollidable(false);
 
             if (style == DronePositionStyle.VerticalWall)
             {
@@ -258,10 +259,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 droneEntry.RandomDestination = GameHelper.RandomPosition(newBounds);
             }
-            else if (style == DronePositionStyle.OrbitPlayer)
-            {
-                droneEntry.Drone.SetCollidable(false);
-            }
+            //else if (style == DronePositionStyle.OrbitPlayer)
+            //{
+            //    droneEntry.Drone.SetCollidable(false);
+            //}
         }
 
         bool started = false;
@@ -594,9 +595,13 @@ namespace AstroDroids.Entities.Hostile.Bosses
         #region Attacks
         IEnumerator Phase2IntroAttack()
         {
-            ForEachDrone((d) => { d.Drone.SetCollidable(false); });
+            foreach (var drone in drones)
+            {
+                drone.Drone.SetDamageable(false);
+            }
 
             SetStyle(DronePositionStyle.Orbit);
+            ForEachDrone((d) => { d.Drone.SetCollidable(false); });
 
             angleOverrideMode = 1;
 
@@ -622,6 +627,12 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 }
 
                 yield return new WaitForSeconds(0.1f);
+            }
+
+            ForEachDrone((d) => { d.Drone.SetCollidable(false); });
+            foreach (var drone in drones)
+            {
+                drone.Drone.SetDamageable(true);
             }
 
             yield return null;

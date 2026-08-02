@@ -56,7 +56,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public float TravelProgress { get { return RMM.GetProgress(); } }
 
-        public SnakeBossSegment(SnakeBoss boss, SnakeBossSegment parentSegment, int historyOffset) : base(Vector2.Zero, 100)
+        public SnakeBossSegment(SnakeBoss boss, SnakeBossSegment parentSegment, int historyOffset) : base(Vector2.Zero, 150)
         {
             this.boss = boss;
             this.parentSegment = parentSegment;

@@ -213,11 +213,21 @@ namespace AstroDroids.Entities.Hostile
         public override void Draw(GameTime gameTime)
         {
             Screen.spriteBatch.Draw(texture, new Rectangle((int)Transform.Position.X, (int)Transform.Position.Y, texture.Width, texture.Height), null, !Collidable ? Color.Gray : Color.White, angle + 1.571f, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0f);
+
+            if(!CanBeDamaged)
+            {
+                Screen.spriteBatch.DrawCircle(Transform.Position, 42, 12, new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)127), 12);
+            }
         }
 
         public void SetCollidable(bool state)
         {
             Collidable = state;
+        }
+
+        public void SetDamageable(bool state)
+        {
+            CanBeDamaged = state;
         }
     }
 }

@@ -79,11 +79,6 @@ namespace AstroDroids.Entities.Hostile.Bosses
             //    TunnelAttack
             //};
 
-            //attackActions = new List<Func<IEnumerator>>()
-            //{
-            //    ConstructAttack
-            //};
-
             while (true)
             {
                 attackActions.Shuffle(Random);
@@ -251,7 +246,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator HorizontalGatesAttack()
         {
-            extraLoop = Scene.World.StartCoroutine(GunDown(2));
+            extraLoop = Scene.World.StartCoroutine(GunDown(1));
 
             for (int i = 0; i < 5; i++)
             {
@@ -282,7 +277,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     x += barrierWidth + gap;
                 }
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(3f);
             }
 
             Scene.World.StopCoroutine(extraLoop);
@@ -626,7 +621,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 if (spawnTurrets == 1)
                     time = 4f;
                 else
-                    time = 1f;
+                    time = 2f;
 
                 yield return new WaitForSeconds(time);
             }
