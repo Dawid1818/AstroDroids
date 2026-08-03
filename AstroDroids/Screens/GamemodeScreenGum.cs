@@ -23,6 +23,10 @@ namespace AstroDroids.Screens
 
             Visual.PlayAnimation(Enter);
             Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
+            GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
+
+            TutorialBtn.SpatialNavigationDown = ReturnBtn;
+            BossRushBtn.SpatialNavigationDown = ReturnBtn;
         }
 
         private void BossRushBtn_Click(object sender, EventArgs e)

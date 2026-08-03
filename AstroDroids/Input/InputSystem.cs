@@ -34,13 +34,13 @@ namespace AstroDroids.Input
         {
             Actions = new Dictionary<GameAction, ButtonInputAction>
             {
-                { GameAction.Up, new ButtonInputAction(Keys.Up) },
-                { GameAction.Down, new ButtonInputAction(Keys.Down) },
-                { GameAction.Left, new ButtonInputAction(Keys.Left) },
-                { GameAction.Right, new ButtonInputAction(Keys.Right) },
-                { GameAction.Fire, new ButtonInputAction(Keys.Z) },
-                { GameAction.NextWeapon, new ButtonInputAction(Keys.X) },
-                { GameAction.Focus, new ButtonInputAction(Keys.C) },
+                { GameAction.Up, new ButtonInputAction(Keys.Up, Buttons.DPadUp) },
+                { GameAction.Down, new ButtonInputAction(Keys.Down, Buttons.DPadDown) },
+                { GameAction.Left, new ButtonInputAction(Keys.Left, Buttons.DPadLeft) },
+                { GameAction.Right, new ButtonInputAction(Keys.Right, Buttons.DPadRight) },
+                { GameAction.Fire, new ButtonInputAction(Keys.Z, Buttons.A) },
+                { GameAction.NextWeapon, new ButtonInputAction(Keys.X, Buttons.B) },
+                { GameAction.Focus, new ButtonInputAction(Keys.C, Buttons.X) },
             };
 
             defaultCursor = new Cursor(AstroDroidsGame.Instance.Window);
@@ -94,7 +94,7 @@ namespace AstroDroids.Input
         {
             if (Actions.TryGetValue(action, out ButtonInputAction inputAction))
             {
-                if (kState.IsKeyDown(inputAction.KeyboardKey))
+                if (kState.IsKeyDown(inputAction.KeyboardKey) || (gState.IsConnected && gState.IsButtonDown(inputAction.GamepadButton)))
                 {
                     return true;
                 }
@@ -107,7 +107,7 @@ namespace AstroDroids.Input
         {
             if (Actions.TryGetValue(action, out ButtonInputAction inputAction))
             {
-                if ((kState.IsKeyDown(inputAction.KeyboardKey) && oldKState.IsKeyUp(inputAction.KeyboardKey)))
+                if ((kState.IsKeyDown(inputAction.KeyboardKey) && oldKState.IsKeyUp(inputAction.KeyboardKey)) || (gState.IsConnected && gState.IsButtonDown(inputAction.GamepadButton) && oldGState.IsButtonUp(inputAction.GamepadButton)))
                 {
                     return true;
                 }
@@ -120,7 +120,7 @@ namespace AstroDroids.Input
         {
             if (Actions.TryGetValue(action, out ButtonInputAction inputAction))
             {
-                if ((kState.IsKeyUp(inputAction.KeyboardKey) && oldKState.IsKeyDown(inputAction.KeyboardKey)))
+                if ((kState.IsKeyUp(inputAction.KeyboardKey) && oldKState.IsKeyDown(inputAction.KeyboardKey)) || (gState.IsConnected && gState.IsButtonUp(inputAction.GamepadButton) && oldGState.IsButtonDown(inputAction.GamepadButton)))
                 {
                     return true;
                 }
@@ -162,6 +162,18 @@ namespace AstroDroids.Input
         public static bool GetButton(Buttons button)
         {
             return gState.IsConnected && gState.IsButtonDown(button);
+        }
+
+        public static Vector2 GetLeftJoystick()
+        {
+            if (gState.IsConnected)
+            {
+                return gState.ThumbSticks.Left;
+            }
+            else
+            {
+                return Vector2.Zero;
+            }
         }
 
         public static Vector2 GetMousePos()
@@ -224,13 +236,22 @@ namespace AstroDroids.Input
             FrameworkElement.ClickCombos.Clear();
             FrameworkElement.TabKeyCombos.Clear();
             FrameworkElement.TabReverseKeyCombos.Clear();
+            FrameworkElement.LeftKeyCombos.Clear();
+            FrameworkElement.RightKeyCombos.Clear();
+            FrameworkElement.UpKeyCombos.Clear();
+            FrameworkElement.DownKeyCombos.Clear();
         }
 
         internal static void AddUIKeys()
         {
+            FrameworkElement.LeftKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Left, HeldKey = null, IsTriggeredOnRepeat = true });
+            FrameworkElement.RightKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Right, HeldKey = null, IsTriggeredOnRepeat = true });
+            FrameworkElement.UpKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Up, HeldKey = null, IsTriggeredOnRepeat = true });
+            FrameworkElement.DownKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down, HeldKey = null, IsTriggeredOnRepeat = true });
+
             FrameworkElement.ClickCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Z, HeldKey = null, IsTriggeredOnRepeat = false });
-            FrameworkElement.TabKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down, HeldKey = null, IsTriggeredOnRepeat = true });
-            FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Up, HeldKey = null, IsTriggeredOnRepeat = true });
+            //FrameworkElement.TabKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down, HeldKey = null, IsTriggeredOnRepeat = true });
+            //FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Up, HeldKey = null, IsTriggeredOnRepeat = true });
         }
 
         internal static void DisableUIMouse()

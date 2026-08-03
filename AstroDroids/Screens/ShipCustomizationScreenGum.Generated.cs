@@ -41,23 +41,6 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
     public SpriteRuntime HueTrack { get; protected set; }
     public SpriteRuntime ValTrack { get; protected set; }
     public SpriteRuntime ShipIcon { get; protected set; }
-    public ContainerRuntime ContainerInstance { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance1 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance2 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance3 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance4 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance5 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance6 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance7 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance8 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance9 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance10 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance11 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance12 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance13 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance14 { get; protected set; }
-    public ColoredRectangleRuntime ColoredRectangleInstance15 { get; protected set; }
     public ColorSlider RSlider { get; protected set; }
     public TextRuntime RLabel { get; protected set; }
     public ColorSlider GSlider { get; protected set; }
@@ -92,23 +75,6 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
         HueTrack = this.Visual?.GetGraphicalUiElementByName("HueTrack") as global::Gum.GueDeriving.SpriteRuntime;
         ValTrack = this.Visual?.GetGraphicalUiElementByName("ValTrack") as global::Gum.GueDeriving.SpriteRuntime;
         ShipIcon = this.Visual?.GetGraphicalUiElementByName("ShipIcon") as global::Gum.GueDeriving.SpriteRuntime;
-        ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::Gum.GueDeriving.ContainerRuntime;
-        ColoredRectangleInstance = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance1 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance1") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance2 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance2") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance3 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance3") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance4 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance4") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance5 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance5") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance6 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance6") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance7 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance7") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance8 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance8") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance9 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance9") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance10 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance10") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance11 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance11") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance12 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance12") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance13 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance13") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance14 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance14") as global::Gum.GueDeriving.ColoredRectangleRuntime;
-        ColoredRectangleInstance15 = this.Visual?.GetGraphicalUiElementByName("ColoredRectangleInstance15") as global::Gum.GueDeriving.ColoredRectangleRuntime;
         RSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"RSlider");
         RLabel = this.Visual?.GetGraphicalUiElementByName("RLabel") as global::Gum.GueDeriving.TextRuntime;
         GSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"GSlider");

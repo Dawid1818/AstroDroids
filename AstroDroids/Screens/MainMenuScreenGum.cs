@@ -37,6 +37,8 @@ namespace AstroDroids.Screens
 
             Visual.PlayAnimation(Enter);
             Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
+
+            GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
         }
 
         private void AnimationController_OnCompleted()

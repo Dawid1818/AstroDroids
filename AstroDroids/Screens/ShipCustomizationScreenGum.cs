@@ -75,9 +75,12 @@ namespace AstroDroids.Screens
                 }
             }
 
-            hueTrack.SetData(hueColors);
+            if(hueTrack != null)
+                hueTrack.SetData(hueColors);
+            if(saturationTrack != null)
             saturationTrack.SetData(satColors);
-            valueTrack.SetData(valueColors);
+            if(valueTrack != null)
+                valueTrack.SetData(valueColors);
         }
 
 
@@ -98,13 +101,15 @@ namespace AstroDroids.Screens
 
         private void PartBtn_Click(object sender, System.EventArgs e)
         {
-            ButtonGlow s = sender as ButtonGlow;
-            int tag = (int)s.Visual.Tag;
-            
-            curPart = tag;
-            ShipColor targetColor = SaveManager.curSave.Ship.GetColorByPart(curPart);
-            UpdateTracks(targetColor.Hue, targetColor.Saturation, targetColor.Value);
-            SetRGB(targetColor);
+            //ButtonGlow s = sender as ButtonGlow;
+            //int tag = (int)s.Visual.Tag;
+
+            //curPart = tag;
+            //ShipColor targetColor = SaveManager.curSave.Ship.GetColorByPart(curPart);
+            //UpdateTracks(targetColor.Hue, targetColor.Saturation, targetColor.Value);
+            //SetRGB(targetColor);
+
+            RSlider.IsFocused = true;
         }
 
         public void SetRGB(ShipColor color)
@@ -140,9 +145,39 @@ namespace AstroDroids.Screens
             WingsBtn.Click += PartBtn_Click;
             ReturnBtn.Click += ReturnBtn_Click;
 
+            //BodyBtn.SpatialNavigationUp = BodyBtn;
+            BodyBtn.SpatialNavigationRight = BodyBtn;
+            WeaponsBtn.SpatialNavigationRight = WeaponsBtn;
+            EnginesBtn.SpatialNavigationRight = EnginesBtn;
+            CockpitBtn.SpatialNavigationRight = CockpitBtn;
+            CockpitGlassBtn.SpatialNavigationRight = CockpitGlassBtn;
+            WingsBtn.SpatialNavigationRight = WingsBtn;
+            ReturnBtn.SpatialNavigationRight = ReturnBtn;
+
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
             hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
+
+            GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
+            //RSlider.SpatialNavigationUp = BodyBtn;
+
+            BodyBtn.GotFocus += BodyBtn_GotFocus;
+            WeaponsBtn.GotFocus += BodyBtn_GotFocus;
+            EnginesBtn.GotFocus += BodyBtn_GotFocus;
+            CockpitBtn.GotFocus += BodyBtn_GotFocus;
+            CockpitGlassBtn.GotFocus += BodyBtn_GotFocus;
+            WingsBtn.GotFocus += BodyBtn_GotFocus;
+        }
+
+        private void BodyBtn_GotFocus(object sender, EventArgs e)
+        {
+            ButtonGlow s = sender as ButtonGlow;
+            int tag = (int)s.Visual.Tag;
+
+            curPart = tag;
+            ShipColor targetColor = SaveManager.curSave.Ship.GetColorByPart(curPart);
+            UpdateTracks(targetColor.Hue, targetColor.Saturation, targetColor.Value);
+            SetRGB(targetColor);
         }
 
         public void Uninitialize()
@@ -183,6 +218,35 @@ namespace AstroDroids.Screens
 
         public void BackPressed()
         {
+            if(RSlider.IsFocused || GSlider.IsFocused || BSlider.IsFocused)
+            {
+                switch (curPart)
+                {
+                    case 0:
+                        BodyBtn.IsFocused = true;
+                        break;
+                    case 1:
+                        WeaponsBtn.IsFocused = true;
+                        break;
+                    case 2:
+                        EnginesBtn.IsFocused = true;
+                        break;
+                    case 3:
+                        CockpitBtn.IsFocused = true;
+                        break;
+                    case 4:
+                        CockpitGlassBtn.IsFocused = true;
+                        break;
+                    case 5:
+                        WingsBtn.IsFocused = true;
+                        break;
+                    default:
+                        BodyBtn.IsFocused = true;
+                        break;
+                }
+                return;
+            }
+
             Return();
         }
     }

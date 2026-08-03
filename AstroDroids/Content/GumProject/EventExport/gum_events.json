@@ -3003,6 +3003,237 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-08-01T12:56:40.6500819Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ContainerInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-02T18:35:13.0979418Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.Container ContainerInstance2 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T18:42:01.5156146Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.Container ContainerInstance in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:01:57.4992331Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.005591Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance1 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0070288Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance2 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0168477Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance3 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0256841Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance4 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0344643Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance5 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0433889Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance6 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0521476Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance7 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0612553Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance8 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0704798Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance9 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0801341Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance10 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0891669Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance11 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.0980369Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance12 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.1074781Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance13 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.1170411Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance14 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.1262145Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.ColoredRectangle ColoredRectangleInstance15 in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:02:03.1351711Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.PlayBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-02T19:14:10.4435785Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonGlow PlayBtn1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:14:15.948624Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.PlayBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-02T19:14:16.9546032Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonGlow PlayBtn1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:14:28.5204214Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.PlayBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-02T19:14:29.79576Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonGlow PlayBtn1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:14:38.3143949Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.PlayBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-02T19:14:41.1068518Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonGlow PlayBtn1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:14:53.2010211Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ButtonGlowInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-02T19:15:04.7449343Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.ButtonGlowInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-02T19:19:27.513637Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonGlow ButtonGlowInstance1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:19:29.8861058Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonGlow ButtonGlowInstance in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-02T19:39:19.4856376Z"
+      },
+      {
+        "NewName": "MainMenuScreenGum.SettingsBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-03T12:51:23.6098753Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MainMenuScreenGum.Controls/ButtonGlow SettingsBtn1 in MainMenuScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-08-03T13:26:42.3272454Z"
       }
     ]
   }

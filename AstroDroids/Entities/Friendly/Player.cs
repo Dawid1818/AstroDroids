@@ -82,25 +82,38 @@ namespace AstroDroids.Entities.Friendly
 
                 if (InputSystem.IsActionHeld(GameAction.Up))
                 {
-                    movement.Y -= actualSpeed;
+                    //movement.Y -= actualSpeed;
+                    movement.Y -= 1;
                 }
 
                 if (InputSystem.IsActionHeld(GameAction.Down))
                 {
-                    movement.Y += actualSpeed;
+                    //movement.Y += actualSpeed;
+                    movement.Y += 1;
                 }
 
                 if (InputSystem.IsActionHeld(GameAction.Left))
                 {
-                    movement.X -= actualSpeed;
+                    //movement.X -= actualSpeed;
+                    movement.X -= 1;
                 }
 
                 if (InputSystem.IsActionHeld(GameAction.Right))
                 {
-                    movement.X += actualSpeed;
+                    //movement.X += actualSpeed;
+                    movement.X += 1;
                 }
 
-                Transform.LocalPosition += movement;
+                Vector2 leftJoy = InputSystem.GetLeftJoystick();
+                movement.X += leftJoy.X;
+                movement.Y += -leftJoy.Y;
+
+                float length = movement.Length();
+
+                if (length > 1f)
+                    movement /= length;
+
+                Transform.LocalPosition += movement * actualSpeed;
 
                 if (Transform.LocalPosition.X - Width < Scene.World.Bounds.Left)
                 {

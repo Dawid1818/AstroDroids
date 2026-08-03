@@ -108,7 +108,7 @@ namespace AstroDroids.Scenes
                 debugPaused = !debugPaused;
             }
 
-            if(InputSystem.GetKeyDown(Keys.Escape) && !transitioning && !gameLost && !levelFinished)
+            if((InputSystem.GetKeyDown(Keys.Escape) || InputSystem.GetButtonDown(Buttons.Start)) && !transitioning && !gameLost && !levelFinished)
             {
                 SetPauseState(!paused);
             }
