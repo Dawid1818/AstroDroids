@@ -59,6 +59,8 @@ namespace AstroDroids.Scenes
 
         public override void Update(GameTime gameTime)
         {
+            InputSystem.SetMouseLock(false);
+
             coroutineManager.Update(gameTime);
 
             World.Update(gameTime);

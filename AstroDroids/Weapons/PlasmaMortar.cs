@@ -48,7 +48,7 @@ namespace AstroDroids.Weapons
             playerExtraAngle += (float)gameTime.ElapsedGameTime.TotalSeconds * playerVelocity.X * 300f;
             playerExtraAngle = float.Clamp(playerExtraAngle, -playerExtraAngleMax, playerExtraAngleMax);
 
-            if (InputSystem.IsActionHeld(GameAction.Fire))
+            if (InputSystem.IsActionHeld(GameAction.Fire) || InputSystem.GetLMB())
             {
                 if (currentCooldown <= 0f)
                 {

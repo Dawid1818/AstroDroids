@@ -48,7 +48,7 @@ namespace AstroDroids.Gameplay
 
         public static void UpdateCurrentWeapon(Player player, GameTime gameTime)
         {
-            if (InputSystem.IsActionDown(GameAction.NextWeapon))
+            if (InputSystem.IsActionDown(GameAction.NextWeapon) || InputSystem.GetRMBDown())
             {
                 SelectNextWeapon();
             }

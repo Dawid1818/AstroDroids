@@ -97,7 +97,7 @@ namespace AstroDroids.Weapons
 
         public override void Update(Player player, GameTime gameTime)
         {
-            if (InputSystem.IsActionHeld(GameAction.Fire))
+            if (InputSystem.IsActionHeld(GameAction.Fire) || InputSystem.GetLMB())
             {
                 if (currentCooldown <= 0f)
                 {

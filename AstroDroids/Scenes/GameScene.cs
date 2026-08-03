@@ -119,10 +119,20 @@ namespace AstroDroids.Scenes
 
                 if (!paused)
                 {
+                    InputSystem.SetMouseLock(true);
+
                     World.Update(gameTime);
 
                     yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
                 }
+                else
+                {
+                    InputSystem.SetMouseLock(false);
+                }
+            }
+            else
+            {
+                InputSystem.SetMouseLock(false);
             }
 
             ui.ScoreLabel.Text = GameStateManager.GetScore().ToString();
@@ -239,6 +249,8 @@ namespace AstroDroids.Scenes
 
         public void SaveAndQuit()
         {
+            InputSystem.SetMouseLock(false);
+
             if (LevelManager.Playtesting)
             {
                 LevelManager.QuitPlaytest();

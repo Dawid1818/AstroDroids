@@ -108,6 +108,8 @@ namespace AstroDroids.Scenes
 
         public override void Update(GameTime gameTime)
         {
+            InputSystem.SetMouseLock(false);
+
             switch (mode)
             {
                 case EditorMode.Main:

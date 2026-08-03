@@ -65,21 +65,24 @@ namespace AstroDroids
 
         protected override void Update(GameTime gameTime)
         {
-            InputSystem.Begin();
+            if (IsActive)
+            {
+                InputSystem.Begin();
 
-            if(InputSystem.GetKeyDown(Keys.F1))
-                SceneManager.SetScene(new LevelEditorScene());
+                if (InputSystem.GetKeyDown(Keys.F1))
+                    SceneManager.SetScene(new LevelEditorScene());
 
-            if (InputSystem.GetKeyDown(Keys.F2))
-                Debug = !Debug;
+                if (InputSystem.GetKeyDown(Keys.F2))
+                    Debug = !Debug;
 
-            SceneManager.Update(gameTime);
+                SceneManager.Update(gameTime);
 
-            Screen.Update(gameTime);
+                Screen.Update(gameTime);
 
-            InputSystem.End();
+                InputSystem.End();
 
-            base.Update(gameTime);
+                base.Update(gameTime);
+            }
         }
 
         protected override void Draw(GameTime gameTime)

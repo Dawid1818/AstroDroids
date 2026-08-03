@@ -4,7 +4,6 @@ using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGameGum.Input;
-using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Input
@@ -29,6 +28,8 @@ namespace AstroDroids.Input
 
         static Cursor defaultCursor;
         static DisabledCursor disabledCursor;
+
+        static bool LockMouse = false;
 
         public static void Initialize()
         {
@@ -83,6 +84,22 @@ namespace AstroDroids.Input
             oldGState = gState;
 
             oldScroll = scroll;
+
+            if (LockMouse)
+            {
+                AstroDroidsGame.Instance.IsMouseVisible = false;
+                Rectangle clientBounds = Screen.GetClientBounds();
+                Mouse.SetPosition(clientBounds.Width / 2, clientBounds.Height / 2);
+            }
+            else
+            {
+                AstroDroidsGame.Instance.IsMouseVisible = true;
+            }
+        }
+
+        public static void SetMouseLock(bool state)
+        {
+            LockMouse = state;
         }
 
         public static int GetScrollDelta()
@@ -179,6 +196,16 @@ namespace AstroDroids.Input
         public static Vector2 GetMousePos()
         {
             return new Vector2(mState.X, mState.Y);
+        }
+
+        public static Vector2 GetMouseDelta()
+        {
+            if(LockMouse)
+            {
+                Rectangle clientBounds = Screen.GetClientBounds();
+                return new Vector2(mState.X - clientBounds.Width / 2, mState.Y - clientBounds.Height / 2);
+            }
+            return new Vector2(mState.X - oldMState.X, mState.Y - oldMState.Y);
         }
 
         public static bool GetLMB()

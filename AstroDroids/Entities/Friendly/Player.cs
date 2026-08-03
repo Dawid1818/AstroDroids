@@ -108,6 +108,10 @@ namespace AstroDroids.Entities.Friendly
                 movement.X += leftJoy.X;
                 movement.Y += -leftJoy.Y;
 
+                Vector2 mouseDelta = InputSystem.GetMouseDelta();
+                movement.X += mouseDelta.X;
+                movement.Y += mouseDelta.Y;
+
                 float length = movement.Length();
 
                 if (length > 1f)

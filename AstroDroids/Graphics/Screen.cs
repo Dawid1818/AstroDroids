@@ -316,5 +316,10 @@ namespace AstroDroids.Graphics
         {
             return imGuiRenderer;
         }
+
+        public static Rectangle GetClientBounds()
+        {
+            return gameWnd.ClientBounds;
+        }
     }
 }
