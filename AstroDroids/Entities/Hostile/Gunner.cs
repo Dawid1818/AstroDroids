@@ -16,11 +16,15 @@ namespace AstroDroids.Entities.Hostile
 {
     public class GunnerSpawnData : IEnemySpawnData
     {
-        public bool FacePlayerDuringPath = false;
+        public bool FacePlayerDuringPath { get; set; } = false;
 
         public void DrawEditor()
         {
-            ImGui.Checkbox("Face player during path", ref FacePlayerDuringPath);
+            bool facePlayer = FacePlayerDuringPath;
+            if(ImGui.Checkbox("Face player during path", ref facePlayer))
+            {
+                FacePlayerDuringPath = facePlayer;
+            }
         }
 
         public void Load(BinaryReader reader, int version)

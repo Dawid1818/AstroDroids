@@ -26,7 +26,7 @@ namespace AstroDroids.Levels
         public List<EventNode> Events { get; private set; } = new List<EventNode>();
         public List<LaserBarrierGroupNode> LaserBarriers { get; private set; } = new List<LaserBarrierGroupNode>();
         public List<BackgroundObjectNode> BackgroundObjects { get; private set; } = new List<BackgroundObjectNode>();
-        public WaveWaitStyle WaitStyle { get; set; } = WaveWaitStyle.None;
+        public WaveWaitStyle WaitStyle { get; set; } = WaveWaitStyle.WaitForAllEnemiesDefeated;
 
         public void Load(BinaryReader reader, int version)
         {

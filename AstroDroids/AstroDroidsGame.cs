@@ -69,9 +69,6 @@ namespace AstroDroids
             {
                 InputSystem.Begin();
 
-                //if (InputSystem.GetKeyDown(Keys.F1))
-                //    SceneManager.SetScene(new LevelEditorScene());
-
                 if (InputSystem.GetKeyDown(Keys.F2))
                     Debug = !Debug;
 

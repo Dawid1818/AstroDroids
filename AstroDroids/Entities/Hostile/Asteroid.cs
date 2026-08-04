@@ -1,12 +1,39 @@
 ﻿using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Managers;
+using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using System.IO;
+using Numeric = System.Numerics;
 
 namespace AstroDroids.Entities.Hostile
 {
+    public class AsteroidSpawnData : IEnemySpawnData
+    {
+        public Vector2 InitialVelocity { get; set; }
+
+        public void DrawEditor()
+        {
+            Numeric.Vector2 velocity = new Numeric.Vector2(InitialVelocity.X, InitialVelocity.Y);
+            if (ImGui.InputFloat2("Initial Velocity", ref velocity))
+            {
+                InitialVelocity = new Vector2(velocity.X, velocity.Y);
+            }
+        }
+
+        public void Load(BinaryReader reader, int version)
+        {
+            InitialVelocity = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+        }
+
+        public void Save(BinaryWriter writer)
+        {
+            writer.Write(InitialVelocity.X);
+            writer.Write(InitialVelocity.Y);
+        }
+    }
     public class Asteroid : Enemy
     {
         public float t = 0f;
@@ -17,6 +44,8 @@ namespace AstroDroids.Entities.Hostile
         Vector2 velocity = Vector2.Zero;
 
         bool becameActive = false;
+
+        bool wouldFollowPath = true;
 
         public Asteroid() : base(Vector2.Zero, 20)
         {
@@ -48,7 +77,7 @@ namespace AstroDroids.Entities.Hostile
                 Despawn();
             }
 
-            if (PathManager != null)
+            if (PathManager != null && wouldFollowPath)
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
@@ -105,6 +134,13 @@ namespace AstroDroids.Entities.Hostile
         public override void Push(Vector2 direction)
         {
             velocity += direction;
+
+            wouldFollowPath = false;
+        }
+
+        public override void ApplySpawnData(IEnemySpawnData spawnData)
+        {
+            velocity = ((AsteroidSpawnData)spawnData).InitialVelocity;
         }
     }
 }

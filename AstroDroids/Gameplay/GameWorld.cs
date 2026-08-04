@@ -194,7 +194,10 @@ namespace AstroDroids.Gameplay
 
                 enemy.FollowsCamera = spawner.FollowsCamera;
 
-                AddEnemy(enemy, spawner.FollowsCamera, false, entry.SpawnData);
+                if (enemy.IsNeutral)
+                    AddNeutral(enemy, spawner.FollowsCamera, false, entry.SpawnData);
+                else
+                    AddEnemy(enemy, spawner.FollowsCamera, false, entry.SpawnData);
 
                 enemy.Transform.LocalPosition = spawner.HasPath ? spawner.Path.StartPoint != null ? spawner.Path.StartPoint : spawner.Transform.Position : spawner.SpawnPosition;
                 enemy.Spawned();
