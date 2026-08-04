@@ -65,25 +65,40 @@ namespace AstroDroids.Scenes
             ui.Initialize(this);
             ui.AddToRoot();
 
-            if(GameStateManager.GetMissionType() != MissionType.Editor)
-            {
-                List<string> levels = GameStateManager.GetLevels();
-                LevelManager.LoadLevel(levels[GameStateManager.GetLevelIndex()]);
-            }
-
             if (World == null)
                 World = new GameWorld();
 
+            if (GameStateManager.MissionInitialized())
+            {
+                if (GameStateManager.GetMissionType() != MissionType.Editor)
+                {
+                    List<string> levels = GameStateManager.GetLevels();
+                    LevelManager.LoadLevel(levels[GameStateManager.GetLevelIndex()]);
+                }
+            }
+            else
+            {
+                GameStateManager.NewState(new GameMission() { Type = MissionType.Editor });
+            }
+
             World.Initialize();
 
-            if (LevelManager.CurrentLevel.BackgroundId == 0)
+            if (LevelManager.CurrentLevel != null)
             {
-                World.Starfield = new SimulationStarfield();
+                if (LevelManager.CurrentLevel.BackgroundId == 0)
+                {
+                    World.Starfield = new SimulationStarfield();
+                }
+                else
+                {
+                    List<Texture2D> starfields = TextureManager.GetStarfields();
+                    World.Starfield = new ImageStarfield(starfields[LevelManager.CurrentLevel.BackgroundId - 1]);
+                }
             }
             else
             {
                 List<Texture2D> starfields = TextureManager.GetStarfields();
-                World.Starfield = new ImageStarfield(starfields[LevelManager.CurrentLevel.BackgroundId - 1]);
+                World.Starfield = new ImageStarfield(starfields[0]);
             }
 
             World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));

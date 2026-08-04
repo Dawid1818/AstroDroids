@@ -3234,6 +3234,132 @@
         "ElementType": "Screens",
         "EventType": 6,
         "TimestampUtc": "2026-08-03T13:26:42.3272454Z"
+      },
+      {
+        "NewName": "Styles (Container).Accent1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-08-03T18:00:04.6590745Z"
+      },
+      {
+        "NewName": "Styles (Container).Cyan",
+        "OldName": "Styles (Container).Accent1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:00:08.7940242Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.HLabel",
+        "OldName": "ShipCustomizationScreenGum.RLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:13:54.8316266Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SLabel",
+        "OldName": "ShipCustomizationScreenGum.HLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:13:57.7803466Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.VLabel",
+        "OldName": "ShipCustomizationScreenGum.SLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:14:00.3589311Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SLabel",
+        "OldName": "ShipCustomizationScreenGum.GLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:14:10.072977Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.HLabel",
+        "OldName": "ShipCustomizationScreenGum.VLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:14:16.8194668Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.VLabel",
+        "OldName": "ShipCustomizationScreenGum.BLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:14:20.647391Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.VSlider",
+        "OldName": "ShipCustomizationScreenGum.BSlider",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:14:25.9660507Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SSlider",
+        "OldName": "ShipCustomizationScreenGum.GSlider",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:14:32.2424449Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.HSlider",
+        "OldName": "ShipCustomizationScreenGum.RSlider",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:14:36.8243013Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.HBG",
+        "OldName": "ShipCustomizationScreenGum.ScorePanelBG",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:15:53.663708Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SBG",
+        "OldName": "ShipCustomizationScreenGum.HBG",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:15:55.905824Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.HBG",
+        "OldName": "ShipCustomizationScreenGum.SBG",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:15:59.184418Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SBG",
+        "OldName": "ShipCustomizationScreenGum.HBG",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:16:01.7185321Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.HBG",
+        "OldName": "ShipCustomizationScreenGum.SBG",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:16:04.3803269Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.SBG",
+        "OldName": "ShipCustomizationScreenGum.ScorePanelBG1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:16:07.7126774Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.VBG",
+        "OldName": "ShipCustomizationScreenGum.ScorePanelBG2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-08-03T18:16:11.2352277Z"
       }
     ]
   }

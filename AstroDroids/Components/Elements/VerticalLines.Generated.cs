@@ -1,11 +1,11 @@
 //Code for Elements/VerticalLines (Container)
+using Gum;
 using Gum.Converters;
 using Gum.DataTypes;
+using Gum.GueDeriving;
 using Gum.Managers;
 using Gum.Wireframe;
 using GumRuntime;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
 namespace AstroDroids.Components.Elements;
@@ -16,7 +16,7 @@ partial class VerticalLines : global::Gum.Forms.Controls.FrameworkElement
     {
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
-            var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
+            var visual = new global::Gum.GueDeriving.ContainerRuntime();
             var element = ObjectFinder.Self.GetElementSave("Elements/VerticalLines") ?? throw new System.InvalidOperationException("Could not find an element named Elements/VerticalLines - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new VerticalLines(visual);
@@ -50,9 +50,12 @@ partial class VerticalLines : global::Gum.Forms.Controls.FrameworkElement
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        LinesSprite = this.Visual?.GetGraphicalUiElementByName("LinesSprite") as global::MonoGameGum.GueDeriving.SpriteRuntime;
+        LinesSprite = this.Visual?.GetGraphicalUiElementByName("LinesSprite") as global::Gum.GueDeriving.SpriteRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
+    public void ApplyLocalization()
+    {
+    }
     partial void CustomInitialize();
 }

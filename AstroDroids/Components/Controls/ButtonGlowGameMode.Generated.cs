@@ -99,8 +99,8 @@ partial class ButtonGlowGameMode : global::Gum.Forms.Controls.Button
             }
         }
     }
-    public NineSliceRuntime FocusedIndicator { get; protected set; }
     public NineSliceRuntime Background { get; protected set; }
+    public NineSliceRuntime FocusedIndicator { get; protected set; }
     public SpriteRuntime SpriteInstance { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
 
@@ -110,6 +110,9 @@ partial class ButtonGlowGameMode : global::Gum.Forms.Controls.Button
     public AnimationRuntime SlideInLeft {get; protected set;}
     public AnimationRuntime SlideInRight {get; protected set;}
     public AnimationRuntime SlideInUp {get; protected set;}
+    public AnimationRuntime SlideOutLeft {get; protected set;}
+    public AnimationRuntime SlideOutRight {get; protected set;}
+    public AnimationRuntime SlideOutUp {get; protected set;}
     #endregion
     public string BannerImage
     {
@@ -129,14 +132,17 @@ partial class ButtonGlowGameMode : global::Gum.Forms.Controls.Button
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::Gum.GueDeriving.NineSliceRuntime;
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::Gum.GueDeriving.NineSliceRuntime;
+        FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::Gum.GueDeriving.NineSliceRuntime;
         SpriteInstance = this.Visual?.GetGraphicalUiElementByName("SpriteInstance") as global::Gum.GueDeriving.SpriteRuntime;
         TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::Gum.GueDeriving.TextRuntime;
         GlowFocused = this.Visual.GetAnimation("GlowFocused");
         SlideInLeft = this.Visual.GetAnimation("SlideInLeft");
         SlideInRight = this.Visual.GetAnimation("SlideInRight");
         SlideInUp = this.Visual.GetAnimation("SlideInUp");
+        SlideOutLeft = this.Visual.GetAnimation("SlideOutLeft");
+        SlideOutRight = this.Visual.GetAnimation("SlideOutRight");
+        SlideOutUp = this.Visual.GetAnimation("SlideOutUp");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

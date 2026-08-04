@@ -40,9 +40,9 @@ namespace AstroDroids.Screens
             CockpitGlassBtn.Visual.Tag = 4;
             WingsBtn.Visual.Tag = 5;
 
-            RSlider.Maximum = 360;
-            GSlider.Maximum = 100;
-            BSlider.Maximum = 100;
+            HSlider.Maximum = 360;
+            SSlider.Maximum = 100;
+            VSlider.Maximum = 100;
 
             SatTrack.Texture = saturationTrack;
             ValTrack.Texture = valueTrack;
@@ -86,17 +86,17 @@ namespace AstroDroids.Screens
 
         private void Slider_ValueChangedByUi(object sender, EventArgs e)
         {
-            RSlider.Value = (int)RSlider.Value;
-            GSlider.Value = (int)GSlider.Value;
-            BSlider.Value = (int)BSlider.Value;
+            HSlider.Value = (int)HSlider.Value;
+            SSlider.Value = (int)SSlider.Value;
+            VSlider.Value = (int)VSlider.Value;
 
-            SaveManager.curSave.Ship.SetColorByPart(curPart, new ShipColor() { Hue = (float)RSlider.Value, Saturation = (float)GSlider.Value / 100, Value = (float)BSlider.Value / 100 });
+            SaveManager.curSave.Ship.SetColorByPart(curPart, new ShipColor() { Hue = (float)HSlider.Value, Saturation = (float)SSlider.Value / 100, Value = (float)VSlider.Value / 100 });
             scene.World.GetPlayers()[0].ApplyCustomization(SaveManager.curSave.Ship);
-            UpdateTracks((float)RSlider.Value, (float)GSlider.Value / 100, (float)BSlider.Value / 100);
+            UpdateTracks((float)HSlider.Value, (float)SSlider.Value / 100, (float)VSlider.Value / 100);
 
-            RLabel.SetTextNoTranslate($"H: {(int)RSlider.Value}");
-            GLabel.SetTextNoTranslate($"S: {(int)GSlider.Value}");
-            BLabel.SetTextNoTranslate($"V: {(int)BSlider.Value}");
+            HLabel.SetTextNoTranslate($"H: {(int)HSlider.Value}");
+            SLabel.SetTextNoTranslate($"S: {(int)SSlider.Value}");
+            VLabel.SetTextNoTranslate($"V: {(int)VSlider.Value}");
         }
 
         private void PartBtn_Click(object sender, System.EventArgs e)
@@ -109,18 +109,18 @@ namespace AstroDroids.Screens
             //UpdateTracks(targetColor.Hue, targetColor.Saturation, targetColor.Value);
             //SetRGB(targetColor);
 
-            RSlider.IsFocused = true;
+            HSlider.IsFocused = true;
         }
 
         public void SetRGB(ShipColor color)
         {
-            RSlider.Value = color.Hue;
-            GSlider.Value = color.Saturation * 100f;
-            BSlider.Value = color.Value * 100f;
+            HSlider.Value = color.Hue;
+            SSlider.Value = color.Saturation * 100f;
+            VSlider.Value = color.Value * 100f;
 
-            RLabel.SetTextNoTranslate($"H: {(int)RSlider.Value}");
-            GLabel.SetTextNoTranslate($"S: {(int)GSlider.Value}");
-            BLabel.SetTextNoTranslate($"V: {(int)BSlider.Value}");
+            HLabel.SetTextNoTranslate($"H: {(int)HSlider.Value}");
+            SLabel.SetTextNoTranslate($"S: {(int)SSlider.Value}");
+            VLabel.SetTextNoTranslate($"V: {(int)VSlider.Value}");
         }
 
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
@@ -133,9 +133,9 @@ namespace AstroDroids.Screens
             player.LockMovement = true;
             scene.World.AddPlayer(player);
 
-            RSlider.ValueChangedByUi += Slider_ValueChangedByUi;
-            GSlider.ValueChangedByUi += Slider_ValueChangedByUi;
-            BSlider.ValueChangedByUi += Slider_ValueChangedByUi;
+            HSlider.ValueChangedByUi += Slider_ValueChangedByUi;
+            SSlider.ValueChangedByUi += Slider_ValueChangedByUi;
+            VSlider.ValueChangedByUi += Slider_ValueChangedByUi;
 
             BodyBtn.Click += PartBtn_Click;
             WeaponsBtn.Click += PartBtn_Click;
@@ -218,7 +218,7 @@ namespace AstroDroids.Screens
 
         public void BackPressed()
         {
-            if(RSlider.IsFocused || GSlider.IsFocused || BSlider.IsFocused)
+            if(HSlider.IsFocused || SSlider.IsFocused || VSlider.IsFocused)
             {
                 switch (curPart)
                 {

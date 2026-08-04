@@ -1,14 +1,14 @@
 //Code for Controls/Keyboard (Container)
 using AstroDroids.Components.Controls;
 using AstroDroids.Components.Elements;
+using Gum;
 using Gum.Converters;
 using Gum.DataTypes;
+using Gum.GueDeriving;
 using Gum.Managers;
 using Gum.StateAnimation.Runtime;
 using Gum.Wireframe;
 using GumRuntime;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
 namespace AstroDroids.Components.Controls;
@@ -19,7 +19,7 @@ partial class Keyboard : global::Gum.Forms.Controls.FrameworkElement
     {
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
-            var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
+            var visual = new global::Gum.GueDeriving.ContainerRuntime();
             var element = ObjectFinder.Self.GetElementSave("Controls/Keyboard") ?? throw new System.InvalidOperationException("Could not find an element named Controls/Keyboard - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new Keyboard(visual);
@@ -136,8 +136,8 @@ partial class Keyboard : global::Gum.Forms.Controls.FrameworkElement
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        Row1Keys = this.Visual?.GetGraphicalUiElementByName("Row1Keys") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        AllRows = this.Visual?.GetGraphicalUiElementByName("AllRows") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        Row1Keys = this.Visual?.GetGraphicalUiElementByName("Row1Keys") as global::Gum.GueDeriving.ContainerRuntime;
+        AllRows = this.Visual?.GetGraphicalUiElementByName("AllRows") as global::Gum.GueDeriving.ContainerRuntime;
         Key1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"Key1");
         KeyQ = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"KeyQ");
         KeyA = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"KeyA");
@@ -184,15 +184,15 @@ partial class Keyboard : global::Gum.Forms.Controls.FrameworkElement
         Key8 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"Key8");
         Key9 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"Key9");
         Key0 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"Key0");
-        Row2Keys = this.Visual?.GetGraphicalUiElementByName("Row2Keys") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        Row3Keys = this.Visual?.GetGraphicalUiElementByName("Row3Keys") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        Row4Keys = this.Visual?.GetGraphicalUiElementByName("Row4Keys") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        Row5Keys = this.Visual?.GetGraphicalUiElementByName("Row5Keys") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        Row2Keys = this.Visual?.GetGraphicalUiElementByName("Row2Keys") as global::Gum.GueDeriving.ContainerRuntime;
+        Row3Keys = this.Visual?.GetGraphicalUiElementByName("Row3Keys") as global::Gum.GueDeriving.ContainerRuntime;
+        Row4Keys = this.Visual?.GetGraphicalUiElementByName("Row4Keys") as global::Gum.GueDeriving.ContainerRuntime;
+        Row5Keys = this.Visual?.GetGraphicalUiElementByName("Row5Keys") as global::Gum.GueDeriving.ContainerRuntime;
         KeyBackspace = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"KeyBackspace");
         KeyReturn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"KeyReturn");
         KeyLeft = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"KeyLeft");
         KeyRight = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardKey>(this.Visual,"KeyRight");
-        HighlightRectangle = this.Visual?.GetGraphicalUiElementByName("HighlightRectangle") as global::MonoGameGum.GueDeriving.RectangleRuntime;
+        HighlightRectangle = this.Visual?.GetGraphicalUiElementByName("HighlightRectangle") as global::Gum.GueDeriving.RectangleRuntime;
         IconInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance");
         IconInstance1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance1");
         IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");
@@ -200,5 +200,8 @@ partial class Keyboard : global::Gum.Forms.Controls.FrameworkElement
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
+    public void ApplyLocalization()
+    {
+    }
     partial void CustomInitialize();
 }

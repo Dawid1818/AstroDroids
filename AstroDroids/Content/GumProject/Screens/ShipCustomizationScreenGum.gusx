@@ -3,18 +3,6 @@
   <Name>ShipCustomizationScreenGum</Name>
   <State>
     <Name>Default</Name>
-    <Variable Type="string" Name="BLabel.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">B: 0</Value>
-    </Variable>
-    <Variable Type="bool" Name="BLabel.Visible" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="float" Name="BLabel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">376</Value>
-    </Variable>
-    <Variable Type="float" Name="BLabel.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">353</Value>
-    </Variable>
     <Variable Type="string" Name="BodyBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance1</Value>
     </Variable>
@@ -26,15 +14,6 @@
     </Variable>
     <Variable Type="float" Name="BodyBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">2</Value>
-    </Variable>
-    <Variable Type="float" Name="BSlider.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">278</Value>
-    </Variable>
-    <Variable Type="float" Name="BSlider.X" SetsValue="true">
-      <Value xsi:type="xsd:float">519</Value>
-    </Variable>
-    <Variable Type="float" Name="BSlider.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">316</Value>
     </Variable>
     <Variable Type="string" Name="CockpitBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance1</Value>
@@ -108,26 +87,56 @@
     <Variable Type="float" Name="EnginesBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">4</Value>
     </Variable>
-    <Variable Type="string" Name="GLabel.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">G: 0</Value>
+    <Variable Type="int" Name="HBG.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
-    <Variable Type="bool" Name="GLabel.Visible" SetsValue="true">
+    <Variable Type="ColorCategory" Name="HBG.ColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="float" Name="HBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-567</Value>
+    </Variable>
+    <Variable Type="StyleCategory" Name="HBG.StyleCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="int" Name="HBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">72</Value>
+    </Variable>
+    <Variable Type="int" Name="HBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
+    </Variable>
+    <Variable Type="float" Name="HBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-548</Value>
+    </Variable>
+    <Variable Type="float" Name="HBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">257</Value>
+    </Variable>
+    <Variable Type="float" Name="HBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-89</Value>
+    </Variable>
+    <Variable Type="string" Name="HLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">H: 0</Value>
+    </Variable>
+    <Variable Type="bool" Name="HLabel.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
-    <Variable Type="float" Name="GLabel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">485</Value>
+    <Variable Type="float" Name="HLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">484</Value>
     </Variable>
-    <Variable Type="float" Name="GLabel.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">264</Value>
+    <Variable Type="float" Name="HLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">203</Value>
     </Variable>
-    <Variable Type="float" Name="GSlider.Width" SetsValue="true">
+    <Variable Type="float" Name="HSlider.SliderPercent" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="HSlider.Width" SetsValue="true">
       <Value xsi:type="xsd:float">278</Value>
     </Variable>
-    <Variable Type="float" Name="GSlider.X" SetsValue="true">
+    <Variable Type="float" Name="HSlider.X" SetsValue="true">
       <Value xsi:type="xsd:float">519</Value>
     </Variable>
-    <Variable Type="float" Name="GSlider.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">258</Value>
+    <Variable Type="float" Name="HSlider.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">198</Value>
     </Variable>
     <Variable Type="float" Name="HueTrack.Height" SetsValue="true">
       <Value xsi:type="xsd:float">28</Value>
@@ -159,30 +168,6 @@
     <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">411</Value>
     </Variable>
-    <Variable Type="string" Name="RLabel.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">R: 0</Value>
-    </Variable>
-    <Variable Type="bool" Name="RLabel.Visible" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="float" Name="RLabel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">484</Value>
-    </Variable>
-    <Variable Type="float" Name="RLabel.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">203</Value>
-    </Variable>
-    <Variable Type="float" Name="RSlider.SliderPercent" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="float" Name="RSlider.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">278</Value>
-    </Variable>
-    <Variable Type="float" Name="RSlider.X" SetsValue="true">
-      <Value xsi:type="xsd:float">519</Value>
-    </Variable>
-    <Variable Type="float" Name="RSlider.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">198</Value>
-    </Variable>
     <Variable Type="float" Name="SatTrack.Height" SetsValue="true">
       <Value xsi:type="xsd:float">28</Value>
     </Variable>
@@ -201,68 +186,32 @@
     <Variable Type="float" Name="SatTrack.Y" SetsValue="true">
       <Value xsi:type="xsd:float">257</Value>
     </Variable>
-    <Variable Type="int" Name="ScorePanelBG.Alpha" SetsValue="true">
+    <Variable Type="int" Name="SBG.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
     </Variable>
-    <Variable Type="ColorCategory" Name="ScorePanelBG.ColorCategoryState" SetsValue="true">
+    <Variable Type="ColorCategory" Name="SBG.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
-    <Variable Type="float" Name="ScorePanelBG.Height" SetsValue="true">
+    <Variable Type="float" Name="SBG.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-567</Value>
     </Variable>
-    <Variable Type="StyleCategory" Name="ScorePanelBG.StyleCategoryState" SetsValue="true">
+    <Variable Type="StyleCategory" Name="SBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
     </Variable>
-    <Variable Type="float" Name="ScorePanelBG.Width" SetsValue="true">
+    <Variable Type="int" Name="SBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">72</Value>
+    </Variable>
+    <Variable Type="int" Name="SBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
+    </Variable>
+    <Variable Type="float" Name="SBG.Width" SetsValue="true">
       <Value xsi:type="xsd:float">-548</Value>
     </Variable>
-    <Variable Type="float" Name="ScorePanelBG.X" SetsValue="true">
+    <Variable Type="float" Name="SBG.X" SetsValue="true">
       <Value xsi:type="xsd:float">257</Value>
     </Variable>
-    <Variable Type="float" Name="ScorePanelBG.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">-89</Value>
-    </Variable>
-    <Variable Type="int" Name="ScorePanelBG1.Alpha" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
-    </Variable>
-    <Variable Type="ColorCategory" Name="ScorePanelBG1.ColorCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Primary</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG1.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-567</Value>
-    </Variable>
-    <Variable Type="StyleCategory" Name="ScorePanelBG1.StyleCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Panel</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG1.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-548</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG1.X" SetsValue="true">
-      <Value xsi:type="xsd:float">257</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG1.Y" SetsValue="true">
+    <Variable Type="float" Name="SBG.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-29</Value>
-    </Variable>
-    <Variable Type="int" Name="ScorePanelBG2.Alpha" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
-    </Variable>
-    <Variable Type="ColorCategory" Name="ScorePanelBG2.ColorCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Primary</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG2.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-567</Value>
-    </Variable>
-    <Variable Type="StyleCategory" Name="ScorePanelBG2.StyleCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Panel</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG2.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-548</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG2.X" SetsValue="true">
-      <Value xsi:type="xsd:float">257</Value>
-    </Variable>
-    <Variable Type="float" Name="ScorePanelBG2.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">29</Value>
     </Variable>
     <Variable Type="float" Name="ShipIcon.Height" SetsValue="true">
       <Value xsi:type="xsd:float">116.66656</Value>
@@ -294,6 +243,27 @@
     <Variable Type="PositionUnitType" Name="ShipIcon.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="string" Name="SLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">S: 0</Value>
+    </Variable>
+    <Variable Type="bool" Name="SLabel.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="SLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">485</Value>
+    </Variable>
+    <Variable Type="float" Name="SLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">264</Value>
+    </Variable>
+    <Variable Type="float" Name="SSlider.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">278</Value>
+    </Variable>
+    <Variable Type="float" Name="SSlider.X" SetsValue="true">
+      <Value xsi:type="xsd:float">519</Value>
+    </Variable>
+    <Variable Type="float" Name="SSlider.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">258</Value>
+    </Variable>
     <Variable Type="float" Name="ValTrack.Height" SetsValue="true">
       <Value xsi:type="xsd:float">28</Value>
     </Variable>
@@ -311,6 +281,54 @@
     </Variable>
     <Variable Type="float" Name="ValTrack.Y" SetsValue="true">
       <Value xsi:type="xsd:float">315</Value>
+    </Variable>
+    <Variable Type="int" Name="VBG.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="VBG.ColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="float" Name="VBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-567</Value>
+    </Variable>
+    <Variable Type="StyleCategory" Name="VBG.StyleCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="int" Name="VBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">72</Value>
+    </Variable>
+    <Variable Type="int" Name="VBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
+    </Variable>
+    <Variable Type="float" Name="VBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-548</Value>
+    </Variable>
+    <Variable Type="float" Name="VBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">257</Value>
+    </Variable>
+    <Variable Type="float" Name="VBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">29</Value>
+    </Variable>
+    <Variable Type="string" Name="VLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">V: 0</Value>
+    </Variable>
+    <Variable Type="bool" Name="VLabel.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="VLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">485</Value>
+    </Variable>
+    <Variable Type="float" Name="VLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">320</Value>
+    </Variable>
+    <Variable Type="float" Name="VSlider.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">278</Value>
+    </Variable>
+    <Variable Type="float" Name="VSlider.X" SetsValue="true">
+      <Value xsi:type="xsd:float">519</Value>
+    </Variable>
+    <Variable Type="float" Name="VSlider.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">316</Value>
     </Variable>
     <Variable Type="string" Name="WeaponsBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance1</Value>
@@ -337,19 +355,19 @@
       <Value xsi:type="xsd:float">4</Value>
     </Variable>
   </State>
-  <Instance Name="ScorePanelBG" BaseType="NineSlice" />
-  <Instance Name="ScorePanelBG1" BaseType="NineSlice" />
-  <Instance Name="ScorePanelBG2" BaseType="NineSlice" />
+  <Instance Name="HBG" BaseType="NineSlice" />
+  <Instance Name="SBG" BaseType="NineSlice" />
+  <Instance Name="VBG" BaseType="NineSlice" />
   <Instance Name="SatTrack" BaseType="Sprite" />
   <Instance Name="HueTrack" BaseType="Sprite" />
   <Instance Name="ValTrack" BaseType="Sprite" />
   <Instance Name="ShipIcon" BaseType="Sprite" />
-  <Instance Name="RSlider" BaseType="Controls/ColorSlider" />
-  <Instance Name="RLabel" BaseType="Text" />
-  <Instance Name="GSlider" BaseType="Controls/ColorSlider" />
-  <Instance Name="GLabel" BaseType="Text" />
-  <Instance Name="BSlider" BaseType="Controls/ColorSlider" />
-  <Instance Name="BLabel" BaseType="Text" />
+  <Instance Name="HSlider" BaseType="Controls/ColorSlider" />
+  <Instance Name="HLabel" BaseType="Text" />
+  <Instance Name="SSlider" BaseType="Controls/ColorSlider" />
+  <Instance Name="SLabel" BaseType="Text" />
+  <Instance Name="VSlider" BaseType="Controls/ColorSlider" />
+  <Instance Name="VLabel" BaseType="Text" />
   <Instance Name="ContainerInstance1" BaseType="Container" />
   <Instance Name="BodyBtn" BaseType="Controls/ButtonGlow" />
   <Instance Name="WeaponsBtn" BaseType="Controls/ButtonGlow" />

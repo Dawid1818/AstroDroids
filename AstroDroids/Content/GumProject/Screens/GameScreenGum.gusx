@@ -49,7 +49,7 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="bool" Name="BossPanel.Visible" SetsValue="true">
-      <Value xsi:type="xsd:boolean">false</Value>
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="BossPanel.Width" SetsValue="true">
       <Value xsi:type="xsd:float">322</Value>
@@ -67,7 +67,7 @@
       <Value xsi:type="xsd:int">6</Value>
     </Variable>
     <Variable Type="float" Name="BossPanel.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">-2</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="BossPanel.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -86,6 +86,12 @@
     </Variable>
     <Variable Type="StyleCategory" Name="BossPanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="int" Name="BossPanelBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
+    </Variable>
+    <Variable Type="int" Name="BossPanelBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">144</Value>
     </Variable>
     <Variable Type="bool" Name="BossWarning.ClipsChildren" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
@@ -271,10 +277,10 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="float" Name="BottomPanel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">-2</Value>
     </Variable>
     <Variable Type="float" Name="BottomPanel.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">-5</Value>
+      <Value xsi:type="xsd:float">2</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="BottomPanel.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
@@ -293,6 +299,9 @@
     </Variable>
     <Variable Type="StyleCategory" Name="BottomPanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="int" Name="BottomPanelBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
     </Variable>
     <Variable Type="ChildrenLayout" Name="ButtonContainer.ChildrenLayout" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -623,10 +632,10 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="float" Name="ScorePanel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">1</Value>
     </Variable>
     <Variable Type="float" Name="ScorePanel.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">-3</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="ScorePanel.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -637,14 +646,38 @@
     <Variable Type="int" Name="ScorePanelBG.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
     </Variable>
+    <Variable Type="Blend" Name="ScorePanelBG.Blend" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="ScorePanelBG.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="float" Name="ScorePanelBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="bool" Name="ScorePanelBG.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="string" Name="ScorePanelBG.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ScorePanel</Value>
     </Variable>
+    <Variable IsFile="true" Type="string" Name="ScorePanelBG.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UISpriteSheet.png</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="ScorePanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="int" Name="ScorePanelBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">120</Value>
+    </Variable>
+    <Variable Type="float" Name="ScorePanelBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ScorePanelBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-2.5</Value>
+    </Variable>
+    <Variable Type="float" Name="ScorePanelBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">1</Value>
     </Variable>
     <Variable Type="string" Name="SettingsBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ButtonContainer</Value>

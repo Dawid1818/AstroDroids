@@ -13,8 +13,17 @@
     <Variable Type="DimensionUnitType" Name="Background.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
+    <Variable Type="bool" Name="Background.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Bordered</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">72</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
     </Variable>
     <Variable Type="float" Name="Background.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -45,23 +54,32 @@
       <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Warning</Value>
+      <Value xsi:type="xsd:string">Cyan</Value>
     </Variable>
     <Variable Type="float" Name="FocusedIndicator.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">35</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="FocusedIndicator.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FocusedIndicator.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
     <Variable Type="StyleCategory" Name="FocusedIndicator.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Solid</Value>
     </Variable>
+    <Variable Type="int" Name="FocusedIndicator.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">72</Value>
+    </Variable>
+    <Variable Type="int" Name="FocusedIndicator.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
+    </Variable>
     <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="float" Name="FocusedIndicator.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">3</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="float" Name="FocusedIndicator.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -131,6 +149,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Warning</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
@@ -152,6 +171,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Warning</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
@@ -173,6 +193,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Warning</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
@@ -194,6 +215,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Warning</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
@@ -215,6 +237,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Warning</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
@@ -236,6 +259,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Warning</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
@@ -257,6 +281,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Warning</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
@@ -276,8 +301,9 @@
         <Value xsi:type="xsd:int">255</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">PrimaryLight</Value>
+        <Value xsi:type="xsd:string">Cyan</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
@@ -297,8 +323,9 @@
         <Value xsi:type="xsd:int">0</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">PrimaryLight</Value>
+        <Value xsi:type="xsd:string">Cyan</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
@@ -320,6 +347,7 @@
       <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
@@ -352,8 +380,8 @@
       </Variable>
     </State>
   </Category>
-  <Instance Name="FocusedIndicator" BaseType="NineSlice" />
   <Instance Name="Background" BaseType="NineSlice" />
+  <Instance Name="FocusedIndicator" BaseType="NineSlice" />
   <Instance Name="TextInstance" BaseType="Text" />
   <Behaviors>
     <ElementBehaviorReference>

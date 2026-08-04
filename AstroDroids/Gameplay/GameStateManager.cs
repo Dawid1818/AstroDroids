@@ -122,5 +122,10 @@ namespace AstroDroids.Gameplay
         {
             return CurrentMissionProgress.LevelIndex;
         }
+
+        public static bool MissionInitialized()
+        {
+            return CurrentMission != null;
+        }
     }
 }

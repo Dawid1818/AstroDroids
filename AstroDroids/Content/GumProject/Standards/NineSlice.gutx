@@ -414,6 +414,29 @@
         </Value>
       </VariableList>
     </State>
+    <State>
+      <Name>Cyan</Name>
+      <Variable Type="int" Name="Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">247</Value>
+      </Variable>
+      <Variable Type="int" Name="Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>VariableReferences</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.Cyan.Red</string>
+          <string>Green = Components/Styles.Cyan.Green</string>
+          <string>Blue = Components/Styles.Cyan.Blue</string>
+        </Value>
+      </VariableList>
+    </State>
   </Category>
   <Category>
     <Name>StyleCategory</Name>

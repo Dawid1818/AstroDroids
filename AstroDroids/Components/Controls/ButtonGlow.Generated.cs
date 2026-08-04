@@ -99,8 +99,8 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
             }
         }
     }
-    public NineSliceRuntime FocusedIndicator { get; protected set; }
     public NineSliceRuntime Background { get; protected set; }
+    public NineSliceRuntime FocusedIndicator { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
 
 
@@ -123,8 +123,8 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::Gum.GueDeriving.NineSliceRuntime;
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::Gum.GueDeriving.NineSliceRuntime;
+        FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::Gum.GueDeriving.NineSliceRuntime;
         TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::Gum.GueDeriving.TextRuntime;
         GlowFocused = this.Visual.GetAnimation("GlowFocused");
         GlowActive = this.Visual.GetAnimation("GlowActive");

@@ -34,8 +34,11 @@ namespace AstroDroids.Managers
 
         public static void StartLevel()
         {
-            CurrentLevel.StartLevel();
-            CurrentLevel.RegisterEvents();
+            if (CurrentLevel != null)
+            {
+                CurrentLevel.StartLevel();
+                CurrentLevel.RegisterEvents();
+            }
         }
 
         public static IEnumerator GetLevelScript()

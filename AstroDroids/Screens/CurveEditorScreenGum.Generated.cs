@@ -1,12 +1,12 @@
 //Code for CurveEditorScreenGum
 using AstroDroids.Components.Controls;
+using Gum;
 using Gum.Converters;
 using Gum.DataTypes;
+using Gum.GueDeriving;
 using Gum.Managers;
 using Gum.Wireframe;
 using GumRuntime;
-using MonoGameGum;
-using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
 namespace AstroDroids.Screens;
@@ -17,7 +17,7 @@ partial class CurveEditorScreenGum : global::Gum.Forms.Controls.FrameworkElement
     {
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
-            var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
+            var visual = new global::Gum.GueDeriving.ContainerRuntime();
             var element = ObjectFinder.Self.GetElementSave("CurveEditorScreenGum") ?? throw new System.InvalidOperationException("Could not find an element named CurveEditorScreenGum - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new CurveEditorScreenGum(visual);
@@ -64,10 +64,10 @@ partial class CurveEditorScreenGum : global::Gum.Forms.Controls.FrameworkElement
         base.ReactToVisualChanged();
         LabelInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"LabelInstance");
         CurvePointEditorWindow = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<WindowStandard>(this.Visual,"CurvePointEditorWindow");
-        StartPointText = this.Visual?.GetGraphicalUiElementByName("StartPointText") as global::MonoGameGum.GueDeriving.TextRuntime;
-        KeyPoint1Text = this.Visual?.GetGraphicalUiElementByName("KeyPoint1Text") as global::MonoGameGum.GueDeriving.TextRuntime;
-        EndPointText = this.Visual?.GetGraphicalUiElementByName("EndPointText") as global::MonoGameGum.GueDeriving.TextRuntime;
-        KeyPoint2Text = this.Visual?.GetGraphicalUiElementByName("KeyPoint2Text") as global::MonoGameGum.GueDeriving.TextRuntime;
+        StartPointText = this.Visual?.GetGraphicalUiElementByName("StartPointText") as global::Gum.GueDeriving.TextRuntime;
+        KeyPoint1Text = this.Visual?.GetGraphicalUiElementByName("KeyPoint1Text") as global::Gum.GueDeriving.TextRuntime;
+        EndPointText = this.Visual?.GetGraphicalUiElementByName("EndPointText") as global::Gum.GueDeriving.TextRuntime;
+        KeyPoint2Text = this.Visual?.GetGraphicalUiElementByName("KeyPoint2Text") as global::Gum.GueDeriving.TextRuntime;
         StartPointXBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"StartPointXBox");
         KeyPoint1XBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"KeyPoint1XBox");
         EndPointXBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"EndPointXBox");
@@ -80,5 +80,8 @@ partial class CurveEditorScreenGum : global::Gum.Forms.Controls.FrameworkElement
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
+    public void ApplyLocalization()
+    {
+    }
     partial void CustomInitialize();
 }

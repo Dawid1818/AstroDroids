@@ -52,7 +52,7 @@ namespace AstroDroids.Graphics
             graphicsManager = game.Graphics;
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
 
-            gumProject = GumUI.Initialize(game, "GumProject/AstroDroidsGum.gumx");
+            gumProject = GumUI.Initialize(game, "GumProject/astrodroidsgum.gumx");
 
             GumUI.LocalizationService.CurrentLanguage = 1;
 
@@ -166,8 +166,6 @@ namespace AstroDroids.Graphics
 
             TransitionManager.Draw(gameTime);
 
-            DrawImGuiAfter();
-
             SceneManager.DrawDebug(gameTime);
 
             if (useVirtualResolution)
@@ -190,6 +188,8 @@ namespace AstroDroids.Graphics
 
                 spriteBatch.End();
             }
+
+            DrawImGuiAfter();
         }
 
         public static void DrawGum(GameTime gameTime)
