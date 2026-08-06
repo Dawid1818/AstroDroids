@@ -50,7 +50,7 @@ namespace AstroDroids
         {
             InputSystem.Initialize();
             TextureManager.Initialize(this);
-            SoundManager.Initialize();
+            SoundManager.Initialize(this);
             Screen.Initialize(this);
             GameDatabase.Initialize();
             LevelManager.Initialize();
@@ -71,6 +71,8 @@ namespace AstroDroids
 
                 if (InputSystem.GetKeyDown(Keys.F2))
                     Debug = !Debug;
+
+                SoundManager.Update(gameTime);
 
                 SceneManager.Update(gameTime);
 

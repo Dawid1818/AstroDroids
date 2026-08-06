@@ -55,6 +55,8 @@ namespace AstroDroids.Scenes
             World.Starfield = new ImageStarfield(starfields[0]);
 
             Screen.ResetCamera();
+
+            SoundManager.PlayMusic("subspace_loop");
         }
 
         public override void Update(GameTime gameTime)

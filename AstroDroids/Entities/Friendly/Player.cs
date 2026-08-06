@@ -57,7 +57,7 @@ namespace AstroDroids.Entities.Friendly
             if (destroyed)
                 return;
 
-            if(InvTime > 0f)
+            if (InvTime > 0f)
             {
                 CanBeDamaged = false;
                 InvTime -= gameTime.GetElapsedSeconds();
@@ -67,17 +67,17 @@ namespace AstroDroids.Entities.Friendly
                 CanBeDamaged = true;
             }
 
-            //Firing
-            GameStateManager.UpdateCurrentWeapon(this, gameTime);
-
-            //Player movement
-            Vector2 movement = Vector2.Zero;
-
-            //Angle = MathHelper.ToRadians(180);
-            //Angle += 0.01f;
-
             if (!LockMovement)
             {
+                //Firing
+                GameStateManager.UpdateCurrentWeapon(this, gameTime);
+
+                //Player movement
+                Vector2 movement = Vector2.Zero;
+
+                //Angle = MathHelper.ToRadians(180);
+                //Angle += 0.01f;
+
                 float actualSpeed = InputSystem.IsActionHeld(GameAction.Focus) ? speed / 2f : speed;
 
                 if (InputSystem.IsActionHeld(GameAction.Up))
@@ -139,7 +139,8 @@ namespace AstroDroids.Entities.Friendly
             }
 
 
-            if(InvTime > 0) {
+            if (InvTime > 0)
+            {
                 return;
             }
             foreach (var enemy in Scene.World.Enemies)
@@ -165,7 +166,7 @@ namespace AstroDroids.Entities.Friendly
 
             GameStateManager.DrawCurrentWeapon(this, gameTime);
 
-            if(InvTime > 0f)
+            if (InvTime > 0f)
             {
                 Screen.spriteBatch.DrawCircle(GetPosition(), 42, 12, new Color(Color.Blue.R, Color.Blue.G, Color.Blue.B, (byte)127), 12);
             }

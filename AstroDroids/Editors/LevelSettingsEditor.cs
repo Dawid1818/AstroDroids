@@ -87,6 +87,21 @@ namespace AstroDroids.Editors
                     ImGui.EndCombo();
                 }
 
+                var allMusic = GameDatabase.GetAllMusic();
+                string musicName = GameDatabase.GetMusic(level.MusicId);
+
+                if (ImGui.BeginCombo("Music", string.IsNullOrWhiteSpace(musicName) ? $"Music with ID {level.MusicId} not found!" : musicName))
+                {
+                    foreach (var music in allMusic)
+                    {
+                        if (ImGui.Selectable(music, level.MusicId == allMusic.IndexOf(music)))
+                        {
+                            level.MusicId = allMusic.IndexOf(music);
+                        }
+                    }
+                    ImGui.EndCombo();
+                }
+
                 ImGui.End();
             }
         }

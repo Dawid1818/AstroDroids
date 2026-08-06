@@ -1,5 +1,6 @@
 using AstroDroids.Components.Elements;
 using AstroDroids.Interfaces;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Gum.Converters;
 using Gum.DataTypes;
@@ -21,7 +22,7 @@ namespace AstroDroids.Screens
             PlayBtn.Click += PlayBtn_Click;
             CustomizeBtn.Click += CustomizeBtn_Click;
             //SettingsBtn.Click += SettingsBtn_Click;
-            //LeaderboardBtn.Click += LeaderboardBtn_Click;
+            LeaderboardBtn.Click += LeaderboardBtn_Click;
             ExitBtn.Click += ExitBtn_Click;
 
             //for animation purposes
@@ -81,7 +82,8 @@ namespace AstroDroids.Screens
 
         private void LeaderboardBtn_Click(object sender, EventArgs e)
         {
-            scene.SetPage(new LeaderboardScreenGum());
+            SoundManager.PlaySound("ShieldOff", AstroDroidsGame.rnd.NextSingle() * 2f);
+            //scene.SetPage(new LeaderboardScreenGum());
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)

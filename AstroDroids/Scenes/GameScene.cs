@@ -13,6 +13,7 @@ using Gum.Wireframe;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,6 +105,8 @@ namespace AstroDroids.Scenes
             World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));
 
             LevelManager.StartLevel();
+
+            SoundManager.PlayMusic(GameDatabase.GetMusic(LevelManager.CurrentLevel.MusicId));
 
             Screen.ResetCamera();
 
@@ -317,11 +320,12 @@ namespace AstroDroids.Scenes
 
         IEnumerator missionFinishedSequence()
         {
+            SoundManager.PlayMusic("ZeroRanger - Hyyeeaaaarh", false);
             ui.MissionStatusContainer.Visible = true;
             ui.MissionStatusLabel.Text = "T_MissionComplete";
             ui.Visual.PlayAnimation(ui.ShowMissionStatus);
 
-            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped);
+            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped && SoundManager.CurrentMusic == "ZeroRanger - Hyyeeaaaarh" && (MediaPlayer.State == MediaState.Stopped || MediaPlayer.PlayPosition.Seconds > 18));
 
             yield return new WaitForSeconds(2f);
 

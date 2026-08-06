@@ -104,6 +104,8 @@ namespace AstroDroids.Scenes
         public override void Set()
         {
             Screen.GumUI.Root.Children.Clear();
+
+            SoundManager.StopMusic();
         }
 
         public override void Update(GameTime gameTime)

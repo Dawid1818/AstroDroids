@@ -26,6 +26,8 @@ namespace AstroDroids.Managers
 
         static Dictionary<MissionType, GameMission> Missions = new Dictionary<MissionType, GameMission>();
 
+        static Dictionary<int, string> Music = new Dictionary<int, string>();
+
         public static void Initialize()
         {
             RegisterEnemy(0, typeof(BasicEnemy), typeof(DefaultSpawnData));
@@ -47,6 +49,8 @@ namespace AstroDroids.Managers
             RegisterMission(MissionType.Tutorial, new GameMission() { Name = "Tutorial", Type = MissionType.Tutorial, LevelNames = { "Tutorial" } });
             RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2", "Level3", "Level4", "Level5" } });
             RegisterMission(MissionType.BossRush, new GameMission() { Name = "BossRush", Type = MissionType.BossRush, LevelNames = { "BossRush" } });
+
+            RegisterMusic(0, "ZeroRanger - For Your Security");
         }
 
         public static void InitializePreviews()
@@ -125,6 +129,11 @@ namespace AstroDroids.Managers
             Missions[type] = mission;
         }
 
+        static void RegisterMusic(int id, string musicPath)
+        {
+            Music[id] = musicPath;
+        }
+
         public static Type GetEnemyType(int id)
         {
             if (entityTypes.TryGetValue(id, out EntityRegistration registration))
@@ -170,6 +179,18 @@ namespace AstroDroids.Managers
             else
             {
                 throw new Exception($"Mission with type {type} not found in GameDatabase.");
+            }
+        }
+
+        public static string GetMusic(int id)
+        {
+            if (Music.TryGetValue(id, out string musicPath))
+            {
+                return musicPath;
+            }
+            else
+            {
+                return string.Empty;
             }
         }
 
@@ -236,6 +257,11 @@ namespace AstroDroids.Managers
         public static List<Type> GetAllEnemyTypes()
         {
             return entityTypes.Values.Select(r => r.EnemyType).ToList();
+        }
+
+        public static List<string> GetAllMusic()
+        {
+            return Music.Values.ToList();
         }
 
         public static Dictionary<int, Type> GetAllEventHandlers()

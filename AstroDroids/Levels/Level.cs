@@ -18,6 +18,7 @@ namespace AstroDroids.Levels
         public string Name { get; set; } = string.Empty;
         public int EventHandlerId { get; set; } = 0;
         public int BackgroundId { get; set; } = 0;
+        public int MusicId { get; set; } = 0;
 
         protected Scene Scene { get { return SceneManager.GetScene(); } }
         public List<AttackWave> AttackWaves { get; private set; } = new List<AttackWave>();
@@ -99,13 +100,15 @@ namespace AstroDroids.Levels
             writer.WriteFixedString(Magic);
 
             //file format version placeholder
-            writer.Write(4);
+            writer.Write(5);
 
             writer.Write(Name);
 
             writer.Write(EventHandlerId);
 
             writer.Write(BackgroundId);
+
+            writer.Write(MusicId);
 
             writer.Write(AttackWaves.Count);
             foreach (var spawner in AttackWaves)
@@ -144,6 +147,15 @@ namespace AstroDroids.Levels
             }
 
             BackgroundId = reader.ReadInt32();
+
+            if(actualVersion >= 5)
+            {
+                MusicId = reader.ReadInt32();
+            }
+            else
+            {
+                MusicId = 0;
+            }
 
             AttackWaves = new List<AttackWave>();
             int wavesCount = reader.ReadInt32();
