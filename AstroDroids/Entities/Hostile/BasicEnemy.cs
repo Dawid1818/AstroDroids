@@ -16,7 +16,7 @@ namespace AstroDroids.Entities.Hostile
 
         float angle = 3.14f;
 
-        public BasicEnemy() : base(Vector2.Zero, 2)
+        public BasicEnemy() : base(Vector2.Zero, 3)
         {
             //texture = TextureManager.Get("Ships/Basic/tinyShip9");
             texture = TextureManager.Get("Ships/Basic/tinyShip9Sheet");

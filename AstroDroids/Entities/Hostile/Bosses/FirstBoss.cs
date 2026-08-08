@@ -93,11 +93,11 @@ namespace AstroDroids.Entities.Hostile.Bosses
             Scene.World.BossEntity = this;
         }
 
-        Asteroid spawnAsteroid(float xPos, Vector2 pushDir)
+        Asteroid spawnAsteroid(float xPos)
         {
             Asteroid asteroid = new Asteroid();
             asteroid.Transform.Position = new Vector2(xPos, Random.NextSingle(200, Scene.World.Bounds.Height - 200));
-            asteroid.Push(pushDir);
+            //asteroid.Push(pushDir);
             //asteroid.FollowsCamera = true;
             return asteroid;
         }
@@ -197,8 +197,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             if (asteroidTimer <= 0f)
             {
-                Scene.World.AddNeutral(spawnAsteroid(-Random.Next(30, 30), new Vector2(1, 0)), true, true);
-                Scene.World.AddNeutral(spawnAsteroid(Scene.World.Bounds.Width + 30, new Vector2(-1, 0)), true, true);
+                Scene.World.AddNeutral(spawnAsteroid(-Random.Next(30, 30)), true, true, new AsteroidSpawnData() { InitialVelocity = new Vector2(1, 0) });
+                Scene.World.AddNeutral(spawnAsteroid(Scene.World.Bounds.Width + 30), true, true, new AsteroidSpawnData() { InitialVelocity = new Vector2(-1, 0) });
 
                 asteroidTimer = 3f;
             }

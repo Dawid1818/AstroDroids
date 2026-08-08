@@ -33,7 +33,7 @@ namespace AstroDroids.Editors
                 ImGui.SetNextWindowPos(new Numeric.Vector2(io.DisplaySize.X * 0.5f, io.DisplaySize.Y * 0.5f), ImGuiCond.Always, new Numeric.Vector2(0.5f, 0.5f));
             if (ImGui.BeginPopupModal("Level Browser##LevelBrowser", ref shown, ImGuiWindowFlags.AlwaysAutoResize))
             {
-                if (ImGui.BeginListBox("##Levels"))
+                if (ImGui.BeginListBox("##Levels", new Numeric.Vector2(200, 500)))
                 {
                     for (int i = 0; i < Levels.Count; i++)
                     {

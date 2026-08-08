@@ -40,11 +40,15 @@ namespace AstroDroids.Levels
         {
             GameScene gameScene = Scene as GameScene;
 
+            SoundManager.FadeOutMusic();
+
             gameScene.DisplayBossWarning();
 
             yield return new WaitForSeconds(5);
 
             gameScene.HideBossWarning();
+
+            SoundManager.PlayMusic(GameDatabase.GetMusic(LevelManager.CurrentLevel.BossMusicId));
 
             yield return new WaitForSeconds(1);
 

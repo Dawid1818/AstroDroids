@@ -102,6 +102,20 @@ namespace AstroDroids.Editors
                     ImGui.EndCombo();
                 }
 
+                string bossMusicName = GameDatabase.GetMusic(level.BossMusicId);
+
+                if (ImGui.BeginCombo("Boss Music", string.IsNullOrWhiteSpace(bossMusicName) ? $"Music with ID {level.BossMusicId} not found!" : bossMusicName))
+                {
+                    foreach (var music in allMusic)
+                    {
+                        if (ImGui.Selectable(music, level.BossMusicId == allMusic.IndexOf(music)))
+                        {
+                            level.BossMusicId = allMusic.IndexOf(music);
+                        }
+                    }
+                    ImGui.EndCombo();
+                }
+
                 ImGui.End();
             }
         }

@@ -444,7 +444,7 @@ namespace AstroDroids.Editors
                 {
                     case 0:
                         node = new EnemySpawner();
-                        node.Load(reader, 0);
+                        node.Load(reader, Level.FileVersion);
                         EnemySpawner spawner = node as EnemySpawner;
                         wave.Spawners.Add(spawner);
 
@@ -460,12 +460,12 @@ namespace AstroDroids.Editors
                         break;
                     case 1:
                         node = new EventNode();
-                        node.Load(reader, 0);
+                        node.Load(reader, Level.FileVersion);
                         wave.Events.Add(node as EventNode);
                         break;
                     case 2:
                         node = new LaserBarrierGroupNode();
-                        node.Load(reader, 0);
+                        node.Load(reader, Level.FileVersion);
                         LaserBarrierGroupNode laserGroupN = node as LaserBarrierGroupNode;
                         wave.LaserBarriers.Add(laserGroupN);
 
@@ -473,7 +473,7 @@ namespace AstroDroids.Editors
                         break;
                     case 3:
                         node = new BackgroundObjectNode();
-                        node.Load(reader, 0);
+                        node.Load(reader, Level.FileVersion);
                         BackgroundObjectNode bgObjN = node as BackgroundObjectNode;
                         wave.BackgroundObjects.Add(bgObjN);
                         break;
@@ -900,14 +900,20 @@ namespace AstroDroids.Editors
 
             ImGui.SameLine();
 
+            ImGui.BeginDisabled(selectedEnemy == -1);
             if (ImGui.Button("Insert"))
             {
-                spawner.EnemyIDs.Insert(selectedEnemy + 1, new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = GameDatabase.CreateEnemySpawnData(selectedEnemyType) });
+                try
+                {
+                    spawner.EnemyIDs.Insert(selectedEnemy + 1, new EnemySpawnEntry { EnemyID = selectedEnemyType, SpawnData = GameDatabase.CreateEnemySpawnData(selectedEnemyType) });
 
-                selectedEnemy = selectedEnemy + 1;
-                scrollToItem = true;
-                itemToScroll = selectedEnemy;
+                    selectedEnemy = selectedEnemy + 1;
+                    scrollToItem = true;
+                    itemToScroll = selectedEnemy;
+                }
+                catch { }
             }
+            ImGui.EndDisabled();
 
             ImGui.SameLine();
 

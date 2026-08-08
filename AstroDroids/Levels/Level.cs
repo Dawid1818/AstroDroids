@@ -15,10 +15,12 @@ namespace AstroDroids.Levels
     public class Level : ISaveable
     {
         public const string Magic = "adlvl";
+        public const int FileVersion = 7;
         public string Name { get; set; } = string.Empty;
         public int EventHandlerId { get; set; } = 0;
         public int BackgroundId { get; set; } = 0;
         public int MusicId { get; set; } = 0;
+        public int BossMusicId { get; set; } = 0;
 
         protected Scene Scene { get { return SceneManager.GetScene(); } }
         public List<AttackWave> AttackWaves { get; private set; } = new List<AttackWave>();
@@ -100,7 +102,7 @@ namespace AstroDroids.Levels
             writer.WriteFixedString(Magic);
 
             //file format version placeholder
-            writer.Write(5);
+            writer.Write(FileVersion);
 
             writer.Write(Name);
 
@@ -109,6 +111,7 @@ namespace AstroDroids.Levels
             writer.Write(BackgroundId);
 
             writer.Write(MusicId);
+            writer.Write(BossMusicId);
 
             writer.Write(AttackWaves.Count);
             foreach (var spawner in AttackWaves)
@@ -155,6 +158,15 @@ namespace AstroDroids.Levels
             else
             {
                 MusicId = 0;
+            }
+
+            if(actualVersion >= 7)
+            {
+                BossMusicId = reader.ReadInt32();
+            }
+            else
+            {
+                BossMusicId = 0;
             }
 
             AttackWaves = new List<AttackWave>();

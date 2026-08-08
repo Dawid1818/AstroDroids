@@ -4,8 +4,6 @@ using AstroDroids.Entities.Hostile.Bosses;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Levels;
-using FlatRedBall.Glue.StateInterpolation;
-using FontStashSharp;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -51,6 +49,8 @@ namespace AstroDroids.Managers
             RegisterMission(MissionType.BossRush, new GameMission() { Name = "BossRush", Type = MissionType.BossRush, LevelNames = { "BossRush" } });
 
             RegisterMusic(0, "ZeroRanger - For Your Security");
+            RegisterMusic(1, "Industria");
+            RegisterMusic(2, "space_boss_battle_bpm175");
         }
 
         public static void InitializePreviews()
@@ -66,7 +66,7 @@ namespace AstroDroids.Managers
                 Rectangle bounds = enemy.ToRectangle();
                 RenderTarget2D target;
 
-                if(bounds.Width == 0 || bounds.Height == 0)
+                if (bounds.Width == 0 || bounds.Height == 0)
                 {
                     target = new RenderTarget2D(manager.GraphicsDevice, 32, 32);
                     entityPreviews.Add(entity.Key, Screen.GetImGuiRenderer().BindTexture(target));

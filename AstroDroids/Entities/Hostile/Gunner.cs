@@ -14,27 +14,80 @@ using System.IO;
 
 namespace AstroDroids.Entities.Hostile
 {
+    public enum EnemyLookStyle
+    {
+        Ahead,
+        AtPlayer,
+        Custom
+    }
+
     public class GunnerSpawnData : IEnemySpawnData
     {
-        public bool FacePlayerDuringPath { get; set; } = false;
+        public float LookAngle { get; set; }
+        public bool DespawnAtPathEnd { get; set; } = true;
+        public EnemyLookStyle LookStyle { get; set; } = EnemyLookStyle.Ahead;
 
         public void DrawEditor()
         {
-            bool facePlayer = FacePlayerDuringPath;
-            if(ImGui.Checkbox("Face player during path", ref facePlayer))
+            float lookangle = LookAngle;
+            if (ImGui.InputFloat("Look Angle", ref lookangle))
             {
-                FacePlayerDuringPath = facePlayer;
+                LookAngle = lookangle;
             }
+
+            if (ImGui.BeginCombo("Look Style", LookStyle.ToString()))
+            {
+                foreach (var style in Enum.GetValues(typeof(EnemyLookStyle)))
+                {
+                    bool isSelected = (EnemyLookStyle)style == LookStyle;
+                    if (ImGui.Selectable(style.ToString(), isSelected))
+                    {
+                        LookStyle = (EnemyLookStyle)style;
+                    }
+                }
+                ImGui.EndCombo();
+            }
+
+            bool despawn = DespawnAtPathEnd;
+            if (ImGui.Checkbox("Despawn at path end", ref despawn))
+            {
+                DespawnAtPathEnd = despawn;
+            }
+
+            //bool facePlayer = FacePlayerDuringPath;
+            //if(ImGui.Checkbox("Face player during path", ref facePlayer))
+            //{
+            //    FacePlayerDuringPath = facePlayer;
+            //}
         }
 
         public void Load(BinaryReader reader, int version)
         {
-            FacePlayerDuringPath = reader.ReadBoolean();
+            if (version >= 6)
+            {
+                LookStyle = (EnemyLookStyle)reader.ReadInt32();
+                LookAngle = reader.ReadSingle();
+                DespawnAtPathEnd = reader.ReadBoolean();
+            }
+            else
+            {
+                bool FacePlayerDuringPath = reader.ReadBoolean();
+
+                if (FacePlayerDuringPath)
+                    LookStyle = EnemyLookStyle.AtPlayer;
+                else
+                    LookStyle = EnemyLookStyle.Ahead;
+
+                LookAngle = 0f;
+                DespawnAtPathEnd = true;
+            }
         }
 
         public void Save(BinaryWriter writer)
         {
-            writer.Write(FacePlayerDuringPath);   
+            writer.Write((int)LookStyle);
+            writer.Write(LookAngle);
+            writer.Write(DespawnAtPathEnd);
         }
     }
     public class Gunner : Enemy
@@ -50,8 +103,12 @@ namespace AstroDroids.Entities.Hostile
         float timer = 0;
 
         bool firing = false;
+        CoroutineInstance fireLoop;
 
-        bool facePlayer = false;
+        //bool facePlayer = false;
+        EnemyLookStyle lookStyle = EnemyLookStyle.Ahead;
+        float lookAngle = 0;
+        bool despawnAtPathEnd = true;
 
         public Gunner() : base(Vector2.Zero, 10)
         {
@@ -61,9 +118,23 @@ namespace AstroDroids.Entities.Hostile
             sprite = new AnimatedSprite(texture, 5, 44, 44, 1, 5, 10f);
         }
 
+        public override void Destroyed()
+        {
+            base.Destroyed();
+
+            if (fireLoop != null)
+            {
+                Scene.World.StopCoroutine(fireLoop);
+                fireLoop = null;
+            }
+        }
+
         public override void ApplySpawnData(IEnemySpawnData spawnData)
         {
-            facePlayer = ((GunnerSpawnData)spawnData).FacePlayerDuringPath;
+            GunnerSpawnData data = (GunnerSpawnData)spawnData;
+            lookStyle = data.LookStyle;
+            lookAngle = MathHelper.ToRadians(data.LookAngle);
+            despawnAtPathEnd = data.DespawnAtPathEnd;
         }
 
         public override void Update(GameTime gameTime)
@@ -72,18 +143,18 @@ namespace AstroDroids.Entities.Hostile
 
             Player player = Scene.World.GetRandomPlayer();
 
-            if (player != null)
+            if (player != null && lookStyle == EnemyLookStyle.AtPlayer)
             {
                 angle = GameHelper.AngleBetween(Transform.Position, player.GetPosition()) + 1.571f;
             }
 
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if(timer >= 2f && !firing)
+            if (timer >= 2f && !firing)
             {
                 timer = 0f;
                 firing = true;
-                Scene.World.StartCoroutine(FireSequence());
+                fireLoop = Scene.World.StartCoroutine(FireSequence());
             }
 
             if (PathManager != null)
@@ -91,14 +162,24 @@ namespace AstroDroids.Entities.Hostile
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
 
-                if(!facePlayer)
-                    angle = GameHelper.AngleFromDir(PathManager.Direction) + 1.571f;
+                switch (lookStyle)
+                {
+                    default:
+                    case EnemyLookStyle.Ahead:
+                        angle = GameHelper.AngleFromDir(PathManager.Direction) + 1.571f;
+                        break;
+                    case EnemyLookStyle.AtPlayer:
+                        break;
+                    case EnemyLookStyle.Custom:
+                        angle = lookAngle;
+                        break;
+                }
 
 
-                //if (!PathManager.Active)
-                //{
-                //    Despawn();
-                //} 
+                if (despawnAtPathEnd && !PathManager.Active)
+                {
+                    Despawn();
+                }
             }
             else
             {
@@ -115,7 +196,7 @@ namespace AstroDroids.Entities.Hostile
         IEnumerator FireSequence()
         {
             List<float> angles = null;
-            int pattern = Random.Next(3);  
+            int pattern = Random.Next(3);
             switch (pattern)
             {
                 case 0:

@@ -40,11 +40,24 @@ namespace AstroDroids.Managers
         {
             while(true)
             {
-                if((CurrentMusic != targetMusic || MediaPlayer.State == MediaState.Stopped) && !stopped)
+                if(targetMusic == string.Empty && !stopped)
                 {
                     if (MediaPlayer.State == MediaState.Playing)
                     {
-                        while(MediaPlayer.Volume > 0f)
+                        while (MediaPlayer.Volume > 0f)
+                        {
+                            MediaPlayer.Volume -= 0.01f;
+                            yield return null;
+                        }
+                        stopped = true;
+                        MediaPlayer.Stop();
+                    }
+                }
+                else if ((CurrentMusic != targetMusic) && !stopped)
+                {
+                    if (MediaPlayer.State == MediaState.Playing)
+                    {
+                        while (MediaPlayer.Volume > 0f)
                         {
                             MediaPlayer.Volume -= 0.01f;
                             yield return null;
@@ -88,7 +101,13 @@ namespace AstroDroids.Managers
         public static void StopMusic()
         {
             MediaPlayer.Stop();
+            CurrentMusic = string.Empty;
             stopped = true;
+        }
+
+        public static void FadeOutMusic()
+        {
+            targetMusic = string.Empty;
         }
 
         public static SoundEffectInstance PlaySound(string name, float pitch = 1f)
