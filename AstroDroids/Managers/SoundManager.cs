@@ -23,6 +23,7 @@ namespace AstroDroids.Managers
         public static string CurrentMusic { get; private set; } = string.Empty;
         static string targetMusic = string.Empty;
         static bool repeatingMusic = false;
+        static bool stopped = true;
         public static void Initialize(AstroDroidsGame game)
         {
             if (initialized) return;
@@ -39,7 +40,7 @@ namespace AstroDroids.Managers
         {
             while(true)
             {
-                if(CurrentMusic != targetMusic)
+                if((CurrentMusic != targetMusic || MediaPlayer.State == MediaState.Stopped) && !stopped)
                 {
                     if (MediaPlayer.State == MediaState.Playing)
                     {
@@ -81,11 +82,13 @@ namespace AstroDroids.Managers
         {
             repeatingMusic = isRepeating;
             targetMusic = name;
+            stopped = false;
         }
 
         public static void StopMusic()
         {
             MediaPlayer.Stop();
+            stopped = true;
         }
 
         public static SoundEffectInstance PlaySound(string name, float pitch = 1f)

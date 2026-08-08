@@ -13,6 +13,7 @@ using MonoGame.Extended.Collections;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AstroDroids.Entities.Hostile.Bosses
 {
@@ -33,6 +34,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
         ChallengerBossFlightMode Flight = ChallengerBossFlightMode.Freeroam;
 
         CoroutineInstance attackLoop;
+        CoroutineInstance extraLoop;
+
+        List<ChallengerBeamWarning> warnings = new List<ChallengerBeamWarning>();
+        List<ChallengerBeam> beams = new List<ChallengerBeam>();
 
         public ChallengerBoss() : base(Vector2.Zero, 1000)
         {
@@ -141,6 +146,23 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 attackLoop = null;
             }
 
+            if (extraLoop != null)
+            {
+                Scene.World.StopCoroutine(extraLoop);
+                extraLoop = null;
+            }
+
+            foreach (var item in warnings.ToList())
+            {
+                RemoveWarning(item);
+            }
+
+            foreach (var item in beams.ToList())
+            {
+                item.Locked = false;
+                RemoveBeam(item);
+            }
+
             if (Scene.World.BossEntity == this)
                 Scene.World.BossEntity = null;
         }
@@ -155,6 +177,31 @@ namespace AstroDroids.Entities.Hostile.Bosses
         public bool DestinationReached()
         {
             return !RMM.Active;
+        }
+
+        void AddWarning(ChallengerBeamWarning warning)
+        {
+            warnings.Add(warning);
+            Scene.World.AddWarning(warning, true);
+        }
+
+        void RemoveWarning(ChallengerBeamWarning warning)
+        {
+            warnings.Remove(warning);
+            Scene.World.RemoveWarning(warning);
+        }
+
+        void AddBeam(ChallengerBeam beam)
+        {
+            beams.Add(beam);
+            Scene.World.AddProjectile(beam, true);
+        }
+
+        void RemoveBeam(ChallengerBeam beam)
+        {
+            beams.Remove(beam);
+            //dont have to do this as these beams are being unlocked while calling this, so they should despawn naturally
+            //Scene.World.RemoveProjectile(beam);
         }
 
         #region Attacks
@@ -211,14 +258,14 @@ namespace AstroDroids.Entities.Hostile.Bosses
                             warning.AngleOffset = angleOffset;
                         }
                         warnings.Add(warning);
-                        Scene.World.AddWarning(warning, true);
+                        AddWarning(warning);
                     }
 
                     yield return new WaitForSeconds(delay);
 
                     foreach (var w in warnings)
                     {
-                        Scene.World.RemoveWarning(w);
+                        RemoveWarning(w);
                     }
 
                     List<float> finalAngles = new List<float> { baseAngle };
@@ -270,17 +317,17 @@ namespace AstroDroids.Entities.Hostile.Bosses
             ChallengerBeamWarning beam3W = new ChallengerBeamWarning(Transform.Position, MathHelper.ToRadians(0), 1024f);
             ChallengerBeamWarning beam4W = new ChallengerBeamWarning(Transform.Position, MathHelper.ToRadians(180), 1024f);
 
-            Scene.World.AddWarning(beamW, true);
-            Scene.World.AddWarning(beam2W, true);
-            Scene.World.AddWarning(beam3W, true);
-            Scene.World.AddWarning(beam4W, true);
+            AddWarning(beamW);
+            AddWarning(beam2W);
+            AddWarning(beam3W);
+            AddWarning(beam4W);
 
             yield return new WaitForSeconds(1f);
 
-            Scene.World.RemoveWarning(beamW);
-            Scene.World.RemoveWarning(beam2W);
-            Scene.World.RemoveWarning(beam3W);
-            Scene.World.RemoveWarning(beam4W);
+            RemoveWarning(beamW);
+            RemoveWarning(beam2W);
+            RemoveWarning(beam3W);
+            RemoveWarning(beam4W);
 
             while (y <= 2)
             {
@@ -294,10 +341,10 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 beam3.Locked = true;
                 beam4.Locked = true;
 
-                Scene.World.AddProjectile(beam, true);
-                Scene.World.AddProjectile(beam2, true);
-                Scene.World.AddProjectile(beam3, true);
-                Scene.World.AddProjectile(beam4, true);
+                AddBeam(beam);
+                AddBeam(beam2);
+                AddBeam(beam3);
+                AddBeam(beam4);
 
                 for (int i = 0; i < 2; i++)
                 {
@@ -330,20 +377,25 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 beam3.Locked = false;
                 beam4.Locked = false;
 
+                RemoveBeam(beam);
+                RemoveBeam(beam2);
+                RemoveBeam(beam3);
+                RemoveBeam(beam4);
+
                 y++;
                 x = 0;
 
-                Scene.World.AddWarning(beamW, true);
-                Scene.World.AddWarning(beam2W, true);
-                Scene.World.AddWarning(beam3W, true);
-                Scene.World.AddWarning(beam4W, true);
+                AddWarning(beamW);
+                AddWarning(beam2W);
+                AddWarning(beam3W);
+                AddWarning(beam4W);
 
                 yield return new WaitForSeconds(1);
 
-                Scene.World.RemoveWarning(beamW);
-                Scene.World.RemoveWarning(beam2W);
-                Scene.World.RemoveWarning(beam3W);
-                Scene.World.RemoveWarning(beam4W);
+                RemoveWarning(beamW);
+                RemoveWarning(beam2W);
+                RemoveWarning(beam3W);
+                RemoveWarning(beam4W);
 
             }
 
@@ -365,17 +417,17 @@ namespace AstroDroids.Entities.Hostile.Bosses
             ChallengerBeamWarning beam3W = new ChallengerBeamWarning(new Vector2(Transform.Position.X, Transform.Position.Y), MathHelper.ToRadians(0), 1024f);
             ChallengerBeamWarning beam4W = new ChallengerBeamWarning(new Vector2(Transform.Position.X, Transform.Position.Y), MathHelper.ToRadians(180), 1024f);
 
-            Scene.World.AddWarning(beamW, true);
-            Scene.World.AddWarning(beam2W, true);
-            Scene.World.AddWarning(beam3W, true);
-            Scene.World.AddWarning(beam4W, true);
+            AddWarning(beamW);
+            AddWarning(beam2W);
+            AddWarning(beam3W);
+            AddWarning(beam4W);
 
             yield return new WaitForSeconds(1f);
 
-            Scene.World.RemoveWarning(beamW);
-            Scene.World.RemoveWarning(beam2W);
-            Scene.World.RemoveWarning(beam3W);
-            Scene.World.RemoveWarning(beam4W);
+            RemoveWarning(beamW);
+            RemoveWarning(beam2W);
+            RemoveWarning(beam3W);
+            RemoveWarning(beam4W);
 
             while (y <= 2)
             {
@@ -389,12 +441,12 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 beam3.Locked = true;
                 beam4.Locked = true;
 
-                Scene.World.AddProjectile(beam, true);
-                Scene.World.AddProjectile(beam2, true);
-                Scene.World.AddProjectile(beam3, true);
-                Scene.World.AddProjectile(beam4, true);
+                AddBeam(beam);
+                AddBeam(beam2);
+                AddBeam(beam3);
+                AddBeam(beam4);
 
-                Scene.World.StartCoroutine(GunDownForBeam());
+                extraLoop = Scene.World.StartCoroutine(GunDownForBeam());
 
                 float degrees = Random.Next(0, 2) == 0 ? -1 : 1;
 
@@ -420,21 +472,25 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 beam3.Locked = false;
                 beam4.Locked = false;
 
+                RemoveBeam(beam);
+                RemoveBeam(beam2);
+                RemoveBeam(beam3);
+                RemoveBeam(beam4);
+
                 y++;
                 x = 0;
 
-                Scene.World.AddWarning(beamW, true);
-                Scene.World.AddWarning(beam2W, true);
-                Scene.World.AddWarning(beam3W, true);
-                Scene.World.AddWarning(beam4W, true);
+                AddWarning(beamW);
+                AddWarning(beam2W);
+                AddWarning(beam3W);
+                AddWarning(beam4W);
 
                 yield return new WaitForSeconds(1);
 
-                Scene.World.RemoveWarning(beamW);
-                Scene.World.RemoveWarning(beam2W);
-                Scene.World.RemoveWarning(beam3W);
-                Scene.World.RemoveWarning(beam4W);
-
+                RemoveWarning(beamW);
+                RemoveWarning(beam2W);
+                RemoveWarning(beam3W);
+                RemoveWarning(beam4W);
             }
 
             Flight = ChallengerBossFlightMode.Freeroam;
