@@ -16,6 +16,7 @@ namespace AstroDroids.Screens
 
             ReturnBtn.Click += ReturnBtn_Click;
             BossRushBtn.Click += BossRushBtn_Click;
+            StoryBtn.Click += StoryBtn_Click;
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
@@ -27,6 +28,13 @@ namespace AstroDroids.Screens
 
             TutorialBtn.SpatialNavigationDown = ReturnBtn;
             BossRushBtn.SpatialNavigationDown = ReturnBtn;
+        }
+
+        private void StoryBtn_Click(object sender, EventArgs e)
+        {
+            GameStateManager.NewState(GameDatabase.GetMission(MissionType.Story));
+
+            scene.TransitionToScene(new GameScene());
         }
 
         private void BossRushBtn_Click(object sender, EventArgs e)
