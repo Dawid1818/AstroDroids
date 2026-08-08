@@ -307,7 +307,7 @@
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="float" Name="ButtonContainer.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">112</Value>
+      <Value xsi:type="xsd:float">149</Value>
     </Variable>
     <Variable Type="string" Name="ButtonContainer.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">PauseMenu</Value>
