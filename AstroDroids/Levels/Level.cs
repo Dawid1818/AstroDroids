@@ -1,11 +1,9 @@
-﻿using AstroDroids.Entities;
-using AstroDroids.Entities.Neutral;
+﻿using AstroDroids.Entities.Neutral;
 using AstroDroids.Extensions;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +13,7 @@ namespace AstroDroids.Levels
     public class Level : ISaveable
     {
         public const string Magic = "adlvl";
-        public const int FileVersion = 7;
+        public const int FileVersion = 8;
         public string Name { get; set; } = string.Empty;
         public int EventHandlerId { get; set; } = 0;
         public int BackgroundId { get; set; } = 0;
@@ -138,7 +136,7 @@ namespace AstroDroids.Levels
 
             Name = reader.ReadString();
 
-            if(actualVersion >= 4)
+            if (actualVersion >= 4)
             {
                 EventHandlerId = reader.ReadInt32();
 
@@ -151,7 +149,7 @@ namespace AstroDroids.Levels
 
             BackgroundId = reader.ReadInt32();
 
-            if(actualVersion >= 5)
+            if (actualVersion >= 5)
             {
                 MusicId = reader.ReadInt32();
             }
@@ -160,7 +158,7 @@ namespace AstroDroids.Levels
                 MusicId = 0;
             }
 
-            if(actualVersion >= 7)
+            if (actualVersion >= 7)
             {
                 BossMusicId = reader.ReadInt32();
             }

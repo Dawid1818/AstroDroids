@@ -44,7 +44,7 @@ namespace AstroDroids.Drawables
         public void Draw(Vector2 Position, float angle, float scale)
         {
             Screen.spriteBatch.End();
-            Screen.spriteBatch.Begin(effect: Screen.Test, transformMatrix: Screen.GetCameraMatrix(), samplerState: SamplerState.LinearWrap);
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), samplerState: SamplerState.LinearWrap);
 
             foreach (var part in Parts)
             {

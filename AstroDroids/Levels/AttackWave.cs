@@ -26,6 +26,7 @@ namespace AstroDroids.Levels
         public List<EventNode> Events { get; private set; } = new List<EventNode>();
         public List<LaserBarrierGroupNode> LaserBarriers { get; private set; } = new List<LaserBarrierGroupNode>();
         public List<BackgroundObjectNode> BackgroundObjects { get; private set; } = new List<BackgroundObjectNode>();
+        public List<WarningNode> Warnings { get; private set; } = new List<WarningNode>();
         public WaveWaitStyle WaitStyle { get; set; } = WaveWaitStyle.WaitForAllEnemiesDefeated;
 
         public void Load(BinaryReader reader, int version)
@@ -70,6 +71,18 @@ namespace AstroDroids.Levels
                 bgObjN.Load(reader, version);
                 BackgroundObjects.Add(bgObjN);
             }
+
+            Warnings = new List<WarningNode>();
+            if (version >= 8)
+            {
+                int warningCount = reader.ReadInt32();
+                for (int i = 0; i < warningCount; i++)
+                {
+                    WarningNode warningN = new WarningNode();
+                    warningN.Load(reader, version);
+                    Warnings.Add(warningN);
+                }
+            }
         }
 
         public void Save(BinaryWriter writer)
@@ -102,25 +115,31 @@ namespace AstroDroids.Levels
             {
                 bgObjN.Save(writer);
             }
+
+            writer.Write(Warnings.Count);
+            foreach (var warningN in Warnings)
+            {
+                warningN.Save(writer);
+            }
         }
 
         public EnemySpawner CreateSpawner(Vector2 Position)
         {
-            EnemySpawner spawner = new EnemySpawner() { Transform = new Entities.Transform(Position.X, Position.Y), SpawnPosition = Position };
+            EnemySpawner spawner = new EnemySpawner() { Transform = new Transform(Position.X, Position.Y), SpawnPosition = Position };
             Spawners.Add(spawner);
             return spawner;
         }
 
         public EventNode CreateEvent(Vector2 Position)
         {
-            EventNode node = new EventNode() { Transform = new Entities.Transform(Position.X, Position.Y) };
+            EventNode node = new EventNode() { Transform = new Transform(Position.X, Position.Y) };
             Events.Add(node);
             return node;
         }
 
         public LaserBarrierGroupNode CreateLaserBarrier(Vector2 Position)
         {
-            LaserBarrierGroupNode node = new LaserBarrierGroupNode() { Transform = new Entities.Transform(Position.X, Position.Y) };
+            LaserBarrierGroupNode node = new LaserBarrierGroupNode() { Transform = new Transform(Position.X, Position.Y) };
 
             LaserBarriers.Add(node);
 
@@ -129,9 +148,16 @@ namespace AstroDroids.Levels
 
         public BackgroundObjectNode CreateBackgroundObject(Vector2 Position)
         {
-            BackgroundObjectNode bgobject = new BackgroundObjectNode() { Transform = new Entities.Transform(Position.X, Position.Y) };
+            BackgroundObjectNode bgobject = new BackgroundObjectNode() { Transform = new Transform(Position.X, Position.Y) };
             BackgroundObjects.Add(bgobject);
             return bgobject;
+        }
+
+        public WarningNode CreateWarning(Vector2 Position)
+        {
+            WarningNode warningN = new WarningNode() { Transform = new Transform(Position.X, Position.Y) };
+            Warnings.Add(warningN);
+            return warningN;
         }
 
         public void RemoveSpawner(EnemySpawner spawner)
@@ -152,6 +178,11 @@ namespace AstroDroids.Levels
         public void RemoveBackgroundObject(BackgroundObjectNode bgobject)
         {
             BackgroundObjects.Remove(bgobject);
+        }
+
+        public void RemoveWarning(WarningNode warningN)
+        {
+            Warnings.Remove(warningN);
         }
     }
 }

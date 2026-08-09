@@ -1,4 +1,5 @@
-﻿using AstroDroids.Input;
+﻿using Apos.Shapes;
+using AstroDroids.Input;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using FontStashSharp;
@@ -25,6 +26,7 @@ namespace AstroDroids.Graphics
         public static int ActualScreenHeight { get { return !(SceneManager.GetScene() is LevelEditorScene) ? ScreenHeight : gameWnd.ClientBounds.Height; } }
 
         public static SpriteBatch spriteBatch { get; private set; }
+        public static ShapeBatch shapeBatch { get; private set; }
         public static GumService GumUI => GumService.Default;
         static GumProjectSave gumProject;
 
@@ -51,6 +53,7 @@ namespace AstroDroids.Graphics
         {
             graphicsManager = game.Graphics;
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
+            shapeBatch = new ShapeBatch(game.GraphicsDevice);
 
             gumProject = GumUI.Initialize(game, "GumProject/astrodroidsgum.gumx");
 

@@ -104,6 +104,11 @@ namespace AstroDroids.Editors
                 AllNodes.Add(item);
             }
 
+            foreach (var item in wave.Warnings)
+            {
+                AllNodes.Add(item);
+            }
+
             return AllNodes;
         }
 
@@ -288,6 +293,8 @@ namespace AstroDroids.Editors
                         wave.RemoveLaserBarrier(laserBarrierN);
                     else if (selectedNode is BackgroundObjectNode bgObjN)
                         wave.RemoveBackgroundObject(bgObjN);
+                    else if (selectedNode is WarningNode warningN)
+                        wave.RemoveWarning(warningN);
 
                     AllNodes.Remove(selectedNode);
                 }
@@ -370,6 +377,21 @@ namespace AstroDroids.Editors
                 AllNodes.Add(bgObjN);
             }
 
+            if (InputSystem.GetKeyDown(Keys.M))
+            {
+                if (scene.DrawGrid)
+                {
+                    mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
+                    mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
+                }
+
+                WarningNode bgObjN = wave.CreateWarning(mousePos);
+                selectedNodes.Clear();
+                isDraggingNode = false;
+                selectedNodes.Add(bgObjN);
+                AllNodes.Add(bgObjN);
+            }
+
             prevMousePos = mousePos;
         }
 
@@ -408,6 +430,9 @@ namespace AstroDroids.Editors
                         break;
                     case BackgroundObjectNode bgObjN:
                         writer.Write(3);
+                        break;
+                    case WarningNode warningN:
+                        writer.Write(4);
                         break;
                     default:
                         return;
@@ -477,6 +502,12 @@ namespace AstroDroids.Editors
                         BackgroundObjectNode bgObjN = node as BackgroundObjectNode;
                         wave.BackgroundObjects.Add(bgObjN);
                         break;
+                    case 4:
+                        node = new WarningNode();
+                        node.Load(reader, Level.FileVersion);
+                        WarningNode warningN = node as WarningNode;
+                        wave.Warnings.Add(warningN);
+                        break;
                     default:
                         reader.Dispose();
                         return;
@@ -534,10 +565,12 @@ namespace AstroDroids.Editors
              * Matrix.CreateScale(1f)
              * Matrix.CreateTranslation(screenCenter.X, screenCenter.Y, 0);
 
+            Screen.shapeBatch.Begin(view: m);
             Screen.spriteBatch.Begin(transformMatrix: m);
             Screen.spriteBatch.DrawRectangle(0, 0, 800, 600, Color.White, 5);
             DrawWave(new GameTime(), wave, new List<Entity>());
             Screen.spriteBatch.End();
+            Screen.shapeBatch.End();
 
             manager.GraphicsDevice.SetRenderTarget(null);
 
@@ -597,6 +630,12 @@ namespace AstroDroids.Editors
                     }
 
                     GameHelper.DrawNode("BG", bgObjN.Transform.Position, selected ? Color.Cyan : Color.LightSkyBlue, Color.DarkSlateGray);
+                }
+                else if (node is WarningNode warningN)
+                {
+                    warningN.Draw(gameTime);
+
+                    GameHelper.DrawNode("W", warningN.Transform.Position, selected ? Color.Orange : Color.Red, Color.DarkSlateGray);
                 }
             }
         }
@@ -689,6 +728,20 @@ namespace AstroDroids.Editors
                 ImGui.SameLine();
 
                 ImGui.BeginDisabled(wave == null);
+                if (ImGui.Button("Insert"))
+                {
+                    try
+                    {
+                        AttackWave newW = new AttackWave();
+                        level.AttackWaves.Insert(level.AttackWaves.IndexOf(wave) + 1, newW);
+
+                        wave = newW;
+                    }
+                    catch { }
+                }
+
+                ImGui.SameLine();
+
                 if (ImGui.Button("Remove") && wave != null)
                 {
                     level.RemoveAttackWave(wave);
@@ -803,6 +856,10 @@ namespace AstroDroids.Editors
                 else if (selectedNode is BackgroundObjectNode bgObjN)
                 {
                     BackgroundObjectProperties(bgObjN);
+                }
+                else if (selectedNode is WarningNode warningN)
+                {
+                    WarningProperties(warningN);
                 }
             }
             else
@@ -1266,6 +1323,56 @@ namespace AstroDroids.Editors
                     level.Paths.Add(new NamedPath() { Path = newPath });
                 }
             }
+        }
+
+        void WarningProperties(WarningNode warningN)
+        {
+            ImGui.SeparatorText("Warning settings");
+
+            double initialDelay = warningN.InitialDelay;
+            if (ImGui.InputDouble("Initial delay", ref initialDelay))
+            {
+                warningN.InitialDelay = initialDelay;
+            }
+
+            float timeUntilFade = warningN.TimeUntilFade;
+            if(ImGui.InputFloat("Time until fade", ref timeUntilFade))
+            {
+                warningN.TimeUntilFade = timeUntilFade;
+            }
+
+            WarningShape shape = warningN.Shape;
+            if (ImGui.BeginCombo("Shape", shape.ToString()))
+            {
+                foreach (WarningShape s in Enum.GetValues(typeof(WarningShape)))
+                {
+                    if (ImGui.Selectable(s.ToString(), shape == s))
+                    {
+                        shape = s;
+
+                        switch (shape)
+                        {
+                            case WarningShape.Circle:
+                                warningN.ShapeObj = new WarningCircle();
+                                break;
+                            case WarningShape.Line:
+                                warningN.ShapeObj = new WarningLine();
+                                break;
+                            case WarningShape.Rectangle:
+                                warningN.ShapeObj = new WarningRectangle();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+
+                ImGui.EndCombo();
+            }
+
+            warningN.Shape = shape;
+
+            warningN.ShapeObj.DrawEditor();
         }
     }
 }

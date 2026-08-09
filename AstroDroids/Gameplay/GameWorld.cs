@@ -5,6 +5,7 @@ using AstroDroids.Entities;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Neutral;
+using AstroDroids.Entities.Warnings;
 using AstroDroids.Graphics;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
@@ -117,6 +118,12 @@ namespace AstroDroids.Gameplay
                     StartCoroutine(SpawnBackgroundObjects(eventN));
                 }
 
+                foreach (var warningN in item.Warnings)
+                {
+                    ongoingWaves++;
+                    StartCoroutine(SpawnWarnings(warningN));
+                }
+
                 if (i != AttackWaves.Count - 1)
                 {
                     AttackWave nextWave = AttackWaves[i + 1];
@@ -166,6 +173,17 @@ namespace AstroDroids.Gameplay
             bgObj.FollowsCamera = bgObjectN.FollowsCamera;
 
             AddBackgroundObject(bgObj);
+
+            ongoingWaves--;
+        }
+
+        IEnumerator SpawnWarnings(WarningNode warningN)
+        {
+            if (warningN.InitialDelay > 0)
+                yield return new WaitForSeconds(warningN.InitialDelay);
+
+            WaveWarning warning = new WaveWarning(warningN.ShapeObj, warningN.TimeUntilFade) { Transform = new Transform(warningN.Transform.Position.X, warningN.Transform.Position.Y) };
+            AddWarning(warning, true);
 
             ongoingWaves--;
         }
@@ -379,7 +397,9 @@ namespace AstroDroids.Gameplay
 
             BackgroundObjects.Draw(gameTime);
 
+            Screen.shapeBatch.Begin(view: Screen.GetCameraMatrix(), blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointWrap);
             Warnings.Draw(gameTime);
+            Screen.shapeBatch.End();
 
             Enemies.Draw(gameTime);
 

@@ -214,6 +214,7 @@ namespace AstroDroids.Scenes
             }
 
             Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.AlphaBlend);
+            Screen.shapeBatch.Begin(view: Screen.GetCameraMatrix(), blendState: BlendState.AlphaBlend);
             Matrix cam = Screen.GetCameraMatrix();
             Matrix invCam = Matrix.Invert(cam);
 
@@ -255,7 +256,7 @@ namespace AstroDroids.Scenes
                 default:
                     break;
             }
-
+            Screen.shapeBatch.End();
             Screen.spriteBatch.End();
         }
 
@@ -437,7 +438,7 @@ namespace AstroDroids.Scenes
         void BottomBar()
         {
             int bottomBarHeight = 70;
-            int bottomBarWidth = 553;
+            int bottomBarWidth = 665;
             int bottomBarSpacing = 5;
 
             ImGui.SetNextWindowSize(new Numeric.Vector2(bottomBarWidth, bottomBarHeight));
@@ -473,6 +474,11 @@ namespace AstroDroids.Scenes
             if (ImGui.Button("Create BG"))
             {
                 waveEditor.AllNodes.Add(waveEditor.wave.CreateBackgroundObject(Screen.GetCameraPosition()));
+            }
+            ImGui.SameLine();
+            if (ImGui.Button("Create Warning"))
+            {
+                waveEditor.AllNodes.Add(waveEditor.wave.CreateWarning(Screen.GetCameraPosition()));
             }
             if (mode != EditorMode.Main || waveEditor.wave == null)
                 ImGui.EndDisabled();
