@@ -399,13 +399,15 @@ namespace AstroDroids.Gameplay
 
             Screen.shapeBatch.Begin(view: Screen.GetCameraMatrix(), blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointWrap);
             Warnings.Draw(gameTime);
-            Screen.shapeBatch.End();
 
             Enemies.Draw(gameTime);
+            Screen.spriteBatch.End();
+            Screen.spriteBatch.Begin(transformMatrix: Screen.GetCameraMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointWrap);
 
             Neutrals.Draw(gameTime);
 
             Projectiles.Draw(gameTime);
+            Screen.shapeBatch.End();
 
             foreach (var item in Players)
             {

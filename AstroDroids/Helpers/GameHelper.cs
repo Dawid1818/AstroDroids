@@ -170,7 +170,7 @@ namespace AstroDroids.Helpers
 
         public static Vector2 DirectionFromTo(Vector2 p1, Vector2 p2)
         {
-            return Vector2.Normalize(p1 - p2); 
+            return Vector2.Normalize(p1 - p2);
         }
 
         public static Vector2 DirFromAngle(float angle)
@@ -257,6 +257,23 @@ namespace AstroDroids.Helpers
             }
 
             return list;
+        }
+
+        public static float GetShootingAngle(Vector2 shooterPos, Vector2 targetPos, Vector2 targetVelocity, float projectileSpeed, int iterations = 3)
+        {
+            Vector2 predictedTargetPos = targetPos;
+
+            for (int i = 0; i < iterations; i++)
+            {
+                float distance = Vector2.Distance(shooterPos, predictedTargetPos);
+
+                float travelTime = distance / projectileSpeed;
+
+                predictedTargetPos = targetPos + (targetVelocity * travelTime);
+            }
+
+            Vector2 aimDirection = predictedTargetPos - shooterPos;
+            return (float)Math.Atan2(aimDirection.Y, aimDirection.X);
         }
     }
 }

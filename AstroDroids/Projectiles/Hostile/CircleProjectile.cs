@@ -87,8 +87,11 @@ namespace AstroDroids.Projectiles.Hostile
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.DrawCircle(Transform.Position, size, 16, Color.OrangeRed, size);
-            Screen.spriteBatch.DrawCircle(Transform.Position, size - 4f, 16, Color.DarkOrange, size - 4);
+            Screen.shapeBatch.DrawCircle(Transform.Position, size - 3, Color.DarkOrange, Color.OrangeRed, 1);
+            Screen.shapeBatch.BorderCircleBlurred(Transform.Position, size, Color.OrangeRed, 3, 3);
+
+            //Screen.spriteBatch.DrawCircle(Transform.Position, size, 16, Color.OrangeRed, size);
+            //Screen.spriteBatch.DrawCircle(Transform.Position, size - 4f, 16, Color.DarkOrange, size - 4);
         }
     }
 }
