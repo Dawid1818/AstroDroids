@@ -367,11 +367,6 @@ namespace AstroDroids.Entities.Hostile.Bosses
             if (player != null)
                 angle = MathHelperEx.LerpAngle(angle, GameHelper.AngleBetween(Transform.Position, player.GetPosition()), 5f * gameTime.GetElapsedSeconds());
 
-            if (InputSystem.GetKeyDown(Microsoft.Xna.Framework.Input.Keys.I))
-            {
-                SetStyle(style.Next());
-            }
-
             float dist;
 
             if (GetHealth() < 500)

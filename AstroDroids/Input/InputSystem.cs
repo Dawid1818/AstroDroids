@@ -72,6 +72,12 @@ namespace AstroDroids.Input
             }
         }
 
+        public static void SetCursorMatrix(Matrix matrix)
+        {
+            if(defaultCursor != null)
+                defaultCursor.TransformMatrix = matrix;
+        }
+
         static bool GamePadInputChanged()
         {
             return gState.IsConnected && gState.PacketNumber != oldGState.PacketNumber;

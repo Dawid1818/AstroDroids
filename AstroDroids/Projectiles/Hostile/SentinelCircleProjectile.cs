@@ -171,7 +171,8 @@ namespace AstroDroids.Projectiles.Hostile
                 Screen.shapeBatch.BorderCircleBlurred(Transform.Position + orbits[i].LocalOffset, orbits[i].Radius, Color.Red, 3, 3);
             }
 
-            Screen.shapeBatch.DrawCircle(Transform.Position, Size - 3, Color.DarkRed, Color.Red, 1);
+            //Screen.shapeBatch.DrawCircle(Transform.Position, Size - 3, Color.DarkRed, Color.Red, 1);
+            Screen.shapeBatch.DrawCircle(Transform.Position, Size - 3, new Apos.Shapes.Gradient(Transform.Position, Color.DarkRed, Transform.Position + new Vector2(Size, 0), Color.Red, Apos.Shapes.Gradient.Shape.Radial), Color.Red, 1);
             Screen.shapeBatch.BorderCircleBlurred(Transform.Position, Size, Color.Red, 3, 3);
         }
 

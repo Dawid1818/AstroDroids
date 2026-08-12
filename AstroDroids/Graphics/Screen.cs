@@ -12,7 +12,6 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGameGum;
 using System;
-using System.Diagnostics;
 using System.IO;
 
 namespace AstroDroids.Graphics
@@ -115,7 +114,7 @@ namespace AstroDroids.Graphics
 
             Matrix translation = Matrix.CreateTranslation(-x, -y, 0f);
             Matrix scaling = Matrix.CreateScale(1f / scale, 1f / scale, 1f);
-            GumUI.Cursor.TransformMatrix = translation * scaling;
+            InputSystem.SetCursorMatrix(translation * scaling);
         }
 
         public static void DrawText(string text, Vector2 position, Color color, float size)

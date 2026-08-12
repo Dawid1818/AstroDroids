@@ -40,7 +40,7 @@ namespace AstroDroids.Entities.Hostile
 
         public bool angleOverride { get; set; } = false;
 
-        bool controlledExternally = false;
+        public bool ControlledExternally { get; set; } = false;
 
         BeamWarning warning;
 
@@ -59,7 +59,7 @@ namespace AstroDroids.Entities.Hostile
 
             AddCircleCollider(Vector2.Zero, 21f);
 
-            controlledExternally = false;
+            ControlledExternally = false;
         }
 
         public ProjectileDrone(Enemy controller) : base(Vector2.Zero, 20)
@@ -73,7 +73,7 @@ namespace AstroDroids.Entities.Hostile
 
             AddCircleCollider(Vector2.Zero, 21f);
 
-            controlledExternally = true;
+            ControlledExternally = true;
         }
 
         public override void Spawned()
@@ -135,7 +135,7 @@ namespace AstroDroids.Entities.Hostile
                 }
             }
 
-            if (!controlledExternally)
+            if (!ControlledExternally)
             {
                 switch (state)
                 {

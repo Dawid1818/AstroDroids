@@ -34,6 +34,8 @@ namespace AstroDroids.Entities
         public bool FollowsCamera { get; set; }
 
         public bool IsNeutral { get; internal set; } = false;
+        public bool CanBeShielded { get; internal set; } = false;
+        public int ShieldedAmount { get; set; } = 0;
 
         public Enemy() : base()
         {
@@ -50,6 +52,13 @@ namespace AstroDroids.Entities
 
         public virtual void ApplySpawnData(IEnemySpawnData spawnData)
         {
+        }
+
+        public override void Damage(int damage, bool produceSound)
+        {
+            if (ShieldedAmount > 0)
+                return;
+            base.Damage(damage, produceSound);
         }
 
         public override void SetHealth(int health)

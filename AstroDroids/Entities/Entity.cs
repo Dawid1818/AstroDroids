@@ -31,6 +31,7 @@ namespace AstroDroids.Entities
 
         public virtual void Update(GameTime gameTime) { }
         public virtual void Draw(GameTime gameTime) { }
+        public virtual void DrawCommon(GameTime gameTime) { }
 
         public virtual void DrawDebug(GameTime gameTime) { }
 

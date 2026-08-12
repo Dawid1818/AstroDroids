@@ -91,6 +91,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             attackLoop = Scene.World.StartCoroutine(BossBehavior());
 
             Scene.World.BossEntity = this;
+            CanBeDamaged = true;
         }
 
         Asteroid spawnAsteroid(float xPos)
@@ -244,7 +245,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, Transform.Position, null, CanBeDamaged ? Color.White : Color.Red, angle, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.7f, SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, Transform.Position, null, Color.White, angle, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.7f, SpriteEffects.None, 0f);
 
             //Screen.DrawText($"Boss Health: {GetHealth()}/1000", new Vector2(20, 10), Color.White, 12f);
 

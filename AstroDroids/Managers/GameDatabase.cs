@@ -30,8 +30,8 @@ namespace AstroDroids.Managers
         {
             RegisterEnemy(0, typeof(BasicEnemy), typeof(DefaultSpawnData));
             RegisterEnemy(1, typeof(SpinLaser), typeof(DefaultSpawnData));
-            RegisterEnemy(2, typeof(DroneController), typeof(DefaultSpawnData));
-            RegisterEnemy(3, typeof(ProximityMine), typeof(DefaultSpawnData));
+            RegisterEnemy(2, typeof(DroneController), typeof(DroneControllerSpawnData));
+            RegisterEnemy(3, typeof(ProximityMine), typeof(ProximityMineSpawnData));
             RegisterEnemy(4, typeof(TriGunTurret), typeof(DefaultSpawnData));
             RegisterEnemy(5, typeof(Gunner), typeof(GunnerSpawnData));
             RegisterEnemy(6, typeof(SnakeBoss), typeof(DefaultSpawnData));

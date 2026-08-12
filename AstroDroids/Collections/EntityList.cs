@@ -76,6 +76,8 @@ namespace AstroDroids.Collections
             {
                 item.Draw(gameTime);
 
+                item.DrawCommon(gameTime);
+
                 if (AstroDroidsGame.Debug)
                     item.DrawDebug(gameTime);
             }
