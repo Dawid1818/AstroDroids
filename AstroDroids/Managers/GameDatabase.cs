@@ -42,6 +42,7 @@ namespace AstroDroids.Managers
             RegisterEnemy(11, typeof(Asteroid), typeof(AsteroidSpawnData));
             RegisterEnemy(12, typeof(Sentinel), typeof(DefaultSpawnData));
             RegisterEnemy(13, typeof(Chaser), typeof(DefaultSpawnData));
+            RegisterEnemy(14, typeof(Siege), typeof(DefaultSpawnData));
 
             RegisterEventHandler(0, typeof(LevelEventHandler));
             RegisterEventHandler(1, typeof(TestLevelEventHandler));
