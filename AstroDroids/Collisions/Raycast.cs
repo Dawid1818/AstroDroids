@@ -42,5 +42,36 @@ namespace AstroDroids.Collisions
 
             return entities;
         }
+
+        public static List<CollidableEntity> FireCapsule(Vector2 origin, Vector2 destination, float radius, CollidableEntity toIgnore = null)
+        {
+            List<CollidableEntity> entities = new List<CollidableEntity>();
+            if (scene.World == null)
+                return entities;
+
+            var boundingCapsule = new BoundingCapsule2D(origin, destination, radius);
+
+            foreach (var item in scene.World.AllCollidables)
+            {
+                if (item == toIgnore)
+                    continue;
+
+                if (item.Intersects(boundingCapsule))
+                {
+                    entities.Add(item);
+                }
+            }
+
+            entities.Sort((a, b) =>
+            {
+                float da = Vector2.DistanceSquared(origin, a.Transform.Position);
+
+                float db = Vector2.DistanceSquared(origin, b.Transform.Position);
+
+                return da.CompareTo(db);
+            });
+
+            return entities;
+        }
     }
 }

@@ -49,6 +49,19 @@ namespace AstroDroids.Entities
             return false;
         }
 
+        public bool Intersects(BoundingCapsule2D other)
+        {
+            foreach (var item in Colliders)
+            {
+                if (item.Intersects(other, Transform))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool Intersects(Rectangle other)
         {
             foreach (var item in Colliders)
