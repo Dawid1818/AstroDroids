@@ -38,12 +38,17 @@ namespace AstroDroids.Entities.Hostile
 
         public SolarKnight() : base(Vector2.Zero, 150)
         {
+            CanBeShielded = true;
+
             texture = TextureManager.Get("Ships/SolarKnight/ship_018");
             Score = 100;
 
             AddCircleCollider(Vector2.Zero, 50f);
             AddCircleCollider(new Vector2(0, 30), 50f);
             AddCircleCollider(new Vector2(0, -30), 50f);
+
+            HorizontalShieldRadius = 65f;
+            VerticalShieldRadius = 100f;
         }
 
         public override void Spawned()

@@ -1,8 +1,10 @@
 ﻿
 using AstroDroids.Entities.Effects;
 using AstroDroids.Gameplay;
+using AstroDroids.Graphics;
 using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using System.IO;
 
 namespace AstroDroids.Entities
@@ -36,6 +38,8 @@ namespace AstroDroids.Entities
         public bool IsNeutral { get; internal set; } = false;
         public bool CanBeShielded { get; internal set; } = false;
         public int ShieldedAmount { get; set; } = 0;
+        public float HorizontalShieldRadius = 16f;
+        public float VerticalShieldRadius = 16f;
 
         public Enemy() : base()
         {
@@ -52,6 +56,14 @@ namespace AstroDroids.Entities
 
         public virtual void ApplySpawnData(IEnemySpawnData spawnData)
         {
+        }
+
+        public override void DrawCommon(GameTime gameTime)
+        {
+            if (ShieldedAmount > 0)
+            {
+                Screen.shapeBatch.DrawEllipse(Transform.Position, HorizontalShieldRadius, VerticalShieldRadius, new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)127), Color.Red);
+            }
         }
 
         public override void Damage(int damage, bool produceSound)

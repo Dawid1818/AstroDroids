@@ -18,6 +18,7 @@ namespace AstroDroids.Entities.Hostile
 
         public BasicEnemy() : base(Vector2.Zero, 3)
         {
+            CanBeShielded = true;
             //texture = TextureManager.Get("Ships/Basic/tinyShip9");
             texture = TextureManager.Get("Ships/Basic/tinyShip9Sheet");
             Score = 100;

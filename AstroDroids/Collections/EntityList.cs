@@ -76,10 +76,18 @@ namespace AstroDroids.Collections
             {
                 item.Draw(gameTime);
 
-                item.DrawCommon(gameTime);
-
                 if (AstroDroidsGame.Debug)
                     item.DrawDebug(gameTime);
+            }
+            currentlyEnumerating = false;
+        }
+
+        public void DrawCommon(GameTime gameTime)
+        {
+            currentlyEnumerating = true;
+            foreach (var item in items)
+            {
+                item.DrawCommon(gameTime);
             }
             currentlyEnumerating = false;
         }
