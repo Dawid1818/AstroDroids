@@ -1,4 +1,5 @@
-﻿using AstroDroids.Entities;
+﻿using AstroDroids.Collisions;
+using AstroDroids.Entities;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using Microsoft.Xna.Framework;
@@ -20,6 +21,8 @@ namespace AstroDroids.Projectiles.Hostile
         float phaseSpeed = 0f;
         float phaseMax = 0f;
         float perpSpeed = 0f;
+        float decay = 0f;
+        CircleCollider col;
 
         public CircleProjectile(Vector2 position, float angle, float speed, float size) : base(position)
         {
@@ -29,7 +32,21 @@ namespace AstroDroids.Projectiles.Hostile
             this.speed = speed;
             this.size = size;
 
-            AddCircleCollider(Vector2.Zero, size);
+            col = AddCircleCollider(Vector2.Zero, size);
+
+            actualPosition = position;
+        }
+
+        public CircleProjectile(Vector2 position, float angle, float speed, float size, float decay) : base(position)
+        {
+            Friendly = false;
+
+            this.angle = angle;
+            this.speed = speed;
+            this.size = size;
+            this.decay = decay;
+
+            col = AddCircleCollider(Vector2.Zero, size);
 
             actualPosition = position;
         }
@@ -83,15 +100,20 @@ namespace AstroDroids.Projectiles.Hostile
 
             t += gameTime.GetElapsedSeconds();
             phase += gameTime.GetElapsedSeconds() * phaseSpeed;
+            size -= decay * gameTime.GetElapsedSeconds();
+
+            col.Radius = size;
+
+            if(size <= 0)
+            {
+                Despawn();
+            }
         }
 
         public override void Draw(GameTime gameTime)
         {
             Screen.shapeBatch.DrawCircle(Transform.Position, size - 3, Color.DarkOrange, Color.OrangeRed, 1);
             Screen.shapeBatch.BorderCircleBlurred(Transform.Position, size, Color.OrangeRed, 3, 3);
-
-            //Screen.spriteBatch.DrawCircle(Transform.Position, size, 16, Color.OrangeRed, size);
-            //Screen.spriteBatch.DrawCircle(Transform.Position, size - 4f, 16, Color.DarkOrange, size - 4);
         }
     }
 }
