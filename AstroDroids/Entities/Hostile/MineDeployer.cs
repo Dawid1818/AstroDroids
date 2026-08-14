@@ -36,7 +36,7 @@ namespace AstroDroids.Entities.Hostile
 
         ProximityMine projectile;
 
-        public MineDeployer() : base(Vector2.Zero, 150)
+        public MineDeployer() : base(Vector2.Zero, 100)
         {
             texture = TextureManager.Get("Ships/MineDeployer/ship_014");
             Score = 100;
@@ -69,10 +69,7 @@ namespace AstroDroids.Entities.Hostile
 
             if(projectile != null)
             {
-                float angle = MathHelper.ToRadians(90);
-                Player player = Scene.World.GetRandomPlayer();
-                if (player != null)
-                    angle = GameHelper.AngleBetween(Transform.Position, player.Transform.Position);
+                projectile.Damage(100, false);
 
                 projectile = null;
             }
