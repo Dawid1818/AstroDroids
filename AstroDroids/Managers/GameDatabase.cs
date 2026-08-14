@@ -47,6 +47,7 @@ namespace AstroDroids.Managers
             RegisterEnemy(16, typeof(SolarKnight), typeof(DefaultSpawnData));
             RegisterEnemy(17, typeof(Shielder), typeof(DefaultSpawnData));
             RegisterEnemy(18, typeof(OrbTurret), typeof(OrbTurretSpawnData));
+            RegisterEnemy(19, typeof(MineDeployer), typeof(DefaultSpawnData));
 
             RegisterEventHandler(0, typeof(LevelEventHandler));
             RegisterEventHandler(1, typeof(TestLevelEventHandler));

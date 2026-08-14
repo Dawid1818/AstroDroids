@@ -493,7 +493,7 @@ namespace AstroDroids.Gameplay
             Warnings.Remove(entity);
         }
 
-        public void AddEnemy(Enemy enemy, bool followsCamera, bool invokeSpawned = true, IEnemySpawnData spawnData = null)
+        public void AddEnemy(Enemy enemy, bool followsCamera, bool invokeSpawned = true, IEnemySpawnData spawnData = null, bool addAtBeginning = false)
         {
             if (followsCamera)
             {
@@ -501,8 +501,15 @@ namespace AstroDroids.Gameplay
                 enemy.Transform.LocalPosition -= camEntity.Transform.Position;
             }
 
-            Enemies.Add(enemy);
-            AllCollidables.Add(enemy);
+            if (addAtBeginning)
+            {
+                Enemies.Insert(0, enemy);
+            }
+            else
+            {
+                Enemies.Add(enemy);
+                AllCollidables.Add(enemy);
+            }
 
             if (spawnData == null)
                 spawnData = GameDatabase.CreateEnemySpawnData(enemy.GetType());

@@ -1,10 +1,13 @@
-﻿using AstroDroids.Entities.Neutral;
+﻿using AstroDroids.Collisions;
+using AstroDroids.Entities.Neutral;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles.Hostile;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using System;
 using System.IO;
 
@@ -13,6 +16,9 @@ namespace AstroDroids.Entities.Hostile
     public class ProximityMineSpawnData : IEnemySpawnData
     {
         public ProximityMineType Type { get; set; } = ProximityMineType.Orbs;
+
+        public float Speed { get; set; } = 3f;
+        public float Angle { get; set; } = 90f;
 
         public void DrawEditor()
         {
@@ -28,16 +34,32 @@ namespace AstroDroids.Entities.Hostile
                 }
                 ImGui.EndCombo();
             }
+
+            float speed = Speed;
+            if(ImGui.InputFloat("Speed", ref speed))
+            {
+                Speed = speed;
+            }
+
+            float angle = Angle;
+            if(ImGui.InputFloat("Angle", ref angle))
+            {
+                Angle = angle;
+            }
         }
 
         public void Load(BinaryReader reader, int version)
         {
             Type = (ProximityMineType)reader.ReadInt32();
+            Speed = reader.ReadSingle();
+            Angle = reader.ReadSingle();
         }
 
         public void Save(BinaryWriter writer)
         {
             writer.Write((int)Type);
+            writer.Write(Speed);
+            writer.Write(Angle);
         }
     }
 
@@ -52,6 +74,8 @@ namespace AstroDroids.Entities.Hostile
         Texture2D texture;
         Texture2D overlay;
 
+        public bool Move { get; set; } = true;
+
         enum ProximityMineState
         {
             Idle,
@@ -60,8 +84,19 @@ namespace AstroDroids.Entities.Hostile
 
         ProximityMineState state = ProximityMineState.Idle;
         public float t = 0f;
+        public float expireTime = 0f;
 
         ProximityMineType type = ProximityMineType.Orbs;
+
+        float angle;
+        Vector2 movementDirection { get { return GameHelper.DirFromAngle(angle); } }
+        float speed = 10f;
+
+        bool becameActive = false;
+
+        public float RevealProgress { get; private set; } = 0;
+
+        CircleCollider col;
 
         public ProximityMine() : base(Vector2.Zero, 1)
         {
@@ -78,7 +113,8 @@ namespace AstroDroids.Entities.Hostile
 
         public override void ApplySpawnData(IEnemySpawnData spawnData)
         {
-            type = ((ProximityMineSpawnData)spawnData).Type;
+            ProximityMineSpawnData data = (ProximityMineSpawnData)spawnData;
+            type = data.Type;
 
             switch (type)
             {
@@ -91,6 +127,9 @@ namespace AstroDroids.Entities.Hostile
                 default:
                     break;
             }
+
+            speed = data.Speed;
+            angle = MathHelper.ToRadians(data.Angle);
         }
 
         public override void Destroyed()
@@ -133,6 +172,25 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Update(GameTime gameTime)
         {
+            if (!becameActive)
+            {
+                if (Intersects(Scene.World.Bounds))
+                {
+                    becameActive = true;
+                }
+                else
+                {
+                    if (expireTime >= 10f)
+                        Despawn();
+
+                    expireTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }
+            if (!Intersects(Scene.World.Bounds) && becameActive)
+            {
+                Despawn();
+            }
+
             if (PathManager != null)
             {
                 PathManager.Update(gameTime);
@@ -140,11 +198,9 @@ namespace AstroDroids.Entities.Hostile
             }
             else
             {
-                DefaultMove();
-
-                if (Transform.Position.Y > Scene.World.Bounds.Bottom + texture.Height)
+                if (Move)
                 {
-                    Despawn();
+                    Transform.LocalPosition += movementDirection * speed;
                 }
             }
 
@@ -154,7 +210,7 @@ namespace AstroDroids.Entities.Hostile
 
                     foreach (var item in Scene.World.GetPlayers())
                     {
-                        if (Vector2.Distance(Transform.Position, item.Transform.Position) <= 128f)
+                        if (RevealProgress == 0 && Vector2.Distance(Transform.Position, item.Transform.Position) <= 128f)
                         {
                             state = ProximityMineState.Detonating;
                         }
@@ -174,13 +230,36 @@ namespace AstroDroids.Entities.Hostile
                 default:
                     break;
             }
+
+            if(RevealProgress > 0)
+            {
+                RevealProgress -= gameTime.GetElapsedSeconds() * 100;
+
+                if (RevealProgress < 0)
+                {
+                    RevealProgress = 0;
+                    AddCircleCollider(Vector2.Zero, 32f);
+                }
+            }
+            else
+            {
+                RevealProgress = 0;
+            }
+        }
+
+        public void RevealSlowly()
+        {
+            RevealProgress = texture.Height;
+            ClearColliders();
         }
 
         public override void Draw(GameTime gameTime)
         {
-            Screen.spriteBatch.Draw(texture, Transform.Position, null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.5f, SpriteEffects.None, 0f);
+            Rectangle source = new Rectangle(0, (int)RevealProgress, texture.Width, texture.Height - (int)RevealProgress);
+
+            Screen.spriteBatch.Draw(texture, Transform.Position, source, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.5f, SpriteEffects.None, 0f);
             if (t != 0)
-                Screen.spriteBatch.Draw(overlay, Transform.Position, null, new Color(Color.White.R, Color.White.G, Color.White.B, (byte)(t * 255)), 0f, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.5f, SpriteEffects.None, 0f);
+                Screen.spriteBatch.Draw(overlay, Transform.Position, source, new Color(Color.White.R, Color.White.G, Color.White.B, (byte)(t * 255)), 0f, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.5f, SpriteEffects.None, 0f);
         }
     }
 }

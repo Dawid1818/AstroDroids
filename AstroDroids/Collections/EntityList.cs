@@ -12,6 +12,7 @@ namespace AstroDroids.Collections
         List<T> items { get; } = new List<T>();
         List<T> itemsToRemove { get; } = new List<T>();
         List<T> itemsToAdd { get; } = new List<T>();
+        List<(int, T)> itemsToInsert { get; } = new List<(int, T)>();
 
         bool currentlyEnumerating = false;
 
@@ -29,6 +30,16 @@ namespace AstroDroids.Collections
                 return;
             }
             items.Add(item);
+        }
+
+        public void Insert(int index, T item)
+        {
+            if (currentlyEnumerating)
+            {
+                itemsToInsert.Add((index, item));
+                return;
+            }
+            items.Insert(index, item);
         }
 
         public void Remove(T item)
@@ -59,6 +70,12 @@ namespace AstroDroids.Collections
                 items.Add(item);
             }
             itemsToAdd.Clear();
+
+            foreach (var item in itemsToInsert)
+            {
+                items.Insert(item.Item1, item.Item2);
+            }
+            itemsToInsert.Clear();
 
             foreach (var item in itemsToRemove)
             {

@@ -133,6 +133,12 @@ namespace AstroDroids.Entities
             return collider;
         }
 
+        protected void ClearColliders()
+        {
+            Colliders.Clear();
+            RecalculateBounds();
+        }
+
         void RecalculateBounds()
         {
             if (Colliders.Count == 0)
