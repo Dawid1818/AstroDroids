@@ -36,9 +36,6 @@ namespace AstroDroids.Screens
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
 
-            Visual.PlayAnimation(Enter);
-            Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
-
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
         }
 
@@ -57,6 +54,12 @@ namespace AstroDroids.Screens
         {
             //AnimationsState = Animations.Arrived
             Visual.PlayAnimation(Leave);
+        }
+
+        public void TransitionIn()
+        {
+            Visual.PlayAnimation(Enter);
+            Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
         }
 
         public void Uninitialize()

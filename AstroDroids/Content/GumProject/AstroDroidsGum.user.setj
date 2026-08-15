@@ -2,26 +2,15 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
-      "Screens/GamemodeScreenGum",
-      "Screens/GamemodeScreenGum/TutorialContainer",
-      "Screens/GamemodeScreenGum/StoryContainer",
-      "Screens/GamemodeScreenGum/BossRushContainer",
-      "Screens/GameScreenGum",
-      "Screens/GameScreenGum/BottomPanel",
-      "Screens/GameScreenGum/ScorePanel",
-      "Screens/GameScreenGum/BossPanel",
-      "Screens/GameScreenGum/WeaponPanel",
-      "Screens/GameScreenGum/BossWarning",
-      "Screens/GameScreenGum/MissionStatusContainer",
-      "Screens/GameScreenGum/PauseMenu",
-      "Screens/GameScreenGum/PauseMenu/ButtonContainer",
       "Screens/HintedScreenGum",
-      "Screens/MainMenuScreenGum",
-      "Screens/MainMenuScreenGum/ButtonContainer",
       "Screens/MissionScreenGum",
-      "Screens/SettingsScreenGum",
-      "Screens/ShipCustomizationScreenGum",
-      "Screens/ShipCustomizationScreenGum/ContainerInstance1",
+      "Screens/MissionScreenGum/LevelContainer",
+      "Screens/MissionScreenGum/ContainerInstance",
+      "Screens/MissionScreenGum/ContainerInstance/ContainerInstance3",
+      "Screens/MissionScreenGum/ContainerInstance/ContainerInstance4",
+      "Screens/MissionScreenGum/ContainerInstance/ContainerInstance4/PlayBtn",
+      "Screens/MissionScreenGum/ContainerInstance1",
+      "Screens/MissionScreenGum/ContainerInstance2",
       "Components",
       "Components/Controls",
       "Components/Custom",
@@ -29,13 +18,7 @@
       "Components/Custom/LevelCard",
       "Components/Elements",
       "Components/Elements/Icon",
-      "Components/Elements/Icon2",
-      "Components/MenuPages",
-      "Components/MenuPages/Main",
-      "Components/Styles",
-      "Components/Styles/Colors",
-      "Components/Styles/TextStyles",
-      "Behaviors"
+      "Components/Elements/Icon2"
     ]
   }
 }

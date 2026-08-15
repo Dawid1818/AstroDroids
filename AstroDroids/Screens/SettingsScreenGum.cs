@@ -30,6 +30,11 @@ namespace AstroDroids.Screens
 
         }
 
+        public void TransitionIn()
+        {
+
+        }
+
         public void TransitionOut()
         {
 

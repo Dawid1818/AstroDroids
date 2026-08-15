@@ -6,6 +6,7 @@ using Gum.Converters;
 using Gum.DataTypes;
 using Gum.GueDeriving;
 using Gum.Managers;
+using Gum.StateAnimation.Runtime;
 using Gum.Wireframe;
 using GumRuntime;
 using RenderingLibrary.Graphics;
@@ -35,16 +36,57 @@ partial class MissionScreenGum : global::Gum.Forms.Controls.FrameworkElement
             return gue;
         });
     }
-    public ButtonGlow ReturnBtn { get; protected set; }
-    public ButtonGlow PlayBtn { get; protected set; }
-    public LevelCard Level1Card { get; protected set; }
-    public LevelCard Level2Card { get; protected set; }
-    public LevelCard Level3Card { get; protected set; }
-    public LevelCard Level4Card { get; protected set; }
-    public LevelCard Level5Card { get; protected set; }
-    public ButtonIconGlow NextLevelBtn { get; protected set; }
-    public ButtonIconGlow PrevLevelBtn { get; protected set; }
+    public enum LevelContainerState
+    {
+        Idle,
+        Right,
+    }
 
+    LevelContainerState? _levelContainerStateState;
+    public LevelContainerState? LevelContainerStateState
+    {
+        get => _levelContainerStateState;
+        set
+        {
+            _levelContainerStateState = value;
+            if(value != null)
+            {
+                if(Visual.Categories.ContainsKey("LevelContainerState"))
+                {
+                    var category = Visual.Categories["LevelContainerState"];
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+                else
+                {
+                    var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "LevelContainerState");
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+            }
+        }
+    }
+    public ContainerRuntime LevelContainer { get; protected set; }
+    public LevelCard Level5Card { get; protected set; }
+    public LevelCard Level4Card { get; protected set; }
+    public LevelCard Level3Card { get; protected set; }
+    public LevelCard Level2Card { get; protected set; }
+    public LevelCard Level1Card { get; protected set; }
+    public ContainerRuntime ContainerInstance { get; protected set; }
+    public ContainerRuntime ContainerInstance1 { get; protected set; }
+    public ButtonIconGlow PrevLevelBtn { get; protected set; }
+    public ContainerRuntime ContainerInstance2 { get; protected set; }
+    public ButtonIconGlow NextLevelBtn { get; protected set; }
+    public ContainerRuntime ContainerInstance3 { get; protected set; }
+    public ContainerRuntime ContainerInstance4 { get; protected set; }
+    public ButtonGlow PlayBtn { get; protected set; }
+    public ButtonGlow ReturnBtn { get; protected set; }
+
+
+    #region Animation Fields
+    public AnimationRuntime Enter {get; protected set;}
+    public AnimationRuntime Leave {get; protected set;}
+    #endregion
     public MissionScreenGum(InteractiveGue visual) : base(visual)
     {
     }
@@ -57,15 +99,23 @@ partial class MissionScreenGum : global::Gum.Forms.Controls.FrameworkElement
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        ReturnBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ReturnBtn");
-        PlayBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"PlayBtn");
-        Level1Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level1Card");
-        Level2Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level2Card");
-        Level3Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level3Card");
-        Level4Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level4Card");
+        LevelContainer = this.Visual?.GetGraphicalUiElementByName("LevelContainer") as global::Gum.GueDeriving.ContainerRuntime;
         Level5Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level5Card");
-        NextLevelBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonIconGlow>(this.Visual,"NextLevelBtn");
+        Level4Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level4Card");
+        Level3Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level3Card");
+        Level2Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level2Card");
+        Level1Card = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<LevelCard>(this.Visual,"Level1Card");
+        ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::Gum.GueDeriving.ContainerRuntime;
+        ContainerInstance1 = this.Visual?.GetGraphicalUiElementByName("ContainerInstance1") as global::Gum.GueDeriving.ContainerRuntime;
         PrevLevelBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonIconGlow>(this.Visual,"PrevLevelBtn");
+        ContainerInstance2 = this.Visual?.GetGraphicalUiElementByName("ContainerInstance2") as global::Gum.GueDeriving.ContainerRuntime;
+        NextLevelBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonIconGlow>(this.Visual,"NextLevelBtn");
+        ContainerInstance3 = this.Visual?.GetGraphicalUiElementByName("ContainerInstance3") as global::Gum.GueDeriving.ContainerRuntime;
+        ContainerInstance4 = this.Visual?.GetGraphicalUiElementByName("ContainerInstance4") as global::Gum.GueDeriving.ContainerRuntime;
+        PlayBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"PlayBtn");
+        ReturnBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ReturnBtn");
+        Enter = this.Visual.GetAnimation("Enter");
+        Leave = this.Visual.GetAnimation("Leave");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

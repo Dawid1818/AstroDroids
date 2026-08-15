@@ -200,6 +200,11 @@ namespace AstroDroids.Screens
             scene.World.RemovePlayer(player);
         }
 
+        public void TransitionIn()
+        {
+
+        }
+
         public void TransitionOut()
         {
 

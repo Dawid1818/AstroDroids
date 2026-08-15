@@ -23,8 +23,6 @@ namespace AstroDroids.Screens
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
             hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
 
-            Visual.PlayAnimation(Enter);
-            Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
 
             TutorialBtn.SpatialNavigationDown = ReturnBtn;
@@ -57,6 +55,12 @@ namespace AstroDroids.Screens
         public void Uninitialize()
         {
 
+        }
+
+        public void TransitionIn()
+        {
+            Visual.PlayAnimation(Enter);
+            Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
         }
 
         public void TransitionOut()

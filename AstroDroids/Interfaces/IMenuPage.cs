@@ -9,6 +9,7 @@ namespace AstroDroids.Interfaces
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted);
         public void Uninitialize();
         public void TransitionOut();
+        public void TransitionIn();
         public bool TransitionFinished();
         public void BackPressed();
         public void Update(GameTime gameTime);

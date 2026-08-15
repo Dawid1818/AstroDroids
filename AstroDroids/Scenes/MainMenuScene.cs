@@ -132,13 +132,16 @@ namespace AstroDroids.Scenes
             ui.HostPane.Children.Clear();
             ui.ClearHints();
 
+            ui.HostPane.AddChild(page);
+
             if (page is IMenuPage menuPage)
             {
                 menuPage.Initialize(this, ui);
                 this.menuPage = menuPage;
-            }
 
-            ui.HostPane.AddChild(page);
+                menuPage.TransitionIn();
+                yield return new WaitUntil(this.menuPage.TransitionFinished);
+            }
 
             transitioning = false;
             InputSystem.AddUIKeys();

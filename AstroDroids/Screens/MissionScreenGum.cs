@@ -1,4 +1,5 @@
 using AstroDroids.Components.Custom;
+using AstroDroids.Components.Elements;
 using AstroDroids.Gameplay;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
@@ -37,6 +38,10 @@ namespace AstroDroids.Screens
             PrevLevelBtn.Click += PrevLevelBtn_Click;
             NextLevelBtn.Click += NextLevelBtn_Click;
 
+            hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
+            hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
+            hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
+
             ReturnBtn.SpatialNavigationUp = PrevLevelBtn;
             PlayBtn.SpatialNavigationUp = NextLevelBtn;
             PrevLevelBtn.SpatialNavigationRight = NextLevelBtn;
@@ -57,8 +62,12 @@ namespace AstroDroids.Screens
             cards.Add(Level3Card);
             cards.Add(Level4Card);
             cards.Add(Level5Card);
+        }
 
+        private void AnimationController_OnCompleted()
+        {
             ReturnBtn.IsFocused = true;
+            Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
         }
 
         private void NextLevelBtn_Click(object sender, System.EventArgs e)
@@ -104,12 +113,18 @@ namespace AstroDroids.Screens
 
         public bool TransitionFinished()
         {
-            return true;
+            return Visual.AnimationController.IsStopped;
+        }
+
+        public void TransitionIn()
+        {
+            Visual.PlayAnimation(Enter);
+            Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
         }
 
         public void TransitionOut()
         {
-
+            Visual.PlayAnimation(Leave);
         }
 
         public void Uninitialize()
@@ -124,7 +139,7 @@ namespace AstroDroids.Screens
 
         void Return()
         {
-            scene.SetPage(new MainMenuScreenGum());
+            scene.SetPage(new GamemodeScreenGum());
         }
     }
 }
