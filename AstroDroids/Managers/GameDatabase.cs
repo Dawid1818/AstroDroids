@@ -53,7 +53,7 @@ namespace AstroDroids.Managers
             RegisterEventHandler(1, typeof(TestLevelEventHandler));
 
             RegisterMission(MissionType.Tutorial, new GameMission() { Name = "Tutorial", Type = MissionType.Tutorial, LevelNames = { "Tutorial" } });
-            RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2", "Level3", "Level4", "Level5" } });
+            RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2" } });
             RegisterMission(MissionType.BossRush, new GameMission() { Name = "BossRush", Type = MissionType.BossRush, LevelNames = { "BossRush" } });
 
             RegisterMusic(0, "ZeroRanger - For Your Security");

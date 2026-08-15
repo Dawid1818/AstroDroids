@@ -320,16 +320,34 @@ namespace AstroDroids.Scenes
 
         IEnumerator missionFinishedSequence()
         {
+            bool nextLevel = false;
             SoundManager.PlayMusic("ZeroRanger - Hyyeeaaaarh", false);
             ui.MissionStatusContainer.Visible = true;
-            ui.MissionStatusLabel.Text = "T_MissionComplete";
+
+            if (!LevelManager.Playtesting && GameStateManager.GetLevels().Count - 1 > GameStateManager.GetLevelIndex())
+            {
+                nextLevel = true;
+                GameStateManager.IncreaseLevelIndex();
+                ui.MissionStatusLabel.Text = "T_LevelComplete";
+            }
+            else
+            {
+                ui.MissionStatusLabel.Text = "T_MissionComplete";
+            }
             ui.Visual.PlayAnimation(ui.ShowMissionStatus);
 
             yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped && SoundManager.CurrentMusic == "ZeroRanger - Hyyeeaaaarh" && (MediaPlayer.State == MediaState.Stopped || MediaPlayer.PlayPosition.Seconds > 18));
 
             yield return new WaitForSeconds(2f);
 
-            SaveAndQuit();
+            if (!nextLevel)
+            {
+                SaveAndQuit();
+            }
+            else
+            {
+                coroutineManager.StartCoroutine(TransitionToSceneCoroutine(new GameScene()));
+            }
         }
 
         IEnumerator TransitionToSceneCoroutine(Scene scene)

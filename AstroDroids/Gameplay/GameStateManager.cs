@@ -123,6 +123,11 @@ namespace AstroDroids.Gameplay
             return CurrentMissionProgress.LevelIndex;
         }
 
+        public static void IncreaseLevelIndex()
+        {
+            CurrentMissionProgress.LevelIndex++;
+        }
+
         public static bool MissionInitialized()
         {
             return CurrentMission != null;

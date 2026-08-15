@@ -20,7 +20,8 @@ T_StoryMode,Story Mode,Tryb fabularny
 T_Credits,Credits,O autorach
 T_BossWarning,! Warning !,! Uwaga !
 T_GameOver,Game Over!,Koniec gry!
-T_MissionComplete,Mission Complete!,Misja zakończona!
+T_MissionComplete,Mission Complete!,Misja Zakończona!
+T_LevelComplete,Level Complete!, Poziom Zakończony!
 T_Paused,Paused,Pauza
 T_Resume,Resume,Wznów
 T_SaveandQuit,Save and Quit,Zapisz i wyjdź
