@@ -63,6 +63,7 @@ namespace AstroDroids.Managers
             //Add starfields in order
             starfields.Add(textures["Starfields/BlueStarfield"]);
             starfields.Add(textures["Starfields/GrayStarfield"]);
+            starfields.Add(textures["Starfields/GreenStarfield"]);
 
             backgroundobjects.Add(textures["Background Objects/Arrow"]);
         }
