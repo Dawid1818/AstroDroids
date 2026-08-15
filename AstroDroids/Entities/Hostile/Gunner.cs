@@ -26,6 +26,7 @@ namespace AstroDroids.Entities.Hostile
         public float LookAngle { get; set; }
         public bool DespawnAtPathEnd { get; set; } = true;
         public EnemyLookStyle LookStyle { get; set; } = EnemyLookStyle.Ahead;
+        public float MoveSpeed { get; set; } = 2f;
 
         public void DrawEditor()
         {
@@ -33,6 +34,12 @@ namespace AstroDroids.Entities.Hostile
             if (ImGui.InputFloat("Look Angle", ref lookangle))
             {
                 LookAngle = lookangle;
+            }
+
+            float moveSpeed = MoveSpeed;
+            if(ImGui.InputFloat("Move Speed", ref moveSpeed))
+            {
+                MoveSpeed = moveSpeed;
             }
 
             if (ImGui.BeginCombo("Look Style", LookStyle.ToString()))
@@ -68,6 +75,15 @@ namespace AstroDroids.Entities.Hostile
                 LookStyle = (EnemyLookStyle)reader.ReadInt32();
                 LookAngle = reader.ReadSingle();
                 DespawnAtPathEnd = reader.ReadBoolean();
+
+                if (version >= 9)
+                {
+                    MoveSpeed = reader.ReadSingle();
+                }
+                else
+                {
+                    MoveSpeed = 2f;
+                }
             }
             else
             {
@@ -80,6 +96,8 @@ namespace AstroDroids.Entities.Hostile
 
                 LookAngle = 0f;
                 DespawnAtPathEnd = true;
+
+                MoveSpeed = 2f;
             }
         }
 
@@ -88,6 +106,7 @@ namespace AstroDroids.Entities.Hostile
             writer.Write((int)LookStyle);
             writer.Write(LookAngle);
             writer.Write(DespawnAtPathEnd);
+            writer.Write(MoveSpeed);
         }
     }
     public class Gunner : Enemy
@@ -110,8 +129,11 @@ namespace AstroDroids.Entities.Hostile
         float lookAngle = 0;
         bool despawnAtPathEnd = true;
 
+        float moveSpeed = 2f;
+
         public Gunner() : base(Vector2.Zero, 10)
         {
+            CanBeShielded = true;
             texture = TextureManager.Get("Ships/Gunner/tinyShip20");
             AddCircleCollider(Vector2.Zero, 22f);
 
@@ -135,6 +157,7 @@ namespace AstroDroids.Entities.Hostile
             lookStyle = data.LookStyle;
             lookAngle = MathHelper.ToRadians(data.LookAngle);
             despawnAtPathEnd = data.DespawnAtPathEnd;
+            moveSpeed = data.MoveSpeed;
         }
 
         public override void Update(GameTime gameTime)
@@ -184,7 +207,10 @@ namespace AstroDroids.Entities.Hostile
             else
             {
                 if (!FollowsCamera)
-                    DefaultMove();
+                {
+                    Transform.Position = new Vector2(Transform.Position.X, Transform.Position.Y + moveSpeed);
+                    //DefaultMove();
+                }
 
                 if (Transform.Position.Y > Scene.World.Bounds.Bottom + texture.Height)
                 {

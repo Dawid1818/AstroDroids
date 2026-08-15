@@ -1,11 +1,8 @@
 ﻿using AstroDroids.Coroutines;
-using AstroDroids.Entities.Friendly;
-using AstroDroids.Entities.Hostile.Bosses;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
-using AstroDroids.Projectiles.Hostile;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -28,12 +25,8 @@ namespace AstroDroids.Entities.Hostile
         public Vector2 MiddleCannon { get { return GameHelper.RotateAroundPoint(new Vector2(-(Width / 2f), 0), Vector2.Zero, angle); } }
 
         CoroutineInstance behavior;
-        CoroutineInstance fireLoop;
-
         bool charging = false;
-
         Vector2 targetPos;
-
         ProximityMine projectile;
 
         public MineDeployer() : base(Vector2.Zero, 100)
@@ -55,19 +48,13 @@ namespace AstroDroids.Entities.Hostile
         {
             base.Destroyed();
 
-            if(fireLoop != null)
-            {
-                Scene.World.StopCoroutine(fireLoop);
-                fireLoop = null;
-            }
-
             if (behavior != null)
             {
                 Scene.World.StopCoroutine(behavior);
                 behavior = null;
             }
 
-            if(projectile != null)
+            if (projectile != null)
             {
                 projectile.Damage(100, false);
 
@@ -140,7 +127,7 @@ namespace AstroDroids.Entities.Hostile
 
         IEnumerator Behavior()
         {
-            while(true)
+            while (true)
             {
                 int choice = Random.Next(2);
                 switch (choice)

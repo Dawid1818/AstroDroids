@@ -38,10 +38,14 @@ namespace AstroDroids.Entities.Hostile
 
         public Sentinel() : base(Vector2.Zero, 150)
         {
+            CanBeShielded = true;
             texture = TextureManager.Get("Ships/Sentinel/ship003_black1");
             Score = 100;
 
             AddCircleCollider(Vector2.Zero, 50f);
+
+            HorizontalShieldRadius = 50f;
+            VerticalShieldRadius = 50f;
         }
 
         public override void Spawned()

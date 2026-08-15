@@ -21,6 +21,7 @@ namespace AstroDroids.Entities.Hostile
 
         public Chaser() : base(Vector2.Zero, 3)
         {
+            CanBeShielded = true;
             texture = TextureManager.Get("Ships/Chaser/tinyShip17");
             Score = 100;
             sprite = new AnimatedSprite(texture, 5, 34, 25, 1, 6, 10f);
@@ -32,16 +33,11 @@ namespace AstroDroids.Entities.Hostile
         {
             sprite.Update(gameTime);
 
-            if (PathManager != null)
+            if (PathManager != null && PathManager.Active)
             {
                 PathManager.Update(gameTime);
                 Transform.Position = PathManager.Position;
                 angle = GameHelper.AngleFromDir(PathManager.Direction) + 1.571f;
-
-                if (!PathManager.Active)
-                {
-                    Despawn();
-                }
             }
             else
             {

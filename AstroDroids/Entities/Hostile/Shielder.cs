@@ -1,18 +1,57 @@
-﻿using AstroDroids.Coroutines;
-using AstroDroids.Entities.Warnings;
+﻿using AstroDroids.Entities.Warnings;
 using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
 using AstroDroids.Scenes;
+using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace AstroDroids.Entities.Hostile
 {
-    internal class Shielder : Enemy
+    public class ShielderSpawnData : IEnemySpawnData
+    {
+        public int EnemiesToShield { get; set; } = 1;
+
+        public void DrawEditor()
+        {
+            int enemies = EnemiesToShield;
+            if (ImGui.InputInt("Enemies to shield", ref enemies))
+            {
+                EnemiesToShield = enemies;
+            }
+        }
+
+        public void Load(BinaryReader reader, int version)
+        {
+            if (version >= 10)
+            {
+                EnemiesToShield = reader.ReadInt32();
+            }
+            else
+            {
+                EnemiesToShield = 1;
+            }
+        }
+
+        public void Save(BinaryWriter writer)
+        {
+            writer.Write(EnemiesToShield);
+        }
+    }
+
+    public class ShieldedEntry
+    {
+        public Enemy Enemy { get; set; }
+        public ShielderConnection Connection { get; set; }
+    }
+
+    public class Shielder : Enemy
     {
         public float t = 0f;
 
@@ -22,8 +61,11 @@ namespace AstroDroids.Entities.Hostile
 
         Vector2 targetPos;
 
-        Enemy targetToShield = null;
-        ShielderConnection connection = null;
+        int enemiesToShield = 1;
+
+        List<ShieldedEntry> shielded = new List<ShieldedEntry>();
+        //Enemy targetToShield = null;
+        //ShielderConnection connection = null;
 
         public Shielder() : base(Vector2.Zero, 100)
         {
@@ -40,21 +82,22 @@ namespace AstroDroids.Entities.Hostile
             angle = MathHelper.ToRadians(90);
         }
 
+        public override void ApplySpawnData(IEnemySpawnData spawnData)
+        {
+            ShielderSpawnData data = (ShielderSpawnData)spawnData;
+            enemiesToShield = data.EnemiesToShield;
+        }
+
         public override void Destroyed()
         {
             base.Destroyed();
 
-            if (targetToShield != null)
+            foreach (var item in shielded)
             {
-                targetToShield.ShieldedAmount = 0;
-                targetToShield = null;
+                item.Enemy.ShieldedAmount = 0;
+                Scene.World.RemoveWarning(item.Connection);
             }
-
-            if(connection != null)
-            {
-                Scene.World.RemoveWarning(connection);
-                connection = null;
-            }
+            shielded.Clear();
         }
 
         public override void Update(GameTime gameTime)
@@ -102,34 +145,68 @@ namespace AstroDroids.Entities.Hostile
                 }
             }
 
-            if(connection != null && targetToShield != null)
+            List<ShieldedEntry> toRemove = new List<ShieldedEntry>();
+
+            foreach (var item in shielded)
             {
-                connection.Transform.Position = Transform.Position;
-                connection.target = targetToShield.Transform.Position;
+                if(item.Enemy.destroyed)
+                {
+                    toRemove.Add(item);
+                }
             }
 
-            if (targetToShield == null)
+            foreach (var item in toRemove)
+            {
+                Scene.World.RemoveWarning(item.Connection);
+                shielded.Remove(item);
+            }
+            toRemove.Clear();
+
+            while(shielded.Count < enemiesToShield)
             {
                 Enemy enemy = Scene.World.Enemies.OfType<Enemy>().FirstOrDefault(x => x != this && x.CanBeDamaged && !x.destroyed && x.CanBeShielded && x.ShieldedAmount == 0);
                 if (enemy != null)
                 {
-                    targetToShield = enemy;
-                    targetToShield.ShieldedAmount = 1;
-
-                    connection = new ShielderConnection() { Transform = new Transform(Transform.Position), target = targetToShield.Transform.Position };
+                    var connection = new ShielderConnection() { Transform = new Transform(Transform.Position), target = enemy.Transform.Position };
+                    shielded.Add(new ShieldedEntry() { Enemy = enemy, Connection = connection });
+                    enemy.ShieldedAmount = 1;
                     Scene.World.AddWarning(connection, true);
                 }
-            }
-            else if (targetToShield.destroyed)
-            {
-                targetToShield = null;
-
-                if (connection != null)
+                else
                 {
-                    Scene.World.RemoveWarning(connection);
-                    connection = null;
+                    //there are no suitable enemies, abort
+                    break;
                 }
             }
+
+            foreach (var item in shielded)
+            {
+                item.Connection.Transform.Position = Transform.Position;
+                item.Connection.target = item.Enemy.Transform.Position;
+            }
+
+            //if (targetToShield == null)
+            //{
+            //    Enemy enemy = Scene.World.Enemies.OfType<Enemy>().FirstOrDefault(x => x != this && x.CanBeDamaged && !x.destroyed && x.CanBeShielded && x.ShieldedAmount == 0);
+            //    if (enemy != null)
+            //    {
+            //        targetToShield = enemy;
+            //        targetToShield.ShieldedAmount = 1;
+
+            //        connection = new ShielderConnection() { Transform = new Transform(Transform.Position), target = targetToShield.Transform.Position };
+            //        Scene.World.AddWarning(connection, true);
+            //    }
+            //}
+            //else if (targetToShield.destroyed)
+            //{
+            //    targetToShield = null;
+
+            //    if (connection != null)
+            //    {
+            //        Scene.World.RemoveWarning(connection);
+            //        connection = null;
+            //    }
+            //}
         }
 
         public override void Draw(GameTime gameTime)

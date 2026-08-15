@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using System;
 using System.Collections;
+using System.Linq;
 
 namespace AstroDroids.Entities.Hostile
 {
@@ -161,6 +162,11 @@ namespace AstroDroids.Entities.Hostile
             }
         }
 
+        bool otherSolarKnightsExist()
+        {
+            return Scene.World.Enemies.OfType<SolarKnight>().Count() > 1;
+        }
+
         IEnumerator Behavior()
         {
             while (true)
@@ -170,16 +176,10 @@ namespace AstroDroids.Entities.Hostile
                 {
                     case 0:
                     default:
-                        for (int i = 0; i < 3; i++)
-                        {
                             yield return Fire();
-                        }
                         break;
                     case 1:
-                        for (int i = 0; i < 3; i++)
-                        {
                             yield return FirePlenty();
-                        }
                         break;
                 }
 
@@ -219,6 +219,13 @@ namespace AstroDroids.Entities.Hostile
         IEnumerator FirePlenty()
         {
             charging = true;
+
+            int extra = 4;
+            if(otherSolarKnightsExist())
+            {
+                extra = 2;
+            }
+
             for (int i = 0; i < 5; i++)
             {
                 projectile = new SolarCircleProjectile(MiddleCannon + Transform.Position + new Vector2(0, 10), 0, 0, 0, 32f, 32f);
@@ -240,7 +247,7 @@ namespace AstroDroids.Entities.Hostile
                 projectile.Speed = 3f;
                 projectile = null;
 
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < extra; j++)
                 {
                     var otherProj = new SolarCircleProjectile(MiddleCannon + Transform.Position + new Vector2(0, 10), angle, 3f, 32f, 32f, 32f);
                     otherProj.Destination = GameHelper.RandomPosition(Scene.World.Bounds);
