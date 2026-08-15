@@ -25,9 +25,9 @@ namespace AstroDroids.Gameplay
 
         static GameMission CurrentMission;
 
-        public static void NewState(GameMission mission)
+        public static void NewState(GameMission mission, int levelIndex = 0)
         {
-            CurrentMissionProgress = new MissionProgress() { Type = mission.Type };
+            CurrentMissionProgress = new MissionProgress() { Type = mission.Type, LevelIndex = levelIndex };
             CurrentMission = mission;
 
             //Lives = 3;

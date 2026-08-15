@@ -42,6 +42,11 @@ namespace AstroDroids.Screens
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
         }
 
+        public void Update(GameTime gameTime)
+        {
+
+        }
+
         private void AnimationController_OnCompleted()
         {
             PlayBtn.IsFocused = true;

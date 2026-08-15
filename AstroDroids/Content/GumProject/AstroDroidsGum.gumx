@@ -65,6 +65,7 @@
   <ScreenReference Name="LeaderboardScreenGum" />
   <ScreenReference Name="LevelEditorScreenGum" />
   <ScreenReference Name="MainMenuScreenGum" />
+  <ScreenReference Name="MissionScreenGum" />
   <ScreenReference Name="SettingsScreenGum" />
   <ScreenReference Name="ShipCustomizationScreenGum" />
   <ComponentReference Name="Controls/ButtonClose" />
@@ -74,6 +75,7 @@
   <ComponentReference Name="Controls/ButtonGlow" />
   <ComponentReference Name="Controls/ButtonGlowGameMode" />
   <ComponentReference Name="Controls/ButtonIcon" />
+  <ComponentReference Name="Controls/ButtonIconGlow" />
   <ComponentReference Name="Controls/ButtonStandard" />
   <ComponentReference Name="Controls/ButtonStandardIcon" />
   <ComponentReference Name="Controls/ButtonTab" />
@@ -110,6 +112,7 @@
   <ComponentReference Name="Controls/UserControl" />
   <ComponentReference Name="Controls/WindowStandard" />
   <ComponentReference Name="Custom/ActionHint" />
+  <ComponentReference Name="Custom/LevelCard" />
   <ComponentReference Name="Elements/CautionLines" />
   <ComponentReference Name="Elements/CautionLinesWrapped" />
   <ComponentReference Name="Elements/Divider" />

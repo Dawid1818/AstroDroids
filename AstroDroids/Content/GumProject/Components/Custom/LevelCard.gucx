@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Custom/LevelCard</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="int" Name="BossPanelBG.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="BossPanelBG.ColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="float" Name="BossPanelBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-2.600006</Value>
+    </Variable>
+    <Variable Type="StyleCategory" Name="BossPanelBG.StyleCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="int" Name="BossPanelBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">72</Value>
+    </Variable>
+    <Variable Type="int" Name="BossPanelBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">144</Value>
+    </Variable>
+    <Variable Type="float" Name="BossPanelBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="BossPanelBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">1.937151E-06</Value>
+    </Variable>
+    <Variable Type="float" Name="BossPanelBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">2.699997</Value>
+    </Variable>
+    <Variable Type="float" Name="Height" SetsValue="true">
+      <Value xsi:type="xsd:float">202</Value>
+    </Variable>
+    <Variable Type="float" Name="SpriteInstance.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-27.743958</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="SpriteInstance.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="SpriteInstance.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">ExampleGameModeBanner.png</Value>
+    </Variable>
+    <Variable Type="float" Name="SpriteInstance.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-8.417603</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="SpriteInstance.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="SpriteInstance.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="SpriteInstance.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SpriteInstance.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="SpriteInstance.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">8.5</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="SpriteInstance.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SpriteInstance.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
+      <Value xsi:type="xsd:string">Default</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="TextInstance.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="TextInstance.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Level 1</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="TextInstance.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="TextInstance.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TextInstance.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">4</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="TextInstance.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TextInstance.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="Width" SetsValue="true">
+      <Value xsi:type="xsd:float">188</Value>
+    </Variable>
+  </State>
+  <Instance Name="BossPanelBG" BaseType="NineSlice" />
+  <Instance Name="SpriteInstance" BaseType="Sprite" />
+  <Instance Name="TextInstance" BaseType="Text" />
+  <Behaviors />
+</ComponentSave>

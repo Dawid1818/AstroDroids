@@ -4,7 +4,7 @@ using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
 using Gum.Wireframe;
-
+using Microsoft.Xna.Framework;
 using RenderingLibrary.Graphics;
 
 namespace AstroDroids.Screens
@@ -18,6 +18,11 @@ namespace AstroDroids.Screens
             ReturnBtn.IsFocused = true;
 
             ReturnBtn.Click += ReturnBtn_Click;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+
         }
 
         public void Uninitialize()

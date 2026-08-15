@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>MissionScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="string" Name="Level1Card.Parent" SetsValue="true" />
+    <Variable Type="float" Name="Level1Card.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Level1Card.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level1Card.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Level1Card.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Level1Card.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level1Card.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="Level2Card.X" SetsValue="true">
+      <Value xsi:type="xsd:float">220</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Level2Card.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level2Card.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Level2Card.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Level2Card.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level2Card.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="Level3Card.X" SetsValue="true">
+      <Value xsi:type="xsd:float">440</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Level3Card.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level3Card.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Level3Card.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Level3Card.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level3Card.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="Level4Card.X" SetsValue="true">
+      <Value xsi:type="xsd:float">660</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Level4Card.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level4Card.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Level4Card.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Level4Card.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level4Card.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="Level5Card.X" SetsValue="true">
+      <Value xsi:type="xsd:float">880</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Level5Card.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level5Card.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Level5Card.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Level5Card.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Level5Card.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="NextLevelBtn.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Arrow1</Value>
+    </Variable>
+    <Variable Type="float" Name="NextLevelBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-24</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="NextLevelBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="NextLevelBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="NextLevelBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="NextLevelBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="NextLevelBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="string" Name="PlayBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Play</Value>
+    </Variable>
+    <Variable Type="float" Name="PlayBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">77</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="PlayBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PlayBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="PlayBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-128</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="PlayBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PlayBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="bool" Name="PrevLevelBtn.FlipHorizontal" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="PrevLevelBtn.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Arrow1</Value>
+    </Variable>
+    <Variable Type="float" Name="PrevLevelBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">24</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="PrevLevelBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PrevLevelBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="PrevLevelBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="PrevLevelBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PrevLevelBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Return</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-77</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ReturnBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ReturnBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-128</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ReturnBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ReturnBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+  </State>
+  <Instance Name="ReturnBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="PlayBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="Level1Card" BaseType="Custom/LevelCard" />
+  <Instance Name="Level2Card" BaseType="Custom/LevelCard" />
+  <Instance Name="Level3Card" BaseType="Custom/LevelCard" />
+  <Instance Name="Level4Card" BaseType="Custom/LevelCard" />
+  <Instance Name="Level5Card" BaseType="Custom/LevelCard" />
+  <Instance Name="NextLevelBtn" BaseType="Controls/ButtonIconGlow" />
+  <Instance Name="PrevLevelBtn" BaseType="Controls/ButtonIconGlow" />
+  <Behaviors />
+</ScreenSave>

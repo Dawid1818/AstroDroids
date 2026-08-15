@@ -99,6 +99,11 @@ namespace AstroDroids.Screens
             VLabel.SetTextNoTranslate($"V: {(int)VSlider.Value}");
         }
 
+        public void Update(GameTime gameTime)
+        {
+
+        }
+
         private void PartBtn_Click(object sender, System.EventArgs e)
         {
             //ButtonGlow s = sender as ButtonGlow;

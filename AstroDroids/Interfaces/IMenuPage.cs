@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Scenes;
 using AstroDroids.Screens;
+using Microsoft.Xna.Framework;
 
 namespace AstroDroids.Interfaces
 {
@@ -10,5 +11,6 @@ namespace AstroDroids.Interfaces
         public void TransitionOut();
         public bool TransitionFinished();
         public void BackPressed();
+        public void Update(GameTime gameTime);
     }
 }

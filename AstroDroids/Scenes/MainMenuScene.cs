@@ -80,6 +80,8 @@ namespace AstroDroids.Scenes
                 {
                     menuPage.BackPressed();
                 }
+
+                menuPage.Update(gameTime);
             }
 
             InputMethod newInputMethod = InputSystem.GetLastInputMethod();

@@ -3,6 +3,7 @@ using AstroDroids.Gameplay;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
+using Microsoft.Xna.Framework;
 using System;
 
 namespace AstroDroids.Screens
@@ -30,11 +31,14 @@ namespace AstroDroids.Screens
             BossRushBtn.SpatialNavigationDown = ReturnBtn;
         }
 
+        public void Update(GameTime gameTime)
+        {
+
+        }
+
         private void StoryBtn_Click(object sender, EventArgs e)
         {
-            GameStateManager.NewState(GameDatabase.GetMission(MissionType.Story));
-
-            scene.TransitionToScene(new GameScene());
+            scene.SetPage(new MissionScreenGum());
         }
 
         private void BossRushBtn_Click(object sender, EventArgs e)
