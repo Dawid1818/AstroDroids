@@ -94,16 +94,16 @@ namespace AstroDroids.Gameplay
 
                 AttackWave item = AttackWaves[i];
 
-                foreach (var spawner in item.Spawners)
-                {
-                    ongoingWaves++;
-                    StartCoroutine(SpawnEnemies(spawner));
-                }
-
                 foreach (var barrier in item.LaserBarriers)
                 {
                     ongoingWaves++;
                     StartCoroutine(SpawnBarriers(barrier));
+                }
+
+                foreach (var spawner in item.Spawners)
+                {
+                    ongoingWaves++;
+                    StartCoroutine(SpawnEnemies(spawner));
                 }
 
                 foreach (var eventN in item.Events)
@@ -232,8 +232,17 @@ namespace AstroDroids.Gameplay
 
             foreach (var node in spawner.Nodes.Values)
             {
-                var barrier = new LaserBarrier(node.Position, node.Id, node.Health, new Vector2(0, 2), node.Type);
+                var barrier = new LaserBarrier(node.Position, node.Id, node.Health, spawner.MoveSpeed, node.Type, node.Position - spawner.Transform.Position);
                 barriers[node.Id] = barrier;
+
+                if(spawner.HasPath)
+                {
+                    barrier.PathManager = new PathManager(spawner.Path, spawner.PathSpeed);
+                    barrier.PathManager.Loop = spawner.PathLoop;
+                    barrier.PathManager.MinPath = spawner.MinPath;
+                }
+
+                barrier.FollowsCamera = spawner.FollowsCamera;
             }
 
             foreach (var connection in spawner.Connections)
@@ -256,7 +265,27 @@ namespace AstroDroids.Gameplay
 
                 if (spawner.InitialDelay == 0)
                 {
-                    AddEnemy(barrier, false, true);
+                    AddEnemy(barrier, spawner.FollowsCamera, true);
+
+                    if(node.HasEnemy && node.Enemy != null)
+                    {
+                        EnemySpawnEntry entry = node.Enemy;
+
+                        Type type = GameDatabase.GetEnemyType(entry.EnemyID);
+                        Enemy enemy = (Enemy)Activator.CreateInstance(type);
+
+                        enemy.FollowsCamera = barrier.FollowsCamera;
+
+                        if (enemy.IsNeutral)
+                            AddNeutral(enemy, spawner.FollowsCamera, false, entry.SpawnData);
+                        else
+                            AddEnemy(enemy, spawner.FollowsCamera, false, entry.SpawnData);
+
+                        enemy.Transform.LocalPosition = barrier.Transform.LocalPosition;
+                        enemy.Spawned();
+
+                        barrier.Turret = enemy;
+                    }
                 }
             }
 
@@ -268,7 +297,27 @@ namespace AstroDroids.Gameplay
                 {
                     var barrier = barriers[node.Id];
 
-                    AddEnemy(barrier, false, true);
+                    AddEnemy(barrier, spawner.FollowsCamera, true);
+
+                    if (node.HasEnemy && node.Enemy != null)
+                    {
+                        EnemySpawnEntry entry = node.Enemy;
+
+                        Type type = GameDatabase.GetEnemyType(entry.EnemyID);
+                        Enemy enemy = (Enemy)Activator.CreateInstance(type);
+
+                        enemy.FollowsCamera = barrier.FollowsCamera;
+
+                        if (enemy.IsNeutral)
+                            AddNeutral(enemy, spawner.FollowsCamera, false, entry.SpawnData);
+                        else
+                            AddEnemy(enemy, spawner.FollowsCamera, false, entry.SpawnData);
+
+                        enemy.Transform.LocalPosition = barrier.Transform.LocalPosition;
+                        enemy.Spawned();
+
+                        barrier.Turret = enemy;
+                    }
                 }
             }
 

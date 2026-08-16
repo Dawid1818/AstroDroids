@@ -1,19 +1,20 @@
 ﻿using AstroDroids.Entities;
-using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.IO;
 
 namespace AstroDroids.Levels
 {
-    public class LaserBarrierGroupNode : Entity, ISaveable
+    public class LaserBarrierGroupNode : MovableNode
     {
         public double InitialDelay { get; set; } = 0f;
         public int AvailableId { get; set; } = 0;
         public Dictionary<int, LaserBarrierNode> Nodes { get; private set; } = new Dictionary<int, LaserBarrierNode>();
         public List<LaserBarrierConnection> Connections { get; private set; } = new List<LaserBarrierConnection>();
 
-        public void Load(BinaryReader reader, int version)
+        public Vector2 MoveSpeed { get; set; } = new Vector2(0, 2);
+
+        public override void Load(BinaryReader reader, int version)
         {
             Transform.Position = new Vector2(reader.ReadSingle(), reader.ReadSingle());
 
@@ -39,9 +40,20 @@ namespace AstroDroids.Levels
                 connection.Load(reader, version);
                 Connections.Add(connection);
             }
+
+            base.Load(reader, version);
+
+            if(!HasPath)
+            {
+                MoveSpeed = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+            }
+            else
+            {
+                MoveSpeed = new Vector2(0, 2);
+            }
         }
 
-        public void Save(BinaryWriter writer)
+        public override void Save(BinaryWriter writer)
         {
             writer.Write(Transform.Position.X);
             writer.Write(Transform.Position.Y);
@@ -61,6 +73,18 @@ namespace AstroDroids.Levels
             foreach (var item in Connections)
             {
                 item.Save(writer);
+            }
+
+            base.Save(writer);
+
+            if(!HasPath)
+            {
+                writer.Write(MoveSpeed.X);
+                writer.Write(MoveSpeed.Y);
+            }
+            else
+            {
+                MoveSpeed = new Vector2(0, 2);
             }
         }
 

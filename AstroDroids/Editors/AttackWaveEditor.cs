@@ -495,6 +495,11 @@ namespace AstroDroids.Editors
                         wave.LaserBarriers.Add(laserGroupN);
 
                         laserGroupN.Translate(delta);
+
+                        if (laserGroupN.HasPath)
+                        {
+                            laserGroupN.Path.Translate(delta);
+                        }
                         break;
                     case 3:
                         node = new BackgroundObjectNode();
@@ -616,6 +621,9 @@ namespace AstroDroids.Editors
                 }
                 else if (node is LaserBarrierGroupNode laserBarrierN)
                 {
+                    if(laserBarrierN.HasPath)
+                        PathVisualizer.DrawPath(laserBarrierN.Path, highlightAll: selected);
+
                     GameHelper.DrawNode("BA", laserBarrierN.Transform.Position, selected ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
 
                     scene.barrierEditor.DrawBarriers(laserBarrierN);
@@ -1119,6 +1127,39 @@ namespace AstroDroids.Editors
             {
                 scene.mode = EditorMode.Barrier;
                 scene.barrierEditor.SetBarrier(laserBarrierN);
+            }
+
+            ImGui.SeparatorText("Path settings");
+
+            bool hasPath = laserBarrierN.HasPath;
+            if (ImGui.Checkbox("Has Path", ref hasPath))
+            {
+                laserBarrierN.HasPath = hasPath;
+
+                if (laserBarrierN.HasPath)
+                {
+                    CompositePath path = new CompositePath();
+                    laserBarrierN.Path = path;
+                    laserBarrierN.MoveSpeed = new Vector2(0, 2);
+                    //path.Add(new LinePath(spawner.Transform.Position, spawner.Transform.Position + new Vector2(100, 0)));
+                    path.Add(new BezierPath(new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero }));
+                }
+                else
+                {
+                    laserBarrierN.MoveSpeed = new Vector2(0, 2);
+                    laserBarrierN.Path = null;
+                }
+            }
+
+            PathSettings(laserBarrierN);
+
+            if (!laserBarrierN.HasPath)
+            {
+                Numeric.Vector2 movSpeed = new Numeric.Vector2(laserBarrierN.MoveSpeed.X, laserBarrierN.MoveSpeed.Y);
+                if(ImGui.InputFloat2("Move speed", ref movSpeed))
+                {
+                    laserBarrierN.MoveSpeed = new Vector2(movSpeed.X, movSpeed.Y);
+                }
             }
         }
 

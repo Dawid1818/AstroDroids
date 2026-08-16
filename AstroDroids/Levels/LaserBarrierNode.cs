@@ -1,4 +1,5 @@
-﻿using AstroDroids.Interfaces;
+﻿using AstroDroids.Entities;
+using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
 using System.IO;
 
@@ -14,9 +15,11 @@ namespace AstroDroids.Levels
     {
         public int Id { get; set; }
         public Vector2 Position { get; set; }
-        //public List<int> Connections { get; private set; } = new List<int>();
         public int Health { get; set; } = 1;
         public LaserBarrierType Type { get; set; } = LaserBarrierType.Normal;
+
+        public bool HasEnemy { get; set; } = false;
+        public EnemySpawnEntry Enemy { get; set; } = null;
 
         public void Load(BinaryReader reader, int version)
         {
@@ -25,13 +28,17 @@ namespace AstroDroids.Levels
             Health = reader.ReadInt32();
 
             Type = (LaserBarrierType)reader.ReadInt32();
+            HasEnemy = reader.ReadBoolean();
 
-            //Connections = new List<int>();
-            //int connectionCount = reader.ReadInt32();
-            //for (int i = 0; i < connectionCount; i++)
-            //{
-            //    Connections.Add(reader.ReadInt32());
-            //}
+            if(HasEnemy)
+            {
+                Enemy = new EnemySpawnEntry();
+                Enemy.Load(reader, version);
+            }
+            else
+            {
+                Enemy = null;
+            }
         }
 
         public void Save(BinaryWriter writer)
@@ -42,12 +49,12 @@ namespace AstroDroids.Levels
             writer.Write(Health);
 
             writer.Write((int)Type);
+            writer.Write(HasEnemy);
 
-            //writer.Write(Connections.Count);
-            //foreach (int connection in Connections)
-            //{
-            //    writer.Write(connection);
-            //}
+            if(HasEnemy)
+            {
+                Enemy.Save(writer);
+            }
         }
     }
 }

@@ -16,11 +16,15 @@ namespace AstroDroids.Entities.Hostile
         Texture2D blueTexture;
         Texture2D redTexture;
         Vector2 moveDir = Vector2.Zero;
+        Vector2 pathOffset = Vector2.Zero;
         public LaserBarrierType Type { get; private set; } = LaserBarrierType.Normal;
         public int Id { get; private set; }
 
         float t = 0f;
         public bool fasterExpiration { get; set; } = false;
+
+        public Enemy Turret { get; set; } = null;
+
         //bool becameActive = false;
 
         public LaserBarrier() : base(Vector2.Zero, 1)
@@ -29,6 +33,11 @@ namespace AstroDroids.Entities.Hostile
             redTexture = TextureManager.Get("Laser Barriers/accesory_002r");
 
             AddCircleCollider(Vector2.Zero, 16f);
+        }
+
+        public LaserBarrier(Vector2 position, int id, int health, Vector2 moveDir, LaserBarrierType type, Vector2 pathOffset) : this(position, id, health, moveDir, type)
+        {
+            this.pathOffset = pathOffset;
         }
 
         public LaserBarrier(Vector2 position, int id, int health, Vector2 moveDir, LaserBarrierType type) : base(position, 1)
@@ -125,14 +134,21 @@ namespace AstroDroids.Entities.Hostile
                 }
             }
 
-            if (PathManager != null)
+            if (PathManager != null && PathManager.Active)
             {
+                if (!FollowsCamera)
+                    PathManager.Translate(new Vector2(0, (float)Scene.World.speed));
                 PathManager.Update(gameTime);
-                Transform.Position = PathManager.Position;
+                Transform.Position = PathManager.Position + pathOffset;
             }
             else
             {
                 Transform.Position = new Vector2(Transform.Position.X + moveDir.X, Transform.Position.Y + moveDir.Y);
+            }
+
+            if(Turret != null)
+            {
+                Turret.Transform.Position = Transform.Position;
             }
 
             //for (int i = connections.Count - 1; i >= 0; i--)

@@ -1,14 +1,18 @@
-﻿using AstroDroids.Graphics;
+﻿using AstroDroids.Entities;
+using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Levels;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using Numeric = System.Numerics;
 
 namespace AstroDroids.Editors
 {
@@ -253,6 +257,47 @@ namespace AstroDroids.Editors
                     ImGui.EndCombo();
                 }
 
+                List<Type> enemyList = GameDatabase.GetAllEnemyTypes();
+                //
+                var avaSpace = ImGui.GetContentRegionAvail();
+                ImGui.PushItemWidth(avaSpace.X);
+                if (ImGui.BeginCombo("##EnemyCombo", selectedNode.Enemy != null ? enemyList[selectedNode.Enemy.EnemyID].Name : "None", ImGuiComboFlags.HeightLarge))
+                {
+                    if(ImGui.Selectable("None", selectedNode.Enemy == null))
+                    {
+                        selectedNode.HasEnemy = false;
+                        selectedNode.Enemy = null;
+                    }
+
+                    for (int i = 0; i < enemyList.Count; i++)
+                    {
+                        selectableButton(enemyList[i].Name, selectedNode.Enemy != null && i == selectedNode.Enemy.EnemyID, 0, 72,
+                        () =>
+                        {
+                            selectedNode.HasEnemy = true;
+                            selectedNode.Enemy = new EnemySpawnEntry { EnemyID = i, SpawnData = GameDatabase.CreateEnemySpawnData(i) };
+                        },
+                        () =>
+                        {
+                            float yPos = ImGui.GetCursorPosY();
+                            ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 4);
+                            ImGui.SetCursorPosX(ImGui.GetCursorPosX() + 4);
+                            ImGui.Image(GameDatabase.GetEntityPreview(i), new Numeric.Vector2(64, 64));
+                            ImGui.SameLine();
+                            var textSize = ImGui.CalcTextSize(enemyList[i].Name);
+                            ImGui.SetCursorPosY(yPos + 72 / 2 - textSize.Y / 2);
+                            ImGui.Text(enemyList[i].Name);
+                        });
+                    }
+
+                    ImGui.EndCombo();
+                }
+
+                ImGui.PopItemWidth();
+                //
+
+
+
                 var connections = BarrierGroup.Connections.Where(x => x.FirstBarrierID == selectedNode.Id || x.SecondBarrierID == selectedNode.Id).ToList();
 
                 ImGui.SetNextItemWidth(-1);
@@ -306,11 +351,25 @@ namespace AstroDroids.Editors
                 }
                 ImGui.EndDisabled();
 
-                if(selectedConnection != -1)
+                if (selectedConnection != -1)
                 {
                     ImGui.SeparatorText("Connection settings");
                     ImGui.Checkbox("Blocks Player Projectiles", ref connections[selectedConnection].BlocksPlayerProjectiles);
                 }
+
+                ImGui.Begin("Enemy settings");
+
+                if (selectedNode.HasEnemy && selectedNode.Enemy != null)
+                {
+                    int enemyId = selectedNode.Enemy.EnemyID;
+                    ImGui.SeparatorText($"{enemyList[enemyId].Name} settings");
+                    selectedNode.Enemy.SpawnData?.DrawEditor();
+                }
+                else
+                {
+                    ImGui.SeparatorText("No enemy selected");
+                }
+                ImGui.End();
             }
 
             ImGui.End();
@@ -345,6 +404,23 @@ namespace AstroDroids.Editors
             {
                 BarrierGroup.Connections.Remove(link);
             }
+        }
+
+        void selectableButton(string label, bool selected, float width, float height, Action onSelect = null, Action content = null)
+        {
+            ImGui.BeginGroup();
+
+            if (ImGui.Selectable($"##{label}", selected, ImGuiSelectableFlags.None, new Numeric.Vector2(width, height)))
+            {
+                onSelect?.Invoke();
+            }
+
+            var min = ImGui.GetItemRectMin();
+
+            ImGui.SetCursorScreenPos(min);
+            content?.Invoke();
+
+            ImGui.EndGroup();
         }
     }
 }
