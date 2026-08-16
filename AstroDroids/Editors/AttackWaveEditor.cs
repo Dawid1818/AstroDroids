@@ -1129,6 +1129,56 @@ namespace AstroDroids.Editors
                 scene.barrierEditor.SetBarrier(laserBarrierN);
             }
 
+            if (ImGui.Button("Horizontal Flip"))
+            {
+                float min = float.MaxValue;
+                float max = float.MinValue;
+
+                foreach (var node in laserBarrierN.Nodes)
+                {
+                    if (node.Value.Position.X > max)
+                        max = node.Value.Position.X;
+
+                    if (node.Value.Position.X < min)
+                        min = node.Value.Position.X;
+                }
+
+                float between = (max + min) / 2;
+
+                foreach (var node in laserBarrierN.Nodes)
+                {
+                    float dist = between - node.Value.Position.X;
+
+                    node.Value.Position = new Vector2(node.Value.Position.X + dist * 2, node.Value.Position.Y);
+                }
+            }
+
+            ImGui.SameLine();
+
+            if (ImGui.Button("Vertical Flip"))
+            {
+                float min = float.MaxValue;
+                float max = float.MinValue;
+
+                foreach (var node in laserBarrierN.Nodes)
+                {
+                    if (node.Value.Position.Y > max)
+                        max = node.Value.Position.Y;
+
+                    if (node.Value.Position.Y < min)
+                        min = node.Value.Position.Y;
+                }
+
+                float between = (max + min) / 2;
+
+                foreach (var node in laserBarrierN.Nodes)
+                {
+                    float dist = between - node.Value.Position.Y;
+
+                    node.Value.Position = new Vector2(node.Value.Position.X, node.Value.Position.Y + dist * 2);
+                }
+            }
+
             ImGui.SeparatorText("Path settings");
 
             bool hasPath = laserBarrierN.HasPath;

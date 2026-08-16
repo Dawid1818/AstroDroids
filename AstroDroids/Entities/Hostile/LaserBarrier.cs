@@ -85,6 +85,11 @@ namespace AstroDroids.Entities.Hostile
             //    connections.Clear();
             //}
 
+            if(Turret != null)
+            {
+                Turret.Damage(Turret.GetStartingHealth(), false);
+            }
+
             base.Destroyed();
         }
 
