@@ -89,7 +89,7 @@ namespace AstroDroids.Scenes
         {
             levelFileName = name;
             level = new Level();
-            FileSaver.RestoreObject(level, Path.Combine("Content/Levels/", name + ".adlvl"));
+            FileSaver.RestoreObject(level, Path.Combine("Content/EditorLevels/", name + ".adlvl"));
 
             waveEditor.Reset();
             pathBrowser.Reset();
@@ -526,7 +526,7 @@ namespace AstroDroids.Scenes
 
         void SaveLevel(string path)
         {
-            FileSaver.SaveObject(level, Path.Combine("Content/Levels/", path + ".adlvl"));
+            FileSaver.SaveObject(level, Path.Combine("Content/EditorLevels/", path + ".adlvl"));
             savedTimer = 3f;
         }
     }

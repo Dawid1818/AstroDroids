@@ -18,8 +18,8 @@ namespace AstroDroids.Editors
 
         public void ShowModal()
         {
-            if (Directory.Exists("Content/Levels"))
-                Levels = System.IO.Directory.GetFiles("Content/Levels", "*.adlvl").Select(f => System.IO.Path.GetFileNameWithoutExtension(f)).ToList();
+            if (Directory.Exists("Content/EditorLevels"))
+                Levels = System.IO.Directory.GetFiles("Content/EditorLevels", "*.adlvl").Select(f => System.IO.Path.GetFileNameWithoutExtension(f)).ToList();
             ImGui.OpenPopup("Level Browser##LevelBrowser");
             selectedIndex = -1;
             shown = true;

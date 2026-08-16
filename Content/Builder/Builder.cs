@@ -69,6 +69,8 @@ public class Builder : ContentBuilder
         contentCollection.Include<WildcardRule>("Music/*.ogg");
         //Include all sound files in the Sounds folder
         contentCollection.Include<WildcardRule>("Sounds/*.wav");
+        //Include all level files in the Levels folder
+        contentCollection.IncludeCopy<WildcardRule>("Levels/*.adlvl");
 
         return contentCollection;
     }
