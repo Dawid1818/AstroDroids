@@ -1,11 +1,7 @@
 ﻿using AstroDroids.Entities;
-using AstroDroids.Graphics;
 using AstroDroids.Interfaces;
-using AstroDroids.Managers;
-using AstroDroids.Scenes;
+using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -29,12 +25,46 @@ namespace AstroDroids.Levels
         public List<WarningNode> Warnings { get; private set; } = new List<WarningNode>();
         public WaveWaitStyle WaitStyle { get; set; } = WaveWaitStyle.WaitForAllEnemiesDefeated;
 
+
+        //camera path stuff
+        public bool HasPath { get; set; } = false;
+        public CompositePath Path { get; set; } = null;
+        public float PathSpeed { get; set; } = 1f;
+        public LoopingMode PathLoop { get; set; } = LoopingMode.Off;
+        public int MinPath { get; set; } = -1;
+
         public void Load(BinaryReader reader, int version)
         {
             Name = reader.ReadString();
 
             Delay = reader.ReadDouble();
             WaitStyle = (WaveWaitStyle)reader.ReadInt32();
+
+            if (version >= 11)
+            {
+                HasPath = reader.ReadBoolean();
+
+                if (HasPath)
+                {
+                    Path = new CompositePath();
+                    Path.Load(reader, version);
+                    PathSpeed = reader.ReadSingle();
+                    PathLoop = (LoopingMode)reader.ReadInt32();
+                    MinPath = reader.ReadInt32();
+                }
+                else
+                {
+                    Path = null;
+                }
+            }
+            else
+            {
+                HasPath = false;
+                Path = null;
+                PathSpeed = 1f;
+                PathLoop = LoopingMode.Off;
+                MinPath = -1;
+            }
 
             Spawners = new List<EnemySpawner>();
             int spawnerCount = reader.ReadInt32();
@@ -91,6 +121,18 @@ namespace AstroDroids.Levels
 
             writer.Write(Delay);
             writer.Write((int)WaitStyle);
+
+
+            writer.Write(HasPath);
+
+            if (HasPath)
+            {
+                Path.Save(writer);
+                writer.Write(PathSpeed);
+                writer.Write((int)PathLoop);
+                writer.Write(MinPath);
+            }
+
 
             writer.Write(Spawners.Count);
             foreach (var spawner in Spawners)

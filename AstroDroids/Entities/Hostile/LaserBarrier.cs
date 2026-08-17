@@ -124,18 +124,32 @@ namespace AstroDroids.Entities.Hostile
             //    Despawn();
             //}
 
-            if (!Intersects(Scene.World.Bounds))
+            if (!Intersects(Scene.World.Bounds) && !DespawnOnCameraPathEnd)
             {
                 if (t >= 10f)
+                {
+                    if (Turret != null)
+                        Turret.Damage(Turret.GetStartingHealth(), false);
                     Despawn();
+                }
 
                 if (fasterExpiration)
                 {
+                    if (Turret != null)
+                        Turret.Damage(Turret.GetStartingHealth(), false);
                     Despawn();
                 }
                 else
                 {
                     t += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }
+
+            if(DespawnOnCameraPathEnd)
+            {
+                if (Scene.World.camEntity.PathManager == null || !Scene.World.camEntity.PathManager.Active)
+                {
+                    Despawn();
                 }
             }
 

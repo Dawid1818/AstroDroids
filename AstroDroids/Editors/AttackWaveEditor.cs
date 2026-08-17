@@ -51,6 +51,9 @@ namespace AstroDroids.Editors
         ImTextureRef waveRef;
         AttackWave waveHovered;
 
+        float cameraPathSeconds = 0f;
+        PathManager pathManager = new PathManager();
+
         public AttackWaveEditor(LevelEditorScene scene)
         {
             this.scene = scene;
@@ -77,6 +80,8 @@ namespace AstroDroids.Editors
             selectedSpawnPoint = null;
             selectedNodes.Clear();
             AllNodes.Clear();
+            cameraPathSeconds = 0f;
+            pathManager.SetPath(null, 0f);
             wave = null;
         }
 
@@ -621,7 +626,7 @@ namespace AstroDroids.Editors
                 }
                 else if (node is LaserBarrierGroupNode laserBarrierN)
                 {
-                    if(laserBarrierN.HasPath)
+                    if (laserBarrierN.HasPath)
                         PathVisualizer.DrawPath(laserBarrierN.Path, highlightAll: selected);
 
                     GameHelper.DrawNode("BA", laserBarrierN.Transform.Position, selected ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
@@ -645,6 +650,11 @@ namespace AstroDroids.Editors
 
                     GameHelper.DrawNode("W", warningN.Transform.Position, selected ? Color.Orange : Color.Red, Color.DarkSlateGray);
                 }
+            }
+
+            if (wave.HasPath && wave.Path != null)
+            {
+                PathVisualizer.DrawPath(wave.Path, highlightAll: true);
             }
         }
 
@@ -680,7 +690,7 @@ namespace AstroDroids.Editors
 
                 Vector2 availableSpace = ImGui.GetContentRegionAvail();
 
-                if (ImGui.BeginListBox("##WaveList", new Numeric.Vector2(-1, availableSpace.Y - 120)))
+                if (ImGui.BeginListBox("##WaveList", new Numeric.Vector2(-1, availableSpace.Y - 340)))
                 {
                     for (int i = 0; i < level.AttackWaves.Count; i++)
                     {
@@ -701,6 +711,11 @@ namespace AstroDroids.Editors
                                 isDraggingSelRect = false;
                                 isDraggingSpawnPosition = false;
                                 selectedSpawnPoint = null;
+                                cameraPathSeconds = 0f;
+                                if (wave.HasPath && wave.Path != null)
+                                {
+                                    pathManager.SetPath(wave.Path, wave.PathSpeed);
+                                }
                                 selectedNodes.Clear();
                             }
                         }
@@ -744,6 +759,8 @@ namespace AstroDroids.Editors
                         level.AttackWaves.Insert(level.AttackWaves.IndexOf(wave) + 1, newW);
 
                         wave = newW;
+                        cameraPathSeconds = 0f;
+                        pathManager.SetPath(null, 0);
                     }
                     catch { }
                 }
@@ -753,6 +770,8 @@ namespace AstroDroids.Editors
                 if (ImGui.Button("Remove") && wave != null)
                 {
                     level.RemoveAttackWave(wave);
+                    cameraPathSeconds = 0f;
+                    pathManager.SetPath(null, 0);
                     wave = null;
                 }
                 ImGui.SameLine();
@@ -817,6 +836,31 @@ namespace AstroDroids.Editors
 
                         ImGui.EndCombo();
                     }
+
+                    ImGui.SeparatorText("Path settings");
+
+                    bool hasPath = wave.HasPath;
+                    if (ImGui.Checkbox("Has Path", ref hasPath))
+                    {
+                        wave.HasPath = hasPath;
+
+                        if (wave.HasPath)
+                        {
+                            CompositePath path = new CompositePath();
+                            wave.Path = path;
+                            //path.Add(new LinePath(spawner.Transform.Position, spawner.Transform.Position + new Vector2(100, 0)));
+                            path.Add(new BezierPath(new List<PathPoint>() { PathPoint.Zero, PathPoint.Zero, PathPoint.Zero, PathPoint.Zero }));
+
+                            pathManager.SetPath(wave.Path, wave.PathSpeed, false);
+                        }
+                        else
+                        {
+                            wave.Path = null;
+                            pathManager.SetPath(null, 0);
+                        }
+                    }
+
+                    PathSettingsForCamera(wave);
                 }
                 else
                 {
@@ -1206,9 +1250,15 @@ namespace AstroDroids.Editors
             if (!laserBarrierN.HasPath)
             {
                 Numeric.Vector2 movSpeed = new Numeric.Vector2(laserBarrierN.MoveSpeed.X, laserBarrierN.MoveSpeed.Y);
-                if(ImGui.InputFloat2("Move speed", ref movSpeed))
+                if (ImGui.InputFloat2("Move speed", ref movSpeed))
                 {
                     laserBarrierN.MoveSpeed = new Vector2(movSpeed.X, movSpeed.Y);
+                }
+
+                bool despawnOnPathEnd = laserBarrierN.DespawnOnCameraPathEnd;
+                if(ImGui.Checkbox("Despawn on camera path end", ref despawnOnPathEnd))
+                {
+                    laserBarrierN.DespawnOnCameraPathEnd = despawnOnPathEnd;
                 }
             }
         }
@@ -1277,6 +1327,148 @@ namespace AstroDroids.Editors
 
             PathSettings(bgObjN);
         }
+
+        void PathSettingsForCamera(AttackWave wave)
+        {
+            if (wave.HasPath)
+            {
+                float speed = wave.PathSpeed;
+                if (ImGui.InputFloat("Speed", ref speed))
+                {
+                    wave.PathSpeed = speed;
+                    pathManager.SetPath(wave.Path, wave.PathSpeed);
+                }
+
+                if (wave.Path.Length > 0)
+                {
+                    float travelTime = (float)wave.Path.Length / wave.PathSpeed;
+
+                    if (ImGui.InputFloat("Time", ref travelTime))
+                    {
+                        if (wave.Path.Length > 0)
+                        {
+                            wave.PathSpeed = (float)wave.Path.Length / travelTime;
+                            pathManager.SetPath(wave.Path, wave.PathSpeed);
+                        }
+                    }
+                }
+                else
+                {
+                    ImGui.BeginDisabled();
+                    float travelTime = 0f;
+                    ImGui.InputFloat("Time", ref travelTime);
+                    ImGui.EndDisabled();
+                }
+
+                LoopingMode loopMode = wave.PathLoop;
+                if (ImGui.BeginCombo("Looping Mode", loopMode.ToString()))
+                {
+                    foreach (var mode in Enum.GetValues<LoopingMode>())
+                    {
+                        bool isSelected = mode == wave.PathLoop;
+                        if (ImGui.Selectable(mode.ToString(), isSelected))
+                        {
+                            wave.PathLoop = mode;
+                        }
+                        if (isSelected)
+                            ImGui.SetItemDefaultFocus();
+                    }
+                    ImGui.EndCombo();
+                }
+
+                int minPath = wave.MinPath;
+                if (ImGui.InputInt("Min Path", ref minPath))
+                {
+                    wave.MinPath = Math.Clamp(minPath, -1, wave.Path.Decompose().Count);
+                }
+
+                if (ImGui.Button("Horizontal Flip"))
+                {
+                    float min = float.MaxValue;
+                    float max = float.MinValue;
+
+                    foreach (var path in wave.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            if (point.X > max)
+                                max = point.X;
+
+                            if (point.X < min)
+                                min = point.X;
+                        }
+                    }
+
+                    float between = (max + min) / 2;
+
+                    foreach (var path in wave.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            float dist = between - point.X;
+
+                            point.X += dist * 2;
+                        }
+                    }
+                }
+
+                ImGui.SameLine();
+
+                if (ImGui.Button("Vertical Flip"))
+                {
+                    float min = float.MaxValue;
+                    float max = float.MinValue;
+
+                    foreach (var path in wave.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            if (point.Y > max)
+                                max = point.Y;
+
+                            if (point.Y < min)
+                                min = point.Y;
+                        }
+                    }
+
+                    float between = (max + min) / 2;
+
+                    foreach (var path in wave.Path.Decompose())
+                    {
+                        foreach (var point in path.KeyPoints)
+                        {
+                            float dist = between - point.Y;
+
+                            point.Y += dist * 2;
+                        }
+                    }
+                }
+
+                if (ImGui.Button("Edit path"))
+                {
+                    scene.mode = EditorMode.Path;
+                    scene.curveEditor.SetPath(wave.Path);
+                    scene.curveEditor.SetSpawner(null);
+                }
+
+                ImGui.SameLine();
+
+                if (ImGui.Button("Clone to Level Paths"))
+                {
+                    CompositePath newPath = new CompositePath();
+                    FileSaver.CloneObject(wave.Path, newPath);
+
+                    level.Paths.Add(new NamedPath() { Path = newPath });
+                }
+
+                if (ImGui.SliderFloat("Preview time", ref cameraPathSeconds, 0f, pathManager.TravelTime))
+                {
+                    pathManager.SetPath(wave.Path, wave.PathSpeed);
+                    pathManager.Update(new GameTime(TimeSpan.FromSeconds(cameraPathSeconds), TimeSpan.FromSeconds(cameraPathSeconds)));
+                }
+            }
+        }
+
         void PathSettings(MovableNode movable)
         {
             bool followsCamera = movable.FollowsCamera;
@@ -1427,7 +1619,7 @@ namespace AstroDroids.Editors
             }
 
             float timeUntilFade = warningN.TimeUntilFade;
-            if(ImGui.InputFloat("Time until fade", ref timeUntilFade))
+            if (ImGui.InputFloat("Time until fade", ref timeUntilFade))
             {
                 warningN.TimeUntilFade = timeUntilFade;
             }
@@ -1464,6 +1656,27 @@ namespace AstroDroids.Editors
             warningN.Shape = shape;
 
             warningN.ShapeObj.DrawEditor();
+        }
+
+        public Vector2 GetCameraBounds()
+        {
+            if (wave == null)
+            {
+                return new Vector2(0, 0);
+            }
+            else
+            {
+
+                if (wave.HasPath)
+                {
+                    return new Vector2(pathManager.Position.X - 400, pathManager.Position.Y - 300);
+                }
+                else
+                {
+                    return new Vector2(0, 0);
+                }
+
+            }
         }
     }
 }

@@ -34,6 +34,7 @@ namespace AstroDroids.Entities
 
         public PathManager PathManager { get; set; }
         public bool FollowsCamera { get; set; }
+        public bool DespawnOnCameraPathEnd { get; set; } = false;
 
         public bool IsNeutral { get; internal set; } = false;
         public bool CanBeShielded { get; internal set; } = false;

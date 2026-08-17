@@ -24,7 +24,8 @@ namespace AstroDroids.Gameplay
     public class GameWorld
     {
         public readonly RectangleF BaseBounds = new RectangleF(0, 0, 800, 600);
-        public RectangleF Bounds = new Rectangle(0, 0, 800, 600);
+        public RectangleF Bounds { get { return new RectangleF(RBounds.X, RBounds.Y, RBounds.Width, RBounds.Height); } }
+        public RectangleF RBounds = new Rectangle(0, 0, 800, 600);
         public RectangleF ExpandedBounds = new Rectangle(-100, -100, 900, 700);
 
         float targetZoom = 1f;
@@ -94,6 +95,22 @@ namespace AstroDroids.Gameplay
 
                 AttackWave item = AttackWaves[i];
 
+                if(item.HasPath && item.Path != null)
+                {
+                    if(camEntity.PathManager == null)
+                    {
+                        camEntity.PathManager = new PathManager(item.Path, item.PathSpeed);
+                        camEntity.PathManager.Loop = item.PathLoop;
+                        camEntity.PathManager.MinPath = item.MinPath;
+                    }
+                    else
+                    {
+                        camEntity.PathManager.SetPath(item.Path, item.PathSpeed, false);
+                        camEntity.PathManager.Loop = item.PathLoop;
+                        camEntity.PathManager.MinPath = item.MinPath;
+                    }
+                }
+
                 foreach (var barrier in item.LaserBarriers)
                 {
                     ongoingWaves++;
@@ -134,11 +151,11 @@ namespace AstroDroids.Gameplay
                             break;
                         case WaveWaitStyle.WaitForPreviousWave:
                             if (ongoingWaves > 0)
-                                yield return new WaitUntil(() => ongoingWaves == 0);
+                                yield return new WaitUntil(() => ongoingWaves == 0 && (camEntity.PathManager == null || !camEntity.PathManager.Active));
                             break;
                         case WaveWaitStyle.WaitForAllEnemiesDefeated:
                             if (ongoingWaves > 0 || Enemies.Count > 0)
-                                yield return new WaitUntil(() => Enemies.Count == 0 && ongoingWaves == 0);
+                                yield return new WaitUntil(() => Enemies.Count == 0 && ongoingWaves == 0 && (camEntity.PathManager == null || !camEntity.PathManager.Active));
                             break;
                         default:
                             break;
@@ -233,6 +250,7 @@ namespace AstroDroids.Gameplay
             foreach (var node in spawner.Nodes.Values)
             {
                 var barrier = new LaserBarrier(node.Position, node.Id, node.Health, spawner.MoveSpeed, node.Type, node.Position - spawner.Transform.Position);
+                barrier.DespawnOnCameraPathEnd = spawner.DespawnOnCameraPathEnd;
                 barriers[node.Id] = barrier;
 
                 if(spawner.HasPath)
@@ -275,6 +293,7 @@ namespace AstroDroids.Gameplay
                         Enemy enemy = (Enemy)Activator.CreateInstance(type);
 
                         enemy.FollowsCamera = barrier.FollowsCamera;
+                        enemy.DespawnOnCameraPathEnd = barrier.DespawnOnCameraPathEnd;
 
                         if (enemy.IsNeutral)
                             AddNeutral(enemy, spawner.FollowsCamera, false, entry.SpawnData);
@@ -364,20 +383,20 @@ namespace AstroDroids.Gameplay
 
             float t = 1f - MathF.Exp(-5f * gameTime.GetElapsedSeconds());
 
-            if (!NearlyEqual(Bounds, targetBounds))
+            if (!NearlyEqual(RBounds, targetBounds))
             {
-                Bounds.Width = MathHelper.Lerp(Bounds.Width, targetBounds.Width, t);
-                Bounds.Height = MathHelper.Lerp(Bounds.Height, targetBounds.Height, t);
+                RBounds.Width = MathHelper.Lerp(Bounds.Width, targetBounds.Width, t);
+                RBounds.Height = MathHelper.Lerp(Bounds.Height, targetBounds.Height, t);
 
-                Bounds.X = MathHelper.Lerp(Bounds.X, targetBounds.X, t);
-                Bounds.Y = MathHelper.Lerp(Bounds.Y, targetBounds.Y, t);
+                RBounds.X = MathHelper.Lerp(Bounds.X, targetBounds.X, t);
+                RBounds.Y = MathHelper.Lerp(Bounds.Y, targetBounds.Y, t);
             }
             else
             {
-                Bounds.Width = targetBounds.Width;
-                Bounds.Height = targetBounds.Height;
-                Bounds.X = targetBounds.X;
-                Bounds.Y = targetBounds.Y;
+                RBounds.Width = targetBounds.Width;
+                RBounds.Height = targetBounds.Height;
+                RBounds.X = targetBounds.X;
+                RBounds.Y = targetBounds.Y;
             }
 
             const float ZoomLimit = 0.001f;
@@ -493,6 +512,7 @@ namespace AstroDroids.Gameplay
                 DrawDebugText($"Current Weapon: {GameStateManager.CurrentWeapon}");
                 DrawDebugText($"Firepower: {GameStateManager.Firepower}/5");
                 DrawDebugText($"Coroutines: {coroutineManager.Coroutines.Count}");
+                DrawDebugText(($"Camera: {camEntity.Transform.Position}"));
                 Screen.spriteBatch.End();
             }
         }
@@ -607,11 +627,11 @@ namespace AstroDroids.Gameplay
 
         public void AddProjectile(Projectile projectile, bool followsCamera)
         {
-            if (followsCamera)
-            {
-                projectile.Transform.SetParent(camEntity.Transform);
-                projectile.Transform.LocalPosition -= camEntity.Transform.Position;
-            }
+            //if (followsCamera)
+            //{
+            //    projectile.Transform.SetParent(camEntity.Transform);
+            //    projectile.Transform.LocalPosition -= camEntity.Transform.Position;
+            //}
 
             Projectiles.Add(projectile);
             AllCollidables.Add(projectile);
@@ -649,7 +669,7 @@ namespace AstroDroids.Gameplay
         public void AddPlayer(Player player)
         {
             player.ApplyCustomization(SaveManager.curSave.Ship);
-            player.Transform.SetParent(camEntity.Transform);
+            //player.Transform.SetParent(camEntity.Transform);
             Players.Add(player);
             AllCollidables.Add(player);
         }

@@ -13,6 +13,7 @@ namespace AstroDroids.Levels
         public List<LaserBarrierConnection> Connections { get; private set; } = new List<LaserBarrierConnection>();
 
         public Vector2 MoveSpeed { get; set; } = new Vector2(0, 2);
+        public bool DespawnOnCameraPathEnd { get; set; } = false;
 
         public override void Load(BinaryReader reader, int version)
         {
@@ -51,6 +52,15 @@ namespace AstroDroids.Levels
             {
                 MoveSpeed = new Vector2(0, 2);
             }
+
+            if(version >= 12)
+            {
+                DespawnOnCameraPathEnd = reader.ReadBoolean();
+            }
+            else
+            {
+                DespawnOnCameraPathEnd = false;
+            }
         }
 
         public override void Save(BinaryWriter writer)
@@ -86,6 +96,8 @@ namespace AstroDroids.Levels
             {
                 MoveSpeed = new Vector2(0, 2);
             }
+
+            writer.Write(DespawnOnCameraPathEnd);
         }
 
         public void Translate(Vector2 delta)

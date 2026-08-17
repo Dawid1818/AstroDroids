@@ -36,6 +36,7 @@ namespace AstroDroids.Scenes
     {
         public EditorMode mode { get; set; } = EditorMode.Main;
         BackgroundViewMode bgViewMode = BackgroundViewMode.Show;
+        bool displayWaveInOther = false;
         string levelFileName = string.Empty;
         Level level { get { return LevelManager.CurrentLevel; } set { LevelManager.CurrentLevel = value; } }
 
@@ -235,12 +236,13 @@ namespace AstroDroids.Scenes
                     Screen.spriteBatch.DrawLine(new Vector2(startX, y), new Vector2(endX, y), Color.DarkGray, 2);
             }
 
-            Screen.spriteBatch.DrawRectangle(0, 0, 800, 600, Color.White, 5);
+            Vector2 cameraBounds = waveEditor.GetCameraBounds();
+            Screen.spriteBatch.DrawRectangle(cameraBounds.X, cameraBounds.Y, 800, 600, Color.White, 5);
 
             Screen.spriteBatch.DrawCircle(new Vector2(400, 300), 2, 12, Color.White, 2);
 
-            Screen.spriteBatch.DrawLine(new Vector2(0, topLeft.Y), new Vector2(0, bottomRight.Y), Color.White, 5f);
-            Screen.spriteBatch.DrawLine(new Vector2(800, topLeft.Y), new Vector2(800, bottomRight.Y), Color.White, 5f);
+            //Screen.spriteBatch.DrawLine(new Vector2(0, topLeft.Y), new Vector2(0, bottomRight.Y), Color.White, 5f);
+            //Screen.spriteBatch.DrawLine(new Vector2(800, topLeft.Y), new Vector2(800, bottomRight.Y), Color.White, 5f);
 
             switch (mode)
             {
@@ -248,9 +250,13 @@ namespace AstroDroids.Scenes
                     MainDraw(gameTime);
                     break;
                 case EditorMode.Path:
+                    if(displayWaveInOther)
+                        MainDraw(gameTime);
                     curveEditor.Draw(gameTime);
                     break;
                 case EditorMode.Barrier:
+                    if (displayWaveInOther)
+                        MainDraw(gameTime);
                     barrierEditor.Draw(gameTime);
                     break;
                 default:
@@ -426,6 +432,11 @@ namespace AstroDroids.Scenes
                         }
 
                         ImGui.EndMenu();
+                    }
+
+                    if (ImGui.MenuItem("Display wave preview in other editors", displayWaveInOther))
+                    {
+                        displayWaveInOther = !displayWaveInOther;
                     }
 
                     ImGui.EndMenu();

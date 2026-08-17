@@ -166,6 +166,11 @@ namespace AstroDroids.Editors
             foreach (var node in group.Nodes.Values)
             {
                 GameHelper.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? selected == node ? Color.Cyan : Color.Blue : selected == node ? Color.Orange : Color.Red, Color.DarkSlateGray);
+
+                if (node.HasEnemy)
+                {
+                    Screen.spriteBatch.DrawCircle(node.Position, 20, 12, Color.Red, 2f, 0f);
+                }
             }
         }
 

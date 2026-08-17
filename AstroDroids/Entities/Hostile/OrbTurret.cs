@@ -178,9 +178,11 @@ namespace AstroDroids.Entities.Hostile
 
         public override void Update(GameTime gameTime)
         {
-            if (!becameActive)
+            bool isInBounds = Intersects(Scene.World.Bounds);
+
+            if (!becameActive && !DespawnOnCameraPathEnd)
             {
-                if (Intersects(Scene.World.Bounds))
+                if (isInBounds)
                 {
                     becameActive = true;
                 }
@@ -192,9 +194,17 @@ namespace AstroDroids.Entities.Hostile
                     t += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }
-            if (!Intersects(Scene.World.ExpandedBounds) && becameActive)
+            if (!Intersects(Scene.World.ExpandedBounds) && becameActive && !DespawnOnCameraPathEnd)
             {
                 Despawn();
+            }
+
+            if (DespawnOnCameraPathEnd)
+            {
+                if (Scene.World.camEntity.PathManager == null || !Scene.World.camEntity.PathManager.Active)
+                {
+                    Despawn();
+                }
             }
 
             angle += gameTime.GetElapsedSeconds() * rotationSpeed;
@@ -218,7 +228,8 @@ namespace AstroDroids.Entities.Hostile
             {
                 attackTimer = 0f;
 
-                Shoot();
+                if(isInBounds)
+                    Shoot();
             }
         }
 

@@ -13,7 +13,7 @@ namespace AstroDroids.Levels
     public class Level : ISaveable
     {
         public const string Magic = "adlvl";
-        public const int FileVersion = 10;
+        public const int FileVersion = 12;
         public string Name { get; set; } = string.Empty;
         public int EventHandlerId { get; set; } = 0;
         public int BackgroundId { get; set; } = 0;

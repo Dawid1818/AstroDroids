@@ -65,6 +65,14 @@ namespace AstroDroids.Paths
 
         public void SetPath(IPath path, float speed, bool reverse = false)
         {
+            if(path == null)
+            {
+                Path = null;
+                Speed = speed;
+                Active = false;
+                return;
+            }
+
             Path = path;
 
             this.Reverse = reverse;
