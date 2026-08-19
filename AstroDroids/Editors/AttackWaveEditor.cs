@@ -1669,6 +1669,7 @@ namespace AstroDroids.Editors
 
                 if (wave.HasPath)
                 {
+                    //return new Vector2(pathManager.Position.X, pathManager.Position.Y);
                     return new Vector2(pathManager.Position.X - 400, pathManager.Position.Y - 300);
                 }
                 else

@@ -24,7 +24,7 @@ namespace AstroDroids.Entities.Friendly
 
         float thrusterPower = 1f;
 
-        public float Angle { get; private set; } = 0f;
+        public float Angle { get; set; } = 0f;
 
         public Vector2 RightWeaponPod { get { return GameHelper.RotateAroundPoint(new Vector2((Width / 2f) + 4, -Height), Vector2.Zero, Angle); } }
         public Vector2 LeftWeaponPod { get { return GameHelper.RotateAroundPoint(new Vector2(-((Width / 2f) + 2), -Height), Vector2.Zero, Angle); } }

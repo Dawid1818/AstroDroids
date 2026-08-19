@@ -34,7 +34,7 @@ namespace AstroDroids.Entities.Hostile
             if (PathManager != null)
             {
                 PathManager.Update(gameTime);
-                Transform.Position = PathManager.Position;
+                Transform.LocalPosition = PathManager.Position;
                 angle = GameHelper.AngleFromDir(PathManager.Direction) + 1.571f;
 
                 if (!PathManager.Active)

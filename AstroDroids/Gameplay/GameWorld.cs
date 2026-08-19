@@ -7,6 +7,7 @@ using AstroDroids.Entities.Hostile;
 using AstroDroids.Entities.Neutral;
 using AstroDroids.Entities.Warnings;
 using AstroDroids.Graphics;
+using AstroDroids.Helpers;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
@@ -97,18 +98,25 @@ namespace AstroDroids.Gameplay
 
                 if(item.HasPath && item.Path != null)
                 {
-                    if(camEntity.PathManager == null)
+                    CompositePath clone = new CompositePath();
+                    FileSaver.CloneObject(item.Path, clone);
+
+                    clone.Translate(new PathPoint(-(BaseBounds.Width / 2f), -(BaseBounds.Height / 2f)));
+
+                    if (camEntity.PathManager == null)
                     {
-                        camEntity.PathManager = new PathManager(item.Path, item.PathSpeed);
+                        camEntity.PathManager = new PathManager(clone, item.PathSpeed);
                         camEntity.PathManager.Loop = item.PathLoop;
                         camEntity.PathManager.MinPath = item.MinPath;
                     }
                     else
                     {
-                        camEntity.PathManager.SetPath(item.Path, item.PathSpeed, false);
+                        camEntity.PathManager.SetPath(clone, item.PathSpeed, false);
                         camEntity.PathManager.Loop = item.PathLoop;
                         camEntity.PathManager.MinPath = item.MinPath;
                     }
+
+                    camEntity.Update(new GameTime());
                 }
 
                 foreach (var barrier in item.LaserBarriers)
@@ -423,6 +431,8 @@ namespace AstroDroids.Gameplay
             foreach (var item in Players)
             {
                 item.Update(gameTime);
+                //if(camEntity.PathManager != null && camEntity.PathManager.Active)
+                //    item.Angle = GameHelper.AngleFromDir(camEntity.PathManager.Direction) + MathHelper.ToRadians(90);
             }
 
             foreach (var item in PlayersToRemove)
@@ -567,7 +577,7 @@ namespace AstroDroids.Gameplay
             if (followsCamera)
             {
                 enemy.Transform.SetParent(camEntity.Transform);
-                enemy.Transform.LocalPosition -= camEntity.Transform.Position;
+                //enemy.Transform.LocalPosition -= camEntity.Transform.Position;
             }
 
             if (addAtBeginning)

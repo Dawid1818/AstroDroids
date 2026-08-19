@@ -1,4 +1,5 @@
 ﻿using AstroDroids.Interfaces;
+using AstroDroids.Levels;
 using System.IO;
 
 namespace AstroDroids.Helpers
@@ -33,7 +34,7 @@ namespace AstroDroids.Helpers
             {
                 item.Save(writer);
                 stream.Position = 0;
-                target.Load(reader, 0);
+                target.Load(reader, Level.FileVersion);
             }
 
             return target;
@@ -45,7 +46,7 @@ namespace AstroDroids.Helpers
 
             using (BinaryReader reader = new BinaryReader(str))
             {
-                item.Load(reader, 0);
+                item.Load(reader, Level.FileVersion);
             }
 
             str.Close();
@@ -57,7 +58,7 @@ namespace AstroDroids.Helpers
         {
             using (BinaryReader reader = new BinaryReader(stream))
             {
-                item.Load(reader, 0);
+                item.Load(reader, Level.FileVersion);
 
                 return item;
             }

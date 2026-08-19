@@ -30,7 +30,7 @@ namespace AstroDroids.Scenes
 
         bool paused = false;
 
-        float yPos = 0f;
+        Vector2 starfieldOffset = Vector2.Zero;
 
         bool transitioning = false;
 
@@ -109,8 +109,6 @@ namespace AstroDroids.Scenes
             SoundManager.PlayMusic(GameDatabase.GetMusic(LevelManager.CurrentLevel.MusicId));
 
             Screen.ResetCamera();
-
-            //coroutineManager.StartCoroutine(LevelManager.GetLevelScript());
         }
 
         public override void Update(GameTime gameTime)
@@ -141,7 +139,14 @@ namespace AstroDroids.Scenes
 
                     World.Update(gameTime);
 
-                    yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
+                    if(World.camEntity.PathManager == null || !World.camEntity.PathManager.Active)
+                    {
+                        starfieldOffset.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
+                    }
+                    else
+                    {
+                        starfieldOffset -= World.camEntity.PathManager.Direction * 2f;
+                    }
                 }
                 else
                 {
@@ -297,7 +302,7 @@ namespace AstroDroids.Scenes
         public override void Draw(GameTime gameTime)
         {
             Matrix projection = Matrix.CreateOrthographicOffCenter(0, Screen.ScreenWidth, Screen.ScreenHeight, 0, 0, 1);
-            Matrix uv_transform = Screen.GetUVTransform(TextureManager.GetStarfield(), new Vector2(0, -yPos), 1f, Screen.Viewport);
+            Matrix uv_transform = Screen.GetUVTransform(TextureManager.GetStarfield(), starfieldOffset, 1f, Screen.Viewport);
 
             Screen.Infinite.Parameters["view_projection"].SetValue(projection);
             Screen.Infinite.Parameters["uv_transform"].SetValue(Matrix.Invert(uv_transform));

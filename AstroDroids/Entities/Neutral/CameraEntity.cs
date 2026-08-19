@@ -14,7 +14,8 @@ namespace AstroDroids.Entities.Neutral
             if (PathManager != null)
             {
                 PathManager.Update(gameTime);
-                Transform.Position = new Vector2(-(PathManager.Position.X) - Scene.World.Bounds.Width / 2f, -(PathManager.Position.Y) - Scene.World.Bounds.Height / 2f);
+                //Transform.Position = new Vector2(-(PathManager.Position.X) - Scene.World.Bounds.Width / 2f, -(PathManager.Position.Y) - Scene.World.Bounds.Height / 2f);
+                Transform.Position = new Vector2(-(PathManager.Position.X), -(PathManager.Position.Y));
             }
             else
             {

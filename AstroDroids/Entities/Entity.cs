@@ -37,7 +37,7 @@ namespace AstroDroids.Entities
 
         protected void DefaultMove()
         {
-            Transform.Position = new Vector2(Transform.Position.X, Transform.Position.Y + (float)Scene.World.speed);
+            Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Transform.LocalPosition.Y + (float)Scene.World.speed);
         }
 
         protected NamedPath GetPath(string name)
