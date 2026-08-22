@@ -631,7 +631,7 @@ namespace AstroDroids.Editors
 
                     GameHelper.DrawNode("BA", laserBarrierN.Transform.Position, selected ? Color.Cyan : Color.DarkViolet, Color.DarkSlateGray);
 
-                    scene.barrierEditor.DrawBarriers(laserBarrierN);
+                    scene.barrierEditor.DrawBarriers(laserBarrierN, null);
                 }
                 else if (node is BackgroundObjectNode bgObjN)
                 {

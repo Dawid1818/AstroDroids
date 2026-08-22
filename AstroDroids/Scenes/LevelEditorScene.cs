@@ -94,6 +94,7 @@ namespace AstroDroids.Scenes
 
             waveEditor.Reset();
             pathBrowser.Reset();
+            barrierEditor.Reset();
 
             RestoreStarfield();
 
@@ -511,6 +512,7 @@ namespace AstroDroids.Scenes
         {
             waveEditor.Reset();
             pathBrowser.Reset();
+            barrierEditor.Reset();
 
             levelFileName = string.Empty;
             level = new Level();

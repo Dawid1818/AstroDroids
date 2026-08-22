@@ -2,6 +2,7 @@
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Input;
+using AstroDroids.Interfaces;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
@@ -11,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Numeric = System.Numerics;
 
@@ -24,14 +26,30 @@ namespace AstroDroids.Editors
 
         bool isDraggingPoint = false;
 
-        LaserBarrierNode selectedNode = null;
+        //LaserBarrierNode selectedNode = null;
+        LaserBarrierNode draggedNode;
         int selectedConnection = -1;
 
         bool connectionMode = false;
 
+        List<LaserBarrierNode> selectedNodes = new List<LaserBarrierNode>();
+
+        Vector2 prevMousePos = Vector2.Zero;
+        Vector2 selRectStart = Vector2.Zero;
+        bool isDraggingSelRect = false;
+        MemoryStream copyBuffer;
+
         public LaserBarrierEditor(LevelEditorScene scene)
         {
             this.scene = scene;
+        }
+
+        public void Reset()
+        {
+            isDraggingSelRect = false;
+            selectedNodes.Clear();
+            draggedNode = null;
+            BarrierGroup = null;
         }
 
         public void SetBarrier(LaserBarrierGroupNode node)
@@ -42,13 +60,32 @@ namespace AstroDroids.Editors
         public void Update(GameTime gameTime)
         {
             Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+            Vector2 deltaMousePos = mousePos - prevMousePos;
 
             bool lmb = InputSystem.GetLMB();
             bool rmbDown = InputSystem.GetRMBDown();
 
             if (BarrierGroup != null)
             {
-                if (connectionMode || InputSystem.GetKey(Keys.LeftControl) || InputSystem.GetKey(Keys.LeftShift))
+                if (InputSystem.GetKeyDown(Keys.C))
+                {
+                    if (InputSystem.GetKey(Keys.LeftControl))
+                    {
+                        CopyNodes();
+                    }
+                    else
+                    {
+                        BarrierGroup.Nodes.Add(BarrierGroup.AvailableId, new LaserBarrierNode() { Id = BarrierGroup.AvailableId, Position = mousePos });
+                        BarrierGroup.AvailableId = BarrierGroup.AvailableId + 1;
+                    }
+                }
+
+                if (InputSystem.GetKeyDown(Keys.V) && InputSystem.GetKey(Keys.LeftControl))
+                {
+                    PasteNodes();
+                }
+
+                if (selectedNodes.Count == 1 && (connectionMode || InputSystem.GetKey(Keys.LeftControl) || InputSystem.GetKey(Keys.LeftShift)))
                 {
                     if (InputSystem.GetKeyDown(Keys.Escape))
                     {
@@ -67,14 +104,12 @@ namespace AstroDroids.Editors
                             {
                                 found = true;
 
-                                if (node != selectedNode)
+                                if (node != selectedNodes[0])
                                 {
                                     if (InputSystem.GetKey(Keys.LeftShift))
-                                        RemoveConnection(selectedNode, node);
+                                        RemoveConnection(selectedNodes[0], node);
                                     else
-                                        AddConnection(selectedNode, node);
-                                    //if (!selectedNode.Connections.Contains(node.Id))
-                                    //    selectedNode.Connections.Add(node.Id);
+                                        AddConnection(selectedNodes[0], node);
                                 }
 
                                 break;
@@ -87,26 +122,27 @@ namespace AstroDroids.Editors
                     return;
                 }
 
-                if (InputSystem.GetKeyDown(Keys.Delete) && selectedNode != null)
+                if (InputSystem.GetKeyDown(Keys.Delete) && selectedNodes.Count > 0)
                 {
-                    BarrierGroup.Nodes.Remove(selectedNode.Id);
-                    RemoveAllConnectionsFor(selectedNode);
-                    selectedNode = null;
-                    isDraggingPoint = false;
+                    foreach (var selectedNode in selectedNodes)
+                    {
+                        BarrierGroup.Nodes.Remove(selectedNode.Id);
+                        RemoveAllConnectionsFor(selectedNode);
+                        isDraggingPoint = false;
+                    }
+
+                    selectedNodes.Clear();
                 }
 
-                if (InputSystem.GetKeyDown(Keys.C))
-                {
-                    BarrierGroup.Nodes.Add(BarrierGroup.AvailableId, new LaserBarrierNode() { Id = BarrierGroup.AvailableId, Position = mousePos });
-                    BarrierGroup.AvailableId = BarrierGroup.AvailableId + 1;
-                }
                 var io = ImGui.GetIO();
                 if (io.WantCaptureMouse || io.WantTextInput || io.WantCaptureKeyboard)
                     return;
 
                 if (lmb || rmbDown)
                 {
-                    if (!isDraggingPoint)
+                    LaserBarrierNode foundNode = null;
+
+                    if (!isDraggingPoint && !isDraggingSelRect)
                     {
                         foreach (var node in BarrierGroup.Nodes.Values)
                         {
@@ -116,33 +152,150 @@ namespace AstroDroids.Editors
                                 if (lmb)
                                     isDraggingPoint = true;
                                 selectedConnection = -1;
-                                selectedNode = node;
+                                //selectedNode = node;
+                                //selectedNodes.Clear();
+                                //selectedNodes.Add(node);
+                                foundNode = node;
+                                draggedNode = node;
                                 break;
                             }
 
                             if (isDraggingPoint)
                                 break;
                         }
+
+                        if(foundNode == null)
+                        {
+                            selectedNodes.Clear();
+                            selectedConnection = -1;
+
+                            if(lmb && !isDraggingSelRect)
+                            {
+                                isDraggingSelRect = true;
+                                selRectStart = mousePos;
+                            }
+                        }
+                        else
+                        {
+                            selRectStart = mousePos;
+
+                            if (!selectedNodes.Contains(foundNode))
+                            {
+                                selectedNodes.Clear();
+                                selectedNodes.Add(foundNode);
+                            }
+                        }
                     }
-                    else
+                    else if(draggedNode != null)
                     {
+                        Vector2 startPos = draggedNode.Position;
+
                         if (scene.DrawGrid)
                         {
                             mousePos.X = (int)Math.Floor(mousePos.X / scene.gridSize) * scene.gridSize;
                             mousePos.Y = (int)Math.Floor(mousePos.Y / scene.gridSize) * scene.gridSize;
                         }
 
-                        selectedNode.Position = mousePos;
+                        Vector2 delta = mousePos - startPos;
+
+                        if (isDraggingPoint)
+                        {
+                            foreach (var selectedNode in selectedNodes)
+                            {
+                                selectedNode.Position += delta;
+                            }
+                        }
+
+                        //selectedNode.Position = mousePos;
                     }
                 }
-                else if (isDraggingPoint)
+                else if (isDraggingPoint || isDraggingSelRect)
                 {
                     isDraggingPoint = false;
+
+                    if(isDraggingSelRect)
+                    {
+                        isDraggingSelRect = false;
+                        RectangleF selectionRect = new RectangleF(
+                            Math.Min(selRectStart.X, mousePos.X),
+                            Math.Min(selRectStart.Y, mousePos.Y),
+                            Math.Abs(mousePos.X - selRectStart.X),
+                            Math.Abs(mousePos.Y - selRectStart.Y)
+                        );
+                        selectedNodes.Clear();
+
+                        foreach (var node in BarrierGroup.Nodes.Values)
+                        {
+                            RectangleF col = new RectangleF(node.Position.X - 16f, node.Position.Y - 16f, 32f, 32f);
+                            if (selectionRect.Intersects(col))
+                            {
+                                selectedNodes.Add(node);
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        public void DrawBarriers(LaserBarrierGroupNode group, LaserBarrierNode selected = null)
+        void CopyNodes()
+        {
+            if (selectedNodes.Count == 0)
+                return;
+
+            if (copyBuffer != null)
+            {
+                copyBuffer.Dispose();
+                copyBuffer = null;
+            }
+
+            copyBuffer = new MemoryStream();
+            BinaryWriter writer = new BinaryWriter(copyBuffer, System.Text.Encoding.UTF8, true);
+
+            writer.Write(selectedNodes[0].Position.X);
+            writer.Write(selectedNodes[0].Position.Y);
+
+            writer.Write(selectedNodes.Count);
+            foreach (var item in selectedNodes)
+            {
+                item.Save(writer);
+            }
+            writer.Dispose();
+        }
+
+        void PasteNodes()
+        {
+            if (copyBuffer == null)
+                return;
+
+            copyBuffer.Position = 0;
+
+            BinaryReader reader = new BinaryReader(copyBuffer, System.Text.Encoding.UTF8, true);
+
+            Vector2 startPos = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+            Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+
+            Vector2 delta = mousePos - startPos;
+
+            int count = reader.ReadInt32();
+
+            for (int i = 0; i < count; i++)
+            {
+                LaserBarrierNode node;
+
+                node = new LaserBarrierNode();
+                node.Load(reader, Level.FileVersion);
+
+                node.Position += delta;
+
+                BarrierGroup.Nodes.Add(BarrierGroup.AvailableId, node);
+                node.Id = BarrierGroup.AvailableId;
+                BarrierGroup.AvailableId += 1;
+            }
+
+            reader.Dispose();
+        }
+
+        public void DrawBarriers(LaserBarrierGroupNode group, List<LaserBarrierNode> selected)
         {
             //Draw connections
             foreach (var item in group.Connections)
@@ -165,7 +318,8 @@ namespace AstroDroids.Editors
             //Draw nodes themselves
             foreach (var node in group.Nodes.Values)
             {
-                GameHelper.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? selected == node ? Color.Cyan : Color.Blue : selected == node ? Color.Orange : Color.Red, Color.DarkSlateGray);
+                bool sel = selected != null && selected.Contains(node);
+                GameHelper.DrawNode($"{node.Id}", node.Position, node.Health >= 0 ? sel ? Color.Cyan : Color.Blue : sel ? Color.Orange : Color.Red, Color.DarkSlateGray);
 
                 if (node.HasEnemy)
                 {
@@ -178,7 +332,22 @@ namespace AstroDroids.Editors
         {
             GameHelper.DrawNode("BA", BarrierGroup.Transform.Position, Color.DarkViolet, Color.DarkSlateGray);
 
-            DrawBarriers(BarrierGroup, selectedNode);
+            //DrawBarriers(BarrierGroup, selectedNode);
+            DrawBarriers(BarrierGroup, selectedNodes);
+
+            Vector2 mousePos = Screen.ScreenToWorldSpaceMouse();
+
+            if (isDraggingSelRect)
+            {
+                RectangleF selectionRect = new RectangleF(
+                    Math.Min(selRectStart.X, mousePos.X),
+                    Math.Min(selRectStart.Y, mousePos.Y),
+                    Math.Abs(mousePos.X - selRectStart.X),
+                    Math.Abs(mousePos.Y - selRectStart.Y)
+                );
+
+                Screen.spriteBatch.DrawRectangle(selectionRect, Color.Cyan, 2f);
+            }
         }
 
         public void DrawImGui(GameTime gameTime)
@@ -191,9 +360,11 @@ namespace AstroDroids.Editors
             {
                 foreach (var barrier in BarrierGroup.Nodes.Values)
                 {
-                    if (ImGui.Selectable($"Barrier {barrier.Id}##BarrierSelectable{barrier.Id}", selectedNode == barrier))
+                    if (ImGui.Selectable($"Barrier {barrier.Id}##BarrierSelectable{barrier.Id}", selectedNodes.Contains(barrier)))
                     {
-                        selectedNode = barrier;
+                        selectedNodes.Clear();
+                        selectedNodes.Add(barrier);
+                        //selectedNode = barrier;
                         selectedConnection = -1;
                     }
                 }
@@ -209,55 +380,66 @@ namespace AstroDroids.Editors
 
             ImGui.SameLine();
 
-            ImGui.BeginDisabled(selectedNode == null);
-            if (ImGui.Button("Remove##RemoveBarrier") && selectedNode != null)
+            ImGui.BeginDisabled(selectedNodes.Count == 0);
+            if (ImGui.Button("Remove##RemoveBarrier"))
             {
-                BarrierGroup.Nodes.Remove(selectedNode.Id);
-                RemoveAllConnectionsFor(selectedNode);
-                selectedNode = null;
-                isDraggingPoint = false;
+                foreach (var selectedNode in selectedNodes)
+                {
+                    BarrierGroup.Nodes.Remove(selectedNode.Id);
+                    RemoveAllConnectionsFor(selectedNode);
+                    isDraggingPoint = false;
+                }
+
+                selectedNodes.Clear();
             }
             ImGui.EndDisabled();
 
             if (ImGui.Button("Return"))
             {
                 BarrierGroup = null;
-                selectedNode = null;
+                selectedNodes.Clear();
                 selectedConnection = -1;
+                copyBuffer.Dispose();
+                copyBuffer = null;
                 scene.ReturnFromEditor();
             }
 
-            if (selectedNode != null)
+            if (selectedNodes.Count != 0)
             {
                 ImGui.SeparatorText("Barrier settings");
 
-                ImGui.Text($"Id: {selectedNode.Id}");
+                ImGui.Text($"Id: {selectedNodes[0].Id}");
 
-                float posCord = selectedNode.Position.X;
+                float posCord = selectedNodes[0].Position.X;
                 if (ImGui.InputFloat("X", ref posCord))
                 {
-                    selectedNode.Position = new Vector2(posCord, selectedNode.Position.Y);
+                    ForSelected((selectedNode) => { selectedNode.Position = new Vector2(posCord, selectedNode.Position.Y); });
+                    //selectedNode.Position = new Vector2(posCord, selectedNode.Position.Y);
                 }
 
-                posCord = selectedNode.Position.Y;
+                posCord = selectedNodes[0].Position.Y;
                 if (ImGui.InputFloat("Y", ref posCord))
                 {
-                    selectedNode.Position = new Vector2(selectedNode.Position.X, posCord);
+                    //selectedNode.Position = new Vector2(selectedNode.Position.X, posCord);
+                    ForSelected((selectedNode) => { selectedNode.Position = new Vector2(selectedNode.Position.X, posCord); });
                 }
 
-                int hp = selectedNode.Health;
+                int hp = selectedNodes[0].Health;
                 if (ImGui.InputInt("Health", ref hp))
                 {
-                    selectedNode.Health = hp;
+                    ForSelected((selectedNode) => { selectedNode.Health = hp; });
+                    //selectedNode.Health = hp;
                 }
 
-                if (ImGui.BeginCombo("Type", selectedNode.Type.ToString()))
+                if (ImGui.BeginCombo("Type", selectedNodes[0].Type.ToString()))
                 {
-                    if (ImGui.Selectable("Normal", selectedNode.Type == LaserBarrierType.Normal))
-                        selectedNode.Type = LaserBarrierType.Normal;
+                    if (ImGui.Selectable("Normal", selectedNodes[0].Type == LaserBarrierType.Normal))
+                        ForSelected((selectedNode) => { selectedNode.Type = LaserBarrierType.Normal; });
+                        //selectedNode.Type = LaserBarrierType.Normal;
 
-                    if (ImGui.Selectable("Relay", selectedNode.Type == LaserBarrierType.Relay))
-                        selectedNode.Type = LaserBarrierType.Relay;
+                    if (ImGui.Selectable("Relay", selectedNodes[0].Type == LaserBarrierType.Relay))
+                        ForSelected((selectedNode) => { selectedNode.Type = LaserBarrierType.Relay; });
+                        //selectedNode.Type = LaserBarrierType.Relay;
 
                     ImGui.EndCombo();
                 }
@@ -266,21 +448,23 @@ namespace AstroDroids.Editors
                 //
                 var avaSpace = ImGui.GetContentRegionAvail();
                 ImGui.PushItemWidth(avaSpace.X);
-                if (ImGui.BeginCombo("##EnemyCombo", selectedNode.Enemy != null ? enemyList[selectedNode.Enemy.EnemyID].Name : "None", ImGuiComboFlags.HeightLarge))
+                if (ImGui.BeginCombo("##EnemyCombo", selectedNodes[0].Enemy != null ? enemyList[selectedNodes[0].Enemy.EnemyID].Name : "None", ImGuiComboFlags.HeightLarge))
                 {
-                    if(ImGui.Selectable("None", selectedNode.Enemy == null))
+                    if (ImGui.Selectable("None", selectedNodes[0].Enemy == null))
                     {
-                        selectedNode.HasEnemy = false;
-                        selectedNode.Enemy = null;
+                        ForSelected((selectedNode) => { selectedNode.HasEnemy = false; selectedNode.Enemy = null; });
+                        //selectedNode.HasEnemy = false;
+                        //selectedNode.Enemy = null;
                     }
 
                     for (int i = 0; i < enemyList.Count; i++)
                     {
-                        selectableButton(enemyList[i].Name, selectedNode.Enemy != null && i == selectedNode.Enemy.EnemyID, 0, 72,
+                        selectableButton(enemyList[i].Name, selectedNodes[0].Enemy != null && i == selectedNodes[0].Enemy.EnemyID, 0, 72,
                         () =>
                         {
-                            selectedNode.HasEnemy = true;
-                            selectedNode.Enemy = new EnemySpawnEntry { EnemyID = i, SpawnData = GameDatabase.CreateEnemySpawnData(i) };
+                            ForSelected((selectedNode) => { selectedNode.HasEnemy = true; selectedNode.Enemy = new EnemySpawnEntry { EnemyID = i, SpawnData = GameDatabase.CreateEnemySpawnData(i) }; });
+                            //selectedNode.HasEnemy = true;
+                            //selectedNode.Enemy = new EnemySpawnEntry { EnemyID = i, SpawnData = GameDatabase.CreateEnemySpawnData(i) };
                         },
                         () =>
                         {
@@ -303,7 +487,7 @@ namespace AstroDroids.Editors
 
 
 
-                var connections = BarrierGroup.Connections.Where(x => x.FirstBarrierID == selectedNode.Id || x.SecondBarrierID == selectedNode.Id).ToList();
+                var connections = BarrierGroup.Connections.Where(x => x.FirstBarrierID == selectedNodes[0].Id || x.SecondBarrierID == selectedNodes[0].Id).ToList();
 
                 ImGui.SetNextItemWidth(-1);
                 if (ImGui.BeginListBox("##Connections"))
@@ -311,11 +495,11 @@ namespace AstroDroids.Editors
                     for (int i = 0; i < connections.Count; i++)
                     {
                         var connection = connections[i];
-                        BarrierGroup.Nodes.TryGetValue(connection.FirstBarrierID == selectedNode.Id ? connection.SecondBarrierID : connection.FirstBarrierID, out LaserBarrierNode barrier);
+                        BarrierGroup.Nodes.TryGetValue(connection.FirstBarrierID == selectedNodes[0].Id ? connection.SecondBarrierID : connection.FirstBarrierID, out LaserBarrierNode barrier);
 
                         if (barrier == null)
                         {
-                            ImGui.Text($"Missing barrier with id {((connection.FirstBarrierID == selectedNode.Id ? connection.SecondBarrierID : connection.FirstBarrierID))}");
+                            ImGui.Text($"Missing barrier with id {((connection.FirstBarrierID == selectedNodes[0].Id ? connection.SecondBarrierID : connection.FirstBarrierID))}");
                             continue;
                         }
 
@@ -364,11 +548,18 @@ namespace AstroDroids.Editors
 
                 ImGui.Begin("Enemy settings");
 
-                if (selectedNode.HasEnemy && selectedNode.Enemy != null)
+                if (selectedNodes[0].HasEnemy && selectedNodes[0].Enemy != null)
                 {
-                    int enemyId = selectedNode.Enemy.EnemyID;
-                    ImGui.SeparatorText($"{enemyList[enemyId].Name} settings");
-                    selectedNode.Enemy.SpawnData?.DrawEditor();
+                    if (selectedNodes.Count == 1)
+                    {
+                        int enemyId = selectedNodes[0].Enemy.EnemyID;
+                        ImGui.SeparatorText($"{enemyList[enemyId].Name} settings");
+                        selectedNodes[0].Enemy.SpawnData?.DrawEditor();
+                    }
+                    else
+                    {
+                        ImGui.SeparatorText("Multi-node enemy editing not supported");
+                    }
                 }
                 else
                 {
@@ -426,6 +617,14 @@ namespace AstroDroids.Editors
             content?.Invoke();
 
             ImGui.EndGroup();
+        }
+
+        void ForSelected(Action<LaserBarrierNode> action)
+        {
+            foreach (var selectedNode in selectedNodes)
+            {
+                action(selectedNode);
+            }
         }
     }
 }
