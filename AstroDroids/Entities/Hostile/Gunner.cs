@@ -173,7 +173,7 @@ namespace AstroDroids.Entities.Hostile
 
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (timer >= 2f && !firing)
+            if (timer >= 2f && !firing && Intersects(Scene.World.Bounds))
             {
                 timer = 0f;
                 firing = true;

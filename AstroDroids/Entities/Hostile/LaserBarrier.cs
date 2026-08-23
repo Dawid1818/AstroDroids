@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AstroDroids.Entities.Hostile
 {
@@ -26,6 +27,8 @@ namespace AstroDroids.Entities.Hostile
         public Enemy Turret { get; set; } = null;
 
         //bool becameActive = false;
+
+        public bool DespawnOnAllEnemiesDestroyed { get; set; } = false;
 
         public LaserBarrier() : base(Vector2.Zero, 1)
         {
@@ -124,7 +127,7 @@ namespace AstroDroids.Entities.Hostile
             //    Despawn();
             //}
 
-            if (!Intersects(Scene.World.Bounds) && !DespawnOnCameraPathEnd)
+            if (!Intersects(Scene.World.Bounds) && !DespawnOnCameraPathEnd && !DespawnOnAllEnemiesDestroyed)
             {
                 if (t >= 10f)
                 {
@@ -148,6 +151,14 @@ namespace AstroDroids.Entities.Hostile
             if(DespawnOnCameraPathEnd)
             {
                 if (Scene.World.camEntity.PathManager == null || !Scene.World.camEntity.PathManager.Active)
+                {
+                    Despawn();
+                }
+            }
+
+            if (DespawnOnAllEnemiesDestroyed)
+            {
+                if(Scene.World.GetOngoingWaves() == 0 && Scene.World.Enemies.Count(x => !(x is LaserBarrier)) == 0)
                 {
                     Despawn();
                 }

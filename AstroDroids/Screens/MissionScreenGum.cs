@@ -74,8 +74,8 @@ namespace AstroDroids.Screens
         {
             selectedLevel++;
 
-            if (selectedLevel > 1)
-                selectedLevel = 1;
+            if (selectedLevel > 2)
+                selectedLevel = 2;
         }
 
         private void PrevLevelBtn_Click(object sender, System.EventArgs e)

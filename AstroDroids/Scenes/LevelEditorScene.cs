@@ -135,17 +135,19 @@ namespace AstroDroids.Scenes
 
                 if (!InputSystem.GetKey(Keys.LeftControl))
                 {
+                    float speedMulti = InputSystem.GetKey(Keys.LeftShift) ? 3f : 2f;
+
                     if (InputSystem.GetKey(Keys.W))
-                        cameraTranslation.Y -= cameraMoveSpeed;
+                        cameraTranslation.Y -= cameraMoveSpeed * speedMulti;
 
                     if (InputSystem.GetKey(Keys.S))
-                        cameraTranslation.Y += cameraMoveSpeed;
+                        cameraTranslation.Y += cameraMoveSpeed * speedMulti;
 
                     if (InputSystem.GetKey(Keys.A))
-                        cameraTranslation.X -= cameraMoveSpeed;
+                        cameraTranslation.X -= cameraMoveSpeed * speedMulti;
 
                     if (InputSystem.GetKey(Keys.D))
-                        cameraTranslation.X += cameraMoveSpeed;
+                        cameraTranslation.X += cameraMoveSpeed * speedMulti;
 
                     if (InputSystem.GetKeyDown(Keys.G))
                         DrawGrid = !DrawGrid;

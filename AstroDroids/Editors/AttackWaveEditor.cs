@@ -1173,7 +1173,7 @@ namespace AstroDroids.Editors
                 scene.barrierEditor.SetBarrier(laserBarrierN);
             }
 
-            if (ImGui.Button("Horizontal Flip"))
+            if (ImGui.Button("Horizontal Flip##HorizontalFlipBarrier"))
             {
                 float min = float.MaxValue;
                 float max = float.MinValue;
@@ -1199,7 +1199,7 @@ namespace AstroDroids.Editors
 
             ImGui.SameLine();
 
-            if (ImGui.Button("Vertical Flip"))
+            if (ImGui.Button("Vertical Flip##VerticalFlipBarrier"))
             {
                 float min = float.MaxValue;
                 float max = float.MinValue;
@@ -1247,19 +1247,22 @@ namespace AstroDroids.Editors
 
             PathSettings(laserBarrierN);
 
-            if (!laserBarrierN.HasPath)
+            Numeric.Vector2 movSpeed = new Numeric.Vector2(laserBarrierN.MoveSpeed.X, laserBarrierN.MoveSpeed.Y);
+            if (ImGui.InputFloat2("Move speed", ref movSpeed))
             {
-                Numeric.Vector2 movSpeed = new Numeric.Vector2(laserBarrierN.MoveSpeed.X, laserBarrierN.MoveSpeed.Y);
-                if (ImGui.InputFloat2("Move speed", ref movSpeed))
-                {
-                    laserBarrierN.MoveSpeed = new Vector2(movSpeed.X, movSpeed.Y);
-                }
+                laserBarrierN.MoveSpeed = new Vector2(movSpeed.X, movSpeed.Y);
+            }
 
-                bool despawnOnPathEnd = laserBarrierN.DespawnOnCameraPathEnd;
-                if(ImGui.Checkbox("Despawn on camera path end", ref despawnOnPathEnd))
-                {
-                    laserBarrierN.DespawnOnCameraPathEnd = despawnOnPathEnd;
-                }
+            bool despawnOnPathEnd = laserBarrierN.DespawnOnCameraPathEnd;
+            if (ImGui.Checkbox("Despawn on camera path end", ref despawnOnPathEnd))
+            {
+                laserBarrierN.DespawnOnCameraPathEnd = despawnOnPathEnd;
+            }
+
+            bool despawnOnEnemiesDestroyed = laserBarrierN.DespawnOnEnemiesDestroyed;
+            if (ImGui.Checkbox("Despawn on enemies destroyed", ref despawnOnEnemiesDestroyed))
+            {
+                laserBarrierN.DespawnOnEnemiesDestroyed = despawnOnEnemiesDestroyed;
             }
         }
 
@@ -1461,10 +1464,21 @@ namespace AstroDroids.Editors
                     level.Paths.Add(new NamedPath() { Path = newPath });
                 }
 
-                if (ImGui.SliderFloat("Preview time", ref cameraPathSeconds, 0f, pathManager.TravelTime))
+                if (pathManager.TravelTime == float.PositiveInfinity)
                 {
-                    pathManager.SetPath(wave.Path, wave.PathSpeed);
-                    pathManager.Update(new GameTime(TimeSpan.FromSeconds(cameraPathSeconds), TimeSpan.FromSeconds(cameraPathSeconds)));
+                    if (ImGui.SliderFloat("Preview time", ref cameraPathSeconds, 0f, 1f))
+                    {
+                        pathManager.SetPath(wave.Path, wave.PathSpeed);
+                        pathManager.Update(new GameTime(TimeSpan.FromSeconds(cameraPathSeconds), TimeSpan.FromSeconds(cameraPathSeconds)));
+                    }
+                }
+                else
+                {
+                    if (ImGui.SliderFloat("Preview time", ref cameraPathSeconds, 0f, pathManager.TravelTime))
+                    {
+                        pathManager.SetPath(wave.Path, wave.PathSpeed);
+                        pathManager.Update(new GameTime(TimeSpan.FromSeconds(cameraPathSeconds), TimeSpan.FromSeconds(cameraPathSeconds)));
+                    }
                 }
             }
         }

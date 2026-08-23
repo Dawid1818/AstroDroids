@@ -28,7 +28,7 @@ namespace AstroDroids.Entities.Hostile
         Vector2 cannon2Pos;
         Vector2 cannon3Pos;
 
-        public TriGunTurret() : base(Vector2.Zero, 1)
+        public TriGunTurret() : base(Vector2.Zero, 10)
         {
             //baseTexture = TextureManager.Get("Turrets/Base/TurretBase");
             baseTexture = TextureManager.Get("Turrets/Base/TurretBasev2");

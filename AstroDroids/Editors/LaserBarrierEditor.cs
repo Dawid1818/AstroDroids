@@ -399,8 +399,11 @@ namespace AstroDroids.Editors
                 BarrierGroup = null;
                 selectedNodes.Clear();
                 selectedConnection = -1;
-                copyBuffer.Dispose();
-                copyBuffer = null;
+                if (copyBuffer != null)
+                {
+                    copyBuffer.Dispose();
+                    copyBuffer = null;
+                }
                 scene.ReturnFromEditor();
             }
 

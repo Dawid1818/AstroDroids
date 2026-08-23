@@ -259,6 +259,7 @@ namespace AstroDroids.Gameplay
             {
                 var barrier = new LaserBarrier(node.Position, node.Id, node.Health, spawner.MoveSpeed, node.Type, node.Position - spawner.Transform.Position);
                 barrier.DespawnOnCameraPathEnd = spawner.DespawnOnCameraPathEnd;
+                barrier.DespawnOnAllEnemiesDestroyed = spawner.DespawnOnEnemiesDestroyed;
                 barriers[node.Id] = barrier;
 
                 if(spawner.HasPath)
@@ -723,6 +724,11 @@ namespace AstroDroids.Gameplay
             targetBounds.Y = BaseBounds.Y + (BaseBounds.Height - targetBounds.Height) / 2;
 
             targetZoom = scale;
+        }
+
+        public int GetOngoingWaves()
+        {
+            return ongoingWaves;
         }
     }
 }

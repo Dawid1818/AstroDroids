@@ -44,7 +44,7 @@ namespace AstroDroids.Entities.Hostile
         List<ReflectBeamWarning> warnings = new List<ReflectBeamWarning>();
         List<ReflectBeam> beams = new List<ReflectBeam>();
 
-        public Overseer() : base(Vector2.Zero, 200)
+        public Overseer() : base(Vector2.Zero, 400)
         {
             AddCircleCollider(Vector2.Zero, 45);
             texture = TextureManager.Get("Ships/Overseer/ship_017");
@@ -119,11 +119,14 @@ namespace AstroDroids.Entities.Hostile
 
         IEnumerator Behavior()
         {
+            yield return new WaitUntil(() => Intersects(Scene.World.Bounds));
+            yield return new WaitForSeconds(2f);
+
             while (true)
             {
                 yield return new WaitUntil(() => !IsAnyOtherOverseerFiring());
                 firing = true;
-                yield return new WaitForSeconds(seconds: 1f);
+                yield return new WaitForSeconds(1f);
                 int choice = Random.Next(2);
                 switch (choice)
                 {

@@ -14,6 +14,7 @@ namespace AstroDroids.Levels
 
         public Vector2 MoveSpeed { get; set; } = new Vector2(0, 2);
         public bool DespawnOnCameraPathEnd { get; set; } = false;
+        public bool DespawnOnEnemiesDestroyed { get; set; } = false;
 
         public override void Load(BinaryReader reader, int version)
         {
@@ -44,14 +45,7 @@ namespace AstroDroids.Levels
 
             base.Load(reader, version);
 
-            if(!HasPath)
-            {
-                MoveSpeed = new Vector2(reader.ReadSingle(), reader.ReadSingle());
-            }
-            else
-            {
-                MoveSpeed = new Vector2(0, 2);
-            }
+            MoveSpeed = new Vector2(reader.ReadSingle(), reader.ReadSingle());
 
             if(version >= 12)
             {
@@ -60,6 +54,15 @@ namespace AstroDroids.Levels
             else
             {
                 DespawnOnCameraPathEnd = false;
+            }
+
+            if(version >= 13)
+            {
+                DespawnOnEnemiesDestroyed = reader.ReadBoolean();
+            }
+            else
+            {
+                DespawnOnEnemiesDestroyed = false;
             }
         }
 
@@ -87,17 +90,11 @@ namespace AstroDroids.Levels
 
             base.Save(writer);
 
-            if(!HasPath)
-            {
-                writer.Write(MoveSpeed.X);
-                writer.Write(MoveSpeed.Y);
-            }
-            else
-            {
-                MoveSpeed = new Vector2(0, 2);
-            }
+            writer.Write(MoveSpeed.X);
+            writer.Write(MoveSpeed.Y);
 
             writer.Write(DespawnOnCameraPathEnd);
+            writer.Write(DespawnOnEnemiesDestroyed);
         }
 
         public void Translate(Vector2 delta)

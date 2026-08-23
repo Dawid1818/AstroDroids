@@ -161,6 +161,8 @@ namespace AstroDroids.Entities.Hostile
         {
             while(true)
             {
+                yield return new WaitUntil(() => Intersects(Scene.World.Bounds));
+
                 int choice = Random.Next(2);
 
                 switch (choice)
