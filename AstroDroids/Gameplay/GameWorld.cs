@@ -159,11 +159,11 @@ namespace AstroDroids.Gameplay
                             break;
                         case WaveWaitStyle.WaitForPreviousWave:
                             if (ongoingWaves > 0)
-                                yield return new WaitUntil(() => ongoingWaves == 0 && (camEntity.PathManager == null || !camEntity.PathManager.Active));
+                                yield return new WaitUntil(() => ongoingWaves == 0 && (camEntity.PathManager == null || (!camEntity.PathManager.Active || Enemies.Count == 0)));
                             break;
                         case WaveWaitStyle.WaitForAllEnemiesDefeated:
                             if (ongoingWaves > 0 || Enemies.Count > 0)
-                                yield return new WaitUntil(() => Enemies.Count == 0 && ongoingWaves == 0 && (camEntity.PathManager == null || !camEntity.PathManager.Active));
+                                yield return new WaitUntil(() => Enemies.Count == 0 && ongoingWaves == 0 && (camEntity.PathManager == null || (!camEntity.PathManager.Active || Enemies.Count == 0)));
                             break;
                         default:
                             break;
