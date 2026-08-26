@@ -186,7 +186,7 @@ namespace AstroDroids.Entities.Hostile
                     expireTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }
-            if (!Intersects(Scene.World.Bounds) && becameActive)
+            if (!Intersects(Scene.World.Bounds) && becameActive && (PathManager == null || !PathManager.Active))
             {
                 Despawn();
             }

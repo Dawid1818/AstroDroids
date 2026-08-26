@@ -103,6 +103,7 @@ namespace AstroDroids.Entities.Hostile
             Scene.World.StartCoroutine(BossBehavior());
 
             RMM = new RandomMoveManager(Transform.LocalPosition);
+            RMM.MarginBottom = 300f; 
         }
 
         ProjectileDrone createDrone()
@@ -361,7 +362,7 @@ namespace AstroDroids.Entities.Hostile
                         {
                             Vector2 desiredPos = new Vector2((x + droneWidth * 0.5f) + (Transform.Position.X - range / 2f), Transform.Position.Y + 70);
 
-                            if (MoveTowards(droneEntry.Drone, desiredPos, false, 1f))
+                            if (MoveTowards(droneEntry.Drone, desiredPos, false, 2f))
                             {
                                 droneEntry.Reached = true;
                                 droneEntry.Drone.SetCollidable(true);
@@ -390,7 +391,7 @@ namespace AstroDroids.Entities.Hostile
 
                                 Vector2 desiredPos = GameHelper.OrbitEllipsePos(Transform.LocalPosition, currentAngle, orbitDistanceX, orbitDistanceY, ellipseRotation);
 
-                                if (MoveTowards(droneEntry.Drone, desiredPos, false, 1f))
+                                if (MoveTowards(droneEntry.Drone, desiredPos, false, 2f))
                                 {
                                     droneEntry.Reached = true;
                                     droneEntry.Drone.SetCollidable(true);
@@ -429,7 +430,7 @@ namespace AstroDroids.Entities.Hostile
 
                                     Vector2 desiredPos = GameHelper.OrbitEllipsePos(player.Transform.LocalPosition, currentAngle, orbitDistanceX, orbitDistanceY, ellipseRotation);
 
-                                    if (MoveTowards(droneEntry.Drone, desiredPos, false, 1f, 100f))
+                                    if (MoveTowards(droneEntry.Drone, desiredPos, false, 2f, 100f))
                                     {
                                         droneEntry.Drone.SetCollidable(false);
                                         droneEntry.Reached = true;
@@ -533,7 +534,7 @@ namespace AstroDroids.Entities.Hostile
                                     continue;
 
                                 item.Drone.ShootLaser();
-                                yield return new WaitForSeconds(0.7f);
+                                yield return new WaitForSeconds(0.2f);
                             }
 
                         }
@@ -550,7 +551,7 @@ namespace AstroDroids.Entities.Hostile
                                 yield return new WaitForSeconds(0.2f);
                             }
 
-                            yield return new WaitForSeconds(0.7f);
+                            yield return new WaitForSeconds(0.1f);
                         }
                         break;
                     case 2:
@@ -559,7 +560,7 @@ namespace AstroDroids.Entities.Hostile
                         angleOverrideMode = 2;
 
                         if (k == 0)
-                            yield return new WaitForSeconds(seconds: 0.5f);
+                            yield return new WaitForSeconds(seconds: 0.2f);
 
                         foreach (var item in drones)
                         {
@@ -648,24 +649,21 @@ namespace AstroDroids.Entities.Hostile
                 }
 
                 if (times > 1)
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
             }
 
         }
 
         IEnumerator HorizontalWallAttack()
         {
-            int chance = Random.Next(5);
-
-            if (chance == 2)
-                ForEachDrone((d) => { d.Drone.angleOverride = true; d.Drone.overridedAngle = MathHelper.ToRadians(90); });
+            int chance = Random.Next(3);
 
             yield return new WaitUntil(AllDronesReached);
 
             switch (chance)
             {
                 case 0:
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < 10; i++)
                     {
                         ForEachDrone(d => d.Drone.Shoot());
 
@@ -680,7 +678,7 @@ namespace AstroDroids.Entities.Hostile
 
                         item.Drone.ShootLaser();
 
-                        yield return new WaitForSeconds(0.4f);
+                        yield return new WaitForSeconds(0.2f);
                     }
 
                     yield return new WaitForSeconds(1f);
@@ -693,7 +691,7 @@ namespace AstroDroids.Entities.Hostile
 
                         item.Drone.ShootLaser();
 
-                        yield return new WaitForSeconds(0.4f);
+                        yield return new WaitForSeconds(0.2f);
                     }
 
                     yield return new WaitForSeconds(1f);
@@ -707,64 +705,6 @@ namespace AstroDroids.Entities.Hostile
                             selected.Drone.Shoot();
 
                             yield return new WaitForSeconds(0.2f);
-                        }
-                    }
-                    break;
-                case 3:
-                    {
-                        int n = drones.Count;
-
-                        for (int i = 0; i < n / 2; i++)
-                        {
-                            int left = i;
-                            int right = (n - 1) - i;
-
-                            if (!drones[left].Drone.destroyed)
-                                drones[left].Drone.Shoot();
-
-                            if (!drones[right].Drone.destroyed)
-                                drones[right].Drone.Shoot();
-
-                            yield return new WaitForSeconds(0.5f);
-                        }
-
-                        if (n % 2 == 1)
-                        {
-                            int middle = n / 2;
-
-                            if (!drones[middle].Drone.destroyed)
-                                drones[middle].Drone.Shoot();
-                        }
-
-                    }
-                    break;
-                case 4:
-                    {
-                        int n = drones.Count;
-
-                        int leftStart = (n - 1) / 2;
-                        int rightStart = n / 2;
-
-                        int steps = n / 2;
-
-                        for (int i = 0; i <= steps; i++)
-                        {
-                            int left = leftStart - i;
-                            int right = rightStart + i;
-
-                            if (left >= 0)
-                            {
-                                if (!drones[left].Drone.destroyed)
-                                    drones[left].Drone.Shoot();
-                            }
-
-                            if (right < n && right != left)
-                            {
-                                if (!drones[right].Drone.destroyed)
-                                    drones[right].Drone.Shoot();
-                            }
-
-                            yield return new WaitForSeconds(0.8f);
                         }
                     }
                     break;

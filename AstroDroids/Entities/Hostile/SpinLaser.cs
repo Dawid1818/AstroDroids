@@ -45,7 +45,7 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
-        public SpinLaser() : base(Vector2.Zero, 5)
+        public SpinLaser() : base(Vector2.Zero, 20)
         {
             texture = TextureManager.Get("Ships/SpinLaser/tinyShip2");
 

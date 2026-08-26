@@ -15,7 +15,10 @@ namespace AstroDroids.Paths
         Vector2 destination;
         PathManager TravelManager;
 
-        const float margin = 100f;
+        public float MarginLeft { get; set; } = 100f;
+        public float MarginRight { get; set; } = 100f;
+        public float MarginTop { get; set; } = 100f;
+        public float MarginBottom { get; set; } = 100f;
 
         protected Scene Scene { get { return SceneManager.GetScene(); } }
 
@@ -68,9 +71,9 @@ namespace AstroDroids.Paths
 
             destination = Position + offset * distance;
 
-            destination.X = MathHelper.Clamp(destination.X, margin, Scene.World.Bounds.Width - margin);
+            destination.X = MathHelper.Clamp(destination.X, MarginLeft, Scene.World.Bounds.Width - MarginTop);
 
-            destination.Y = MathHelper.Clamp(destination.Y, margin, Scene.World.Bounds.Height - margin);
+            destination.Y = MathHelper.Clamp(destination.Y, MarginTop, Scene.World.Bounds.Height - MarginBottom);
 
             if (useBezier)
             {
@@ -96,9 +99,9 @@ namespace AstroDroids.Paths
 
             destination = Position + direction * distance;
 
-            destination.X = MathHelper.Clamp(destination.X, margin, Scene.World.Bounds.Width - margin);
+            destination.X = MathHelper.Clamp(destination.X, MarginLeft, Scene.World.Bounds.Width - MarginTop);
 
-            destination.Y = MathHelper.Clamp(destination.Y, margin, Scene.World.Bounds.Height - margin);
+            destination.Y = MathHelper.Clamp(destination.Y, MarginTop, Scene.World.Bounds.Height - MarginBottom);
 
             TravelManager.SetPath(GameHelper.CreateBezier(Position, destination, currentAngle), TravelManager.Speed);
         }
