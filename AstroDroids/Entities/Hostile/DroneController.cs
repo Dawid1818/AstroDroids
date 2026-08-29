@@ -699,7 +699,7 @@ namespace AstroDroids.Entities.Hostile
                     yield return new WaitForSeconds(1f);
                     break;
                 case 2:
-                    for (int i = 0; i < 30; i++)
+                    for (int i = 0; i < 20; i++)
                     {
                         DroneEntry selected = GetRandomAliveDrone();
                         if (selected != null)

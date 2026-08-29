@@ -44,8 +44,10 @@ namespace AstroDroids.Entities.Hostile
         List<ReflectBeamWarning> warnings = new List<ReflectBeamWarning>();
         List<ReflectBeam> beams = new List<ReflectBeam>();
 
-        public Overseer() : base(Vector2.Zero, 400)
+        public Overseer() : base(Vector2.Zero, 250)
         {
+            CanBeShielded = true;
+
             AddCircleCollider(Vector2.Zero, 45);
             texture = TextureManager.Get("Ships/Overseer/ship_017");
         }

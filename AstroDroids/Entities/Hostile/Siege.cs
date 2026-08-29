@@ -40,7 +40,7 @@ namespace AstroDroids.Entities.Hostile
         public bool moving { get; set; } = true;
         public bool firing { get; set; } = false;
 
-        public Siege() : base(Vector2.Zero, 1000)
+        public Siege() : base(Vector2.Zero, 150)
         {
             AddCircleCollider(Vector2.Zero, 40);
             texture = TextureManager.Get("Ships/Siege/ship_012");
