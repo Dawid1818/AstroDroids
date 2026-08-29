@@ -109,6 +109,8 @@ namespace AstroDroids.Entities.Hostile
         ProjectileDrone createDrone()
         {
             ProjectileDrone drone = new ProjectileDrone(this);
+            drone.SetStartingHealth(10);
+            drone.SetHealth(10);
             drone.Transform.Position = Transform.Position;
             return drone;
         }
@@ -294,7 +296,7 @@ namespace AstroDroids.Entities.Hostile
 
             DroneEntry droneEntry = drones[index];
 
-            droneEntry.Drone.SetHealth(20);
+            droneEntry.Drone.SetHealth(10);
             droneEntry.Drone.Transform.Position = Transform.Position;
             Scene.World.AddEnemy(droneEntry.Drone, true);
             droneEntry.Drone.SetCollidable(false);

@@ -32,7 +32,7 @@ namespace AstroDroids.Managers
             RegisterEnemy(1, typeof(SpinLaser), typeof(DefaultSpawnData));
             RegisterEnemy(2, typeof(DroneController), typeof(DroneControllerSpawnData));
             RegisterEnemy(3, typeof(ProximityMine), typeof(ProximityMineSpawnData));
-            RegisterEnemy(4, typeof(TriGunTurret), typeof(DefaultSpawnData));
+            RegisterEnemy(4, typeof(TriGunTurret), typeof(TriGunTurretSpawnData));
             RegisterEnemy(5, typeof(Gunner), typeof(GunnerSpawnData));
             RegisterEnemy(6, typeof(SnakeBoss), typeof(DefaultSpawnData));
             RegisterEnemy(7, typeof(DroneBoss), typeof(DefaultSpawnData));
@@ -53,7 +53,7 @@ namespace AstroDroids.Managers
             RegisterEventHandler(1, typeof(TestLevelEventHandler));
 
             RegisterMission(MissionType.Tutorial, new GameMission() { Name = "Tutorial", Type = MissionType.Tutorial, LevelNames = { "Tutorial" } });
-            RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2", "Level3" } });
+            RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2", "Level3", "Level4" } });
             RegisterMission(MissionType.BossRush, new GameMission() { Name = "BossRush", Type = MissionType.BossRush, LevelNames = { "BossRush" } });
 
             RegisterMusic(0, "ZeroRanger - For Your Security");

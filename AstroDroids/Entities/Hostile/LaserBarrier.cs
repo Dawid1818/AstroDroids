@@ -64,6 +64,13 @@ namespace AstroDroids.Entities.Hostile
             //}
         }
 
+        public override void Damage(int damage, bool produceSound)
+        {
+            if (Turret != null && !Turret.destroyed && Turret.GetHealth() > 0)
+                return;
+            base.Damage(damage, produceSound);
+        }
+
         public override void Spawned()
         {
             //foreach (var item in connections)

@@ -386,6 +386,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             if (phase2)
                 MoveTowards(this, Scene.World.Bounds.Center, true, 0.6f);
+            else
+                MoveTowards(this, new Vector2(Scene.World.Bounds.Center.X, 70), true, 0.6f);
 
             if (drones.Count > 0)
             {

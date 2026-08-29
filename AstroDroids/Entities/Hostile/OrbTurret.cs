@@ -145,6 +145,8 @@ namespace AstroDroids.Entities.Hostile
 
         public OrbTurret() : base(Vector2.Zero, 20)
         {
+            CanBeShielded = true;
+
             baseTexture = TextureManager.Get("Turrets/Base/TurretBasev2");
             cannonTexture = TextureManager.Get("Turrets/OrbTurret/OrbTurret");
 

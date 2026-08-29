@@ -25,6 +25,7 @@ namespace AstroDroids.Entities
         public int GetHealth() { return Health; }
         public int GetStartingHealth() { return StartingHealth; }
         public virtual void SetHealth(int health) { Health = health; }
+        public virtual void SetStartingHealth(int health) { StartingHealth = health; }
 
         public virtual void Damage(int damage, bool produceSound)
         {

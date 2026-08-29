@@ -67,7 +67,7 @@ namespace AstroDroids.Entities.Hostile
         //Enemy targetToShield = null;
         //ShielderConnection connection = null;
 
-        public Shielder() : base(Vector2.Zero, 100)
+        public Shielder() : base(Vector2.Zero, 70)
         {
             texture = TextureManager.Get("Ships/Shielder/ship_022");
             Score = 100;
