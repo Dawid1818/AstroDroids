@@ -1,24 +1,11 @@
 {
   "TreeViewState": {
     "ExpandedNodes": [
-      "Screens",
-      "Screens/HintedScreenGum",
-      "Screens/MissionScreenGum",
-      "Screens/MissionScreenGum/LevelContainer",
-      "Screens/MissionScreenGum/ContainerInstance",
-      "Screens/MissionScreenGum/ContainerInstance/ContainerInstance3",
-      "Screens/MissionScreenGum/ContainerInstance/ContainerInstance4",
-      "Screens/MissionScreenGum/ContainerInstance/ContainerInstance4/PlayBtn",
-      "Screens/MissionScreenGum/ContainerInstance1",
-      "Screens/MissionScreenGum/ContainerInstance2",
       "Components",
       "Components/Controls",
       "Components/Custom",
-      "Components/Custom/ActionHint",
-      "Components/Custom/LevelCard",
-      "Components/Elements",
-      "Components/Elements/Icon",
-      "Components/Elements/Icon2"
+      "Components/Custom/HorizontalList",
+      "Components/Elements"
     ]
   }
 }

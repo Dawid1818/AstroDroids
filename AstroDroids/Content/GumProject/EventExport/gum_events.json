@@ -1,5 +1,622 @@
 {
   "UserEvents": {
-    "35a4a73f54888938fe153e292bc5717227e7b35295fc93f5c2f5d6260dc8910a": []
+    "35a4a73f54888938fe153e292bc5717227e7b35295fc93f5c2f5d6260dc8910a": [
+      {
+        "NewName": "SettingsScreenGum.ButtonContainer",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T08:34:35.8160275Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.PlayBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T08:34:35.8681781Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.CustomizeBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T08:34:35.9139944Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.SettingsBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T08:34:35.9596221Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.LeaderboardBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T08:34:36.0053448Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.CreditsBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T08:34:36.0526347Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.ExitBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T08:34:36.1001603Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "SettingsScreenGum.Controls/ButtonGlow ExitBtn in SettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T08:39:47.7197575Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "SettingsScreenGum.Controls/ButtonGlow ReturnBtn in SettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T08:40:18.031684Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.ControlsBtn",
+        "OldName": "SettingsScreenGum.PlayBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T08:43:02.0617964Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.AudioBtn",
+        "OldName": "SettingsScreenGum.CustomizeBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T08:43:04.4574131Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.GraphicsBtn",
+        "OldName": "SettingsScreenGum.SettingsBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T08:43:06.8446983Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.LanguageBtn",
+        "OldName": "SettingsScreenGum.LeaderboardBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T08:43:09.8076037Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.BackBtn",
+        "OldName": "SettingsScreenGum.CreditsBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T08:43:11.8678566Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-07T08:53:15.0348235Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.SliderInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:00:04.5429737Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:01:24.5913199Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.TextInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:01:37.4591619Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.TextInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:03:37.3144408Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Controls/ButtonGlow ControlsBtn in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:05:42.4262274Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Controls/ButtonGlow AudioBtn in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:05:48.2861665Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Controls/ButtonGlow GraphicsBtn in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:05:48.2869616Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Controls/ButtonGlow LanguageBtn in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:05:48.2955764Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.ContainerInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:08:05.7983335Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.SliderInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:08:05.8956614Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.TextInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:08:05.9443272Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.TextInstance3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:08:05.9897332Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Container ContainerInstance1 in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:08:19.4669018Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.VolumeUIControl",
+        "OldName": "AudioSettingsScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:08:32.8913851Z"
+      },
+      {
+        "NewName": "VolumeComponent",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-07T09:09:01.0919576Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Controls/Slider SliderInstance in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:09:01.2050457Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Text TextInstance in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:09:01.2534023Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Text TextInstance1 in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:09:01.3104432Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Container VolumeUIControl in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:09:01.359576Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.VolumeUIControl",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:09:01.4050342Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent",
+        "OldName": "VolumeComponent",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-07T09:10:06.6848157Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Text TextInstance3 in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:10:45.3317611Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Text TextInstance2 in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:10:45.3329796Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Controls/Slider SliderInstance1 in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:10:45.3406588Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).LeftLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:13.21856Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).LeftLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:13.2261711Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).LeftLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:13.2326379Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).LeftLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:13.2401948Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).ValueLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:17.9876265Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).ValueLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:17.9885771Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).ValueLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:17.9963743Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).ValueLabel",
+        "OldName": "Custom/VolumeComponent (Container).TextInstance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:17:18.0029078Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).VolumeSlider",
+        "OldName": "Custom/VolumeComponent (Container).SliderInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:18:22.9014743Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).VolumeSlider",
+        "OldName": "Custom/VolumeComponent (Container).SliderInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:18:22.9025775Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).VolumeSlider",
+        "OldName": "Custom/VolumeComponent (Container).SliderInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:18:22.9097048Z"
+      },
+      {
+        "NewName": "Custom/VolumeComponent (Container).VolumeSlider",
+        "OldName": "Custom/VolumeComponent (Container).SliderInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:18:22.916375Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.MusicVolumeControl",
+        "OldName": "AudioSettingsScreenGum.VolumeUIControl",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:21:22.167911Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.MusicVolumeControl1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:21:27.4232849Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.SoundEffectsVolumeControl",
+        "OldName": "AudioSettingsScreenGum.MusicVolumeControl1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T09:21:33.5866778Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-07T09:33:54.2463452Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum",
+        "OldName": "AudioSettingsScreenGum1",
+        "ElementType": "Screens",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-07T09:34:03.3422272Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "GraphicsSettingsScreenGum.Custom/VolumeComponent MusicVolumeControl in GraphicsSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:36:26.1538032Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "GraphicsSettingsScreenGum.Custom/VolumeComponent SoundEffectsVolumeControl in GraphicsSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:36:26.1545795Z"
+      },
+      {
+        "NewName": "Controls/test",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-07T09:46:43.1712063Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Controls/test",
+        "ElementType": "Components",
+        "EventType": 1,
+        "TimestampUtc": "2026-09-07T09:47:22.3023777Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-07T09:55:57.0278495Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).TextInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:56:05.8761743Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.HorizontalListInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:58:23.8852278Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.HorizontalListInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T09:59:37.418483Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "GraphicsSettingsScreenGum.Custom/HorizontalList HorizontalListInstance in GraphicsSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T09:59:42.5852032Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).ItemLabel",
+        "OldName": "Custom/HorizontalList (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T10:14:52.3051896Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T10:15:11.8539214Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).WeaponPanelIcon",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T10:15:11.9056935Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).WeaponPanel",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T10:15:11.9621461Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/HorizontalList (Container).NineSlice WeaponPanelBG in Custom/HorizontalList (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T10:15:20.4494603Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/HorizontalList (Container).Sprite WeaponPanelIcon in Custom/HorizontalList (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T10:15:20.4509232Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T10:15:26.3446259Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).WeaponPanelIcon",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T10:15:26.3905829Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/HorizontalList (Container).Sprite WeaponPanelIcon in Custom/HorizontalList (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T10:15:29.7775114Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Icon2Instance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T10:15:48.0835191Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T10:16:29.2328587Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.HorizontalListInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T11:00:29.0988265Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.VideoModeList",
+        "OldName": "GraphicsSettingsScreenGum.HorizontalListInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T11:04:00.4181693Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.ResolutionList",
+        "OldName": "GraphicsSettingsScreenGum.HorizontalListInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T11:04:03.4399408Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.ResolutionList",
+        "OldName": "GraphicsSettingsScreenGum.ResolutionList",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T11:04:06.2062441Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).TextInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T12:36:00.2059501Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftLabel",
+        "OldName": "Custom/HorizontalList (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T12:36:20.923879Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftLabel",
+        "OldName": "Custom/HorizontalList (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T12:36:20.9252866Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftLabel",
+        "OldName": "Custom/HorizontalList (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T12:36:20.9347634Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftLabel",
+        "OldName": "Custom/HorizontalList (Container).TextInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T12:36:20.9417753Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.HorizontalListInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-07T12:51:27.9609658Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "SettingsScreenGum.Controls/ButtonGlow LanguageBtn in SettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-07T12:51:49.098715Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.LanguageList",
+        "OldName": "SettingsScreenGum.HorizontalListInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-07T12:52:17.146072Z"
+      }
+    ]
   }
 }

@@ -49,6 +49,8 @@
   <TextureFilter>Point</TextureFilter>
   <ConvertVariablesOnUnitTypeChange>false</ConvertVariablesOnUnitTypeChange>
   <RestrictToUnitValues>true</RestrictToUnitValues>
+  <SnapToGrid>false</SnapToGrid>
+  <GridSize>16</GridSize>
   <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
   <Guides />
   <LocalizationFile>Localization.csv</LocalizationFile>
@@ -57,10 +59,12 @@
   </LocalizationFiles>
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>1</CurrentLanguageIndex>
+  <ScreenReference Name="AudioSettingsScreenGum" />
   <ScreenReference Name="CurveEditorScreenGum" />
   <ScreenReference Name="DemoScreenGum" />
   <ScreenReference Name="GamemodeScreenGum" />
   <ScreenReference Name="GameScreenGum" />
+  <ScreenReference Name="GraphicsSettingsScreenGum" />
   <ScreenReference Name="HintedScreenGum" />
   <ScreenReference Name="LeaderboardScreenGum" />
   <ScreenReference Name="LevelEditorScreenGum" />
@@ -112,7 +116,9 @@
   <ComponentReference Name="Controls/UserControl" />
   <ComponentReference Name="Controls/WindowStandard" />
   <ComponentReference Name="Custom/ActionHint" />
+  <ComponentReference Name="Custom/HorizontalList" />
   <ComponentReference Name="Custom/LevelCard" />
+  <ComponentReference Name="Custom/VolumeComponent" />
   <ComponentReference Name="Elements/CautionLines" />
   <ComponentReference Name="Elements/CautionLinesWrapped" />
   <ComponentReference Name="Elements/Divider" />

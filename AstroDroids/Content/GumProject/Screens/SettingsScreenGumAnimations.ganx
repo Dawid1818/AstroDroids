@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ElementAnimationsSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Animations>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>Enter</Name>
+      <States />
+      <Animations>
+        <AnimationReferenceSave>
+          <Name>ControlsBtn.SlideIn</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>AudioBtn.SlideIn</Name>
+          <Time>0.1</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>GraphicsBtn.SlideIn</Name>
+          <Time>0.2</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>LanguageList.SlideIn</Name>
+          <Time>0.3</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>BackBtn.SlideIn</Name>
+          <Time>0.4</Time>
+        </AnimationReferenceSave>
+      </Animations>
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>Leave</Name>
+      <States />
+      <Animations>
+        <AnimationReferenceSave>
+          <Name>ControlsBtn.SlideOut</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>AudioBtn.SlideOut</Name>
+          <Time>0.1</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>GraphicsBtn.SlideOut</Name>
+          <Time>0.2</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>LanguageList.SlideOut</Name>
+          <Time>0.3</Time>
+        </AnimationReferenceSave>
+        <AnimationReferenceSave>
+          <Name>BackBtn.SlideOut</Name>
+          <Time>0.4</Time>
+        </AnimationReferenceSave>
+      </Animations>
+      <Events />
+    </AnimationSave>
+  </Animations>
+</ElementAnimationsSave>

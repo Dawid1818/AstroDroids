@@ -1,4 +1,4 @@
-//Code for SettingsScreenGum
+//Code for AudioSettingsScreenGum
 using AstroDroids.Components.Controls;
 using AstroDroids.Components.Custom;
 using Gum;
@@ -12,7 +12,7 @@ using GumRuntime;
 using RenderingLibrary.Graphics;
 using System.Linq;
 namespace AstroDroids.Screens;
-partial class SettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
+partial class AudioSettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
 {
     [System.Runtime.CompilerServices.ModuleInitializer]
     public static void RegisterRuntimeType()
@@ -20,17 +20,17 @@ partial class SettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::Gum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("SettingsScreenGum") ?? throw new System.InvalidOperationException("Could not find an element named SettingsScreenGum - did you forget to load a Gum project?");
+            var element = ObjectFinder.Self.GetElementSave("AudioSettingsScreenGum") ?? throw new System.InvalidOperationException("Could not find an element named AudioSettingsScreenGum - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
-            if(createForms) visual.FormsControlAsObject = new SettingsScreenGum(visual);
+            if(createForms) visual.FormsControlAsObject = new AudioSettingsScreenGum(visual);
             visual.Width = 0;
             visual.WidthUnits = global::Gum.DataTypes.DimensionUnitType.RelativeToParent;
             visual.Height = 0;
             visual.HeightUnits = global::Gum.DataTypes.DimensionUnitType.RelativeToParent;
             return visual;
         });
-        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(SettingsScreenGum)] = template;
-        ElementSaveExtensions.RegisterGueInstantiation("SettingsScreenGum", () => 
+        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(AudioSettingsScreenGum)] = template;
+        ElementSaveExtensions.RegisterGueInstantiation("AudioSettingsScreenGum", () => 
         {
             var gue = template.CreateContent(null, true) as InteractiveGue;
             return gue;
@@ -65,10 +65,8 @@ partial class SettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
         }
     }
     public ContainerRuntime ButtonContainer { get; protected set; }
-    public ButtonGlow ControlsBtn { get; protected set; }
-    public ButtonGlow AudioBtn { get; protected set; }
-    public ButtonGlow GraphicsBtn { get; protected set; }
-    public HorizontalList LanguageList { get; protected set; }
+    public VolumeComponent MusicVolumeControl { get; protected set; }
+    public VolumeComponent SoundEffectsVolumeControl { get; protected set; }
     public ButtonGlow BackBtn { get; protected set; }
 
 
@@ -76,10 +74,10 @@ partial class SettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public AnimationRuntime Enter {get; protected set;}
     public AnimationRuntime Leave {get; protected set;}
     #endregion
-    public SettingsScreenGum(InteractiveGue visual) : base(visual)
+    public AudioSettingsScreenGum(InteractiveGue visual) : base(visual)
     {
     }
-    public SettingsScreenGum()
+    public AudioSettingsScreenGum()
     {
 
 
@@ -89,10 +87,8 @@ partial class SettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
     {
         base.ReactToVisualChanged();
         ButtonContainer = this.Visual?.GetGraphicalUiElementByName("ButtonContainer") as global::Gum.GueDeriving.ContainerRuntime;
-        ControlsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ControlsBtn");
-        AudioBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"AudioBtn");
-        GraphicsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"GraphicsBtn");
-        LanguageList = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<HorizontalList>(this.Visual,"LanguageList");
+        MusicVolumeControl = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<VolumeComponent>(this.Visual,"MusicVolumeControl");
+        SoundEffectsVolumeControl = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<VolumeComponent>(this.Visual,"SoundEffectsVolumeControl");
         BackBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"BackBtn");
         Enter = this.Visual.GetAnimation("Enter");
         Leave = this.Visual.GetAnimation("Leave");
@@ -101,11 +97,9 @@ partial class SettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
     public void ApplyLocalization()
     {
-        this.AudioBtn.Text = GumService.Default.LocalizationService.Translate("T_Audio");
         this.BackBtn.Text = GumService.Default.LocalizationService.Translate("T_Return");
-        this.ControlsBtn.Text = GumService.Default.LocalizationService.Translate("T_Controls");
-        this.GraphicsBtn.Text = GumService.Default.LocalizationService.Translate("T_Graphics");
-        this.LanguageList.LeftLabelText = GumService.Default.LocalizationService.Translate("T_Language");
+        this.MusicVolumeControl.LeftLabelText = GumService.Default.LocalizationService.Translate("T_Music");
+        this.SoundEffectsVolumeControl.LeftLabelText = GumService.Default.LocalizationService.Translate("T_SoundEffects");
     }
     partial void CustomInitialize();
 }

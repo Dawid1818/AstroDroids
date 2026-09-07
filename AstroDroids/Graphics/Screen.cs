@@ -1,9 +1,11 @@
 ﻿using Apos.Shapes;
+using AstroDroids.Data;
 using AstroDroids.Input;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using FontStashSharp;
 using Gum.DataTypes;
+using Gum.Forms;
 using Gum.Forms.Controls;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
@@ -92,6 +94,8 @@ namespace AstroDroids.Graphics
             RenderTarget = new RenderTarget2D(game.GraphicsDevice, ScreenWidth, ScreenHeight, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.PreserveContents);
             //RenderTarget = new RenderTarget2D(game.GraphicsDevice, ScreenWidth, ScreenHeight);
             game.Window.ClientSizeChanged += (_, _) => UpdateViewport();
+
+            UpdateViewport();
         }
 
         static void UpdateViewport()
@@ -322,6 +326,45 @@ namespace AstroDroids.Graphics
         public static Rectangle GetClientBounds()
         {
             return gameWnd.ClientBounds;
+        }
+
+        internal static void ApplyVideoSettings()
+        {
+            switch (SettingsManager.curSettings.Video.DisplayMode)
+            {
+                case DisplayModeType.Borderless:
+                    gameWnd.IsBorderless = true;
+                    gameWnd.AllowUserResizing = false;
+
+                    var desktopMode = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode;
+                    graphicsManager.PreferredBackBufferWidth = desktopMode.Width;
+                    graphicsManager.PreferredBackBufferHeight = desktopMode.Height;
+                    graphicsManager.IsFullScreen = false;
+                    break;
+
+                case DisplayModeType.Windowed:
+                    gameWnd.IsBorderless = false;
+                    gameWnd.AllowUserResizing = true;
+
+                    graphicsManager.PreferredBackBufferWidth = SettingsManager.curSettings.Video.Resolution.X;
+                    graphicsManager.PreferredBackBufferHeight = SettingsManager.curSettings.Video.Resolution.Y;
+                    graphicsManager.IsFullScreen = false;
+                    break;
+
+                case DisplayModeType.Exclusive:
+                    gameWnd.IsBorderless = false;
+                    gameWnd.AllowUserResizing = false;
+
+                    graphicsManager.PreferredBackBufferWidth = SettingsManager.curSettings.Video.Resolution.X;
+                    graphicsManager.PreferredBackBufferHeight = SettingsManager.curSettings.Video.Resolution.Y;
+                    graphicsManager.IsFullScreen = true;
+                    break;
+            }
+
+            graphicsManager.SynchronizeWithVerticalRetrace = SettingsManager.curSettings.Video.VSync;
+            graphicsManager.ApplyChanges();
+
+            UpdateViewport();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace AstroDroids.Screens
 
             PlayBtn.Click += PlayBtn_Click;
             CustomizeBtn.Click += CustomizeBtn_Click;
-            //SettingsBtn.Click += SettingsBtn_Click;
+            SettingsBtn.Click += SettingsBtn_Click;
             LeaderboardBtn.Click += LeaderboardBtn_Click;
             ExitBtn.Click += ExitBtn_Click;
 

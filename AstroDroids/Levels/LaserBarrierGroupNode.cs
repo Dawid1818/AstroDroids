@@ -43,26 +43,29 @@ namespace AstroDroids.Levels
                 Connections.Add(connection);
             }
 
-            base.Load(reader, version);
+            if (version >= 10)
+            {
+                base.Load(reader, version);
 
-            MoveSpeed = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+                MoveSpeed = new Vector2(reader.ReadSingle(), reader.ReadSingle());
 
-            if(version >= 12)
-            {
-                DespawnOnCameraPathEnd = reader.ReadBoolean();
-            }
-            else
-            {
-                DespawnOnCameraPathEnd = false;
-            }
+                if (version >= 12)
+                {
+                    DespawnOnCameraPathEnd = reader.ReadBoolean();
+                }
+                else
+                {
+                    DespawnOnCameraPathEnd = false;
+                }
 
-            if(version >= 13)
-            {
-                DespawnOnEnemiesDestroyed = reader.ReadBoolean();
-            }
-            else
-            {
-                DespawnOnEnemiesDestroyed = false;
+                if (version >= 13)
+                {
+                    DespawnOnEnemiesDestroyed = reader.ReadBoolean();
+                }
+                else
+                {
+                    DespawnOnEnemiesDestroyed = false;
+                }
             }
         }
 

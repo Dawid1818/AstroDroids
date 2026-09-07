@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Custom/HorizontalList</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="float" Name="Height" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-1</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="Icon2Instance.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Arrow2</Value>
+    </Variable>
+    <Variable Type="string" Name="Icon2Instance.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-13</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Icon2Instance.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Icon2Instance.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Icon2Instance.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Icon2Instance.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="bool" Name="Icon2Instance1.FlipHorizontal" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance1.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-1</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="Icon2Instance1.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Arrow2</Value>
+    </Variable>
+    <Variable Type="string" Name="Icon2Instance1.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance1.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-13</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance1.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Icon2Instance1.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Icon2Instance1.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Icon2Instance1.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Icon2Instance1.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Icon2Instance1.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="ItemLabel.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ItemLabel.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ItemLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="string" Name="ItemLabel.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ItemLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ItemLabel.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ItemLabel.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="ItemLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ItemLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ItemLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ItemLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ItemLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ItemLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LeftLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="LeftLabel.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    </Variable>
+    <Variable Type="string" Name="LeftLabel.Text" ExposedAsName="LeftLabelText" SetsValue="false" />
+    <Variable Type="VerticalAlignment" Name="LeftLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">71</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-4</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LeftLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">6</Value>
+    </Variable>
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
+      <Value xsi:type="xsd:string">Default</Value>
+    </Variable>
+    <Variable Type="int" Name="WeaponPanel.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="Blend" Name="WeaponPanel.Blend" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="ChildrenLayout" Name="WeaponPanel.ChildrenLayout" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanel.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="WeaponPanel.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="WeaponPanel.IsRenderTarget" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanel.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="WeaponPanel.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="WeaponPanel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="WeaponPanel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="WeaponPanel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="WeaponPanel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="WeaponPanelBG.ColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="string" Name="WeaponPanelBG.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    </Variable>
+    <Variable Type="StyleCategory" Name="WeaponPanelBG.StyleCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanelBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="WeaponPanelBG.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="WeaponPanelBG.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanelBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="WeaponPanelBG.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="WeaponPanelBG.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanelBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="WeaponPanelBG.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanelBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="WeaponPanelBG.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+  </State>
+  <Category>
+    <Name>SlideCategory</Name>
+    <State>
+      <Name>Idle</Name>
+      <Variable Type="float" Name="X" Category="Position" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Right</Name>
+      <Variable Type="float" Name="X" SetsValue="true">
+        <Value xsi:type="xsd:float">600</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Left</Name>
+      <Variable Type="float" Name="X" Category="Position" SetsValue="true">
+        <Value xsi:type="xsd:float">-600</Value>
+      </Variable>
+    </State>
+  </Category>
+  <Instance Name="WeaponPanelBG" BaseType="NineSlice" Locked="true" />
+  <Instance Name="ItemLabel" BaseType="Text" />
+  <Instance Name="Icon2Instance" BaseType="Elements/Icon2" />
+  <Instance Name="Icon2Instance1" BaseType="Elements/Icon2" />
+  <Instance Name="WeaponPanel" BaseType="Container" />
+  <Instance Name="LeftLabel" BaseType="Text" />
+  <Behaviors />
+</ComponentSave>

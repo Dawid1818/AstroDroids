@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Custom/VolumeComponent</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="float" Name="Height" SetsValue="true">
+      <Value xsi:type="xsd:float">45</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LeftLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="LeftLabel.Text" ExposedAsName="LeftLabelText" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Music</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">68</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-2</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LeftLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LeftLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">10</Value>
+    </Variable>
+    <Variable Type="SlideCategory" Name="SlideCategoryState" SetsValue="true" />
+    <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
+      <Value xsi:type="xsd:string">Default</Value>
+    </Variable>
+    <Variable Type="bool" Name="ValueLabel.LocalizeText" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="string" Name="ValueLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">100%</Value>
+    </Variable>
+    <Variable Type="float" Name="ValueLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">120</Value>
+    </Variable>
+    <Variable Type="float" Name="ValueLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">10</Value>
+    </Variable>
+    <Variable Type="float" Name="VolumeSlider.SliderPercent" SetsValue="true">
+      <Value xsi:type="xsd:float">100</Value>
+    </Variable>
+    <Variable Type="float" Name="VolumeSlider.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-13</Value>
+    </Variable>
+    <Variable Type="float" Name="VolumeSlider.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">8</Value>
+    </Variable>
+    <Variable Type="float" Name="Width" SetsValue="true">
+      <Value xsi:type="xsd:float">293</Value>
+    </Variable>
+  </State>
+  <Category>
+    <Name>SlideCategory</Name>
+    <State>
+      <Name>Idle</Name>
+      <Variable Type="float" Name="X" Category="Position" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Right</Name>
+      <Variable Type="float" Name="X" SetsValue="true">
+        <Value xsi:type="xsd:float">600</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Left</Name>
+      <Variable Type="float" Name="X" Category="Position" SetsValue="true">
+        <Value xsi:type="xsd:float">-600</Value>
+      </Variable>
+    </State>
+  </Category>
+  <Instance Name="VolumeSlider" BaseType="Controls/Slider" />
+  <Instance Name="LeftLabel" BaseType="Text" />
+  <Instance Name="ValueLabel" BaseType="Text" />
+  <Behaviors />
+</ComponentSave>

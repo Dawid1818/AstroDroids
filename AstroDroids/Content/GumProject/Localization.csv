@@ -30,3 +30,17 @@ T_Level2,Level 2, Poziom 2
 T_Level3,Level 3, Poziom 3
 T_Level4,Level 4, Poziom 4
 T_Level5,Level 5, Poziom 5
+T_Controls,Controls,Sterowanie
+T_Audio,Audio,Audio
+T_Graphics,Graphics,Grafika
+T_Language,Language,Język
+T_Volume,Volume,Głośność
+T_Music,Music,Muzyka
+T_SoundEffects,Sound effects,Efekty dźwiękowe
+T_Resolution,Resolution,Rozdzielczość
+T_Fullscreen,Fullscreen,Pełny ekran
+T_Mode,Mode,Tryb
+T_Windowed,Windowed,Okno
+T_BorderlessFullscreen,Borderless Fullscreen,Pełny ekran bez ramek
+T_English,English,Angielski
+T_Polish,Polish,Polski

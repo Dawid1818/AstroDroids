@@ -43,15 +43,16 @@ namespace AstroDroids
             NativeErrorHandler.Setup();
 
             //Window.Position = new Point(0, 0);
-            SDL_MaximizeWindow(Window.Handle);
+            //SDL_MaximizeWindow(Window.Handle);
         }
 
         protected override void LoadContent()
         {
             InputSystem.Initialize();
+            Screen.Initialize(this);
+            SettingsManager.Initialize(this);
             TextureManager.Initialize(this);
             SoundManager.Initialize(this);
-            Screen.Initialize(this);
             GameDatabase.Initialize();
             LevelManager.Initialize();
             TransitionManager.Initialize();

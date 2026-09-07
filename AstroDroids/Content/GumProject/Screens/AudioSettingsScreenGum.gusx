@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>AudioSettingsScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="Animations" Name="AnimationsState" SetsValue="true" />
+    <Variable Type="string" Name="BackBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="BackBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Return</Value>
+    </Variable>
+    <Variable Type="float" Name="BackBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="BackBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BackBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="BackBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="ChildrenLayout" Name="ButtonContainer.ChildrenLayout" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">153</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.StackSpacing" SetsValue="true">
+      <Value xsi:type="xsd:float">12</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ButtonContainer.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ButtonContainer.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ButtonContainer.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ButtonContainer.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="string" Name="MusicVolumeControl.LeftLabelText" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Music</Value>
+    </Variable>
+    <Variable Type="string" Name="MusicVolumeControl.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="float" Name="MusicVolumeControl.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-107</Value>
+    </Variable>
+    <Variable Type="string" Name="SoundEffectsVolumeControl.LeftLabelText" SetsValue="true">
+      <Value xsi:type="xsd:string">T_SoundEffects</Value>
+    </Variable>
+    <Variable Type="string" Name="SoundEffectsVolumeControl.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="float" Name="SoundEffectsVolumeControl.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-107</Value>
+    </Variable>
+  </State>
+  <Category>
+    <Name>Animations</Name>
+  </Category>
+  <Instance Name="ButtonContainer" BaseType="Container" />
+  <Instance Name="MusicVolumeControl" BaseType="Custom/VolumeComponent" />
+  <Instance Name="SoundEffectsVolumeControl" BaseType="Custom/VolumeComponent" />
+  <Instance Name="BackBtn" BaseType="Controls/ButtonGlow" />
+  <Behaviors />
+</ScreenSave>

@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>SettingsScreenGum</Name>
+  <Name>GraphicsSettingsScreenGum</Name>
   <State>
     <Name>Default</Name>
     <Variable Type="Animations" Name="AnimationsState" SetsValue="true" />
-    <Variable Type="string" Name="AudioBtn.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">ButtonContainer</Value>
-    </Variable>
-    <Variable Type="string" Name="AudioBtn.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">T_Audio</Value>
-    </Variable>
-    <Variable Type="float" Name="AudioBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="AudioBtn.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="AudioBtn.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="AudioBtn.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
     <Variable Type="string" Name="BackBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ButtonContainer</Value>
     </Variable>
@@ -44,10 +26,13 @@
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="float" Name="ButtonContainer.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">256</Value>
+      <Value xsi:type="xsd:float">153</Value>
     </Variable>
     <Variable Type="float" Name="ButtonContainer.StackSpacing" SetsValue="true">
       <Value xsi:type="xsd:float">12</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">198</Value>
     </Variable>
     <Variable Type="float" Name="ButtonContainer.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -67,52 +52,40 @@
     <Variable Type="PositionUnitType" Name="ButtonContainer.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
-    <Variable Type="string" Name="ControlsBtn.Parent" SetsValue="true">
+    <Variable Type="float" Name="ResolutionList.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">29</Value>
+    </Variable>
+    <Variable Type="string" Name="ResolutionList.LeftLabelText" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Resolution</Value>
+    </Variable>
+    <Variable Type="string" Name="ResolutionList.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ButtonContainer</Value>
     </Variable>
-    <Variable Type="string" Name="ControlsBtn.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">T_Controls</Value>
+    <Variable Type="float" Name="ResolutionList.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">200</Value>
     </Variable>
-    <Variable Type="float" Name="ControlsBtn.X" SetsValue="true">
+    <Variable Type="float" Name="ResolutionList.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
-    <Variable Type="HorizontalAlignment" Name="ControlsBtn.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
+    <Variable Type="float" Name="ResolutionList.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-3</Value>
     </Variable>
-    <Variable Type="PositionUnitType" Name="ControlsBtn.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
+    <Variable Type="float" Name="VideoModeList.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">29</Value>
     </Variable>
-    <Variable Type="float" Name="ControlsBtn.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
+    <Variable Type="string" Name="VideoModeList.LeftLabelText" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Mode</Value>
     </Variable>
-    <Variable Type="string" Name="GraphicsBtn.Parent" SetsValue="true">
+    <Variable Type="string" Name="VideoModeList.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ButtonContainer</Value>
     </Variable>
-    <Variable Type="string" Name="GraphicsBtn.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">T_Graphics</Value>
+    <Variable Type="float" Name="VideoModeList.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">200</Value>
     </Variable>
-    <Variable Type="float" Name="GraphicsBtn.X" SetsValue="true">
+    <Variable Type="float" Name="VideoModeList.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
-    <Variable Type="HorizontalAlignment" Name="GraphicsBtn.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="GraphicsBtn.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="GraphicsBtn.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="string" Name="LanguageList.LeftLabelText" SetsValue="true">
-      <Value xsi:type="xsd:string">T_Language</Value>
-    </Variable>
-    <Variable Type="string" Name="LanguageList.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">ButtonContainer</Value>
-    </Variable>
-    <Variable Type="float" Name="LanguageList.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="float" Name="LanguageList.Y" SetsValue="true">
+    <Variable Type="float" Name="VideoModeList.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-3</Value>
     </Variable>
   </State>
@@ -120,10 +93,8 @@
     <Name>Animations</Name>
   </Category>
   <Instance Name="ButtonContainer" BaseType="Container" />
-  <Instance Name="ControlsBtn" BaseType="Controls/ButtonGlow" />
-  <Instance Name="AudioBtn" BaseType="Controls/ButtonGlow" />
-  <Instance Name="GraphicsBtn" BaseType="Controls/ButtonGlow" />
-  <Instance Name="LanguageList" BaseType="Custom/HorizontalList" />
+  <Instance Name="VideoModeList" BaseType="Custom/HorizontalList" />
+  <Instance Name="ResolutionList" BaseType="Custom/HorizontalList" />
   <Instance Name="BackBtn" BaseType="Controls/ButtonGlow" />
   <Behaviors />
 </ScreenSave>

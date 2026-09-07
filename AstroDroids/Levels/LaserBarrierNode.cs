@@ -28,15 +28,24 @@ namespace AstroDroids.Levels
             Health = reader.ReadInt32();
 
             Type = (LaserBarrierType)reader.ReadInt32();
-            HasEnemy = reader.ReadBoolean();
 
-            if(HasEnemy)
+            if (version >= 14)
             {
-                Enemy = new EnemySpawnEntry();
-                Enemy.Load(reader, version);
+                HasEnemy = reader.ReadBoolean();
+
+                if (HasEnemy)
+                {
+                    Enemy = new EnemySpawnEntry();
+                    Enemy.Load(reader, version);
+                }
+                else
+                {
+                    Enemy = null;
+                }
             }
             else
             {
+                HasEnemy = false;
                 Enemy = null;
             }
         }
