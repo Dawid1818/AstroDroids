@@ -1,5 +1,6 @@
 using AstroDroids.Components.Elements;
 using AstroDroids.Interfaces;
+using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Gum.Converters;
 using Gum.DataTypes;
@@ -23,11 +24,29 @@ namespace AstroDroids.Screens
             MusicVolumeControl.X = -600;
             SoundEffectsVolumeControl.X = -600;
 
+            MusicVolumeControl.SetValue(SettingsManager.curSettings.MusicVolume);
+            SoundEffectsVolumeControl.SetValue(SettingsManager.curSettings.SoundVolume);
+
+            MusicVolumeControl.ValueChanged += MusicVolumeChanged;
+            SoundEffectsVolumeControl.ValueChanged += SoundVolumeChanged;
+
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
             hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
 
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
+        }
+
+        private void SoundVolumeChanged()
+        {
+            SettingsManager.curSettings.SoundVolume = SoundEffectsVolumeControl.GetValue();
+            SoundManager.SoundVolume = SettingsManager.curSettings.SoundVolume;
+        }
+
+        private void MusicVolumeChanged()
+        {
+            SettingsManager.curSettings.MusicVolume = MusicVolumeControl.GetValue();
+            SoundManager.MusicVolume = SettingsManager.curSettings.MusicVolume;
         }
 
         public void Update(GameTime gameTime)
@@ -64,6 +83,7 @@ namespace AstroDroids.Screens
 
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
+            SettingsManager.Save();
             scene.SetPage(new SettingsScreenGum());
         }
 
@@ -74,6 +94,7 @@ namespace AstroDroids.Screens
 
         public void BackPressed()
         {
+            SettingsManager.Save();
             scene.SetPage(new SettingsScreenGum());
         }
     }

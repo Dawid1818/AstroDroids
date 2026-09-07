@@ -10,6 +10,8 @@ namespace AstroDroids.Components.Custom
 {
     partial class VolumeComponent
     {
+        public Action ValueChanged;
+
         partial void CustomInitialize()
         {
             VolumeSlider.ValueChangedByUi += VolumeSlider_ValueChangedByUi;
@@ -18,6 +20,18 @@ namespace AstroDroids.Components.Custom
         private void VolumeSlider_ValueChangedByUi(object sender, EventArgs e)
         {
             ValueLabel.Text = ((int)VolumeSlider.Value).ToString() + "%";
+            ValueChanged?.Invoke();
+        }
+
+        public void SetValue(float volume)
+        {
+            VolumeSlider.Value = volume * 100;
+            ValueLabel.Text = ((int)VolumeSlider.Value).ToString() + "%";
+        }
+
+        public float GetValue()
+        {
+            return (float)VolumeSlider.Value / 100f;
         }
     }
 }

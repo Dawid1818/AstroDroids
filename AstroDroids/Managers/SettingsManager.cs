@@ -23,14 +23,12 @@ namespace AstroDroids.Managers
                 if (File.Exists(Path.Combine(DataDir, Filename)))
                 {
                     Load();
-                    ApplyVideoSettings();
-                    ApplyLanguage();
+                    ApplyAllSettings();
                 }
                 else
                 {
                     CreateNew(game.GraphicsDevice.Adapter.CurrentDisplayMode);
-                    ApplyVideoSettings();
-                    ApplyLanguage();
+                    ApplyAllSettings();
                     Save();
                 }
             }
@@ -38,8 +36,7 @@ namespace AstroDroids.Managers
             {
                 Directory.CreateDirectory(DataDir);
                 CreateNew(game.GraphicsDevice.Adapter.CurrentDisplayMode);
-                ApplyVideoSettings();
-                ApplyLanguage();
+                ApplyAllSettings();
                 Save();
             }
         }
@@ -50,6 +47,13 @@ namespace AstroDroids.Managers
             curSettings.Video.DisplayMode = DisplayModeType.Borderless;
             curSettings.Video.VSync = true;
             curSettings.Video.Resolution = new Point(displayMode.Width, displayMode.Height);
+        }
+
+        public static void ApplyAllSettings()
+        {
+            ApplyVideoSettings();
+            ApplyLanguage();
+            ApplyVolume();
         }
 
         public static void Save()
@@ -89,6 +93,12 @@ namespace AstroDroids.Managers
         public static void ApplyLanguage()
         {
             Screen.GumUI.LocalizationService.CurrentLanguage = curSettings.LanguageId;
+        }
+
+        public static void ApplyVolume()
+        {
+            SoundManager.MusicVolume = curSettings.MusicVolume;
+            SoundManager.SoundVolume = curSettings.SoundVolume;
         }
     }
 }

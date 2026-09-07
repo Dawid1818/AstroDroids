@@ -43,6 +43,8 @@ namespace AstroDroids.Data
 
         public VideoSettings Video { get; set; } = new VideoSettings();
         public int LanguageId { get; set; } = 1;
+        public float MusicVolume { get; set; } = 1f;
+        public float SoundVolume { get; set; } = 1f;
 
         public void Load(BinaryReader reader, int version)
         {
@@ -55,6 +57,8 @@ namespace AstroDroids.Data
 
             Video = new VideoSettings();
             Video.Load(reader, actualVersion);
+            MusicVolume = reader.ReadSingle();
+            SoundVolume = reader.ReadSingle();
             LanguageId = reader.ReadInt32();
         }
 
@@ -65,6 +69,8 @@ namespace AstroDroids.Data
             writer.Write(FileVersion);
 
             Video.Save(writer);
+            writer.Write(MusicVolume);
+            writer.Write(SoundVolume);
             writer.Write(LanguageId);
         }
     }

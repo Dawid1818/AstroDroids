@@ -24,6 +24,9 @@ namespace AstroDroids.Managers
         static string targetMusic = string.Empty;
         static bool repeatingMusic = false;
         static bool stopped = true;
+
+        public static float SoundVolume { get; set; } = 1f;
+        public static float MusicVolume { get; set; } = 1f;
         public static void Initialize(AstroDroidsGame game)
         {
             if (initialized) return;
@@ -38,34 +41,31 @@ namespace AstroDroids.Managers
 
         static IEnumerator MusicCoroutine()
         {
-            while(true)
+            while (true)
             {
-                if(targetMusic == string.Empty && !stopped)
+                if (targetMusic == string.Empty && !stopped)
                 {
-                    if (MediaPlayer.State == MediaState.Playing)
+                    while (MediaPlayer.Volume > 0f)
                     {
-                        while (MediaPlayer.Volume > 0f)
-                        {
-                            MediaPlayer.Volume -= 0.01f;
-                            yield return null;
-                        }
-                        stopped = true;
-                        MediaPlayer.Stop();
+                        MediaPlayer.Volume = MathHelper.Max(0f, MediaPlayer.Volume - 0.01f);
+
+                        yield return null;
                     }
+
+                    MediaPlayer.Stop();
+                    CurrentMusic = string.Empty;
+                    stopped = true;
                 }
-                else if ((CurrentMusic != targetMusic) && !stopped)
+                else if (CurrentMusic != targetMusic && !stopped)
                 {
-                    if (MediaPlayer.State == MediaState.Playing)
+                    while (MediaPlayer.State == MediaState.Playing && MediaPlayer.Volume > 0f)
                     {
-                        while (MediaPlayer.Volume > 0f)
-                        {
-                            MediaPlayer.Volume -= 0.01f;
-                            yield return null;
-                        }
+                        MediaPlayer.Volume = MathHelper.Max(0f, MediaPlayer.Volume - 0.01f);
 
-                        MediaPlayer.Stop();
+                        yield return null;
                     }
 
+                    MediaPlayer.Stop();
                     MediaPlayer.Volume = 0f;
 
                     if (!string.IsNullOrEmpty(targetMusic) && music.ContainsKey(targetMusic))
@@ -73,12 +73,24 @@ namespace AstroDroids.Managers
                         MediaPlayer.Play(music[targetMusic]);
                         MediaPlayer.IsRepeating = repeatingMusic;
                         CurrentMusic = targetMusic;
-                    }
 
-                    while (MediaPlayer.Volume < 1f)
+                        while (MediaPlayer.Volume < MusicVolume)
+                        {
+                            MediaPlayer.Volume = MathHelper.Min(MusicVolume, MediaPlayer.Volume + 0.01f);
+
+                            yield return null;
+                        }
+                    }
+                }
+                else if (!stopped && MediaPlayer.State == MediaState.Playing)
+                {
+                    if (MediaPlayer.Volume < MusicVolume)
                     {
-                        MediaPlayer.Volume += 0.01f;
-                        yield return null;
+                        MediaPlayer.Volume = MathHelper.Min(MusicVolume, MediaPlayer.Volume + 0.01f);
+                    }
+                    else if (MediaPlayer.Volume > MusicVolume)
+                    {
+                        MediaPlayer.Volume = MathHelper.Max(MusicVolume, MediaPlayer.Volume - 0.01f);
                     }
                 }
 
