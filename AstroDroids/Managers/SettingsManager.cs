@@ -1,10 +1,11 @@
 ﻿using AstroDroids.Data;
 using AstroDroids.Graphics;
-using Gum.Forms;
+using AstroDroids.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace AstroDroids.Managers
@@ -47,6 +48,7 @@ namespace AstroDroids.Managers
             curSettings.Video.DisplayMode = DisplayModeType.Borderless;
             curSettings.Video.VSync = true;
             curSettings.Video.Resolution = new Point(displayMode.Width, displayMode.Height);
+            curSettings.Actions = InputSystem.CreateDefaultActions();
         }
 
         public static void ApplyAllSettings()
@@ -83,11 +85,21 @@ namespace AstroDroids.Managers
             str.Close();
 
             curSettings = copy;
+
+            if (curSettings.Actions.Count != 7)
+            {
+                curSettings.Actions = InputSystem.CreateDefaultActions();
+            }
         }
 
         public static void ApplyVideoSettings()
         {
             Screen.ApplyVideoSettings();
+        }
+
+        public static void ApplyRebinds()
+        {
+            InputSystem.ApplyRebinds(curSettings.Actions);
         }
 
         public static void ApplyLanguage()

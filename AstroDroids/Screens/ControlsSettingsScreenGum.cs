@@ -1,41 +1,26 @@
 using AstroDroids.Components.Elements;
-using AstroDroids.Graphics;
 using AstroDroids.Interfaces;
-using AstroDroids.Managers;
 using AstroDroids.Scenes;
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
 using Microsoft.Xna.Framework;
-using RenderingLibrary.Graphics;
 using System;
 
 namespace AstroDroids.Screens
 {
-    partial class SettingsScreenGum : IMenuPage
+    partial class ControlsSettingsScreenGum : IMenuPage
     {
         MainMenuScene scene;
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
         {
             this.scene = scene;
             BackBtn.Click += ReturnBtn_Click;
-            ControlsBtn.Click += ControlsBtn_Click;
-            AudioBtn.Click += AudioBtn_Click;
-            GraphicsBtn.Click += GraphicsBtn_Click;
+            KeyboardBtn.Click += KeyboardBtn_Click;
+            MouseBtn.Click += MouseBtn_Click;
+            GamepadBtn.Click += GamepadBtn_Click;
 
             BackBtn.X = -600;
-            ControlsBtn.X = -600;
-            AudioBtn.X = -600;
-            GraphicsBtn.X = -600;
-            LanguageList.X = -600;
-
-            LanguageList.LocalizeText = true;
-            LanguageList.AddItem("T_English");
-            LanguageList.AddItem("T_Polish");
-
-            LanguageList.SelectionChanged += LanguageList_SelectionChanged;
-            LanguageList.SelectedIndex = SettingsManager.curSettings.LanguageId - 1;
+            KeyboardBtn.X = -600;
+            MouseBtn.X = -600;
+            GamepadBtn.X = -600;
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
@@ -44,30 +29,19 @@ namespace AstroDroids.Screens
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
         }
 
-        private void LanguageList_SelectionChanged()
+        private void GamepadBtn_Click(object sender, EventArgs e)
         {
-            SettingsManager.curSettings.LanguageId = LanguageList.SelectedIndex + 1;
-            SettingsManager.ApplyLanguage();
+            scene.SetPage(new RebindingSettingsScreenGum(false), false);
         }
 
-        private void AudioBtn_Click(object sender, EventArgs e)
+        private void MouseBtn_Click(object sender, EventArgs e)
         {
-            scene.SetPage(new AudioSettingsScreenGum(), false);
+
         }
 
-        private void LanguageBtn_Click(object sender, System.EventArgs e)
+        private void KeyboardBtn_Click(object sender, EventArgs e)
         {
-            Screen.GumUI.LocalizationService.CurrentLanguage = 1;
-        }
-
-        private void GraphicsBtn_Click(object sender, System.EventArgs e)
-        {
-            scene.SetPage(new GraphicsSettingsScreenGum(), false);
-        }
-
-        private void ControlsBtn_Click(object sender, System.EventArgs e)
-        {
-            scene.SetPage(new ControlsSettingsScreenGum(), false);
+            scene.SetPage(new RebindingSettingsScreenGum(true), false);
         }
 
         public void Update(GameTime gameTime)
@@ -82,7 +56,7 @@ namespace AstroDroids.Screens
 
         private void AnimationController_OnCompleted()
         {
-            ControlsBtn.IsFocused = true;
+            KeyboardBtn.IsFocused = true;
             Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
         }
 
@@ -104,19 +78,19 @@ namespace AstroDroids.Screens
 
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
-            SettingsManager.Save();
-            scene.SetPage(new MainMenuScreenGum(), false);
+            //SettingsManager.Save();
+            scene.SetPage(new SettingsScreenGum(), false);
         }
 
         partial void CustomInitialize()
         {
-            
+
         }
 
         public void BackPressed()
         {
-            SettingsManager.Save();
-            scene.SetPage(new MainMenuScreenGum(), false);
+            //SettingsManager.Save();
+            scene.SetPage(new SettingsScreenGum(), false);
         }
     }
 }

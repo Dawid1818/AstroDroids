@@ -60,6 +60,7 @@
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>1</CurrentLanguageIndex>
   <ScreenReference Name="AudioSettingsScreenGum" />
+  <ScreenReference Name="ControlsSettingsScreenGum" />
   <ScreenReference Name="CurveEditorScreenGum" />
   <ScreenReference Name="DemoScreenGum" />
   <ScreenReference Name="GamemodeScreenGum" />
@@ -70,6 +71,7 @@
   <ScreenReference Name="LevelEditorScreenGum" />
   <ScreenReference Name="MainMenuScreenGum" />
   <ScreenReference Name="MissionScreenGum" />
+  <ScreenReference Name="RebindingSettingsScreenGum" />
   <ScreenReference Name="SettingsScreenGum" />
   <ScreenReference Name="ShipCustomizationScreenGum" />
   <ComponentReference Name="Controls/ButtonClose" />
@@ -118,6 +120,7 @@
   <ComponentReference Name="Custom/ActionHint" />
   <ComponentReference Name="Custom/CheckBoxGlow" />
   <ComponentReference Name="Custom/HorizontalList" />
+  <ComponentReference Name="Custom/InputActionComponent" />
   <ComponentReference Name="Custom/LevelCard" />
   <ComponentReference Name="Custom/SliderGlow" />
   <ComponentReference Name="Custom/VolumeComponent" />

@@ -952,6 +952,440 @@
         "ElementType": "Screens",
         "EventType": 6,
         "TimestampUtc": "2026-09-08T12:07:24.4432744Z"
+      },
+      {
+        "NewName": "SettingsScreenGum1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-08T12:25:02.8393026Z"
+      },
+      {
+        "NewName": "ControlsSettingsScreenGum",
+        "OldName": "SettingsScreenGum1",
+        "ElementType": "Screens",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T12:25:13.307895Z"
+      },
+      {
+        "NewName": "ControlsSettingsScreenGum.KeyboardBtn",
+        "OldName": "ControlsSettingsScreenGum.ControlsBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:27:42.7245388Z"
+      },
+      {
+        "NewName": "ControlsSettingsScreenGum.MouseBtn",
+        "OldName": "ControlsSettingsScreenGum.AudioBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:27:45.3121709Z"
+      },
+      {
+        "NewName": "ControlsSettingsScreenGum.GamepadBtn",
+        "OldName": "ControlsSettingsScreenGum.GraphicsBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:27:47.6928248Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ControlsSettingsScreenGum.Custom/HorizontalList LanguageList in ControlsSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T12:27:50.0733142Z"
+      },
+      {
+        "NewName": "ControlsSettingsScreenGum1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-08T12:32:56.2858761Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum",
+        "OldName": "ControlsSettingsScreenGum1",
+        "ElementType": "Screens",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T12:33:05.3805885Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-08T12:37:33.2780487Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent",
+        "OldName": "Custom/HorizontalList1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T12:39:12.8556732Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionComponentInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:41:24.8576817Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionComponentInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:41:43.7730843Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionComponentInstance2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:41:44.6842961Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionComponentInstance3",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:41:45.4570811Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionComponentInstance4",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:41:46.1644814Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionComponentInstance5",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:41:46.8142075Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionComponentInstance6",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:41:47.4056641Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "KeyboardSettingsScreenGum.Controls/ButtonGlow KeyboardBtn in KeyboardSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T12:41:54.4901942Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "KeyboardSettingsScreenGum.Controls/ButtonGlow MouseBtn in KeyboardSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T12:41:54.492112Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "KeyboardSettingsScreenGum.Controls/ButtonGlow GamepadBtn in KeyboardSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T12:41:54.5003179Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom1",
+        "OldName": "KeyboardSettingsScreenGum.InputActionComponentInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:32.7567441Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom1",
+        "OldName": "KeyboardSettingsScreenGum.InputActionCom1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:38.5314802Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom2",
+        "OldName": "KeyboardSettingsScreenGum.InputActionComponentInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:41.2792514Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom3",
+        "OldName": "KeyboardSettingsScreenGum.InputActionComponentInstance2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:43.241239Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom4",
+        "OldName": "KeyboardSettingsScreenGum.InputActionComponentInstance3",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:44.5115227Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom5",
+        "OldName": "KeyboardSettingsScreenGum.InputActionComponentInstance4",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:46.311453Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom6",
+        "OldName": "KeyboardSettingsScreenGum.InputActionComponentInstance5",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:47.7042261Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum.InputActionCom7",
+        "OldName": "KeyboardSettingsScreenGum.InputActionComponentInstance6",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:42:49.115651Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7363884Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7375735Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7451787Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7528553Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7605913Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7674974Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7759027Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7835386Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.7906395Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.8004901Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.8072507Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.8160122Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.8234043Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).Background",
+        "OldName": "Custom/HorizontalList (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:12.8300247Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.2902159Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.2914865Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3003065Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3068399Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3146607Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3220172Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3292612Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.335665Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3430212Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.350603Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3572286Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3647966Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3712779Z"
+      },
+      {
+        "NewName": "Custom/InputActionComponent (Container).Background",
+        "OldName": "Custom/InputActionComponent (Container).WeaponPanelBG",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T12:47:20.3790664Z"
+      },
+      {
+        "NewName": "InputActionCategory",
+        "OldName": "HorizontaListCategory",
+        "ElementType": "Components",
+        "EventType": 4,
+        "TimestampUtc": "2026-09-08T13:00:05.8455834Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/InputActionComponent (Container).Elements/Icon2 LeftArrowIcon in Custom/InputActionComponent (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T13:00:10.8506647Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/InputActionComponent (Container).Elements/Icon2 RightArrowIcon in Custom/InputActionComponent (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T13:00:12.3195113Z"
+      },
+      {
+        "NewName": "KeyboardSettingsScreenGum1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-08T13:32:36.1512519Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "KeyboardSettingsScreenGum1",
+        "ElementType": "Screens",
+        "EventType": 1,
+        "TimestampUtc": "2026-09-08T13:32:46.3758257Z"
+      },
+      {
+        "NewName": "RebindingSettingsScreenGum",
+        "OldName": "KeyboardSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T13:45:46.4509583Z"
       }
     ]
   }

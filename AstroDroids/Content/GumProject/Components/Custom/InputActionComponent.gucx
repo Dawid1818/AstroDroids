@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ComponentSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>Custom/HorizontalList</Name>
+  <Name>Custom/InputActionComponent</Name>
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
+    <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="float" Name="Background.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="Background.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="Background.Parent" SetsValue="true" />
+    <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="float" Name="Background.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="Background.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="Background.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Background.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Background.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Background.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Background.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Background.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
     <Variable Type="int" Name="FocusedIndicator.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
     </Variable>
@@ -56,7 +93,7 @@
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">30</Value>
     </Variable>
-    <Variable Type="HorizontaListCategory" Name="HorizontaListCategoryState" SetsValue="true" />
+    <Variable Type="InputActionCategory" Name="InputActionCategoryState" SetsValue="true" />
     <Variable Type="float" Name="ItemLabel.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
@@ -97,40 +134,6 @@
     <Variable Type="PositionUnitType" Name="ItemLabel.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
-    <Variable Type="bool" Name="LeftArrowIcon.FlipHorizontal" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="bool" Name="LeftArrowIcon.HasEvents" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="float" Name="LeftArrowIcon.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-1</Value>
-    </Variable>
-    <Variable Type="IconCategory" Name="LeftArrowIcon.IconCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Arrow2</Value>
-    </Variable>
-    <Variable Type="string" Name="LeftArrowIcon.Parent" SetsValue="true" />
-    <Variable Type="float" Name="LeftArrowIcon.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-13</Value>
-    </Variable>
-    <Variable Type="float" Name="LeftArrowIcon.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="LeftArrowIcon.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="LeftArrowIcon.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="float" Name="LeftArrowIcon.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="LeftArrowIcon.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="LeftArrowIcon.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">7</Value>
-    </Variable>
     <Variable Type="float" Name="LeftLabel.DropshadowBlur" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
@@ -166,77 +169,9 @@
     <Variable Type="float" Name="LeftLabel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">6</Value>
     </Variable>
-    <Variable Type="bool" Name="RightArrowIcon.HasEvents" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="float" Name="RightArrowIcon.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-1</Value>
-    </Variable>
-    <Variable Type="IconCategory" Name="RightArrowIcon.IconCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Arrow2</Value>
-    </Variable>
-    <Variable Type="string" Name="RightArrowIcon.Parent" SetsValue="true" />
-    <Variable Type="float" Name="RightArrowIcon.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-13</Value>
-    </Variable>
-    <Variable Type="float" Name="RightArrowIcon.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="RightArrowIcon.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="RightArrowIcon.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">4</Value>
-    </Variable>
-    <Variable Type="float" Name="RightArrowIcon.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="RightArrowIcon.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="RightArrowIcon.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">7</Value>
-    </Variable>
     <Variable Type="SlideCategory" Name="SlideCategoryState" SetsValue="true" />
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
-    </Variable>
-    <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Primary</Value>
-    </Variable>
-    <Variable Type="float" Name="Background.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="Background.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="string" Name="Background.Parent" SetsValue="true" />
-    <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Panel</Value>
-    </Variable>
-    <Variable Type="float" Name="Background.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="Background.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="float" Name="Background.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="Background.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="Background.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="Background.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="Background.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="Background.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">7</Value>
     </Variable>
   </State>
   <Category>
@@ -261,7 +196,7 @@
     </State>
   </Category>
   <Category>
-    <Name>HorizontaListCategory</Name>
+    <Name>InputActionCategory</Name>
     <State>
       <Name>Enabled</Name>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
@@ -486,8 +421,6 @@
   <Instance Name="Background" BaseType="NineSlice" Locked="true" />
   <Instance Name="FocusedIndicator" BaseType="NineSlice" />
   <Instance Name="LeftLabel" BaseType="Text" />
-  <Instance Name="LeftArrowIcon" BaseType="Elements/Icon2" />
-  <Instance Name="RightArrowIcon" BaseType="Elements/Icon2" />
   <Instance Name="ItemLabel" BaseType="Text" />
   <Behaviors />
 </ComponentSave>

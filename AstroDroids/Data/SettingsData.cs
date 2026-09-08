@@ -1,7 +1,9 @@
 ﻿using AstroDroids.Extensions;
+using AstroDroids.Input;
 using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using System.IO;
 
 namespace AstroDroids.Data
@@ -45,6 +47,7 @@ namespace AstroDroids.Data
         public int LanguageId { get; set; } = 1;
         public float MusicVolume { get; set; } = 1f;
         public float SoundVolume { get; set; } = 1f;
+        public Dictionary<GameAction, ButtonInputAction> Actions { get; set; } = new Dictionary<GameAction, ButtonInputAction>();
 
         public void Load(BinaryReader reader, int version)
         {

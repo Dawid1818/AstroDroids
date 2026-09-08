@@ -4,6 +4,7 @@ using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGameGum.Input;
+using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Input
@@ -33,7 +34,15 @@ namespace AstroDroids.Input
 
         public static void Initialize()
         {
-            Actions = new Dictionary<GameAction, ButtonInputAction>
+            Actions = CreateDefaultActions();
+
+            defaultCursor = new Cursor(AstroDroidsGame.Instance.Window);
+            disabledCursor = new DisabledCursor();
+        }
+
+        public static Dictionary<GameAction, ButtonInputAction> CreateDefaultActions()
+        {
+            return new Dictionary<GameAction, ButtonInputAction>
             {
                 { GameAction.Up, new ButtonInputAction(Keys.Up, Buttons.DPadUp) },
                 { GameAction.Down, new ButtonInputAction(Keys.Down, Buttons.DPadDown) },
@@ -43,9 +52,11 @@ namespace AstroDroids.Input
                 { GameAction.NextWeapon, new ButtonInputAction(Keys.X, Buttons.B) },
                 { GameAction.Focus, new ButtonInputAction(Keys.C, Buttons.X) },
             };
+        }
 
-            defaultCursor = new Cursor(AstroDroidsGame.Instance.Window);
-            disabledCursor = new DisabledCursor();
+        public static void ApplyRebinds(Dictionary<GameAction, ButtonInputAction> newActions)
+        {
+            Actions = newActions;
         }
 
         public static void Begin()
@@ -295,6 +306,26 @@ namespace AstroDroids.Input
         internal static void EnableUIMouse()
         {
             FormsUtilities.SetCursor(defaultCursor);
+        }
+
+        internal static Keys[] GetAllPressedKeys()
+        {
+            return kState.GetPressedKeys();
+        }
+
+        internal static List<Buttons> GetAllPressedGamepadButtons()
+        {
+            List<Buttons> pressedButtons = new List<Buttons>();
+
+            foreach (Buttons btn in Enum.GetValues(typeof(Buttons)))
+            {
+                if (gState.IsButtonDown(btn))
+                {
+                    pressedButtons.Add(btn);
+                }
+            }
+
+            return pressedButtons;
         }
     }
 }

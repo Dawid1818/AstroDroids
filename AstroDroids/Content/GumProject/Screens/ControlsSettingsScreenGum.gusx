@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>ControlsSettingsScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="Animations" Name="AnimationsState" SetsValue="true" />
+    <Variable Type="string" Name="BackBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="BackBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Return</Value>
+    </Variable>
+    <Variable Type="float" Name="BackBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="BackBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BackBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="BackBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="ChildrenLayout" Name="ButtonContainer.ChildrenLayout" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">166</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.StackSpacing" SetsValue="true">
+      <Value xsi:type="xsd:float">12</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ButtonContainer.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ButtonContainer.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ButtonContainer.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ButtonContainer.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="string" Name="GamepadBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="GamepadBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Gamepad</Value>
+    </Variable>
+    <Variable Type="float" Name="GamepadBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="GamepadBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="GamepadBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="GamepadBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="string" Name="KeyboardBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="KeyboardBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Keyboard</Value>
+    </Variable>
+    <Variable Type="float" Name="KeyboardBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="KeyboardBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="KeyboardBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="KeyboardBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="string" Name="MouseBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="MouseBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Mouse</Value>
+    </Variable>
+    <Variable Type="float" Name="MouseBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MouseBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MouseBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="MouseBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+  </State>
+  <Category>
+    <Name>Animations</Name>
+  </Category>
+  <Instance Name="ButtonContainer" BaseType="Container" />
+  <Instance Name="KeyboardBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="MouseBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="GamepadBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="BackBtn" BaseType="Controls/ButtonGlow" />
+  <Behaviors />
+</ScreenSave>
