@@ -56,40 +56,7 @@
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">30</Value>
     </Variable>
-    <Variable Type="bool" Name="LeftArrowIcon.FlipHorizontal" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="bool" Name="LeftArrowIcon.HasEvents" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="float" Name="LeftArrowIcon.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-1</Value>
-    </Variable>
-    <Variable Type="IconCategory" Name="LeftArrowIcon.IconCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Arrow2</Value>
-    </Variable>
-    <Variable Type="string" Name="LeftArrowIcon.Parent" SetsValue="true" />
-    <Variable Type="float" Name="LeftArrowIcon.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-13</Value>
-    </Variable>
-    <Variable Type="float" Name="LeftArrowIcon.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="LeftArrowIcon.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="LeftArrowIcon.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="float" Name="LeftArrowIcon.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="LeftArrowIcon.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="LeftArrowIcon.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">7</Value>
-    </Variable>
+    <Variable Type="HorizontaListCategory" Name="HorizontaListCategoryState" SetsValue="true" />
     <Variable Type="float" Name="ItemLabel.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
@@ -129,6 +96,52 @@
     </Variable>
     <Variable Type="PositionUnitType" Name="ItemLabel.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="bool" Name="LeftArrowIcon.FlipHorizontal" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="bool" Name="LeftArrowIcon.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftArrowIcon.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-1</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="LeftArrowIcon.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Arrow2</Value>
+    </Variable>
+    <Variable Type="string" Name="LeftArrowIcon.Parent" SetsValue="true" />
+    <Variable Type="float" Name="LeftArrowIcon.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-13</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftArrowIcon.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LeftArrowIcon.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LeftArrowIcon.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftArrowIcon.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="LeftArrowIcon.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LeftArrowIcon.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="LeftLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="LeftLabel.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>

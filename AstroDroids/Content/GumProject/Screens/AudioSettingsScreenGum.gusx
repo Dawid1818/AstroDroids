@@ -55,8 +55,11 @@
     <Variable Type="string" Name="MusicVolumeControl.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ButtonContainer</Value>
     </Variable>
+    <Variable Type="float" Name="MusicVolumeControl.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">183</Value>
+    </Variable>
     <Variable Type="float" Name="MusicVolumeControl.X" SetsValue="true">
-      <Value xsi:type="xsd:float">-107</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="string" Name="SoundEffectsVolumeControl.LeftLabelText" SetsValue="true">
       <Value xsi:type="xsd:string">T_SoundEffects</Value>
@@ -64,8 +67,11 @@
     <Variable Type="string" Name="SoundEffectsVolumeControl.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ButtonContainer</Value>
     </Variable>
+    <Variable Type="float" Name="SoundEffectsVolumeControl.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">183</Value>
+    </Variable>
     <Variable Type="float" Name="SoundEffectsVolumeControl.X" SetsValue="true">
-      <Value xsi:type="xsd:float">-107</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
   </State>
   <Category>

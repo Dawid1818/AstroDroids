@@ -47,7 +47,7 @@ namespace AstroDroids.Screens
 
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
-            scene.SetPage(new MainMenuScreenGum());
+            scene.SetPage(new MainMenuScreenGum(), false);
         }
 
         partial void CustomInitialize()
@@ -57,7 +57,7 @@ namespace AstroDroids.Screens
 
         public void BackPressed()
         {
-            scene.SetPage(new MainMenuScreenGum());
+            scene.SetPage(new MainMenuScreenGum(), false);
         }
     }
 }

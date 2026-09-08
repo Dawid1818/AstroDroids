@@ -15,6 +15,12 @@ namespace AstroDroids.Components.Custom
         partial void CustomInitialize()
         {
             VolumeSlider.ValueChangedByUi += VolumeSlider_ValueChangedByUi;
+            VolumeSlider.ThumbInstance.FocusUpdate += ThumbInstance_FocusUpdate;
+        }
+
+        private void ThumbInstance_FocusUpdate(IInputReceiver obj)
+        {
+            VolumeSlider.OnFocusUpdate();
         }
 
         private void VolumeSlider_ValueChangedByUi(object sender, EventArgs e)

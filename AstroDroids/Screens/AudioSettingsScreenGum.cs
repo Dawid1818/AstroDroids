@@ -61,7 +61,7 @@ namespace AstroDroids.Screens
 
         private void AnimationController_OnCompleted()
         {
-            MusicVolumeControl.IsFocused = true;
+            MusicVolumeControl.VolumeSlider.IsFocused = true;
             Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
         }
 
@@ -84,7 +84,7 @@ namespace AstroDroids.Screens
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
             SettingsManager.Save();
-            scene.SetPage(new SettingsScreenGum());
+            scene.SetPage(new SettingsScreenGum(), false);
         }
 
         partial void CustomInitialize()
@@ -95,7 +95,7 @@ namespace AstroDroids.Screens
         public void BackPressed()
         {
             SettingsManager.Save();
-            scene.SetPage(new SettingsScreenGum());
+            scene.SetPage(new SettingsScreenGum(), false);
         }
     }
 }

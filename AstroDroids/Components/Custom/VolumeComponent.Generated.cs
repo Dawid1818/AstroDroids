@@ -1,5 +1,5 @@
 //Code for Custom/VolumeComponent (Container)
-using AstroDroids.Components.Controls;
+using AstroDroids.Components.Custom;
 using Gum;
 using Gum.Converters;
 using Gum.DataTypes;
@@ -62,7 +62,7 @@ partial class VolumeComponent : global::Gum.Forms.Controls.FrameworkElement
             }
         }
     }
-    public Slider VolumeSlider { get; protected set; }
+    public SliderGlow VolumeSlider { get; protected set; }
     public TextRuntime LeftLabel { get; protected set; }
     public TextRuntime ValueLabel { get; protected set; }
 
@@ -89,7 +89,7 @@ partial class VolumeComponent : global::Gum.Forms.Controls.FrameworkElement
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        VolumeSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Slider>(this.Visual,"VolumeSlider");
+        VolumeSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<SliderGlow>(this.Visual,"VolumeSlider");
         LeftLabel = this.Visual?.GetGraphicalUiElementByName("LeftLabel") as global::Gum.GueDeriving.TextRuntime;
         ValueLabel = this.Visual?.GetGraphicalUiElementByName("ValueLabel") as global::Gum.GueDeriving.TextRuntime;
         SlideIn = this.Visual.GetAnimation("SlideIn");

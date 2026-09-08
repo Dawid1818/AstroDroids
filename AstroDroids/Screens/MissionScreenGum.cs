@@ -139,7 +139,7 @@ namespace AstroDroids.Screens
 
         void Return()
         {
-            scene.SetPage(new GamemodeScreenGum());
+            scene.SetPage(new GamemodeScreenGum(), true);
         }
     }
 }

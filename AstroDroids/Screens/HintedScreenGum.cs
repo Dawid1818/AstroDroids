@@ -7,6 +7,7 @@ using Gum.Managers;
 using Gum.Wireframe;
 
 using RenderingLibrary.Graphics;
+using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Screens
@@ -40,6 +41,16 @@ namespace AstroDroids.Screens
             {
                 item.InputMethodChanged(method);
             }
+        }
+
+        internal void HideLogo()
+        {
+            Visual.PlayAnimation(Leave);
+        }
+
+        internal void ShowLogo()
+        {
+            Visual.PlayAnimation(Enter);
         }
     }
 }

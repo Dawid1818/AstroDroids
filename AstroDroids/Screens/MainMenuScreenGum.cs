@@ -74,17 +74,17 @@ namespace AstroDroids.Screens
 
         private void PlayBtn_Click(object sender, EventArgs e)
         {
-            scene.SetPage(new GamemodeScreenGum());
+            scene.SetPage(new GamemodeScreenGum(), true);
         }
 
         private void CustomizeBtn_Click(object sender, EventArgs e)
         {
-            scene.SetPage(new ShipCustomizationScreenGum());
+            scene.SetPage(new ShipCustomizationScreenGum(), true);
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
-            scene.SetPage(new SettingsScreenGum());
+            scene.SetPage(new SettingsScreenGum(), false);
         }
 
 

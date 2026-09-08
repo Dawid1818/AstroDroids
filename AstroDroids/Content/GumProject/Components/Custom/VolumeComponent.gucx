@@ -7,8 +7,23 @@
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">45</Value>
     </Variable>
+    <Variable Type="float" Name="LeftLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="LeftLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="HorizontalAlignment" Name="LeftLabel.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="LeftLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="string" Name="LeftLabel.Text" ExposedAsName="LeftLabelText" SetsValue="true">
       <Value xsi:type="xsd:string">T_Music</Value>
@@ -17,7 +32,7 @@
       <Value xsi:type="xsd:float">68</Value>
     </Variable>
     <Variable Type="float" Name="LeftLabel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">-2</Value>
+      <Value xsi:type="xsd:float">-20</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="LeftLabel.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
@@ -32,6 +47,21 @@
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
     </Variable>
+    <Variable Type="float" Name="ValueLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ValueLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="ValueLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="ValueLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="bool" Name="ValueLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="bool" Name="ValueLabel.LocalizeText" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
@@ -39,7 +69,13 @@
       <Value xsi:type="xsd:string">100%</Value>
     </Variable>
     <Variable Type="float" Name="ValueLabel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">120</Value>
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ValueLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ValueLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
     </Variable>
     <Variable Type="float" Name="ValueLabel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">10</Value>
@@ -47,8 +83,20 @@
     <Variable Type="float" Name="VolumeSlider.SliderPercent" SetsValue="true">
       <Value xsi:type="xsd:float">100</Value>
     </Variable>
+    <Variable Type="float" Name="VolumeSlider.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-42</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="VolumeSlider.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
     <Variable Type="float" Name="VolumeSlider.X" SetsValue="true">
-      <Value xsi:type="xsd:float">-13</Value>
+      <Value xsi:type="xsd:float">-21</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="VolumeSlider.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="VolumeSlider.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
     </Variable>
     <Variable Type="float" Name="VolumeSlider.Y" SetsValue="true">
       <Value xsi:type="xsd:float">8</Value>
@@ -78,7 +126,7 @@
       </Variable>
     </State>
   </Category>
-  <Instance Name="VolumeSlider" BaseType="Controls/Slider" />
+  <Instance Name="VolumeSlider" BaseType="Custom/SliderGlow" />
   <Instance Name="LeftLabel" BaseType="Text" />
   <Instance Name="ValueLabel" BaseType="Text" />
   <Behaviors />

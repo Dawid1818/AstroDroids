@@ -52,7 +52,7 @@ namespace AstroDroids.Screens
 
         private void AudioBtn_Click(object sender, EventArgs e)
         {
-            scene.SetPage(new AudioSettingsScreenGum());
+            scene.SetPage(new AudioSettingsScreenGum(), false);
         }
 
         private void LanguageBtn_Click(object sender, System.EventArgs e)
@@ -62,7 +62,7 @@ namespace AstroDroids.Screens
 
         private void GraphicsBtn_Click(object sender, System.EventArgs e)
         {
-            scene.SetPage(new GraphicsSettingsScreenGum());
+            scene.SetPage(new GraphicsSettingsScreenGum(), false);
         }
 
         private void ControlsBtn_Click(object sender, System.EventArgs e)
@@ -105,7 +105,7 @@ namespace AstroDroids.Screens
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
             SettingsManager.Save();
-            scene.SetPage(new MainMenuScreenGum());
+            scene.SetPage(new MainMenuScreenGum(), false);
         }
 
         partial void CustomInitialize()
@@ -116,7 +116,7 @@ namespace AstroDroids.Screens
         public void BackPressed()
         {
             SettingsManager.Save();
-            scene.SetPage(new MainMenuScreenGum());
+            scene.SetPage(new MainMenuScreenGum(), false);
         }
     }
 }

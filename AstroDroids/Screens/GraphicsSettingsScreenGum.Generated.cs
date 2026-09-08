@@ -67,6 +67,7 @@ partial class GraphicsSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEl
     public ContainerRuntime ButtonContainer { get; protected set; }
     public HorizontalList VideoModeList { get; protected set; }
     public HorizontalList ResolutionList { get; protected set; }
+    public CheckBoxGlow VSyncBox { get; protected set; }
     public ButtonGlow BackBtn { get; protected set; }
 
 
@@ -89,6 +90,7 @@ partial class GraphicsSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEl
         ButtonContainer = this.Visual?.GetGraphicalUiElementByName("ButtonContainer") as global::Gum.GueDeriving.ContainerRuntime;
         VideoModeList = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<HorizontalList>(this.Visual,"VideoModeList");
         ResolutionList = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<HorizontalList>(this.Visual,"ResolutionList");
+        VSyncBox = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBoxGlow>(this.Visual,"VSyncBox");
         BackBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"BackBtn");
         Enter = this.Visual.GetAnimation("Enter");
         Leave = this.Visual.GetAnimation("Leave");
@@ -100,6 +102,7 @@ partial class GraphicsSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEl
         this.BackBtn.Text = GumService.Default.LocalizationService.Translate("T_Return");
         this.ResolutionList.LeftLabelText = GumService.Default.LocalizationService.Translate("T_Resolution");
         this.VideoModeList.LeftLabelText = GumService.Default.LocalizationService.Translate("T_Mode");
+        this.VSyncBox.Text = GumService.Default.LocalizationService.Translate("T_VSync");
     }
     partial void CustomInitialize();
 }

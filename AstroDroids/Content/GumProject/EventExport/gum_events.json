@@ -833,6 +833,125 @@
         "ElementType": "Components",
         "EventType": 7,
         "TimestampUtc": "2026-09-08T10:25:16.9820652Z"
+      },
+      {
+        "NewName": "Controls/Slider1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-08T10:49:27.1046868Z"
+      },
+      {
+        "NewName": "Controls/SliderGlow",
+        "OldName": "Controls/Slider1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T10:49:32.2249709Z"
+      },
+      {
+        "NewName": "SliderGlow",
+        "OldName": "Controls/SliderGlow",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T10:49:37.0934166Z"
+      },
+      {
+        "NewName": "Custom/SliderGlow",
+        "OldName": "SliderGlow",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T10:49:47.5872584Z"
+      },
+      {
+        "NewName": "Controls/CheckBox1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-08T11:27:29.0631602Z"
+      },
+      {
+        "NewName": "Controls/CheckBoxGlow",
+        "OldName": "Controls/CheckBox1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T11:27:33.9682067Z"
+      },
+      {
+        "NewName": "Custom/CheckBoxGlow",
+        "OldName": "Controls/CheckBoxGlow",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-08T11:27:38.4997336Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.CheckBoxGlowInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T11:29:01.9853644Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.VSyncBox",
+        "OldName": "GraphicsSettingsScreenGum.CheckBoxGlowInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T11:29:46.5236747Z"
+      },
+      {
+        "NewName": "Custom/CheckBoxGlow (Container).FocusedIndicator1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T11:40:25.1681454Z"
+      },
+      {
+        "NewName": "SettingsScreenGum.LogoLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:03:21.6279078Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum.LogoLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:03:29.2447788Z"
+      },
+      {
+        "NewName": "GraphicsSettingsScreenGum.LogoLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:03:40.1504267Z"
+      },
+      {
+        "NewName": "HintedScreenGum.LogoLabel",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T12:05:19.3905712Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "SettingsScreenGum.Text LogoLabel in SettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T12:07:17.2744527Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "AudioSettingsScreenGum.Text LogoLabel in AudioSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T12:07:22.587586Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "GraphicsSettingsScreenGum.Text LogoLabel in GraphicsSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T12:07:24.4432744Z"
       }
     ]
   }

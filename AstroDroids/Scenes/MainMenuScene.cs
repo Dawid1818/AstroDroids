@@ -30,6 +30,7 @@ namespace AstroDroids.Scenes
         InputMethod inputMethod;
 
         bool transitioning = false;
+        bool logoHidden = true;
 
         public MainMenuScene()
         {
@@ -46,7 +47,7 @@ namespace AstroDroids.Scenes
             ui.AddToRoot();
 
             MainMenuScreenGum page = new MainMenuScreenGum();
-            SetPage(page);
+            SetPage(page, false);
 
             if (World == null)
                 World = new GameWorld();
@@ -110,7 +111,7 @@ namespace AstroDroids.Scenes
                 World.DrawDebug();
         }
 
-        IEnumerator PageTransition(FrameworkElement page)
+        IEnumerator PageTransition(FrameworkElement page, bool hideLogo)
         {
             transitioning = true;
             InputSystem.ClearUIKeys();
@@ -119,6 +120,13 @@ namespace AstroDroids.Scenes
 
             if (this.menuPage != null)
             {
+                if(hideLogo)
+                {
+                    if(!logoHidden)
+                    {
+                        ui.HideLogo();
+                    }
+                }
                 this.menuPage.TransitionOut();
                 //(this.menuPage as FrameworkElement).Visual.AnimationController.OnCompleted += () => { transitioning = false; };
                 yield return new WaitUntil(this.menuPage.TransitionFinished);
@@ -134,6 +142,14 @@ namespace AstroDroids.Scenes
 
             ui.HostPane.AddChild(page);
 
+            if(!hideLogo)
+            {
+                if (logoHidden)
+                {
+                    ui.ShowLogo();
+                }
+            }
+
             if (page is IMenuPage menuPage)
             {
                 menuPage.Initialize(this, ui);
@@ -146,6 +162,8 @@ namespace AstroDroids.Scenes
             transitioning = false;
             InputSystem.AddUIKeys();
             InputSystem.EnableUIMouse();
+
+            logoHidden = hideLogo;
 
             yield return null;
         }
@@ -184,9 +202,9 @@ namespace AstroDroids.Scenes
             AstroDroidsGame.Instance.Exit();
         }
 
-        public void SetPage(FrameworkElement page)
+        public void SetPage(FrameworkElement page, bool hideLogo)
         {
-            coroutineManager.StartCoroutine(PageTransition(page));
+            coroutineManager.StartCoroutine(PageTransition(page, hideLogo));
         }
 
         public void TransitionToScene(Scene scene)

@@ -116,8 +116,10 @@
   <ComponentReference Name="Controls/UserControl" />
   <ComponentReference Name="Controls/WindowStandard" />
   <ComponentReference Name="Custom/ActionHint" />
+  <ComponentReference Name="Custom/CheckBoxGlow" />
   <ComponentReference Name="Custom/HorizontalList" />
   <ComponentReference Name="Custom/LevelCard" />
+  <ComponentReference Name="Custom/SliderGlow" />
   <ComponentReference Name="Custom/VolumeComponent" />
   <ComponentReference Name="Elements/CautionLines" />
   <ComponentReference Name="Elements/CautionLinesWrapped" />

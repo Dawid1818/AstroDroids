@@ -22,6 +22,7 @@ namespace AstroDroids.Screens
             BackBtn.X = -600;
             ResolutionList.X = -600;
             VideoModeList.X = -600;
+            VSyncBox.X = -600;
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
@@ -51,6 +52,15 @@ namespace AstroDroids.Screens
             ResolutionList.SelectedIndex = matchingIndex >= 0 ? matchingIndex : 0;
 
             ResolutionList.SelectionChanged += OnResolutionSelectionChanged;
+
+            VSyncBox.IsChecked = SettingsManager.curSettings.Video.VSync;
+            VSyncBox.Checked += VSyncBox_Checked;
+            VSyncBox.Unchecked += VSyncBox_Checked;
+        }
+
+        private void VSyncBox_Checked(object sender, System.EventArgs e)
+        {
+            SettingsManager.curSettings.Video.VSync = (bool)VSyncBox.IsChecked;
         }
 
         private void OnResolutionSelectionChanged()
@@ -84,7 +94,7 @@ namespace AstroDroids.Screens
 
         private void AnimationController_OnCompleted()
         {
-            BackBtn.IsFocused = true;
+            VideoModeList.IsFocused = true;
             Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
         }
 
@@ -108,7 +118,7 @@ namespace AstroDroids.Screens
         {
             SettingsManager.ApplyVideoSettings();
             SettingsManager.Save();
-            scene.SetPage(new SettingsScreenGum());
+            scene.SetPage(new SettingsScreenGum(), false);
         }
 
         partial void CustomInitialize()
@@ -120,7 +130,7 @@ namespace AstroDroids.Screens
         {
             SettingsManager.ApplyVideoSettings();
             SettingsManager.Save();
-            scene.SetPage(new SettingsScreenGum());
+            scene.SetPage(new SettingsScreenGum(), false);
         }
     }
 }

@@ -218,7 +218,7 @@ namespace AstroDroids.Screens
         void Return()
         {
             SaveManager.SaveGame();
-            scene.SetPage(new MainMenuScreenGum());
+            scene.SetPage(new MainMenuScreenGum(), false);
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)

@@ -88,6 +88,24 @@
     <Variable Type="float" Name="VideoModeList.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-3</Value>
     </Variable>
+    <Variable Type="string" Name="VSyncBox.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="VSyncBox.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_VSync</Value>
+    </Variable>
+    <Variable Type="float" Name="VSyncBox.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">74</Value>
+    </Variable>
+    <Variable Type="float" Name="VSyncBox.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="VSyncBox.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="VSyncBox.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
   </State>
   <Category>
     <Name>Animations</Name>
@@ -95,6 +113,7 @@
   <Instance Name="ButtonContainer" BaseType="Container" />
   <Instance Name="VideoModeList" BaseType="Custom/HorizontalList" />
   <Instance Name="ResolutionList" BaseType="Custom/HorizontalList" />
+  <Instance Name="VSyncBox" BaseType="Custom/CheckBoxGlow" />
   <Instance Name="BackBtn" BaseType="Controls/ButtonGlow" />
   <Behaviors />
 </ScreenSave>

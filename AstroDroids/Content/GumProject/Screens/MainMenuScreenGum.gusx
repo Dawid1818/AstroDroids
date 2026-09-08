@@ -124,6 +124,9 @@
     <Variable Type="VerticalAlignment" Name="LogoLabel.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="bool" Name="LogoLabel.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
     <Variable Type="float" Name="LogoLabel.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
