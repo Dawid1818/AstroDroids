@@ -4,70 +4,90 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
+    <Variable Type="int" Name="FocusedIndicator.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Cyan</Value>
+    </Variable>
+    <Variable Type="float" Name="FocusedIndicator.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FocusedIndicator.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FocusedIndicator.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+    <Variable Type="StyleCategory" Name="FocusedIndicator.StyleCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Solid</Value>
+    </Variable>
+    <Variable Type="int" Name="FocusedIndicator.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">96</Value>
+    </Variable>
+    <Variable Type="int" Name="FocusedIndicator.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">48</Value>
+    </Variable>
+    <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="FocusedIndicator.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="FocusedIndicator.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="FocusedIndicator.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FocusedIndicator.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="FocusedIndicator.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="FocusedIndicator.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FocusedIndicator.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">30</Value>
     </Variable>
-    <Variable Type="float" Name="Icon2Instance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-1</Value>
-    </Variable>
-    <Variable Type="IconCategory" Name="Icon2Instance.IconCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Arrow2</Value>
-    </Variable>
-    <Variable Type="string" Name="Icon2Instance.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">WeaponPanel</Value>
-    </Variable>
-    <Variable Type="float" Name="Icon2Instance.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-13</Value>
-    </Variable>
-    <Variable Type="float" Name="Icon2Instance.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="Icon2Instance.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="Icon2Instance.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">4</Value>
-    </Variable>
-    <Variable Type="float" Name="Icon2Instance.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="Icon2Instance.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="Icon2Instance.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">7</Value>
-    </Variable>
-    <Variable Type="bool" Name="Icon2Instance1.FlipHorizontal" SetsValue="true">
+    <Variable Type="bool" Name="LeftArrowIcon.FlipHorizontal" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
-    <Variable Type="float" Name="Icon2Instance1.Height" SetsValue="true">
+    <Variable Type="bool" Name="LeftArrowIcon.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="LeftArrowIcon.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-1</Value>
     </Variable>
-    <Variable Type="IconCategory" Name="Icon2Instance1.IconCategoryState" SetsValue="true">
+    <Variable Type="IconCategory" Name="LeftArrowIcon.IconCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Arrow2</Value>
     </Variable>
-    <Variable Type="string" Name="Icon2Instance1.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">WeaponPanel</Value>
-    </Variable>
-    <Variable Type="float" Name="Icon2Instance1.Width" SetsValue="true">
+    <Variable Type="string" Name="LeftArrowIcon.Parent" SetsValue="true" />
+    <Variable Type="float" Name="LeftArrowIcon.Width" SetsValue="true">
       <Value xsi:type="xsd:float">-13</Value>
     </Variable>
-    <Variable Type="float" Name="Icon2Instance1.X" SetsValue="true">
+    <Variable Type="float" Name="LeftArrowIcon.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
-    <Variable Type="HorizontalAlignment" Name="Icon2Instance1.XOrigin" SetsValue="true">
+    <Variable Type="HorizontalAlignment" Name="LeftArrowIcon.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
-    <Variable Type="PositionUnitType" Name="Icon2Instance1.XUnits" SetsValue="true">
+    <Variable Type="PositionUnitType" Name="LeftArrowIcon.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
-    <Variable Type="float" Name="Icon2Instance1.Y" SetsValue="true">
+    <Variable Type="float" Name="LeftArrowIcon.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
-    <Variable Type="VerticalAlignment" Name="Icon2Instance1.YOrigin" SetsValue="true">
+    <Variable Type="VerticalAlignment" Name="LeftArrowIcon.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
-    <Variable Type="PositionUnitType" Name="Icon2Instance1.YUnits" SetsValue="true">
+    <Variable Type="PositionUnitType" Name="LeftArrowIcon.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="float" Name="ItemLabel.Height" SetsValue="true">
@@ -79,9 +99,10 @@
     <Variable Type="HorizontalAlignment" Name="ItemLabel.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
-    <Variable Type="string" Name="ItemLabel.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    <Variable Type="bool" Name="ItemLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
+    <Variable Type="string" Name="ItemLabel.Parent" SetsValue="true" />
     <Variable Type="VerticalAlignment" Name="ItemLabel.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
@@ -112,9 +133,10 @@
     <Variable Type="HorizontalAlignment" Name="LeftLabel.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
-    <Variable Type="string" Name="LeftLabel.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    <Variable Type="bool" Name="LeftLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
+    <Variable Type="string" Name="LeftLabel.Parent" SetsValue="true" />
     <Variable Type="string" Name="LeftLabel.Text" ExposedAsName="LeftLabelText" SetsValue="false" />
     <Variable Type="VerticalAlignment" Name="LeftLabel.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -131,59 +153,59 @@
     <Variable Type="float" Name="LeftLabel.Y" SetsValue="true">
       <Value xsi:type="xsd:float">6</Value>
     </Variable>
+    <Variable Type="bool" Name="RightArrowIcon.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="RightArrowIcon.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-1</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="RightArrowIcon.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Arrow2</Value>
+    </Variable>
+    <Variable Type="string" Name="RightArrowIcon.Parent" SetsValue="true" />
+    <Variable Type="float" Name="RightArrowIcon.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-13</Value>
+    </Variable>
+    <Variable Type="float" Name="RightArrowIcon.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="RightArrowIcon.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="RightArrowIcon.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="RightArrowIcon.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="RightArrowIcon.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="RightArrowIcon.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="SlideCategory" Name="SlideCategoryState" SetsValue="true" />
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
-    </Variable>
-    <Variable Type="int" Name="WeaponPanel.Alpha" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
-    </Variable>
-    <Variable Type="Blend" Name="WeaponPanel.Blend" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="ChildrenLayout" Name="WeaponPanel.ChildrenLayout" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="float" Name="WeaponPanel.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="WeaponPanel.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="bool" Name="WeaponPanel.IsRenderTarget" SetsValue="true">
-      <Value xsi:type="xsd:boolean">false</Value>
-    </Variable>
-    <Variable Type="float" Name="WeaponPanel.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="WeaponPanel.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="float" Name="WeaponPanel.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="WeaponPanel.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="WeaponPanel.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="WeaponPanel.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="WeaponPanel.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="WeaponPanel.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="ColorCategory" Name="WeaponPanelBG.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
-    <Variable Type="string" Name="WeaponPanelBG.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">WeaponPanel</Value>
+    <Variable Type="float" Name="WeaponPanelBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
+    <Variable Type="DimensionUnitType" Name="WeaponPanelBG.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="WeaponPanelBG.Parent" SetsValue="true" />
     <Variable Type="StyleCategory" Name="WeaponPanelBG.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="float" Name="WeaponPanelBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="WeaponPanelBG.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="float" Name="WeaponPanelBG.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -202,18 +224,6 @@
     </Variable>
     <Variable Type="PositionUnitType" Name="WeaponPanelBG.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
-    </Variable>
-    <Variable Type="float" Name="WeaponPanelBG.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="WeaponPanelBG.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="float" Name="WeaponPanelBG.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="WeaponPanelBG.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
     </Variable>
   </State>
   <Category>
@@ -237,11 +247,234 @@
       </Variable>
     </State>
   </Category>
+  <Category>
+    <Name>HorizontaListCategory</Name>
+    <State>
+      <Name>Enabled</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Primary</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Warning</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Disabled</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">DarkGray</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Warning</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Gray</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Highlighted</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">PrimaryLight</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Warning</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Pushed</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">PrimaryDark</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Warning</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>HighlightedFocused</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">PrimaryLight</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Warning</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Focused</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Primary</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Warning</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>DisabledFocused</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">DarkGray</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Warning</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Gray</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>FocusedGlow</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Primary</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Cyan</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>FocusedGlownt</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Primary</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Cyan</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" Category="Text" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>FocusedActive</Name>
+      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Primary</Value>
+      </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="string" Name="FocusedIndicator.Parent" SetsValue="true" />
+      <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="TextOverflowVerticalMode" Name="TextInstance.TextOverflowVerticalMode" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+    </State>
+  </Category>
   <Instance Name="WeaponPanelBG" BaseType="NineSlice" Locked="true" />
-  <Instance Name="ItemLabel" BaseType="Text" />
-  <Instance Name="Icon2Instance" BaseType="Elements/Icon2" />
-  <Instance Name="Icon2Instance1" BaseType="Elements/Icon2" />
-  <Instance Name="WeaponPanel" BaseType="Container" />
+  <Instance Name="FocusedIndicator" BaseType="NineSlice" />
   <Instance Name="LeftLabel" BaseType="Text" />
+  <Instance Name="LeftArrowIcon" BaseType="Elements/Icon2" />
+  <Instance Name="RightArrowIcon" BaseType="Elements/Icon2" />
+  <Instance Name="ItemLabel" BaseType="Text" />
   <Behaviors />
 </ComponentSave>

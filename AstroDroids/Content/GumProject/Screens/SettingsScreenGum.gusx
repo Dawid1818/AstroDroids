@@ -109,8 +109,17 @@
     <Variable Type="string" Name="LanguageList.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ButtonContainer</Value>
     </Variable>
+    <Variable Type="float" Name="LanguageList.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">128</Value>
+    </Variable>
     <Variable Type="float" Name="LanguageList.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LanguageList.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LanguageList.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
     </Variable>
     <Variable Type="float" Name="LanguageList.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-3</Value>

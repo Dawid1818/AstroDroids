@@ -37,6 +37,19 @@ partial class HorizontalList : global::Gum.Forms.Controls.FrameworkElement
         Right,
         Left,
     }
+    public enum HorizontaListCategory
+    {
+        Enabled,
+        Disabled,
+        Highlighted,
+        Pushed,
+        HighlightedFocused,
+        Focused,
+        DisabledFocused,
+        FocusedGlow,
+        FocusedGlownt,
+        FocusedActive,
+    }
 
     SlideCategory? _slideCategoryState;
     public SlideCategory? SlideCategoryState
@@ -62,17 +75,43 @@ partial class HorizontalList : global::Gum.Forms.Controls.FrameworkElement
             }
         }
     }
+
+    HorizontaListCategory? _horizontaListCategoryState;
+    public HorizontaListCategory? HorizontaListCategoryState
+    {
+        get => _horizontaListCategoryState;
+        set
+        {
+            _horizontaListCategoryState = value;
+            if(value != null)
+            {
+                if(Visual.Categories.ContainsKey("HorizontaListCategory"))
+                {
+                    var category = Visual.Categories["HorizontaListCategory"];
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+                else
+                {
+                    var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "HorizontaListCategory");
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+            }
+        }
+    }
     public NineSliceRuntime WeaponPanelBG { get; protected set; }
-    public TextRuntime ItemLabel { get; protected set; }
-    public Icon2 Icon2Instance { get; protected set; }
-    public Icon2 Icon2Instance1 { get; protected set; }
-    public ContainerRuntime WeaponPanel { get; protected set; }
+    public NineSliceRuntime FocusedIndicator { get; protected set; }
     public TextRuntime LeftLabel { get; protected set; }
+    public Icon2 LeftArrowIcon { get; protected set; }
+    public Icon2 RightArrowIcon { get; protected set; }
+    public TextRuntime ItemLabel { get; protected set; }
 
 
     #region Animation Fields
     public AnimationRuntime SlideIn {get; protected set;}
     public AnimationRuntime SlideOut {get; protected set;}
+    public AnimationRuntime GlowFocused {get; protected set;}
     #endregion
     public string LeftLabelText
     {
@@ -93,13 +132,14 @@ partial class HorizontalList : global::Gum.Forms.Controls.FrameworkElement
     {
         base.ReactToVisualChanged();
         WeaponPanelBG = this.Visual?.GetGraphicalUiElementByName("WeaponPanelBG") as global::Gum.GueDeriving.NineSliceRuntime;
-        ItemLabel = this.Visual?.GetGraphicalUiElementByName("ItemLabel") as global::Gum.GueDeriving.TextRuntime;
-        Icon2Instance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon2>(this.Visual,"Icon2Instance");
-        Icon2Instance1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon2>(this.Visual,"Icon2Instance1");
-        WeaponPanel = this.Visual?.GetGraphicalUiElementByName("WeaponPanel") as global::Gum.GueDeriving.ContainerRuntime;
+        FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::Gum.GueDeriving.NineSliceRuntime;
         LeftLabel = this.Visual?.GetGraphicalUiElementByName("LeftLabel") as global::Gum.GueDeriving.TextRuntime;
+        LeftArrowIcon = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon2>(this.Visual,"LeftArrowIcon");
+        RightArrowIcon = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon2>(this.Visual,"RightArrowIcon");
+        ItemLabel = this.Visual?.GetGraphicalUiElementByName("ItemLabel") as global::Gum.GueDeriving.TextRuntime;
         SlideIn = this.Visual.GetAnimation("SlideIn");
         SlideOut = this.Visual.GetAnimation("SlideOut");
+        GlowFocused = this.Visual.GetAnimation("GlowFocused");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

@@ -616,6 +616,223 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-09-07T12:52:17.146072Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).FocusedIndicator",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-08T10:02:08.6607009Z"
+      },
+      {
+        "NewName": "HorizontaListCategory",
+        "OldName": "ButtonCategory",
+        "ElementType": "Components",
+        "EventType": 4,
+        "TimestampUtc": "2026-09-08T10:06:28.7748838Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/HorizontalList (Container).Container WeaponPanel in Custom/HorizontalList (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-08T10:15:02.699952Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.1603765Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.1615629Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.1689311Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.1765753Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.1830302Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.1900999Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.1978173Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.2048012Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.2141023Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.2206192Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.2285669Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.2355295Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.2419626Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).RightArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:14.2488175Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.8919349Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.8931968Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9022451Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9109307Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9185212Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9258737Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9327372Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9407633Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9473251Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9544221Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9616317Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9678484Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9758066Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList (Container).LeftArrowIcon",
+        "OldName": "Custom/HorizontalList (Container).Icon2Instance1",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-08T10:25:16.9820652Z"
       }
     ]
   }

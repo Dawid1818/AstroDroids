@@ -109,6 +109,8 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
     public AnimationRuntime GlowActive {get; protected set;}
     public AnimationRuntime SlideIn {get; protected set;}
     public AnimationRuntime SlideOut {get; protected set;}
+    public AnimationRuntime SlideInRight {get; protected set;}
+    public AnimationRuntime SlideOutLeft {get; protected set;}
     #endregion
 
     public ButtonGlow(InteractiveGue visual) : base(visual)
@@ -130,6 +132,8 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
         GlowActive = this.Visual.GetAnimation("GlowActive");
         SlideIn = this.Visual.GetAnimation("SlideIn");
         SlideOut = this.Visual.GetAnimation("SlideOut");
+        SlideInRight = this.Visual.GetAnimation("SlideInRight");
+        SlideOutLeft = this.Visual.GetAnimation("SlideOutLeft");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

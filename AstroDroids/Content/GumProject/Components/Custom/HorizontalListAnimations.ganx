@@ -41,5 +41,31 @@
       <Animations />
       <Events />
     </AnimationSave>
+    <AnimationSave>
+      <Loops>true</Loops>
+      <Name>GlowFocused</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>HorizontaListCategory/FocusedGlownt</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>HorizontaListCategory/FocusedGlow</StateName>
+          <Time>0.5</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>HorizontaListCategory/FocusedGlownt</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
   </Animations>
 </ElementAnimationsSave>

@@ -4,6 +4,7 @@ using Gum.Forms.Controls;
 using Gum.Input;
 using Gum.Managers;
 using Gum.Wireframe;
+using Microsoft.Xna.Framework.Input;
 using RenderingLibrary.Graphics;
 using System;
 using System.Collections;
@@ -13,6 +14,8 @@ namespace AstroDroids.Components.Custom
 {
     partial class HorizontalList : IInputReceiver
     {
+        public const string CategoryName = "HorizontaListCategory";
+        string lastState = string.Empty;
         int selectedIndex = 0;
         List<string> Items = new List<string>();
 
@@ -129,7 +132,42 @@ namespace AstroDroids.Components.Custom
 
         partial void CustomInitialize()
         {
-        
+            RightArrowIcon.GotFocus += ArrowGotFocus;
+            RightArrowIcon.Visual.Click += RightArrowIcon_Click;
+
+            LeftArrowIcon.GotFocus += ArrowGotFocus;
+            LeftArrowIcon.Visual.Click += LeftArrowIcon_Click;
+        }
+
+        private void ArrowGotFocus(object sender, EventArgs e)
+        {
+            LeftArrowIcon.IsFocused = false;
+            RightArrowIcon.IsFocused = false;
+            IsFocused = true;
+        }
+
+        private void LeftArrowIcon_Click(object sender, EventArgs e)
+        {
+            var valueBefore = selectedIndex;
+
+            this.SelectedIndex -= 1;
+
+            if (valueBefore != SelectedIndex)
+            {
+                SelectionChanged?.Invoke();
+            }
+        }
+
+        private void RightArrowIcon_Click(object sender, EventArgs e)
+        {
+            var valueBefore = selectedIndex;
+
+            this.SelectedIndex += 1;
+
+            if (valueBefore != SelectedIndex)
+            {
+                SelectionChanged?.Invoke();
+            }
         }
 
         public void AddItem(string item)
@@ -166,6 +204,43 @@ namespace AstroDroids.Components.Custom
                 }
                 UpdateDisplay();
             }
+        }
+
+        public override void UpdateState()
+        {
+            if (Visual.AnimationController.CurrentAnimation != null && Visual.AnimationController.CurrentAnimation.Name == "GlowActive")
+            {
+                return;
+            }
+
+            var state = base.GetDesiredState();
+
+            bool isFocused = (state == "Focused" || state == "HighlightedFocused");
+            bool wasntFocused = (lastState != "Focused" && lastState != "HighlightedFocused");
+
+            if (state == "Highlighted" || state == "HighlightedFocused")
+            {
+                if (wasntFocused)
+                {
+                    Visual.PlayAnimation(GlowFocused);
+                    lastState = "Focused";
+                }
+                return;
+            }
+
+            if (isFocused)
+            {
+                if (wasntFocused)
+                    Visual.PlayAnimation(GlowFocused);
+            }
+            else
+            {
+                Visual.StopAnimation();
+
+                Visual.SetProperty(CategoryName + "State", state);
+            }
+
+            lastState = state;
         }
     }
 }
