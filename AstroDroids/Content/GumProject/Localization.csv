@@ -48,3 +48,6 @@ T_VSync,VSync,VSync
 T_Keyboard,Keyboard,Klawiatura
 T_Mouse,Mouse,Mysz
 T_Gamepad,Gamepad,Pad
+T_ContinueGameQuestion,Would you like to continue your previous game?,Czy chcesz kontynuować poprzednią grę?
+T_NewGame,Start a new game,Rozpocznij nową grę
+T_ContinueGame,Continue game,Kontynuuj grę

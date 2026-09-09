@@ -2,16 +2,32 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
+      "Screens/AudioSettingsScreenGum",
+      "Screens/AudioSettingsScreenGum/ButtonContainer",
+      "Screens/ControlsSettingsScreenGum",
+      "Screens/ControlsSettingsScreenGum/ButtonContainer",
       "Screens/GameScreenGum",
       "Screens/GraphicsSettingsScreenGum",
       "Screens/GraphicsSettingsScreenGum/ButtonContainer",
+      "Screens/GraphicsSettingsScreenGum/ButtonContainer/VSyncBox",
+      "Screens/HintedScreenGum",
+      "Screens/MainMenuScreenGum",
       "Screens/SettingsScreenGum",
       "Screens/SettingsScreenGum/ButtonContainer",
       "Components",
       "Components/Controls",
+      "Components/Controls/ButtonGlow",
+      "Components/Controls/KeyboardKey",
       "Components/Custom",
+      "Components/Custom/ActionHint",
+      "Components/Custom/CheckBoxGlow",
+      "Components/Custom/CheckBoxGlow/CheckboxBackground",
       "Components/Custom/HorizontalList",
-      "Components/Custom/HorizontalList/WeaponPanel",
+      "Components/Custom/InputActionComponent",
+      "Components/Custom/SliderGlow",
+      "Components/Custom/SliderGlow/TrackInstance",
+      "Components/Custom/VolumeComponent",
+      "Components/Custom/VolumeComponent/VolumeSlider",
       "Components/Elements"
     ]
   }

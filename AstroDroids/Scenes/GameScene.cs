@@ -320,6 +320,12 @@ namespace AstroDroids.Scenes
 
             yield return new WaitForSeconds(2f);
 
+            if(!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
+            {
+                //will want to save progress to leaderboard later
+                GameStateManager.ClearState();
+            }
+
             SaveAndQuit();
         }
 
@@ -347,10 +353,20 @@ namespace AstroDroids.Scenes
 
             if (!nextLevel)
             {
+                if(!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
+                {
+                    //will want to save progress to leaderboard later
+                    GameStateManager.ClearState();
+                }
+
                 SaveAndQuit();
             }
             else
             {
+                if(GameStateManager.GetMissionType() == MissionType.Story)
+                {
+                    GameStateManager.SaveState();
+                }
                 coroutineManager.StartCoroutine(TransitionToSceneCoroutine(new GameScene()));
             }
         }

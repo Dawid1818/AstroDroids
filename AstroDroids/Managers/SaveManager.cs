@@ -7,15 +7,14 @@ namespace AstroDroids.Managers
     public class SaveManager
     {
         public static string DataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AstroDroids");
-        public static string SavesDirectory = Path.Combine(DataDir, "Saves");
 
         public static SaveData curSave { get; private set; }
 
         public static void Initialize()
         {
-            if (Directory.Exists(SavesDirectory))
+            if (Directory.Exists(DataDir))
             {
-                if (File.Exists(Path.Combine(SavesDirectory, "Save.adsave")))
+                if (File.Exists(Path.Combine(DataDir, "Save.adsave")))
                 {
                     LoadGame();
                 }
@@ -27,7 +26,7 @@ namespace AstroDroids.Managers
             }
             else
             {
-                Directory.CreateDirectory(SavesDirectory);
+                Directory.CreateDirectory(DataDir);
                 curSave = new SaveData();
                 SaveGame();
             }
@@ -35,7 +34,7 @@ namespace AstroDroids.Managers
 
         public static void SaveGame()
         {
-            FileStream str = new FileStream(Path.Combine(SavesDirectory, "Save.adsave"), FileMode.Create);
+            FileStream str = new FileStream(Path.Combine(DataDir, "Save.adsave"), FileMode.Create);
 
             using (BinaryWriter writer = new BinaryWriter(str))
             {
@@ -48,7 +47,7 @@ namespace AstroDroids.Managers
 
         public static void LoadGame()
         {
-            FileStream str = new FileStream(Path.Combine(SavesDirectory, "Save.adsave"), FileMode.Open);
+            FileStream str = new FileStream(Path.Combine(DataDir, "Save.adsave"), FileMode.Open);
 
             SaveData copy = new SaveData();
 

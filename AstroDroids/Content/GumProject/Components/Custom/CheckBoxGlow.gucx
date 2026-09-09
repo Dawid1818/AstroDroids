@@ -231,7 +231,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -239,12 +245,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -261,7 +261,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -269,12 +275,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -291,7 +291,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -299,12 +305,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -321,7 +321,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -329,12 +335,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -351,7 +351,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -359,12 +365,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -381,7 +381,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -389,12 +395,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -411,6 +411,9 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
@@ -422,9 +425,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -441,7 +441,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -449,12 +455,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -471,7 +471,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -479,12 +485,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -501,7 +501,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -509,12 +515,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -531,7 +531,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -539,12 +545,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -561,7 +561,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -569,12 +575,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -741,20 +741,20 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -771,20 +771,20 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -801,20 +801,20 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -831,20 +831,20 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -861,7 +861,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -869,12 +875,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -891,7 +891,13 @@
       <Variable Type="ColorCategory" Name="CheckboxBackground.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator1.Visible" SetsValue="true">
@@ -899,12 +905,6 @@
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
-      </Variable>
-      <Variable Type="bool" Name="FocusedIndicator1.Animate" Category="Animation" SetsValue="true">
-        <Value xsi:type="xsd:boolean">false</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
   </Category>

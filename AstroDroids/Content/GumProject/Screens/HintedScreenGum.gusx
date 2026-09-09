@@ -105,6 +105,7 @@
     <Variable Type="PositionUnitType" Name="ActionHintsPanel.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
+    <Variable Type="Animations" Name="AnimationsState" SetsValue="true" />
     <Variable Type="float" Name="HostPane.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>

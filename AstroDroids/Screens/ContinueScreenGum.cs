@@ -8,25 +8,38 @@ using System;
 
 namespace AstroDroids.Screens
 {
-    partial class GamemodeScreenGum : IMenuPage
+    partial class ContinueScreenGum : IMenuPage
     {
         MainMenuScene scene;
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
         {
             this.scene = scene;
 
-            ReturnBtn.Click += ReturnBtn_Click;
-            BossRushBtn.Click += BossRushBtn_Click;
-            StoryBtn.Click += StoryBtn_Click;
+            BackBtn.Click += BackBtn_Click;
+            ContinueBtn.Click += ContinueBtn_Click;
+            NewGameBtn.Click += NewGameBtn_Click;
+
+            BackBtn.X = -600;
+            ContinueBtn.X = -600;
+            NewGameBtn.X = -600;
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
             hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
 
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
+        }
 
-            TutorialBtn.SpatialNavigationDown = ReturnBtn;
-            BossRushBtn.SpatialNavigationDown = ReturnBtn;
+        private void NewGameBtn_Click(object sender, EventArgs e)
+        {
+            scene.SetPage(new MissionScreenGum(), true);
+        }
+
+        private void ContinueBtn_Click(object sender, EventArgs e)
+        {
+            GameStateManager.LoadState(GameDatabase.GetMission(MissionType.Story));
+
+            scene.TransitionToScene(new GameScene());
         }
 
         public void Update(GameTime gameTime)
@@ -34,28 +47,9 @@ namespace AstroDroids.Screens
 
         }
 
-        private void StoryBtn_Click(object sender, EventArgs e)
-        {
-            if(SaveManager.curSave.MissionProgress != null)
-            {
-                scene.SetPage(new ContinueScreenGum(), true);
-            }
-            else
-            {
-                scene.SetPage(new MissionScreenGum(), true);
-            }
-        }
-
-        private void BossRushBtn_Click(object sender, EventArgs e)
-        {
-            GameStateManager.NewState(GameDatabase.GetMission(MissionType.BossRush));
-
-            scene.TransitionToScene(new GameScene());
-        }
-
         private void AnimationController_OnCompleted()
         {
-            ReturnBtn.IsFocused = true;
+            ContinueBtn.IsFocused = true;
             Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
         }
 
@@ -80,9 +74,9 @@ namespace AstroDroids.Screens
             return Visual.AnimationController.IsStopped;
         }
 
-        private void ReturnBtn_Click(object sender, System.EventArgs e)
+        private void BackBtn_Click(object sender, System.EventArgs e)
         {
-            scene.SetPage(new MainMenuScreenGum(), false);
+            scene.SetPage(new GamemodeScreenGum(), true);
         }
 
         partial void CustomInitialize()
@@ -92,7 +86,7 @@ namespace AstroDroids.Screens
 
         public void BackPressed()
         {
-            scene.SetPage(new MainMenuScreenGum(), false);
+            scene.SetPage(new GamemodeScreenGum(), true);
         }
     }
 }

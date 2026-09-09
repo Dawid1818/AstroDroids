@@ -60,6 +60,7 @@
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>1</CurrentLanguageIndex>
   <ScreenReference Name="AudioSettingsScreenGum" />
+  <ScreenReference Name="ContinueScreenGum" />
   <ScreenReference Name="ControlsSettingsScreenGum" />
   <ScreenReference Name="CurveEditorScreenGum" />
   <ScreenReference Name="DemoScreenGum" />

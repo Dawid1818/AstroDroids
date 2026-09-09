@@ -1,11 +1,5 @@
 ﻿using AstroDroids.Interfaces;
-using AstroDroids.Weapons;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Gameplay
 {
@@ -28,22 +22,22 @@ namespace AstroDroids.Gameplay
 
         public void Load(BinaryReader reader, int version)
         {
+            Type = (MissionType)reader.ReadInt32();
+            LevelIndex = reader.ReadInt32();
             Lives = reader.ReadInt32();
             Score = reader.ReadInt32();
             Firepower = reader.ReadInt32();
             CurrentWeapon = reader.ReadInt32();
-            LevelIndex = reader.ReadInt32();
-            Type = (MissionType)reader.ReadInt32();
         }
 
         public void Save(BinaryWriter writer)
         {
+            writer.Write((int)Type);
+            writer.Write(LevelIndex);
             writer.Write(Lives);
             writer.Write(Score);
             writer.Write(Firepower);
             writer.Write(CurrentWeapon);
-            writer.Write(LevelIndex);
-            writer.Write((int)Type);
         }
     }
 }

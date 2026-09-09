@@ -1386,6 +1386,167 @@
         "ElementType": "Screens",
         "EventType": 2,
         "TimestampUtc": "2026-09-08T13:45:46.4509583Z"
+      },
+      {
+        "NewName": "GamemodeScreenGum1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-09T11:51:04.1997609Z"
+      },
+      {
+        "NewName": "ContinueScreenGum",
+        "OldName": "GamemodeScreenGum1",
+        "ElementType": "Screens",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-09T11:51:11.603601Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Controls/ButtonGlowGameMode StoryBtn in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T11:55:19.9669851Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Container TutorialContainer in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T11:55:25.1205592Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Controls/ButtonGlowGameMode TutorialBtn in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T11:55:25.1217145Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Container StoryContainer in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T11:55:25.1290591Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Container BossRushContainer in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T11:55:25.1366363Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Controls/ButtonGlowGameMode BossRushBtn in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T11:55:28.4108311Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.TextInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:03:32.1952605Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.ButtonContainer",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:04:17.4891893Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.VideoModeList",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:04:17.545735Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.ResolutionList",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:04:17.6035199Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.VSyncBox",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:04:17.6568748Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.BackBtn",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:04:17.7081064Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Custom/HorizontalList VideoModeList in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T12:04:22.4465473Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Custom/HorizontalList ResolutionList in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T12:04:22.4477503Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Custom/CheckBoxGlow VSyncBox in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T12:04:22.4556142Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.BackBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:04:26.7433723Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.BackBtn2",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-09T12:04:27.9995519Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ContinueScreenGum.Controls/ButtonGlow ReturnBtn in ContinueScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-09T12:04:31.8807177Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.ContinueBtn",
+        "OldName": "ContinueScreenGum.BackBtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-09T12:04:38.548159Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.NewGameBtn",
+        "OldName": "ContinueScreenGum.BackBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-09T12:04:41.1882182Z"
+      },
+      {
+        "NewName": "ContinueScreenGum.BackBtn",
+        "OldName": "ContinueScreenGum.BackBtn2",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-09T12:04:43.152422Z"
       }
     ]
   }

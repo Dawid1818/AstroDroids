@@ -1,9 +1,12 @@
 ﻿
 using AstroDroids.Entities.Friendly;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
+using AstroDroids.Managers;
 using AstroDroids.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Gameplay
@@ -131,6 +134,33 @@ namespace AstroDroids.Gameplay
         public static bool MissionInitialized()
         {
             return CurrentMission != null;
+        }
+
+        internal static void SaveState()
+        {
+            SaveManager.curSave.MissionProgress = (MissionProgress)FileSaver.CloneObject(CurrentMissionProgress, new MissionProgress());
+            SaveManager.SaveGame();
+        }
+
+        internal static void LoadState(GameMission mission)
+        {
+            if(SaveManager.curSave.MissionProgress != null)
+            {
+                CurrentMissionProgress = (MissionProgress)FileSaver.CloneObject(SaveManager.curSave.MissionProgress, new MissionProgress());
+                CurrentMission = mission;
+
+                Weapons = new List<Weapon>();
+                Weapons.Add(new PulseCannon());
+                Weapons.Add(new LaserCannon());
+                Weapons.Add(new PlasmaMortar());
+            }
+        }
+
+        internal static void ClearState()
+        {
+            SaveManager.curSave.MissionProgress = null;
+
+            SaveManager.SaveGame();
         }
     }
 }

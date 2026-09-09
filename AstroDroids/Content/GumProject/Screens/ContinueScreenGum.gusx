@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>ContinueScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="Animations" Name="AnimationsState" SetsValue="true" />
+    <Variable Type="string" Name="BackBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="BackBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Return</Value>
+    </Variable>
+    <Variable Type="float" Name="BackBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">165</Value>
+    </Variable>
+    <Variable Type="float" Name="BackBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="BackBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BackBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="BackBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="ChildrenLayout" Name="ButtonContainer.ChildrenLayout" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">123</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.StackSpacing" SetsValue="true">
+      <Value xsi:type="xsd:float">12</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">198</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ButtonContainer.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ButtonContainer.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ButtonContainer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">19</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ButtonContainer.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ButtonContainer.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="string" Name="ContinueBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="ContinueBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_ContinueGame</Value>
+    </Variable>
+    <Variable Type="float" Name="ContinueBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">165</Value>
+    </Variable>
+    <Variable Type="float" Name="ContinueBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ContinueBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ContinueBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ContinueBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="string" Name="NewGameBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ButtonContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="NewGameBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_NewGame</Value>
+    </Variable>
+    <Variable Type="float" Name="NewGameBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">165</Value>
+    </Variable>
+    <Variable Type="float" Name="NewGameBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="NewGameBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="NewGameBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="NewGameBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="TextInstance.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="TextInstance.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="TextInstance.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_ContinueGameQuestion</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="TextInstance.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="TextInstance.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TextInstance.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="TextInstance.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-68</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="TextInstance.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TextInstance.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+  </State>
+  <Category>
+    <Name>Animations</Name>
+    <State>
+      <Name>In</Name>
+      <Variable Type="float" Name="TextInstance.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>Out</Name>
+      <Variable Type="float" Name="TextInstance.X" SetsValue="true">
+        <Value xsi:type="xsd:float">-600</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>OutRight</Name>
+      <Variable Type="float" Name="TextInstance.X" SetsValue="true">
+        <Value xsi:type="xsd:float">600</Value>
+      </Variable>
+    </State>
+  </Category>
+  <Instance Name="TextInstance" BaseType="Text" />
+  <Instance Name="ButtonContainer" BaseType="Container" />
+  <Instance Name="ContinueBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="NewGameBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="BackBtn" BaseType="Controls/ButtonGlow" />
+  <Behaviors />
+</ScreenSave>
