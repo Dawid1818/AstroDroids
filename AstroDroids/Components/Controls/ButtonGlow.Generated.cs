@@ -48,6 +48,8 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
         Idle,
         Right,
         Left,
+        LeftShort,
+        RightShort,
     }
 
     ButtonCategory? _buttonCategoryState;

@@ -4,6 +4,7 @@
       "Screens",
       "Screens/AudioSettingsScreenGum",
       "Screens/AudioSettingsScreenGum/ButtonContainer",
+      "Screens/ContinueScreenGum",
       "Screens/ControlsSettingsScreenGum",
       "Screens/ControlsSettingsScreenGum/ButtonContainer",
       "Screens/GameScreenGum",

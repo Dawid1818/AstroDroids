@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ComponentSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>Controls/ColorSlider</Name>
+  <Name>Custom/ColorSlider</Name>
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
@@ -39,7 +39,7 @@
     <Variable Type="SliderCategory" Name="SliderCategoryState" SetsValue="false" />
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
     <Variable Type="float" Name="ThumbInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">9</Value>
+      <Value xsi:type="xsd:float">29</Value>
     </Variable>
     <Variable Type="IconCategory" Name="ThumbInstance.IconCategory" SetsValue="true">
       <Value xsi:type="xsd:string">None</Value>
@@ -51,9 +51,11 @@
       <Value xsi:type="xsd:string"></Value>
     </Variable>
     <Variable Type="float" Name="ThumbInstance.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">7</Value>
+      <Value xsi:type="xsd:float">9</Value>
     </Variable>
-    <Variable Type="float" Name="ThumbInstance.X" ExposedAsName="SliderPercent" SetsValue="true" />
+    <Variable Type="float" Name="ThumbInstance.X" ExposedAsName="SliderPercent" SetsValue="true">
+      <Value xsi:type="xsd:float">1.041667</Value>
+    </Variable>
     <Variable Type="HorizontalAlignment" Name="ThumbInstance.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
@@ -61,7 +63,7 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="float" Name="ThumbInstance.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="ThumbInstance.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -128,6 +130,9 @@
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Enabled</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
     </State>
     <State>
       <Name>Disabled</Name>
@@ -137,9 +142,15 @@
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Disabled</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
     </State>
     <State>
       <Name>DisabledFocused</Name>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
@@ -149,29 +160,38 @@
     </State>
     <State>
       <Name>Focused</Name>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Enabled</Value>
+        <Value xsi:type="xsd:string">FocusedGlow</Value>
       </Variable>
     </State>
     <State>
       <Name>Highlighted</Name>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="string" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Highlighted</Value>
+        <Value xsi:type="xsd:string">FocusedGlow</Value>
       </Variable>
     </State>
     <State>
       <Name>HighlightedFocused</Name>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Highlighted</Value>
+        <Value xsi:type="xsd:string">FocusedGlow</Value>
       </Variable>
     </State>
     <State>
@@ -182,11 +202,14 @@
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Enabled</Value>
       </Variable>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
     </State>
   </Category>
   <Instance Name="TrackInstance" BaseType="Container" />
   <Instance Name="TrackBackground" BaseType="NineSlice" />
-  <Instance Name="ThumbInstance" BaseType="Controls/ButtonColorSlider" />
+  <Instance Name="ThumbInstance" BaseType="Controls/ButtonGlow" />
   <Instance Name="FocusedIndicator" BaseType="NineSlice" />
   <Behaviors>
     <ElementBehaviorReference>

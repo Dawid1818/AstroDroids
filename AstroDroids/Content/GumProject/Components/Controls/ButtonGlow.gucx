@@ -379,6 +379,18 @@
         <Value xsi:type="xsd:float">-600</Value>
       </Variable>
     </State>
+    <State>
+      <Name>LeftShort</Name>
+      <Variable Type="float" Name="X" Category="Position" SetsValue="true">
+        <Value xsi:type="xsd:float">-300</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>RightShort</Name>
+      <Variable Type="float" Name="X" SetsValue="true">
+        <Value xsi:type="xsd:float">300</Value>
+      </Variable>
+    </State>
   </Category>
   <Instance Name="Background" BaseType="NineSlice" />
   <Instance Name="FocusedIndicator" BaseType="NineSlice" />

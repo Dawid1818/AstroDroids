@@ -1547,6 +1547,97 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-09-09T12:04:43.152422Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ButtonContainer",
+        "OldName": "ShipCustomizationScreenGum.ContainerInstance1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-10T08:53:03.9127435Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.WingsBtn1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-10T08:53:14.7657607Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.Backbtn",
+        "OldName": "ShipCustomizationScreenGum.WingsBtn1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-10T08:53:17.3568352Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.Controls/ButtonGlow ReturnBtn in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-10T08:53:19.746285Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ReturnBtn",
+        "OldName": "ShipCustomizationScreenGum.Backbtn",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-10T08:53:22.1430617Z"
+      },
+      {
+        "NewName": "LeftShort",
+        "OldName": "Left1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-09-10T09:04:26.147218Z"
+      },
+      {
+        "NewName": "RightShort",
+        "OldName": "Right1",
+        "ElementType": "Components",
+        "EventType": 3,
+        "TimestampUtc": "2026-09-10T09:04:45.1675634Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-10T09:09:40.8278135Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColorPicker",
+        "OldName": "ShipCustomizationScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-10T09:12:00.2453876Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-10T09:15:29.3392489Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "ShipCustomizationScreenGum.Container ColorPicker in ShipCustomizationScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-10T09:16:49.5023802Z"
+      },
+      {
+        "NewName": "ShipCustomizationScreenGum.ColorPicker",
+        "OldName": "ShipCustomizationScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-10T09:18:13.9693163Z"
+      },
+      {
+        "NewName": "Custom/ColorSlider",
+        "OldName": "Controls/ColorSlider",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-10T09:40:04.326682Z"
       }
     ]
   }

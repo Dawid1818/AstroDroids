@@ -132,8 +132,6 @@ namespace AstroDroids.Screens
         {
             this.scene = scene;
 
-            BodyBtn.IsFocused = true;
-
             player = new Player(0, new Vector2(scene.World.Bounds.Width / 2 - 16, scene.World.Bounds.Height / 2 - 16));
             player.LockMovement = true;
             scene.World.AddPlayer(player);
@@ -141,6 +139,14 @@ namespace AstroDroids.Screens
             HSlider.ValueChangedByUi += Slider_ValueChangedByUi;
             SSlider.ValueChangedByUi += Slider_ValueChangedByUi;
             VSlider.ValueChangedByUi += Slider_ValueChangedByUi;
+
+            BodyBtn.X = -600;
+            WeaponsBtn.X = -600;
+            EnginesBtn.X = -600;
+            CockpitBtn.X = -600;
+            CockpitGlassBtn.X = -600;
+            WingsBtn.X = -600;
+            ReturnBtn.X = -600;
 
             BodyBtn.Click += PartBtn_Click;
             WeaponsBtn.Click += PartBtn_Click;
@@ -200,19 +206,26 @@ namespace AstroDroids.Screens
             scene.World.RemovePlayer(player);
         }
 
+        private void AnimationController_OnCompleted()
+        {
+            BodyBtn.IsFocused = true;
+            Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
+        }
+
         public void TransitionIn()
         {
-
+            Visual.PlayAnimation(Enter);
+            Visual.AnimationController.OnCompleted += AnimationController_OnCompleted;
         }
 
         public void TransitionOut()
         {
-
+            Visual.PlayAnimation(Leave);
         }
 
         public bool TransitionFinished()
         {
-            return true;
+            return Visual.AnimationController.IsStopped;
         }
 
         void Return()

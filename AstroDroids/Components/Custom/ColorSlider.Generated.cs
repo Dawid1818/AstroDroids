@@ -1,4 +1,4 @@
-//Code for Controls/ColorSlider (Container)
+//Code for Custom/ColorSlider (Container)
 using AstroDroids.Components.Controls;
 using Gum;
 using Gum.Converters;
@@ -9,7 +9,7 @@ using Gum.Wireframe;
 using GumRuntime;
 using RenderingLibrary.Graphics;
 using System.Linq;
-namespace AstroDroids.Components.Controls;
+namespace AstroDroids.Components.Custom;
 partial class ColorSlider : global::Gum.Forms.Controls.Slider
 {
     [System.Runtime.CompilerServices.ModuleInitializer]
@@ -18,13 +18,13 @@ partial class ColorSlider : global::Gum.Forms.Controls.Slider
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::Gum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/ColorSlider") ?? throw new System.InvalidOperationException("Could not find an element named Controls/ColorSlider - did you forget to load a Gum project?");
+            var element = ObjectFinder.Self.GetElementSave("Custom/ColorSlider") ?? throw new System.InvalidOperationException("Could not find an element named Custom/ColorSlider - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
             if(createForms) visual.FormsControlAsObject = new ColorSlider(visual);
             return visual;
         });
         global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(ColorSlider)] = template;
-        ElementSaveExtensions.RegisterGueInstantiation("Controls/ColorSlider", () => 
+        ElementSaveExtensions.RegisterGueInstantiation("Custom/ColorSlider", () => 
         {
             var gue = template.CreateContent(null, true) as InteractiveGue;
             return gue;
@@ -67,7 +67,7 @@ partial class ColorSlider : global::Gum.Forms.Controls.Slider
     }
     public ContainerRuntime TrackInstance { get; protected set; }
     public NineSliceRuntime TrackBackground { get; protected set; }
-    public ButtonColorSlider ThumbInstance { get; protected set; }
+    public ButtonGlow ThumbInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
     public float SliderPercent
@@ -90,7 +90,7 @@ partial class ColorSlider : global::Gum.Forms.Controls.Slider
         base.ReactToVisualChanged();
         TrackInstance = this.Visual?.GetGraphicalUiElementByName("TrackInstance") as global::Gum.GueDeriving.ContainerRuntime;
         TrackBackground = this.Visual?.GetGraphicalUiElementByName("TrackBackground") as global::Gum.GueDeriving.NineSliceRuntime;
-        ThumbInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonColorSlider>(this.Visual,"ThumbInstance");
+        ThumbInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ThumbInstance");
         FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::Gum.GueDeriving.NineSliceRuntime;
         CustomInitialize();
     }

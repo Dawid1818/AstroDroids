@@ -1,10 +1,12 @@
 //Code for ShipCustomizationScreenGum
 using AstroDroids.Components.Controls;
+using AstroDroids.Components.Custom;
 using Gum;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.GueDeriving;
 using Gum.Managers;
+using Gum.StateAnimation.Runtime;
 using Gum.Wireframe;
 using GumRuntime;
 using RenderingLibrary.Graphics;
@@ -34,20 +36,38 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
             return gue;
         });
     }
-    public NineSliceRuntime HBG { get; protected set; }
-    public NineSliceRuntime SBG { get; protected set; }
-    public NineSliceRuntime VBG { get; protected set; }
-    public SpriteRuntime SatTrack { get; protected set; }
-    public SpriteRuntime HueTrack { get; protected set; }
-    public SpriteRuntime ValTrack { get; protected set; }
+    public enum ColorPickerCategory
+    {
+        Out,
+        In,
+    }
+
+    ColorPickerCategory? _colorPickerCategoryState;
+    public ColorPickerCategory? ColorPickerCategoryState
+    {
+        get => _colorPickerCategoryState;
+        set
+        {
+            _colorPickerCategoryState = value;
+            if(value != null)
+            {
+                if(Visual.Categories.ContainsKey("ColorPickerCategory"))
+                {
+                    var category = Visual.Categories["ColorPickerCategory"];
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+                else
+                {
+                    var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "ColorPickerCategory");
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+            }
+        }
+    }
     public SpriteRuntime ShipIcon { get; protected set; }
-    public ColorSlider HSlider { get; protected set; }
-    public TextRuntime HLabel { get; protected set; }
-    public ColorSlider SSlider { get; protected set; }
-    public TextRuntime SLabel { get; protected set; }
-    public ColorSlider VSlider { get; protected set; }
-    public TextRuntime VLabel { get; protected set; }
-    public ContainerRuntime ContainerInstance1 { get; protected set; }
+    public ContainerRuntime ButtonContainer { get; protected set; }
     public ButtonGlow BodyBtn { get; protected set; }
     public ButtonGlow WeaponsBtn { get; protected set; }
     public ButtonGlow EnginesBtn { get; protected set; }
@@ -55,7 +75,25 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
     public ButtonGlow CockpitGlassBtn { get; protected set; }
     public ButtonGlow WingsBtn { get; protected set; }
     public ButtonGlow ReturnBtn { get; protected set; }
+    public ContainerRuntime ColorPicker { get; protected set; }
+    public NineSliceRuntime HBG { get; protected set; }
+    public NineSliceRuntime SBG { get; protected set; }
+    public NineSliceRuntime VBG { get; protected set; }
+    public SpriteRuntime HueTrack { get; protected set; }
+    public SpriteRuntime SatTrack { get; protected set; }
+    public SpriteRuntime ValTrack { get; protected set; }
+    public ColorSlider HSlider { get; protected set; }
+    public TextRuntime HLabel { get; protected set; }
+    public ColorSlider SSlider { get; protected set; }
+    public TextRuntime SLabel { get; protected set; }
+    public ColorSlider VSlider { get; protected set; }
+    public TextRuntime VLabel { get; protected set; }
 
+
+    #region Animation Fields
+    public AnimationRuntime Enter {get; protected set;}
+    public AnimationRuntime Leave {get; protected set;}
+    #endregion
     public ShipCustomizationScreenGum(InteractiveGue visual) : base(visual)
     {
     }
@@ -68,20 +106,8 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        HBG = this.Visual?.GetGraphicalUiElementByName("HBG") as global::Gum.GueDeriving.NineSliceRuntime;
-        SBG = this.Visual?.GetGraphicalUiElementByName("SBG") as global::Gum.GueDeriving.NineSliceRuntime;
-        VBG = this.Visual?.GetGraphicalUiElementByName("VBG") as global::Gum.GueDeriving.NineSliceRuntime;
-        SatTrack = this.Visual?.GetGraphicalUiElementByName("SatTrack") as global::Gum.GueDeriving.SpriteRuntime;
-        HueTrack = this.Visual?.GetGraphicalUiElementByName("HueTrack") as global::Gum.GueDeriving.SpriteRuntime;
-        ValTrack = this.Visual?.GetGraphicalUiElementByName("ValTrack") as global::Gum.GueDeriving.SpriteRuntime;
         ShipIcon = this.Visual?.GetGraphicalUiElementByName("ShipIcon") as global::Gum.GueDeriving.SpriteRuntime;
-        HSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"HSlider");
-        HLabel = this.Visual?.GetGraphicalUiElementByName("HLabel") as global::Gum.GueDeriving.TextRuntime;
-        SSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"SSlider");
-        SLabel = this.Visual?.GetGraphicalUiElementByName("SLabel") as global::Gum.GueDeriving.TextRuntime;
-        VSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"VSlider");
-        VLabel = this.Visual?.GetGraphicalUiElementByName("VLabel") as global::Gum.GueDeriving.TextRuntime;
-        ContainerInstance1 = this.Visual?.GetGraphicalUiElementByName("ContainerInstance1") as global::Gum.GueDeriving.ContainerRuntime;
+        ButtonContainer = this.Visual?.GetGraphicalUiElementByName("ButtonContainer") as global::Gum.GueDeriving.ContainerRuntime;
         BodyBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"BodyBtn");
         WeaponsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"WeaponsBtn");
         EnginesBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"EnginesBtn");
@@ -89,6 +115,21 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
         CockpitGlassBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"CockpitGlassBtn");
         WingsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"WingsBtn");
         ReturnBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ReturnBtn");
+        ColorPicker = this.Visual?.GetGraphicalUiElementByName("ColorPicker") as global::Gum.GueDeriving.ContainerRuntime;
+        HBG = this.Visual?.GetGraphicalUiElementByName("HBG") as global::Gum.GueDeriving.NineSliceRuntime;
+        SBG = this.Visual?.GetGraphicalUiElementByName("SBG") as global::Gum.GueDeriving.NineSliceRuntime;
+        VBG = this.Visual?.GetGraphicalUiElementByName("VBG") as global::Gum.GueDeriving.NineSliceRuntime;
+        HueTrack = this.Visual?.GetGraphicalUiElementByName("HueTrack") as global::Gum.GueDeriving.SpriteRuntime;
+        SatTrack = this.Visual?.GetGraphicalUiElementByName("SatTrack") as global::Gum.GueDeriving.SpriteRuntime;
+        ValTrack = this.Visual?.GetGraphicalUiElementByName("ValTrack") as global::Gum.GueDeriving.SpriteRuntime;
+        HSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"HSlider");
+        HLabel = this.Visual?.GetGraphicalUiElementByName("HLabel") as global::Gum.GueDeriving.TextRuntime;
+        SSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"SSlider");
+        SLabel = this.Visual?.GetGraphicalUiElementByName("SLabel") as global::Gum.GueDeriving.TextRuntime;
+        VSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"VSlider");
+        VLabel = this.Visual?.GetGraphicalUiElementByName("VLabel") as global::Gum.GueDeriving.TextRuntime;
+        Enter = this.Visual.GetAnimation("Enter");
+        Leave = this.Visual.GetAnimation("Leave");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
