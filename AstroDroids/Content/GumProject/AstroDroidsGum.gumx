@@ -67,6 +67,7 @@
   <ScreenReference Name="GamemodeScreenGum" />
   <ScreenReference Name="GameScreenGum" />
   <ScreenReference Name="GraphicsSettingsScreenGum" />
+  <ScreenReference Name="HighscoreScreenGum" />
   <ScreenReference Name="HintedScreenGum" />
   <ScreenReference Name="LeaderboardScreenGum" />
   <ScreenReference Name="LevelEditorScreenGum" />
@@ -94,6 +95,7 @@
   <ComponentReference Name="Controls/ItemsControl" />
   <ComponentReference Name="Controls/Keyboard" />
   <ComponentReference Name="Controls/KeyboardKey" />
+  <ComponentReference Name="Controls/KeyboardKeyGlow" />
   <ComponentReference Name="Controls/Label" />
   <ComponentReference Name="Controls/ListBox" />
   <ComponentReference Name="Controls/ListBoxItem" />
@@ -122,6 +124,8 @@
   <ComponentReference Name="Custom/ColorSlider" />
   <ComponentReference Name="Custom/HorizontalList" />
   <ComponentReference Name="Custom/InputActionComponent" />
+  <ComponentReference Name="Custom/KeyboardGlow" />
+  <ComponentReference Name="Custom/LeaderboardItem" />
   <ComponentReference Name="Custom/LevelCard" />
   <ComponentReference Name="Custom/SliderGlow" />
   <ComponentReference Name="Custom/VolumeComponent" />

@@ -11,6 +11,7 @@ namespace AstroDroids.Screens
     partial class ContinueScreenGum : IMenuPage
     {
         MainMenuScene scene;
+        public bool UpdateWhenTransitioning => false;
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
         {
             this.scene = scene;

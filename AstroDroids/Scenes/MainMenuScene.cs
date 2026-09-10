@@ -32,9 +32,16 @@ namespace AstroDroids.Scenes
         bool transitioning = false;
         bool logoHidden = true;
 
+        MissionProgress lastMissionProgress;
+
         public MainMenuScene()
         {
 
+        }
+
+        public MainMenuScene(MissionProgress progress)
+        {
+            lastMissionProgress = progress;
         }
 
         public override void Set()
@@ -46,8 +53,20 @@ namespace AstroDroids.Scenes
             ui = new HintedScreenGum();
             ui.AddToRoot();
 
-            MainMenuScreenGum page = new MainMenuScreenGum();
-            SetPage(page, false);
+            if (lastMissionProgress == null)
+            {
+                MainMenuScreenGum page = new MainMenuScreenGum();
+                SetPage(page, false);
+            }
+            else
+            {
+                HighscoreScreenGum page = new HighscoreScreenGum();
+                page.Setup(lastMissionProgress);
+                SetPage(page, true);
+                ui.LogoLabel.Y = -69;
+
+                lastMissionProgress = null;
+            }
 
             if (World == null)
                 World = new GameWorld();
@@ -75,14 +94,15 @@ namespace AstroDroids.Scenes
                 SceneManager.SetScene(new MainMenuScene());
             }
 
-            if (menuPage != null && !transitioning)
+            if (menuPage != null)
             {
-                if (InputSystem.IsActionDown(GameAction.NextWeapon) || InputSystem.GetRMBDown() || InputSystem.GetButtonDown(Buttons.B))
+                if (!transitioning && (InputSystem.IsActionDown(GameAction.NextWeapon) || InputSystem.GetRMBDown() || InputSystem.GetButtonDown(Buttons.B)))
                 {
                     menuPage.BackPressed();
                 }
 
-                menuPage.Update(gameTime);
+                if(!transitioning || menuPage.UpdateWhenTransitioning)
+                    menuPage.Update(gameTime);
             }
 
             InputMethod newInputMethod = InputSystem.GetLastInputMethod();

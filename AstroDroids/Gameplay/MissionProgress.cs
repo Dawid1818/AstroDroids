@@ -15,6 +15,8 @@ namespace AstroDroids.Gameplay
         public int LevelIndex { get; set; } = 0;
         public MissionType Type { get; set; } = MissionType.Editor;
 
+        public bool Victory { get; set; } = false;
+
         public MissionProgress()
         {
 
@@ -28,6 +30,7 @@ namespace AstroDroids.Gameplay
             Score = reader.ReadInt32();
             Firepower = reader.ReadInt32();
             CurrentWeapon = reader.ReadInt32();
+            Victory = false;
         }
 
         public void Save(BinaryWriter writer)
@@ -38,6 +41,7 @@ namespace AstroDroids.Gameplay
             writer.Write(Score);
             writer.Write(Firepower);
             writer.Write(CurrentWeapon);
+            writer.Write(Victory);
         }
     }
 }

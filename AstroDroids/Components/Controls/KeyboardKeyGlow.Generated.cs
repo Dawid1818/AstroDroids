@@ -1,4 +1,4 @@
-//Code for Controls/ButtonGlow (Container)
+//Code for Controls/KeyboardKeyGlow (Container)
 using Gum;
 using Gum.Converters;
 using Gum.DataTypes;
@@ -10,7 +10,7 @@ using GumRuntime;
 using RenderingLibrary.Graphics;
 using System.Linq;
 namespace AstroDroids.Components.Controls;
-partial class ButtonGlow : global::Gum.Forms.Controls.Button
+partial class KeyboardKeyGlow : global::Gum.Forms.Controls.Button
 {
     [System.Runtime.CompilerServices.ModuleInitializer]
     public static void RegisterRuntimeType()
@@ -18,13 +18,13 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::Gum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("Controls/ButtonGlow") ?? throw new System.InvalidOperationException("Could not find an element named Controls/ButtonGlow - did you forget to load a Gum project?");
+            var element = ObjectFinder.Self.GetElementSave("Controls/KeyboardKeyGlow") ?? throw new System.InvalidOperationException("Could not find an element named Controls/KeyboardKeyGlow - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
-            if(createForms) visual.FormsControlAsObject = new ButtonGlow(visual);
+            if(createForms) visual.FormsControlAsObject = new KeyboardKeyGlow(visual);
             return visual;
         });
-        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(ButtonGlow)] = template;
-        ElementSaveExtensions.RegisterGueInstantiation("Controls/ButtonGlow", () => 
+        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(KeyboardKeyGlow)] = template;
+        ElementSaveExtensions.RegisterGueInstantiation("Controls/KeyboardKeyGlow", () => 
         {
             var gue = template.CreateContent(null, true) as InteractiveGue;
             return gue;
@@ -118,10 +118,10 @@ partial class ButtonGlow : global::Gum.Forms.Controls.Button
     public AnimationRuntime SlideOutLeftShort {get; protected set;}
     #endregion
 
-    public ButtonGlow(InteractiveGue visual) : base(visual)
+    public KeyboardKeyGlow(InteractiveGue visual) : base(visual)
     {
     }
-    public ButtonGlow()
+    public KeyboardKeyGlow()
     {
 
 

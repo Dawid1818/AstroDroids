@@ -14,6 +14,7 @@ namespace AstroDroids.Screens
     {
         MainMenuScene scene;
         List<DisplayMode> modes = new List<DisplayMode>();
+        public bool UpdateWhenTransitioning => false;
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
         {
             this.scene = scene;

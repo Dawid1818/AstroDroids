@@ -3,16 +3,124 @@
   <Name>LeaderboardScreenGum</Name>
   <State>
     <Name>Default</Name>
+    <Variable Type="float" Name="Header.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="Header.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">30</Value>
+    </Variable>
+    <Variable Type="bool" Name="Header.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="bool" Name="Header.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Header.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="Header.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="Header.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Leaderboard</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Header.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Header.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Header.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">21</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Header.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Header.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="HeaderCategory" Name="HeaderCategoryState" SetsValue="true" />
+    <Variable Type="ChildrenLayout" Name="LeaderboardItems.ChildrenLayout" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="LeaderboardItems.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">405</Value>
+    </Variable>
+    <Variable Type="float" Name="LeaderboardItems.StackSpacing" SetsValue="true">
+      <Value xsi:type="xsd:float">15</Value>
+    </Variable>
+    <Variable Type="float" Name="LeaderboardItems.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">257</Value>
+    </Variable>
+    <Variable Type="float" Name="LeaderboardItems.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LeaderboardItems.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LeaderboardItems.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="LeaderboardItems.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-18</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="LeaderboardItems.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LeaderboardItems.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
     <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string">T_Return</Value>
     </Variable>
     <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">56</Value>
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ReturnBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ReturnBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
     </Variable>
     <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">411</Value>
+      <Value xsi:type="xsd:float">-69</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ReturnBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ReturnBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
     </Variable>
   </State>
+  <Category>
+    <Name>HeaderCategory</Name>
+    <State>
+      <Name>Out</Name>
+      <Variable Type="float" Name="Header.Y" SetsValue="true">
+        <Value xsi:type="xsd:float">-56</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>In</Name>
+      <Variable Type="float" Name="Header.Y" SetsValue="true">
+        <Value xsi:type="xsd:float">21</Value>
+      </Variable>
+    </State>
+  </Category>
   <Instance Name="ReturnBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="LeaderboardItems" BaseType="Container" />
+  <Instance Name="Header" BaseType="Text" />
   <Behaviors />
 </ScreenSave>

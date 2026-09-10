@@ -24,6 +24,8 @@ namespace AstroDroids.Screens
 
         int selectedLevel = 0;
 
+        public bool UpdateWhenTransitioning => false;
+
         public void BackPressed()
         {
             Return();

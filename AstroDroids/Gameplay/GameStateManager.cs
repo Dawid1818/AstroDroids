@@ -144,7 +144,7 @@ namespace AstroDroids.Gameplay
 
         internal static void LoadState(GameMission mission)
         {
-            if(SaveManager.curSave.MissionProgress != null)
+            if (SaveManager.curSave.MissionProgress != null)
             {
                 CurrentMissionProgress = (MissionProgress)FileSaver.CloneObject(SaveManager.curSave.MissionProgress, new MissionProgress());
                 CurrentMission = mission;
@@ -161,6 +161,16 @@ namespace AstroDroids.Gameplay
             SaveManager.curSave.MissionProgress = null;
 
             SaveManager.SaveGame();
+        }
+
+        internal static MissionProgress GetMissionProgress()
+        {
+            return CurrentMissionProgress;
+        }
+
+        internal static void SetVictory(bool victory)
+        {
+            CurrentMissionProgress.Victory = victory;
         }
     }
 }

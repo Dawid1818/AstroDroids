@@ -51,3 +51,8 @@ T_Gamepad,Gamepad,Pad
 T_ContinueGameQuestion,Would you like to continue your previous game?,Czy chcesz kontynuować poprzednią grę?
 T_NewGame,Start a new game,Rozpocznij nową grę
 T_ContinueGame,Continue game,Kontynuuj grę
+T_Victory,Victory,Zwycięstwo
+T_Defeat,Defeat,Porażka
+T_AchievedHighscore,Achieved highscore!,Osiągnięto nowy rekord!
+T_EnterName,Enter your name,Wpisz swoje imię
+T_Score,Score,Wynik

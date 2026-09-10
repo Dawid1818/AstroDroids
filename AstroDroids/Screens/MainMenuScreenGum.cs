@@ -15,6 +15,7 @@ namespace AstroDroids.Screens
     partial class MainMenuScreenGum : IMenuPage
     {
         MainMenuScene scene;
+        public bool UpdateWhenTransitioning => false;
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
         {
             this.scene = scene;
@@ -90,8 +91,8 @@ namespace AstroDroids.Screens
 
         private void LeaderboardBtn_Click(object sender, EventArgs e)
         {
-            SoundManager.PlaySound("ShieldOff", AstroDroidsGame.rnd.NextSingle() * 2f);
-            //scene.SetPage(new LeaderboardScreenGum());
+            //SoundManager.PlaySound("ShieldOff", AstroDroidsGame.rnd.NextSingle() * 2f);
+            scene.SetPage(new LeaderboardScreenGum(), true);
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)

@@ -157,6 +157,55 @@
     <Variable Type="float" Name="HBG.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-58.5</Value>
     </Variable>
+    <Variable Type="float" Name="Header.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="Header.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">30</Value>
+    </Variable>
+    <Variable Type="bool" Name="Header.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="bool" Name="Header.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Header.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="Header.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="Header.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Customize</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Header.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Header.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Header.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Header.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">21</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Header.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Header.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="HeaderCategory" Name="HeaderCategoryState" SetsValue="true" />
     <Variable Type="float" Name="HLabel.DropshadowBlur" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
@@ -521,6 +570,21 @@
       </Variable>
     </State>
   </Category>
+  <Category>
+    <Name>HeaderCategory</Name>
+    <State>
+      <Name>Out</Name>
+      <Variable Type="float" Name="Header.Y" SetsValue="true">
+        <Value xsi:type="xsd:float">-56</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>In</Name>
+      <Variable Type="float" Name="Header.Y" SetsValue="true">
+        <Value xsi:type="xsd:float">21</Value>
+      </Variable>
+    </State>
+  </Category>
   <Instance Name="ShipIcon" BaseType="Sprite" />
   <Instance Name="ButtonContainer" BaseType="Container" />
   <Instance Name="BodyBtn" BaseType="Controls/ButtonGlow" />
@@ -543,5 +607,6 @@
   <Instance Name="SLabel" BaseType="Text" />
   <Instance Name="VSlider" BaseType="Custom/ColorSlider" />
   <Instance Name="VLabel" BaseType="Text" />
+  <Instance Name="Header" BaseType="Text" />
   <Behaviors />
 </ScreenSave>

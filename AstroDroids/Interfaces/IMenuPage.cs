@@ -6,6 +6,7 @@ namespace AstroDroids.Interfaces
 {
     public interface IMenuPage
     {
+        public bool UpdateWhenTransitioning { get; }
         public void Initialize(MainMenuScene scene, HintedScreenGum hinted);
         public void Uninitialize();
         public void TransitionOut();

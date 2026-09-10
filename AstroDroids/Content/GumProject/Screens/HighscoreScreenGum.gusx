@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>HighscoreScreenGum</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="float" Name="AchievedHighscoreLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="AchievedHighscoreLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="AchievedHighscoreLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="AchievedHighscoreLabel.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">25</Value>
+    </Variable>
+    <Variable Type="bool" Name="AchievedHighscoreLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="AchievedHighscoreLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="AchievedHighscoreLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="AchievedHighscoreLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_AchievedHighscore</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="AchievedHighscoreLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="AchievedHighscoreLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="AchievedHighscoreLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="AchievedHighscoreLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="AchievedHighscoreLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">61</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="AchievedHighscoreLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="AchievedHighscoreLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="AnimCategory1" Name="AnimCategory1State" SetsValue="true" />
+    <Variable Type="AnimCategory2" Name="AnimCategory2State" SetsValue="true" />
+    <Variable Type="float" Name="EnterYourNameLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="EnterYourNameLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="EnterYourNameLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="EnterYourNameLabel.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">25</Value>
+    </Variable>
+    <Variable Type="bool" Name="EnterYourNameLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="EnterYourNameLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="EnterYourNameLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="EnterYourNameLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_EnterName</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="EnterYourNameLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="EnterYourNameLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="EnterYourNameLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="EnterYourNameLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="EnterYourNameLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">187</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="EnterYourNameLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="EnterYourNameLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="GlowKeyboard.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-406</Value>
+    </Variable>
+    <Variable Type="float" Name="GlowKeyboard.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-311</Value>
+    </Variable>
+    <Variable Type="float" Name="GlowKeyboard.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="GlowKeyboard.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="GlowKeyboard.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="GlowKeyboard.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">296</Value>
+    </Variable>
+    <Variable Type="KeyboardCategory" Name="KeyboardCategoryState" SetsValue="true" />
+    <Variable Type="float" Name="NameLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="NameLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="NameLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="NameLabel.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">30</Value>
+    </Variable>
+    <Variable Type="bool" Name="NameLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="NameLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="NameLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="NameLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="NameLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="NameLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="NameLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="NameLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-52</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="NameLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="NameLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="ResultLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ResultLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="ResultLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="ResultLabel.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">30</Value>
+    </Variable>
+    <Variable Type="bool" Name="ResultLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ResultLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="ResultLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="ResultLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Victory</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ResultLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ResultLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ResultLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ResultLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ResultLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ResultLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ResultLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Return</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ReturnBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ReturnBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-69</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ReturnBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ReturnBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreDisplay.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreDisplay.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreDisplay.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="ScoreDisplay.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">25</Value>
+    </Variable>
+    <Variable Type="bool" Name="ScoreDisplay.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ScoreDisplay.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="ScoreDisplay.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="ScoreDisplay.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Score</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ScoreDisplay.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreDisplay.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ScoreDisplay.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ScoreDisplay.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreDisplay.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">137</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ScoreDisplay.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ScoreDisplay.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreLabel.DropshadowBlur" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreLabel.DropshadowOffsetX" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreLabel.DropshadowOffsetY" SetsValue="true">
+      <Value xsi:type="xsd:float">2</Value>
+    </Variable>
+    <Variable Type="int" Name="ScoreLabel.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">25</Value>
+    </Variable>
+    <Variable Type="bool" Name="ScoreLabel.HasDropshadow" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ScoreLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="ScoreLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="ScoreLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">T_Score</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ScoreLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ScoreLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ScoreLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ScoreLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">103</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ScoreLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ScoreLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+  </State>
+  <Category>
+    <Name>KeyboardCategory</Name>
+    <State>
+      <Name>Out</Name>
+      <Variable Type="float" Name="GlowKeyboard.X" SetsValue="true">
+        <Value xsi:type="xsd:float">-682</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>In</Name>
+      <Variable Type="float" Name="GlowKeyboard.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>OutRight</Name>
+      <Variable Type="float" Name="GlowKeyboard.X" SetsValue="true">
+        <Value xsi:type="xsd:float">682</Value>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>AnimCategory1</Name>
+    <State>
+      <Name>Out</Name>
+      <Variable Type="float" Name="EnterYourNameLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">-523</Value>
+      </Variable>
+      <Variable Type="float" Name="ResultLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">-512</Value>
+      </Variable>
+      <Variable Type="float" Name="ScoreLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">-514</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>In</Name>
+      <Variable Type="float" Name="EnterYourNameLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+      <Variable Type="float" Name="ResultLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+      <Variable Type="float" Name="ScoreLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>AnimCategory2</Name>
+    <State>
+      <Name>Out</Name>
+      <Variable Type="float" Name="AchievedHighscoreLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">582</Value>
+      </Variable>
+      <Variable Type="float" Name="NameLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">580</Value>
+      </Variable>
+      <Variable Type="float" Name="ScoreDisplay.X" SetsValue="true">
+        <Value xsi:type="xsd:float">581</Value>
+      </Variable>
+    </State>
+    <State>
+      <Name>In</Name>
+      <Variable Type="float" Name="AchievedHighscoreLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+      <Variable Type="float" Name="ScoreDisplay.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+      <Variable Type="float" Name="NameLabel.X" SetsValue="true">
+        <Value xsi:type="xsd:float">0</Value>
+      </Variable>
+    </State>
+  </Category>
+  <Instance Name="ReturnBtn" BaseType="Controls/ButtonGlow" />
+  <Instance Name="GlowKeyboard" BaseType="Custom/KeyboardGlow" />
+  <Instance Name="NameLabel" BaseType="Text" />
+  <Instance Name="ResultLabel" BaseType="Text" />
+  <Instance Name="AchievedHighscoreLabel" BaseType="Text" />
+  <Instance Name="EnterYourNameLabel" BaseType="Text" />
+  <Instance Name="ScoreLabel" BaseType="Text" />
+  <Instance Name="ScoreDisplay" BaseType="Text" />
+  <Behaviors />
+</ScreenSave>

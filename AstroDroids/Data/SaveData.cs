@@ -1,6 +1,7 @@
 ﻿using AstroDroids.Extensions;
 using AstroDroids.Gameplay;
 using AstroDroids.Interfaces;
+using System.Collections.Generic;
 using System.IO;
 
 namespace AstroDroids.Data
@@ -8,10 +9,13 @@ namespace AstroDroids.Data
     public class SaveData : ISaveable
     {
         public const string Magic = "adsave";
-        public const int FileVersion = 1;
+        public const int FileVersion = 3;
 
+        public string PlayerName { get; set; } = "Player";
         public ShipCustomization Ship { get; set; } = new ShipCustomization();
         public MissionProgress MissionProgress { get; set; }
+
+        public List<ScoreEntry> Scores { get; set; } = new List<ScoreEntry>();
 
         public void Load(BinaryReader reader, int version)
         {
@@ -22,8 +26,29 @@ namespace AstroDroids.Data
 
             int actualVersion = reader.ReadInt32();
 
+            if(actualVersion >= 2)
+            {
+                PlayerName = reader.ReadString();
+            }
+            else
+            {
+                PlayerName = "Player";
+            }
+
             Ship = new ShipCustomization();
             Ship.Load(reader, version);
+
+            if(actualVersion >= 3)
+            {
+                int scoreCount = reader.ReadInt32();
+                Scores = new List<ScoreEntry>();
+                for(int i = 0; i < scoreCount; i++)
+                {
+                    ScoreEntry entry = new ScoreEntry();
+                    entry.Load(reader, actualVersion);
+                    Scores.Add(entry);
+                }
+            }
 
             if(actualVersion >= 1)
             {
@@ -50,9 +75,17 @@ namespace AstroDroids.Data
 
             writer.Write(FileVersion);
 
+            writer.Write(PlayerName);
+
             Ship.Save(writer);
 
-            if(MissionProgress != null)
+            writer.Write(Scores.Count);
+            foreach (var item in Scores)
+            {
+                item.Save(writer);
+            }
+
+            if (MissionProgress != null)
             {
                 writer.Write(true);
                 MissionProgress.Save(writer);

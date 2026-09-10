@@ -29,7 +29,7 @@ namespace AstroDroids.Levels
 
             Type = (LaserBarrierType)reader.ReadInt32();
 
-            if (version >= 14)
+            if (version >= 13)
             {
                 HasEnemy = reader.ReadBoolean();
 

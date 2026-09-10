@@ -41,6 +41,11 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
         Out,
         In,
     }
+    public enum HeaderCategory
+    {
+        Out,
+        In,
+    }
 
     ColorPickerCategory? _colorPickerCategoryState;
     public ColorPickerCategory? ColorPickerCategoryState
@@ -60,6 +65,31 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
                 else
                 {
                     var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "ColorPickerCategory");
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+            }
+        }
+    }
+
+    HeaderCategory? _headerCategoryState;
+    public HeaderCategory? HeaderCategoryState
+    {
+        get => _headerCategoryState;
+        set
+        {
+            _headerCategoryState = value;
+            if(value != null)
+            {
+                if(Visual.Categories.ContainsKey("HeaderCategory"))
+                {
+                    var category = Visual.Categories["HeaderCategory"];
+                    var state = category.States.Find(item => item.Name == value.ToString());
+                    this.Visual.ApplyState(state);
+                }
+                else
+                {
+                    var category = ((global::Gum.DataTypes.ElementSave)this.Visual.Tag).Categories.FirstOrDefault(item => item.Name == "HeaderCategory");
                     var state = category.States.Find(item => item.Name == value.ToString());
                     this.Visual.ApplyState(state);
                 }
@@ -88,6 +118,7 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
     public TextRuntime SLabel { get; protected set; }
     public ColorSlider VSlider { get; protected set; }
     public TextRuntime VLabel { get; protected set; }
+    public TextRuntime Header { get; protected set; }
 
 
     #region Animation Fields
@@ -128,6 +159,7 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
         SLabel = this.Visual?.GetGraphicalUiElementByName("SLabel") as global::Gum.GueDeriving.TextRuntime;
         VSlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ColorSlider>(this.Visual,"VSlider");
         VLabel = this.Visual?.GetGraphicalUiElementByName("VLabel") as global::Gum.GueDeriving.TextRuntime;
+        Header = this.Visual?.GetGraphicalUiElementByName("Header") as global::Gum.GueDeriving.TextRuntime;
         Enter = this.Visual.GetAnimation("Enter");
         Leave = this.Visual.GetAnimation("Leave");
         CustomInitialize();
@@ -139,6 +171,7 @@ partial class ShipCustomizationScreenGum : global::Gum.Forms.Controls.FrameworkE
         this.CockpitBtn.Text = GumService.Default.LocalizationService.Translate("T_Cockpit");
         this.CockpitGlassBtn.Text = GumService.Default.LocalizationService.Translate("T_CockpitGlass");
         this.EnginesBtn.Text = GumService.Default.LocalizationService.Translate("T_Engines");
+        this.Header.Text = GumService.Default.LocalizationService.Translate("T_Customize");
         this.ReturnBtn.Text = GumService.Default.LocalizationService.Translate("T_Return");
         this.WeaponsBtn.Text = GumService.Default.LocalizationService.Translate("T_Weapons");
         this.WingsBtn.Text = GumService.Default.LocalizationService.Translate("T_Wings");

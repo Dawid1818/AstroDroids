@@ -17,6 +17,8 @@ namespace AstroDroids.Screens
 
         Dictionary<GameAction, ButtonInputAction> actions { get { return SettingsManager.curSettings.Actions; } }
 
+        public bool UpdateWhenTransitioning => false;
+
         InputActionComponent rebindingWith;
 
         bool isKeyboard = true;

@@ -270,6 +270,12 @@ namespace AstroDroids.Scenes
             }
         }
 
+        public void Highscore()
+        {
+            InputSystem.SetMouseLock(false);
+            coroutineManager.StartCoroutine(TransitionToSceneCoroutine(new MainMenuScene(GameStateManager.GetMissionProgress())));
+        }
+
         public void SaveAndQuit()
         {
             InputSystem.SetMouseLock(false);
@@ -320,13 +326,23 @@ namespace AstroDroids.Scenes
 
             yield return new WaitForSeconds(2f);
 
-            if(!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
+            if (!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
             {
-                //will want to save progress to leaderboard later
+                //check if player's score made it into top 10
+                if(SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
+                {
+                    Highscore();
+                }
+                else
+                {
+                    SaveAndQuit();
+                }
                 GameStateManager.ClearState();
             }
-
-            SaveAndQuit();
+            else
+            {
+                SaveAndQuit();
+            }
         }
 
         IEnumerator missionFinishedSequence()
@@ -353,13 +369,23 @@ namespace AstroDroids.Scenes
 
             if (!nextLevel)
             {
-                if(!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
+                if (!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
                 {
-                    //will want to save progress to leaderboard later
+                    GameStateManager.SetVictory(true);
+                    if (SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
+                    {
+                        Highscore();
+                    }
+                    else
+                    {
+                        SaveAndQuit();
+                    }
                     GameStateManager.ClearState();
                 }
-
-                SaveAndQuit();
+                else
+                {
+                    SaveAndQuit();
+                }
             }
             else
             {

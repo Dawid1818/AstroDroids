@@ -31,6 +31,8 @@ namespace AstroDroids.Screens
         Texture2D valueTrack = new Texture2D(Screen.GetGraphicsManager().GraphicsDevice, TrackWidth, TrackHeight);
         Color[] valueColors = new Color[TrackWidth * TrackHeight];
 
+        public bool UpdateWhenTransitioning => false;
+
         partial void CustomInitialize()
         {
             BodyBtn.Visual.Tag = 0;
