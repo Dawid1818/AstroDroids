@@ -193,6 +193,9 @@ namespace AstroDroids.Entities.Friendly
                 GameStateManager.RemoveLife();
                 Scene.World.RequestPlayerRespawn(playerIndex);
                 Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 1f));
+
+                GameStateManager.DecreaseFirepower();
+                GameStateManager.DecreaseFirepower();
                 destroyed = true;
             }
         }

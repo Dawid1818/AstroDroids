@@ -2282,6 +2282,125 @@
         "ElementType": "Screens",
         "EventType": 5,
         "TimestampUtc": "2026-09-10T13:15:11.6543335Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreLabel1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-13T11:29:19.9579382Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
+        "OldName": "GameScreenGum.ScoreLabel1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:29:31.4736422Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
+        "OldName": "GameScreenGum.ScoreLabel1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:29:31.4769909Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
+        "OldName": "GameScreenGum.ScoreLabel1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:29:31.4867625Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
+        "OldName": "GameScreenGum.ScoreLabel1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:29:31.4944511Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
+        "OldName": "GameScreenGum.ScoreLabel1",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:29:31.5045473Z"
+      },
+      {
+        "NewName": "GameScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-13T11:31:49.3624941Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:00.160098Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:00.1622647Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:00.1719616Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:00.1784685Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:00.1879096Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
+        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:03.7878886Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
+        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:03.7900872Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
+        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:03.8060176Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
+        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:03.812777Z"
+      },
+      {
+        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
+        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-13T11:36:03.8323112Z"
       }
     ]
   }

@@ -142,7 +142,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             foreach (var drone in drones)
             {
-                drone.Drone.SetCollidable(!wasOrbitPlayer);
+                if(newStyle != DronePositionStyle.VerticalWall && oldStyle != DronePositionStyle.VerticalWall)
+                    drone.Drone.SetCollidable(false);
                 drone.Reached = false;
                 drone.Acted = false;
                 drone.Drone.angleOverride = false;

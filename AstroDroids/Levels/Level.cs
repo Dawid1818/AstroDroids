@@ -13,7 +13,7 @@ namespace AstroDroids.Levels
     public class Level : ISaveable
     {
         public const string Magic = "adlvl";
-        public const int FileVersion = 14;
+        public const int FileVersion = 15;
         public string Name { get; set; } = string.Empty;
         public int EventHandlerId { get; set; } = 0;
         public int BackgroundId { get; set; } = 0;
@@ -61,14 +61,6 @@ namespace AstroDroids.Levels
         {
             if (eventHandler != null)
                 eventHandler.RunEvent(id);
-        }
-
-        protected EntityGroup CreateGroup(Vector2 position, int rows, int cols, float cellWidth, float cellHeight, float spacing)
-        {
-            EntityGroup group = new EntityGroup(position, rows, cols, cellWidth, cellHeight, spacing);
-
-            Scene.World.AddEntityGroup(group);
-            return group;
         }
 
         public AttackWave CreateAttackWave()

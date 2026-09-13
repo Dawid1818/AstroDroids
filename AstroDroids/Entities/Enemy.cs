@@ -1,5 +1,6 @@
 ﻿
 using AstroDroids.Entities.Effects;
+using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Paths;
@@ -39,8 +40,10 @@ namespace AstroDroids.Entities
         public bool IsNeutral { get; internal set; } = false;
         public bool CanBeShielded { get; internal set; } = false;
         public int ShieldedAmount { get; set; } = 0;
-        public float HorizontalShieldRadius = 16f;
-        public float VerticalShieldRadius = 16f;
+        public float HorizontalShieldRadius { get; set; } = 16f;
+        public float VerticalShieldRadius { get; set; } = 16f;
+
+        public bool CanSpawnFirepower { get; set; } = true;
 
         public Enemy() : base()
         {
@@ -90,6 +93,14 @@ namespace AstroDroids.Entities
 
             GameStateManager.AddScore(Score);
             Despawn();
+
+            if(CanSpawnFirepower)
+            {
+                int chance = Random.Next(100);
+
+                if(chance <= 2)
+                    Scene.World.AddPowerup(new FirepowerPickup(Transform.Position));
+            }
 
             destroyed = true;
         }

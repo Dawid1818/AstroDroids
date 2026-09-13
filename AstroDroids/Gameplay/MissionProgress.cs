@@ -6,6 +6,7 @@ namespace AstroDroids.Gameplay
     public class MissionProgress : ISaveable
     {
         public int Lives { get; set; } = 3;
+        public int ExtraLivesObtained { get; set; } = 0;
         public int Score { get; set; } = 0;
         public int Firepower { get; set; } = 1;
         public const int MaxFirepower = 5;
@@ -27,6 +28,7 @@ namespace AstroDroids.Gameplay
             Type = (MissionType)reader.ReadInt32();
             LevelIndex = reader.ReadInt32();
             Lives = reader.ReadInt32();
+            ExtraLivesObtained = reader.ReadInt32();
             Score = reader.ReadInt32();
             Firepower = reader.ReadInt32();
             CurrentWeapon = reader.ReadInt32();
@@ -38,6 +40,7 @@ namespace AstroDroids.Gameplay
             writer.Write((int)Type);
             writer.Write(LevelIndex);
             writer.Write(Lives);
+            writer.Write(ExtraLivesObtained);
             writer.Write(Score);
             writer.Write(Firepower);
             writer.Write(CurrentWeapon);

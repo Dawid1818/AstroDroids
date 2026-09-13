@@ -40,12 +40,11 @@ namespace AstroDroids.Gameplay
 
         public EntityList<AliveEntity> Enemies { get; } = new EntityList<AliveEntity>();
         public EntityList<AliveEntity> Neutrals { get; } = new EntityList<AliveEntity>();
+        public EntityList<CollidableEntity> Powerups { get; } = new EntityList<CollidableEntity>();
 
         public EntityList<Entity> BackgroundObjects { get; } = new EntityList<Entity>();
 
         public EntityList<Projectile> Projectiles { get; } = new EntityList<Projectile>();
-
-        public EntityList<EntityGroup> EntityGroups { get; } = new EntityList<EntityGroup>();
 
         public EntityList<Entity> Warnings { get; } = new EntityList<Entity>();
 
@@ -444,9 +443,9 @@ namespace AstroDroids.Gameplay
 
             Warnings.Update(gameTime);
 
-            EntityGroups.Update(gameTime);
-
             Enemies.Update(gameTime);
+
+            Powerups.Update(gameTime);
 
             Neutrals.Update(gameTime);
 
@@ -491,6 +490,8 @@ namespace AstroDroids.Gameplay
             Neutrals.Draw(gameTime);
 
             Projectiles.Draw(gameTime);
+
+            Powerups.Draw(gameTime);
             Screen.shapeBatch.End();
 
             foreach (var item in Players)
@@ -547,6 +548,18 @@ namespace AstroDroids.Gameplay
         public void RemoveEffect(Entity effect)
         {
             Effects.Remove(effect);
+        }
+
+        public void AddPowerup(CollidableEntity powerup)
+        {
+            AllCollidables.Add(powerup);
+            Powerups.Add(powerup);
+        }
+
+        public void RemovePowerup(CollidableEntity powerup)
+        {
+            AllCollidables.Remove(powerup);
+            Powerups.Remove(powerup);
         }
 
         public void AddBackgroundObject(BackgroundObject bgObj)
@@ -652,16 +665,6 @@ namespace AstroDroids.Gameplay
         {
             Projectiles.Remove(projectile);
             AllCollidables.Remove(projectile);
-        }
-
-        public void AddEntityGroup(EntityGroup group)
-        {
-            EntityGroups.Add(group);
-        }
-
-        public void RemoveEntityGroup(EntityGroup group)
-        {
-            EntityGroups.Remove(group);
         }
 
         public Player GetRandomPlayer()

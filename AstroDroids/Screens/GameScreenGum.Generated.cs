@@ -126,6 +126,8 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public ButtonGlow SettingsBtn { get; protected set; }
     public ButtonGlow QuitBtn { get; protected set; }
     public TextRuntime MissionStatusLabel { get; protected set; }
+    public ContainerRuntime ScoreExtraLifeContainer { get; protected set; }
+    public Label ScoreExtraLifeLabel { get; protected set; }
 
 
     #region Animation Fields
@@ -175,6 +177,8 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         SettingsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"SettingsBtn");
         QuitBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"QuitBtn");
         MissionStatusLabel = this.Visual?.GetGraphicalUiElementByName("MissionStatusLabel") as global::Gum.GueDeriving.TextRuntime;
+        ScoreExtraLifeContainer = this.Visual?.GetGraphicalUiElementByName("ScoreExtraLifeContainer") as global::Gum.GueDeriving.ContainerRuntime;
+        ScoreExtraLifeLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"ScoreExtraLifeLabel");
         Show = this.Visual.GetAnimation("Show");
         Hide = this.Visual.GetAnimation("Hide");
         ShowMissionStatus = this.Visual.GetAnimation("ShowMissionStatus");

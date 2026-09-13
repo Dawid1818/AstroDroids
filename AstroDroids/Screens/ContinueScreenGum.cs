@@ -33,6 +33,7 @@ namespace AstroDroids.Screens
 
         private void NewGameBtn_Click(object sender, EventArgs e)
         {
+            GameStateManager.ClearState();
             scene.SetPage(new MissionScreenGum(), true);
         }
 

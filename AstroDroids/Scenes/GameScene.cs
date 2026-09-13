@@ -158,7 +158,20 @@ namespace AstroDroids.Scenes
                 InputSystem.SetMouseLock(false);
             }
 
-            ui.ScoreLabel.Text = GameStateManager.GetScore().ToString();
+            int score = GameStateManager.GetScore();
+            string scoreString = score.ToString();
+
+            ui.ScoreLabel.Text = scoreString;
+            ui.ScoreExtraLifeLabel.Text = scoreString;
+
+            int previousThreshold = GameStateManager.PreviousExtraLivesThreshold;
+            int nextThreshold = GameStateManager.NextExtraLivesThreshold;
+
+            float progress = (float)(score - previousThreshold) / (nextThreshold - previousThreshold);
+
+            ui.ScoreExtraLifeContainer.Height = progress * 13f;
+            ui.ScoreExtraLifeContainer.Y = 21f - progress * 13f;
+
             ui.LivesLabel.Text = GameStateManager.GetLives().ToString();
             ui.PowerLabel.Text = $"{GameStateManager.GetFirepower()}/5";
             ui.WeaponPanelIcon.Texture = GameStateManager.GetWeaponIcon();
@@ -224,6 +237,7 @@ namespace AstroDroids.Scenes
 
             ui.ScorePanelBG.Alpha = scoreAlpha;
             (ui.ScoreLabel.Visual as TextRuntime).Alpha = scoreAlpha;
+            (ui.ScoreExtraLifeLabel.Visual as TextRuntime).Alpha = scoreAlpha;
 
 
             ui.BossPanelBG.Alpha = bossAlpha;

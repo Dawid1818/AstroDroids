@@ -25,6 +25,7 @@ namespace AstroDroids.Entities.Hostile
     {
         public float LookAngle { get; set; }
         public bool DespawnAtPathEnd { get; set; } = true;
+        public bool DespawnAtCameraPathEnd { get; set; } = false;
         public EnemyLookStyle LookStyle { get; set; } = EnemyLookStyle.Ahead;
         public float MoveSpeed { get; set; } = 2f;
 
@@ -61,6 +62,12 @@ namespace AstroDroids.Entities.Hostile
                 DespawnAtPathEnd = despawn;
             }
 
+            bool despawnCamera = DespawnAtCameraPathEnd;
+            if (ImGui.Checkbox("Despawn at camera path end", ref despawnCamera))
+            {
+                DespawnAtCameraPathEnd = despawnCamera;
+            }
+
             //bool facePlayer = FacePlayerDuringPath;
             //if(ImGui.Checkbox("Face player during path", ref facePlayer))
             //{
@@ -84,6 +91,15 @@ namespace AstroDroids.Entities.Hostile
                 {
                     MoveSpeed = 2f;
                 }
+
+                if (version >= 15)
+                {
+                    DespawnAtCameraPathEnd = reader.ReadBoolean();
+                }
+                else
+                {
+                    DespawnAtCameraPathEnd = false;
+                }
             }
             else
             {
@@ -96,6 +112,7 @@ namespace AstroDroids.Entities.Hostile
 
                 LookAngle = 0f;
                 DespawnAtPathEnd = true;
+                DespawnAtCameraPathEnd = false;
 
                 MoveSpeed = 2f;
             }
@@ -107,6 +124,7 @@ namespace AstroDroids.Entities.Hostile
             writer.Write(LookAngle);
             writer.Write(DespawnAtPathEnd);
             writer.Write(MoveSpeed);
+            writer.Write(DespawnAtCameraPathEnd);
         }
     }
     public class Gunner : Enemy
@@ -128,7 +146,6 @@ namespace AstroDroids.Entities.Hostile
         EnemyLookStyle lookStyle = EnemyLookStyle.Ahead;
         float lookAngle = 0;
         bool despawnAtPathEnd = true;
-
         float moveSpeed = 2f;
 
         public Gunner() : base(Vector2.Zero, 10)
@@ -158,6 +175,7 @@ namespace AstroDroids.Entities.Hostile
             lookAngle = MathHelper.ToRadians(data.LookAngle);
             despawnAtPathEnd = data.DespawnAtPathEnd;
             moveSpeed = data.MoveSpeed;
+            DespawnOnCameraPathEnd = data.DespawnAtCameraPathEnd;
         }
 
         public override void Update(GameTime gameTime)
@@ -213,6 +231,14 @@ namespace AstroDroids.Entities.Hostile
                 }
 
                 if (Transform.Position.Y > Scene.World.Bounds.Bottom + texture.Height)
+                {
+                    Despawn();
+                }
+            }
+
+            if (DespawnOnCameraPathEnd)
+            {
+                if (Scene.World.camEntity.PathManager == null || !Scene.World.camEntity.PathManager.Active)
                 {
                     Despawn();
                 }

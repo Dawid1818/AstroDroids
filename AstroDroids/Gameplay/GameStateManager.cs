@@ -18,6 +18,10 @@ namespace AstroDroids.Gameplay
         public static int Firepower { get { return CurrentMissionProgress.Firepower; } set { CurrentMissionProgress.Firepower = value; } }
         public const int MaxFirepower = 5;
 
+        public const int ExtraLivesThreshold = 20000;
+        public static int NextExtraLivesThreshold { get { return ExtraLivesThreshold + (CurrentMissionProgress.ExtraLivesObtained * ExtraLivesThreshold); } }
+        public static int PreviousExtraLivesThreshold { get { return ExtraLivesThreshold + ((CurrentMissionProgress.ExtraLivesObtained - 1) * ExtraLivesThreshold); } }
+
         public static int CurrentWeapon { get { return CurrentMissionProgress.CurrentWeapon; } set { CurrentMissionProgress.CurrentWeapon = value; } }
 
         //static List<Weapon> Weapons = new List<Weapon>();
@@ -45,8 +49,17 @@ namespace AstroDroids.Gameplay
 
         public static void AddScore(int amount)
         {
-            //Score += amount;
             CurrentMissionProgress.Score += amount;
+
+            if(CurrentMissionProgress.Score >= NextExtraLivesThreshold)
+            {
+                CurrentMissionProgress.ExtraLivesObtained++;
+                CurrentMissionProgress.Lives++;
+                if(CurrentMissionProgress.Lives > 99)
+                {
+                    CurrentMissionProgress.Lives = 99;
+                }
+            }
         }
 
         public static void UpdateCurrentWeapon(Player player, GameTime gameTime)
@@ -99,6 +112,20 @@ namespace AstroDroids.Gameplay
         public static int GetFirepower()
         {
             return CurrentMissionProgress.Firepower;
+        }
+
+        public static void IncreaseFirepower()
+        {
+            Firepower++;
+            if (Firepower > MaxFirepower)
+                Firepower = MaxFirepower;
+        }
+
+        public static void DecreaseFirepower()
+        {
+            Firepower--;
+            if (Firepower < 1)
+                Firepower = 1;
         }
 
         public static Texture2D GetWeaponIcon()

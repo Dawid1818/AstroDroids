@@ -74,11 +74,6 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 ConstructAttack
             };
 
-            //attackActions = new List<Func<IEnumerator>>()
-            //{
-            //    TunnelAttack
-            //};
-
             while (true)
             {
                 attackActions.Shuffle(Random);
@@ -286,7 +281,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator TriGatesAttack()
         {
-            extraLoop = Scene.World.StartCoroutine(GunDown(1));
+            //extraLoop = Scene.World.StartCoroutine(GunDown(1));
 
             int side = Random.Next(3);
 
@@ -353,6 +348,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                     Scene.World.AddEnemy(barrier, false, true);
 
+                    extraLoop = Scene.World.StartCoroutine(GunDownOnce(2, 2));
+
                     prev = barrier;
                     x += barrierWidth + gap;
                 }
@@ -390,7 +387,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         IEnumerator DiagonalGatesAttack()
         {
-            extraLoop = Scene.World.StartCoroutine(GunDown(2));
+            //extraLoop = Scene.World.StartCoroutine(GunDown(2));
 
             for (int i = 0; i < 5; i++)
             {
@@ -455,6 +452,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     ConnectBarriers(barrier, prev, false);
 
                     Scene.World.AddEnemy(barrier, false, true);
+
+                    extraLoop = Scene.World.StartCoroutine(GunDownOnce(2));
 
                     prev = barrier;
                     x += barrierWidth + gap;
@@ -611,9 +610,21 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     ConnectBarriers(innerBarrier, item, false);
                     Scene.World.AddEnemy(item, false, true);
 
-                    TriGunTurret turret = new TriGunTurret();
+                    int choiceT = Random.Next(2);
+                    Enemy turret;
+                    if (choiceT == 0)
+                    {
+                        turret = new TriGunTurret();
+                    }
+                    else
+                    {
+                        turret = new OrbTurret();
+                    }
+                    turret.SetHealth(5);
+                    turret.SetStartingHealth(5);
                     turret.Transform.Position = item.Transform.Position;
                     Scene.World.AddEnemy(turret, false, true);
+
                 }
 
                 float time = 3f;
@@ -932,6 +943,23 @@ namespace AstroDroids.Entities.Hostile.Bosses
             }
 
             yield return null;
+        }
+
+        IEnumerator GunDownOnce(int bullets, int times = 1)
+        {
+            for (int i = 0; i < times; i++)
+            {
+
+                for (int j = 0; j < bullets; j++)
+                {
+                    Player player = Scene.World.GetRandomPlayer();
+                    if (player != null)
+                        FireShotgun(GameHelper.AngleBetween(Transform.Position, player.Transform.Position), 2, 10f, 6f);
+                    yield return new WaitForSeconds(0.1f);
+                }
+
+                yield return new WaitForSeconds(1f);
+            }
         }
 
         #endregion
