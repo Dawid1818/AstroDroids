@@ -56,7 +56,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public float TravelProgress { get { return RMM.GetProgress(); } }
 
-        public SnakeBossSegment(SnakeBoss boss, SnakeBossSegment parentSegment, int historyOffset) : base(Vector2.Zero, 150)
+        public SnakeBossSegment(SnakeBoss boss, SnakeBossSegment parentSegment, int historyOffset) : base(Vector2.Zero, 100)
         {
             this.boss = boss;
             this.parentSegment = parentSegment;
@@ -74,6 +74,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             RMM = new RandomMoveManager(Transform.LocalPosition);
             RMM.maxMoveDistance = 1000;
+            RMM.Speed = 200f;
             RMM.SetNewPath2(angle);
         }
 
@@ -313,7 +314,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         void Shoot(float angle, float speed = 5f, float phaseSpeed = 0f, float phaseMax = 0f)
         {
-            var projectile = new CircleProjectile(GameHelper.OrbitPos(Transform.Position, angle, 20), angle, speed, 12f);
+            var projectile = new CircleProjectile(GameHelper.OrbitPos(Transform.Position, angle, 20), angle, speed, 12f, 3f);
             projectile.SetPhase(phaseSpeed, phaseMax);
             Scene.World.AddProjectile(projectile, true);
         }

@@ -105,6 +105,11 @@ namespace AstroDroids.Scenes
 
         public override void Set()
         {
+            //Ensure that UI input is enabled, which it might not be, if we move to this scene during a main menu transition
+            InputSystem.ClearUIKeys();
+            InputSystem.AddUIKeys();
+            InputSystem.EnableUIMouse();
+
             Screen.GumUI.Root.Children.Clear();
 
             SoundManager.StopMusic();

@@ -75,7 +75,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         bool continuosBreak = false;
 
-        public SnakeBoss() : base(Vector2.Zero, 1500)
+        public SnakeBoss() : base(Vector2.Zero, 1000)
         {
 
         }
@@ -111,12 +111,12 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
                 if (i == 0)
                 {
-                    segment = new SnakeBossSegment(this, null, i * 40);
+                    segment = new SnakeBossSegment(this, null, i * 20);
                     head = segment;
                 }
                 else
                 {
-                    segment = new SnakeBossSegment(this, segments[i - 1], i * 40);
+                    segment = new SnakeBossSegment(this, segments[i - 1], i * 20);
                 }
 
                 segment.Transform.Position = Transform.Position + new Vector2(-(i * 20), 0);
@@ -387,7 +387,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         yield return new WaitForSeconds(1);
                         for (int i = 0; i < 5; i++)
                         {
-                            ForEachSegment((i, s) => s.Fire(1, 0));
+                            ForEachSegment((i, s) => { if (i % 2 == 0) s.Fire(2, 5); });
                             yield return new WaitForSeconds(1);
                         }
                         break;
@@ -414,28 +414,28 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         }
                         break;
                     case 2: //fire to the sides
-                        for (int i = 0; i < segments.Count; i++)
-                        {
-                            if (i == 0)
-                                segments[i].AimRelatively(0);
-                            else if (i == segments.Count - 1)
-                                segments[i].AimRelatively(MathHelper.ToRadians(180));
-                            else if (i % 2 == 0)
-                                segments[i].AimRelatively(MathHelper.ToRadians(-90));
-                            else
-                                segments[i].AimRelatively(MathHelper.ToRadians(90));
-                        }
+                        //for (int i = 0; i < segments.Count; i++)
+                        //{
+                        //    if (i == 0)
+                        //        segments[i].AimRelatively(0);
+                        //    else if (i == segments.Count - 1)
+                        //        segments[i].AimRelatively(MathHelper.ToRadians(180));
+                        //    else if (i % 2 == 0)
+                        //        segments[i].AimRelatively(MathHelper.ToRadians(-90));
+                        //    else
+                        //        segments[i].AimRelatively(MathHelper.ToRadians(90));
+                        //}
 
-                        yield return new WaitForSeconds(1);
+                        //yield return new WaitForSeconds(1);
 
-                        for (int i = 0; i < 3; i++)
-                        {
-                            ForEachSegment((i, s) => s.Fire(2, 5));
+                        //for (int i = 0; i < 3; i++)
+                        //{
+                        //    ForEachSegment((i, s) => s.Fire(2, 5));
 
-                            yield return new WaitForSeconds(0.2);
-                        }
+                        //    yield return new WaitForSeconds(0.2);
+                        //}
 
-                        break;
+                        //break;
                     case 3: //fire at random angles
                         for (int i = 0; i < 3; i++)
                         {
