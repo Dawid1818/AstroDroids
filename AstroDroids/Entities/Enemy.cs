@@ -5,7 +5,6 @@ using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
-using MonoGame.Extended;
 using System.IO;
 
 namespace AstroDroids.Entities
@@ -94,12 +93,19 @@ namespace AstroDroids.Entities
             GameStateManager.AddScore(Score);
             Despawn();
 
-            if(CanSpawnFirepower)
+            if (CanSpawnFirepower)
             {
                 int chance = Random.Next(100);
 
-                if(chance <= 2)
+                if (chance <= GameStateManager.GetPowerupChance())
+                {
                     Scene.World.AddPowerup(new FirepowerPickup(Transform.Position));
+                    GameStateManager.ResetPowerupChance();
+                }
+                else
+                {
+                    GameStateManager.IncreasePowerupChance();
+                }
             }
 
             destroyed = true;

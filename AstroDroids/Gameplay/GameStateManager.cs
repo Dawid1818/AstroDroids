@@ -199,5 +199,24 @@ namespace AstroDroids.Gameplay
         {
             CurrentMissionProgress.Victory = victory;
         }
+
+        internal static float GetPowerupChance()
+        {
+            return CurrentMissionProgress.PowerupChance;
+        }
+
+        internal static void ResetPowerupChance()
+        {
+            CurrentMissionProgress.PowerupChance = 0f;
+        }
+
+        internal static void IncreasePowerupChance(float value = 0.05f)
+        {
+            CurrentMissionProgress.PowerupChance += value;
+            if (CurrentMissionProgress.PowerupChance > 100f)
+            {
+                CurrentMissionProgress.PowerupChance = 100f;
+            }
+        }
     }
 }

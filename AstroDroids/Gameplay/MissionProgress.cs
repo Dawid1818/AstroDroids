@@ -7,6 +7,7 @@ namespace AstroDroids.Gameplay
     {
         public int Lives { get; set; } = 3;
         public int ExtraLivesObtained { get; set; } = 0;
+        public float PowerupChance { get; set; } = 0f;
         public int Score { get; set; } = 0;
         public int Firepower { get; set; } = 1;
         public const int MaxFirepower = 5;
@@ -29,6 +30,7 @@ namespace AstroDroids.Gameplay
             LevelIndex = reader.ReadInt32();
             Lives = reader.ReadInt32();
             ExtraLivesObtained = reader.ReadInt32();
+            PowerupChance = reader.ReadSingle();
             Score = reader.ReadInt32();
             Firepower = reader.ReadInt32();
             CurrentWeapon = reader.ReadInt32();
@@ -41,6 +43,7 @@ namespace AstroDroids.Gameplay
             writer.Write(LevelIndex);
             writer.Write(Lives);
             writer.Write(ExtraLivesObtained);
+            writer.Write(PowerupChance);
             writer.Write(Score);
             writer.Write(Firepower);
             writer.Write(CurrentWeapon);

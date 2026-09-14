@@ -516,6 +516,7 @@ namespace AstroDroids.Gameplay
                 DrawDebugText($"Time: {TimeSpan.FromSeconds(timePassed).ToString(@"hh\:mm\:ss")}");
                 DrawDebugText($"Enemies: {Enemies.Count}");
                 DrawDebugText($"Neutrals: {Neutrals.Count}");
+                DrawDebugText($"Powerups: {Powerups.Count}");
                 DrawDebugText($"Projectiles: {Projectiles.Count}");
                 DrawDebugText($"Warnings: {Warnings.Count}");
                 DrawDebugText($"Background Objects: {BackgroundObjects.Count}");
@@ -525,6 +526,7 @@ namespace AstroDroids.Gameplay
                 DrawDebugText($"Firepower: {GameStateManager.Firepower}/5");
                 DrawDebugText($"Coroutines: {coroutineManager.Coroutines.Count}");
                 DrawDebugText(($"Camera: {camEntity.Transform.Position}"));
+                DrawDebugText(($"Powerup chance: {GameStateManager.GetPowerupChance().ToString(@"F2")}/100"));
                 Screen.spriteBatch.End();
             }
         }
