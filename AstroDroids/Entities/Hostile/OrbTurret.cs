@@ -143,7 +143,7 @@ namespace AstroDroids.Entities.Hostile
         bool fireCannon3 = true;
         bool fireCannon4 = true;
 
-        public OrbTurret() : base(Vector2.Zero, 20)
+        public OrbTurret() : base(Vector2.Zero, 10)
         {
             CanBeShielded = true;
 

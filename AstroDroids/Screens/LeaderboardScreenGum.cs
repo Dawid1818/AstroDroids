@@ -60,7 +60,8 @@ namespace AstroDroids.Screens
                     }
                     else
                     {
-                        items[element].Visual.PlayAnimation(items[element].SlideOutRight);
+                        if(element < items.Count)
+                            items[element].Visual.PlayAnimation(items[element].SlideOutRight);
                     }
 
                     element++;

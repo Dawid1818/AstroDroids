@@ -3,6 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using MonoSound;
+using MonoSound.Streaming;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +20,7 @@ namespace AstroDroids.Managers
         static Dictionary<string, SoundEffect> sounds = new Dictionary<string, SoundEffect>();
         static Dictionary<string, SoundPool> soundPools = new Dictionary<string, SoundPool>();
         static Dictionary<string, Song> music = new Dictionary<string, Song>();
+        static StreamPackage currentMusicPackage = null;
 
         static CoroutineManager coroutineManager = new CoroutineManager();
 
@@ -27,12 +31,16 @@ namespace AstroDroids.Managers
 
         public static float SoundVolume { get; set; } = 1f;
         public static float MusicVolume { get; set; } = 1f;
+        public static bool IsMusicStopped => currentMusicPackage == null || currentMusicPackage.Disposed || currentMusicPackage.PlayingSound.State == SoundState.Stopped;
+        public static TimeSpan MusicPlayPositionSeconds => currentMusicPackage?.CurrentDuration ?? TimeSpan.Zero;
         public static void Initialize(AstroDroidsGame game)
         {
             if (initialized) return;
 
+            MonoSoundLibrary.Init(game);
+
             LoadAllSounds(game.Content);
-            LoadAllMusic(game.Content);
+            //LoadAllMusic(game.Content);
 
             coroutineManager.StartCoroutine(MusicCoroutine());
 
@@ -45,52 +53,72 @@ namespace AstroDroids.Managers
             {
                 if (targetMusic == string.Empty && !stopped)
                 {
-                    while (MediaPlayer.Volume > 0f)
+                    if (currentMusicPackage != null)
                     {
-                        MediaPlayer.Volume = MathHelper.Max(0f, MediaPlayer.Volume - 0.01f);
+                        while (!currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume > 0f)
+                        {
+                            currentMusicPackage.Metrics.Volume = MathHelper.Max(0f, currentMusicPackage.Metrics.Volume - 0.01f);
+                            yield return null;
+                        }
 
-                        yield return null;
+                        if (!currentMusicPackage.Disposed)
+                        {
+                            currentMusicPackage.Stop();
+                            currentMusicPackage.Dispose();
+                        }
+                        currentMusicPackage = null;
                     }
-
-                    MediaPlayer.Stop();
                     CurrentMusic = string.Empty;
                     stopped = true;
                 }
                 else if (CurrentMusic != targetMusic && !stopped)
                 {
-                    while (MediaPlayer.State == MediaState.Playing && MediaPlayer.Volume > 0f)
+                    if (currentMusicPackage != null)
                     {
-                        MediaPlayer.Volume = MathHelper.Max(0f, MediaPlayer.Volume - 0.01f);
+                        while (!currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume > 0f)
+                        {
+                            currentMusicPackage.Metrics.Volume = MathHelper.Max(0f, currentMusicPackage.Metrics.Volume - 0.01f);
+                            yield return null;
+                        }
 
-                        yield return null;
+                        if (!currentMusicPackage.Disposed)
+                        {
+                            currentMusicPackage.Stop();
+                            currentMusicPackage.Dispose();
+                        }
+                        currentMusicPackage = null;
                     }
 
-                    MediaPlayer.Stop();
-                    MediaPlayer.Volume = 0f;
-
-                    if (!string.IsNullOrEmpty(targetMusic) && music.ContainsKey(targetMusic))
+                    if (!string.IsNullOrEmpty(targetMusic))
                     {
-                        MediaPlayer.Play(music[targetMusic]);
-                        MediaPlayer.IsRepeating = repeatingMusic;
-                        CurrentMusic = targetMusic;
+                        string musicPath = Path.Combine("Content", "Music", targetMusic + ".ogg");
 
-                        while (MediaPlayer.Volume < MusicVolume)
+                        if (File.Exists(musicPath))
                         {
-                            MediaPlayer.Volume = MathHelper.Min(MusicVolume, MediaPlayer.Volume + 0.01f);
+                            currentMusicPackage = StreamLoader.GetStreamedSound(musicPath, repeatingMusic);
+                            currentMusicPackage.IsLooping = repeatingMusic;
+                            currentMusicPackage.Metrics.Volume = 0f;
+                            currentMusicPackage.Play();
 
-                            yield return null;
+                            CurrentMusic = targetMusic;
+
+                            while (!currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume < MusicVolume)
+                            {
+                                currentMusicPackage.Metrics.Volume = MathHelper.Min(MusicVolume, currentMusicPackage.Metrics.Volume + 0.01f);
+                                yield return null;
+                            }
                         }
                     }
                 }
-                else if (!stopped && MediaPlayer.State == MediaState.Playing)
+                else if (!stopped && currentMusicPackage != null && !currentMusicPackage.Disposed)
                 {
-                    if (MediaPlayer.Volume < MusicVolume)
+                    if (currentMusicPackage.Metrics.Volume < MusicVolume)
                     {
-                        MediaPlayer.Volume = MathHelper.Min(MusicVolume, MediaPlayer.Volume + 0.01f);
+                        currentMusicPackage.Metrics.Volume = MathHelper.Min(MusicVolume, currentMusicPackage.Metrics.Volume + 0.01f);
                     }
-                    else if (MediaPlayer.Volume > MusicVolume)
+                    else if (currentMusicPackage.Metrics.Volume > MusicVolume)
                     {
-                        MediaPlayer.Volume = MathHelper.Max(MusicVolume, MediaPlayer.Volume - 0.01f);
+                        currentMusicPackage.Metrics.Volume = MathHelper.Max(MusicVolume, currentMusicPackage.Metrics.Volume - 0.01f);
                     }
                 }
 
@@ -112,7 +140,15 @@ namespace AstroDroids.Managers
 
         public static void StopMusic()
         {
-            MediaPlayer.Stop();
+            if (currentMusicPackage != null)
+            {
+                if (!currentMusicPackage.Disposed)
+                {
+                    currentMusicPackage.Stop();
+                    currentMusicPackage.Dispose();
+                }
+                currentMusicPackage = null;
+            }
             CurrentMusic = string.Empty;
             stopped = true;
         }
@@ -137,33 +173,36 @@ namespace AstroDroids.Managers
 
         static void LoadAllSounds(ContentManager content)
         {
-            Directory.GetFiles("Content/Sounds", "*.xnb", SearchOption.AllDirectories).ToList().ForEach(filePath =>
+            Directory.GetFiles("Content/Sounds", "*.wav", SearchOption.AllDirectories).ToList().ForEach(filePath =>
             {
-                string relativePath = filePath.Substring(8).Replace(".xnb", "").Replace("\\", "/");
+                string relativePath = filePath.Replace("\\", "/");
                 string soundName = Path.GetFileNameWithoutExtension(filePath);
                 if (!sounds.ContainsKey(soundName))
                 {
-                    SoundEffect sound = content.Load<SoundEffect>(relativePath);
+                    //SoundEffect sound = content.Load<SoundEffect>(relativePath);
+                    SoundEffect sound = EffectLoader.GetEffect(relativePath);
                     sound.Name = soundName;
-                    sounds.Add(relativePath.Substring(7), sound);
+                    string key = Path.GetFileNameWithoutExtension(relativePath.Substring(7));
+                    sounds.Add(key, sound);
 
-                    soundPools.Add(relativePath.Substring(7), new SoundPool(sound, 16));
+                    soundPools.Add(key, new SoundPool(sound, 16));
                 }
             });
         }
 
-        static void LoadAllMusic(ContentManager content)
-        {
-            Directory.GetFiles("Content/Music", "*.xnb", SearchOption.AllDirectories).ToList().ForEach(filePath =>
-            {
-                string relativePath = filePath.Substring(8).Replace(".xnb", "").Replace("\\", "/");
-                string musicName = Path.GetFileNameWithoutExtension(filePath);
-                if (!music.ContainsKey(musicName))
-                {
-                    Song song = content.Load<Song>(relativePath);
-                    music.Add(relativePath.Substring(6), song);
-                }
-            });
-        }
+        //static void LoadAllMusic(ContentManager content)
+        //{
+        //    Directory.GetFiles("Content/Music", "*.xnb", SearchOption.AllDirectories).ToList().ForEach(filePath =>
+        //    {
+        //        string relativePath = filePath.Substring(8).Replace(".xnb", "").Replace("\\", "/");
+        //        string musicName = Path.GetFileNameWithoutExtension(filePath);
+
+        //        if (!music.ContainsKey(musicName))
+        //        {
+        //            Song song = content.Load<Song>(relativePath);
+        //            music.Add(relativePath.Substring(6), song);
+        //        }
+        //    });
+        //}
     }
 }

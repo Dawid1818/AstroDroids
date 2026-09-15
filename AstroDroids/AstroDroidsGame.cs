@@ -6,6 +6,7 @@ using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoSound;
 using System;
 using System.Runtime.InteropServices;
 
@@ -90,6 +91,13 @@ namespace AstroDroids
             Screen.Draw(gameTime);
 
             base.Draw(gameTime);
+        }
+
+        protected override void OnExiting(object sender, ExitingEventArgs args)
+        {
+            base.OnExiting(sender, args);
+
+            MonoSoundLibrary.DeInit();
         }
     }
 }

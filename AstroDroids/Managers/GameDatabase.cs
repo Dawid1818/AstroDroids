@@ -56,9 +56,15 @@ namespace AstroDroids.Managers
             RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2", "Level3", "Level4", "Level5" } });
             RegisterMission(MissionType.BossRush, new GameMission() { Name = "BossRush", Type = MissionType.BossRush, LevelNames = { "BossRush" } });
 
-            RegisterMusic(0, "ZeroRanger - For Your Security");
-            RegisterMusic(1, "Industria");
-            RegisterMusic(2, "space_boss_battle_bpm175");
+            RegisterMusic(0, "ZeroRanger - For Your Security"); //boss rush music
+            RegisterMusic(1, "Industria"); //level music
+            RegisterMusic(2, "space_boss_battle_bpm175"); //boss fight music
+            RegisterMusic(3, "frozenjam-seamlessloop"); //level 1 music
+            RegisterMusic(4, "Party Sector"); //tutorial music?
+            RegisterMusic(5, "Flying me softly"); //level 4 music
+            RegisterMusic(6, "unstable_field"); //level 3 music
+            RegisterMusic(7, "Speedier Than Photons"); //level 2 music
+            RegisterMusic(8, "space_dungeon_bpm100"); //level 5 music
         }
 
         public static void InitializePreviews()
