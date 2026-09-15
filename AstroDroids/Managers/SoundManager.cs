@@ -63,7 +63,8 @@ namespace AstroDroids.Managers
 
                         if (!currentMusicPackage.Disposed)
                         {
-                            currentMusicPackage.Stop();
+                            if(currentMusicPackage.PlayingSound.State != SoundState.Stopped)
+                                currentMusicPackage.Stop();
                             currentMusicPackage.Dispose();
                         }
                         currentMusicPackage = null;
@@ -83,7 +84,8 @@ namespace AstroDroids.Managers
 
                         if (!currentMusicPackage.Disposed)
                         {
-                            currentMusicPackage.Stop();
+                            if (currentMusicPackage.PlayingSound.State != SoundState.Stopped)
+                                currentMusicPackage.Stop();
                             currentMusicPackage.Dispose();
                         }
                         currentMusicPackage = null;

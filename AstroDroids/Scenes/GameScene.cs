@@ -284,10 +284,10 @@ namespace AstroDroids.Scenes
             }
         }
 
-        public void Highscore()
+        public void Highscore(bool highscore)
         {
             InputSystem.SetMouseLock(false);
-            coroutineManager.StartCoroutine(TransitionToSceneCoroutine(new MainMenuScene(GameStateManager.GetMissionProgress())));
+            coroutineManager.StartCoroutine(TransitionToSceneCoroutine(new MainMenuScene(GameStateManager.GetMissionProgress(), highscore)));
         }
 
         public void SaveAndQuit()
@@ -345,11 +345,11 @@ namespace AstroDroids.Scenes
                 //check if player's score made it into top 10
                 if(SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
                 {
-                    Highscore();
+                    Highscore(true);
                 }
                 else
                 {
-                    SaveAndQuit();
+                    Highscore(false);
                 }
                 GameStateManager.ClearState();
             }
@@ -388,11 +388,11 @@ namespace AstroDroids.Scenes
                     GameStateManager.SetVictory(true);
                     if (SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
                     {
-                        Highscore();
+                        Highscore(true);
                     }
                     else
                     {
-                        SaveAndQuit();
+                        Highscore(false);
                     }
                     GameStateManager.ClearState();
                 }

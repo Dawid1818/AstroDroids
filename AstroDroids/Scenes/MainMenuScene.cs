@@ -33,15 +33,17 @@ namespace AstroDroids.Scenes
         bool logoHidden = true;
 
         MissionProgress lastMissionProgress;
+        bool highscore = false;
 
         public MainMenuScene()
         {
 
         }
 
-        public MainMenuScene(MissionProgress progress)
+        public MainMenuScene(MissionProgress progress, bool highscore)
         {
             lastMissionProgress = progress;
+            this.highscore = highscore;
         }
 
         public override void Set()
@@ -55,28 +57,42 @@ namespace AstroDroids.Scenes
 
             if (lastMissionProgress == null)
             {
+                SoundManager.PlayMusic("subspace_loop");
+
                 MainMenuScreenGum page = new MainMenuScreenGum();
                 SetPage(page, false);
             }
             else
             {
-                HighscoreScreenGum page = new HighscoreScreenGum();
-                page.Setup(lastMissionProgress);
-                SetPage(page, true);
-                ui.LogoLabel.Y = -69;
+                if(lastMissionProgress.Victory)
+                    SoundManager.PlayMusic("discovery");
+                else
+                    SoundManager.PlayMusic("subspace_loop");
+
+                if (highscore)
+                {
+                    HighscoreScreenGum page = new HighscoreScreenGum();
+                    page.Setup(lastMissionProgress);
+                    SetPage(page, true);
+                    ui.LogoLabel.Y = -69;
+
+                    highscore = false;
+                }
+                else
+                {
+                    MainMenuScreenGum page = new MainMenuScreenGum();
+                    SetPage(page, false);
+                }
 
                 lastMissionProgress = null;
             }
 
-            if (World == null)
-                World = new GameWorld();
+            World = new GameWorld();
 
             List<Texture2D> starfields = TextureManager.GetStarfields();
             World.Starfield = new ImageStarfield(starfields[0]);
 
             Screen.ResetCamera();
-
-            SoundManager.PlayMusic("subspace_loop");
         }
 
         public override void Update(GameTime gameTime)
