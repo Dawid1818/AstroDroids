@@ -1,0 +1,4 @@
+Coin01 - WobbleBoxx Workshop - CC0 license, https://opengameart.org/content/level-up-power-up-coin-get-13-sounds, applied modification: converted to ogg format
+laser1 - Kenney.nl - CC0 license, https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc, applied modification: converted to ogg format
+Cursor Rollover 1 - Circlerun - CC0 license, https://opengameart.org/content/hi-tech-button-sound-pack-i-non-themed, applied modification: converted to ogg format
+Btn - Circlerun - CC0 license, https://opengameart.org/content/hi-tech-button-sound-pack-i-non-themed, applied modification: converted to ogg format

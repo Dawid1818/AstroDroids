@@ -1,4 +1,5 @@
 using AstroDroids.Input;
+using AstroDroids.Managers;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Forms.Controls;
@@ -29,10 +30,16 @@ namespace AstroDroids.Components.Custom
         partial void CustomInitialize()
         {
             Visual.Click += Visual_Click;
+
+            GotFocus += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
+            };
         }
 
         private void Visual_Click(object sender, EventArgs e)
         {
+            SoundManager.PlaySound(Sounds.UI_Accept);
             rebinding = true;
             ItemLabel.SetTextNoTranslate("?");
             rebindAction?.Invoke(this);
@@ -96,6 +103,7 @@ namespace AstroDroids.Components.Custom
                 rebinding = true;
                 ItemLabel.SetTextNoTranslate("?");
                 rebindAction?.Invoke(this);
+                SoundManager.PlaySound(Sounds.UI_Accept);
             }
 
             rebindedThisFrame = false;

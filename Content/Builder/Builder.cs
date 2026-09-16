@@ -67,8 +67,9 @@ public class Builder : ContentBuilder
         contentCollection.Include<WildcardRule>("Shaders/*.fx");
         //Include all music files in the Music folder
         contentCollection.IncludeCopy<WildcardRule>("Music/*.ogg");
-        //Include all sound files in the Sounds folder
-        contentCollection.IncludeCopy<WildcardRule>("Sounds/*.wav");
+        //Include all sound files in the Sounds folder, including subdirectories
+        contentCollection.IncludeCopy<WildcardRule>("Sounds/*.ogg");
+        contentCollection.IncludeCopy<WildcardRule>("Sounds/*/*.ogg");
         //Include all level files in the Levels folder
         contentCollection.IncludeCopy<WildcardRule>("Levels/*.adlvl");
 

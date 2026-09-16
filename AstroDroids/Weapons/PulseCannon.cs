@@ -64,6 +64,8 @@ namespace AstroDroids.Weapons
                             break;
                     }
 
+                    SoundManager.PlaySound("laser1");
+
                     phase += direction;
 
                     if (phase > 5)

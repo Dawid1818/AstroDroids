@@ -1,9 +1,4 @@
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
-
-using RenderingLibrary.Graphics;
+using AstroDroids.Managers;
 
 namespace AstroDroids.Components.Controls
 {
@@ -13,15 +8,20 @@ namespace AstroDroids.Components.Controls
 
         partial void CustomInitialize()
         {
-            //Click += (not, used) =>
-            //{
-            //    Visual.PlayAnimation(GlowActive);
-            //};
+            Click += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_Accept);
+            };
+
+            GotFocus += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
+            };
         }
 
         public override void UpdateState()
         {
-            if(Visual.AnimationController.CurrentAnimation != null && Visual.AnimationController.CurrentAnimation.Name == "GlowActive")
+            if (Visual.AnimationController.CurrentAnimation != null && Visual.AnimationController.CurrentAnimation.Name == "GlowActive")
             {
                 return;
             }
@@ -43,7 +43,7 @@ namespace AstroDroids.Components.Controls
 
             if (isFocused)
             {
-                if(wasntFocused)
+                if (wasntFocused)
                     Visual.PlayAnimation(GlowFocused);
             }
             else

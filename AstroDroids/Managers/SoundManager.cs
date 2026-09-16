@@ -13,6 +13,12 @@ using System.Linq;
 
 namespace AstroDroids.Managers
 {
+    public static class Sounds
+    {
+        public const string UI_Accept = "Coin01";
+        public const string UI_ButtonFocus = "Btn";
+    }
+
     public class SoundManager
     {
         static bool initialized;
@@ -160,12 +166,12 @@ namespace AstroDroids.Managers
             targetMusic = string.Empty;
         }
 
-        public static SoundEffectInstance PlaySound(string name, float pitch = 1f)
+        public static SoundEffectInstance PlaySound(string name, float pitch = 0f)
         {
             if (soundPools.ContainsKey(name))
             {
                 SoundPool soundPool = soundPools[name];
-                return soundPool.Play(pitch);
+                return soundPool.Play(pitch, SoundVolume);
             }
             else
             {
@@ -175,7 +181,7 @@ namespace AstroDroids.Managers
 
         static void LoadAllSounds(ContentManager content)
         {
-            Directory.GetFiles("Content/Sounds", "*.wav", SearchOption.AllDirectories).ToList().ForEach(filePath =>
+            Directory.GetFiles("Content/Sounds", "*.ogg", SearchOption.AllDirectories).ToList().ForEach(filePath =>
             {
                 string relativePath = filePath.Replace("\\", "/");
                 string soundName = Path.GetFileNameWithoutExtension(filePath);

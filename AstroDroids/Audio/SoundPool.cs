@@ -27,12 +27,13 @@ namespace AstroDroids.Audio
             return null;
         }
 
-        public SoundEffectInstance Play(float pitch = 1f)
+        public SoundEffectInstance Play(float pitch = 0f, float volume = 1f)
         {
             var instance = GetAvailableInstance();
             if (instance != null)
             {
                 instance.Pitch = pitch;
+                instance.Volume = volume;
                 instance.Play();
                 return instance;
             }

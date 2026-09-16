@@ -1,3 +1,4 @@
+using AstroDroids.Managers;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
@@ -11,7 +12,10 @@ namespace AstroDroids.Components.Custom
     {
         partial void CustomInitialize()
         {
-        
+            GotFocus += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
+            };
         }
     }
 }

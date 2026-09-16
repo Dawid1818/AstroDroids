@@ -12,7 +12,19 @@
           <Easing>Out</Easing>
         </AnimatedStateSave>
         <AnimatedStateSave>
+          <StateName>HeaderCategory/Out</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
           <StateName>LevelContainerState/Idle</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>HeaderCategory/In</StateName>
           <Time>1</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>
@@ -49,7 +61,19 @@
           <Easing>Out</Easing>
         </AnimatedStateSave>
         <AnimatedStateSave>
+          <StateName>HeaderCategory/In</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
           <StateName>LevelContainerState/Right</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>HeaderCategory/Out</StateName>
           <Time>1</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>

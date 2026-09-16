@@ -1,3 +1,4 @@
+using AstroDroids.Managers;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Forms.Controls;
@@ -80,12 +81,14 @@ namespace AstroDroids.Components.Custom
                 if (gamepad.ButtonRepeatRate(GamepadButton.DPadLeft) ||
                     gamepad.LeftStick.AsDPadPushedRepeatRate(DPadDirection.Left))
                 {
-                    this.SelectedIndex -= 1;
+                    SelectedIndex -= 1;
+                    SoundManager.PlaySound(Sounds.UI_ButtonFocus);
                 }
                 else if (gamepad.ButtonRepeatRate(GamepadButton.DPadRight) ||
                     gamepad.LeftStick.AsDPadPushedRepeatRate(DPadDirection.Right))
                 {
-                    this.SelectedIndex += 1;
+                    SelectedIndex += 1;
+                    SoundManager.PlaySound(Sounds.UI_ButtonFocus);
                 }
 
                 if (valueBeforeGamepad != this.SelectedIndex)
@@ -100,11 +103,13 @@ namespace AstroDroids.Components.Custom
 
                 if (keyboard.KeyTyped(Gum.Forms.Input.Keys.Right) == true)
                 {
-                    this.SelectedIndex += 1;
+                    SelectedIndex += 1;
+                    SoundManager.PlaySound(Sounds.UI_ButtonFocus);
                 }
                 if (keyboard.KeyTyped(Gum.Forms.Input.Keys.Left) == true)
                 {
-                    this.SelectedIndex -= 1;
+                    SelectedIndex -= 1;
+                    SoundManager.PlaySound(Sounds.UI_ButtonFocus);
                 }
 
                 if (valueBeforeKeyboard != selectedIndex)
@@ -137,6 +142,11 @@ namespace AstroDroids.Components.Custom
 
             LeftArrowIcon.GotFocus += ArrowGotFocus;
             LeftArrowIcon.Visual.Click += LeftArrowIcon_Click;
+
+            GotFocus += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
+            };
         }
 
         private void ArrowGotFocus(object sender, EventArgs e)

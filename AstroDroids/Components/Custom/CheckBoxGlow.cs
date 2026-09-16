@@ -1,9 +1,4 @@
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
-
-using RenderingLibrary.Graphics;
+using AstroDroids.Managers;
 
 namespace AstroDroids.Components.Custom
 {
@@ -11,7 +6,15 @@ namespace AstroDroids.Components.Custom
     {
         partial void CustomInitialize()
         {
+            Click += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_Accept);
+            };
 
+            GotFocus += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
+            };
         }
 
         public override void UpdateState()
