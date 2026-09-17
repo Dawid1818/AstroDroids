@@ -124,26 +124,26 @@
     <Name>SliderCategory</Name>
     <State>
       <Name>Enabled</Name>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Enabled</Value>
       </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
-      </Variable>
     </State>
     <State>
       <Name>Disabled</Name>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Disabled</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
@@ -196,14 +196,14 @@
     </State>
     <State>
       <Name>Pushed</Name>
+      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ButtonCategory" Name="ThumbInstance.ButtonCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Enabled</Value>
-      </Variable>
-      <Variable Type="int" Name="FocusedIndicator.Alpha" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
   </Category>

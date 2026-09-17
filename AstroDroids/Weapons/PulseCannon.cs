@@ -64,7 +64,7 @@ namespace AstroDroids.Weapons
                             break;
                     }
 
-                    SoundManager.PlaySound("laser1");
+                    SoundManager.PlaySound("laser1", 1f * (GameStateManager.GetFirepower() / (float)GameStateManager.MaxFirepower));
 
                     phase += direction;
 

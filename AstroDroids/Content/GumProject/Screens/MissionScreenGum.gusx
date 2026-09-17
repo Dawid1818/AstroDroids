@@ -141,6 +141,7 @@
     <Variable Type="PositionUnitType" Name="Header.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="HeaderCategory" Name="HeaderCategoryState" SetsValue="true" />
     <Variable Type="string" Name="Level1Card.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">LevelContainer</Value>
     </Variable>

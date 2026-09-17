@@ -32,6 +32,7 @@ namespace AstroDroids.Components.Custom
         public void SetValue(float volume)
         {
             VolumeSlider.Value = volume * 100;
+            VolumeSlider.SliderPercent = volume * 100f;
             ValueLabel.Text = ((int)VolumeSlider.Value).ToString() + "%";
         }
 
