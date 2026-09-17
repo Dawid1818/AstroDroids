@@ -94,6 +94,7 @@ namespace AstroDroids.Projectiles
                     {
                         SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), GetHitColor());
                         Scene.World.AddEffect(hitEffect);
+                        PlayHitSfx();
 
                         fade = true;
                         neutral.Damage(1, true);
@@ -108,6 +109,7 @@ namespace AstroDroids.Projectiles
                     {
                         SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), GetHitColor());
                         Scene.World.AddEffect(hitEffect);
+                        PlayHitSfx();
 
                         fade = true;
                         enemy.Damage(1, true);
@@ -122,12 +124,18 @@ namespace AstroDroids.Projectiles
                     {
                         SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), GetHitColor());
                         Scene.World.AddEffect(hitEffect);
+                        PlayHitSfx();
 
                         fade = true;
                         break;
                     }
                 }
             }
+        }
+
+        void PlayHitSfx()
+        {
+            SoundManager.PlaySound("Hit", Random.NextSingle() * 2f - 1f);
         }
 
         public override void Draw(GameTime gameTime)

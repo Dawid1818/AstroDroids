@@ -18,6 +18,8 @@
       "Screens/LeaderboardScreenGum",
       "Screens/LeaderboardScreenGum/LeaderboardItems",
       "Screens/MainMenuScreenGum",
+      "Screens/MissionScreenGum",
+      "Screens/MissionScreenGum/ContainerInstance1",
       "Screens/SettingsScreenGum",
       "Screens/SettingsScreenGum/ButtonContainer",
       "Screens/ShipCustomizationScreenGum",

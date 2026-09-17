@@ -130,6 +130,10 @@ namespace AstroDroids.Projectiles
 
                 if (remainingDamage == 0)
                     distance = laserLength;
+
+                if (hits.Count > 0)
+                    PlayHitSfx();
+
                 damaged = true;
             }
 
@@ -137,6 +141,10 @@ namespace AstroDroids.Projectiles
                 t += (float)gameTime.ElapsedGameTime.TotalSeconds * 5f;
             else
                 t -= (float)gameTime.ElapsedGameTime.TotalSeconds * 5f;
+        }
+        void PlayHitSfx()
+        {
+            SoundManager.PlaySound("Hit", Random.NextSingle() * 2f - 1f);
         }
 
         public override void Draw(GameTime gameTime)

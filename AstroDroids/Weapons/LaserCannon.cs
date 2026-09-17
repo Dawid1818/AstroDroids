@@ -152,6 +152,8 @@ namespace AstroDroids.Weapons
                         break;
                 }
 
+                SoundManager.PlaySound(name: "LaserCannon", -charge);
+
                 charging = false;
                 charge = 0f;
                 ClearParticles();

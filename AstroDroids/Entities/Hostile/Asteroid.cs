@@ -50,6 +50,7 @@ namespace AstroDroids.Entities.Hostile
         public Asteroid() : base(Vector2.Zero, 20)
         {
             IsNeutral = true;
+            CanSpawnFirepower = false;
 
             texture = TextureManager.Get("Asteroids/Asteroid 01 - Base");
 

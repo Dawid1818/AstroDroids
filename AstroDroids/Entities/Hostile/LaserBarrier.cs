@@ -35,6 +35,8 @@ namespace AstroDroids.Entities.Hostile
             blueTexture = TextureManager.Get("Laser Barriers/accesory_002b");
             redTexture = TextureManager.Get("Laser Barriers/accesory_002r");
 
+            CanSpawnFirepower = false;
+
             AddCircleCollider(Vector2.Zero, 16f);
         }
 
@@ -57,6 +59,8 @@ namespace AstroDroids.Entities.Hostile
                 CanBeDamaged = false;
 
             AddCircleCollider(Vector2.Zero, 16f);
+
+            CanSpawnFirepower = false;
 
             //if (Intersects(Scene.World.Bounds))
             //{

@@ -24,6 +24,7 @@ namespace AstroDroids.Entities.Friendly
                 if (Intersects(p))
                 {
                     Scene.World.RemovePowerup(this);
+                    SoundManager.PlaySound("Firepower");
                     GameStateManager.IncreaseFirepower();
                     break;
                 }

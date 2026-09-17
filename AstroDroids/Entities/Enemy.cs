@@ -3,6 +3,7 @@ using AstroDroids.Entities.Effects;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
+using AstroDroids.Managers;
 using AstroDroids.Paths;
 using Microsoft.Xna.Framework;
 using System.IO;
@@ -89,6 +90,7 @@ namespace AstroDroids.Entities
             if (destroyed) return;
 
             Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 0.6f));
+            SoundManager.PlaySound("Explosion", Random.NextSingle() * 2f - 1f);
 
             GameStateManager.AddScore(Score);
             Despawn();
