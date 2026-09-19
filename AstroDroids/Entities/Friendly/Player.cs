@@ -171,7 +171,12 @@ namespace AstroDroids.Entities.Friendly
 
             if (InvTime > 0f)
             {
-                Screen.spriteBatch.DrawCircle(GetPosition(), 42, 12, new Color(Color.Blue.R, Color.Blue.G, Color.Blue.B, (byte)127), 12);
+                Color fillColor = new Color(Color.Blue.R, Color.Blue.G, Color.Blue.B, (byte)63);
+                Color borderColor = new Color(Color.Cyan.R, Color.Cyan.G, Color.Cyan.B, (byte)255);
+                Color lightColor = new Color(Color.Blue.R + 127, Color.Blue.G + 127, Color.Blue.B + 127, (byte)127);
+                float size = 42;    
+                Screen.shapeBatch.DrawCircle(Transform.Position, size - 3, new Apos.Shapes.Gradient(Transform.Position, lightColor, Transform.Position + new Vector2(60, 0), fillColor, Apos.Shapes.Gradient.Shape.Radial), borderColor, 1);
+                Screen.shapeBatch.BorderCircleBlurred(Transform.Position, size, borderColor, 2, 3);
             }
         }
 

@@ -110,7 +110,7 @@ namespace AstroDroids.Managers
 
                             CurrentMusic = targetMusic;
 
-                            while (!currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume < MusicVolume)
+                            while (currentMusicPackage != null && !currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume < MusicVolume && !stopped)
                             {
                                 currentMusicPackage.Metrics.Volume = MathHelper.Min(MusicVolume, currentMusicPackage.Metrics.Volume + 0.01f);
                                 yield return null;
@@ -127,6 +127,17 @@ namespace AstroDroids.Managers
                     else if (currentMusicPackage.Metrics.Volume > MusicVolume)
                     {
                         currentMusicPackage.Metrics.Volume = MathHelper.Max(MusicVolume, currentMusicPackage.Metrics.Volume - 0.01f);
+                    }
+                }else if(stopped)
+                {
+                    if (currentMusicPackage != null)
+                    {
+                        if (!currentMusicPackage.Disposed && currentMusicPackage.ReadBytes != 0)
+                        {
+                            currentMusicPackage.Stop();
+                            currentMusicPackage.Dispose();
+                            currentMusicPackage = null;
+                        }
                     }
                 }
 
@@ -148,15 +159,6 @@ namespace AstroDroids.Managers
 
         public static void StopMusic()
         {
-            if (currentMusicPackage != null)
-            {
-                if (!currentMusicPackage.Disposed)
-                {
-                    currentMusicPackage.Stop();
-                    currentMusicPackage.Dispose();
-                }
-                currentMusicPackage = null;
-            }
             CurrentMusic = string.Empty;
             stopped = true;
         }

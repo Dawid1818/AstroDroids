@@ -494,12 +494,14 @@ namespace AstroDroids.Gameplay
             Powerups.Draw(gameTime);
             Screen.shapeBatch.End();
 
+            Screen.shapeBatch.Begin(Screen.GetCameraMatrix(), blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointWrap);
             foreach (var item in Players)
             {
                 item.Draw(gameTime);
 
                 RenderColliders(item);
             }
+            Screen.shapeBatch.End();
 
             Effects.Draw(gameTime);
 
