@@ -1,22 +1,15 @@
 using AstroDroids.Components.Elements;
 using AstroDroids.Interfaces;
-using AstroDroids.Managers;
-using AstroDroids.Scenes;
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
 using Microsoft.Xna.Framework;
-using RenderingLibrary.Graphics;
 using System;
 
 namespace AstroDroids.Screens
 {
     partial class MainMenuScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
         public bool UpdateWhenTransitioning => false;
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
 

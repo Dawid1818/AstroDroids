@@ -15,9 +15,9 @@ namespace AstroDroids.Screens
 {
     partial class SettingsScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
         public bool UpdateWhenTransitioning => false;
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
             BackBtn.Click += ReturnBtn_Click;
@@ -106,7 +106,14 @@ namespace AstroDroids.Screens
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
             SettingsManager.Save();
-            scene.SetPage(new MainMenuScreenGum(), false);
+            if (scene is GameScene gs)
+            {
+                gs.HideHinted();
+            }
+            else
+            {
+                scene.SetPage(new MainMenuScreenGum(), false);
+            }
         }
 
         partial void CustomInitialize()
@@ -117,7 +124,15 @@ namespace AstroDroids.Screens
         public void BackPressed()
         {
             SettingsManager.Save();
-            scene.SetPage(new MainMenuScreenGum(), false);
+
+            if (scene is GameScene gs)
+            {
+                gs.HideHinted();
+            }
+            else
+            {
+                scene.SetPage(new MainMenuScreenGum(), false);
+            }
         }
     }
 }

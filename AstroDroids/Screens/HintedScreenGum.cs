@@ -1,13 +1,6 @@
 using AstroDroids.Components.Custom;
 using AstroDroids.Components.Elements;
 using AstroDroids.Input;
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
-
-using RenderingLibrary.Graphics;
-using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Screens
@@ -46,6 +39,11 @@ namespace AstroDroids.Screens
         internal void HideLogo()
         {
             Visual.PlayAnimation(Leave);
+        }
+
+        internal void HideLogoInstant()
+        {
+            LogoLabel.Visible = false;
         }
 
         internal void ShowLogo()

@@ -8,9 +8,9 @@ namespace AstroDroids.Screens
 {
     partial class ControlsSettingsScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
         public bool UpdateWhenTransitioning => false;
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
             BackBtn.Click += ReturnBtn_Click;

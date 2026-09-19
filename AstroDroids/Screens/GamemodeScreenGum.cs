@@ -10,9 +10,9 @@ namespace AstroDroids.Screens
 {
     partial class GamemodeScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
         public bool UpdateWhenTransitioning => false;
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
 

@@ -4,6 +4,7 @@ using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Input;
+using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Screens;
 using Gum.Forms;
@@ -13,16 +14,17 @@ using Gum.Wireframe;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace AstroDroids.Scenes
 {
-    public class GameScene : Scene
+    public class GameScene : Scene, IPageHost
     {
         GameScreenGum ui;
+        HintedScreenGum hinted;
+        IMenuPage menuPage;
 
         CoroutineManager coroutineManager = new CoroutineManager();
 
@@ -65,6 +67,11 @@ namespace AstroDroids.Scenes
             ui = new GameScreenGum();
             ui.Initialize(this);
             ui.AddToRoot();
+
+            hinted = new HintedScreenGum();
+            hinted.AddToRoot();
+            hinted.HideLogoInstant();
+            hinted.IsVisible = false;
 
             if (World == null)
                 World = new GameWorld();
@@ -113,7 +120,7 @@ namespace AstroDroids.Scenes
 
         public override void Update(GameTime gameTime)
         {
-            if(GameStateManager.GetLives() <= 0 && !gameLost)
+            if (GameStateManager.GetLives() <= 0 && !gameLost)
             {
                 gameLost = true;
                 coroutineManager.StartCoroutine(gameOverSequence());
@@ -124,7 +131,7 @@ namespace AstroDroids.Scenes
                 debugPaused = !debugPaused;
             }
 
-            if((InputSystem.GetKeyDown(Keys.Escape) || InputSystem.GetButtonDown(Buttons.Start)) && !transitioning && !gameLost && !levelFinished)
+            if ((InputSystem.GetKeyDown(Keys.Escape) || InputSystem.GetButtonDown(Buttons.Start)) && !transitioning && !gameLost && !levelFinished)
             {
                 SetPauseState(!paused);
             }
@@ -139,7 +146,7 @@ namespace AstroDroids.Scenes
 
                     World.Update(gameTime);
 
-                    if(World.camEntity.PathManager == null || !World.camEntity.PathManager.Active)
+                    if (World.camEntity.PathManager == null || !World.camEntity.PathManager.Active)
                     {
                         starfieldOffset.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
                     }
@@ -309,7 +316,7 @@ namespace AstroDroids.Scenes
             this.paused = paused;
             ui.PauseMenu.Visible = paused;
 
-            if(paused)
+            if (paused)
             {
                 ui.ResumeBtn.IsFocused = true;
             }
@@ -343,7 +350,7 @@ namespace AstroDroids.Scenes
             if (!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
             {
                 //check if player's score made it into top 10
-                if(SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
+                if (SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
                 {
                     Highscore(true);
                 }
@@ -403,7 +410,7 @@ namespace AstroDroids.Scenes
             }
             else
             {
-                if(GameStateManager.GetMissionType() == MissionType.Story)
+                if (GameStateManager.GetMissionType() == MissionType.Story)
                 {
                     GameStateManager.SaveState();
                 }
@@ -451,6 +458,75 @@ namespace AstroDroids.Scenes
 
             if (World != null)
                 World.DrawDebug();
+        }
+
+
+        IEnumerator PageTransition(FrameworkElement page, bool hideLogo)
+        {
+            transitioning = true;
+            InputSystem.ClearUIKeys();
+            InputSystem.DisableUIMouse();
+            InteractiveGue.CurrentInputReceiver = null;
+
+            if (this.menuPage != null)
+            {
+                this.menuPage.TransitionOut();
+                //(this.menuPage as FrameworkElement).Visual.AnimationController.OnCompleted += () => { transitioning = false; };
+                yield return new WaitUntil(this.menuPage.TransitionFinished);
+            }
+
+            if (this.menuPage != null)
+            {
+                this.menuPage.Uninitialize();
+            }
+            this.menuPage = null;
+            hinted.HostPane.Children.Clear();
+            hinted.ClearHints();
+
+            hinted.HostPane.AddChild(page);
+
+            if (page is IMenuPage menuPage)
+            {
+                menuPage.Initialize(this, hinted);
+                this.menuPage = menuPage;
+
+                menuPage.TransitionIn();
+                yield return new WaitUntil(this.menuPage.TransitionFinished);
+            }
+
+            transitioning = false;
+            InputSystem.AddUIKeys();
+            InputSystem.EnableUIMouse();
+
+            yield return null;
+        }
+
+        public void SetPage(FrameworkElement page, bool hideLogo)
+        {
+            ui.PauseMenu.Visible = false;
+            hinted.IsVisible = true;
+            coroutineManager.StartCoroutine(PageTransition(page, hideLogo));
+        }
+
+        public void HideHinted()
+        {
+            hinted.IsVisible = false;
+            hinted.HostPane.Children.Clear();
+            hinted.ClearHints();
+            menuPage = null;
+
+            ui.ResumeBtn.IsFocused = true;
+            ui.PauseMenu.Visible = true;
+        }
+
+        public void TransitionClose()
+        {
+
+        }
+
+        public void TransitionToScene(Scene scene)
+        {
+            coroutineManager.StartCoroutine(TransitionToSceneCoroutine(scene));
         }
     }
 }

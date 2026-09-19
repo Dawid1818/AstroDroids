@@ -17,7 +17,7 @@ namespace AstroDroids.Screens
 {
     partial class LeaderboardScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
         List<LeaderboardItem> items = new List<LeaderboardItem>();
 
         bool entering = true;
@@ -27,7 +27,7 @@ namespace AstroDroids.Screens
 
         public bool UpdateWhenTransitioning => true;
 
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
 

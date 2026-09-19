@@ -16,7 +16,7 @@ using System.Collections.Generic;
 
 namespace AstroDroids.Scenes
 {
-    public class MainMenuScene : Scene
+    public class MainMenuScene : Scene, IPageHost
     {
         IMenuPage menuPage;
 

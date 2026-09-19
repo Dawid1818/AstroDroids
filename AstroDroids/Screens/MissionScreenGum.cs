@@ -18,7 +18,7 @@ namespace AstroDroids.Screens
 {
     partial class MissionScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
 
         List<LevelCard> cards = new List<LevelCard>();
 
@@ -31,7 +31,7 @@ namespace AstroDroids.Screens
             Return();
         }
 
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
 

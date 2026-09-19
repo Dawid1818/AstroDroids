@@ -12,14 +12,12 @@ using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Projectiles.Hostile
 {
     public class ReflectBeam : Projectile
     {
-        int timer = 0;
+        float timer = 0;
 
         public bool Locked { get; set; } = false;
 
@@ -31,12 +29,18 @@ namespace AstroDroids.Projectiles.Hostile
 
         List<ReflectBeamSegment> segments = new List<ReflectBeamSegment>();
 
+        Texture2D texture;
+        float beamSpeed = 200f;
+        float textureOffset = 0f;
+
         public ReflectBeam(Vector2 position, float angle, float length) : base(position)
         {
             Friendly = false;
 
             _angle = angle;
             this.length = length;
+
+            texture = TextureManager.Get("Projectiles/ChallengerBeam/ChallengerBeam");
 
             col = AddCapsuleCollider(Vector2.Zero, GameHelper.OrbitPos(Vector2.Zero, angle, length), 15f);
         }
@@ -84,12 +88,12 @@ namespace AstroDroids.Projectiles.Hostile
                 maxBounces--;
             }
 
-            timer += 1;
+            timer += 1f * gameTime.GetElapsedSeconds() * 10f;
 
             if (Locked && timer >= 5)
                 timer = 5;
 
-            if (timer >= 21)
+            if (timer >= 10)
             {
                 Despawn();
             }
@@ -104,6 +108,8 @@ namespace AstroDroids.Projectiles.Hostile
                     player.Damage(1, false);
                 }
             }
+
+            textureOffset -= beamSpeed * gameTime.GetElapsedSeconds();
         }
 
         public override void Draw(GameTime gameTime)
@@ -116,19 +122,24 @@ namespace AstroDroids.Projectiles.Hostile
 
         private void DrawSegment(Vector2 basePos, float segAngle, float segLength)
         {
-            float halfThickness = 16f;
+            Color beamColor = Color.Red;
 
-            Vector2 dir = GameHelper.DirFromAngle(Angle);
-            Vector2 perp = new Vector2(-dir.Y, dir.X);
+            Rectangle sourceRectangle = new Rectangle((int)textureOffset, 0, (int)length, texture.Height);
 
-            Vector2 upperPos = basePos + perp * halfThickness;
-            Vector2 lowerPos = basePos - perp * halfThickness;
+            Vector2 origin = new Vector2(0f, texture.Height / 2f);
 
-            var pixel = TextureManager.GetPixelTexture();
+            float scale;
+            if (timer <= 5)
+            {
+                scale = timer / 5f;
+            }
+            else
+            {
+                scale = -(timer - 10f) / 5f;
+            }
 
-            Screen.spriteBatch.Draw(pixel, new Rectangle((int)basePos.X, (int)basePos.Y, (int)length, 32), null, new Color(255, 0, 0, 255), segAngle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
-            Screen.spriteBatch.Draw(pixel, new Rectangle((int)upperPos.X, (int)upperPos.Y, (int)length, 4), null, Color.Red, segAngle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
-            Screen.spriteBatch.Draw(pixel, new Rectangle((int)lowerPos.X, (int)lowerPos.Y, (int)length, 4), null, Color.Red, segAngle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, basePos, sourceRectangle, new Color(beamColor.R, beamColor.G, beamColor.B, (byte)127), segAngle, origin, new Vector2(1f, 1.4f * scale), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, basePos, sourceRectangle, beamColor, segAngle, origin, new Vector2(1f, scale), SpriteEffects.None, 0f);
         }
 
         public override void DrawDebug(GameTime gameTime)

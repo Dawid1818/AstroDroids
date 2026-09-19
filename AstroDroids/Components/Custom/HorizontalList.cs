@@ -1,14 +1,8 @@
 using AstroDroids.Managers;
-using Gum.Converters;
-using Gum.DataTypes;
 using Gum.Forms.Controls;
 using Gum.Input;
-using Gum.Managers;
 using Gum.Wireframe;
-using Microsoft.Xna.Framework.Input;
-using RenderingLibrary.Graphics;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace AstroDroids.Components.Custom
@@ -20,16 +14,16 @@ namespace AstroDroids.Components.Custom
         int selectedIndex = 0;
         List<string> Items = new List<string>();
 
-        public bool LocalizeText { get { return ItemLabel.LocalizeText; } set { ItemLabel.LocalizeText = value; }  }
+        public bool LocalizeText { get { return ItemLabel.LocalizeText; } set { ItemLabel.LocalizeText = value; } }
 
         public Action SelectionChanged;
 
-        public int SelectedIndex 
-        { 
-            get { return selectedIndex; } 
-            set 
-            { 
-                if(value < 0) 
+        public int SelectedIndex
+        {
+            get { return selectedIndex; }
+            set
+            {
+                if (value < 0)
                     selectedIndex = 0;
                 else if (value >= Items.Count)
                     selectedIndex = Items.Count - 1;
@@ -63,7 +57,7 @@ namespace AstroDroids.Components.Custom
 
         public void DoKeyboardAction(IInputReceiverKeyboard keyboard)
         {
-            
+
         }
 
         public void OnFocusUpdate()
@@ -160,11 +154,12 @@ namespace AstroDroids.Components.Custom
         {
             var valueBefore = selectedIndex;
 
-            this.SelectedIndex -= 1;
+            SelectedIndex -= 1;
 
             if (valueBefore != SelectedIndex)
             {
                 SelectionChanged?.Invoke();
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
             }
         }
 
@@ -172,11 +167,12 @@ namespace AstroDroids.Components.Custom
         {
             var valueBefore = selectedIndex;
 
-            this.SelectedIndex += 1;
+            SelectedIndex += 1;
 
             if (valueBefore != SelectedIndex)
             {
                 SelectionChanged?.Invoke();
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
             }
         }
 

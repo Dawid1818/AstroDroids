@@ -11,14 +11,14 @@ namespace AstroDroids.Screens
 {
     partial class HighscoreScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
 
         public bool UpdateWhenTransitioning => true;
 
         string playerName = string.Empty;
 
         MissionProgress progress;
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
 

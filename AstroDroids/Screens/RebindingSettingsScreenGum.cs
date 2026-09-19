@@ -13,7 +13,7 @@ namespace AstroDroids.Screens
 {
     partial class RebindingSettingsScreenGum : IMenuPage
     {
-        MainMenuScene scene;
+        IPageHost scene;
 
         Dictionary<GameAction, ButtonInputAction> actions { get { return SettingsManager.curSettings.Actions; } }
 
@@ -28,7 +28,7 @@ namespace AstroDroids.Screens
             this.isKeyboard = isKeyboard;
         }
 
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
             this.scene = scene;
             BackBtn.Click += ReturnBtn_Click;

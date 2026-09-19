@@ -17,7 +17,13 @@ namespace AstroDroids.Screens
             this.scene = gameScene;
 
             ResumeBtn.Click += ResumeBtn_Click;
+            SettingsBtn.Click += SettingsBtn_Click;
             QuitBtn.Click += QuitBtn_Click;
+        }
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
+        {
+            scene.SetPage(new SettingsScreenGum(), true);
         }
 
         private void QuitBtn_Click(object sender, EventArgs e)

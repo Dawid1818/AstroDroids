@@ -5,12 +5,13 @@ using AstroDroids.Managers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 
 namespace AstroDroids.Projectiles.Hostile
 {
     internal class ChallengerBeam : Projectile
     {
-        int timer = 0;
+        float timer = 0;
 
         public bool Locked { get; set; } = false;
 
@@ -19,10 +20,16 @@ namespace AstroDroids.Projectiles.Hostile
         float _angle;
 
         CapsuleCollider col;
+        Texture2D texture;
+
+        float beamSpeed = 200f;
+        float textureOffset = 0f;
 
         public ChallengerBeam(Vector2 position, float angle, float length) : base(position)
         {
             Friendly = false;
+
+            texture = TextureManager.Get("Projectiles/ChallengerBeam/ChallengerBeam");
 
             _angle = angle;
             this.length = length;
@@ -32,12 +39,12 @@ namespace AstroDroids.Projectiles.Hostile
 
         public override void Update(GameTime gameTime)
         {
-            timer += 1;
+            timer += 1f * gameTime.GetElapsedSeconds() * 10f;
 
             if (Locked && timer >= 5)
                 timer = 5;
 
-            if (timer >= 21)
+            if (timer >= 10)
             {
                 Despawn();
             }
@@ -49,22 +56,30 @@ namespace AstroDroids.Projectiles.Hostile
                     item.Damage(1, false);
                 }
             }
+
+            textureOffset -= beamSpeed * gameTime.GetElapsedSeconds();
         }
 
         public override void Draw(GameTime gameTime)
         {
-            float halfThickness = 15f;
+            Color beamColor = Color.Red;
 
-            Vector2 dir = GameHelper.DirFromAngle(Angle);
-            Vector2 perp = new Vector2(-dir.Y, dir.X);
-            Vector2 basePos = Transform.Position;
-            Vector2 upperPos = basePos + perp * halfThickness;
-            Vector2 lowerPos = basePos - perp * halfThickness;
+            Rectangle sourceRectangle = new Rectangle((int)textureOffset, 0, (int)length, texture.Height);
 
+            Vector2 origin = new Vector2(0f, texture.Height / 2f);
 
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)basePos.X, (int)basePos.Y, (int)length, 32), null, new Color(255, 0, 0, 255), Angle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)upperPos.X, (int)upperPos.Y, (int)length, 4), null, Color.Red, Angle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
-            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle((int)lowerPos.X, (int)lowerPos.Y, (int)length, 4), null, Color.Red, Angle, new Vector2(0f, 0.5f), SpriteEffects.None, 0f);
+            float scale;
+            if(timer <= 5)
+            {
+                scale = timer / 5f;
+            }
+            else
+            {
+                scale = -(timer - 10f) / 5f;
+            }
+
+            Screen.spriteBatch.Draw(texture, Transform.Position, sourceRectangle, new Color(beamColor.R, beamColor.G, beamColor.B, (byte)127), Angle, origin, new Vector2(1f, 1.4f * scale), SpriteEffects.None, 0f);
+            Screen.spriteBatch.Draw(texture, Transform.Position, sourceRectangle, beamColor, Angle, origin, new Vector2(1f, scale), SpriteEffects.None, 0f);
         }
     }
 }

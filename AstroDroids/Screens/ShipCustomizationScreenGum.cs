@@ -130,13 +130,13 @@ namespace AstroDroids.Screens
             VLabel.SetTextNoTranslate($"V: {(int)VSlider.Value}");
         }
 
-        public void Initialize(MainMenuScene scene, HintedScreenGum hinted)
+        public void Initialize(IPageHost scene, HintedScreenGum hinted)
         {
-            this.scene = scene;
+            this.scene = (MainMenuScene)scene;
 
-            player = new Player(0, new Vector2(scene.World.Bounds.Width / 2 - 16, scene.World.Bounds.Height / 2 - 16));
+            player = new Player(0, new Vector2(this.scene.World.Bounds.Width / 2 - 16, this.scene.World.Bounds.Height / 2 - 16));
             player.LockMovement = true;
-            scene.World.AddPlayer(player);
+            this.scene.World.AddPlayer(player);
 
             HSlider.ValueChangedByUi += Slider_ValueChangedByUi;
             SSlider.ValueChangedByUi += Slider_ValueChangedByUi;
