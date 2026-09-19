@@ -303,10 +303,10 @@ namespace AstroDroids.Scenes
                 }
             }
 
-            //if (InputSystem.GetKeyDown(Keys.Escape) && LevelManager.Playtesting)
-            //{
-            //    LevelManager.QuitPlaytest();
-            //}
+            if(InputSystem.GetKeyDown(Keys.F8))
+            {
+                FinishLevel();
+            }
 
             if (ui.BossWarning.Visible)
             {
@@ -417,6 +417,7 @@ namespace AstroDroids.Scenes
                 if (!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
                 {
                     GameStateManager.SetVictory(true);
+                    SaveManager.curSave.FinishedStory = true;
                     if (SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
                     {
                         Highscore(true);
@@ -436,6 +437,7 @@ namespace AstroDroids.Scenes
             {
                 if (GameStateManager.GetMissionType() == MissionType.Story)
                 {
+                    SaveManager.curSave.ReachedLevel = System.Math.Max(SaveManager.curSave.ReachedLevel, GameStateManager.GetLevelIndex());
                     GameStateManager.SaveState();
                 }
                 coroutineManager.StartCoroutine(TransitionToSceneCoroutine(new GameScene()));

@@ -9,9 +9,11 @@ namespace AstroDroids.Data
     public class SaveData : ISaveable
     {
         public const string Magic = "adsave";
-        public const int FileVersion = 3;
+        public const int FileVersion = 4;
 
         public string PlayerName { get; set; } = "Player";
+        public int ReachedLevel = 0;
+        public bool FinishedStory = false;
         public ShipCustomization Ship { get; set; } = new ShipCustomization();
         public MissionProgress MissionProgress { get; set; }
 
@@ -33,6 +35,17 @@ namespace AstroDroids.Data
             else
             {
                 PlayerName = "Player";
+            }
+
+            if(actualVersion >= 4)
+            {
+                ReachedLevel = reader.ReadInt32();
+                FinishedStory = reader.ReadBoolean();
+            }
+            else
+            {
+                ReachedLevel = 0;
+                FinishedStory = false;
             }
 
             Ship = new ShipCustomization();
@@ -76,6 +89,9 @@ namespace AstroDroids.Data
             writer.Write(FileVersion);
 
             writer.Write(PlayerName);
+
+            writer.Write(ReachedLevel);
+            writer.Write(FinishedStory);
 
             Ship.Save(writer);
 

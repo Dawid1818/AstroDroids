@@ -72,6 +72,9 @@ namespace AstroDroids.Screens
 
             if (selectedLevel > 4)
                 selectedLevel = 4;
+
+            if (selectedLevel > SaveManager.curSave.ReachedLevel)
+                selectedLevel = SaveManager.curSave.ReachedLevel;
         }
 
         private void PrevLevelBtn_Click(object sender, System.EventArgs e)
