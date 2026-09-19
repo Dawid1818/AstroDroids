@@ -105,11 +105,6 @@ namespace AstroDroids.Scenes
 
             yPos -= (float)gameTime.ElapsedGameTime.TotalSeconds * 50f;
 
-            if (InputSystem.GetKeyDown(Keys.R))
-            {
-                SceneManager.SetScene(new MainMenuScene());
-            }
-
             if (menuPage != null)
             {
                 if (!transitioning && (InputSystem.IsActionDown(GameAction.NextWeapon) || InputSystem.GetRMBDown() || InputSystem.GetButtonDown(Buttons.B)))

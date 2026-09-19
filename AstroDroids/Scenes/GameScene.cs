@@ -39,6 +39,8 @@ namespace AstroDroids.Scenes
         bool gameLost = false;
         bool levelFinished = false;
 
+        InputMethod inputMethod;
+
         public GameScene()
         {
 
@@ -62,6 +64,8 @@ namespace AstroDroids.Scenes
 
         public override void Set()
         {
+            inputMethod = InputSystem.GetLastInputMethod();
+
             Screen.GumUI.Root.Children.Clear();
 
             ui = new GameScreenGum();
@@ -158,6 +162,26 @@ namespace AstroDroids.Scenes
                 else
                 {
                     InputSystem.SetMouseLock(false);
+                }
+
+                if (menuPage != null)
+                {
+                    if (!transitioning && (InputSystem.IsActionDown(GameAction.NextWeapon) || InputSystem.GetRMBDown() || InputSystem.GetButtonDown(Buttons.B)))
+                    {
+                        menuPage.BackPressed();
+                    }
+
+                    //we are checking for menuPage a second time because HideHinted can set it to null
+                    if ((!transitioning || menuPage.UpdateWhenTransitioning) && menuPage != null)
+                        menuPage.Update(gameTime);
+                }
+
+                InputMethod newInputMethod = InputSystem.GetLastInputMethod();
+
+                if (inputMethod != newInputMethod)
+                {
+                    inputMethod = newInputMethod;
+                    hinted.InputMethodChanged(inputMethod);
                 }
             }
             else

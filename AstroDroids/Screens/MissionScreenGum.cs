@@ -4,14 +4,8 @@ using AstroDroids.Gameplay;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
-using RenderingLibrary.Graphics;
-using System;
 using System.Collections.Generic;
 
 namespace AstroDroids.Screens
@@ -136,7 +130,7 @@ namespace AstroDroids.Screens
 
         partial void CustomInitialize()
         {
-        
+
         }
 
         void Return()
