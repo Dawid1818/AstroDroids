@@ -23,7 +23,7 @@ namespace AstroDroids.Entities.Hostile
         {
             CanBeShielded = true;
             texture = TextureManager.Get("Ships/Chaser/tinyShip17");
-            Score = 100;
+            Score = 120;
             sprite = new AnimatedSprite(texture, 5, 34, 25, 1, 6, 10f);
 
             AddCircleCollider(Vector2.Zero, 16f);

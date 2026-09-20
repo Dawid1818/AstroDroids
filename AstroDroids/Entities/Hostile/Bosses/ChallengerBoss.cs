@@ -41,6 +41,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public ChallengerBoss() : base(Vector2.Zero, 1000)
         {
+            Score = 5000;
             DefaultExplosionScale = 2f;
 
             AddCircleCollider(Vector2.Zero, 80);

@@ -42,7 +42,7 @@ namespace AstroDroids.Entities.Hostile
             CanBeShielded = true;
 
             texture = TextureManager.Get("Ships/SolarKnight/ship_018");
-            Score = 100;
+            Score = 500;
 
             DefaultExplosionScale = 2f;
 

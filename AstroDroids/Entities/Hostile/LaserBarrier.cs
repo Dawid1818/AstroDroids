@@ -35,6 +35,7 @@ namespace AstroDroids.Entities.Hostile
             blueTexture = TextureManager.Get("Laser Barriers/accesory_002b");
             redTexture = TextureManager.Get("Laser Barriers/accesory_002r");
 
+            Score = 100;
             CanSpawnFirepower = false;
 
             AddCircleCollider(Vector2.Zero, 16f);
@@ -52,6 +53,8 @@ namespace AstroDroids.Entities.Hostile
             blueTexture = TextureManager.Get("Laser Barriers/accesory_002b");
             redTexture = TextureManager.Get("Laser Barriers/accesory_002r");
             this.moveDir = moveDir;
+
+            Score = 100;
 
             if (health >= 0)
                 SetHealth(health);

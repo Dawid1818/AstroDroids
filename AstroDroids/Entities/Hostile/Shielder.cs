@@ -70,7 +70,7 @@ namespace AstroDroids.Entities.Hostile
         public Shielder() : base(Vector2.Zero, 70)
         {
             texture = TextureManager.Get("Ships/Shielder/ship_022");
-            Score = 100;
+            Score = 150;
 
             DefaultExplosionScale = 1.5f;
 

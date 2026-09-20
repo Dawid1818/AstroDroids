@@ -103,6 +103,7 @@ namespace AstroDroids.Entities.Hostile
             texture = TextureManager.Get("Mines/ship_005Y");
             overlay = TextureManager.Get("Mines/MineOverlay");
 
+            Score = 150;
             DefaultExplosionScale = 1f;
 
             AddCircleCollider(Vector2.Zero, 32f);
@@ -112,6 +113,7 @@ namespace AstroDroids.Entities.Hostile
         {
             AddCircleCollider(Vector2.Zero, 32f);
 
+            Score = 150;
             DefaultExplosionScale = 1f;
         }
 

@@ -49,6 +49,8 @@ namespace AstroDroids.Entities.Hostile
         {
             texture = TextureManager.Get("Ships/SpinLaser/tinyShip2");
 
+            Score = 300;
+
             AddCircleCollider(Vector2.Zero, 16f);
 
             ParticleEffect chargeEffect = new ParticleEffect("ChargeBeam")

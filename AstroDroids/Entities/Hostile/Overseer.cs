@@ -48,6 +48,7 @@ namespace AstroDroids.Entities.Hostile
         {
             CanBeShielded = true;
 
+            Score = 500;
             DefaultExplosionScale = 1.2f;
 
             AddCircleCollider(Vector2.Zero, 45);

@@ -42,6 +42,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public LBBoss() : base(Vector2.Zero, 2000)
         {
+            Score = 3000;
             DefaultExplosionScale = 2f;
 
             AddCircleCollider(Vector2.Zero, 60);

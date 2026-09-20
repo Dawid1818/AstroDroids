@@ -51,6 +51,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public FirstBoss() : base(Vector2.Zero, 1000)
         {
+            Score = 1000;
             DefaultExplosionScale = 2f;
 
             AddCircleCollider(Vector2.Zero, 70);

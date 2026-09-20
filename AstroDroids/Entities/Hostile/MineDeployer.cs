@@ -32,7 +32,7 @@ namespace AstroDroids.Entities.Hostile
         public MineDeployer() : base(Vector2.Zero, 100)
         {
             texture = TextureManager.Get("Ships/MineDeployer/ship_014");
-            Score = 100;
+            Score = 500;
 
             DefaultExplosionScale = 1.5f;
 

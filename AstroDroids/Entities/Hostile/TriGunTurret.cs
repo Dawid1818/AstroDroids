@@ -98,6 +98,8 @@ namespace AstroDroids.Entities.Hostile
         {
             CanBeShielded = true;
 
+            Score = 150;
+
             //baseTexture = TextureManager.Get("Turrets/Base/TurretBase");
             baseTexture = TextureManager.Get("Turrets/Base/TurretBasev2");
             //topTexture = TextureManager.Get("Turrets/TriGun/TriGunTop");

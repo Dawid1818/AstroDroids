@@ -49,6 +49,9 @@ namespace AstroDroids.Entities.Hostile
         public ProjectileDrone(Enemy controller, float distance, float startAngle) : base(Vector2.Zero, 5)
         {
             this.controller = controller;
+
+            Score = 0;
+
             //texture = TextureManager.Get("Ships/DroneController/ProjectileDrone");
             texture = TextureManager.Get("Ships/DroneController/tinyShip18");
             orbitAngle = startAngle;
@@ -65,6 +68,9 @@ namespace AstroDroids.Entities.Hostile
         public ProjectileDrone(Enemy controller) : base(Vector2.Zero, 20)
         {
             this.controller = controller;
+
+            Score = 0;
+
             //texture = TextureManager.Get("Ships/DroneController/ProjectileDrone");
             texture = TextureManager.Get("Ships/DroneController/tinyShip18");
 

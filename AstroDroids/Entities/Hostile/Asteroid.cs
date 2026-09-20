@@ -52,6 +52,7 @@ namespace AstroDroids.Entities.Hostile
             IsNeutral = true;
             CanSpawnFirepower = false;
 
+            Score = 100;
             texture = TextureManager.Get("Asteroids/Asteroid 01 - Base");
 
             AddCircleCollider(Vector2.Zero, 16f);

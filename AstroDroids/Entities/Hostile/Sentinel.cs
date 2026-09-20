@@ -40,7 +40,7 @@ namespace AstroDroids.Entities.Hostile
         {
             CanBeShielded = true;
             texture = TextureManager.Get("Ships/Sentinel/ship003_black1");
-            Score = 100;
+            Score = 500;
 
             DefaultExplosionScale = 2f;
 

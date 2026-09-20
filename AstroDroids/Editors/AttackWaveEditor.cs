@@ -972,7 +972,7 @@ namespace AstroDroids.Editors
 
             var avaSpace = ImGui.GetContentRegionAvail();
             ImGui.PushItemWidth(avaSpace.X);
-            if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name, ImGuiComboFlags.HeightLarge))
+            if (ImGui.BeginCombo("##EnemyCombo", enemyList[selectedEnemyType].Name, ImGuiComboFlags.HeightLargest))
             {
                 for (int i = 0; i < enemyList.Count; i++)
                 {

@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Coroutines;
 using AstroDroids.Entities.Effects;
+using AstroDroids.Gameplay;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Paths;
@@ -77,7 +78,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public SnakeBoss() : base(Vector2.Zero, 1000)
         {
-
+            Score = 2000;
         }
 
         void LoadPath(string name)
@@ -275,6 +276,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 yield return new WaitForSeconds(0.3f);
             }
 
+            GameStateManager.AddScore(Score);
             Despawn();
 
             if (Scene.World.BossEntity == this)
