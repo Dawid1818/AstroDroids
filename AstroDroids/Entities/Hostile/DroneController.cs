@@ -83,6 +83,8 @@ namespace AstroDroids.Entities.Hostile
             //texture = TextureManager.Get("Ships/DroneController/DroneController");
             texture = TextureManager.Get("Ships/DroneController/DroneControllerv2");
 
+            DefaultExplosionScale = 1f;
+
             AddCircleCollider(Vector2.Zero, 32);
         }
 

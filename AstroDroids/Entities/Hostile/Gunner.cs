@@ -154,6 +154,8 @@ namespace AstroDroids.Entities.Hostile
             texture = TextureManager.Get("Ships/Gunner/tinyShip20");
             AddCircleCollider(Vector2.Zero, 22f);
 
+            DefaultExplosionScale = 0.8f;
+
             sprite = new AnimatedSprite(texture, 5, 44, 44, 1, 5, 10f);
         }
 

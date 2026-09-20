@@ -44,6 +44,8 @@ namespace AstroDroids.Entities.Hostile
             texture = TextureManager.Get("Ships/SolarKnight/ship_018");
             Score = 100;
 
+            DefaultExplosionScale = 2f;
+
             AddCircleCollider(Vector2.Zero, 50f);
             AddCircleCollider(new Vector2(0, 30), 50f);
             AddCircleCollider(new Vector2(0, -30), 50f);

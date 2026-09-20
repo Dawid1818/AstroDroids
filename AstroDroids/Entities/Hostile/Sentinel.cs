@@ -42,6 +42,8 @@ namespace AstroDroids.Entities.Hostile
             texture = TextureManager.Get("Ships/Sentinel/ship003_black1");
             Score = 100;
 
+            DefaultExplosionScale = 2f;
+
             AddCircleCollider(Vector2.Zero, 50f);
 
             HorizontalShieldRadius = 50f;

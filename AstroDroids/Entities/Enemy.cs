@@ -43,6 +43,8 @@ namespace AstroDroids.Entities
         public float HorizontalShieldRadius { get; set; } = 16f;
         public float VerticalShieldRadius { get; set; } = 16f;
 
+        public float DefaultExplosionScale { get; set; } = 0.6f;
+
         public bool CanSpawnFirepower { get; set; } = true;
 
         public Enemy() : base()
@@ -89,7 +91,7 @@ namespace AstroDroids.Entities
         {
             if (destroyed) return;
 
-            Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), 0.6f));
+            Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), DefaultExplosionScale));
             SoundManager.PlaySound("Explosion", Random.NextSingle() * 2f - 1f);
 
             GameStateManager.AddScore(Score);

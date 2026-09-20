@@ -48,6 +48,8 @@ namespace AstroDroids.Entities.Hostile
         {
             CanBeShielded = true;
 
+            DefaultExplosionScale = 1.2f;
+
             AddCircleCollider(Vector2.Zero, 45);
             texture = TextureManager.Get("Ships/Overseer/ship_017");
         }

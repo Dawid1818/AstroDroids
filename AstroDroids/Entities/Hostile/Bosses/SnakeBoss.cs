@@ -271,7 +271,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             foreach (var item in segments)
             {
                 item.Despawn();
-                Scene.World.AddEffect(new StandardExplosion(new Transform(item.Transform.Position.X, item.Transform.Position.Y), 1f));
+                Scene.World.AddEffect(new StandardExplosion(new Transform(item.Transform.Position.X, item.Transform.Position.Y), 2f));
                 yield return new WaitForSeconds(0.3f);
             }
 

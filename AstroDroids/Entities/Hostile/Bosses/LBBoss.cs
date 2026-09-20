@@ -42,6 +42,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public LBBoss() : base(Vector2.Zero, 2000)
         {
+            DefaultExplosionScale = 2f;
+
             AddCircleCollider(Vector2.Zero, 60);
             texture = TextureManager.Get("Ships/LBBoss/ship_020");
         }

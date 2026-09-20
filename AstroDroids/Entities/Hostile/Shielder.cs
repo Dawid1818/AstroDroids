@@ -72,6 +72,8 @@ namespace AstroDroids.Entities.Hostile
             texture = TextureManager.Get("Ships/Shielder/ship_022");
             Score = 100;
 
+            DefaultExplosionScale = 1.5f;
+
             AddCircleCollider(Vector2.Zero, 50f);
         }
 

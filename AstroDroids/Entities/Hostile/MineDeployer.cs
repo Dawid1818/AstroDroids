@@ -34,6 +34,8 @@ namespace AstroDroids.Entities.Hostile
             texture = TextureManager.Get("Ships/MineDeployer/ship_014");
             Score = 100;
 
+            DefaultExplosionScale = 1.5f;
+
             AddCircleCollider(Vector2.Zero, 50f);
         }
 

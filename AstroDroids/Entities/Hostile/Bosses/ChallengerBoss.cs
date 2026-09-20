@@ -41,6 +41,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         public ChallengerBoss() : base(Vector2.Zero, 1000)
         {
+            DefaultExplosionScale = 2f;
+
             AddCircleCollider(Vector2.Zero, 80);
             texture = TextureManager.Get("Ships/ChallengerBoss/ChallengerBoss");
         }

@@ -103,12 +103,16 @@ namespace AstroDroids.Entities.Hostile
             texture = TextureManager.Get("Mines/ship_005Y");
             overlay = TextureManager.Get("Mines/MineOverlay");
 
+            DefaultExplosionScale = 1f;
+
             AddCircleCollider(Vector2.Zero, 32f);
         }
 
         public ProximityMine(Vector2 position, EntityCell cell) : base(position, 1)
         {
             AddCircleCollider(Vector2.Zero, 32f);
+
+            DefaultExplosionScale = 1f;
         }
 
         public override void ApplySpawnData(IEnemySpawnData spawnData)

@@ -94,6 +94,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             texture = TextureManager.Get("Ships/DroneBoss/base");
 
+            DefaultExplosionScale = 1.5f;
+
             AddCircleCollider(Vector2.Zero, 48f);
         }
 

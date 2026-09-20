@@ -42,6 +42,8 @@ namespace AstroDroids.Entities.Hostile
 
         public Siege() : base(Vector2.Zero, 150)
         {
+            DefaultExplosionScale = 1.2f;
+
             AddCircleCollider(Vector2.Zero, 40);
             texture = TextureManager.Get("Ships/Siege/ship_012");
         }
