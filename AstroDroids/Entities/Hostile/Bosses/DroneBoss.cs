@@ -105,6 +105,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
             for (int i = 0; i < maxDroneAmount; i++)
             {
                 ProjectileDrone drone = createDrone();
+                drone.CanSpawnFirepower = true;
                 Scene.World.AddEnemy(drone, true);
                 drones.Add(new DroneEntry(i, drone));
             }

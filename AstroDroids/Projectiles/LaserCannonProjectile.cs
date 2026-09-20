@@ -20,7 +20,7 @@ namespace AstroDroids.Projectiles
 
         float distance = 1000;
 
-        int damage = 5;
+        float damage = 5;
 
         float charge = 0f;
 
@@ -40,23 +40,23 @@ namespace AstroDroids.Projectiles
             {
                 default:
                 case 1:
-                    damage = (int)MathF.Ceiling(2 * charge);
+                    damage = 23f;
                     beamScale = charge/3f;
                     break;
                 case 2:
-                    damage = (int)MathF.Ceiling(3 * charge);
+                    damage = 13f;
                     beamScale = charge/2.5f;
                     break;
                 case 3:
-                    damage = (int)MathF.Ceiling(4 * charge);
+                    damage = 10f;
                     beamScale = charge/2f;
                     break;
                 case 4:
-                    damage = (int)MathF.Ceiling(5 * charge);
+                    damage = 9f;
                     beamScale = charge/1.5f;
                     break;
                 case 5:
-                    damage = (int)MathF.Ceiling(6 * charge);
+                    damage = 10f;
                     beamScale = charge;
                     break;
             }
@@ -82,7 +82,7 @@ namespace AstroDroids.Projectiles
 
             if (!damaged)
             {
-                int remainingDamage = (int)MathF.Ceiling(damage * charge);
+                float remainingDamage = damage * charge;
                 float laserLength = 1000;
 
                 var hits = new List<AliveEntity>();
@@ -113,9 +113,9 @@ namespace AstroDroids.Projectiles
                     if (remainingDamage <= 0)
                         break;
 
-                    int hp = enemy.GetHealth();
+                    float hp = MathF.Max(0, enemy.GetHealth());
 
-                    int damageToDeal = Math.Min(remainingDamage, hp);
+                    float damageToDeal = Math.Min(remainingDamage, hp);
 
                     enemy.Damage(damageToDeal, false);
 

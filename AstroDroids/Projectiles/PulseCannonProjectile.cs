@@ -26,8 +26,11 @@ namespace AstroDroids.Projectiles
         PulseCannonProjectileType type;
         float angle;
 
-        public PulseCannonProjectile(Vector2 position, PulseCannonProjectileType type, float angle) : base(position)
+        float damage = 1;
+
+        public PulseCannonProjectile(Vector2 position, PulseCannonProjectileType type, float angle, float damage) : base(position)
         {
+            this.damage = damage;
             Friendly = true;
 
             switch (type)
@@ -55,13 +58,10 @@ namespace AstroDroids.Projectiles
                 default:
                 case PulseCannonProjectileType.WeakCyan:
                     return Color.Cyan;
-                    break;
                 case PulseCannonProjectileType.WeakOrange:
                     return Color.Orange;
-                    break;
                 case PulseCannonProjectileType.WeakRed:
                     return Color.Red;
-                    break;
             }
         }
 
@@ -97,7 +97,7 @@ namespace AstroDroids.Projectiles
                         PlayHitSfx();
 
                         fade = true;
-                        neutral.Damage(1, true);
+                        neutral.Damage(damage, true);
                         neutral.Push(GameHelper.DirectionFromTo(neutral.Transform.Position, Transform.Position));
                         break;
                     }
@@ -112,7 +112,7 @@ namespace AstroDroids.Projectiles
                         PlayHitSfx();
 
                         fade = true;
-                        enemy.Damage(1, true);
+                        enemy.Damage(damage, true);
                         enemy.Push(GameHelper.DirectionFromTo(enemy.Transform.Position, Transform.Position));
                         break;
                     }

@@ -105,7 +105,10 @@ namespace AstroDroids.Weapons
 
                     if (charge < 1f)
                     {
-                        charge += (float)gameTime.ElapsedGameTime.TotalSeconds + (0.015f * ((float)GameStateManager.GetFirepower() / GameStateManager.MaxFirepower));
+                        float firepower = GameStateManager.GetFirepower();
+                        float chargeSpeed = 1.5f - (0.075f * (firepower - 1));
+
+                        charge += (float)gameTime.ElapsedGameTime.TotalSeconds * chargeSpeed;
 
                         if (charge > 1f)
                             charge = 1f;

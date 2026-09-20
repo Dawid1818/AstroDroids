@@ -5,8 +5,8 @@ namespace AstroDroids.Entities
 {
     public class AliveEntity : CollidableEntity
     {
-        int StartingHealth;
-        int Health;
+        float StartingHealth;
+        float Health;
 
         public virtual bool CanBeDamaged { get; protected set; } = true;
 
@@ -22,12 +22,12 @@ namespace AstroDroids.Entities
             StartingHealth = health;
         }
 
-        public int GetHealth() { return Health; }
-        public int GetStartingHealth() { return StartingHealth; }
-        public virtual void SetHealth(int health) { Health = health; }
-        public virtual void SetStartingHealth(int health) { StartingHealth = health; }
+        public float GetHealth() { return Health; }
+        public float GetStartingHealth() { return StartingHealth; }
+        public virtual void SetHealth(float health) { Health = health; }
+        public virtual void SetStartingHealth(float health) { StartingHealth = health; }
 
-        public virtual void Damage(int damage, bool produceSound)
+        public virtual void Damage(float damage, bool produceSound)
         {
             if (!CanBeDamaged)
                 return;

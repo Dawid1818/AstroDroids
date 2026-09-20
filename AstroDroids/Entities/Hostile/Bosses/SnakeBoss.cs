@@ -242,7 +242,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 Scene.World.StartCoroutine(DestroySequence());
             }
 
-            int totalHealth = segments.Sum(x=> x.GetHealth());
+            float totalHealth = segments.Sum(x=> x.GetHealth());
 
             SetHealth(totalHealth);
         }

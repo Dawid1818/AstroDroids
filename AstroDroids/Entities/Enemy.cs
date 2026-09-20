@@ -72,14 +72,14 @@ namespace AstroDroids.Entities
             }
         }
 
-        public override void Damage(int damage, bool produceSound)
+        public override void Damage(float damage, bool produceSound)
         {
             if (ShieldedAmount > 0)
                 return;
             base.Damage(damage, produceSound);
         }
 
-        public override void SetHealth(int health)
+        public override void SetHealth(float health)
         {
             if (health > 0)
                 destroyed = false;

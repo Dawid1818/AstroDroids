@@ -36,7 +36,7 @@ namespace AstroDroids.Entities.Hostile
             redTexture = TextureManager.Get("Laser Barriers/accesory_002r");
 
             Score = 100;
-            CanSpawnFirepower = false;
+            CanSpawnFirepower = true;
 
             AddCircleCollider(Vector2.Zero, 16f);
         }
@@ -71,7 +71,7 @@ namespace AstroDroids.Entities.Hostile
             //}
         }
 
-        public override void Damage(int damage, bool produceSound)
+        public override void Damage(float damage, bool produceSound)
         {
             if (Turret != null && !Turret.destroyed && Turret.GetHealth() > 0)
                 return;
