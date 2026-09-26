@@ -36,6 +36,11 @@ partial class LevelCard : global::Gum.Forms.Controls.FrameworkElement
     public ColoredRectangleRuntime LockedPreview { get; protected set; }
     public SpriteRuntime LockIcon { get; protected set; }
 
+    public string PreviewSourceFile
+    {
+        set => Preview.SourceFileName = value;
+    }
+
     public LevelCard(InteractiveGue visual) : base(visual)
     {
     }

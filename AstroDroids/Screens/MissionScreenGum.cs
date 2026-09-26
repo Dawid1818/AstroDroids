@@ -103,7 +103,7 @@ namespace AstroDroids.Screens
             {
                 LevelCard card = cards[i];
 
-                int targetX = 220 * (i - selectedLevel);
+                int targetX = 290 * (i - selectedLevel);
 
                 card.X = MathHelper.Lerp(card.X, targetX, lerpSpeed * gameTime.GetElapsedSeconds());
             }

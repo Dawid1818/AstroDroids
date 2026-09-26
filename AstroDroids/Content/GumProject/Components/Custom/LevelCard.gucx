@@ -5,7 +5,7 @@
   <State>
     <Name>Default</Name>
     <Variable Type="float" Name="Height" SetsValue="true">
-      <Value xsi:type="xsd:float">202</Value>
+      <Value xsi:type="xsd:float">286</Value>
     </Variable>
     <Variable Type="int" Name="LockedPreview.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">154</Value>
@@ -185,7 +185,7 @@
     <Variable Type="DimensionUnitType" Name="Preview.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
-    <Variable IsFile="true" Type="string" Name="Preview.SourceFile" SetsValue="true">
+    <Variable IsFile="true" Type="string" Name="Preview.SourceFile" ExposedAsName="PreviewSourceFile" SetsValue="true">
       <Value xsi:type="xsd:string">ExampleGameModeBanner.png</Value>
     </Variable>
     <Variable Type="float" Name="Preview.Width" SetsValue="true">
@@ -216,7 +216,7 @@
       <Value xsi:type="xsd:string">Default</Value>
     </Variable>
     <Variable Type="float" Name="Width" SetsValue="true">
-      <Value xsi:type="xsd:float">188</Value>
+      <Value xsi:type="xsd:float">266</Value>
     </Variable>
   </State>
   <Instance Name="PanelBG" BaseType="NineSlice" />

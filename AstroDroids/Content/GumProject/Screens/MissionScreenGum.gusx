@@ -33,6 +33,9 @@
     <Variable Type="PositionUnitType" Name="ContainerInstance.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
+    <Variable Type="float" Name="ContainerInstance1.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">253</Value>
+    </Variable>
     <Variable Type="float" Name="ContainerInstance1.Width" SetsValue="true">
       <Value xsi:type="xsd:float">60</Value>
     </Variable>
@@ -46,13 +49,16 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="float" Name="ContainerInstance1.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">-49.5</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="ContainerInstance1.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="PositionUnitType" Name="ContainerInstance1.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance2.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">253</Value>
     </Variable>
     <Variable Type="float" Name="ContainerInstance2.Width" SetsValue="true">
       <Value xsi:type="xsd:float">60</Value>
@@ -67,7 +73,7 @@
       <Value xsi:type="xsd:int">4</Value>
     </Variable>
     <Variable Type="float" Name="ContainerInstance2.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">-49.5</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="ContainerInstance2.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -142,8 +148,17 @@
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="HeaderCategory" Name="HeaderCategoryState" SetsValue="true" />
+    <Variable Type="float" Name="Level1Card.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">286</Value>
+    </Variable>
     <Variable Type="string" Name="Level1Card.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">LevelContainer</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="Level1Card.PreviewSourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">Level previews\Level1.png</Value>
+    </Variable>
+    <Variable Type="float" Name="Level1Card.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">266</Value>
     </Variable>
     <Variable Type="float" Name="Level1Card.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -163,11 +178,20 @@
     <Variable Type="PositionUnitType" Name="Level1Card.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="float" Name="Level2Card.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">286</Value>
+    </Variable>
     <Variable Type="string" Name="Level2Card.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">LevelContainer</Value>
     </Variable>
+    <Variable IsFile="true" Type="string" Name="Level2Card.PreviewSourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">Level previews\Level2.png</Value>
+    </Variable>
+    <Variable Type="float" Name="Level2Card.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">266</Value>
+    </Variable>
     <Variable Type="float" Name="Level2Card.X" SetsValue="true">
-      <Value xsi:type="xsd:float">220</Value>
+      <Value xsi:type="xsd:float">290</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Level2Card.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -184,11 +208,20 @@
     <Variable Type="PositionUnitType" Name="Level2Card.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="float" Name="Level3Card.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">286</Value>
+    </Variable>
     <Variable Type="string" Name="Level3Card.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">LevelContainer</Value>
     </Variable>
+    <Variable IsFile="true" Type="string" Name="Level3Card.PreviewSourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">Level previews\Level3.png</Value>
+    </Variable>
+    <Variable Type="float" Name="Level3Card.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">266</Value>
+    </Variable>
     <Variable Type="float" Name="Level3Card.X" SetsValue="true">
-      <Value xsi:type="xsd:float">440</Value>
+      <Value xsi:type="xsd:float">580</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Level3Card.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -205,11 +238,20 @@
     <Variable Type="PositionUnitType" Name="Level3Card.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="float" Name="Level4Card.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">286</Value>
+    </Variable>
     <Variable Type="string" Name="Level4Card.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">LevelContainer</Value>
     </Variable>
+    <Variable IsFile="true" Type="string" Name="Level4Card.PreviewSourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">Level previews\Level4.png</Value>
+    </Variable>
+    <Variable Type="float" Name="Level4Card.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">266</Value>
+    </Variable>
     <Variable Type="float" Name="Level4Card.X" SetsValue="true">
-      <Value xsi:type="xsd:float">660</Value>
+      <Value xsi:type="xsd:float">870</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Level4Card.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -226,11 +268,20 @@
     <Variable Type="PositionUnitType" Name="Level4Card.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="float" Name="Level5Card.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">286</Value>
+    </Variable>
     <Variable Type="string" Name="Level5Card.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">LevelContainer</Value>
     </Variable>
+    <Variable IsFile="true" Type="string" Name="Level5Card.PreviewSourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">Level previews\Level5.png</Value>
+    </Variable>
+    <Variable Type="float" Name="Level5Card.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">266</Value>
+    </Variable>
     <Variable Type="float" Name="Level5Card.X" SetsValue="true">
-      <Value xsi:type="xsd:float">880</Value>
+      <Value xsi:type="xsd:float">1160</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Level5Card.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -248,7 +299,7 @@
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="float" Name="LevelContainer.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">196</Value>
+      <Value xsi:type="xsd:float">291</Value>
     </Variable>
     <Variable Type="string" Name="LevelContainer.Parent" SetsValue="true" />
     <Variable Type="float" Name="LevelContainer.Width" SetsValue="true">
@@ -264,7 +315,7 @@
       <Value xsi:type="xsd:int">6</Value>
     </Variable>
     <Variable Type="float" Name="LevelContainer.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">4</Value>
+      <Value xsi:type="xsd:float">-49.5</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="LevelContainer.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
