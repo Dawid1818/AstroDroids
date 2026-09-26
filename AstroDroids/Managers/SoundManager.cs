@@ -1,8 +1,8 @@
 ﻿using AstroDroids.Audio;
+using FlatRedBall.Glue.StateInterpolation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Media;
 using MonoSound;
 using MonoSound.Streaming;
 using System;
@@ -25,8 +25,8 @@ namespace AstroDroids.Managers
 
         static Dictionary<string, SoundEffect> sounds = new Dictionary<string, SoundEffect>();
         static Dictionary<string, SoundPool> soundPools = new Dictionary<string, SoundPool>();
-        static Dictionary<string, Song> music = new Dictionary<string, Song>();
-        static StreamPackage currentMusicPackage = null;
+        static Dictionary<string, SoundEffect> musics = new Dictionary<string, SoundEffect>();
+        //static StreamPackage currentMusicPackage = null;
 
         static CoroutineManager coroutineManager = new CoroutineManager();
 
@@ -35,10 +35,12 @@ namespace AstroDroids.Managers
         static bool repeatingMusic = false;
         static bool stopped = true;
 
+        static SoundEffectInstance musicInstance;
+
         public static float SoundVolume { get; set; } = 1f;
         public static float MusicVolume { get; set; } = 1f;
-        public static bool IsMusicStopped => currentMusicPackage == null || currentMusicPackage.Disposed || currentMusicPackage.PlayingSound.State == SoundState.Stopped;
-        public static TimeSpan MusicPlayPositionSeconds => currentMusicPackage?.CurrentDuration ?? TimeSpan.Zero;
+        public static bool IsMusicStopped => musicInstance == null || musicInstance.IsDisposed || musicInstance.State == SoundState.Stopped;
+        //public static TimeSpan MusicPlayPositionSeconds => musicInstance?.CurrentDuration ?? TimeSpan.Zero;
         public static void Initialize(AstroDroidsGame game)
         {
             if (initialized) return;
@@ -46,7 +48,7 @@ namespace AstroDroids.Managers
             MonoSoundLibrary.Init(game);
 
             LoadAllSounds(game.Content);
-            //LoadAllMusic(game.Content);
+            LoadAllMusic(game.Content);
 
             coroutineManager.StartCoroutine(MusicCoroutine());
 
@@ -59,84 +61,81 @@ namespace AstroDroids.Managers
             {
                 if (targetMusic == string.Empty && !stopped)
                 {
-                    if (currentMusicPackage != null)
+                    if (musicInstance != null)
                     {
-                        while (!currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume > 0f)
+                        while (!musicInstance.IsDisposed && musicInstance.Volume > 0f)
                         {
-                            currentMusicPackage.Metrics.Volume = MathHelper.Max(0f, currentMusicPackage.Metrics.Volume - 0.01f);
+                            musicInstance.Volume = MathHelper.Max(0f, musicInstance.Volume - 0.01f);
                             yield return null;
                         }
 
-                        if (!currentMusicPackage.Disposed)
+                        if (!musicInstance.IsDisposed)
                         {
-                            if(currentMusicPackage.PlayingSound.State != SoundState.Stopped)
-                                currentMusicPackage.Stop();
-                            currentMusicPackage.Dispose();
+                            if (musicInstance.State != SoundState.Stopped)
+                                musicInstance.Stop();
+                            musicInstance.Dispose();
                         }
-                        currentMusicPackage = null;
+                        musicInstance = null;
                     }
                     CurrentMusic = string.Empty;
                     stopped = true;
                 }
                 else if (CurrentMusic != targetMusic && !stopped)
                 {
-                    if (currentMusicPackage != null)
+                    if (musicInstance != null)
                     {
-                        while (!currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume > 0f)
+                        while (!musicInstance.IsDisposed && musicInstance.Volume > 0f)
                         {
-                            currentMusicPackage.Metrics.Volume = MathHelper.Max(0f, currentMusicPackage.Metrics.Volume - 0.01f);
+                            musicInstance.Volume = MathHelper.Max(0f, musicInstance.Volume - 0.01f);
                             yield return null;
                         }
 
-                        if (!currentMusicPackage.Disposed)
+                        if (!musicInstance.IsDisposed)
                         {
-                            if (currentMusicPackage.PlayingSound.State != SoundState.Stopped)
-                                currentMusicPackage.Stop();
-                            currentMusicPackage.Dispose();
+                            if (musicInstance.State != SoundState.Stopped)
+                                musicInstance.Stop();
+                            musicInstance.Dispose();
                         }
-                        currentMusicPackage = null;
+                        musicInstance = null;
                     }
 
-                    if (!string.IsNullOrEmpty(targetMusic))
+                    if (!string.IsNullOrEmpty(targetMusic) && musics.ContainsKey(targetMusic))
                     {
-                        string musicPath = Path.Combine("Content", "Music", targetMusic + ".ogg");
+                        SoundEffect music = musics[targetMusic];
+                        musicInstance = music.CreateInstance();
+                        musicInstance.IsLooped = repeatingMusic;
+                        musicInstance.Volume = 0f;
+                        musicInstance.Play();
 
-                        if (File.Exists(musicPath))
+                        CurrentMusic = targetMusic;
+
+                        while (musicInstance != null && !musicInstance.IsDisposed && musicInstance.Volume < MusicVolume && !stopped)
                         {
-                            currentMusicPackage = StreamLoader.GetStreamedSound(musicPath, repeatingMusic);
-                            currentMusicPackage.IsLooping = repeatingMusic;
-                            currentMusicPackage.Metrics.Volume = 0f;
-                            currentMusicPackage.Play();
-
-                            CurrentMusic = targetMusic;
-
-                            while (currentMusicPackage != null && !currentMusicPackage.Disposed && currentMusicPackage.Metrics.Volume < MusicVolume && !stopped)
-                            {
-                                currentMusicPackage.Metrics.Volume = MathHelper.Min(MusicVolume, currentMusicPackage.Metrics.Volume + 0.01f);
-                                yield return null;
-                            }
+                            musicInstance.Volume = MathHelper.Min(MusicVolume, musicInstance.Volume + 0.01f);
+                            yield return null;
                         }
                     }
                 }
-                else if (!stopped && currentMusicPackage != null && !currentMusicPackage.Disposed)
+                else if (!stopped && musicInstance != null && !musicInstance.IsDisposed)
                 {
-                    if (currentMusicPackage.Metrics.Volume < MusicVolume)
+                    if (musicInstance.Volume < MusicVolume)
                     {
-                        currentMusicPackage.Metrics.Volume = MathHelper.Min(MusicVolume, currentMusicPackage.Metrics.Volume + 0.01f);
+                        musicInstance.Volume = MathHelper.Min(MusicVolume, musicInstance.Volume + 0.01f);
                     }
-                    else if (currentMusicPackage.Metrics.Volume > MusicVolume)
+                    else if (musicInstance.Volume > MusicVolume)
                     {
-                        currentMusicPackage.Metrics.Volume = MathHelper.Max(MusicVolume, currentMusicPackage.Metrics.Volume - 0.01f);
+                        musicInstance.Volume = MathHelper.Max(MusicVolume, musicInstance.Volume - 0.01f);
                     }
-                }else if(stopped)
+                }
+                else if (stopped)
                 {
-                    if (currentMusicPackage != null)
+                    if (musicInstance != null)
                     {
-                        if (!currentMusicPackage.Disposed && currentMusicPackage.ReadBytes != 0)
+                        if (!musicInstance.IsDisposed)
                         {
-                            currentMusicPackage.Stop();
-                            currentMusicPackage.Dispose();
-                            currentMusicPackage = null;
+                            musicInstance.Stop();
+                            musicInstance.Dispose();
+                            musicInstance = null;
                         }
                     }
                 }
@@ -200,19 +199,26 @@ namespace AstroDroids.Managers
             });
         }
 
-        //static void LoadAllMusic(ContentManager content)
-        //{
-        //    Directory.GetFiles("Content/Music", "*.xnb", SearchOption.AllDirectories).ToList().ForEach(filePath =>
-        //    {
-        //        string relativePath = filePath.Substring(8).Replace(".xnb", "").Replace("\\", "/");
-        //        string musicName = Path.GetFileNameWithoutExtension(filePath);
+        static void LoadAllMusic(ContentManager content)
+        {
+            Directory.GetFiles("Content/Music", "*.ogg", SearchOption.AllDirectories).ToList().ForEach(filePath =>
+            {
+                string relativePath = filePath.Replace("\\", "/");
+                string musicName = Path.GetFileNameWithoutExtension(filePath);
 
-        //        if (!music.ContainsKey(musicName))
-        //        {
-        //            Song song = content.Load<Song>(relativePath);
-        //            music.Add(relativePath.Substring(6), song);
-        //        }
-        //    });
-        //}
+                if (!musics.ContainsKey(musicName))
+                {
+                    SoundEffect music = EffectLoader.GetEffect(relativePath);
+                    music.Name = musicName;
+                    string key = Path.GetFileNameWithoutExtension(relativePath.Substring(6));
+                    musics.Add(key, music);
+
+                    //soundPools.Add(key, new SoundPool(sound, 16));
+
+                    //Song song = content.Load<Song>(relativePath);
+                    //music.Add(relativePath.Substring(6), song);
+                }
+            });
+        }
     }
 }

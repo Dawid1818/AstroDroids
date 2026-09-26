@@ -1,4 +1,5 @@
-﻿using AstroDroids.Graphics;
+﻿using AstroDroids.Entities.Effects;
+using AstroDroids.Graphics;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles.Hostile;
@@ -174,6 +175,7 @@ namespace AstroDroids.Entities.Hostile
             {
                 if(Scene.World.GetOngoingWaves() == 0 && Scene.World.Enemies.Count(x => !(x is LaserBarrier)) == 0)
                 {
+                    Scene.World.AddEffect(new StandardSmoke(new Transform(Transform.Position.X, Transform.Position.Y), DefaultExplosionScale));
                     Despawn();
                 }
             }

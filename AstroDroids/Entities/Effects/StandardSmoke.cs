@@ -5,14 +5,14 @@ using System;
 
 namespace AstroDroids.Entities.Effects
 {
-    public class StandardExplosion : Entity
+    public class StandardSmoke : Entity
     {
         AnimatedSprite sprite;
         float scale = 1f;
         float angle = 0f;
-        public StandardExplosion(Transform transform, float scale) : base(transform)
+        public StandardSmoke(Transform transform, float scale) : base(transform)
         {
-            sprite = new AnimatedSprite(TextureManager.Get("Effects/StandardExplosion/Explosion"), 8, 128, 128, 0, 61, 150f);
+            sprite = new AnimatedSprite(TextureManager.Get("Effects/StandardSmoke/Smoke"), 8, 128, 128, 0, 61, 150f);
             this.scale = scale;
 
             angle = (float)(Random.NextDouble() * Math.Tau);

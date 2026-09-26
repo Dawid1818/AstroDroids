@@ -408,7 +408,7 @@ namespace AstroDroids.Scenes
             }
             ui.Visual.PlayAnimation(ui.ShowMissionStatus);
 
-            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped && SoundManager.CurrentMusic == "ZeroRanger - Hyyeeaaaarh" && (SoundManager.IsMusicStopped || SoundManager.MusicPlayPositionSeconds.Seconds > 18));
+            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped && SoundManager.CurrentMusic == "ZeroRanger - Hyyeeaaaarh" && SoundManager.IsMusicStopped);
 
             yield return new WaitForSeconds(2f);
 
