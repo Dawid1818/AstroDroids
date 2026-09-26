@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Collisions;
 using AstroDroids.Entities;
+using AstroDroids.Entities.Effects;
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Entities.Hostile.Bosses;
 using AstroDroids.Graphics;
@@ -73,6 +74,9 @@ namespace AstroDroids.Projectiles.Hostile
             {
                 if (item.Intersects(this))
                 {
+                    SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), Color.DarkRed);
+                    Scene.World.AddEffect(hitEffect);
+
                     item.Damage(1, false);
                     item.Push(GameHelper.DirectionFromTo(item.Transform.Position, Transform.Position));
                     Despawn();
@@ -85,6 +89,9 @@ namespace AstroDroids.Projectiles.Hostile
             {
                 if (item.Intersects(this))
                 {
+                    SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(Transform.Position.X, Transform.Position.Y), Color.DarkRed);
+                    Scene.World.AddEffect(hitEffect);
+
                     item.Damage(1, false);
                     Despawn();
 
