@@ -29,9 +29,12 @@ partial class LevelCard : global::Gum.Forms.Controls.FrameworkElement
             return gue;
         });
     }
-    public NineSliceRuntime BossPanelBG { get; protected set; }
-    public SpriteRuntime SpriteInstance { get; protected set; }
-    public TextRuntime TextInstance { get; protected set; }
+    public NineSliceRuntime PanelBG { get; protected set; }
+    public SpriteRuntime Preview { get; protected set; }
+    public TextRuntime NameLabel { get; protected set; }
+    public ContainerRuntime LockLayer { get; protected set; }
+    public ColoredRectangleRuntime LockedPreview { get; protected set; }
+    public SpriteRuntime LockIcon { get; protected set; }
 
     public LevelCard(InteractiveGue visual) : base(visual)
     {
@@ -45,9 +48,12 @@ partial class LevelCard : global::Gum.Forms.Controls.FrameworkElement
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        BossPanelBG = this.Visual?.GetGraphicalUiElementByName("BossPanelBG") as global::Gum.GueDeriving.NineSliceRuntime;
-        SpriteInstance = this.Visual?.GetGraphicalUiElementByName("SpriteInstance") as global::Gum.GueDeriving.SpriteRuntime;
-        TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::Gum.GueDeriving.TextRuntime;
+        PanelBG = this.Visual?.GetGraphicalUiElementByName("PanelBG") as global::Gum.GueDeriving.NineSliceRuntime;
+        Preview = this.Visual?.GetGraphicalUiElementByName("Preview") as global::Gum.GueDeriving.SpriteRuntime;
+        NameLabel = this.Visual?.GetGraphicalUiElementByName("NameLabel") as global::Gum.GueDeriving.TextRuntime;
+        LockLayer = this.Visual?.GetGraphicalUiElementByName("LockLayer") as global::Gum.GueDeriving.ContainerRuntime;
+        LockedPreview = this.Visual?.GetGraphicalUiElementByName("LockedPreview") as global::Gum.GueDeriving.ColoredRectangleRuntime;
+        LockIcon = this.Visual?.GetGraphicalUiElementByName("LockIcon") as global::Gum.GueDeriving.SpriteRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

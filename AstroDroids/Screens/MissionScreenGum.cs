@@ -20,6 +20,8 @@ namespace AstroDroids.Screens
 
         public bool UpdateWhenTransitioning => false;
 
+        int maxLevel = 0;
+
         public void BackPressed()
         {
             Return();
@@ -47,17 +49,25 @@ namespace AstroDroids.Screens
 
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
 
-            Level1Card.TextInstance.Text = "T_Level1";
-            Level2Card.TextInstance.Text = "T_Level2";
-            Level3Card.TextInstance.Text = "T_Level3";
-            Level4Card.TextInstance.Text = "T_Level4";
-            Level5Card.TextInstance.Text = "T_Level5";
+            Level1Card.NameLabel.Text = "T_Level1";
+            Level2Card.NameLabel.Text = "T_Level2";
+            Level3Card.NameLabel.Text = "T_Level3";
+            Level4Card.NameLabel.Text = "T_Level4";
+            Level5Card.NameLabel.Text = "T_Level5";
 
             cards.Add(Level1Card);
             cards.Add(Level2Card);
             cards.Add(Level3Card);
             cards.Add(Level4Card);
             cards.Add(Level5Card);
+
+            maxLevel = SaveManager.curSave.ReachedLevel;
+
+            for (int i = maxLevel + 1; i < cards.Count; i++)
+            {
+                cards[i].LockLayer.Visible = true;
+                cards[i].PanelBG.Color = Color.Gray;
+            }
         }
 
         private void AnimationController_OnCompleted()
@@ -73,8 +83,8 @@ namespace AstroDroids.Screens
             if (selectedLevel > 4)
                 selectedLevel = 4;
 
-            if (selectedLevel > SaveManager.curSave.ReachedLevel)
-                selectedLevel = SaveManager.curSave.ReachedLevel;
+            if (selectedLevel > maxLevel)
+                selectedLevel = maxLevel;
         }
 
         private void PrevLevelBtn_Click(object sender, System.EventArgs e)

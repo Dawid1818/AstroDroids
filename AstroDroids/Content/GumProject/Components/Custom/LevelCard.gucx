@@ -4,114 +4,226 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
-    <Variable Type="int" Name="BossPanelBG.Alpha" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
-    </Variable>
-    <Variable Type="ColorCategory" Name="BossPanelBG.ColorCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Primary</Value>
-    </Variable>
-    <Variable Type="float" Name="BossPanelBG.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-2.600006</Value>
-    </Variable>
-    <Variable Type="StyleCategory" Name="BossPanelBG.StyleCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Panel</Value>
-    </Variable>
-    <Variable Type="int" Name="BossPanelBG.TextureLeft" SetsValue="true">
-      <Value xsi:type="xsd:int">72</Value>
-    </Variable>
-    <Variable Type="int" Name="BossPanelBG.TextureTop" SetsValue="true">
-      <Value xsi:type="xsd:int">144</Value>
-    </Variable>
-    <Variable Type="float" Name="BossPanelBG.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="float" Name="BossPanelBG.X" SetsValue="true">
-      <Value xsi:type="xsd:float">1.937151E-06</Value>
-    </Variable>
-    <Variable Type="float" Name="BossPanelBG.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">2.699997</Value>
-    </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">202</Value>
     </Variable>
-    <Variable Type="float" Name="SpriteInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-27.743958</Value>
+    <Variable Type="int" Name="LockedPreview.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">154</Value>
     </Variable>
-    <Variable Type="DimensionUnitType" Name="SpriteInstance.HeightUnits" SetsValue="true">
+    <Variable Type="int" Name="LockedPreview.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">104</Value>
+    </Variable>
+    <Variable Type="int" Name="LockedPreview.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">104</Value>
+    </Variable>
+    <Variable Type="float" Name="LockedPreview.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-27</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="LockedPreview.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
-    <Variable IsFile="true" Type="string" Name="SpriteInstance.SourceFile" SetsValue="true">
-      <Value xsi:type="xsd:string">ExampleGameModeBanner.png</Value>
+    <Variable Type="string" Name="LockedPreview.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">LockLayer</Value>
     </Variable>
-    <Variable Type="float" Name="SpriteInstance.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-8.417603</Value>
+    <Variable Type="int" Name="LockedPreview.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">104</Value>
     </Variable>
-    <Variable Type="DimensionUnitType" Name="SpriteInstance.WidthUnits" SetsValue="true">
+    <Variable Type="float" Name="LockedPreview.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-8</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="LockedPreview.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
-    <Variable Type="float" Name="SpriteInstance.X" SetsValue="true">
+    <Variable Type="float" Name="LockedPreview.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
-    <Variable Type="HorizontalAlignment" Name="SpriteInstance.XOrigin" SetsValue="true">
+    <Variable Type="HorizontalAlignment" Name="LockedPreview.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
-    <Variable Type="PositionUnitType" Name="SpriteInstance.XUnits" SetsValue="true">
+    <Variable Type="PositionUnitType" Name="LockedPreview.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
     </Variable>
-    <Variable Type="float" Name="SpriteInstance.Y" SetsValue="true">
+    <Variable Type="float" Name="LockedPreview.Y" SetsValue="true">
       <Value xsi:type="xsd:float">8.5</Value>
     </Variable>
-    <Variable Type="VerticalAlignment" Name="SpriteInstance.YOrigin" SetsValue="true">
+    <Variable Type="VerticalAlignment" Name="LockedPreview.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
-    <Variable Type="PositionUnitType" Name="SpriteInstance.YUnits" SetsValue="true">
+    <Variable Type="PositionUnitType" Name="LockedPreview.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="LockIcon.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">64</Value>
+    </Variable>
+    <Variable Type="string" Name="LockIcon.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">LockLayer</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="LockIcon.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">Icons\Lock.png</Value>
+    </Variable>
+    <Variable Type="float" Name="LockIcon.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">64</Value>
+    </Variable>
+    <Variable Type="float" Name="LockIcon.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LockIcon.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LockIcon.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="LockIcon.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="LockIcon.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LockIcon.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float" Name="LockLayer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="LockLayer.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="LockLayer.Parent" SetsValue="true" />
+    <Variable Type="bool" Name="LockLayer.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="LockLayer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="LockLayer.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="LockLayer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="LockLayer.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LockLayer.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="LockLayer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="LockLayer.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="LockLayer.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="NameLabel.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="NameLabel.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="string" Name="NameLabel.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Level 1</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="NameLabel.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="NameLabel.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="NameLabel.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="NameLabel.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="NameLabel.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="NameLabel.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="NameLabel.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">4</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="NameLabel.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="NameLabel.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="PanelBG.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="PanelBG.ColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="float" Name="PanelBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-2.600006</Value>
+    </Variable>
+    <Variable Type="StyleCategory" Name="PanelBG.StyleCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Panel</Value>
+    </Variable>
+    <Variable Type="int" Name="PanelBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">72</Value>
+    </Variable>
+    <Variable Type="int" Name="PanelBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">144</Value>
+    </Variable>
+    <Variable Type="float" Name="PanelBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="PanelBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">1.937151E-06</Value>
+    </Variable>
+    <Variable Type="float" Name="PanelBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">2.699997</Value>
+    </Variable>
+    <Variable Type="float" Name="Preview.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-27.743958</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="Preview.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="Preview.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">ExampleGameModeBanner.png</Value>
+    </Variable>
+    <Variable Type="float" Name="Preview.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-8.417603</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="Preview.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="Preview.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Preview.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Preview.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Preview.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">8.5</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Preview.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Preview.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="false">
       <Value xsi:type="xsd:string">Default</Value>
     </Variable>
-    <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="bool" Name="TextInstance.IsBold" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="string" Name="TextInstance.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">Level 1</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="TextInstance.VerticalAlignment" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="float" Name="TextInstance.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="TextInstance.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="float" Name="TextInstance.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="TextInstance.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="TextInstance.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="TextInstance.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">4</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="TextInstance.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="TextInstance.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
     <Variable Type="float" Name="Width" SetsValue="true">
       <Value xsi:type="xsd:float">188</Value>
     </Variable>
   </State>
-  <Instance Name="BossPanelBG" BaseType="NineSlice" />
-  <Instance Name="SpriteInstance" BaseType="Sprite" />
-  <Instance Name="TextInstance" BaseType="Text" />
+  <Instance Name="PanelBG" BaseType="NineSlice" />
+  <Instance Name="Preview" BaseType="Sprite" />
+  <Instance Name="NameLabel" BaseType="Text" />
+  <Instance Name="LockLayer" BaseType="Container" />
+  <Instance Name="LockedPreview" BaseType="ColoredRectangle" />
+  <Instance Name="LockIcon" BaseType="Sprite" />
   <Behaviors />
 </ComponentSave>
