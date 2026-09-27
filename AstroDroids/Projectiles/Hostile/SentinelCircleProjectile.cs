@@ -1,18 +1,12 @@
 ﻿using AstroDroids.Collisions;
 using AstroDroids.Entities;
 using AstroDroids.Entities.Effects;
-using AstroDroids.Entities.Friendly;
-using AstroDroids.Entities.Hostile.Bosses;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
 using AstroDroids.Scenes;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AstroDroids.Projectiles.Hostile
 {
@@ -64,7 +58,7 @@ namespace AstroDroids.Projectiles.Hostile
                 if (t >= 10f)
                     Despawn();
 
-                    t += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                t += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
             actualPosition = (movementDirection * Speed);
@@ -101,7 +95,7 @@ namespace AstroDroids.Projectiles.Hostile
 
             t += gameTime.GetElapsedSeconds();
 
-            if(!FastGrow)
+            if (!FastGrow)
                 Size += gameTime.GetElapsedSeconds() * 30f;
             else
                 Size += gameTime.GetElapsedSeconds() * 50f;
@@ -205,8 +199,8 @@ namespace AstroDroids.Projectiles.Hostile
         }
 
         internal void Detonate()
-        { 
-            if(!CanDetonate)
+        {
+            if (!CanDetonate)
                 return;
 
             Despawn();

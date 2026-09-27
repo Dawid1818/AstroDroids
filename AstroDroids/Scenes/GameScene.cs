@@ -113,13 +113,15 @@ namespace AstroDroids.Scenes
                 World.Starfield = new ImageStarfield(starfields[0]);
             }
 
-            World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));
+            //World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));
 
             LevelManager.StartLevel();
 
             SoundManager.PlayMusic(GameDatabase.GetMusic(LevelManager.CurrentLevel.MusicId));
 
             Screen.ResetCamera();
+
+            coroutineManager.StartCoroutine(levelStartSequence());
         }
 
         public override void Update(GameTime gameTime)
@@ -359,6 +361,48 @@ namespace AstroDroids.Scenes
             Screen.Infinite.Parameters["uv_transform"].SetValue(Matrix.Invert(uv_transform));
 
             World.Draw(gameTime);
+        }
+
+        IEnumerator levelStartSequence()
+        {
+            MissionType type = GameStateManager.GetMissionType();
+
+            if(TransitionManager.State != TransitionState.Idle)
+                yield return new WaitUntil(() => TransitionManager.State == TransitionState.Idle);
+
+            World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));
+
+            ui.MissionStatusContainer.Visible = true;
+            switch (type)
+            {
+                case MissionType.Tutorial:
+                    ui.MissionStatusLabel.Text = "T_Tutorial";
+                    break;
+                case MissionType.Story:
+                    ui.MissionStatusLabel.Text = $"T_Level{GameStateManager.GetLevelIndex() + 1}";
+                    break;
+                case MissionType.BossRush:
+                    ui.MissionStatusLabel.Text = "T_BossRush";
+                    break;
+                default:
+                case MissionType.Editor:
+                    ui.MissionStatusLabel.SetTextNoTranslate("Playtesting");
+                    break;
+            }
+            ui.Visual.PlayAnimation(ui.ShowMissionStatus);
+
+            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped);
+
+            yield return new WaitForSeconds(2f);
+
+            ui.Visual.PlayAnimation(ui.HideMissionStatus);
+            yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped);
+
+            yield return new WaitForSeconds(2f);
+
+            ui.MissionStatusContainer.Visible = false;
+
+            World.StartWaves();
         }
 
         IEnumerator gameOverSequence()

@@ -134,6 +134,7 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public AnimationRuntime Show {get; protected set;}
     public AnimationRuntime Hide {get; protected set;}
     public AnimationRuntime ShowMissionStatus {get; protected set;}
+    public AnimationRuntime HideMissionStatus {get; protected set;}
     #endregion
     public GameScreenGum(InteractiveGue visual) : base(visual)
     {
@@ -182,6 +183,7 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         Show = this.Visual.GetAnimation("Show");
         Hide = this.Visual.GetAnimation("Hide");
         ShowMissionStatus = this.Visual.GetAnimation("ShowMissionStatus");
+        HideMissionStatus = this.Visual.GetAnimation("HideMissionStatus");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

@@ -78,10 +78,13 @@ namespace AstroDroids.Gameplay
             if (LevelManager.CurrentLevel != null)
             {
                 AttackWaves.AddRange(LevelManager.CurrentLevel.AttackWaves.Slice(startPoint, LevelManager.CurrentLevel.AttackWaves.Count - startPoint));
-
-                if (AttackWaves.Count > 0)
-                    StartCoroutine(ProcessWaves());
             }
+        }
+
+        public void StartWaves()
+        {
+            if (AttackWaves.Count > 0)
+                StartCoroutine(ProcessWaves());
         }
 
         IEnumerator ProcessWaves()

@@ -39,6 +39,10 @@ namespace AstroDroids.Entities.Friendly
 
         float InvTime = 0f;
 
+        bool flewIn = false;
+
+        float yVisOffset = 0f;
+
         public Player(int playerIndex, Vector2 position) : base(new Transform(position), 1)
         {
             this.playerIndex = playerIndex;
@@ -49,13 +53,26 @@ namespace AstroDroids.Entities.Friendly
 
             AddCircleCollider(Vector2.Zero, 25f);
 
-            InvTime = 3f;
+            InvTime = 4f;
+
+            yVisOffset = 200f;
         }
 
         public override void Update(GameTime gameTime)
         {
             if (destroyed)
                 return;
+
+            if(!flewIn)
+            {
+                if (yVisOffset > 0f)
+                    yVisOffset -= gameTime.GetElapsedSeconds() * 500f;
+                else
+                {
+                    yVisOffset = 0f;
+                    flewIn = true;
+                }    
+            }
 
             if (InvTime > 0f)
             {
@@ -70,7 +87,9 @@ namespace AstroDroids.Entities.Friendly
             if (!LockMovement)
             {
                 //Firing
-                GameStateManager.UpdateCurrentWeapon(this, gameTime);
+
+                if(flewIn)
+                    GameStateManager.UpdateCurrentWeapon(this, gameTime);
 
                 //Player movement
                 Vector2 movement = Vector2.Zero;
@@ -164,8 +183,9 @@ namespace AstroDroids.Entities.Friendly
             //Screen.spriteBatch.Draw(shipTexture, Collider.ToRectangle(), Color.White);
             //Screen.spriteBatch.Draw(prototypeTexture, new Vector2(Transform.Position.X, Transform.Position.Y), Color.White);
             //Screen.spriteBatch.Draw(prototypeTexture, new Vector2(Transform.Position.X, Transform.Position.Y), null, Color.White, Angle, new Vector2(prototypeTexture.Width / 2, prototypeTexture.Height / 2), 0.5f, SpriteEffects.None, 0f);
+            Vector2 offsetPlayerPos = GetPosition() + new Vector2(0f, yVisOffset);
 
-            ship.Draw(GetPosition(), Angle, 0.5f);
+            ship.Draw(offsetPlayerPos, Angle, 0.5f);
 
             GameStateManager.DrawCurrentWeapon(this, gameTime);
 
@@ -175,8 +195,8 @@ namespace AstroDroids.Entities.Friendly
                 Color borderColor = new Color(Color.Cyan.R, Color.Cyan.G, Color.Cyan.B, (byte)255);
                 Color lightColor = new Color(Color.Blue.R + 127, Color.Blue.G + 127, Color.Blue.B + 127, (byte)127);
                 float size = 42;    
-                Screen.shapeBatch.DrawCircle(Transform.Position, size - 3, new Apos.Shapes.Gradient(Transform.Position, lightColor, Transform.Position + new Vector2(60, 0), fillColor, Apos.Shapes.Gradient.Shape.Radial), borderColor, 1);
-                Screen.shapeBatch.BorderCircleBlurred(Transform.Position, size, borderColor, 2, 3);
+                Screen.shapeBatch.DrawCircle(offsetPlayerPos, size - 3, new Apos.Shapes.Gradient(Transform.Position, lightColor, Transform.Position + new Vector2(60, 0), fillColor, Apos.Shapes.Gradient.Shape.Radial), borderColor, 1);
+                Screen.shapeBatch.BorderCircleBlurred(offsetPlayerPos, size, borderColor, 2, 3);
             }
         }
 
