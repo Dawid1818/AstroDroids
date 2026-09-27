@@ -40,7 +40,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
         float speed = 50f;
 
-        public LBBoss() : base(Vector2.Zero, 2000)
+        public LBBoss() : base(Vector2.Zero, 1500)
         {
             Score = 3000;
             DefaultExplosionScale = 2f;
@@ -908,7 +908,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         {
                             Vector2 start = new Vector2(Random.NextSingle(200, Scene.World.Bounds.Width - 200), -150);
                             Vector2 moveDir = new Vector2(0, 2);
-                            LaserBarrier barrier = new LaserBarrier(start, 0, 5, moveDir, LaserBarrierType.Normal);
+                            LaserBarrier barrier = new LaserBarrier(start, 0, 3, moveDir, LaserBarrierType.Normal);
 
                             Scene.World.AddEnemy(barrier, false, true);
 

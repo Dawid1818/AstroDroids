@@ -8,12 +8,14 @@ namespace AstroDroids.Entities.Neutral
     public class CameraEntity : Entity
     {
         public PathManager PathManager { get; set; }
+        public bool PausePath { get; set; } = false;
 
         public override void Update(GameTime gameTime)
         {
             if (PathManager != null)
             {
-                PathManager.Update(gameTime);
+                if(!PausePath)
+                    PathManager.Update(gameTime);
                 //Transform.Position = new Vector2(-(PathManager.Position.X) - Scene.World.Bounds.Width / 2f, -(PathManager.Position.Y) - Scene.World.Bounds.Height / 2f);
                 Transform.Position = new Vector2(-(PathManager.Position.X), -(PathManager.Position.Y));
             }

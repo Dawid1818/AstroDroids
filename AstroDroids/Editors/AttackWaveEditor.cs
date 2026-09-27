@@ -1099,6 +1099,24 @@ namespace AstroDroids.Editors
 
             PathSettings(spawner);
 
+            if (!spawner.HasPath)
+            {
+                float pos = spawner.SpawnPosition.X;
+
+                ImGui.SeparatorText("Transform settings");
+
+                if (ImGui.InputFloat("X##Spawner SpawnPosition X", ref pos))
+                {
+                    spawner.SpawnPosition = new Vector2(pos, spawner.SpawnPosition.Y);
+                }
+
+                pos = spawner.SpawnPosition.Y;
+                if (ImGui.InputFloat("Y##Spawner SpawnPosition Y", ref pos))
+                {
+                    spawner.SpawnPosition = new Vector2(spawner.SpawnPosition.X, pos);
+                }
+            }
+
             ImGui.Begin("Enemy settings");
 
             if (selectedEnemy != -1 && selectedEnemy < spawner.EnemyIDs.Count)

@@ -14,6 +14,7 @@ using Gum.Wireframe;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -597,6 +598,16 @@ namespace AstroDroids.Scenes
         public void TransitionToScene(Scene scene)
         {
             coroutineManager.StartCoroutine(TransitionToSceneCoroutine(scene));
+        }
+
+        internal void ShowLevel3Help()
+        {
+            ui.Level3Help.Visible = true;
+        }
+
+        internal void HideLevel3Help()
+        {
+            ui.Level3Help.Visible = false;
         }
     }
 }

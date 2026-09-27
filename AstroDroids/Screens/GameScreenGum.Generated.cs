@@ -128,6 +128,8 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public TextRuntime MissionStatusLabel { get; protected set; }
     public ContainerRuntime ScoreExtraLifeContainer { get; protected set; }
     public Label ScoreExtraLifeLabel { get; protected set; }
+    public ContainerRuntime Level3Help { get; protected set; }
+    public TextRuntime TextInstance1 { get; protected set; }
 
 
     #region Animation Fields
@@ -180,6 +182,8 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         MissionStatusLabel = this.Visual?.GetGraphicalUiElementByName("MissionStatusLabel") as global::Gum.GueDeriving.TextRuntime;
         ScoreExtraLifeContainer = this.Visual?.GetGraphicalUiElementByName("ScoreExtraLifeContainer") as global::Gum.GueDeriving.ContainerRuntime;
         ScoreExtraLifeLabel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Label>(this.Visual,"ScoreExtraLifeLabel");
+        Level3Help = this.Visual?.GetGraphicalUiElementByName("Level3Help") as global::Gum.GueDeriving.ContainerRuntime;
+        TextInstance1 = this.Visual?.GetGraphicalUiElementByName("TextInstance1") as global::Gum.GueDeriving.TextRuntime;
         Show = this.Visual.GetAnimation("Show");
         Hide = this.Visual.GetAnimation("Hide");
         ShowMissionStatus = this.Visual.GetAnimation("ShowMissionStatus");
@@ -195,6 +199,7 @@ partial class GameScreenGum : global::Gum.Forms.Controls.FrameworkElement
         this.ResumeBtn.Text = GumService.Default.LocalizationService.Translate("T_Resume");
         this.SettingsBtn.Text = GumService.Default.LocalizationService.Translate("T_Settings");
         this.TextInstance.Text = GumService.Default.LocalizationService.Translate("T_BossWarning");
+        this.TextInstance1.Text = GumService.Default.LocalizationService.Translate("T_OrangeBarrierHelp");
     }
     partial void CustomInitialize();
 }

@@ -51,6 +51,7 @@ namespace AstroDroids.Managers
 
             RegisterEventHandler(0, typeof(LevelEventHandler));
             RegisterEventHandler(1, typeof(TestLevelEventHandler));
+            RegisterEventHandler(2, typeof(Level3EventHandler));
 
             RegisterMission(MissionType.Tutorial, new GameMission() { Name = "Tutorial", Type = MissionType.Tutorial, LevelNames = { "Tutorial" } });
             RegisterMission(MissionType.Story, new GameMission() { Name = "Story", Type = MissionType.Story, LevelNames = { "Level1", "Level2", "Level3", "Level4", "Level5" } });

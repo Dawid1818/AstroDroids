@@ -196,6 +196,55 @@
         "ElementType": "Components",
         "EventType": 7,
         "TimestampUtc": "2026-09-26T10:16:25.8236108Z"
+      },
+      {
+        "NewName": "GameScreenGum.TextInstance1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-27T09:20:56.2368779Z"
+      },
+      {
+        "NewName": "GameScreenGum.ContainerInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-27T09:21:01.7861611Z"
+      },
+      {
+        "NewName": "GameScreenGum.Level3Help",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-27T09:21:21.1538732Z"
+      },
+      {
+        "NewName": "GameScreenGum.Level3Help",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-27T09:21:21.1548776Z"
+      },
+      {
+        "NewName": "GameScreenGum.Level3Help",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-27T09:21:21.1634218Z"
+      },
+      {
+        "NewName": "GameScreenGum.Level3Help",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-27T09:21:21.1730914Z"
+      },
+      {
+        "NewName": "GameScreenGum.Level3Help",
+        "OldName": "GameScreenGum.ContainerInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-27T09:21:21.1797229Z"
       }
     ]
   }

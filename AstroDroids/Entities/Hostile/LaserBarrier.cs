@@ -242,5 +242,10 @@ namespace AstroDroids.Entities.Hostile
             Screen.spriteBatch.Draw(texture, Transform.Position, null, CanBeDamaged ? Color.White : Color.Red, 0f, new Vector2(texture.Width / 2, texture.Height / 2), 1.2f, SpriteEffects.None, 0f);
             Screen.spriteBatch.DrawCircle(Transform.Position, 4, 8, CanBeDamaged ? Color.Cyan : Color.Red, 4);
         }
+
+        public void SetMoveDir(Vector2 moveDir)
+        {
+            this.moveDir = moveDir;
+        }
     }
 }
