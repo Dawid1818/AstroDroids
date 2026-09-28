@@ -45,6 +45,7 @@ namespace AstroDroids.Entities.Hostile
 
         RandomMoveManager RMM;
 
+        Vector2 lastPos;
         public SpinLaser() : base(Vector2.Zero, 20)
         {
             texture = TextureManager.Get("Ships/SpinLaser/tinyShip2");
@@ -229,6 +230,24 @@ namespace AstroDroids.Entities.Hostile
             }
 
             chargeEffectEntity.effect.Position = GameHelper.RotateAroundPoint(Transform.Position + new Vector2(texture.Width/2f, 0), Transform.Position, angle);
+            UpdateParticles(Transform.Position - lastPos);
+            lastPos = Transform.Position;
+        }
+
+        unsafe void UpdateParticles(Vector2 delta)
+        {
+            var emitter = chargeEffectEntity.effect.Emitters[0];
+
+            if (emitter.Buffer.Count > 0)
+            {
+                ParticleIterator iterator = emitter.Buffer.Iterator;
+                while (iterator.HasNext)
+                {
+                    Particle* ptr = iterator.Next();
+                    *ptr->Position += delta.X;
+                    ptr->Position[1] += delta.Y;
+                }
+            }
         }
 
         void Turn(GameTime gameTime)

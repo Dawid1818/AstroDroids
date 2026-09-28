@@ -18,15 +18,27 @@ namespace AstroDroids.Components.Custom
 
         public Action SelectionChanged;
 
+        public bool RollOver { get; set; } = false;
+
         public int SelectedIndex
         {
             get { return selectedIndex; }
             set
             {
                 if (value < 0)
-                    selectedIndex = 0;
+                {
+                    if (!RollOver)
+                        selectedIndex = 0;
+                    else
+                        selectedIndex = Items.Count - 1;
+                }
                 else if (value >= Items.Count)
-                    selectedIndex = Items.Count - 1;
+                {
+                    if (!RollOver)
+                        selectedIndex = Items.Count - 1;
+                    else
+                        selectedIndex = 0;
+                }
                 else
                 {
                     selectedIndex = value;

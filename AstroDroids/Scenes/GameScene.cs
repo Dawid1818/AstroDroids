@@ -419,7 +419,7 @@ namespace AstroDroids.Scenes
             if (!LevelManager.Playtesting && GameStateManager.GetMissionType() == MissionType.Story)
             {
                 //check if player's score made it into top 10
-                if (SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
+                if (SaveManager.curSave.Scores.Count == 0 || SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
                 {
                     Highscore(true);
                 }

@@ -9,6 +9,8 @@
       "Screens/ControlsSettingsScreenGum",
       "Screens/ControlsSettingsScreenGum/ButtonContainer",
       "Screens/GameScreenGum",
+      "Screens/GameScreenGum/ScorePanel",
+      "Screens/GameScreenGum/Level3Help",
       "Screens/GraphicsSettingsScreenGum",
       "Screens/GraphicsSettingsScreenGum/ButtonContainer",
       "Screens/GraphicsSettingsScreenGum/ButtonContainer/VSyncBox",

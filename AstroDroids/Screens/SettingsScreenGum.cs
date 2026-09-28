@@ -37,6 +37,7 @@ namespace AstroDroids.Screens
 
             LanguageList.SelectionChanged += LanguageList_SelectionChanged;
             LanguageList.SelectedIndex = SettingsManager.curSettings.LanguageId - 1;
+            LanguageList.RollOver = true;
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);

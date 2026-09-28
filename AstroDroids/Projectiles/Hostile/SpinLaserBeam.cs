@@ -31,13 +31,16 @@ namespace AstroDroids.Projectiles.Hostile
             }else if(t <= 0 && state == 1)
                 Despawn();
 
-            foreach (var item in Scene.World.GetPlayers())
+            if (state == 0)
             {
-                if (item.Intersects(this))
+                foreach (var item in Scene.World.GetPlayers())
                 {
-                    item.Damage(100, false);
+                    if (item.Intersects(this))
+                    {
+                        item.Damage(100, false);
+                    }
                 }
-            } 
+            }
 
             if (state == 0)
                 t += (float)gameTime.ElapsedGameTime.TotalSeconds * 5f;

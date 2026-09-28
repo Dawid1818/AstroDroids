@@ -15,6 +15,7 @@ using MonoGame.Extended.Particles.Modifiers;
 using MonoGame.Extended.Particles.Modifiers.Containers;
 using MonoGame.Extended.Particles.Modifiers.Interpolators;
 using MonoGame.Extended.Particles.Profiles;
+using System.Linq;
 
 namespace AstroDroids.Weapons
 {
@@ -35,6 +36,8 @@ namespace AstroDroids.Weapons
 
         int leftTargetAngle = 2;
         int rightTargetAngle = -2;
+
+        bool addedEffect = false;
 
         public LaserCannon()
         {
@@ -92,11 +95,17 @@ namespace AstroDroids.Weapons
 
             chargeEffectEntity = new ParticleEffectEntity(chargeEffect);
 
-            Scene.World.AddEffect(chargeEffectEntity);
+            //Scene.World.AddEffect(chargeEffectEntity);
         }
 
         public override void Update(Player player, GameTime gameTime)
         {
+            if(!addedEffect && !Scene.World.Effects.Contains(chargeEffectEntity))
+            {
+                addedEffect = true;
+                Scene.World.Effects.Add(chargeEffectEntity);
+            }
+
             if (InputSystem.IsActionHeld(GameAction.Fire) || InputSystem.GetLMB())
             {
                 if (currentCooldown <= 0f)
