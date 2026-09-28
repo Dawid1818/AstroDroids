@@ -2,7 +2,7 @@
 using AstroDroids.Input;
 using AstroDroids.Interfaces;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.IO;
 
@@ -39,7 +39,7 @@ namespace AstroDroids.Data
 
     public class SettingsData : ISaveable
     {
-        public const int FileVersion = 0;
+        public const int FileVersion = 1;
 
         public const string Magic = "adsettings";
 
@@ -63,6 +63,24 @@ namespace AstroDroids.Data
             MusicVolume = reader.ReadSingle();
             SoundVolume = reader.ReadSingle();
             LanguageId = reader.ReadInt32();
+
+            Actions.Clear();
+            if (actualVersion >= 1)
+            {
+                int actionsAmount = reader.ReadInt32();
+                for (int i = 0; i < actionsAmount; i++)
+                {
+                    GameAction ga = (GameAction)reader.ReadInt32();
+                    Keys key = (Keys)reader.ReadInt32();
+                    Buttons button = (Buttons)reader.ReadInt32();
+
+                    Actions.Add(ga, new ButtonInputAction(key, button));
+                }
+            }
+            else
+            {
+                Actions = InputSystem.CreateDefaultActions();
+            }
         }
 
         public void Save(BinaryWriter writer)
@@ -75,6 +93,14 @@ namespace AstroDroids.Data
             writer.Write(MusicVolume);
             writer.Write(SoundVolume);
             writer.Write(LanguageId);
+
+            writer.Write(Actions.Count);
+            foreach (var item in Actions)
+            {
+                writer.Write((int)item.Key);
+                writer.Write((int)item.Value.KeyboardKey);
+                writer.Write((int)item.Value.GamepadButton);
+            }
         }
     }
 }

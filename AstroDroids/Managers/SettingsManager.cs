@@ -56,6 +56,7 @@ namespace AstroDroids.Managers
             ApplyVideoSettings();
             ApplyLanguage();
             ApplyVolume();
+            ApplyRebinds();
         }
 
         public static void Save()
