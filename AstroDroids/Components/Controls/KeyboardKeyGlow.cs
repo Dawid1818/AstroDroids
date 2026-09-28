@@ -1,3 +1,4 @@
+using AstroDroids.Managers;
 using Gum.Converters;
 using Gum.DataTypes;
 using Gum.Managers;
@@ -14,6 +15,16 @@ namespace AstroDroids.Components.Controls
         partial void CustomInitialize()
         {
             TextInstance.LocalizeText = false;
+
+            Click += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_Accept);
+            };
+
+            GotFocus += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
+            };
         }
 
         public override void UpdateState()
