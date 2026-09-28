@@ -49,11 +49,14 @@ namespace AstroDroids.Projectiles.Hostile
                 Despawn();
             }
 
-            foreach (var item in Scene.World.GetPlayers())
+            if (timer <= 5)
             {
-                if (item.Intersects(this))
+                foreach (var item in Scene.World.GetPlayers())
                 {
-                    item.Damage(1, false);
+                    if (item.Intersects(this))
+                    {
+                        item.Damage(1, false);
+                    }
                 }
             }
 

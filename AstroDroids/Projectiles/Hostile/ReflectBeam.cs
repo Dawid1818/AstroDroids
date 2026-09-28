@@ -98,14 +98,17 @@ namespace AstroDroids.Projectiles.Hostile
                 Despawn();
             }
 
-            foreach (var segment in segments)
+            if (timer <= 5)
             {
-                Vector2 dir = GameHelper.DirFromAngle(segment.Angle);
-                List<Player> players = Raycast.FireCapsule(segment.Position, segment.Position + dir * segment.Length, 16).OfType<Player>().ToList();
-
-                foreach (var player in players)
+                foreach (var segment in segments)
                 {
-                    player.Damage(1, false);
+                    Vector2 dir = GameHelper.DirFromAngle(segment.Angle);
+                    List<Player> players = Raycast.FireCapsule(segment.Position, segment.Position + dir * segment.Length, 16).OfType<Player>().ToList();
+
+                    foreach (var player in players)
+                    {
+                        player.Damage(1, false);
+                    }
                 }
             }
 
