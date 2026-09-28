@@ -53,6 +53,8 @@ namespace AstroDroids.Entities.Hostile
 
             AddCircleCollider(Vector2.Zero, 45);
             texture = TextureManager.Get("Ships/Overseer/ship_017");
+
+            PowerupChanceIncrease = 1f;
         }
 
         public override void Destroyed()

@@ -37,6 +37,7 @@ namespace AstroDroids.Scenes
         public EditorMode mode { get; set; } = EditorMode.Main;
         BackgroundViewMode bgViewMode = BackgroundViewMode.Show;
         bool displayWaveInOther = false;
+        public bool SkipStartSequence { get; private set; } = false;
         string levelFileName = string.Empty;
         Level level { get { return LevelManager.CurrentLevel; } set { LevelManager.CurrentLevel = value; } }
 
@@ -450,6 +451,16 @@ namespace AstroDroids.Scenes
                     ImGui.EndMenu();
                 }
 
+                if(ImGui.BeginMenu("Playtesting"))
+                {
+                    if(ImGui.MenuItem("Skip start sequence", SkipStartSequence))
+                    {
+                        SkipStartSequence = !SkipStartSequence;
+                    }
+
+                    ImGui.EndMenu();
+                }
+
 
                 ImGui.EndMainMenuBar();
             }
@@ -470,7 +481,7 @@ namespace AstroDroids.Scenes
             ImGui.SameLine();
             if (ImGui.Button("Playtest"))
             {
-                LevelManager.Playtest(0);
+                LevelManager.Playtest(0, SkipStartSequence);
             }
             ImGui.SameLine();
             if (mode != EditorMode.Main || waveEditor.wave == null)

@@ -125,11 +125,11 @@ namespace AstroDroids.Editors
                 {
                     if (wave != null)
                     {
-                        LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
+                        LevelManager.Playtest(level.AttackWaves.IndexOf(wave), scene.SkipStartSequence);
                     }
                     else
                     {
-                        LevelManager.Playtest(0);
+                        LevelManager.Playtest(0, scene.SkipStartSequence);
                     }
                 }
             }
@@ -795,7 +795,7 @@ namespace AstroDroids.Editors
                 ImGui.SameLine();
                 if (ImGui.Button("Playtest from this wave"))
                 {
-                    LevelManager.Playtest(level.AttackWaves.IndexOf(wave));
+                    LevelManager.Playtest(level.AttackWaves.IndexOf(wave), scene.SkipStartSequence);
                 }
 
                 ImGui.EndDisabled();

@@ -14,7 +14,7 @@ using Gum.Wireframe;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
+using MonoGame.Extended;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +42,8 @@ namespace AstroDroids.Scenes
 
         InputMethod inputMethod;
 
+        bool skipStartSequence = false;
+
         public GameScene()
         {
 
@@ -61,6 +63,11 @@ namespace AstroDroids.Scenes
         public void DisableBossWarning()
         {
             ui.BossWarning.Visible = false;
+        }
+
+        public void SkipStartSequence()
+        {
+            skipStartSequence = true;
         }
 
         public override void Set()
@@ -88,6 +95,9 @@ namespace AstroDroids.Scenes
                     List<string> levels = GameStateManager.GetLevels();
                     LevelManager.LoadLevel(levels[GameStateManager.GetLevelIndex()]);
                 }
+
+                GameStateManager.SetLastPowerupWave(-1);
+                GameStateManager.SetTimeSinceLastPowerup(20f);
             }
             else
             {
@@ -122,7 +132,13 @@ namespace AstroDroids.Scenes
 
             Screen.ResetCamera();
 
-            coroutineManager.StartCoroutine(levelStartSequence());
+            if (!skipStartSequence)
+                coroutineManager.StartCoroutine(levelStartSequence());
+            else
+            {
+                World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));
+                World.StartWaves();
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -152,6 +168,18 @@ namespace AstroDroids.Scenes
                     InputSystem.SetMouseLock(true);
 
                     World.Update(gameTime);
+
+                    float sincePowerup = GameStateManager.GetTimeSinceLastPowerup();
+
+                    if (sincePowerup >= 30f)
+                    {
+                        GameStateManager.IncreasePowerupChance(gameTime.GetElapsedSeconds() * 0.5f);
+                    }
+                    else
+                    {
+                        GameStateManager.IncreasePowerupChance(gameTime.GetElapsedSeconds() * 0.1f);
+                    }
+                    GameStateManager.IncreaseTimeSinceLastPowerup(gameTime.GetElapsedSeconds());
 
                     if (World.camEntity.PathManager == null || !World.camEntity.PathManager.Active)
                     {
@@ -306,7 +334,7 @@ namespace AstroDroids.Scenes
                 }
             }
 
-            if(InputSystem.GetKeyDown(Keys.F8))
+            if (InputSystem.GetKeyDown(Keys.F8))
             {
                 FinishLevel();
             }
@@ -368,7 +396,7 @@ namespace AstroDroids.Scenes
         {
             MissionType type = GameStateManager.GetMissionType();
 
-            if(TransitionManager.State != TransitionState.Idle)
+            if (TransitionManager.State != TransitionState.Idle)
                 yield return new WaitUntil(() => TransitionManager.State == TransitionState.Idle);
 
             World.AddPlayer(new Player(0, new Vector2(World.Bounds.Width / 2 - 16, World.Bounds.Bottom - 64)));

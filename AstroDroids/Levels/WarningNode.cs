@@ -71,8 +71,11 @@ namespace AstroDroids.Levels
         public void Draw(Vector2 position, byte alpha, float dashOffset, GameTime gameTime)
         {
             Color clr = new Color(Color.Red.R, Color.Red.G, Color.Red.B, alpha);
-            Screen.shapeBatch.FillCircle(position, Radius, new Gradient(position, clr, position + new Vector2(Radius), new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)0), Gradient.Shape.Radial));
-            Screen.shapeBatch.BorderCircle(position, Radius, new Gradient(position, clr, position + new Vector2(Radius), new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)0), Gradient.Shape.Radial), dash: new DashStyle(24f, 16f, dashOffset));
+            Color clr2 = new Color(Color.Black.R, Color.Black.G, Color.Black.B, alpha);
+            Color clr3 = new Color(Color.Red.R, Color.Red.G, Color.Red.B, (byte)0);
+            Screen.shapeBatch.FillCircle(position, Radius, new Gradient(position, clr, position + new Vector2(Radius), clr3, Gradient.Shape.Radial));
+            Screen.shapeBatch.BorderCircle(position, Radius, new Gradient(position, clr2, position + new Vector2(Radius), new Color(Color.White.R, Color.White.G, Color.White.B, (byte)0), Gradient.Shape.Radial), 5f);
+            Screen.shapeBatch.BorderCircle(position, Radius, new Gradient(position, clr, position + new Vector2(Radius), clr3, Gradient.Shape.Radial), 5f, dash: new DashStyle(24f, 16f, dashOffset));
         }
 
         public void DrawEditor()

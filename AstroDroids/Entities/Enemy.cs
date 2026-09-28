@@ -44,6 +44,7 @@ namespace AstroDroids.Entities
         public float VerticalShieldRadius { get; set; } = 16f;
 
         public float DefaultExplosionScale { get; set; } = 0.6f;
+        public float PowerupChanceIncrease { get; set; } = 0.05f;
 
         public bool CanSpawnFirepower { get; set; } = true;
 
@@ -101,14 +102,16 @@ namespace AstroDroids.Entities
             {
                 int chance = Random.Next(100);
 
-                if (chance <= GameStateManager.GetPowerupChance())
+                if (GameStateManager.GetTimeSinceLastPowerup() >= 20f && chance <= GameStateManager.GetPowerupChance())
                 {
                     Scene.World.AddPowerup(new FirepowerPickup(Transform.Position));
                     GameStateManager.ResetPowerupChance();
+                    GameStateManager.SetTimeSinceLastPowerup(0f);
+                    GameStateManager.SetLastPowerupWave(Scene.World.GetCurrentWave());
                 }
                 else
                 {
-                    GameStateManager.IncreasePowerupChance();
+                    GameStateManager.IncreasePowerupChance(PowerupChanceIncrease);
                 }
             }
 

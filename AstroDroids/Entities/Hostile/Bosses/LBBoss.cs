@@ -2,6 +2,7 @@
 using AstroDroids.Entities.Friendly;
 using AstroDroids.Graphics;
 using AstroDroids.Helpers;
+using AstroDroids.Input;
 using AstroDroids.Levels;
 using AstroDroids.Managers;
 using AstroDroids.Paths;
@@ -47,6 +48,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             AddCircleCollider(Vector2.Zero, 60);
             texture = TextureManager.Get("Ships/LBBoss/ship_020");
+
+            PowerupChanceIncrease = 5f;
         }
 
         public override void Spawned()
@@ -276,6 +279,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 }
 
                 yield return new WaitForSeconds(3f);
+
+                if (GetHealth() <= 300)
+                    break;
             }
 
             Scene.World.StopCoroutine(extraLoop);
@@ -382,6 +388,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 //}
 
                 yield return new WaitForSeconds(time);
+
+                if (GetHealth() <= 300)
+                    break;
             }
 
             Scene.World.StopCoroutine(extraLoop);
@@ -465,6 +474,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 float time = 2f;
 
                 yield return new WaitForSeconds(time);
+
+                if (GetHealth() <= 300)
+                    break;
             }
 
             Scene.World.StopCoroutine(extraLoop);
@@ -503,6 +515,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 float time = 2f;
 
                 yield return new WaitForSeconds(time);
+
+                if (GetHealth() <= 300)
+                    break;
             }
         }
 
@@ -556,6 +571,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                 float time = 3f;
 
                 yield return new WaitForSeconds(time);
+
+                if (GetHealth() <= 300)
+                    break;
             }
 
             Scene.World.StopCoroutine(extraLoop);
@@ -638,6 +656,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
                     time = 2f;
 
                 yield return new WaitForSeconds(time);
+
+                if (GetHealth() <= 300)
+                    break;
             }
         }
 
@@ -840,9 +861,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
         {
             List<LaserBarrier> barriers = new List<LaserBarrier>();
             float dist = 64;
-            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X + dist, barrier.Transform.Position.Y - dist), 0, 5, moveDir, LaserBarrierType.Normal));
-            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X, barrier.Transform.Position.Y + dist), 0, 5, moveDir, LaserBarrierType.Normal));
-            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X - dist, barrier.Transform.Position.Y - dist), 0, 5, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X + dist, barrier.Transform.Position.Y - dist), 0, 1, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X, barrier.Transform.Position.Y + dist), 0, 1, moveDir, LaserBarrierType.Normal));
+            barriers.Add(new LaserBarrier(new Vector2(barrier.Transform.Position.X - dist, barrier.Transform.Position.Y - dist), 0, 1, moveDir, LaserBarrierType.Normal));
 
             ConnectBarriers(barrier, barriers[0], true);
             ConnectBarriers(barriers[0], barriers[1], true);
@@ -908,7 +929,7 @@ namespace AstroDroids.Entities.Hostile.Bosses
                         {
                             Vector2 start = new Vector2(Random.NextSingle(200, Scene.World.Bounds.Width - 200), -150);
                             Vector2 moveDir = new Vector2(0, 2);
-                            LaserBarrier barrier = new LaserBarrier(start, 0, 3, moveDir, LaserBarrierType.Normal);
+                            LaserBarrier barrier = new LaserBarrier(start, 0, 1, moveDir, LaserBarrierType.Normal);
 
                             Scene.World.AddEnemy(barrier, false, true);
 
@@ -921,6 +942,9 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
 
                 yield return new WaitForSeconds(3f);
+
+                if (GetHealth() <= 300)
+                    break;
             }
 
             Scene.World.StopCoroutine(extraLoop);

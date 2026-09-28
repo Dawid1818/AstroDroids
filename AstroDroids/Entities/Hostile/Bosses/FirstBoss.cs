@@ -56,6 +56,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             AddCircleCollider(Vector2.Zero, 70);
             texture = TextureManager.Get("Ships/FirstBoss/FirstBoss");
+
+            PowerupChanceIncrease = 5f;
         }
 
         public override void Destroyed()

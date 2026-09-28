@@ -79,6 +79,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
         public SnakeBoss() : base(Vector2.Zero, 1000)
         {
             Score = 2000;
+
+            PowerupChanceIncrease = 5f;
         }
 
         void LoadPath(string name)

@@ -1,9 +1,7 @@
-﻿using AstroDroids.Entities.Neutral;
-using AstroDroids.Extensions;
+﻿using AstroDroids.Extensions;
 using AstroDroids.Interfaces;
 using AstroDroids.Managers;
 using AstroDroids.Scenes;
-using Microsoft.Xna.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;

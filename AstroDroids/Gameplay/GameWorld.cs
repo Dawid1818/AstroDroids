@@ -740,5 +740,10 @@ namespace AstroDroids.Gameplay
         {
             return ongoingWaves;
         }
+
+        public int GetCurrentWave()
+        {
+            return currentWave;
+        }
     }
 }

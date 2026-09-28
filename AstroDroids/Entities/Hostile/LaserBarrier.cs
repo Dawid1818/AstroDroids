@@ -64,7 +64,7 @@ namespace AstroDroids.Entities.Hostile
 
             AddCircleCollider(Vector2.Zero, 16f);
 
-            CanSpawnFirepower = false;
+            CanSpawnFirepower = true;
 
             //if (Intersects(Scene.World.Bounds))
             //{
@@ -75,7 +75,10 @@ namespace AstroDroids.Entities.Hostile
         public override void Damage(float damage, bool produceSound)
         {
             if (Turret != null && !Turret.destroyed && Turret.GetHealth() > 0)
+            {
+                Turret.Damage(damage, produceSound);
                 return;
+            }
             base.Damage(damage, produceSound);
         }
 

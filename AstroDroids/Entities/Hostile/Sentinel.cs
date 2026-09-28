@@ -48,6 +48,8 @@ namespace AstroDroids.Entities.Hostile
 
             HorizontalShieldRadius = 50f;
             VerticalShieldRadius = 50f;
+
+            PowerupChanceIncrease = 1f;
         }
 
         public override void Spawned()

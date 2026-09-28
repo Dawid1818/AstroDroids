@@ -98,6 +98,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
             DefaultExplosionScale = 1.5f;
 
             AddCircleCollider(Vector2.Zero, 48f);
+
+            PowerupChanceIncrease = 5f;
         }
 
         public override void Spawned()

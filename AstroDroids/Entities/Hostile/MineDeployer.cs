@@ -129,9 +129,21 @@ namespace AstroDroids.Entities.Hostile
 
         IEnumerator Behavior()
         {
+            bool started = false;
+
             while (true)
             {
-                int choice = Random.Next(2);
+                int choice;
+
+                if (!started)
+                {
+                    started = true;
+                    choice = 0;
+                }
+                else
+                {
+                    choice = Random.Next(2);
+                }
                 switch (choice)
                 {
                     case 0:

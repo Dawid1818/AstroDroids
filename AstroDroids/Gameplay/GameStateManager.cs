@@ -32,6 +32,9 @@ namespace AstroDroids.Gameplay
 
         static GameMission CurrentMission;
 
+        static int lastWavePowerupSpawnedOn = -1;
+        static float timeSinceLastPowerup = 0f;
+
         public static void NewState(GameMission mission, int levelIndex = 0)
         {
             CurrentMissionProgress = new MissionProgress() { Type = mission.Type, LevelIndex = levelIndex };
@@ -41,6 +44,8 @@ namespace AstroDroids.Gameplay
             //Score = 0;
             //Firepower = 1;
             //CurrentWeapon = 0;
+            lastWavePowerupSpawnedOn = -1;
+            timeSinceLastPowerup = 20f;
             Weapons = new List<Weapon>();
             Weapons.Add(new PulseCannon());
             Weapons.Add(new LaserCannon());
@@ -66,6 +71,7 @@ namespace AstroDroids.Gameplay
         {
             if (InputSystem.IsActionDown(GameAction.NextWeapon) || InputSystem.GetRMBDown())
             {
+                SoundManager.PlaySound("WeaponChange");
                 SelectNextWeapon();
             }
 
@@ -176,6 +182,8 @@ namespace AstroDroids.Gameplay
                 CurrentMissionProgress = (MissionProgress)FileSaver.CloneObject(SaveManager.curSave.MissionProgress, new MissionProgress());
                 CurrentMission = mission;
 
+                lastWavePowerupSpawnedOn = -1;
+                timeSinceLastPowerup = 20f;
                 Weapons = new List<Weapon>();
                 Weapons.Add(new PulseCannon());
                 Weapons.Add(new LaserCannon());
@@ -217,6 +225,31 @@ namespace AstroDroids.Gameplay
             {
                 CurrentMissionProgress.PowerupChance = 100f;
             }
+        }
+
+        internal static void SetLastPowerupWave(int wave)
+        {
+            lastWavePowerupSpawnedOn = wave;
+        }
+
+        internal static int GetLastPowerupWave()
+        {
+            return lastWavePowerupSpawnedOn;
+        }
+
+        internal static void SetTimeSinceLastPowerup(float value)
+        {
+            timeSinceLastPowerup = value;
+        }
+
+        internal static float GetTimeSinceLastPowerup()
+        {
+            return timeSinceLastPowerup;
+        }
+
+        internal static void IncreaseTimeSinceLastPowerup(float value)
+        {
+            timeSinceLastPowerup += value;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace AstroDroids.Entities.Friendly
                 Scene.World.RemovePowerup(this);
             }
 
-            DefaultMove();
+            Transform.LocalPosition = new Vector2(Transform.LocalPosition.X, Transform.LocalPosition.Y + 1.5f);
         }
 
         public override void Draw(GameTime gameTime)

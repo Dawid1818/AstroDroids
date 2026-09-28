@@ -46,7 +46,7 @@ namespace AstroDroids.Managers
             return CurrentLevel.LevelScript();
         }
 
-        internal static void Playtest(int startPoint)
+        internal static void Playtest(int startPoint, bool skipStartSequence)
         {
             backedLevel = CurrentLevel;
             CurrentLevel = new Level();
@@ -57,6 +57,9 @@ namespace AstroDroids.Managers
             Playtesting = true;
 
             GameScene scene = new GameScene();
+
+            if (skipStartSequence)
+                scene.SkipStartSequence();
 
             scene.World = new GameWorld();
             scene.World.SetProgress(startPoint);

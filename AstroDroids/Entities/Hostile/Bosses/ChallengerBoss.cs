@@ -46,6 +46,8 @@ namespace AstroDroids.Entities.Hostile.Bosses
 
             AddCircleCollider(Vector2.Zero, 80);
             texture = TextureManager.Get("Ships/ChallengerBoss/ChallengerBoss");
+
+            PowerupChanceIncrease = 5f;
         }
 
         public override void Spawned()
