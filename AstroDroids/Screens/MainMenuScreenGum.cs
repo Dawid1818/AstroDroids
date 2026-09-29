@@ -86,6 +86,7 @@ namespace AstroDroids.Screens
         {
             //SoundManager.PlaySound("ShieldOff", AstroDroidsGame.rnd.NextSingle() * 2f);
             scene.SetPage(new LeaderboardScreenGum(), true);
+            //scene.SetPage(new HighscoreScreenGum(), true);
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)

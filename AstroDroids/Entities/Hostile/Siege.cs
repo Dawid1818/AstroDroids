@@ -186,6 +186,8 @@ namespace AstroDroids.Entities.Hostile
         {
             moving = false;
 
+            yield return new WaitForSeconds(0.5f);
+
             for (int i = 0; i < 10; i++)
             {
                 Shoot(Left2Cannon + Transform.Position, angle - 0.5f, 5, 10, 10);
@@ -203,6 +205,9 @@ namespace AstroDroids.Entities.Hostile
         IEnumerator FireShotgun()
         {
             moving = false;
+
+            yield return new WaitForSeconds(0.5f);
+
             for (int i = 0; i < 10; i++)
             {
                 List<float> angles = GameHelper.SpreadAngle(angle, 5, 35);

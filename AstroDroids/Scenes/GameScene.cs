@@ -427,9 +427,9 @@ namespace AstroDroids.Scenes
             ui.Visual.PlayAnimation(ui.HideMissionStatus);
             yield return new WaitUntil(() => ui.Visual.AnimationController.IsStopped);
 
-            yield return new WaitForSeconds(2f);
-
             ui.MissionStatusContainer.Visible = false;
+
+            yield return new WaitForSeconds(2f);
 
             World.StartWaves();
         }
@@ -491,7 +491,7 @@ namespace AstroDroids.Scenes
                 {
                     GameStateManager.SetVictory(true);
                     SaveManager.curSave.FinishedStory = true;
-                    if (SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
+                    if (SaveManager.curSave.Scores.Count == 0 || SaveManager.curSave.Scores.Last().Score < GameStateManager.GetScore() || SaveManager.curSave.Scores.Count < 10)
                     {
                         Highscore(true);
                     }

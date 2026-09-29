@@ -25,6 +25,10 @@ namespace AstroDroids.Entities.Friendly
                 {
                     Scene.World.RemovePowerup(this);
                     SoundManager.PlaySound("Firepower");
+                    if(GameStateManager.GetFirepower() == GameStateManager.MaxFirepower)
+                    {
+                        GameStateManager.AddScore(200);
+                    }
                     GameStateManager.IncreaseFirepower();
                     break;
                 }

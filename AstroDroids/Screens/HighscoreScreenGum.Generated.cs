@@ -1,5 +1,4 @@
 //Code for HighscoreScreenGum
-using AstroDroids.Components.Controls;
 using AstroDroids.Components.Custom;
 using Gum;
 using Gum.Converters;
@@ -127,8 +126,8 @@ partial class HighscoreScreenGum : global::Gum.Forms.Controls.FrameworkElement
             }
         }
     }
-    public ButtonGlow ReturnBtn { get; protected set; }
     public KeyboardGlow GlowKeyboard { get; protected set; }
+    public KeyboardInputPanel GlowInputPanel { get; protected set; }
     public TextRuntime NameLabel { get; protected set; }
     public TextRuntime ResultLabel { get; protected set; }
     public TextRuntime AchievedHighscoreLabel { get; protected set; }
@@ -153,8 +152,8 @@ partial class HighscoreScreenGum : global::Gum.Forms.Controls.FrameworkElement
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        ReturnBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonGlow>(this.Visual,"ReturnBtn");
         GlowKeyboard = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardGlow>(this.Visual,"GlowKeyboard");
+        GlowInputPanel = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<KeyboardInputPanel>(this.Visual,"GlowInputPanel");
         NameLabel = this.Visual?.GetGraphicalUiElementByName("NameLabel") as global::Gum.GueDeriving.TextRuntime;
         ResultLabel = this.Visual?.GetGraphicalUiElementByName("ResultLabel") as global::Gum.GueDeriving.TextRuntime;
         AchievedHighscoreLabel = this.Visual?.GetGraphicalUiElementByName("AchievedHighscoreLabel") as global::Gum.GueDeriving.TextRuntime;
@@ -171,7 +170,6 @@ partial class HighscoreScreenGum : global::Gum.Forms.Controls.FrameworkElement
         this.AchievedHighscoreLabel.Text = GumService.Default.LocalizationService.Translate("T_AchievedHighscore");
         this.EnterYourNameLabel.Text = GumService.Default.LocalizationService.Translate("T_EnterName");
         this.ResultLabel.Text = GumService.Default.LocalizationService.Translate("T_Victory");
-        this.ReturnBtn.Text = GumService.Default.LocalizationService.Translate("T_Return");
         this.ScoreDisplay.Text = GumService.Default.LocalizationService.Translate("T_Score");
         this.ScoreLabel.Text = GumService.Default.LocalizationService.Translate("T_Score");
     }

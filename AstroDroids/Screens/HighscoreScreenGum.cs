@@ -22,7 +22,7 @@ namespace AstroDroids.Screens
         {
             this.scene = scene;
 
-            ReturnBtn.Click += ReturnBtn_Click;
+            //ReturnBtn.Click += ReturnBtn_Click;
 
             GlowKeyboard.KeyPressed += GlowKeyboard_KeyPressed;
             GlowKeyboard.BackspacePressed += GlowKeyboard_BackspacePressed;
@@ -30,7 +30,13 @@ namespace AstroDroids.Screens
             GlowKeyboard.RightPressed += GlowKeyboard_RightPressed;
             GlowKeyboard.ResumePressed += GlowKeyboard_ResumePressed;
 
-            ReturnBtn.X = -600;
+            GlowInputPanel.KeyPressed += GlowKeyboard_KeyPressed;
+            GlowInputPanel.BackspacePressed += GlowKeyboard_BackspacePressed;
+            GlowInputPanel.LeftPressed += GlowKeyboard_LeftPressed;
+            GlowInputPanel.RightPressed += GlowKeyboard_RightPressed;
+            GlowInputPanel.ResumePressed += GlowKeyboard_ResumePressed;
+
+            //ReturnBtn.X = -600;
 
             NameLabel.SetTextNoTranslate(playerName);
 
@@ -38,7 +44,7 @@ namespace AstroDroids.Screens
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
-            hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
+            //hinted.AddHint("T_Return", Icon2.IconCategory.XKey, Icon2.IconCategory.ControllerB, Icon2.IconCategory.MouseRMB);
         }
 
         public void Setup(MissionProgress progress)
@@ -124,7 +130,8 @@ namespace AstroDroids.Screens
 
         private void AnimationController_OnCompleted()
         {
-            ReturnBtn.IsFocused = true;
+            //ReturnBtn.IsFocused = true;
+            GlowInputPanel.IsFocused = true;
             Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
         }
 
@@ -151,18 +158,20 @@ namespace AstroDroids.Screens
 
         partial void CustomInitialize()
         {
-            GlowKeyboard.KeyParenLeft.SpatialNavigationDown = ReturnBtn;
-            GlowKeyboard.KeyParenRight.SpatialNavigationDown = ReturnBtn;
-            GlowKeyboard.KeySpace.SpatialNavigationDown = ReturnBtn;
-            GlowKeyboard.KeyQuestion.SpatialNavigationDown = ReturnBtn;
-            GlowKeyboard.KeyBang.SpatialNavigationDown = ReturnBtn;
-            GlowKeyboard.KeyAmpersand.SpatialNavigationDown = ReturnBtn;
-            GlowKeyboard.KeyReturn.SpatialNavigationDown = ReturnBtn;
+            //GlowKeyboard.KeyParenLeft.SpatialNavigationDown = ReturnBtn;
+            //GlowKeyboard.KeyParenRight.SpatialNavigationDown = ReturnBtn;
+            //GlowKeyboard.KeySpace.SpatialNavigationDown = ReturnBtn;
+            //GlowKeyboard.KeyQuestion.SpatialNavigationDown = ReturnBtn;
+            //GlowKeyboard.KeyBang.SpatialNavigationDown = ReturnBtn;
+            //GlowKeyboard.KeyAmpersand.SpatialNavigationDown = ReturnBtn;
+            //GlowKeyboard.KeyReturn.SpatialNavigationDown = ReturnBtn;
+
+            GlowInputPanel.SpatialNavigationDown = GlowKeyboard.Key6;
         }
 
         public void BackPressed()
         {
-            scene.SetPage(new MainMenuScreenGum(), false);
+            //scene.SetPage(new MainMenuScreenGum(), false);
         }
     }
 }

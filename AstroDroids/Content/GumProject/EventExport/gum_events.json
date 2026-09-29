@@ -2,125 +2,6 @@
   "UserEvents": {
     "35a4a73f54888938fe153e292bc5717227e7b35295fc93f5c2f5d6260dc8910a": [
       {
-        "NewName": "GameScreenGum.ScoreLabel1",
-        "OldName": null,
-        "ElementType": "Screens",
-        "EventType": 5,
-        "TimestampUtc": "2026-09-13T11:29:19.9579382Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
-        "OldName": "GameScreenGum.ScoreLabel1",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:29:31.4736422Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
-        "OldName": "GameScreenGum.ScoreLabel1",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:29:31.4769909Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
-        "OldName": "GameScreenGum.ScoreLabel1",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:29:31.4867625Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
-        "OldName": "GameScreenGum.ScoreLabel1",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:29:31.4944511Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLiveLabel",
-        "OldName": "GameScreenGum.ScoreLabel1",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:29:31.5045473Z"
-      },
-      {
-        "NewName": "GameScreenGum.ContainerInstance",
-        "OldName": null,
-        "ElementType": "Screens",
-        "EventType": 5,
-        "TimestampUtc": "2026-09-13T11:31:49.3624941Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
-        "OldName": "GameScreenGum.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:00.160098Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
-        "OldName": "GameScreenGum.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:00.1622647Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
-        "OldName": "GameScreenGum.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:00.1719616Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
-        "OldName": "GameScreenGum.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:00.1784685Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeContainer",
-        "OldName": "GameScreenGum.ContainerInstance",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:00.1879096Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
-        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:03.7878886Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
-        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:03.7900872Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
-        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:03.8060176Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
-        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:03.812777Z"
-      },
-      {
-        "NewName": "GameScreenGum.ScoreExtraLifeLabel",
-        "OldName": "GameScreenGum.ScoreExtraLiveLabel",
-        "ElementType": "Screens",
-        "EventType": 7,
-        "TimestampUtc": "2026-09-13T11:36:03.8323112Z"
-      },
-      {
         "NewName": "MissionScreenGum.Header",
         "OldName": null,
         "ElementType": "Screens",
@@ -245,6 +126,118 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-09-27T09:21:21.1797229Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "HighscoreScreenGum.Controls/ButtonGlow ReturnBtn in HighscoreScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-29T08:17:41.8678855Z"
+      },
+      {
+        "NewName": "Custom/HorizontalList1",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2026-09-29T08:24:32.9888722Z"
+      },
+      {
+        "NewName": "Custom/KeyboardInputPanel",
+        "OldName": "Custom/HorizontalList1",
+        "ElementType": "Components",
+        "EventType": 2,
+        "TimestampUtc": "2026-09-29T08:24:49.0716602Z"
+      },
+      {
+        "NewName": "KeyboardInputPanelCategory",
+        "OldName": "HorizontaListCategory",
+        "ElementType": "Components",
+        "EventType": 4,
+        "TimestampUtc": "2026-09-29T08:28:03.7636373Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/KeyboardInputPanel (Container).Text LeftLabel in Custom/KeyboardInputPanel (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-29T08:28:45.0757271Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/KeyboardInputPanel (Container).Elements/Icon2 RightArrowIcon in Custom/KeyboardInputPanel (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-29T08:28:50.0057859Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "Custom/KeyboardInputPanel (Container).Elements/Icon2 LeftArrowIcon in Custom/KeyboardInputPanel (Container)",
+        "ElementType": "Components",
+        "EventType": 6,
+        "TimestampUtc": "2026-09-29T08:28:50.0081684Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2026-09-29T08:29:40.5451332Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4509403Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4518912Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4603736Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4670733Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4734287Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4800011Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4872971Z"
+      },
+      {
+        "NewName": "HighscoreScreenGum.GlowInputPanel",
+        "OldName": "HighscoreScreenGum.KeyboardInputPanelInstance",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-09-29T08:49:15.4943952Z"
       }
     ]
   }

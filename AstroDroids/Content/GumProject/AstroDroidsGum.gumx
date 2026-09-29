@@ -125,6 +125,7 @@
   <ComponentReference Name="Custom/HorizontalList" />
   <ComponentReference Name="Custom/InputActionComponent" />
   <ComponentReference Name="Custom/KeyboardGlow" />
+  <ComponentReference Name="Custom/KeyboardInputPanel" />
   <ComponentReference Name="Custom/LeaderboardItem" />
   <ComponentReference Name="Custom/LevelCard" />
   <ComponentReference Name="Custom/SliderGlow" />
