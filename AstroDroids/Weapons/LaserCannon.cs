@@ -100,11 +100,11 @@ namespace AstroDroids.Weapons
 
         public override void Update(Player player, GameTime gameTime)
         {
-            if(!addedEffect && !Scene.World.Effects.Contains(chargeEffectEntity))
-            {
-                addedEffect = true;
-                Scene.World.Effects.Add(chargeEffectEntity);
-            }
+            //if(!addedEffect && !Scene.World.Effects.Contains(chargeEffectEntity))
+            //{
+            //    addedEffect = true;
+            //    Scene.World.Effects.Add(chargeEffectEntity);
+            //}
 
             if (InputSystem.IsActionHeld(GameAction.Fire) || InputSystem.GetLMB())
             {

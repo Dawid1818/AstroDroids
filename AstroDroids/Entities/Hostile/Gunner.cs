@@ -227,6 +227,9 @@ namespace AstroDroids.Entities.Hostile
             }
             else
             {
+                if (lookStyle == EnemyLookStyle.Custom)
+                    angle = lookAngle;
+
                 if (!FollowsCamera)
                 {
                     Transform.Position = new Vector2(Transform.Position.X, Transform.Position.Y + moveSpeed);

@@ -113,19 +113,22 @@ namespace AstroDroids.Projectiles
                     if (remainingDamage <= 0)
                         break;
 
-                    float hp = MathF.Max(0, enemy.GetHealth());
+                    if (enemy.Intersects(Scene.World.Bounds))
+                    {
+                        float hp = MathF.Max(0, enemy.GetHealth());
 
-                    float damageToDeal = Math.Min(remainingDamage, hp);
+                        float damageToDeal = Math.Min(remainingDamage, hp);
 
-                    enemy.Damage(damageToDeal, false);
+                        enemy.Damage(damageToDeal, false);
 
-                    laserLength = Vector2.Distance(Transform.Position, enemy.Transform.Position);
+                        laserLength = Vector2.Distance(Transform.Position, enemy.Transform.Position);
 
-                    Vector2 hitPoint = GameHelper.OrbitPos(Transform.Position, angle, laserLength);
-                    SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(hitPoint.X, hitPoint.Y), Color.Orange);
-                    Scene.World.AddEffect(hitEffect);
+                        Vector2 hitPoint = GameHelper.OrbitPos(Transform.Position, angle, laserLength);
+                        SimpleHitEffect hitEffect = new SimpleHitEffect(new Transform(hitPoint.X, hitPoint.Y), Color.Orange);
+                        Scene.World.AddEffect(hitEffect);
 
-                    remainingDamage -= damageToDeal;
+                        remainingDamage -= damageToDeal;
+                    }
                 }
 
                 if (remainingDamage == 0)

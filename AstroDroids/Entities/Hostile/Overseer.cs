@@ -33,6 +33,7 @@ namespace AstroDroids.Entities.Hostile
 
         Vector2 targetPos;
 
+        public Vector2 MiddleCannon { get { return GameHelper.RotateAroundPoint(new Vector2((Width / 2f) - 15, Height - 45), Vector2.Zero, angle); } }
         public Vector2 Left1Cannon { get { return GameHelper.RotateAroundPoint(new Vector2((Width / 2f) + 15, -Height + 24), Vector2.Zero, angle); } }
         public Vector2 Left2Cannon { get { return GameHelper.RotateAroundPoint(new Vector2((Width / 2f), -Height + 5), Vector2.Zero, angle); } }
 
@@ -43,6 +44,8 @@ namespace AstroDroids.Entities.Hostile
         public bool firing { get; set; } = false;
         List<ReflectBeamWarning> warnings = new List<ReflectBeamWarning>();
         List<ReflectBeam> beams = new List<ReflectBeam>();
+
+        bool drawMissileIndicator = false;
 
         public Overseer() : base(Vector2.Zero, 250)
         {
@@ -209,8 +212,17 @@ namespace AstroDroids.Entities.Hostile
         {
             Screen.spriteBatch.Draw(texture, Transform.Position, null, Color.White, angle, new Vector2(texture.Width / 2f, texture.Height / 2f), 0.7f, SpriteEffects.None, 0f);
 
+            if(drawMissileIndicator)
+            {
+                float Size = 10f;
+                Screen.shapeBatch.DrawCircle(MiddleCannon + Transform.Position, Size - 3, new Apos.Shapes.Gradient(MiddleCannon + Transform.Position, Color.DarkRed, MiddleCannon + Transform.Position + new Vector2(10, 0), Color.Red, Apos.Shapes.Gradient.Shape.Radial), Color.Red, 1);
+                Screen.shapeBatch.BorderCircleBlurred(MiddleCannon + Transform.Position, Size, Color.Red, 50, 15);
+            }
+
             if (AstroDroidsGame.Debug)
             {
+                Screen.spriteBatch.DrawCircle(MiddleCannon + Transform.Position, 12, 12, Color.Green);
+
                 Screen.spriteBatch.DrawCircle(Left1Cannon + Transform.Position, 12, 12, Color.Green);
                 Screen.spriteBatch.DrawCircle(Left2Cannon + Transform.Position, 12, 12, Color.Green);
 
@@ -223,8 +235,10 @@ namespace AstroDroids.Entities.Hostile
         {
             moving = false;
 
-            ReflectBeamWarning warning = new ReflectBeamWarning(new Transform(Left1Cannon.X + Transform.Position.X, Left1Cannon.Y + Transform.Position.Y), MathHelper.ToRadians(15), 10000);
-            ReflectBeamWarning warning2 = new ReflectBeamWarning(new Transform(Right1Cannon.X + Transform.Position.X, Right1Cannon.Y + Transform.Position.Y), MathHelper.ToRadians(165), 10000);
+            drawMissileIndicator = true;
+
+            ReflectBeamWarning warning = new ReflectBeamWarning(new Transform(Left1Cannon.X + Transform.Position.X, Left1Cannon.Y + Transform.Position.Y), MathHelper.ToRadians(20), 10000);
+            ReflectBeamWarning warning2 = new ReflectBeamWarning(new Transform(Right1Cannon.X + Transform.Position.X, Right1Cannon.Y + Transform.Position.Y), MathHelper.ToRadians(170), 10000);
             AddWarning(warning);
             AddWarning(warning2);
 
@@ -238,8 +252,8 @@ namespace AstroDroids.Entities.Hostile
             RemoveWarning(warning);
             RemoveWarning(warning2);
 
-            ReflectBeam beam1 = new ReflectBeam(Left1Cannon + Transform.Position, MathHelper.ToRadians(15), 10000);
-            ReflectBeam beam2 = new ReflectBeam(Right1Cannon + Transform.Position, MathHelper.ToRadians(165), 10000);
+            ReflectBeam beam1 = new ReflectBeam(Left1Cannon + Transform.Position, MathHelper.ToRadians(20), 10000);
+            ReflectBeam beam2 = new ReflectBeam(Right1Cannon + Transform.Position, MathHelper.ToRadians(170), 10000);
 
             beam1.Locked = true;
             beam2.Locked = true;
@@ -266,6 +280,7 @@ namespace AstroDroids.Entities.Hostile
 
             yield return null;
             moving = true;
+            drawMissileIndicator = false;
         }
 
         IEnumerator RapidLasers()
