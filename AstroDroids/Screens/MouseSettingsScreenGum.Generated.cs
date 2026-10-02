@@ -1,4 +1,4 @@
-//Code for AudioSettingsScreenGum
+//Code for MouseSettingsScreenGum
 using AstroDroids.Components.Controls;
 using AstroDroids.Components.Custom;
 using Gum;
@@ -12,7 +12,7 @@ using GumRuntime;
 using RenderingLibrary.Graphics;
 using System.Linq;
 namespace AstroDroids.Screens;
-partial class AudioSettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
+partial class MouseSettingsScreenGum : global::Gum.Forms.Controls.FrameworkElement
 {
     #if UNITY_5_3_OR_NEWER
     [UnityEngine.RuntimeInitializeOnLoadMethod(UnityEngine.RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -24,17 +24,17 @@ partial class AudioSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEleme
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
         {
             var visual = new global::Gum.GueDeriving.ContainerRuntime();
-            var element = ObjectFinder.Self.GetElementSave("AudioSettingsScreenGum") ?? throw new System.InvalidOperationException("Could not find an element named AudioSettingsScreenGum - did you forget to load a Gum project?");
+            var element = ObjectFinder.Self.GetElementSave("MouseSettingsScreenGum") ?? throw new System.InvalidOperationException("Could not find an element named MouseSettingsScreenGum - did you forget to load a Gum project?");
             element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
-            if(createForms) visual.FormsControlAsObject = new AudioSettingsScreenGum(visual);
+            if(createForms) visual.FormsControlAsObject = new MouseSettingsScreenGum(visual);
             visual.Width = 0;
             visual.WidthUnits = global::Gum.DataTypes.DimensionUnitType.RelativeToParent;
             visual.Height = 0;
             visual.HeightUnits = global::Gum.DataTypes.DimensionUnitType.RelativeToParent;
             return visual;
         });
-        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(AudioSettingsScreenGum)] = template;
-        ElementSaveExtensions.RegisterGueInstantiation("AudioSettingsScreenGum", () => 
+        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(MouseSettingsScreenGum)] = template;
+        ElementSaveExtensions.RegisterGueInstantiation("MouseSettingsScreenGum", () => 
         {
             var gue = template.CreateContent(null, true) as InteractiveGue;
             return gue;
@@ -69,8 +69,7 @@ partial class AudioSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEleme
         }
     }
     public ContainerRuntime ButtonContainer { get; protected set; }
-    public VolumeComponent MusicVolumeControl { get; protected set; }
-    public VolumeComponent SoundEffectsVolumeControl { get; protected set; }
+    public VolumeComponent MouseSensitivitySlider { get; protected set; }
     public ButtonGlow BackBtn { get; protected set; }
 
 
@@ -78,10 +77,10 @@ partial class AudioSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEleme
     public AnimationRuntime Enter {get; protected set;}
     public AnimationRuntime Leave {get; protected set;}
     #endregion
-    public AudioSettingsScreenGum(InteractiveGue visual) : base(visual)
+    public MouseSettingsScreenGum(InteractiveGue visual) : base(visual)
     {
     }
-    public AudioSettingsScreenGum()
+    public MouseSettingsScreenGum()
     {
 
 
@@ -91,8 +90,7 @@ partial class AudioSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEleme
     {
         base.ReactToVisualChanged();
         ButtonContainer = this.Visual?.GetGraphicalUiElementByName("ButtonContainer") as global::Gum.GueDeriving.ContainerRuntime;
-        MusicVolumeControl = global::Gum.Forms.GraphicalUiElementFormsExtensions.FindFormsControl<VolumeComponent>(this.Visual,"MusicVolumeControl");
-        SoundEffectsVolumeControl = global::Gum.Forms.GraphicalUiElementFormsExtensions.FindFormsControl<VolumeComponent>(this.Visual,"SoundEffectsVolumeControl");
+        MouseSensitivitySlider = global::Gum.Forms.GraphicalUiElementFormsExtensions.FindFormsControl<VolumeComponent>(this.Visual,"MouseSensitivitySlider");
         BackBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.FindFormsControl<ButtonGlow>(this.Visual,"BackBtn");
         Enter = this.Visual.GetAnimation("Enter");
         Leave = this.Visual.GetAnimation("Leave");
@@ -102,8 +100,7 @@ partial class AudioSettingsScreenGum : global::Gum.Forms.Controls.FrameworkEleme
     public void ApplyLocalization()
     {
         this.BackBtn.Text = GumService.Default.LocalizationService.Translate("T_Return");
-        this.MusicVolumeControl.LeftLabelText = GumService.Default.LocalizationService.Translate("T_Music");
-        this.SoundEffectsVolumeControl.LeftLabelText = GumService.Default.LocalizationService.Translate("T_SoundEffects");
+        this.MouseSensitivitySlider.LeftLabelText = GumService.Default.LocalizationService.Translate("T_MouseSensitivty");
     }
     partial void CustomInitialize();
 }

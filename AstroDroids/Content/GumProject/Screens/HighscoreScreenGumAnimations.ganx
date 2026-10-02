@@ -42,12 +42,7 @@
           <Easing>Out</Easing>
         </AnimatedStateSave>
       </States>
-      <Animations>
-        <AnimationReferenceSave>
-          <Name>ReturnBtn.SlideIn</Name>
-          <Time>0</Time>
-        </AnimationReferenceSave>
-      </Animations>
+      <Animations />
       <Events />
     </AnimationSave>
     <AnimationSave>
@@ -91,12 +86,7 @@
           <Easing>Out</Easing>
         </AnimatedStateSave>
       </States>
-      <Animations>
-        <AnimationReferenceSave>
-          <Name>ReturnBtn.SlideOut</Name>
-          <Time>0</Time>
-        </AnimationReferenceSave>
-      </Animations>
+      <Animations />
       <Events />
     </AnimationSave>
   </Animations>

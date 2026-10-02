@@ -1,12 +1,11 @@
 using AstroDroids.Components.Elements;
 using AstroDroids.Interfaces;
-using AstroDroids.Scenes;
+using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
-using System;
 
 namespace AstroDroids.Screens
 {
-    partial class ControlsSettingsScreenGum : IMenuPage
+    partial class MouseSettingsScreenGum : IMenuPage
     {
         IPageHost scene;
         public bool UpdateWhenTransitioning => false;
@@ -14,14 +13,13 @@ namespace AstroDroids.Screens
         {
             this.scene = scene;
             BackBtn.Click += ReturnBtn_Click;
-            KeyboardBtn.Click += KeyboardBtn_Click;
-            MouseBtn.Click += MouseBtn_Click;
-            GamepadBtn.Click += GamepadBtn_Click;
 
             BackBtn.X = -600;
-            KeyboardBtn.X = -600;
-            MouseBtn.X = -600;
-            GamepadBtn.X = -600;
+            MouseSensitivitySlider.X = -600;
+
+            MouseSensitivitySlider.SetValue(SettingsManager.curSettings.MouseSensitivty);
+
+            MouseSensitivitySlider.ValueChanged += MouseSensitivityChanged;
 
             hinted.AddHint("T_Navigate", Icon2.IconCategory.ArrowKeys, Icon2.IconCategory.ControllerLeftJoystick, Icon2.IconCategory.MouseNMB);
             hinted.AddHint("T_Select", Icon2.IconCategory.ZKey, Icon2.IconCategory.ControllerA, Icon2.IconCategory.MouseLMB);
@@ -30,19 +28,9 @@ namespace AstroDroids.Screens
             GamepadNavigationMode = Gum.Forms.Controls.GamepadNavigationMode.Spatial;
         }
 
-        private void GamepadBtn_Click(object sender, EventArgs e)
+        private void MouseSensitivityChanged()
         {
-            scene.SetPage(new RebindingSettingsScreenGum(false), false);
-        }
-
-        private void MouseBtn_Click(object sender, EventArgs e)
-        {
-            scene.SetPage(new MouseSettingsScreenGum(), false);
-        }
-
-        private void KeyboardBtn_Click(object sender, EventArgs e)
-        {
-            scene.SetPage(new RebindingSettingsScreenGum(true), false);
+            SettingsManager.curSettings.MouseSensitivty = MouseSensitivitySlider.GetValue();
         }
 
         public void Update(GameTime gameTime)
@@ -57,7 +45,7 @@ namespace AstroDroids.Screens
 
         private void AnimationController_OnCompleted()
         {
-            KeyboardBtn.IsFocused = true;
+            MouseSensitivitySlider.IsFocused = true;
             Visual.AnimationController.OnCompleted -= AnimationController_OnCompleted;
         }
 
@@ -79,7 +67,7 @@ namespace AstroDroids.Screens
 
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
-            //SettingsManager.Save();
+            SettingsManager.Save();
             scene.SetPage(new SettingsScreenGum(), false);
         }
 
@@ -90,8 +78,8 @@ namespace AstroDroids.Screens
 
         public void BackPressed()
         {
-            //SettingsManager.Save();
-            scene.SetPage(new SettingsScreenGum(), false);
+            SettingsManager.Save();
+            scene.SetPage(new ControlsSettingsScreenGum(), false);
         }
     }
 }

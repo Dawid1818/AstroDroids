@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstroDroids", "AstroDroids\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content", "Content\Content.csproj", "{241CD755-BBC5-4193-9D7A-7E496A4C8392}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGameGum", "..\..\Github\Gum\MonoGameGum\MonoGameGum.csproj", "{23A97D84-4FD4-7BBD-42E7-49BBB71780E1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumCommon", "..\..\Github\Gum\GumCommon\GumCommon.csproj", "{4BCABADB-3CF5-1601-CAE7-AFB4BB6DD39A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,14 +21,6 @@ Global
 		{241CD755-BBC5-4193-9D7A-7E496A4C8392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{241CD755-BBC5-4193-9D7A-7E496A4C8392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{241CD755-BBC5-4193-9D7A-7E496A4C8392}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23A97D84-4FD4-7BBD-42E7-49BBB71780E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23A97D84-4FD4-7BBD-42E7-49BBB71780E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23A97D84-4FD4-7BBD-42E7-49BBB71780E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23A97D84-4FD4-7BBD-42E7-49BBB71780E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BCABADB-3CF5-1601-CAE7-AFB4BB6DD39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BCABADB-3CF5-1601-CAE7-AFB4BB6DD39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BCABADB-3CF5-1601-CAE7-AFB4BB6DD39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BCABADB-3CF5-1601-CAE7-AFB4BB6DD39A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

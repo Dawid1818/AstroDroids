@@ -7,7 +7,7 @@
   <UseFontCharacterFile>false</UseFontCharacterFile>
   <AutoSizeFontOutputs>false</AutoSizeFontOutputs>
   <FontGenerator>KernSmith</FontGenerator>
-  <Version>3</Version>
+  <Version>4</Version>
   <DefaultCanvasWidth>800</DefaultCanvasWidth>
   <DefaultCanvasHeight>600</DefaultCanvasHeight>
   <CustomCanvasSizes>
@@ -73,6 +73,7 @@
   <ScreenReference Name="LevelEditorScreenGum" />
   <ScreenReference Name="MainMenuScreenGum" />
   <ScreenReference Name="MissionScreenGum" />
+  <ScreenReference Name="MouseSettingsScreenGum" />
   <ScreenReference Name="RebindingSettingsScreenGum" />
   <ScreenReference Name="SettingsScreenGum" />
   <ScreenReference Name="ShipCustomizationScreenGum" />

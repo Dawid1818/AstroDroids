@@ -2,13 +2,6 @@
   "UserEvents": {
     "35a4a73f54888938fe153e292bc5717227e7b35295fc93f5c2f5d6260dc8910a": [
       {
-        "NewName": "MissionScreenGum.Header",
-        "OldName": null,
-        "ElementType": "Screens",
-        "EventType": 5,
-        "TimestampUtc": "2026-09-16T13:23:38.4753011Z"
-      },
-      {
         "NewName": "Custom/LevelCard (Container).ContainerInstance",
         "OldName": null,
         "ElementType": "Components",
@@ -238,6 +231,34 @@
         "ElementType": "Screens",
         "EventType": 7,
         "TimestampUtc": "2026-09-29T08:49:15.4943952Z"
+      },
+      {
+        "NewName": "AudioSettingsScreenGum1",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 0,
+        "TimestampUtc": "2026-10-02T09:41:47.048279Z"
+      },
+      {
+        "NewName": "MouseSettingsScreenGum",
+        "OldName": "AudioSettingsScreenGum1",
+        "ElementType": "Screens",
+        "EventType": 2,
+        "TimestampUtc": "2026-10-02T09:41:53.6897793Z"
+      },
+      {
+        "NewName": null,
+        "OldName": "MouseSettingsScreenGum.Custom/VolumeComponent SoundEffectsVolumeControl in MouseSettingsScreenGum",
+        "ElementType": "Screens",
+        "EventType": 6,
+        "TimestampUtc": "2026-10-02T09:45:10.0749117Z"
+      },
+      {
+        "NewName": "MouseSettingsScreenGum.MouseSensitivitySlider",
+        "OldName": "MouseSettingsScreenGum.MusicVolumeControl",
+        "ElementType": "Screens",
+        "EventType": 7,
+        "TimestampUtc": "2026-10-02T09:46:17.761314Z"
       }
     ]
   }

@@ -39,7 +39,7 @@ namespace AstroDroids.Data
 
     public class SettingsData : ISaveable
     {
-        public const int FileVersion = 1;
+        public const int FileVersion = 2;
 
         public const string Magic = "adsettings";
 
@@ -48,6 +48,8 @@ namespace AstroDroids.Data
         public float MusicVolume { get; set; } = 1f;
         public float SoundVolume { get; set; } = 1f;
         public Dictionary<GameAction, ButtonInputAction> Actions { get; set; } = new Dictionary<GameAction, ButtonInputAction>();
+
+        public float MouseSensitivty { get; set; } = 1f;
 
         public void Load(BinaryReader reader, int version)
         {
@@ -81,6 +83,15 @@ namespace AstroDroids.Data
             {
                 Actions = InputSystem.CreateDefaultActions();
             }
+
+            if(actualVersion >= 2)
+            {
+                MouseSensitivty = reader.ReadSingle();
+            }
+            else
+            {
+                MouseSensitivty = 1f;
+            }
         }
 
         public void Save(BinaryWriter writer)
@@ -101,6 +112,8 @@ namespace AstroDroids.Data
                 writer.Write((int)item.Value.KeyboardKey);
                 writer.Write((int)item.Value.GamepadButton);
             }
+
+            writer.Write(MouseSensitivty);
         }
     }
 }

@@ -85,7 +85,7 @@ namespace AstroDroids.Input
 
         public static void SetCursorMatrix(Matrix matrix)
         {
-            if(defaultCursor != null)
+            if (defaultCursor != null)
                 defaultCursor.TransformMatrix = matrix;
         }
 
@@ -217,7 +217,7 @@ namespace AstroDroids.Input
 
         public static Vector2 GetMouseDelta()
         {
-            if(LockMouse)
+            if (LockMouse)
             {
                 Rectangle clientBounds = Screen.GetClientBounds();
                 return new Vector2(mState.X - clientBounds.Width / 2, mState.Y - clientBounds.Height / 2);
