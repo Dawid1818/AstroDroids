@@ -1,0 +1,52 @@
+{
+  "Name": "ScrollBarBehavior",
+  "RequiredVariables": {
+    "Name": "",
+    "Variables": [],
+    "VariableLists": []
+  },
+  "FormsProperties": [],
+  "ToolOnlyVariableReferences": [],
+  "Categories": [
+    {
+      "Name": "ScrollBarCategory",
+      "States": []
+    }
+  ],
+  "RequiredInstances": [
+    {
+      "Behaviors": [
+        {
+          "Name": "ButtonBehavior"
+        }
+      ],
+      "Name": "UpButtonInstance",
+      "BaseType": ""
+    },
+    {
+      "Behaviors": [
+        {
+          "Name": "ButtonBehavior"
+        }
+      ],
+      "Name": "DownButtonInstance",
+      "BaseType": ""
+    },
+    {
+      "Behaviors": [
+        {
+          "Name": "ButtonBehavior"
+        }
+      ],
+      "Name": "ThumbInstance",
+      "BaseType": ""
+    },
+    {
+      "Behaviors": [],
+      "Name": "TrackInstance",
+      "BaseType": "Container"
+    }
+  ],
+  "RequiredAnimations": [],
+  "DefaultImplementation": "Controls/ScrollBar"
+}

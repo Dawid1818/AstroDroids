@@ -1,0 +1,103 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "LevelContainerState/Right",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "LevelContainerState/Idle",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "ReturnBtn.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "PrevLevelBtn.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "NextLevelBtn.SlideInRight",
+          "Time": 0
+        },
+        {
+          "Name": "PlayBtn.SlideInRight",
+          "Time": 0
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "LevelContainerState/Idle",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "LevelContainerState/Right",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/Out",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "ReturnBtn.SlideOutLeft",
+          "Time": 0
+        },
+        {
+          "Name": "PlayBtn.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "NextLevelBtn.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "PrevLevelBtn.SlideOutLeft",
+          "Time": 0
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "InputActionCom1.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "InputActionCom2.SlideIn",
+          "Time": 0.1
+        },
+        {
+          "Name": "InputActionCom3.SlideIn",
+          "Time": 0.2
+        },
+        {
+          "Name": "InputActionCom4.SlideIn",
+          "Time": 0.3
+        },
+        {
+          "Name": "InputActionCom5.SlideIn",
+          "Time": 0.4
+        },
+        {
+          "Name": "InputActionCom6.SlideIn",
+          "Time": 0.5
+        },
+        {
+          "Name": "InputActionCom7.SlideIn",
+          "Time": 0.6
+        },
+        {
+          "Name": "BackBtn.SlideIn",
+          "Time": 0.7
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "InputActionCom1.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "InputActionCom2.SlideOut",
+          "Time": 0.1
+        },
+        {
+          "Name": "InputActionCom3.SlideOut",
+          "Time": 0.2
+        },
+        {
+          "Name": "InputActionCom4.SlideOut",
+          "Time": 0.3
+        },
+        {
+          "Name": "InputActionCom5.SlideOut",
+          "Time": 0.4
+        },
+        {
+          "Name": "InputActionCom6.SlideOut",
+          "Time": 0.5
+        },
+        {
+          "Name": "InputActionCom7.SlideOut",
+          "Time": 0.6
+        },
+        {
+          "Name": "BackBtn.SlideOut",
+          "Time": 0.7
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

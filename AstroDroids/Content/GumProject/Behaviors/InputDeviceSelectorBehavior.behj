@@ -1,0 +1,19 @@
+{
+  "Name": "InputDeviceSelectorBehavior",
+  "RequiredVariables": {
+    "Name": "",
+    "Variables": [],
+    "VariableLists": []
+  },
+  "FormsProperties": [],
+  "ToolOnlyVariableReferences": [],
+  "Categories": [],
+  "RequiredInstances": [
+    {
+      "Behaviors": [],
+      "Name": "InputDeviceContainerInstance",
+      "BaseType": ""
+    }
+  ],
+  "RequiredAnimations": []
+}

@@ -1,0 +1,102 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "Animations/PlayArrival",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "Animations/Arrived",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "PlayBtn.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "CustomizeBtn.SlideIn",
+          "Time": 0.1
+        },
+        {
+          "Name": "SettingsBtn.SlideIn",
+          "Time": 0.2
+        },
+        {
+          "Name": "LeaderboardBtn.SlideIn",
+          "Time": 0.3
+        },
+        {
+          "Name": "CreditsBtn.SlideIn",
+          "Time": 0.4
+        },
+        {
+          "Name": "ExitBtn.SlideIn",
+          "Time": 0.5
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "Animations/Arrived",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "Animations/PlayArrival",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "PlayBtn.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "CustomizeBtn.SlideOut",
+          "Time": 0.1
+        },
+        {
+          "Name": "SettingsBtn.SlideOut",
+          "Time": 0.2
+        },
+        {
+          "Name": "LeaderboardBtn.SlideOut",
+          "Time": 0.3
+        },
+        {
+          "Name": "CreditsBtn.SlideOut",
+          "Time": 0.4
+        },
+        {
+          "Name": "ExitBtn.SlideOut",
+          "Time": 0.5
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "EnterSimple",
+      "Loops": false,
+      "States": [],
+      "Animations": [],
+      "Events": []
+    }
+  ]
+}

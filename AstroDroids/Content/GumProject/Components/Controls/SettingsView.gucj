@@ -1,0 +1,169 @@
+{
+  "Name": "Controls/SettingsView",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "FullscreenCheckboxInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Fullscreen"
+        },
+        {
+          "Name": "FullscreenCheckboxInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "FullscreenCheckboxInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "FullscreenCheckboxInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "MusicSliderInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MusicSliderInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MusicVolumeLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Music Volume"
+        },
+        {
+          "Name": "MusicVolumeLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MusicVolumeLabel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MusicVolumeLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "SoundSliderInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SoundSliderInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "SoundVolumeLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Sound Effect Volume"
+        },
+        {
+          "Name": "SoundVolumeLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SoundVolumeLabel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "SoundVolumeLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [
+    {
+      "Name": "FullscreenCheckboxInstance",
+      "BaseType": "Controls/CheckBox"
+    },
+    {
+      "Name": "MusicVolumeLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "MusicSliderInstance",
+      "BaseType": "Controls/Slider"
+    },
+    {
+      "Name": "SoundVolumeLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "SoundSliderInstance",
+      "BaseType": "Controls/Slider"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "SettingsViewBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

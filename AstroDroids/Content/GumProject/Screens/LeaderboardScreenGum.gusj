@@ -1,0 +1,262 @@
+{
+  "Name": "LeaderboardScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Header.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Header.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Header.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Header.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 30
+        },
+        {
+          "Name": "Header.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Header.HasEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Header.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Header.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Header.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Leaderboard"
+        },
+        {
+          "Name": "Header.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Header.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Header.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Header.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Header.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 21
+        },
+        {
+          "Name": "Header.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Header.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "HeaderCategoryState",
+          "Type": "HeaderCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "LeaderboardItems.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LeaderboardItems.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 405
+        },
+        {
+          "Name": "LeaderboardItems.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 15
+        },
+        {
+          "Name": "LeaderboardItems.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 257
+        },
+        {
+          "Name": "LeaderboardItems.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LeaderboardItems.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LeaderboardItems.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "LeaderboardItems.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -18
+        },
+        {
+          "Name": "LeaderboardItems.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LeaderboardItems.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ReturnBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "ReturnBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ReturnBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ReturnBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ReturnBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -69
+        },
+        {
+          "Name": "ReturnBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ReturnBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "HeaderCategory",
+      "States": [
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "Header.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -56
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "In",
+          "Variables": [
+            {
+              "Name": "Header.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 21
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "ReturnBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "LeaderboardItems",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "Header",
+      "BaseType": "Text"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

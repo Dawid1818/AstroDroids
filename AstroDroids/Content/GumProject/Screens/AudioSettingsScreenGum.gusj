@@ -1,0 +1,181 @@
+{
+  "Name": "AudioSettingsScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "AnimationsState",
+          "Type": "Animations",
+          "SetsValue": true
+        },
+        {
+          "Name": "BackBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "BackBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "BackBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BackBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BackBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BackBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 153
+        },
+        {
+          "Name": "ButtonContainer.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "ButtonContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ButtonContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "MusicVolumeControl.LeftLabelText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Music"
+        },
+        {
+          "Name": "MusicVolumeControl.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "MusicVolumeControl.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 183
+        },
+        {
+          "Name": "MusicVolumeControl.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SoundEffectsVolumeControl.LeftLabelText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_SoundEffects"
+        },
+        {
+          "Name": "SoundEffectsVolumeControl.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "SoundEffectsVolumeControl.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 183
+        },
+        {
+          "Name": "SoundEffectsVolumeControl.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "Animations",
+      "States": []
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "ButtonContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "MusicVolumeControl",
+      "BaseType": "Custom/VolumeComponent"
+    },
+    {
+      "Name": "SoundEffectsVolumeControl",
+      "BaseType": "Custom/VolumeComponent"
+    },
+    {
+      "Name": "BackBtn",
+      "BaseType": "Controls/ButtonGlow"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

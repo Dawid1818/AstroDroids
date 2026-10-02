@@ -1,0 +1,37 @@
+{
+  "Name": "Component",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true,
+          "ValueAsString": "Default"
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

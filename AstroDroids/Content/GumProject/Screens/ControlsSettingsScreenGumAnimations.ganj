@@ -1,0 +1,53 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "KeyboardBtn.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "MouseBtn.SlideIn",
+          "Time": 0.1
+        },
+        {
+          "Name": "GamepadBtn.SlideIn",
+          "Time": 0.2
+        },
+        {
+          "Name": "BackBtn.SlideIn",
+          "Time": 0.3
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "KeyboardBtn.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "MouseBtn.SlideOut",
+          "Time": 0.1
+        },
+        {
+          "Name": "GamepadBtn.SlideOut",
+          "Time": 0.2
+        },
+        {
+          "Name": "BackBtn.SlideOut",
+          "Time": 0.3
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

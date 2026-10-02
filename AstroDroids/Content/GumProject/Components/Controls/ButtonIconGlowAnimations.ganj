@@ -1,0 +1,143 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "GlowFocused",
+      "Loops": true,
+      "States": [
+        {
+          "StateName": "ButtonCategory/FocusedGlownt",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ButtonCategory/FocusedGlow",
+          "Time": 0.5,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ButtonCategory/FocusedGlownt",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "GlowActive",
+      "Loops": true,
+      "States": [
+        {
+          "StateName": "ButtonCategory/FocusedGlow",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ButtonCategory/FocusedActive",
+          "Time": 0.33,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ButtonCategory/FocusedGlow",
+          "Time": 0.66,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ButtonCategory/FocusedActive",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideIn",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Left",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOut",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Right",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideInRight",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Right",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOutLeft",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Left",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    }
+  ]
+}

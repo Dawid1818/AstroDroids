@@ -1,0 +1,2232 @@
+{
+  "Name": "DemoScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Background.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "Background.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoSettingsMenu"
+        },
+        {
+          "Name": "Background.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "Background1.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "Background1.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background1.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Background1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoDialog"
+        },
+        {
+          "Name": "Background1.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "Background1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Background1.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background1.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Background1.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Background1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background1.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Background1.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ButtonCloseInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle1"
+        },
+        {
+          "Name": "ButtonCloseInstance1.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ButtonCloseInstance1.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "ButtonCloseInstance2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle2"
+        },
+        {
+          "Name": "ButtonCloseInstance2.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ButtonCloseInstance2.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "ButtonConfirmInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "ButtonConfirmInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ButtonConfirmInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "ButtonContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 32
+        },
+        {
+          "Name": "ButtonContainer.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "ButtonContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ButtonContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "ButtonDenyInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "ComboBoxInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "ComboBoxInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ComboBoxInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ContainerInstance.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ContainerInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "ContainerInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ContainerInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoHud"
+        },
+        {
+          "Name": "ContainerInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "ContainerInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ContainerInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ContainerInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ContainerInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ContainerInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ContainerInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ContainerInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ControlLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "ControlLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Control Scheme"
+        },
+        {
+          "Name": "ControlLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "DemoDialog.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 320
+        },
+        {
+          "Name": "DemoDialog.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 349
+        },
+        {
+          "Name": "DemoDialog.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 425
+        },
+        {
+          "Name": "DemoDialog.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 13
+        },
+        {
+          "Name": "DemoHud.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "DemoHud.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 207
+        },
+        {
+          "Name": "DemoHud.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DemoHud.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "DemoHud.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 279
+        },
+        {
+          "Name": "DemoHud.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DemoHud.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 426
+        },
+        {
+          "Name": "DemoHud.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DemoHud.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DemoHud.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 346
+        },
+        {
+          "Name": "DemoHud.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DemoHud.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "DemoSettingsMenu.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "DemoSettingsMenu.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "DemoSettingsMenu.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 400
+        },
+        {
+          "Name": "DemoSettingsMenu.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DemoSettingsMenu.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 15
+        },
+        {
+          "Name": "DemoSettingsMenu.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "DemoSettingsMenu.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "DetectResolutionsButton.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "DetectResolutionsButton.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "DetectResolutionsButton.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Detect Resolutions"
+        },
+        {
+          "Name": "DetectResolutionsButton.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 156
+        },
+        {
+          "Name": "DetectResolutionsButton.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DetectResolutionsButton.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DetectResolutionsButton.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "DetectResolutionsButton.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 9
+        },
+        {
+          "Name": "DialogBoxInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 722
+        },
+        {
+          "Name": "DialogBoxInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 376
+        },
+        {
+          "Name": "DifficultyLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "DifficultyLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Difficulty"
+        },
+        {
+          "Name": "DifficultyLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "DividerInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle"
+        },
+        {
+          "Name": "DividerInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DividerInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "DividerInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "DividerInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "DividerInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "DividerInstance1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DividerInstance1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "DividerInstance2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "DividerInstance2.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DividerInstance2.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance2.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "DividerInstance3.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "DividerInstance3.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DividerInstance3.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance3.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "DividerInstance4.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle1"
+        },
+        {
+          "Name": "DividerInstance4.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DividerInstance4.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance4.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "DividerInstance4.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "DividerInstance4.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance4.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "DividerInstance5.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle2"
+        },
+        {
+          "Name": "DividerInstance5.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DividerInstance5.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance5.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "DividerInstance5.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "DividerInstance5.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DividerInstance5.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "FullScreenCheckbox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "FullScreenCheckbox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Run Fullscreen"
+        },
+        {
+          "Name": "FullScreenCheckbox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "FullScreenCheckbox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -26
+        },
+        {
+          "Name": "HitpointsBar1.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Success"
+        },
+        {
+          "Name": "HitpointsBar1.BarDecorCategoryState",
+          "Type": "BarDecorCategory",
+          "SetsValue": true,
+          "ValueAsString": "VerticalLines"
+        },
+        {
+          "Name": "HitpointsBar1.BarPercent",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 75
+        },
+        {
+          "Name": "HitpointsBar1.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "HitpointsBar1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoHud"
+        },
+        {
+          "Name": "HitpointsBar1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "HitpointsBar1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HitpointsBar1.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 184
+        },
+        {
+          "Name": "HitpointsBar1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "HitpointsBar2.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Warning"
+        },
+        {
+          "Name": "HitpointsBar2.BarDecorCategoryState",
+          "Type": "BarDecorCategory",
+          "SetsValue": true,
+          "ValueAsString": "VerticalLines"
+        },
+        {
+          "Name": "HitpointsBar2.BarPercent",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 50
+        },
+        {
+          "Name": "HitpointsBar2.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "HitpointsBar2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoHud"
+        },
+        {
+          "Name": "HitpointsBar2.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "HitpointsBar2.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HitpointsBar2.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 184
+        },
+        {
+          "Name": "HitpointsBar2.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "HitpointsBar3.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Danger"
+        },
+        {
+          "Name": "HitpointsBar3.BarDecorCategoryState",
+          "Type": "BarDecorCategory",
+          "SetsValue": true,
+          "ValueAsString": "VerticalLines"
+        },
+        {
+          "Name": "HitpointsBar3.BarPercent",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 25
+        },
+        {
+          "Name": "HitpointsBar3.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "HitpointsBar3.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoHud"
+        },
+        {
+          "Name": "HitpointsBar3.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "HitpointsBar3.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HitpointsBar3.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 184
+        },
+        {
+          "Name": "HitpointsBar3.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 31
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "LabelInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MarginContainer"
+        },
+        {
+          "Name": "LabelInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "New Profile Name"
+        },
+        {
+          "Name": "LabelInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "LabelInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "WindowStandardInstance"
+        },
+        {
+          "Name": "LabelInstance1.Style",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Normal"
+        },
+        {
+          "Name": "LabelInstance1.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "I am a label. I will line wrap if you resize this window. You can also grab the top part of the window to move it around. Try it!"
+        },
+        {
+          "Name": "LabelInstance1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "LabelInstance1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "LabelInstance1.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LabelInstance1.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LabelInstance1.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "LabelInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 22
+        },
+        {
+          "Name": "LabelInstance1.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "LabelInstance1.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MarginContainer.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MarginContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "MarginContainer.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MarginContainer.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoDialog"
+        },
+        {
+          "Name": "MarginContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "MarginContainer.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MarginContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MarginContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MarginContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "MarginContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MarginContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MarginContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "MenuItems.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MenuItems.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MenuItems.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "MenuItems.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "DemoSettingsMenu"
+        },
+        {
+          "Name": "MenuItems.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "MenuItems.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MenuItems.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MenuItems.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MenuItems.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "MenuItems.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MenuItems.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MenuItems.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "MenuTitle.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "MenuTitle.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "MenuTitle.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "MenuTitle.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MenuTitle.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MenuTitle1.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "MenuTitle1.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "MenuTitle1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MarginContainer"
+        },
+        {
+          "Name": "MenuTitle1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MenuTitle1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MenuTitle2.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "MenuTitle2.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "MenuTitle2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "MenuTitle2.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MenuTitle2.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MultiLineTextBox.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 174
+        },
+        {
+          "Name": "MultiLineTextBox.LineModeCategoryState",
+          "Type": "LineModeCategory",
+          "SetsValue": true,
+          "ValueAsString": "Multi"
+        },
+        {
+          "Name": "MultiLineTextBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MarginContainer"
+        },
+        {
+          "Name": "MultiLineTextBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Multi-line text box"
+        },
+        {
+          "Name": "MultiLineTextBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MultiLineTextBox.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "MultiLineTextBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 7
+        },
+        {
+          "Name": "MusicLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "MusicLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Music Volume"
+        },
+        {
+          "Name": "MusicLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "MusicSlider.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "MusicSlider.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MusicSlider.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "PercentBarInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "PercentBarInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PercentBarInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "PercentBarInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "PercentBarInstance1.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Success"
+        },
+        {
+          "Name": "PercentBarInstance1.BarDecorCategoryState",
+          "Type": "BarDecorCategory",
+          "SetsValue": true,
+          "ValueAsString": "CautionLines"
+        },
+        {
+          "Name": "PercentBarInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "PercentBarInstance1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PercentBarInstance1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "PercentBarInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "PercentBarInstance2.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Warning"
+        },
+        {
+          "Name": "PercentBarInstance2.BarDecorCategoryState",
+          "Type": "BarDecorCategory",
+          "SetsValue": true,
+          "ValueAsString": "VerticalLines"
+        },
+        {
+          "Name": "PercentBarInstance2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "PercentBarInstance2.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PercentBarInstance2.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "PercentBarInstance2.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "PercentBarInstance3.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Danger"
+        },
+        {
+          "Name": "PercentBarInstance3.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "PercentBarInstance3.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PercentBarInstance3.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "PercentBarInstance3.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "PercentBarInstance4.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Accent"
+        },
+        {
+          "Name": "PercentBarInstance4.BarDecorCategoryState",
+          "Type": "BarDecorCategory",
+          "SetsValue": true,
+          "ValueAsString": "CautionLines"
+        },
+        {
+          "Name": "PercentBarInstance4.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "PercentBarInstance4.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PercentBarInstance4.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "PercentBarInstance4.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "PercentBarInstance5.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Danger"
+        },
+        {
+          "Name": "PercentBarInstance5.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "PercentBarInstance5.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PercentBarInstance5.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "PercentBarInstance5.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "RadioButtonInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "RadioButtonInstance.RadioButtonCategoryState",
+          "Type": "RadioButtonCategory",
+          "SetsValue": true,
+          "ValueAsString": "EnabledOff"
+        },
+        {
+          "Name": "RadioButtonInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Keyboard \u0026 Mouse"
+        },
+        {
+          "Name": "RadioButtonInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "RadioButtonInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "RadioButtonInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "RadioButtonInstance1.RadioButtonCategoryState",
+          "Type": "RadioButtonCategory",
+          "SetsValue": true,
+          "ValueAsString": "EnabledOn"
+        },
+        {
+          "Name": "RadioButtonInstance1.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Gamepad"
+        },
+        {
+          "Name": "RadioButtonInstance1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "RadioButtonInstance1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "RadioButtonInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "RadioButtonInstance2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "RadioButtonInstance2.RadioButtonCategoryState",
+          "Type": "RadioButtonCategory",
+          "SetsValue": true,
+          "ValueAsString": "EnabledOff"
+        },
+        {
+          "Name": "RadioButtonInstance2.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Touchscreen"
+        },
+        {
+          "Name": "RadioButtonInstance2.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "RadioButtonInstance2.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "RadioButtonInstance2.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "ResolutionBox.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 128
+        },
+        {
+          "Name": "ResolutionBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "ResolutionBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ResolutionBox.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ResolutionLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "ResolutionLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Resolution"
+        },
+        {
+          "Name": "ShowDialogButton.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "ShowDialogButton.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "ShowDialogButton.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Show Dialog Box"
+        },
+        {
+          "Name": "ShowDialogButton.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 722
+        },
+        {
+          "Name": "ShowDialogButton.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ShowDialogButton.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ShowDialogButton.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 348
+        },
+        {
+          "Name": "ShowDialogButton.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ShowDialogButton.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ShowToastButton.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "ShowToastButton.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "ShowToastButton.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Show Toast"
+        },
+        {
+          "Name": "ShowToastButton.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 788
+        },
+        {
+          "Name": "ShowToastButton.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ShowToastButton.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ShowToastButton.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "ShowToastButton.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ShowToastButton.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "SoundLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "SoundLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Sound Volume"
+        },
+        {
+          "Name": "SoundSlider.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuItems"
+        },
+        {
+          "Name": "SoundSlider.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SoundSlider.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextBoxInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MarginContainer"
+        },
+        {
+          "Name": "TextBoxInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextBoxInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextBoxInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MarginContainer"
+        },
+        {
+          "Name": "TextBoxInstance1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextBoxInstance1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextBoxInstance1.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextBoxInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 7
+        },
+        {
+          "Name": "TitleText.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "TitleText.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle"
+        },
+        {
+          "Name": "TitleText.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Title"
+        },
+        {
+          "Name": "TitleText.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Settings"
+        },
+        {
+          "Name": "TitleText1.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "TitleText1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle1"
+        },
+        {
+          "Name": "TitleText1.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Title"
+        },
+        {
+          "Name": "TitleText1.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "New Profile"
+        },
+        {
+          "Name": "TitleText2.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "TitleText2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MenuTitle2"
+        },
+        {
+          "Name": "TitleText2.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Title"
+        },
+        {
+          "Name": "TitleText2.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "HUD Demo"
+        },
+        {
+          "Name": "TreeViewInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 155
+        },
+        {
+          "Name": "TreeViewInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 227
+        },
+        {
+          "Name": "TreeViewInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 783
+        },
+        {
+          "Name": "TreeViewInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 50
+        },
+        {
+          "Name": "WindowOkButton.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "WindowStandardInstance"
+        },
+        {
+          "Name": "WindowOkButton.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -8
+        },
+        {
+          "Name": "WindowOkButton.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "WindowOkButton.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "WindowOkButton.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -8
+        },
+        {
+          "Name": "WindowOkButton.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "WindowOkButton.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "WindowStandardInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 163
+        },
+        {
+          "Name": "WindowStandardInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 313
+        },
+        {
+          "Name": "WindowStandardInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 15
+        },
+        {
+          "Name": "WindowStandardInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 575
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [
+    {
+      "Name": "DemoSettingsMenu",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "Background",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "MenuTitle",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "MenuTitle1",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "MenuItems",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "TitleText",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "TitleText1",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ButtonCloseInstance1",
+      "BaseType": "Controls/ButtonClose"
+    },
+    {
+      "Name": "DividerInstance",
+      "BaseType": "Elements/DividerHorizontal"
+    },
+    {
+      "Name": "DividerInstance4",
+      "BaseType": "Elements/DividerHorizontal"
+    },
+    {
+      "Name": "ResolutionLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "ResolutionBox",
+      "BaseType": "Controls/ListBox"
+    },
+    {
+      "Name": "DetectResolutionsButton",
+      "BaseType": "Controls/ButtonStandard"
+    },
+    {
+      "Name": "ShowDialogButton",
+      "BaseType": "Controls/ButtonStandard"
+    },
+    {
+      "Name": "ShowToastButton",
+      "BaseType": "Controls/ButtonStandard"
+    },
+    {
+      "Name": "FullScreenCheckbox",
+      "BaseType": "Controls/CheckBox"
+    },
+    {
+      "Name": "DividerInstance1",
+      "BaseType": "Elements/DividerHorizontal"
+    },
+    {
+      "Name": "MusicLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "MusicSlider",
+      "BaseType": "Controls/Slider"
+    },
+    {
+      "Name": "SoundLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "SoundSlider",
+      "BaseType": "Controls/Slider"
+    },
+    {
+      "Name": "DividerInstance2",
+      "BaseType": "Elements/DividerHorizontal"
+    },
+    {
+      "Name": "ControlLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "RadioButtonInstance",
+      "BaseType": "Controls/RadioButton"
+    },
+    {
+      "Name": "RadioButtonInstance1",
+      "BaseType": "Controls/RadioButton"
+    },
+    {
+      "Name": "RadioButtonInstance2",
+      "BaseType": "Controls/RadioButton"
+    },
+    {
+      "Name": "DividerInstance3",
+      "BaseType": "Elements/DividerHorizontal"
+    },
+    {
+      "Name": "DifficultyLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "Background1",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "ComboBoxInstance",
+      "BaseType": "Controls/ComboBox"
+    },
+    {
+      "Name": "ButtonContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "ButtonConfirmInstance",
+      "BaseType": "Controls/ButtonConfirm"
+    },
+    {
+      "Name": "WindowOkButton",
+      "BaseType": "Controls/ButtonConfirm"
+    },
+    {
+      "Name": "ButtonDenyInstance",
+      "BaseType": "Controls/ButtonDeny"
+    },
+    {
+      "Name": "DemoDialog",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "MarginContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "LabelInstance",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "TextBoxInstance",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "TextBoxInstance1",
+      "BaseType": "Controls/PasswordBox"
+    },
+    {
+      "Name": "MultiLineTextBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "DemoHud",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "TitleText2",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "MenuTitle2",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "PercentBarInstance",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "HitpointsBar1",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "HitpointsBar2",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "HitpointsBar3",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "PercentBarInstance1",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "PercentBarInstance2",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "DividerInstance5",
+      "BaseType": "Elements/DividerHorizontal"
+    },
+    {
+      "Name": "ButtonCloseInstance2",
+      "BaseType": "Controls/ButtonClose"
+    },
+    {
+      "Name": "PercentBarInstance3",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "PercentBarInstance4",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "PercentBarInstance5",
+      "BaseType": "Elements/PercentBarIcon"
+    },
+    {
+      "Name": "ContainerInstance",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "TreeViewInstance",
+      "BaseType": "Controls/TreeView"
+    },
+    {
+      "Name": "DialogBoxInstance",
+      "BaseType": "Controls/DialogBox"
+    },
+    {
+      "Name": "WindowStandardInstance",
+      "BaseType": "Controls/WindowStandard"
+    },
+    {
+      "Name": "LabelInstance1",
+      "BaseType": "Controls/Label"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

@@ -1,0 +1,20 @@
+{
+  "Name": "TreeViewItemBehavior",
+  "RequiredVariables": {
+    "Name": "",
+    "Variables": [],
+    "VariableLists": []
+  },
+  "FormsProperties": [],
+  "ToolOnlyVariableReferences": [],
+  "Categories": [],
+  "RequiredInstances": [
+    {
+      "Behaviors": [],
+      "Name": "InnerPanelInstance",
+      "BaseType": ""
+    }
+  ],
+  "RequiredAnimations": [],
+  "DefaultImplementation": "Controls/TreeViewItem"
+}

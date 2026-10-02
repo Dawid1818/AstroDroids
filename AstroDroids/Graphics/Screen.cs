@@ -55,7 +55,7 @@ namespace AstroDroids.Graphics
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
             shapeBatch = new ShapeBatch(game.GraphicsDevice);
 
-            gumProject = GumUI.Initialize(game, "GumProject/astrodroidsgum.gumx");
+            gumProject = GumUI.Initialize(game, "GumProject/astrodroidsgum.gumj");
 
             GumUI.LocalizationService.CurrentLanguage = 1;
 

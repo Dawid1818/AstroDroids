@@ -1,0 +1,65 @@
+{
+  "Name": "ScrollViewerBehavior",
+  "RequiredVariables": {
+    "Name": "",
+    "Variables": [],
+    "VariableLists": []
+  },
+  "FormsProperties": [],
+  "ToolOnlyVariableReferences": [],
+  "Categories": [
+    {
+      "Name": "ScrollBarVisibility",
+      "States": [
+        {
+          "Name": "NoScrollBar",
+          "Variables": [],
+          "VariableLists": []
+        },
+        {
+          "Name": "VerticalScrollVisible",
+          "Variables": [],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "ScrollViewerCategory",
+      "States": [
+        {
+          "Name": "Enabled",
+          "Variables": [],
+          "VariableLists": []
+        },
+        {
+          "Name": "Focused",
+          "Variables": [],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "RequiredInstances": [
+    {
+      "Behaviors": [
+        {
+          "Name": "ScrollBarBehavior"
+        }
+      ],
+      "Name": "VerticalScrollBarInstance",
+      "BaseType": ""
+    },
+    {
+      "Behaviors": [],
+      "Name": "InnerPanelInstance",
+      "BaseType": ""
+    },
+    {
+      "Behaviors": [],
+      "Name": "ClipContainerInstance",
+      "BaseType": ""
+    }
+  ],
+  "RequiredAnimations": [],
+  "DefaultImplementation": "Controls/ScrollViewer"
+}

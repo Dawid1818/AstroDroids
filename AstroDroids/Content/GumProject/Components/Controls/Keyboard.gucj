@@ -1,0 +1,4399 @@
+{
+  "Name": "Controls/Keyboard",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "AllRows.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "AllRows.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "AllRows.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "AllRows.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 90
+        },
+        {
+          "Name": "AllRows.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "AllRows.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "AllRows.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "AllRows.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "AllRows.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "AllRows.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "AllRows.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "CursorMoveCategoryState",
+          "Type": "CursorMoveCategory"
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "HighlightRectangle.Blue",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HighlightRectangle.Green",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 128
+        },
+        {
+          "Name": "HighlightRectangle.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -6
+        },
+        {
+          "Name": "HighlightRectangle.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "HighlightRectangle.Red",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HighlightRectangle.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "HighlightRectangle.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -6
+        },
+        {
+          "Name": "HighlightRectangle.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "HighlightRectangle.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HighlightRectangle.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "HighlightRectangle.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "HighlightRectangle.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -1
+        },
+        {
+          "Name": "HighlightRectangle.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "HighlightRectangle.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "IconInstance.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Delete"
+        },
+        {
+          "Name": "IconInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "KeyBackspace"
+        },
+        {
+          "Name": "IconInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "IconInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "IconInstance1.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Enter"
+        },
+        {
+          "Name": "IconInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "KeyReturn"
+        },
+        {
+          "Name": "IconInstance1.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance1.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "IconInstance1.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance1.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "IconInstance2.FlipHorizontal",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "IconInstance2.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow1"
+        },
+        {
+          "Name": "IconInstance2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "KeyLeft"
+        },
+        {
+          "Name": "IconInstance2.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance2.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "IconInstance2.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance2.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "IconInstance3.FlipHorizontal",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IconInstance3.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow1"
+        },
+        {
+          "Name": "IconInstance3.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "KeyRight"
+        },
+        {
+          "Name": "IconInstance3.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance3.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "IconInstance3.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance3.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Key0.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key0.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key0.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key0.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key0.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key0.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key0.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "0"
+        },
+        {
+          "Name": "Key0.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key0.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key0.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key0.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key0.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key1.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key1.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key1.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key1.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key1.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key1.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "1"
+        },
+        {
+          "Name": "Key1.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key1.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key1.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key1.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key2.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key2.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key2.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key2.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key2.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key2.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "2"
+        },
+        {
+          "Name": "Key2.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key2.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key2.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key2.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key2.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key3.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key3.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key3.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key3.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key3.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key3.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key3.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "3"
+        },
+        {
+          "Name": "Key3.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key3.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key3.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key3.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key3.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key4.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key4.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key4.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key4.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key4.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key4.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key4.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "4"
+        },
+        {
+          "Name": "Key4.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key4.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key4.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key4.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key4.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key5.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key5.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key5.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key5.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key5.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key5.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key5.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "5"
+        },
+        {
+          "Name": "Key5.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key5.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key5.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key5.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key5.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key6.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key6.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key6.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key6.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key6.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key6.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key6.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "6"
+        },
+        {
+          "Name": "Key6.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key6.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key6.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key6.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key6.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key7.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key7.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key7.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key7.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key7.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key7.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key7.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "7"
+        },
+        {
+          "Name": "Key7.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key7.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key7.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key7.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key7.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key8.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key8.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key8.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key8.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key8.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key8.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key8.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "8"
+        },
+        {
+          "Name": "Key8.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key8.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key8.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key8.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key8.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Key9.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Key9.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Key9.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Key9.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key9.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row1Keys"
+        },
+        {
+          "Name": "Key9.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "Key9.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "9"
+        },
+        {
+          "Name": "Key9.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key9.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "Key9.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key9.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Key9.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyA.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyA.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyA.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyA.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyA.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyA.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyA.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "A"
+        },
+        {
+          "Name": "KeyA.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyA.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyA.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyA.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyA.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyAmpersand.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyAmpersand.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyAmpersand.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyAmpersand.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyAmpersand.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row5Keys"
+        },
+        {
+          "Name": "KeyAmpersand.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyAmpersand.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "\u0026"
+        },
+        {
+          "Name": "KeyAmpersand.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyAmpersand.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyAmpersand.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyAmpersand.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyAmpersand.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyB.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyB.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyB.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyB.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyB.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyB.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyB.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "B"
+        },
+        {
+          "Name": "KeyB.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyB.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyB.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyB.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyB.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyBackspace.ButtonDisplayText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyBackspace.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "KeyBackspace.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyBackspace.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "KeyBackspace.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyBackspace.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyBackspace.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyBackspace.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyBackspace.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "KeyBang.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyBang.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyBang.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyBang.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyBang.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row5Keys"
+        },
+        {
+          "Name": "KeyBang.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyBang.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "!"
+        },
+        {
+          "Name": "KeyBang.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyBang.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyBang.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyBang.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyBang.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyC.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyC.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyC.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyC.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyC.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyC.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyC.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "C"
+        },
+        {
+          "Name": "KeyC.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyC.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyC.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyC.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyC.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyComma.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyComma.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyComma.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyComma.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyComma.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyComma.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyComma.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ","
+        },
+        {
+          "Name": "KeyComma.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyComma.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyComma.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyComma.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyComma.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyD.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyD.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyD.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyD.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyD.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyD.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyD.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "D"
+        },
+        {
+          "Name": "KeyD.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyD.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyD.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyD.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyD.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyE.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyE.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyE.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyE.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyE.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyE.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyE.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "E"
+        },
+        {
+          "Name": "KeyE.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyE.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyE.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyE.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyE.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyF.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyF.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyF.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyF.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyF.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyF.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyF.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "F"
+        },
+        {
+          "Name": "KeyF.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyF.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyF.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyF.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyF.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyG.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyG.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyG.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyG.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyG.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "G"
+        },
+        {
+          "Name": "KeyG.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyG.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyG.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyG.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyG.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyH.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyH.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyH.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyH.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyH.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyH.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyH.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "H"
+        },
+        {
+          "Name": "KeyH.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyH.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyH.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyH.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyH.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyHyphen.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyHyphen.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyHyphen.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyHyphen.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyHyphen.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyHyphen.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyHyphen.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "-"
+        },
+        {
+          "Name": "KeyHyphen.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyHyphen.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyHyphen.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyHyphen.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyHyphen.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyI.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyI.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyI.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyI.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyI.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyI.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyI.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "I"
+        },
+        {
+          "Name": "KeyI.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyI.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyI.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyI.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyI.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyJ.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyJ.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyJ.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyJ.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyJ.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyJ.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyJ.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "J"
+        },
+        {
+          "Name": "KeyJ.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyJ.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyJ.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyJ.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyJ.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyK.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyK.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyK.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyK.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyK.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyK.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyK.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "K"
+        },
+        {
+          "Name": "KeyK.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyK.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyK.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyK.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyK.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyL.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyL.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyL.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyL.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyL.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyL.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyL.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "L"
+        },
+        {
+          "Name": "KeyL.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyL.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyL.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyL.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyL.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyLeft.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyLeft.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyLeft.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyLeft.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyLeft.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyLeft.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyLeft.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "KeyLeft.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "KeyLeft.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 3
+        },
+        {
+          "Name": "KeyM.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyM.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyM.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyM.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyM.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyM.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyM.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "M"
+        },
+        {
+          "Name": "KeyM.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyM.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyM.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyM.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyM.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyN.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyN.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyN.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyN.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyN.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyN.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyN.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "N"
+        },
+        {
+          "Name": "KeyN.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyN.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyN.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyN.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyN.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyO.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyO.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyO.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyO.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyO.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyO.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyO.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "O"
+        },
+        {
+          "Name": "KeyO.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyO.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyO.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyO.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyO.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyP.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyP.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyP.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyP.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyP.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyP.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyP.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "P"
+        },
+        {
+          "Name": "KeyP.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyP.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyP.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyP.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyP.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyParenLeft.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyParenLeft.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyParenLeft.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyParenLeft.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenLeft.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row5Keys"
+        },
+        {
+          "Name": "KeyParenLeft.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyParenLeft.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "("
+        },
+        {
+          "Name": "KeyParenLeft.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenLeft.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyParenLeft.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenLeft.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenLeft.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyParenRight.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyParenRight.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyParenRight.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyParenRight.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenRight.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row5Keys"
+        },
+        {
+          "Name": "KeyParenRight.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyParenRight.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ")"
+        },
+        {
+          "Name": "KeyParenRight.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenRight.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyParenRight.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenRight.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyParenRight.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyPeriod.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyPeriod.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyPeriod.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyPeriod.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyPeriod.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyPeriod.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyPeriod.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "."
+        },
+        {
+          "Name": "KeyPeriod.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyPeriod.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyPeriod.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyPeriod.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyPeriod.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyQ.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyQ.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyQ.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyQ.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQ.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyQ.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyQ.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Q"
+        },
+        {
+          "Name": "KeyQ.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQ.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyQ.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQ.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQ.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyQuestion.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyQuestion.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyQuestion.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyQuestion.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQuestion.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row5Keys"
+        },
+        {
+          "Name": "KeyQuestion.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyQuestion.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "?"
+        },
+        {
+          "Name": "KeyQuestion.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQuestion.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyQuestion.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQuestion.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyQuestion.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyR.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyR.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyR.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyR.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyR.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyR.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyR.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "R"
+        },
+        {
+          "Name": "KeyR.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyR.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyR.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyR.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyR.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyReturn.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 40
+        },
+        {
+          "Name": "KeyReturn.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyReturn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyReturn.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyReturn.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyReturn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyReturn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "KeyReturn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyReturn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "KeyRight.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyRight.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyRight.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyRight.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyRight.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyRight.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyRight.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "KeyRight.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 40
+        },
+        {
+          "Name": "KeyRight.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 3
+        },
+        {
+          "Name": "KeyS.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyS.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyS.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyS.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyS.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyS.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyS.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "S"
+        },
+        {
+          "Name": "KeyS.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyS.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyS.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyS.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyS.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeySpace.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeySpace.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeySpace.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeySpace.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeySpace.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row5Keys"
+        },
+        {
+          "Name": "KeySpace.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeySpace.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "SPACE"
+        },
+        {
+          "Name": "KeySpace.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeySpace.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 50
+        },
+        {
+          "Name": "KeySpace.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeySpace.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeySpace.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyT.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyT.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyT.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyT.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyT.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyT.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyT.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T"
+        },
+        {
+          "Name": "KeyT.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyT.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyT.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyT.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyT.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyU.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyU.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyU.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyU.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyU.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyU.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyU.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "U"
+        },
+        {
+          "Name": "KeyU.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyU.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyU.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyU.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyU.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyUnderscore.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyUnderscore.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyUnderscore.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyUnderscore.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyUnderscore.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row3Keys"
+        },
+        {
+          "Name": "KeyUnderscore.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyUnderscore.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "_"
+        },
+        {
+          "Name": "KeyUnderscore.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyUnderscore.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyUnderscore.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyUnderscore.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyUnderscore.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyV.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyV.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyV.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyV.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyV.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyV.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyV.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "V"
+        },
+        {
+          "Name": "KeyV.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyV.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyV.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyV.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyV.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyW.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyW.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyW.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyW.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyW.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyW.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyW.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "W"
+        },
+        {
+          "Name": "KeyW.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyW.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyW.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyW.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyW.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyX.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyX.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyX.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyX.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyX.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyX.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyX.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "X"
+        },
+        {
+          "Name": "KeyX.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyX.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyX.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyX.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyX.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyY.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyY.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyY.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyY.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyY.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row2Keys"
+        },
+        {
+          "Name": "KeyY.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyY.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Y"
+        },
+        {
+          "Name": "KeyY.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyY.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyY.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyY.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyY.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "KeyZ.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "KeyZ.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "KeyZ.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "KeyZ.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyZ.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Row4Keys"
+        },
+        {
+          "Name": "KeyZ.SizeCategoryState",
+          "Type": "SizeCategoryState",
+          "SetsValue": true,
+          "ValueAsString": "Small"
+        },
+        {
+          "Name": "KeyZ.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Z"
+        },
+        {
+          "Name": "KeyZ.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyZ.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "KeyZ.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyZ.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "KeyZ.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Row1Keys.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row1Keys.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "Row1Keys.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Row1Keys.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "AllRows"
+        },
+        {
+          "Name": "Row1Keys.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Row1Keys.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row1Keys.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Row1Keys.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Row1Keys.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Row1Keys.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Row2Keys.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row2Keys.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "Row2Keys.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Row2Keys.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "AllRows"
+        },
+        {
+          "Name": "Row2Keys.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Row2Keys.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row3Keys.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row3Keys.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "Row3Keys.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Row3Keys.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "AllRows"
+        },
+        {
+          "Name": "Row3Keys.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Row3Keys.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row4Keys.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row4Keys.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "Row4Keys.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Row4Keys.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "AllRows"
+        },
+        {
+          "Name": "Row4Keys.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Row4Keys.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row5Keys.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Row5Keys.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "Row5Keys.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Row5Keys.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "AllRows"
+        },
+        {
+          "Name": "Row5Keys.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Row5Keys.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        },
+        {
+          "Name": "Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "CursorMoveCategory",
+      "States": [
+        {
+          "Name": "LeftRightMoveSupported",
+          "Variables": [
+            {
+              "Name": "KeyLeft.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "KeyRight.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "NoMovement",
+          "Variables": [
+            {
+              "Name": "KeyLeft.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "KeyRight.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "Row1Keys",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "AllRows",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "Key1",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyQ",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyA",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyZ",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyParenLeft",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyW",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyS",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyX",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyParenRight",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyE",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyD",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyC",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeySpace",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyR",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyF",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyV",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyT",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyG",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyB",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyY",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyH",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyN",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyU",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyJ",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyM",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyI",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyK",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyComma",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyQuestion",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyO",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyL",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyPeriod",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyBang",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyP",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyUnderscore",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyHyphen",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyAmpersand",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key2",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key3",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key4",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key5",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key6",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key7",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key8",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key9",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Key0",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "Row2Keys",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "Row3Keys",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "Row4Keys",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "Row5Keys",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "KeyBackspace",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyReturn",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyLeft",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "KeyRight",
+      "BaseType": "Controls/KeyboardKey"
+    },
+    {
+      "Name": "HighlightRectangle",
+      "BaseType": "Rectangle"
+    },
+    {
+      "Name": "IconInstance",
+      "BaseType": "Elements/Icon"
+    },
+    {
+      "Name": "IconInstance1",
+      "BaseType": "Elements/Icon"
+    },
+    {
+      "Name": "IconInstance2",
+      "BaseType": "Elements/Icon"
+    },
+    {
+      "Name": "IconInstance3",
+      "BaseType": "Elements/Icon"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "OnScreenKeyboardBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

@@ -1,0 +1,13 @@
+{
+  "Name": "PanelBehavior",
+  "RequiredVariables": {
+    "Name": "",
+    "Variables": [],
+    "VariableLists": []
+  },
+  "FormsProperties": [],
+  "ToolOnlyVariableReferences": [],
+  "Categories": [],
+  "RequiredInstances": [],
+  "RequiredAnimations": []
+}

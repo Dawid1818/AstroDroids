@@ -1,0 +1,1074 @@
+{
+  "Name": "Custom/HorizontalList",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Background.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "Background.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Background.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "Background.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "Background.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Background.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Background.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Background.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Background.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "FocusedIndicator.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "FocusedIndicator.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Cyan"
+        },
+        {
+          "Name": "FocusedIndicator.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "FocusedIndicator.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "FocusedIndicator.IsTilingMiddleSections",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "FocusedIndicator.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "FocusedIndicator.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Solid"
+        },
+        {
+          "Name": "FocusedIndicator.TextureLeft",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 96
+        },
+        {
+          "Name": "FocusedIndicator.TextureTop",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 48
+        },
+        {
+          "Name": "FocusedIndicator.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "FocusedIndicator.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "FocusedIndicator.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "FocusedIndicator.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "FocusedIndicator.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "FocusedIndicator.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "FocusedIndicator.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "FocusedIndicator.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 30
+        },
+        {
+          "Name": "HorizontaListCategoryState",
+          "Type": "HorizontaListCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "ItemLabel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ItemLabel.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ItemLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ItemLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ItemLabel.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "ItemLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ItemLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ItemLabel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ItemLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ItemLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ItemLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ItemLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ItemLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ItemLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "LeftArrowIcon.FlipHorizontal",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "LeftArrowIcon.HasEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "LeftArrowIcon.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -1
+        },
+        {
+          "Name": "LeftArrowIcon.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow2"
+        },
+        {
+          "Name": "LeftArrowIcon.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "LeftArrowIcon.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -13
+        },
+        {
+          "Name": "LeftArrowIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LeftArrowIcon.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "LeftArrowIcon.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "LeftArrowIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LeftArrowIcon.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LeftArrowIcon.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "LeftLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LeftLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "LeftLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "LeftLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "LeftLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "LeftLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "LeftLabel.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "LeftLabel.Text",
+          "Type": "string",
+          "ExposedAsName": "LeftLabelText"
+        },
+        {
+          "Name": "LeftLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "LeftLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 71
+        },
+        {
+          "Name": "LeftLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -4
+        },
+        {
+          "Name": "LeftLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "LeftLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 6
+        },
+        {
+          "Name": "RightArrowIcon.HasEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "RightArrowIcon.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -1
+        },
+        {
+          "Name": "RightArrowIcon.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow2"
+        },
+        {
+          "Name": "RightArrowIcon.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "RightArrowIcon.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -13
+        },
+        {
+          "Name": "RightArrowIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "RightArrowIcon.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "RightArrowIcon.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "RightArrowIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "RightArrowIcon.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "RightArrowIcon.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "SlideCategoryState",
+          "Type": "SlideCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "ValueAsString": "Default"
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "SlideCategory",
+      "States": [
+        {
+          "Name": "Idle",
+          "Variables": [
+            {
+              "Name": "X",
+              "Type": "float",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Right",
+          "Variables": [
+            {
+              "Name": "X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 600
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Left",
+          "Variables": [
+            {
+              "Name": "X",
+              "Type": "float",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsFloat": -600
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "HorizontaListCategory",
+      "States": [
+        {
+          "Name": "Enabled",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Warning"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Disabled",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Warning"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Highlighted",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Warning"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Pushed",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryDark"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Warning"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedFocused",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Warning"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Focused",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Warning"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledFocused",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Warning"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedGlow",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Cyan"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedGlownt",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Cyan"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "Category": "Text",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedActive",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Alpha",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "FocusedIndicator.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "FocusedIndicator.Parent",
+              "Type": "string",
+              "SetsValue": true
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "TextInstance.TextOverflowVerticalMode",
+              "Type": "TextOverflowVerticalMode",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "Background",
+      "BaseType": "NineSlice",
+      "Locked": true
+    },
+    {
+      "Name": "FocusedIndicator",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "LeftLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "LeftArrowIcon",
+      "BaseType": "Elements/Icon2"
+    },
+    {
+      "Name": "RightArrowIcon",
+      "BaseType": "Elements/Icon2"
+    },
+    {
+      "Name": "ItemLabel",
+      "BaseType": "Text"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

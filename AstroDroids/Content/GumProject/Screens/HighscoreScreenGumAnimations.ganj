@@ -1,0 +1,93 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "KeyboardCategory/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory1/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory2/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "KeyboardCategory/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory1/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory2/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "KeyboardCategory/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory1/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory2/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "KeyboardCategory/OutRight",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory1/Out",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "AnimCategory2/Out",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    }
+  ]
+}

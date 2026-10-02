@@ -1,0 +1,430 @@
+{
+  "Name": "HintedScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "ActionHintInstance.Icon",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "ArrowKeys"
+        },
+        {
+          "Name": "ActionHintInstance.IconShadow",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "ArrowKeys"
+        },
+        {
+          "Name": "ActionHintInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ActionHintsPanel"
+        },
+        {
+          "Name": "ActionHintInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Navigate"
+        },
+        {
+          "Name": "ActionHintInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ActionHintInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ActionHintInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintInstance1.Icon",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "XKey"
+        },
+        {
+          "Name": "ActionHintInstance1.IconShadow",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "XKey"
+        },
+        {
+          "Name": "ActionHintInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ActionHintsPanel"
+        },
+        {
+          "Name": "ActionHintInstance1.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "ActionHintInstance1.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintInstance1.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ActionHintInstance1.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ActionHintInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintInstance2.Icon",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "ZKey"
+        },
+        {
+          "Name": "ActionHintInstance2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ActionHintsPanel"
+        },
+        {
+          "Name": "ActionHintInstance2.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintInstance2.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ActionHintInstance2.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ActionHintInstance2.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintsPanel.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ActionHintsPanel.FlipHorizontal",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "ActionHintsPanel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 67
+        },
+        {
+          "Name": "ActionHintsPanel.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ActionHintsPanel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintsPanel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "ActionHintsPanel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintsPanel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ActionHintsPanel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ActionHintsPanel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ActionHintsPanel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ActionHintsPanel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "AnimationsState",
+          "Type": "Animations",
+          "SetsValue": true
+        },
+        {
+          "Name": "HostPane.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HostPane.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "HostPane.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HostPane.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "HostPane.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HostPane.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "HostPane.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "HostPane.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HostPane.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "HostPane.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "LogoLabel.FontScale",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "LogoLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 98
+        },
+        {
+          "Name": "LogoLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "LogoLabel.OutlineThickness",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "LogoLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_GameName"
+        },
+        {
+          "Name": "LogoLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LogoLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "LogoLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 69
+        },
+        {
+          "Name": "LogoLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "Animations",
+      "States": [
+        {
+          "Name": "PlayArrival",
+          "Variables": [
+            {
+              "Name": "LogoLabel.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -69
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Arrived",
+          "Variables": [
+            {
+              "Name": "LogoLabel.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 69
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "LogoLabel.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 69
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "HostPane",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "ActionHintsPanel",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "ActionHintInstance",
+      "BaseType": "Custom/ActionHint"
+    },
+    {
+      "Name": "ActionHintInstance2",
+      "BaseType": "Custom/ActionHint"
+    },
+    {
+      "Name": "ActionHintInstance1",
+      "BaseType": "Custom/ActionHint"
+    },
+    {
+      "Name": "LogoLabel",
+      "BaseType": "Text"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

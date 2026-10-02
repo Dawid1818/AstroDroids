@@ -1,0 +1,1246 @@
+{
+  "Name": "NineSlice",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Alpha",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "Animate",
+          "Type": "bool",
+          "Category": "Animation",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Blend",
+          "Type": "Blend",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Blue",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BorderScale",
+          "Type": "float",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "ColorCategoryState",
+          "Type": "ColorCategory"
+        },
+        {
+          "Name": "CurrentChainName",
+          "Type": "string",
+          "Category": "Animation",
+          "SetsValue": true
+        },
+        {
+          "Name": "CustomFrameTextureCoordinateWidth",
+          "Type": "float?",
+          "Category": "Source",
+          "SetsValue": true
+        },
+        {
+          "Name": "ExposeChildrenEvents",
+          "Type": "bool",
+          "Category": "Behavior",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Green",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "Guide",
+          "Type": "string",
+          "Category": "Position",
+          "SetsValue": true
+        },
+        {
+          "Name": "HasEvents",
+          "Type": "bool",
+          "Category": "Behavior",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HeightUnits",
+          "Type": "DimensionUnitType",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "IgnoredByParentSize",
+          "Type": "bool",
+          "Category": "Parent",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsTilingMiddleSections",
+          "Type": "bool",
+          "Category": "Source",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "MaxHeight",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "MaxWidth",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "MinHeight",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "MinWidth",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "Parent",
+          "Type": "string",
+          "Category": "Parent",
+          "SetsValue": true
+        },
+        {
+          "Name": "Red",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "Rotation",
+          "Type": "float",
+          "Category": "Flip and Rotation",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SourceFile",
+          "Type": "string",
+          "Category": "Source",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "UISpriteSheet.png"
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "ValueAsString": "Default"
+        },
+        {
+          "Name": "StyleCategoryState",
+          "Type": "StyleCategory"
+        },
+        {
+          "Name": "TextureAddress",
+          "Type": "TextureAddress",
+          "Category": "Source",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextureHeight",
+          "Type": "int",
+          "Category": "Source",
+          "SetsValue": true,
+          "ValueAsInt": 24
+        },
+        {
+          "Name": "TextureLeft",
+          "Type": "int",
+          "Category": "Source",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TextureTop",
+          "Type": "int",
+          "Category": "Source",
+          "SetsValue": true,
+          "ValueAsInt": 48
+        },
+        {
+          "Name": "TextureWidth",
+          "Type": "int",
+          "Category": "Source",
+          "SetsValue": true,
+          "ValueAsInt": 24
+        },
+        {
+          "Name": "Visible",
+          "Type": "bool",
+          "Category": "States and Visibility",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Width",
+          "Type": "float",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "WidthUnits",
+          "Type": "DimensionUnitType",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "X",
+          "Type": "float",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "XOrigin",
+          "Type": "HorizontalAlignment",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "XUnits",
+          "Type": "PositionUnitType",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Y",
+          "Type": "float",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "YOrigin",
+          "Type": "VerticalAlignment",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "YUnits",
+          "Type": "PositionUnitType",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        }
+      ],
+      "VariableLists": [
+        {
+          "Name": "AnimationFrames",
+          "Type": "string",
+          "StringValues": []
+        },
+        {
+          "Name": "VariableReferences",
+          "Type": "string",
+          "Category": "References",
+          "StringValues": []
+        }
+      ]
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "ColorCategory",
+      "States": [
+        {
+          "Name": "Black",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "StringValues": [
+                "Red = Components/Styles.Black.Red",
+                "Green = Components/Styles.Black.Green",
+                "Blue = Components/Styles.Black.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "DarkGray",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 80
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 70
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 70
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.DarkGray.Red",
+                "Green = Components/Styles.DarkGray.Green",
+                "Blue = Components/Styles.DarkGray.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Gray",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 130
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 130
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 130
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Gray.Red",
+                "Green = Components/Styles.Gray.Green",
+                "Blue = Components/Styles.Gray.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "LightGray",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 170
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 170
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 170
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.LightGray.Red",
+                "Green = Components/Styles.LightGray.Green",
+                "Blue = Components/Styles.LightGray.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "White",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.White.Red",
+                "Green = Components/Styles.White.Green",
+                "Blue = Components/Styles.White.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "PrimaryDark",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 137
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 120
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 4
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.PrimaryDark.Red",
+                "Green = Components/Styles.PrimaryDark.Green",
+                "Blue = Components/Styles.PrimaryDark.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Primary",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 177
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 159
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 6
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Primary.Red",
+                "Green = Components/Styles.Primary.Green",
+                "Blue = Components/Styles.Primary.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "PrimaryLight",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 193
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 180
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 74
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.PrimaryLight.Red",
+                "Green = Components/Styles.PrimaryLight.Green",
+                "Blue = Components/Styles.PrimaryLight.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Success",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 167
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 62
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Success.Red",
+                "Green = Components/Styles.Success.Green",
+                "Blue = Components/Styles.Success.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Warning",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 25
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 171
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 232
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Warning.Red",
+                "Green = Components/Styles.Warning.Green",
+                "Blue = Components/Styles.Warning.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Danger",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 41
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 18
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 212
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Danger.Red",
+                "Green = Components/Styles.Danger.Green",
+                "Blue = Components/Styles.Danger.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Accent",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 138
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 140
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Accent.Red",
+                "Green = Components/Styles.Accent.Green",
+                "Blue = Components/Styles.Accent.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Cyan",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 247
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "StringValues": [
+                "Red = Components/Styles.Cyan.Red",
+                "Green = Components/Styles.Cyan.Green",
+                "Blue = Components/Styles.Cyan.Blue"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "StyleCategory",
+      "States": [
+        {
+          "Name": "Solid",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Bordered",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "BracketHorizontal",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 72
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 72
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "BracketVertical",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 72
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Tab",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "TabBordered",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 72
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Outlined",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 72
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "OutlinedHeavy",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 72
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Panel",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 96
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "CircleSolid",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 96
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "CircleBordered",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 96
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "CircleOutlined",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 120
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "CircleOutlinedHeavy",
+          "Variables": [
+            {
+              "Name": "TextureHeight",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureLeft",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            },
+            {
+              "Name": "TextureTop",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 120
+            },
+            {
+              "Name": "TextureWidth",
+              "Type": "int",
+              "Category": "Source",
+              "SetsValue": true,
+              "ValueAsInt": 24
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

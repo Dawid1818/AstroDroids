@@ -1,0 +1,127 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "ColorPickerCategory/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ColorPickerCategory/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "BodyBtn.SlideInShort",
+          "Time": 0
+        },
+        {
+          "Name": "WeaponsBtn.SlideInShort",
+          "Time": 0.1
+        },
+        {
+          "Name": "EnginesBtn.SlideInShort",
+          "Time": 0.2
+        },
+        {
+          "Name": "CockpitBtn.SlideInShort",
+          "Time": 0.3
+        },
+        {
+          "Name": "CockpitGlassBtn.SlideInShort",
+          "Time": 0.4
+        },
+        {
+          "Name": "WingsBtn.SlideInShort",
+          "Time": 0.5
+        },
+        {
+          "Name": "ReturnBtn.SlideInShort",
+          "Time": 0.6
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "ColorPickerCategory/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ColorPickerCategory/Out",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HeaderCategory/Out",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "BodyBtn.SlideOutLeftShort",
+          "Time": 0
+        },
+        {
+          "Name": "WeaponsBtn.SlideOutLeftShort",
+          "Time": 0.1
+        },
+        {
+          "Name": "EnginesBtn.SlideOutLeftShort",
+          "Time": 0.2
+        },
+        {
+          "Name": "CockpitBtn.SlideOutLeftShort",
+          "Time": 0.3
+        },
+        {
+          "Name": "CockpitGlassBtn.SlideOutLeftShort",
+          "Time": 0.4
+        },
+        {
+          "Name": "WingsBtn.SlideOutLeftShort",
+          "Time": 0.5
+        },
+        {
+          "Name": "ReturnBtn.SlideOutLeftShort",
+          "Time": 0.6
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

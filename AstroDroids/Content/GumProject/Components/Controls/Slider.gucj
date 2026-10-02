@@ -1,0 +1,402 @@
+{
+  "Name": "Controls/Slider",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "FocusedIndicator.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Warning"
+        },
+        {
+          "Name": "FocusedIndicator.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "FocusedIndicator.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "FocusedIndicator.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "FocusedIndicator.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Solid"
+        },
+        {
+          "Name": "FocusedIndicator.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "FocusedIndicator.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "FocusedIndicator.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "FocusedIndicator.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "SliderCategoryState",
+          "Type": "SliderCategory"
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        },
+        {
+          "Name": "ThumbInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "ThumbInstance.IconCategory",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "None"
+        },
+        {
+          "Name": "ThumbInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "TrackInstance"
+        },
+        {
+          "Name": "ThumbInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "ThumbInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 32
+        },
+        {
+          "Name": "ThumbInstance.X",
+          "Type": "float",
+          "ExposedAsName": "SliderPercent",
+          "SetsValue": true
+        },
+        {
+          "Name": "ThumbInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ThumbInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ThumbInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ThumbInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "TrackBackground.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "DarkGray"
+        },
+        {
+          "Name": "TrackBackground.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "TrackBackground.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TrackBackground.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "TrackInstance"
+        },
+        {
+          "Name": "TrackBackground.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Bordered"
+        },
+        {
+          "Name": "TrackBackground.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TrackInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TrackInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TrackInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -32
+        },
+        {
+          "Name": "TrackInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TrackInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TrackInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "TrackInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TrackInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 128
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "SliderCategory",
+      "States": [
+        {
+          "Name": "Enabled",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "ThumbInstance.ButtonCategoryState",
+              "Type": "ButtonCategory",
+              "SetsValue": true,
+              "ValueAsString": "Enabled"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Disabled",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "ThumbInstance.ButtonCategoryState",
+              "Type": "ButtonCategory",
+              "SetsValue": true,
+              "ValueAsString": "Disabled"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledFocused",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "ThumbInstance.ButtonCategoryState",
+              "Type": "ButtonCategory",
+              "SetsValue": true,
+              "ValueAsString": "Disabled"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Focused",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "ThumbInstance.ButtonCategoryState",
+              "Type": "ButtonCategory",
+              "SetsValue": true,
+              "ValueAsString": "Enabled"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Highlighted",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "ThumbInstance.ButtonCategoryState",
+              "Type": "string",
+              "SetsValue": true,
+              "ValueAsString": "Highlighted"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedFocused",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "ThumbInstance.ButtonCategoryState",
+              "Type": "ButtonCategory",
+              "SetsValue": true,
+              "ValueAsString": "Highlighted"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Pushed",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "ThumbInstance.ButtonCategoryState",
+              "Type": "ButtonCategory",
+              "SetsValue": true,
+              "ValueAsString": "Enabled"
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "TrackInstance",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "TrackBackground",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "ThumbInstance",
+      "BaseType": "Controls/ButtonStandard"
+    },
+    {
+      "Name": "FocusedIndicator",
+      "BaseType": "NineSlice"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "SliderBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

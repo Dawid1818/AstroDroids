@@ -1,0 +1,219 @@
+{
+  "Name": "Custom/ActionHint",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "ActionIcon.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "ActionIcon.IconCategoryState",
+          "Type": "IconCategory",
+          "ExposedAsName": "Icon",
+          "SetsValue": true,
+          "ValueAsString": "ZKey"
+        },
+        {
+          "Name": "ActionIcon.IconHeight",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 200
+        },
+        {
+          "Name": "ActionIcon.IconWidth",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 200
+        },
+        {
+          "Name": "ActionIcon.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -18
+        },
+        {
+          "Name": "ActionIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "ActionIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "ActionIconShadow.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "ActionIconShadow.IconCategoryState",
+          "Type": "IconCategory",
+          "ExposedAsName": "IconShadow",
+          "SetsValue": true,
+          "ValueAsString": "ZKey"
+        },
+        {
+          "Name": "ActionIconShadow.IconColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Black"
+        },
+        {
+          "Name": "ActionIconShadow.IconHeight",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 200
+        },
+        {
+          "Name": "ActionIconShadow.IconWidth",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 200
+        },
+        {
+          "Name": "ActionIconShadow.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -18
+        },
+        {
+          "Name": "ActionIconShadow.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 3
+        },
+        {
+          "Name": "ActionIconShadow.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 3
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 48
+        },
+        {
+          "Name": "Label.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Label.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Label.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Label.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 16
+        },
+        {
+          "Name": "Label.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Label.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Label.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Label.OutlineThickness",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Label.Text",
+          "Type": "string",
+          "ExposedAsName": "Text",
+          "SetsValue": true,
+          "ValueAsString": "T_Select"
+        },
+        {
+          "Name": "Label.UseCustomFont",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Label.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 60
+        },
+        {
+          "Name": "Label.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Label.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Label.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "ValueAsString": "Default"
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [
+    {
+      "Name": "Label",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ActionIconShadow",
+      "BaseType": "Elements/Icon2"
+    },
+    {
+      "Name": "ActionIcon",
+      "BaseType": "Elements/Icon2"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

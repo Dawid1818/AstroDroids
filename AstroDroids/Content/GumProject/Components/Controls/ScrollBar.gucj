@@ -1,0 +1,695 @@
+{
+  "Name": "Controls/ScrollBar",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "DownButtonInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "DownButtonInstance.IconCategory",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow1"
+        },
+        {
+          "Name": "DownButtonInstance.Rotation",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -90
+        },
+        {
+          "Name": "DownButtonInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "DownButtonInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DownButtonInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "DownButtonInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "OrientationCategoryState",
+          "Type": "OrientationCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "ScrollBarCategoryState",
+          "Type": "ScrollBarCategory"
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        },
+        {
+          "Name": "ThumbInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "TrackInstance"
+        },
+        {
+          "Name": "ThumbInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "ThumbInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ThumbInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ThumbInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ThumbInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ThumbInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ThumbInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "TrackBackground.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Gray"
+        },
+        {
+          "Name": "TrackBackground.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TrackBackground.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TrackBackground.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "TrackInstance"
+        },
+        {
+          "Name": "TrackBackground.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Solid"
+        },
+        {
+          "Name": "TrackBackground.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TrackBackground.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TrackBackground.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TrackBackground.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TrackBackground.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "TrackBackground.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TrackBackground.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TrackBackground.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "TrackInstance.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Gray"
+        },
+        {
+          "Name": "TrackInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -48
+        },
+        {
+          "Name": "TrackInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TrackInstance.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Solid"
+        },
+        {
+          "Name": "TrackInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TrackInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TrackInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TrackInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "TrackInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TrackInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "UpButtonInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "UpButtonInstance.IconCategory",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow1"
+        },
+        {
+          "Name": "UpButtonInstance.Rotation",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 90
+        },
+        {
+          "Name": "UpButtonInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "UpButtonInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "UpButtonInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "ScrollBarCategory",
+      "States": []
+    },
+    {
+      "Name": "OrientationCategory",
+      "States": [
+        {
+          "Name": "Vertical",
+          "Variables": [
+            {
+              "Name": "DownButtonInstance.Rotation",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -90
+            },
+            {
+              "Name": "DownButtonInstance.X",
+              "Type": "float",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "DownButtonInstance.XOrigin",
+              "Type": "HorizontalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "DownButtonInstance.XUnits",
+              "Type": "PositionUnitType",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "DownButtonInstance.Y",
+              "Type": "float",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "DownButtonInstance.YOrigin",
+              "Type": "VerticalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "DownButtonInstance.YUnits",
+              "Type": "PositionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 5
+            },
+            {
+              "Name": "Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "HeightUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "ThumbInstance.Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 32
+            },
+            {
+              "Name": "ThumbInstance.HeightUnits",
+              "Type": "DimensionUnitType",
+              "Category": "Dimensions",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "ThumbInstance.Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "ThumbInstance.WidthUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "TrackInstance.Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -48
+            },
+            {
+              "Name": "TrackInstance.HeightUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "TrackInstance.Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "TrackInstance.WidthUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "UpButtonInstance.Rotation",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 90
+            },
+            {
+              "Name": "UpButtonInstance.X",
+              "Type": "float",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "UpButtonInstance.XOrigin",
+              "Type": "HorizontalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "UpButtonInstance.XUnits",
+              "Type": "PositionUnitType",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "UpButtonInstance.Y",
+              "Type": "float",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "UpButtonInstance.YOrigin",
+              "Type": "VerticalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "UpButtonInstance.YUnits",
+              "Type": "PositionUnitType",
+              "Category": "Position",
+              "SetsValue": true,
+              "ValueAsInt": 1
+            },
+            {
+              "Name": "Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 24
+            },
+            {
+              "Name": "WidthUnits",
+              "Type": "DimensionUnitType",
+              "Category": "Dimensions",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Horizontal",
+          "Variables": [
+            {
+              "Name": "DownButtonInstance.Rotation",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "DownButtonInstance.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -0
+            },
+            {
+              "Name": "DownButtonInstance.XOrigin",
+              "Type": "HorizontalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "DownButtonInstance.XUnits",
+              "Type": "PositionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 4
+            },
+            {
+              "Name": "DownButtonInstance.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "DownButtonInstance.YOrigin",
+              "Type": "VerticalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 1
+            },
+            {
+              "Name": "DownButtonInstance.YUnits",
+              "Type": "PositionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 7
+            },
+            {
+              "Name": "Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 24
+            },
+            {
+              "Name": "HeightUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "ThumbInstance.Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "ThumbInstance.HeightUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "ThumbInstance.Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 32
+            },
+            {
+              "Name": "ThumbInstance.WidthUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "TrackInstance.Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "TrackInstance.HeightUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "TrackInstance.Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -48
+            },
+            {
+              "Name": "TrackInstance.WidthUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "UpButtonInstance.Rotation",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -180
+            },
+            {
+              "Name": "UpButtonInstance.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "UpButtonInstance.XOrigin",
+              "Type": "HorizontalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            },
+            {
+              "Name": "UpButtonInstance.XUnits",
+              "Type": "PositionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "UpButtonInstance.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "UpButtonInstance.YOrigin",
+              "Type": "VerticalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 1
+            },
+            {
+              "Name": "UpButtonInstance.YUnits",
+              "Type": "PositionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 7
+            },
+            {
+              "Name": "Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "WidthUnits",
+              "Type": "DimensionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 2
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "UpButtonInstance",
+      "BaseType": "Controls/ButtonIcon"
+    },
+    {
+      "Name": "DownButtonInstance",
+      "BaseType": "Controls/ButtonIcon"
+    },
+    {
+      "Name": "TrackInstance",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "TrackBackground",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "ThumbInstance",
+      "BaseType": "Controls/ButtonStandard"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "ScrollBarBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

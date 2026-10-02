@@ -1,0 +1,63 @@
+{
+  "Name": "Controls/UserControl",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Background.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "Background.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "Background.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [
+    {
+      "Name": "Background",
+      "BaseType": "NineSlice"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "UserControlBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

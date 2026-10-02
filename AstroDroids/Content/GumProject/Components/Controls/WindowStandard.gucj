@@ -1,0 +1,699 @@
+{
+  "Name": "Controls/WindowStandard",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Background.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "Background.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "Background.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "BorderBottomInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderBottomInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderBottomInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -20
+        },
+        {
+          "Name": "BorderBottomInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderBottomInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderBottomInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BorderBottomInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BorderBottomInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "BorderBottomInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderBottomInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "BorderBottomLeftInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderBottomLeftInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderBottomLeftInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderBottomLeftInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderBottomLeftInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderBottomLeftInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderBottomLeftInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderBottomLeftInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "BorderBottomLeftInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderBottomLeftInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "BorderBottomRightInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderBottomRightInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderBottomRightInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderBottomRightInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderBottomRightInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "BorderBottomRightInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderBottomRightInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "BorderBottomRightInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "BorderBottomRightInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderBottomRightInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "BorderLeftInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -20
+        },
+        {
+          "Name": "BorderLeftInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderLeftInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderLeftInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderLeftInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderLeftInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderLeftInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderLeftInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderLeftInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderLeftInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BorderLeftInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "BorderRightInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -20
+        },
+        {
+          "Name": "BorderRightInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderRightInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderRightInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderRightInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderRightInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "BorderRightInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderRightInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "BorderRightInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderRightInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BorderRightInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "BorderTopInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderTopInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderTopInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -20
+        },
+        {
+          "Name": "BorderTopInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderTopInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderTopInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BorderTopInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BorderTopInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderTopInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderTopInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BorderTopLeftInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderTopLeftInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderTopLeftInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderTopLeftInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderTopLeftInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderTopLeftInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderTopLeftInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderTopLeftInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderTopLeftInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderTopLeftInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BorderTopRightInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderTopRightInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "BorderTopRightInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "BorderTopRightInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderTopRightInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "BorderTopRightInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BorderTopRightInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "BorderTopRightInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BorderTopRightInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BorderTopRightInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "InnerPanelInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "InnerPanelInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "InnerPanelInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "InnerPanelInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "InnerPanelInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "InnerPanelInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "InnerPanelInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "InnerPanelInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "InnerPanelInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "InnerPanelInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "MinHeight",
+          "Type": "float?",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "MinWidth",
+          "Type": "float?",
+          "SetsValue": true,
+          "ValueAsFloat": 10
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "ValueAsString": "Default"
+        },
+        {
+          "Name": "TitleBarInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "TitleBarInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -0
+        },
+        {
+          "Name": "TitleBarInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TitleBarInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TitleBarInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TitleBarInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "TitleBarInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TitleBarInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TitleBarInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [
+    {
+      "Name": "Background",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "InnerPanelInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "TitleBarInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderTopLeftInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderTopRightInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderBottomLeftInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderBottomRightInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderTopInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderBottomInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderLeftInstance",
+      "BaseType": "Controls/Panel"
+    },
+    {
+      "Name": "BorderRightInstance",
+      "BaseType": "Controls/Panel"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "WindowBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

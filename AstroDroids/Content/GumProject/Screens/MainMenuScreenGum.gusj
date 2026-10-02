@@ -1,0 +1,450 @@
+{
+  "Name": "MainMenuScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "AnimationsState",
+          "Type": "Animations",
+          "SetsValue": true
+        },
+        {
+          "Name": "ButtonContainer.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 256
+        },
+        {
+          "Name": "ButtonContainer.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "ButtonContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ButtonContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "CreditsBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "CreditsBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Credits"
+        },
+        {
+          "Name": "CreditsBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "CreditsBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "CreditsBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "CreditsBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "CustomizeBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "CustomizeBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Customize"
+        },
+        {
+          "Name": "CustomizeBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "CustomizeBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "CustomizeBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "CustomizeBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ExitBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "ExitBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Quit"
+        },
+        {
+          "Name": "ExitBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ExitBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ExitBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ExitBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LeaderboardBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "LeaderboardBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Leaderboard"
+        },
+        {
+          "Name": "LeaderboardBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LeaderboardBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LeaderboardBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "LeaderboardBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LogoLabel.FontScale",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "LogoLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 98
+        },
+        {
+          "Name": "LogoLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "LogoLabel.OutlineThickness",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "LogoLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_GameName"
+        },
+        {
+          "Name": "LogoLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "LogoLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LogoLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "LogoLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 69
+        },
+        {
+          "Name": "LogoLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LogoLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PlayBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "PlayBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Play"
+        },
+        {
+          "Name": "PlayBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PlayBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PlayBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "PlayBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SettingsBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "SettingsBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Settings"
+        },
+        {
+          "Name": "SettingsBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SettingsBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "SettingsBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "SettingsBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "Animations",
+      "States": [
+        {
+          "Name": "PlayArrival",
+          "Variables": [
+            {
+              "Name": "LogoLabel.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -69
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Arrived",
+          "Variables": [
+            {
+              "Name": "LogoLabel.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 69
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "LogoLabel.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 69
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "LogoLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ButtonContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "PlayBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "CustomizeBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "SettingsBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "LeaderboardBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "CreditsBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "ExitBtn",
+      "BaseType": "Controls/ButtonGlow"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

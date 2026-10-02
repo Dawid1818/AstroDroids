@@ -1,0 +1,65 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "SlideIn",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOut",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Out",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOutRight",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/OutRight",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    }
+  ]
+}

@@ -1,0 +1,629 @@
+{
+  "FontRanges": "32-126,160-255,256-383",
+  "FontSpacingVertical": 1,
+  "FontSpacingHorizontal": 1,
+  "UseFontCharacterFile": false,
+  "AutoSizeFontOutputs": false,
+  "FontGenerator": 1,
+  "Version": 4,
+  "DefaultCanvasWidth": 800,
+  "DefaultCanvasHeight": 600,
+  "CustomCanvasSizes": [
+    {
+      "Width": null,
+      "Height": null,
+      "FriendlyName": "Project Default"
+    },
+    {
+      "Width": 640,
+      "Height": 480,
+      "FriendlyName": "480p"
+    },
+    {
+      "Width": 1280,
+      "Height": 720,
+      "FriendlyName": "720p"
+    },
+    {
+      "Width": 1280,
+      "Height": 800,
+      "FriendlyName": "Steam Deck"
+    },
+    {
+      "Width": 1920,
+      "Height": 1080,
+      "FriendlyName": "1080p"
+    },
+    {
+      "Width": 3840,
+      "Height": 2160,
+      "FriendlyName": "4k"
+    }
+  ],
+  "ShowOutlines": true,
+  "ShowCanvasOutline": true,
+  "ShowRuler": true,
+  "ShowCheckerBackground": true,
+  "TextureFilter": "Point",
+  "ConvertVariablesOnUnitTypeChange": false,
+  "RestrictToUnitValues": true,
+  "SnapToGrid": false,
+  "GridSize": 16,
+  "RestrictFileNamesForAndroid": false,
+  "Guides": [],
+  "FavoriteComponents": [],
+  "ParentProjectRoot": "",
+  "LocalizationFiles": [
+    "Localization.csv"
+  ],
+  "ShowLocalizationInGum": true,
+  "CurrentLanguageIndex": 1,
+  "ScreenReferences": [
+    {
+      "Name": "AudioSettingsScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "ContinueScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "ControlsSettingsScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "CurveEditorScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "DemoScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "GamemodeScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "GameScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "GraphicsSettingsScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "HighscoreScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "HintedScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "LeaderboardScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "LevelEditorScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "MainMenuScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "MissionScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "MouseSettingsScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "RebindingSettingsScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "SettingsScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    },
+    {
+      "Name": "ShipCustomizationScreenGum",
+      "ElementType": 0,
+      "LinkType": 0
+    }
+  ],
+  "ComponentReferences": [
+    {
+      "Name": "Controls/ButtonClose",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonColorSlider",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonConfirm",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonDeny",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonGlow",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonGlowGameMode",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonIcon",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonIconGlow",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonStandard",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonStandardIcon",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ButtonTab",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/CheckBox",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ComboBox",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/DialogBox",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/InputDeviceSelectionItem",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/InputDeviceSelector",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ItemsControl",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/Keyboard",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/KeyboardKey",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/KeyboardKeyGlow",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/Label",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ListBox",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ListBoxItem",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/Menu",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/MenuItem",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/Panel",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/PasswordBox",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/PlayerJoinView",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/PlayerJoinViewItem",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/RadioButton",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ScrollBar",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/ScrollViewer",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/SettingsView",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/Slider",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/SplitterStandard",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/StackPanel",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/TextBox",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/Toast",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/TreeView",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/TreeViewItem",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/TreeViewToggle",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/UserControl",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Controls/WindowStandard",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/ActionHint",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/CheckBoxGlow",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/ColorSlider",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/HorizontalList",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/InputActionComponent",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/KeyboardGlow",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/KeyboardInputPanel",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/LeaderboardItem",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/LevelCard",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/SliderGlow",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Custom/VolumeComponent",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/CautionLines",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/CautionLinesWrapped",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/Divider",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/DividerHorizontal",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/DividerVertical",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/Icon",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/Icon2",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/PercentBar",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/PercentBarIcon",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Elements/VerticalLines",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "MenuPages/Main",
+      "ElementType": 1,
+      "LinkType": 0
+    },
+    {
+      "Name": "Styles",
+      "ElementType": 1,
+      "LinkType": 0
+    }
+  ],
+  "StandardElementReferences": [
+    {
+      "Name": "Circle",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "ColoredRectangle",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "Component",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "Container",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "NineSlice",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "Polygon",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "Rectangle",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "Sprite",
+      "ElementType": 2,
+      "LinkType": 0
+    },
+    {
+      "Name": "Text",
+      "ElementType": 2,
+      "LinkType": 0
+    }
+  ],
+  "BehaviorReferences": [
+    {
+      "Name": "ButtonBehavior"
+    },
+    {
+      "Name": "CheckBoxBehavior"
+    },
+    {
+      "Name": "ComboBoxBehavior"
+    },
+    {
+      "Name": "DialogBoxBehavior"
+    },
+    {
+      "Name": "InputDeviceSelectionItemBehavior"
+    },
+    {
+      "Name": "InputDeviceSelectorBehavior"
+    },
+    {
+      "Name": "ItemsControlBehavior"
+    },
+    {
+      "Name": "LabelBehavior"
+    },
+    {
+      "Name": "ListBoxBehavior"
+    },
+    {
+      "Name": "ListBoxItemBehavior"
+    },
+    {
+      "Name": "MenuBehavior"
+    },
+    {
+      "Name": "MenuItemBehavior"
+    },
+    {
+      "Name": "OnScreenKeyboardBehavior"
+    },
+    {
+      "Name": "PanelBehavior"
+    },
+    {
+      "Name": "PasswordBoxBehavior"
+    },
+    {
+      "Name": "PlayerJoinViewBehavior"
+    },
+    {
+      "Name": "PlayerJoinViewItemBehavior"
+    },
+    {
+      "Name": "RadioButtonBehavior"
+    },
+    {
+      "Name": "ScrollBarBehavior"
+    },
+    {
+      "Name": "ScrollViewerBehavior"
+    },
+    {
+      "Name": "SettingsViewBehavior"
+    },
+    {
+      "Name": "SliderBehavior"
+    },
+    {
+      "Name": "SplitterBehavior"
+    },
+    {
+      "Name": "StackPanelBehavior"
+    },
+    {
+      "Name": "TextBoxBehavior"
+    },
+    {
+      "Name": "ToastBehavior"
+    },
+    {
+      "Name": "ToggleBehavior"
+    },
+    {
+      "Name": "TreeViewBehavior"
+    },
+    {
+      "Name": "TreeViewItemBehavior"
+    },
+    {
+      "Name": "UserControlBehavior"
+    },
+    {
+      "Name": "WindowBehavior"
+    }
+  ],
+  "SinglePixelTextureFile": "",
+  "CustomProperties": []
+}

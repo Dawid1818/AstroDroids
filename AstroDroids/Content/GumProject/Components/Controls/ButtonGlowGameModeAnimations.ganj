@@ -1,0 +1,151 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "GlowFocused",
+      "Loops": true,
+      "States": [
+        {
+          "StateName": "ButtonCategory/FocusedGlownt",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ButtonCategory/FocusedGlow",
+          "Time": 0.5,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "ButtonCategory/FocusedGlownt",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideInLeft",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Left",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideInRight",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Right",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideInUp",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Up",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOutLeft",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Left",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOutRight",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Right",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOutUp",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Up",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "SlideIn",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Left",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "SlideOut",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "SlideCategory/Idle",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "SlideCategory/Right",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "GlowFocused",
+      "Loops": true,
+      "States": [
+        {
+          "StateName": "HorizontaListCategory/FocusedGlownt",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HorizontaListCategory/FocusedGlow",
+          "Time": 0.5,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HorizontaListCategory/FocusedGlownt",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    }
+  ]
+}

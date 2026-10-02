@@ -1,0 +1,53 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "VideoModeList.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "ResolutionList.SlideIn",
+          "Time": 0.1
+        },
+        {
+          "Name": "VSyncBox.SlideIn",
+          "Time": 0.2
+        },
+        {
+          "Name": "BackBtn.SlideIn",
+          "Time": 0.3
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "VideoModeList.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "ResolutionList.SlideOut",
+          "Time": 0.1
+        },
+        {
+          "Name": "VSyncBox.SlideOut",
+          "Time": 0.2
+        },
+        {
+          "Name": "BackBtn.SlideOut",
+          "Time": 0.3
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "Name": "RebindingSettingsScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "AnimationsState",
+          "Type": "Animations",
+          "SetsValue": true
+        },
+        {
+          "Name": "BackBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "BackBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "BackBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BackBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BackBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BackBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 331
+        },
+        {
+          "Name": "ButtonContainer.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "ButtonContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ButtonContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "InputActionCom1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "InputActionCom2.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "InputActionCom3.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "InputActionCom4.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "InputActionCom5.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "InputActionCom6.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "InputActionCom7.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "Animations",
+      "States": []
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "ButtonContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "InputActionCom1",
+      "BaseType": "Custom/InputActionComponent"
+    },
+    {
+      "Name": "InputActionCom2",
+      "BaseType": "Custom/InputActionComponent"
+    },
+    {
+      "Name": "InputActionCom3",
+      "BaseType": "Custom/InputActionComponent"
+    },
+    {
+      "Name": "InputActionCom4",
+      "BaseType": "Custom/InputActionComponent"
+    },
+    {
+      "Name": "InputActionCom5",
+      "BaseType": "Custom/InputActionComponent"
+    },
+    {
+      "Name": "InputActionCom6",
+      "BaseType": "Custom/InputActionComponent"
+    },
+    {
+      "Name": "InputActionCom7",
+      "BaseType": "Custom/InputActionComponent"
+    },
+    {
+      "Name": "BackBtn",
+      "BaseType": "Controls/ButtonGlow"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

@@ -1,0 +1,1277 @@
+{
+  "Name": "ShipCustomizationScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "BodyBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "BodyBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Body"
+        },
+        {
+          "Name": "BodyBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BodyBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BodyBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BodyBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ButtonContainer.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.ClipsChildren",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "ButtonContainer.ContainedType",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Controls/ButtonStandard"
+        },
+        {
+          "Name": "ButtonContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 258
+        },
+        {
+          "Name": "ButtonContainer.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.WrapsChildren",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "ButtonContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 47
+        },
+        {
+          "Name": "ButtonContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ButtonContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ButtonContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "CockpitBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "CockpitBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Cockpit"
+        },
+        {
+          "Name": "CockpitBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "CockpitBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "CockpitBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "CockpitBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "CockpitGlassBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "CockpitGlassBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_CockpitGlass"
+        },
+        {
+          "Name": "CockpitGlassBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "CockpitGlassBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "CockpitGlassBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "CockpitGlassBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "ColorPicker.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 298
+        },
+        {
+          "Name": "ColorPicker.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 484
+        },
+        {
+          "Name": "ColorPicker.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ColorPicker.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ColorPicker.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ColorPickerCategoryState",
+          "Type": "ColorPickerCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "EnginesBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "EnginesBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Engines"
+        },
+        {
+          "Name": "EnginesBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "EnginesBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "EnginesBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "EnginesBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "HBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "HBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "HBG.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -115
+        },
+        {
+          "Name": "HBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "HBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "HBG.TextureLeft",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 72
+        },
+        {
+          "Name": "HBG.TextureTop",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 96
+        },
+        {
+          "Name": "HBG.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -48
+        },
+        {
+          "Name": "HBG.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 25
+        },
+        {
+          "Name": "HBG.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -58.5
+        },
+        {
+          "Name": "Header.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Header.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Header.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Header.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 30
+        },
+        {
+          "Name": "Header.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Header.HasEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Header.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Header.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Header.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Customize"
+        },
+        {
+          "Name": "Header.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Header.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Header.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Header.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Header.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 21
+        },
+        {
+          "Name": "Header.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Header.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "HeaderCategoryState",
+          "Type": "HeaderCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "HLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "HLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "HLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "HLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "HLabel.LocalizeText",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "HLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "HLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "H: 0"
+        },
+        {
+          "Name": "HLabel.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "HLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "HLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 9
+        },
+        {
+          "Name": "HSlider.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "HSlider.SliderPercent",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HSlider.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 278
+        },
+        {
+          "Name": "HSlider.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 36
+        },
+        {
+          "Name": "HSlider.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "HueTrack.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 28
+        },
+        {
+          "Name": "HueTrack.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HueTrack.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "HueTrack.TextureAddress",
+          "Type": "TextureAddress",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HueTrack.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 246
+        },
+        {
+          "Name": "HueTrack.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "HueTrack.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 51
+        },
+        {
+          "Name": "HueTrack.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 3
+        },
+        {
+          "Name": "ReturnBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "ReturnBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "ReturnBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ReturnBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ReturnBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ReturnBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "SatTrack.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 28
+        },
+        {
+          "Name": "SatTrack.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "SatTrack.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "SatTrack.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 246
+        },
+        {
+          "Name": "SatTrack.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "SatTrack.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 51
+        },
+        {
+          "Name": "SatTrack.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 63
+        },
+        {
+          "Name": "SBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "SBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "SBG.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -115
+        },
+        {
+          "Name": "SBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "SBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "SBG.TextureLeft",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 72
+        },
+        {
+          "Name": "SBG.TextureTop",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 96
+        },
+        {
+          "Name": "SBG.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -48
+        },
+        {
+          "Name": "SBG.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 25
+        },
+        {
+          "Name": "SBG.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ShipIcon.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 116.66656
+        },
+        {
+          "Name": "ShipIcon.SourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "PlayerShipPrototypeShape.png"
+        },
+        {
+          "Name": "ShipIcon.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "ShipIcon.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 116.66667
+        },
+        {
+          "Name": "ShipIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ShipIcon.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ShipIcon.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ShipIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ShipIcon.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ShipIcon.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "SLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "SLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "SLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "SLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "SLabel.LocalizeText",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "SLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "SLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "S: 0"
+        },
+        {
+          "Name": "SLabel.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "SLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "SLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 70
+        },
+        {
+          "Name": "SSlider.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "SSlider.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 278
+        },
+        {
+          "Name": "SSlider.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 36
+        },
+        {
+          "Name": "SSlider.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 64
+        },
+        {
+          "Name": "ValTrack.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 28
+        },
+        {
+          "Name": "ValTrack.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ValTrack.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "ValTrack.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 246
+        },
+        {
+          "Name": "ValTrack.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ValTrack.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 51
+        },
+        {
+          "Name": "ValTrack.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 121
+        },
+        {
+          "Name": "VBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "VBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "VBG.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -115
+        },
+        {
+          "Name": "VBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "VBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "VBG.TextureLeft",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 72
+        },
+        {
+          "Name": "VBG.TextureTop",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 96
+        },
+        {
+          "Name": "VBG.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -48
+        },
+        {
+          "Name": "VBG.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 25
+        },
+        {
+          "Name": "VBG.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 60
+        },
+        {
+          "Name": "VLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "VLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "VLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "VLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "VLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "VLabel.LocalizeText",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "VLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "VLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "V: 0"
+        },
+        {
+          "Name": "VLabel.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "VLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "VLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 126
+        },
+        {
+          "Name": "VSlider.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ColorPicker"
+        },
+        {
+          "Name": "VSlider.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 278
+        },
+        {
+          "Name": "VSlider.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 36
+        },
+        {
+          "Name": "VSlider.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 122
+        },
+        {
+          "Name": "WeaponsBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "WeaponsBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Weapons"
+        },
+        {
+          "Name": "WeaponsBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "WeaponsBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "WeaponsBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "WeaponsBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "WingsBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "WingsBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Wings"
+        },
+        {
+          "Name": "WingsBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "WingsBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "WingsBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "WingsBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "ColorPickerCategory",
+      "States": [
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "ColorPicker.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 823
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "In",
+          "Variables": [
+            {
+              "Name": "ColorPicker.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 484
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "HeaderCategory",
+      "States": [
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "Header.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -56
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "In",
+          "Variables": [
+            {
+              "Name": "Header.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 21
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "ShipIcon",
+      "BaseType": "Sprite"
+    },
+    {
+      "Name": "ButtonContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "BodyBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "WeaponsBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "EnginesBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "CockpitBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "CockpitGlassBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "WingsBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "ReturnBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "ColorPicker",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "HBG",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "SBG",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "VBG",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "HueTrack",
+      "BaseType": "Sprite"
+    },
+    {
+      "Name": "SatTrack",
+      "BaseType": "Sprite"
+    },
+    {
+      "Name": "ValTrack",
+      "BaseType": "Sprite"
+    },
+    {
+      "Name": "HSlider",
+      "BaseType": "Custom/ColorSlider"
+    },
+    {
+      "Name": "HLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "SSlider",
+      "BaseType": "Custom/ColorSlider"
+    },
+    {
+      "Name": "SLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "VSlider",
+      "BaseType": "Custom/ColorSlider"
+    },
+    {
+      "Name": "VLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "Header",
+      "BaseType": "Text"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

@@ -1,0 +1,341 @@
+{
+  "Name": "Controls/InputDeviceSelectionItem",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Background.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "Background.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "Background.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 113
+        },
+        {
+          "Name": "HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "IconInstance.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Gamepad"
+        },
+        {
+          "Name": "IconInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "IconInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IconInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "IconInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 5
+        },
+        {
+          "Name": "IconInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "IconInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "JoinedCategoryState",
+          "Type": "JoinedCategory"
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 22
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 22
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -4
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "RemoveDeviceButtonInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "ValueAsString": "Default"
+        },
+        {
+          "Name": "TextInstance.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "TextInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -43
+        },
+        {
+          "Name": "TextInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextInstance.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "H2"
+        },
+        {
+          "Name": "TextInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Input Device Name Here With 3 Lines"
+        },
+        {
+          "Name": "TextInstance.TextOverflowHorizontalMode",
+          "Type": "TextOverflowHorizontalMode",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.TextOverflowVerticalMode",
+          "Type": "TextOverflowVerticalMode",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TextInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "TextInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 39
+        },
+        {
+          "Name": "TextInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TextInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "JoinedCategory",
+      "States": [
+        {
+          "Name": "NoInputDevice",
+          "Variables": [
+            {
+              "Name": "IconInstance.IconCategoryState",
+              "Type": "string",
+              "SetsValue": true,
+              "ValueAsString": "None"
+            },
+            {
+              "Name": "RemoveDeviceButtonInstance.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HasInputDevice",
+          "Variables": [
+            {
+              "Name": "IconInstance.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gamepad"
+            },
+            {
+              "Name": "RemoveDeviceButtonInstance.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "Background",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "IconInstance",
+      "BaseType": "Elements/Icon"
+    },
+    {
+      "Name": "TextInstance",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "RemoveDeviceButtonInstance",
+      "BaseType": "Controls/ButtonClose"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "InputDeviceSelectionItemBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

@@ -1,0 +1,71 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "Animations/Out",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "Animations/In",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "ContinueBtn.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "NewGameBtn.SlideIn",
+          "Time": 0.1
+        },
+        {
+          "Name": "BackBtn.SlideIn",
+          "Time": 0.2
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "Animations/In",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "Animations/OutRight",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [
+        {
+          "Name": "ContinueBtn.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "NewGameBtn.SlideOut",
+          "Time": 0.1
+        },
+        {
+          "Name": "BackBtn.SlideOut",
+          "Time": 0.2
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

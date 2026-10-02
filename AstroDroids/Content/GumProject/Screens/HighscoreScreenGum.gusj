@@ -1,0 +1,871 @@
+{
+  "Name": "HighscoreScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "AchievedHighscoreLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "AchievedHighscoreLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "AchievedHighscoreLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "AchievedHighscoreLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 25
+        },
+        {
+          "Name": "AchievedHighscoreLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "AchievedHighscoreLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "AchievedHighscoreLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "AchievedHighscoreLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_AchievedHighscore"
+        },
+        {
+          "Name": "AchievedHighscoreLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "AchievedHighscoreLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "AchievedHighscoreLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "AchievedHighscoreLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "AchievedHighscoreLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 61
+        },
+        {
+          "Name": "AchievedHighscoreLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "AchievedHighscoreLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "AnimCategory1State",
+          "Type": "AnimCategory1",
+          "SetsValue": true
+        },
+        {
+          "Name": "AnimCategory2State",
+          "Type": "AnimCategory2",
+          "SetsValue": true
+        },
+        {
+          "Name": "EnterYourNameLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "EnterYourNameLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "EnterYourNameLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "EnterYourNameLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 25
+        },
+        {
+          "Name": "EnterYourNameLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "EnterYourNameLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "EnterYourNameLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "EnterYourNameLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_EnterName"
+        },
+        {
+          "Name": "EnterYourNameLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "EnterYourNameLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "EnterYourNameLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "EnterYourNameLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "EnterYourNameLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 187
+        },
+        {
+          "Name": "EnterYourNameLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "EnterYourNameLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "GlowInputPanel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 41
+        },
+        {
+          "Name": "GlowInputPanel.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "GlowInputPanel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 490
+        },
+        {
+          "Name": "GlowInputPanel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "GlowInputPanel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "GlowInputPanel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "GlowInputPanel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 230
+        },
+        {
+          "Name": "GlowKeyboard.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -406
+        },
+        {
+          "Name": "GlowKeyboard.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -311
+        },
+        {
+          "Name": "GlowKeyboard.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "GlowKeyboard.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "GlowKeyboard.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "GlowKeyboard.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 296
+        },
+        {
+          "Name": "KeyboardCategoryState",
+          "Type": "KeyboardCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "NameLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "NameLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "NameLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "NameLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 30
+        },
+        {
+          "Name": "NameLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "NameLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "NameLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "NameLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "NameLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "NameLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "NameLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "NameLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -52
+        },
+        {
+          "Name": "NameLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "NameLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ResultLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ResultLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ResultLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ResultLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 30
+        },
+        {
+          "Name": "ResultLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ResultLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ResultLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ResultLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Victory"
+        },
+        {
+          "Name": "ResultLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ResultLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ResultLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ResultLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ResultLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 20
+        },
+        {
+          "Name": "ResultLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ResultLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScoreDisplay.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ScoreDisplay.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ScoreDisplay.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ScoreDisplay.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 25
+        },
+        {
+          "Name": "ScoreDisplay.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScoreDisplay.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScoreDisplay.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScoreDisplay.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Score"
+        },
+        {
+          "Name": "ScoreDisplay.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScoreDisplay.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ScoreDisplay.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScoreDisplay.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ScoreDisplay.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 137
+        },
+        {
+          "Name": "ScoreDisplay.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScoreDisplay.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScoreLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ScoreLabel.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ScoreLabel.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "ScoreLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 25
+        },
+        {
+          "Name": "ScoreLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScoreLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScoreLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScoreLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Score"
+        },
+        {
+          "Name": "ScoreLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScoreLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ScoreLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScoreLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ScoreLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 103
+        },
+        {
+          "Name": "ScoreLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScoreLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "KeyboardCategory",
+      "States": [
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "GlowKeyboard.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -682
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "In",
+          "Variables": [
+            {
+              "Name": "GlowKeyboard.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "OutRight",
+          "Variables": [
+            {
+              "Name": "GlowKeyboard.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 682
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "AnimCategory1",
+      "States": [
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "EnterYourNameLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -561
+            },
+            {
+              "Name": "ResultLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -550
+            },
+            {
+              "Name": "ScoreLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -552
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "In",
+          "Variables": [
+            {
+              "Name": "EnterYourNameLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "ResultLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "ScoreLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "AnimCategory2",
+      "States": [
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "AchievedHighscoreLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 662
+            },
+            {
+              "Name": "GlowInputPanel.Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 490
+            },
+            {
+              "Name": "GlowInputPanel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 663
+            },
+            {
+              "Name": "GlowInputPanel.XOrigin",
+              "Type": "HorizontalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 1
+            },
+            {
+              "Name": "GlowInputPanel.XUnits",
+              "Type": "PositionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 6
+            },
+            {
+              "Name": "NameLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 660
+            },
+            {
+              "Name": "ScoreDisplay.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 661
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "In",
+          "Variables": [
+            {
+              "Name": "AchievedHighscoreLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "GlowInputPanel.Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 490
+            },
+            {
+              "Name": "GlowInputPanel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "GlowInputPanel.XOrigin",
+              "Type": "HorizontalAlignment",
+              "SetsValue": true,
+              "ValueAsInt": 1
+            },
+            {
+              "Name": "GlowInputPanel.XUnits",
+              "Type": "PositionUnitType",
+              "SetsValue": true,
+              "ValueAsInt": 6
+            },
+            {
+              "Name": "NameLabel.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            },
+            {
+              "Name": "ScoreDisplay.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "GlowKeyboard",
+      "BaseType": "Custom/KeyboardGlow"
+    },
+    {
+      "Name": "GlowInputPanel",
+      "BaseType": "Custom/KeyboardInputPanel"
+    },
+    {
+      "Name": "NameLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ResultLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "AchievedHighscoreLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "EnterYourNameLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ScoreLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ScoreDisplay",
+      "BaseType": "Text"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

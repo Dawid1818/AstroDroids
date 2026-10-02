@@ -1,0 +1,1201 @@
+{
+  "Name": "Controls/CheckBox",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Check.ExposeChildrenEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Check.HasEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Check.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Check.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Check.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Check"
+        },
+        {
+          "Name": "Check.IconColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Check.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CheckboxBackground"
+        },
+        {
+          "Name": "Check.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Check.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "CheckboxBackground.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "CheckboxBackground.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "CheckboxBackground.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "CheckboxBackground.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Bordered"
+        },
+        {
+          "Name": "CheckboxBackground.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "CheckboxBackground.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "CheckboxBackground.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "CheckboxBackground.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "CheckBoxCategoryState",
+          "Type": "CheckBoxCategory"
+        },
+        {
+          "Name": "FocusedIndicator.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Warning"
+        },
+        {
+          "Name": "FocusedIndicator.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "FocusedIndicator.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "FocusedIndicator.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "FocusedIndicator.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Solid"
+        },
+        {
+          "Name": "FocusedIndicator.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "FocusedIndicator.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "FocusedIndicator.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "FocusedIndicator.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        },
+        {
+          "Name": "TextInstance.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "TextInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 32
+        },
+        {
+          "Name": "TextInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TextInstance.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TextInstance.SizeCategoryState",
+          "Type": "SizeCategory",
+          "SetsValue": true,
+          "ValueAsString": "Normal"
+        },
+        {
+          "Name": "TextInstance.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Normal"
+        },
+        {
+          "Name": "TextInstance.Text",
+          "Type": "string",
+          "ExposedAsName": "Text",
+          "SetsValue": true,
+          "ValueAsString": "Checkbox Label"
+        },
+        {
+          "Name": "TextInstance.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -28
+        },
+        {
+          "Name": "TextInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "TextInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 128
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "CheckBoxCategory",
+      "States": [
+        {
+          "Name": "EnabledOn",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "EnabledOff",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "EnabledIndeterminate",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Dash"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledOn",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledOff",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledIndeterminate",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Dash"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedOn",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedOff",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedIndeterminate",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Dash"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "PushedOn",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "PushedOff",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "PushedIndeterminate",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Dash"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedOn",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedOff",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedIndeterminate",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Dash"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedFocusedOn",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedFocusedOff",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedFocusedIndeterminate",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Dash"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledFocusedOn",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledFocusedOff",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Check"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledFocusedIndeterminate",
+          "Variables": [
+            {
+              "Name": "Check.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Dash"
+            },
+            {
+              "Name": "Check.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Check.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "CheckboxBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "CheckboxBackground",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "TextInstance",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "Check",
+      "BaseType": "Elements/Icon"
+    },
+    {
+      "Name": "FocusedIndicator",
+      "BaseType": "NineSlice"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "CheckBoxBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

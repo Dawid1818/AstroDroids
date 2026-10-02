@@ -1,0 +1,2164 @@
+{
+  "Name": "GameScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "BossHPBar.BarColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Danger"
+        },
+        {
+          "Name": "BossHPBar.BarDecorCategoryState",
+          "Type": "BarDecorCategory",
+          "SetsValue": true,
+          "ValueAsString": "CautionLines"
+        },
+        {
+          "Name": "BossHPBar.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossPanel"
+        },
+        {
+          "Name": "BossHPBar.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "BossHPBar.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -10
+        },
+        {
+          "Name": "BossHPBar.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BossHPBar.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossHPBar.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossHPBar.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BossHPBar.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossHPBar.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossHPBar.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "BossPanel.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BossPanel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 29
+        },
+        {
+          "Name": "BossPanel.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BossPanel.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "BossPanel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 322
+        },
+        {
+          "Name": "BossPanel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BossPanel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossPanel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossPanel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BossPanel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -2
+        },
+        {
+          "Name": "BossPanel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BossPanel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossPanelBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BossPanelBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "BossPanelBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossPanel"
+        },
+        {
+          "Name": "BossPanelBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "BossPanelBG.TextureLeft",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 96
+        },
+        {
+          "Name": "BossPanelBG.TextureTop",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 144
+        },
+        {
+          "Name": "BossWarning.ClipsChildren",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "BossWarning.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 89
+        },
+        {
+          "Name": "BossWarning.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "BossWarning.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 800
+        },
+        {
+          "Name": "BossWarning.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarning.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossWarning.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BossWarning.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarning.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossWarning.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "BossWarningBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 65
+        },
+        {
+          "Name": "BossWarningBG.Blue",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 36
+        },
+        {
+          "Name": "BossWarningBG.Green",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 36
+        },
+        {
+          "Name": "BossWarningBG.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningBG.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BossWarningBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossWarning"
+        },
+        {
+          "Name": "BossWarningBG.Red",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BossWarningBG.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningBG.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BossWarningBG.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningBG.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossWarningBG.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BossWarningBG.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningBG.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossWarningBG.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "BossWarningBottomLines.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BossWarningBottomLines.Blend",
+          "Type": "Blend",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BossWarningBottomLines.IsRenderTarget",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "BossWarningBottomLines.LineAlpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BossWarningBottomLines.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossWarning"
+        },
+        {
+          "Name": "BossWarningBottomLines.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 800
+        },
+        {
+          "Name": "BossWarningBottomLines.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningBottomLines.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningBottomLines.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BossWarningBottomLines.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "BossWarningTextClip.ClipsChildren",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "BossWarningTextClip.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -32
+        },
+        {
+          "Name": "BossWarningTextClip.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BossWarningTextClip.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossWarning"
+        },
+        {
+          "Name": "BossWarningTextClip.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningTextClip.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BossWarningTextClip.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningTextClip.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossWarningTextClip.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BossWarningTextClip.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningTextClip.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BossWarningTextClip.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "BossWarningTopLines.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BossWarningTopLines.Blend",
+          "Type": "Blend",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BossWarningTopLines.IsRenderTarget",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "BossWarningTopLines.LineAlpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BossWarningTopLines.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossWarning"
+        },
+        {
+          "Name": "BossWarningTopLines.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 800
+        },
+        {
+          "Name": "BossWarningTopLines.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossWarningTopLines.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BottomPanel.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BottomPanel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 11
+        },
+        {
+          "Name": "BottomPanel.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "BottomPanel.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "BottomPanel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 111
+        },
+        {
+          "Name": "BottomPanel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "BottomPanel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -2
+        },
+        {
+          "Name": "BottomPanel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "BottomPanel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "BottomPanel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "BottomPanelBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "BottomPanelBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "BottomPanelBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BottomPanel"
+        },
+        {
+          "Name": "BottomPanelBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "BottomPanelBG.TextureTop",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 96
+        },
+        {
+          "Name": "ButtonContainer.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 149
+        },
+        {
+          "Name": "ButtonContainer.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "PauseMenu"
+        },
+        {
+          "Name": "ButtonContainer.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 15
+        },
+        {
+          "Name": "ButtonContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 38
+        },
+        {
+          "Name": "HideShowState",
+          "Type": "HideShow",
+          "SetsValue": true
+        },
+        {
+          "Name": "Level3Help.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Level3Help.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level3Help.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Level3Help.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level3Help.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level3Help.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Level3Help.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 53
+        },
+        {
+          "Name": "LivesLabel.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "LivesLabel.Blue",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "LivesLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 18
+        },
+        {
+          "Name": "LivesLabel.Green",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "LivesLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BottomPanel"
+        },
+        {
+          "Name": "LivesLabel.Red",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "LivesLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "3"
+        },
+        {
+          "Name": "LivesLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "LivesLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 34
+        },
+        {
+          "Name": "LivesLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 11
+        },
+        {
+          "Name": "MissionStatusContainer.ClipsChildren",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "MissionStatusContainer.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "MissionStatusContainer.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "MissionStatusContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 546
+        },
+        {
+          "Name": "MissionStatusContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MissionStatusContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MissionStatusContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "MissionStatusContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MissionStatusContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MissionStatusContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "MissionStatusLabel.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "MissionStatusLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 24
+        },
+        {
+          "Name": "MissionStatusLabel.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "MissionStatusLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MissionStatusLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "MissionStatusLabel.MaxLettersToShow",
+          "Type": "int?",
+          "SetsValue": true
+        },
+        {
+          "Name": "MissionStatusLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "MissionStatusContainer"
+        },
+        {
+          "Name": "MissionStatusLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_MissionComplete"
+        },
+        {
+          "Name": "MissionStatusLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MissionStatusLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MissionStatusLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MissionStatusLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "MissionStatusLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "MissionStatusLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "MissionStatusLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "MissionStatusState",
+          "Type": "MissionStatus",
+          "SetsValue": true
+        },
+        {
+          "Name": "PausedLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 18
+        },
+        {
+          "Name": "PausedLabel.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PausedLabel.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "PausedLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "PauseMenu"
+        },
+        {
+          "Name": "PausedLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Paused"
+        },
+        {
+          "Name": "PausedLabel.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PausedLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PausedLabel.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PausedLabel.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "PausedLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "PausedLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PausedLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PauseMenu.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 193
+        },
+        {
+          "Name": "PauseMenu.IsRenderTarget",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "PauseMenu.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "PauseMenu.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PauseMenu.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PauseMenu.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "PauseMenu.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PauseMenu.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PauseMenu.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "PauseMenuBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "PauseMenuBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "PauseMenuBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "PauseMenu"
+        },
+        {
+          "Name": "PauseMenuBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "PowerIcon.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 33.02327
+        },
+        {
+          "Name": "PowerIcon.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BottomPanel"
+        },
+        {
+          "Name": "PowerIcon.SourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "Icons\\ThunderIcon.png"
+        },
+        {
+          "Name": "PowerIcon.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 33.023243
+        },
+        {
+          "Name": "PowerIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "PowerIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 9
+        },
+        {
+          "Name": "PowerIcon.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PowerIcon.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PowerLabel.Blue",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "PowerLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 18
+        },
+        {
+          "Name": "PowerLabel.Green",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "PowerLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BottomPanel"
+        },
+        {
+          "Name": "PowerLabel.Red",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "PowerLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "1/5"
+        },
+        {
+          "Name": "PowerLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "PowerLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 77
+        },
+        {
+          "Name": "PowerLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 11
+        },
+        {
+          "Name": "QuitBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "QuitBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_SaveandQuit"
+        },
+        {
+          "Name": "QuitBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "QuitBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "QuitBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "QuitBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "QuitBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "QuitBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ResumeBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "ResumeBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Resume"
+        },
+        {
+          "Name": "ResumeBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ResumeBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ResumeBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ResumeBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ResumeBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ResumeBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScoreExtraLifeContainer.ClipsChildren",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScoreExtraLifeContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 13
+        },
+        {
+          "Name": "ScoreExtraLifeContainer.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ScorePanel"
+        },
+        {
+          "Name": "ScoreExtraLifeContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 107
+        },
+        {
+          "Name": "ScoreExtraLifeContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 8
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Blue",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 18
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Green",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 209
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 6
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ScoreExtraLifeContainer"
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Red",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "0"
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 87
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 7
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -17
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScoreExtraLifeLabel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "ScoreLabel.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 18
+        },
+        {
+          "Name": "ScoreLabel.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ScorePanel"
+        },
+        {
+          "Name": "ScoreLabel.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "0"
+        },
+        {
+          "Name": "ScoreLabel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 87
+        },
+        {
+          "Name": "ScoreLabel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 7
+        },
+        {
+          "Name": "ScoreLabel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "ScorePanel.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScorePanel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 4
+        },
+        {
+          "Name": "ScorePanel.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "ScorePanel.IsRenderTarget",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScorePanel.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScorePanel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 111
+        },
+        {
+          "Name": "ScorePanel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScorePanel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ScorePanel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -3
+        },
+        {
+          "Name": "ScorePanel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScorePanel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ScorePanelBG.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "ScorePanelBG.Blend",
+          "Type": "Blend",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ScorePanelBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "ScorePanelBG.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ScorePanelBG.IsTilingMiddleSections",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "ScorePanelBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ScorePanel"
+        },
+        {
+          "Name": "ScorePanelBG.SourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "UISpriteSheet.png"
+        },
+        {
+          "Name": "ScorePanelBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "ScorePanelBG.TextureTop",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 120
+        },
+        {
+          "Name": "ScorePanelBG.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "ScorePanelBG.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -2.5
+        },
+        {
+          "Name": "ScorePanelBG.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "SettingsBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "SettingsBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Settings"
+        },
+        {
+          "Name": "SettingsBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SettingsBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "SettingsBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "SettingsBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "SettingsBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "SettingsBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ShipIcon.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 19.894161
+        },
+        {
+          "Name": "ShipIcon.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BottomPanel"
+        },
+        {
+          "Name": "ShipIcon.SourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "PlayerShipPrototypeShape.png"
+        },
+        {
+          "Name": "ShipIcon.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 19.894178
+        },
+        {
+          "Name": "ShipIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 5
+        },
+        {
+          "Name": "ShipIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 9
+        },
+        {
+          "Name": "ShipIcon.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ShipIcon.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 20
+        },
+        {
+          "Name": "TextInstance.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossWarningTextClip"
+        },
+        {
+          "Name": "TextInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_BossWarning"
+        },
+        {
+          "Name": "TextInstance.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "TextInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "TextInstance1.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextInstance1.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "TextInstance1.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "TextInstance1.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 18
+        },
+        {
+          "Name": "TextInstance1.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "TextInstance1.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance1.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "TextInstance1.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Level3Help"
+        },
+        {
+          "Name": "TextInstance1.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_OrangeBarrierHelp"
+        },
+        {
+          "Name": "TextInstance1.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -433
+        },
+        {
+          "Name": "TextInstance1.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextInstance1.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance1.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "TextInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TextInstance1.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance1.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "WeaponPanel.Alpha",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "WeaponPanel.Blend",
+          "Type": "Blend",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "WeaponPanel.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "WeaponPanel.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 48
+        },
+        {
+          "Name": "WeaponPanel.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "WeaponPanel.IsRenderTarget",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "WeaponPanel.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 48
+        },
+        {
+          "Name": "WeaponPanel.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "WeaponPanel.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 5
+        },
+        {
+          "Name": "WeaponPanel.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -57
+        },
+        {
+          "Name": "WeaponPanel.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "WeaponPanel.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "WeaponPanelBG.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "WeaponPanelBG.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "WeaponPanel"
+        },
+        {
+          "Name": "WeaponPanelBG.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "WeaponPanelIcon.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 42
+        },
+        {
+          "Name": "WeaponPanelIcon.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "WeaponPanelIcon.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "WeaponPanel"
+        },
+        {
+          "Name": "WeaponPanelIcon.SourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "Icons\\Weapons\\PulseCannon.png"
+        },
+        {
+          "Name": "WeaponPanelIcon.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 42
+        },
+        {
+          "Name": "WeaponPanelIcon.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "WeaponPanelIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "WeaponPanelIcon.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "WeaponPanelIcon.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "WeaponPanelIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "WeaponPanelIcon.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "WeaponPanelIcon.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "HideShow",
+      "States": [
+        {
+          "Name": "Hidden",
+          "Variables": [
+            {
+              "Name": "BossWarning.Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Shown",
+          "Variables": [
+            {
+              "Name": "BossWarning.Height",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 89
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "MissionStatus",
+      "States": [
+        {
+          "Name": "Hidden",
+          "Variables": [
+            {
+              "Name": "MissionStatusContainer.Width",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Shown",
+          "Variables": [
+            {
+              "Name": "MissionStatusContainer.Width",
+              "Type": "float",
+              "Category": "Dimensions",
+              "SetsValue": true,
+              "ValueAsFloat": 546
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "BottomPanel",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "BottomPanelBG",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "ShipIcon",
+      "BaseType": "Sprite"
+    },
+    {
+      "Name": "PowerIcon",
+      "BaseType": "Sprite"
+    },
+    {
+      "Name": "LivesLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "PowerLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "ScorePanelBG",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "ScoreLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "BossPanelBG",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "BossHPBar",
+      "BaseType": "Elements/PercentBar"
+    },
+    {
+      "Name": "ScorePanel",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "BossPanel",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "WeaponPanelBG",
+      "BaseType": "NineSlice",
+      "Locked": true
+    },
+    {
+      "Name": "WeaponPanelIcon",
+      "BaseType": "Sprite"
+    },
+    {
+      "Name": "WeaponPanel",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "BossWarning",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "BossWarningBG",
+      "BaseType": "ColoredRectangle"
+    },
+    {
+      "Name": "BossWarningTopLines",
+      "BaseType": "Elements/CautionLinesWrapped"
+    },
+    {
+      "Name": "BossWarningBottomLines",
+      "BaseType": "Elements/CautionLinesWrapped"
+    },
+    {
+      "Name": "BossWarningTextClip",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "TextInstance",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "MissionStatusContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "PauseMenu",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "PauseMenuBG",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "PausedLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ButtonContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "ResumeBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "SettingsBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "QuitBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "MissionStatusLabel",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "ScoreExtraLifeContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "ScoreExtraLifeLabel",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "Level3Help",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "TextInstance1",
+      "BaseType": "Text"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

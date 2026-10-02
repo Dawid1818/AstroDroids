@@ -1,0 +1,85 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Show",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "HideShow/Hidden",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HideShow/Shown",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "Hide",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "HideShow/Shown",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "HideShow/Hidden",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "ShowMissionStatus",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "MissionStatus/Hidden",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "MissionStatus/Shown",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    },
+    {
+      "Name": "HideMissionStatus",
+      "Loops": false,
+      "States": [
+        {
+          "StateName": "MissionStatus/Shown",
+          "Time": 0,
+          "InterpolationType": 7,
+          "Easing": 1
+        },
+        {
+          "StateName": "MissionStatus/Hidden",
+          "Time": 1,
+          "InterpolationType": 7,
+          "Easing": 1
+        }
+      ],
+      "Animations": [],
+      "Events": []
+    }
+  ]
+}

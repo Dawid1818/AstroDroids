@@ -1,0 +1,53 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "TutorialBtn.SlideInLeft",
+          "Time": 0
+        },
+        {
+          "Name": "StoryBtn.SlideInUp",
+          "Time": 0
+        },
+        {
+          "Name": "BossRushBtn.SlideInRight",
+          "Time": 0
+        },
+        {
+          "Name": "ReturnBtn.SlideIn",
+          "Time": 0
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "ReturnBtn.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "TutorialBtn.SlideOutLeft",
+          "Time": 0
+        },
+        {
+          "Name": "StoryBtn.SlideOutUp",
+          "Time": 0
+        },
+        {
+          "Name": "BossRushBtn.SlideOutRight",
+          "Time": 0
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

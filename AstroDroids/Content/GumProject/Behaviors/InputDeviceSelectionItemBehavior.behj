@@ -1,0 +1,29 @@
+{
+  "Name": "InputDeviceSelectionItemBehavior",
+  "RequiredVariables": {
+    "Name": "",
+    "Variables": [],
+    "VariableLists": []
+  },
+  "FormsProperties": [],
+  "ToolOnlyVariableReferences": [],
+  "Categories": [
+    {
+      "Name": "JoinedCategory",
+      "States": [
+        {
+          "Name": "HasInputDevice",
+          "Variables": [],
+          "VariableLists": []
+        },
+        {
+          "Name": "NoInputDevice",
+          "Variables": [],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "RequiredInstances": [],
+  "RequiredAnimations": []
+}

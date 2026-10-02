@@ -1,0 +1,1537 @@
+{
+  "Name": "Text",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Alpha",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "Blue",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "ColorCategoryState",
+          "Type": "ColorCategory"
+        },
+        {
+          "Name": "CustomFontFile",
+          "Type": "string",
+          "Category": "Font",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "DropshadowAlpha",
+          "Type": "int",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "DropshadowBlue",
+          "Type": "int",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DropshadowBlur",
+          "Type": "float",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsFloat": 3
+        },
+        {
+          "Name": "DropshadowGreen",
+          "Type": "int",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "DropshadowOffsetX",
+          "Type": "float",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "DropshadowOffsetY",
+          "Type": "float",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsFloat": 3
+        },
+        {
+          "Name": "DropshadowRed",
+          "Type": "int",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ExposeChildrenEvents",
+          "Type": "bool",
+          "Category": "Behavior",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Font",
+          "Type": "string",
+          "Category": "Font",
+          "SetsValue": true,
+          "IsFont": true,
+          "ValueAsString": "Arial"
+        },
+        {
+          "Name": "FontScale",
+          "Type": "float",
+          "Category": "Font",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "FontSize",
+          "Type": "int",
+          "Category": "Font",
+          "SetsValue": true,
+          "ValueAsInt": 14
+        },
+        {
+          "Name": "Green",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "Guide",
+          "Type": "string",
+          "Category": "Position",
+          "SetsValue": true
+        },
+        {
+          "Name": "HasDropshadow",
+          "Type": "bool",
+          "Category": "Dropshadow",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "HasEvents",
+          "Type": "bool",
+          "Category": "Behavior",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "HeightUnits",
+          "Type": "DimensionUnitType",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "Category": "Text",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "IgnoredByParentSize",
+          "Type": "bool",
+          "Category": "Parent",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsBold",
+          "Type": "bool",
+          "Category": "Font",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsItalic",
+          "Type": "bool",
+          "Category": "Font",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "LineHeightMultiplier",
+          "Type": "float",
+          "Category": "Text",
+          "SetsValue": true,
+          "ValueAsFloat": 1
+        },
+        {
+          "Name": "LocalizeText",
+          "Type": "bool",
+          "Category": "Text",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "MaxHeight",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "MaxLettersToShow",
+          "Type": "int?",
+          "Category": "Text",
+          "SetsValue": true
+        },
+        {
+          "Name": "MaxNumberOfLines",
+          "Type": "int?",
+          "Category": "Text",
+          "SetsValue": true
+        },
+        {
+          "Name": "MaxWidth",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "MinHeight",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "MinWidth",
+          "Type": "float?",
+          "Category": "Dimensions",
+          "SetsValue": true
+        },
+        {
+          "Name": "OutlineThickness",
+          "Type": "int",
+          "Category": "Font",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Parent",
+          "Type": "string",
+          "Category": "Parent",
+          "SetsValue": true
+        },
+        {
+          "Name": "Red",
+          "Type": "int",
+          "Category": "Rendering",
+          "SetsValue": true,
+          "ValueAsInt": 255
+        },
+        {
+          "Name": "Rotation",
+          "Type": "float",
+          "Category": "Flip and Rotation",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true,
+          "ValueAsString": "Default"
+        },
+        {
+          "Name": "StyleCategoryState",
+          "Type": "StyleCategory"
+        },
+        {
+          "Name": "Text",
+          "Type": "string",
+          "Category": "Text",
+          "SetsValue": true,
+          "ValueAsString": "Hello"
+        },
+        {
+          "Name": "TextOverflowHorizontalMode",
+          "Type": "TextOverflowHorizontalMode",
+          "Category": "Text",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "TextOverflowVerticalMode",
+          "Type": "TextOverflowVerticalMode",
+          "Category": "Text",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "UseCustomFont",
+          "Type": "bool",
+          "Category": "Font",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "UseFontSmoothing",
+          "Type": "bool",
+          "Category": "Font",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "Category": "Text",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Visible",
+          "Type": "bool",
+          "Category": "States and Visibility",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Width",
+          "Type": "float",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "WidthUnits",
+          "Type": "DimensionUnitType",
+          "Category": "Dimensions",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "X",
+          "Type": "float",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "XOrigin",
+          "Type": "HorizontalAlignment",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "XUnits",
+          "Type": "PositionUnitType",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Y",
+          "Type": "float",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "YOrigin",
+          "Type": "VerticalAlignment",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "YUnits",
+          "Type": "PositionUnitType",
+          "Category": "Position",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        }
+      ],
+      "VariableLists": [
+        {
+          "Name": "VariableReferences",
+          "Type": "string",
+          "Category": "References",
+          "StringValues": []
+        }
+      ]
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "ColorCategory",
+      "States": [
+        {
+          "Name": "Black",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 0
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "StringValues": [
+                "Red = Components/Styles.Black.Red",
+                "Green = Components/Styles.Black.Green",
+                "Blue = Components/Styles.Black.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "DarkGray",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 80
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 70
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 70
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.DarkGray.Red",
+                "Green = Components/Styles.DarkGray.Green",
+                "Blue = Components/Styles.DarkGray.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Gray",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 130
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 130
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 130
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Gray.Red",
+                "Green = Components/Styles.Gray.Green",
+                "Blue = Components/Styles.Gray.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "LightGray",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 170
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 170
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 170
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.LightGray.Red",
+                "Green = Components/Styles.LightGray.Green",
+                "Blue = Components/Styles.LightGray.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "White",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 255
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.White.Red",
+                "Green = Components/Styles.White.Green",
+                "Blue = Components/Styles.White.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "PrimaryDark",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 137
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 120
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 4
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.PrimaryDark.Red",
+                "Green = Components/Styles.PrimaryDark.Green",
+                "Blue = Components/Styles.PrimaryDark.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Primary",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 177
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 159
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 6
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Primary.Red",
+                "Green = Components/Styles.Primary.Green",
+                "Blue = Components/Styles.Primary.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "PrimaryLight",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 193
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 180
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 74
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.PrimaryLight.Red",
+                "Green = Components/Styles.PrimaryLight.Green",
+                "Blue = Components/Styles.PrimaryLight.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Success",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 167
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 62
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Success.Red",
+                "Green = Components/Styles.Success.Green",
+                "Blue = Components/Styles.Success.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Warning",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 25
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 171
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 232
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Warning.Red",
+                "Green = Components/Styles.Warning.Green",
+                "Blue = Components/Styles.Warning.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Danger",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 41
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 18
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 212
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Danger.Red",
+                "Green = Components/Styles.Danger.Green",
+                "Blue = Components/Styles.Danger.Blue"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Accent",
+          "Variables": [
+            {
+              "Name": "Blue",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 138
+            },
+            {
+              "Name": "Green",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 48
+            },
+            {
+              "Name": "Red",
+              "Type": "int",
+              "Category": "Rendering",
+              "SetsValue": true,
+              "ValueAsInt": 140
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Red = Components/Styles.Accent.Red",
+                "Green = Components/Styles.Accent.Green",
+                "Blue = Components/Styles.Accent.Blue"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "StyleCategory",
+      "States": [
+        {
+          "Name": "Tiny",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 10
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "StringValues": [
+                "Font = Components/Styles.Tiny.Font",
+                "FontSize = Components/Styles.Tiny.FontSize",
+                "IsBold = Components/Styles.Tiny.IsBold",
+                "IsItalic = Components/Styles.Tiny.IsItalic",
+                "UseCustomFont = Components/Styles.Tiny.UseCustomFont",
+                "CustomFontFile = Components/Styles.Tiny.CustomFontFile",
+                "FontScale = Components/Styles.Tiny.FontScale",
+                "LineHeightMultiplier = Components/Styles.Tiny.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Small",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "SetsValue": true,
+              "ValueAsInt": 12
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.Small.Font",
+                "FontSize = Components/Styles.Small.FontSize",
+                "IsBold = Components/Styles.Small.IsBold",
+                "IsItalic = Components/Styles.Small.IsItalic",
+                "UseCustomFont = Components/Styles.Small.UseCustomFont",
+                "CustomFontFile = Components/Styles.Small.CustomFontFile",
+                "FontScale = Components/Styles.Small.FontScale",
+                "LineHeightMultiplier = Components/Styles.Small.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Normal",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 14
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.Normal.Font",
+                "FontSize = Components/Styles.Normal.FontSize",
+                "IsBold = Components/Styles.Normal.IsBold",
+                "IsItalic = Components/Styles.Normal.IsItalic",
+                "UseCustomFont = Components/Styles.Normal.UseCustomFont",
+                "CustomFontFile = Components/Styles.Normal.CustomFontFile",
+                "FontScale = Components/Styles.Normal.FontScale",
+                "LineHeightMultiplier = Components/Styles.Normal.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Emphasis",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 14
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.Emphasis.Font",
+                "FontSize = Components/Styles.Emphasis.FontSize",
+                "IsBold = Components/Styles.Emphasis.IsBold",
+                "IsItalic = Components/Styles.Emphasis.IsItalic",
+                "UseCustomFont = Components/Styles.Emphasis.UseCustomFont",
+                "CustomFontFile = Components/Styles.Emphasis.CustomFontFile",
+                "FontScale = Components/Styles.Emphasis.FontScale",
+                "LineHeightMultiplier = Components/Styles.Emphasis.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Strong",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 14
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.Strong.Font",
+                "FontSize = Components/Styles.Strong.FontSize",
+                "IsBold = Components/Styles.Strong.IsBold",
+                "IsItalic = Components/Styles.Strong.IsItalic",
+                "UseCustomFont = Components/Styles.Strong.UseCustomFont",
+                "CustomFontFile = Components/Styles.Strong.CustomFontFile",
+                "FontScale = Components/Styles.Strong.FontScale",
+                "LineHeightMultiplier = Components/Styles.Strong.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "H3",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 16
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.H3.Font",
+                "FontSize = Components/Styles.H3.FontSize",
+                "IsBold = Components/Styles.H3.IsBold",
+                "IsItalic = Components/Styles.H3.IsItalic",
+                "UseCustomFont = Components/Styles.H3.UseCustomFont",
+                "CustomFontFile = Components/Styles.H3.CustomFontFile",
+                "FontScale = Components/Styles.H3.FontScale",
+                "LineHeightMultiplier = Components/Styles.H3.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "H2",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 18
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.H2.Font",
+                "FontSize = Components/Styles.H2.FontSize",
+                "IsBold = Components/Styles.H2.IsBold",
+                "IsItalic = Components/Styles.H2.IsItalic",
+                "UseCustomFont = Components/Styles.H2.UseCustomFont",
+                "CustomFontFile = Components/Styles.H2.CustomFontFile",
+                "FontScale = Components/Styles.H2.FontScale",
+                "LineHeightMultiplier = Components/Styles.H2.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "H1",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 22
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.H1.Font",
+                "FontSize = Components/Styles.H1.FontSize",
+                "IsBold = Components/Styles.H1.IsBold",
+                "IsItalic = Components/Styles.H1.IsItalic",
+                "UseCustomFont = Components/Styles.H1.UseCustomFont",
+                "CustomFontFile = Components/Styles.H1.CustomFontFile",
+                "FontScale = Components/Styles.H1.FontScale",
+                "LineHeightMultiplier = Components/Styles.H1.LineHeightMultiplier"
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Title",
+          "Variables": [
+            {
+              "Name": "CustomFontFile",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFile": true,
+              "ValueAsString": ""
+            },
+            {
+              "Name": "Font",
+              "Type": "string",
+              "SetsValue": true,
+              "IsFont": true,
+              "ValueAsString": "Arial"
+            },
+            {
+              "Name": "FontScale",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "FontSize",
+              "Type": "int",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsInt": 28
+            },
+            {
+              "Name": "IsBold",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "IsItalic",
+              "Type": "bool",
+              "Category": "Font",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "LineHeightMultiplier",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1
+            },
+            {
+              "Name": "UseCustomFont",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": [
+            {
+              "Name": "VariableReferences",
+              "Type": "string",
+              "Category": "References",
+              "StringValues": [
+                "Font = Components/Styles.Title.Font",
+                "FontSize = Components/Styles.Title.FontSize",
+                "IsBold = Components/Styles.Title.IsBold",
+                "IsItalic = Components/Styles.Title.IsItalic",
+                "UseCustomFont = Components/Styles.Title.UseCustomFont",
+                "CustomFontFile = Components/Styles.Title.CustomFontFile",
+                "FontScale = Components/Styles.Title.FontScale",
+                "LineHeightMultiplier = Components/Styles.Title.LineHeightMultiplier"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Instances": [],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

@@ -1,0 +1,20 @@
+{
+  "Name": "ToastBehavior",
+  "RequiredVariables": {
+    "Name": "",
+    "Variables": [],
+    "VariableLists": []
+  },
+  "FormsProperties": [],
+  "ToolOnlyVariableReferences": [],
+  "Categories": [],
+  "RequiredInstances": [
+    {
+      "Behaviors": [],
+      "Name": "TextInstance",
+      "BaseType": "Text"
+    }
+  ],
+  "RequiredAnimations": [],
+  "DefaultImplementation": "Controls/Toast"
+}

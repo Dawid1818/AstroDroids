@@ -1,0 +1,61 @@
+{
+  "ElementName": null,
+  "Animations": [
+    {
+      "Name": "Enter",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "ControlsBtn.SlideIn",
+          "Time": 0
+        },
+        {
+          "Name": "AudioBtn.SlideIn",
+          "Time": 0.1
+        },
+        {
+          "Name": "GraphicsBtn.SlideIn",
+          "Time": 0.2
+        },
+        {
+          "Name": "LanguageList.SlideIn",
+          "Time": 0.3
+        },
+        {
+          "Name": "BackBtn.SlideIn",
+          "Time": 0.4
+        }
+      ],
+      "Events": []
+    },
+    {
+      "Name": "Leave",
+      "Loops": false,
+      "States": [],
+      "Animations": [
+        {
+          "Name": "ControlsBtn.SlideOut",
+          "Time": 0
+        },
+        {
+          "Name": "AudioBtn.SlideOut",
+          "Time": 0.1
+        },
+        {
+          "Name": "GraphicsBtn.SlideOut",
+          "Time": 0.2
+        },
+        {
+          "Name": "LanguageList.SlideOut",
+          "Time": 0.3
+        },
+        {
+          "Name": "BackBtn.SlideOut",
+          "Time": 0.4
+        }
+      ],
+      "Events": []
+    }
+  ]
+}

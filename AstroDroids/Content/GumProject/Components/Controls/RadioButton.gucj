@@ -1,0 +1,805 @@
+{
+  "Name": "Controls/RadioButton",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "FocusedIndicator.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Warning"
+        },
+        {
+          "Name": "FocusedIndicator.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "FocusedIndicator.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "FocusedIndicator.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "FocusedIndicator.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Solid"
+        },
+        {
+          "Name": "FocusedIndicator.Visible",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "FocusedIndicator.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "FocusedIndicator.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "FocusedIndicator.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "Radio.ExposeChildrenEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Radio.HasEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Radio.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Radio.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Radio.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Circle2"
+        },
+        {
+          "Name": "Radio.IconColor",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "Radio.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "RadioBackground"
+        },
+        {
+          "Name": "Radio.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Radio.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "RadioBackground.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Primary"
+        },
+        {
+          "Name": "RadioBackground.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "RadioBackground.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "RadioBackground.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "CircleBordered"
+        },
+        {
+          "Name": "RadioBackground.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "RadioBackground.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "RadioBackground.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "RadioBackground.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "RadioBackground.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "RadioBackground.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "RadioButtonCategoryState",
+          "Type": "RadioButtonCategory"
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        },
+        {
+          "Name": "TextInstance.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "TextInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextInstance.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Normal"
+        },
+        {
+          "Name": "TextInstance.Text",
+          "Type": "string",
+          "ExposedAsName": "Text",
+          "SetsValue": true,
+          "ValueAsString": "Radio Label"
+        },
+        {
+          "Name": "TextInstance.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "TextInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -28
+        },
+        {
+          "Name": "TextInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "TextInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 128
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "RadioButtonCategory",
+      "States": [
+        {
+          "Name": "EnabledOn",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "EnabledOff",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledOn",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledOff",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedOn",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedOff",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "PushedOn",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryDark"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "PushedOff",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryDark"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedOn",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "FocusedOff",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedFocusedOn",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "HighlightedFocusedOff",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "PrimaryLight"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "White"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledFocusedOn",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "DisabledFocusedOff",
+          "Variables": [
+            {
+              "Name": "FocusedIndicator.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            },
+            {
+              "Name": "Radio.IconColor",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "Radio.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            },
+            {
+              "Name": "RadioBackground.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "DarkGray"
+            },
+            {
+              "Name": "TextInstance.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "RadioBackground",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "Radio",
+      "BaseType": "Elements/Icon"
+    },
+    {
+      "Name": "TextInstance",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "FocusedIndicator",
+      "BaseType": "NineSlice"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "RadioButtonBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

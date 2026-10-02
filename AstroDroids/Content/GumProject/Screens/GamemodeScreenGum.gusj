@@ -1,0 +1,269 @@
+{
+  "Name": "GamemodeScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "BossRushBtn.BannerImage",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "BossRushGameModeBanner.png"
+        },
+        {
+          "Name": "BossRushBtn.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 414
+        },
+        {
+          "Name": "BossRushBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "BossRushContainer"
+        },
+        {
+          "Name": "BossRushBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_BossRush"
+        },
+        {
+          "Name": "BossRushBtn.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 211
+        },
+        {
+          "Name": "BossRushBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossRushBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BossRushContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 414
+        },
+        {
+          "Name": "BossRushContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 211
+        },
+        {
+          "Name": "BossRushContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 562
+        },
+        {
+          "Name": "BossRushContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 45
+        },
+        {
+          "Name": "ReturnBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "ReturnBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ReturnBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ReturnBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ReturnBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 490
+        },
+        {
+          "Name": "StoryBtn.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 414
+        },
+        {
+          "Name": "StoryBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "StoryContainer"
+        },
+        {
+          "Name": "StoryBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_StoryMode"
+        },
+        {
+          "Name": "StoryBtn.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 211
+        },
+        {
+          "Name": "StoryBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "StoryBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "StoryContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 414
+        },
+        {
+          "Name": "StoryContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 211
+        },
+        {
+          "Name": "StoryContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 296
+        },
+        {
+          "Name": "StoryContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 45
+        },
+        {
+          "Name": "TutorialBtn.BannerImage",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "TutorialGameModeBanner.png"
+        },
+        {
+          "Name": "TutorialBtn.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 414
+        },
+        {
+          "Name": "TutorialBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "TutorialContainer"
+        },
+        {
+          "Name": "TutorialBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Tutorial"
+        },
+        {
+          "Name": "TutorialBtn.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 211
+        },
+        {
+          "Name": "TutorialBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TutorialBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "TutorialContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 414
+        },
+        {
+          "Name": "TutorialContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 211
+        },
+        {
+          "Name": "TutorialContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 31
+        },
+        {
+          "Name": "TutorialContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 45
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [
+    {
+      "Name": "ReturnBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "TutorialContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "TutorialBtn",
+      "BaseType": "Controls/ButtonGlowGameMode"
+    },
+    {
+      "Name": "StoryContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "StoryBtn",
+      "BaseType": "Controls/ButtonGlowGameMode"
+    },
+    {
+      "Name": "BossRushContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "BossRushBtn",
+      "BaseType": "Controls/ButtonGlowGameMode"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

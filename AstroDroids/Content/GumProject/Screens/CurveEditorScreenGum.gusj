@@ -1,0 +1,562 @@
+{
+  "Name": "CurveEditorScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "CurvePointEditorWindow.ClipsChildren",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "CurvePointEditorWindow.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 168
+        },
+        {
+          "Name": "CurvePointEditorWindow.MinHeight",
+          "Type": "float?",
+          "SetsValue": true,
+          "ValueAsFloat": 143
+        },
+        {
+          "Name": "CurvePointEditorWindow.MinWidth",
+          "Type": "float?",
+          "SetsValue": true,
+          "ValueAsFloat": 221
+        },
+        {
+          "Name": "CurvePointEditorWindow.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "CurvePointEditorWindow.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 221
+        },
+        {
+          "Name": "CurvePointEditorWindow.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 9
+        },
+        {
+          "Name": "CurvePointEditorWindow.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -185
+        },
+        {
+          "Name": "CurvePointEditorWindow.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "EndPointText.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "EndPointText.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "End Point"
+        },
+        {
+          "Name": "EndPointText.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "EndPointText.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 108
+        },
+        {
+          "Name": "EndPointXBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "EndPointXBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "EndPointXBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "EndPointXBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "EndPointXBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 94
+        },
+        {
+          "Name": "EndPointXBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 102
+        },
+        {
+          "Name": "EndPointYBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "EndPointYBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "EndPointYBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "EndPointYBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "EndPointYBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 151
+        },
+        {
+          "Name": "EndPointYBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 102
+        },
+        {
+          "Name": "GridBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "GridBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Grid"
+        },
+        {
+          "Name": "GridBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "GridBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 130
+        },
+        {
+          "Name": "KeyPoint1Text.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "KeyPoint1Text.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Key Point 1"
+        },
+        {
+          "Name": "KeyPoint1Text.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "KeyPoint1Text.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 55
+        },
+        {
+          "Name": "KeyPoint1XBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "KeyPoint1XBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyPoint1XBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "KeyPoint1XBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "KeyPoint1XBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 94
+        },
+        {
+          "Name": "KeyPoint1XBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 52
+        },
+        {
+          "Name": "KeyPoint1YBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "KeyPoint1YBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyPoint1YBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "KeyPoint1YBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "KeyPoint1YBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 151
+        },
+        {
+          "Name": "KeyPoint1YBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 52
+        },
+        {
+          "Name": "KeyPoint2Text.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "KeyPoint2Text.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Key Point 2"
+        },
+        {
+          "Name": "KeyPoint2Text.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "KeyPoint2Text.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 80
+        },
+        {
+          "Name": "KeyPoint2XBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "KeyPoint2XBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyPoint2XBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "KeyPoint2XBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "KeyPoint2XBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 94
+        },
+        {
+          "Name": "KeyPoint2XBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 77
+        },
+        {
+          "Name": "KeyPoint2YBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "KeyPoint2YBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "KeyPoint2YBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "KeyPoint2YBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "KeyPoint2YBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 151
+        },
+        {
+          "Name": "KeyPoint2YBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 77
+        },
+        {
+          "Name": "LabelInstance.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "LabelInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Bezier Curve Editor"
+        },
+        {
+          "Name": "LabelInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 17
+        },
+        {
+          "Name": "LabelInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 9
+        },
+        {
+          "Name": "StartPointText.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "StartPointText.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "Start Point"
+        },
+        {
+          "Name": "StartPointText.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 16
+        },
+        {
+          "Name": "StartPointText.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 30
+        },
+        {
+          "Name": "StartPointXBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "StartPointXBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "StartPointXBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "StartPointXBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "StartPointXBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 94
+        },
+        {
+          "Name": "StartPointXBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 26
+        },
+        {
+          "Name": "StartPointYBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "CurvePointEditorWindow"
+        },
+        {
+          "Name": "StartPointYBox.PlaceholderText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": ""
+        },
+        {
+          "Name": "StartPointYBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "800"
+        },
+        {
+          "Name": "StartPointYBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 56
+        },
+        {
+          "Name": "StartPointYBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 151
+        },
+        {
+          "Name": "StartPointYBox.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 26
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [],
+  "Instances": [
+    {
+      "Name": "LabelInstance",
+      "BaseType": "Controls/Label"
+    },
+    {
+      "Name": "CurvePointEditorWindow",
+      "BaseType": "Controls/WindowStandard"
+    },
+    {
+      "Name": "StartPointText",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "KeyPoint1Text",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "EndPointText",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "KeyPoint2Text",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "StartPointXBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "KeyPoint1XBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "EndPointXBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "KeyPoint2XBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "StartPointYBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "KeyPoint1YBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "EndPointYBox",
+      "BaseType": "Controls/TextBox"
+    },
+    {
+      "Name": "GridBox",
+      "BaseType": "Controls/CheckBox"
+    },
+    {
+      "Name": "KeyPoint2YBox",
+      "BaseType": "Controls/TextBox"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

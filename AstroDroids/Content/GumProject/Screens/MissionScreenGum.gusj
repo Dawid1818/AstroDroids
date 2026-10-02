@@ -1,0 +1,994 @@
+{
+  "Name": "MissionScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "ContainerInstance.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ContainerInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 31
+        },
+        {
+          "Name": "ContainerInstance.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "ContainerInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 269
+        },
+        {
+          "Name": "ContainerInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ContainerInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ContainerInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ContainerInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -125
+        },
+        {
+          "Name": "ContainerInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ContainerInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "ContainerInstance1.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 253
+        },
+        {
+          "Name": "ContainerInstance1.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 60
+        },
+        {
+          "Name": "ContainerInstance1.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "ContainerInstance1.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ContainerInstance1.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ContainerInstance1.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -49.5
+        },
+        {
+          "Name": "ContainerInstance1.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ContainerInstance1.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ContainerInstance2.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 253
+        },
+        {
+          "Name": "ContainerInstance2.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 60
+        },
+        {
+          "Name": "ContainerInstance2.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -24
+        },
+        {
+          "Name": "ContainerInstance2.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ContainerInstance2.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "ContainerInstance2.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -49.5
+        },
+        {
+          "Name": "ContainerInstance2.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ContainerInstance2.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ContainerInstance3.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 31
+        },
+        {
+          "Name": "ContainerInstance3.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "ContainerInstance3.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 127
+        },
+        {
+          "Name": "ContainerInstance4.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 31
+        },
+        {
+          "Name": "ContainerInstance4.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance"
+        },
+        {
+          "Name": "ContainerInstance4.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 127
+        },
+        {
+          "Name": "Header.DropshadowBlur",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Header.DropshadowOffsetX",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Header.DropshadowOffsetY",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 2
+        },
+        {
+          "Name": "Header.FontSize",
+          "Type": "int",
+          "SetsValue": true,
+          "ValueAsInt": 30
+        },
+        {
+          "Name": "Header.HasDropshadow",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Header.HasEvents",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "Header.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Header.IsBold",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "Header.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_StoryMode"
+        },
+        {
+          "Name": "Header.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Header.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Header.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Header.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Header.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 21
+        },
+        {
+          "Name": "Header.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "Header.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "HeaderCategoryState",
+          "Type": "HeaderCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "Level1Card.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 286
+        },
+        {
+          "Name": "Level1Card.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "LevelContainer"
+        },
+        {
+          "Name": "Level1Card.PreviewSourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "Level previews\\Level1.png"
+        },
+        {
+          "Name": "Level1Card.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 266
+        },
+        {
+          "Name": "Level1Card.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level1Card.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level1Card.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Level1Card.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level1Card.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level1Card.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Level2Card.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 286
+        },
+        {
+          "Name": "Level2Card.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "LevelContainer"
+        },
+        {
+          "Name": "Level2Card.PreviewSourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "Level previews\\Level2.png"
+        },
+        {
+          "Name": "Level2Card.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 266
+        },
+        {
+          "Name": "Level2Card.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 290
+        },
+        {
+          "Name": "Level2Card.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level2Card.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Level2Card.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level2Card.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level2Card.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Level3Card.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 286
+        },
+        {
+          "Name": "Level3Card.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "LevelContainer"
+        },
+        {
+          "Name": "Level3Card.PreviewSourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "Level previews\\Level3.png"
+        },
+        {
+          "Name": "Level3Card.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 266
+        },
+        {
+          "Name": "Level3Card.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 580
+        },
+        {
+          "Name": "Level3Card.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level3Card.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Level3Card.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level3Card.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level3Card.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Level4Card.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 286
+        },
+        {
+          "Name": "Level4Card.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "LevelContainer"
+        },
+        {
+          "Name": "Level4Card.PreviewSourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "Level previews\\Level4.png"
+        },
+        {
+          "Name": "Level4Card.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 266
+        },
+        {
+          "Name": "Level4Card.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 870
+        },
+        {
+          "Name": "Level4Card.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level4Card.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Level4Card.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level4Card.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level4Card.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "Level5Card.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 286
+        },
+        {
+          "Name": "Level5Card.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "LevelContainer"
+        },
+        {
+          "Name": "Level5Card.PreviewSourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "Level previews\\Level5.png"
+        },
+        {
+          "Name": "Level5Card.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 266
+        },
+        {
+          "Name": "Level5Card.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 1160
+        },
+        {
+          "Name": "Level5Card.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level5Card.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "Level5Card.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Level5Card.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "Level5Card.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "LevelContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 291
+        },
+        {
+          "Name": "LevelContainer.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "LevelContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 800
+        },
+        {
+          "Name": "LevelContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "LevelContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LevelContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "LevelContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -49.5
+        },
+        {
+          "Name": "LevelContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "LevelContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "LevelContainerStateState",
+          "Type": "LevelContainerState",
+          "SetsValue": true
+        },
+        {
+          "Name": "NextLevelBtn.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow1"
+        },
+        {
+          "Name": "NextLevelBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance2"
+        },
+        {
+          "Name": "NextLevelBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -24
+        },
+        {
+          "Name": "NextLevelBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "NextLevelBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "NextLevelBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "NextLevelBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "NextLevelBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "PlayBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance4"
+        },
+        {
+          "Name": "PlayBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Play"
+        },
+        {
+          "Name": "PlayBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PlayBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PlayBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PlayBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PlayBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PlayBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PrevLevelBtn.FlipHorizontal",
+          "Type": "bool",
+          "SetsValue": true,
+          "ValueAsBool": true
+        },
+        {
+          "Name": "PrevLevelBtn.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "Arrow1"
+        },
+        {
+          "Name": "PrevLevelBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance1"
+        },
+        {
+          "Name": "PrevLevelBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 24
+        },
+        {
+          "Name": "PrevLevelBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PrevLevelBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "PrevLevelBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "PrevLevelBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "PrevLevelBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ReturnBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ContainerInstance3"
+        },
+        {
+          "Name": "ReturnBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "ReturnBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ReturnBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ReturnBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ReturnBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ReturnBtn.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ReturnBtn.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "LevelContainerState",
+      "States": [
+        {
+          "Name": "Idle",
+          "Variables": [
+            {
+              "Name": "LevelContainer.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 0
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Right",
+          "Variables": [
+            {
+              "Name": "LevelContainer.X",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 1500
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "HeaderCategory",
+      "States": [
+        {
+          "Name": "Out",
+          "Variables": [
+            {
+              "Name": "Header.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": -56
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "In",
+          "Variables": [
+            {
+              "Name": "Header.Y",
+              "Type": "float",
+              "SetsValue": true,
+              "ValueAsFloat": 21
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "LevelContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "Level5Card",
+      "BaseType": "Custom/LevelCard"
+    },
+    {
+      "Name": "Level4Card",
+      "BaseType": "Custom/LevelCard"
+    },
+    {
+      "Name": "Level3Card",
+      "BaseType": "Custom/LevelCard"
+    },
+    {
+      "Name": "Level2Card",
+      "BaseType": "Custom/LevelCard"
+    },
+    {
+      "Name": "Level1Card",
+      "BaseType": "Custom/LevelCard"
+    },
+    {
+      "Name": "ContainerInstance",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "ContainerInstance1",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "PrevLevelBtn",
+      "BaseType": "Controls/ButtonIconGlow"
+    },
+    {
+      "Name": "ContainerInstance2",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "NextLevelBtn",
+      "BaseType": "Controls/ButtonIconGlow"
+    },
+    {
+      "Name": "ContainerInstance3",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "ContainerInstance4",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "PlayBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "ReturnBtn",
+      "BaseType": "Controls/ButtonGlow"
+    },
+    {
+      "Name": "Header",
+      "BaseType": "Text"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}

@@ -1,0 +1,535 @@
+{
+  "Name": "Controls/PlayerJoinViewItem",
+  "BaseType": "Container",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "Background.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "Black"
+        },
+        {
+          "Name": "Background.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "Background.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Background.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Panel"
+        },
+        {
+          "Name": "Background.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "Background.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.ColorCategoryState",
+          "Type": "ColorCategory",
+          "SetsValue": true,
+          "ValueAsString": "White"
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.HeightUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 4
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.HorizontalAlignment",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.Parent",
+          "Type": "string",
+          "SetsValue": true
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.StyleCategoryState",
+          "Type": "StyleCategory",
+          "SetsValue": true,
+          "ValueAsString": "Tiny"
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "\u003CController Type\u003E"
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.VerticalAlignment",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -16
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.WidthUnits",
+          "Type": "DimensionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 2
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -29
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 0
+        },
+        {
+          "Name": "ControllerDisplayNameTextInstance.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 5
+        },
+        {
+          "Name": "GamepadLayoutCategoryState",
+          "Type": "GamepadLayoutCategory"
+        },
+        {
+          "Name": "Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 80
+        },
+        {
+          "Name": "InputDeviceIcon.IconCategoryState",
+          "Type": "IconCategory",
+          "SetsValue": true,
+          "ValueAsString": "GamepadXbox"
+        },
+        {
+          "Name": "InputDeviceIcon.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "InputDeviceIcon.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "InputDeviceIcon.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "InputDeviceIcon.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "InputDeviceIcon.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "InputDeviceIcon.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "IsOverrideInCodeGen",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true,
+          "ValueAsBool": false
+        },
+        {
+          "Name": "IsXamarinFormsControl",
+          "Type": "bool",
+          "Category": "Xamarin Forms",
+          "SetsValue": true
+        },
+        {
+          "Name": "JoinCategoryState",
+          "Type": "JoinCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "PlayerCategoryState",
+          "Type": "PlayerCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "PlayerIndexCategoryState",
+          "Type": "PlayerIndexCategory"
+        },
+        {
+          "Name": "PlayerJoinCategoryState",
+          "Type": "PlayerJoinCategory"
+        },
+        {
+          "Name": "PlayerJoinCategoryStateState",
+          "Type": "PlayerJoinCategory",
+          "SetsValue": true
+        },
+        {
+          "Name": "State",
+          "Type": "State",
+          "Category": "States and Visibility",
+          "SetsValue": true
+        }
+      ],
+      "VariableLists": [
+        {
+          "Name": "PlayerSprite.AnimationFrames",
+          "Type": "string",
+          "StringValues": []
+        }
+      ]
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "PlayerJoinCategory",
+      "States": [
+        {
+          "Name": "NotConnected",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Gray"
+            },
+            {
+              "Name": "ControllerDisplayNameTextInstance.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Connected",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Primary"
+            },
+            {
+              "Name": "ControllerDisplayNameTextInstance.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "ConnectedAndJoined",
+          "Variables": [
+            {
+              "Name": "Background.ColorCategoryState",
+              "Type": "ColorCategory",
+              "SetsValue": true,
+              "ValueAsString": "Success"
+            },
+            {
+              "Name": "ControllerDisplayNameTextInstance.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "PlayerIndexCategory",
+      "States": [
+        {
+          "Name": "Player1",
+          "Variables": [],
+          "VariableLists": []
+        },
+        {
+          "Name": "Player2",
+          "Variables": [],
+          "VariableLists": []
+        },
+        {
+          "Name": "Player3",
+          "Variables": [],
+          "VariableLists": []
+        },
+        {
+          "Name": "Player4",
+          "Variables": [],
+          "VariableLists": []
+        }
+      ]
+    },
+    {
+      "Name": "GamepadLayoutCategory",
+      "States": [
+        {
+          "Name": "Unknown",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadXbox"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": false
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Keyboard",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "Keyboard"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "NES",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadNES"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "SuperNintendo",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadSNES"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Nintendo64",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadNintendo64"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "GameCube",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadGamecube"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "SwitchPro",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadSwitchPro"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Genesis",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadSegaGenesis"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "Xbox360",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadXbox"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        },
+        {
+          "Name": "PlayStationDualShock",
+          "Variables": [
+            {
+              "Name": "InputDeviceIcon.IconCategoryState",
+              "Type": "IconCategory",
+              "SetsValue": true,
+              "ValueAsString": "GamepadPlaystationDualShock"
+            },
+            {
+              "Name": "InputDeviceIcon.Visible",
+              "Type": "bool",
+              "SetsValue": true,
+              "ValueAsBool": true
+            }
+          ],
+          "VariableLists": []
+        }
+      ]
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "Background",
+      "BaseType": "NineSlice"
+    },
+    {
+      "Name": "ControllerDisplayNameTextInstance",
+      "BaseType": "Text"
+    },
+    {
+      "Name": "InputDeviceIcon",
+      "BaseType": "Elements/Icon"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [
+    {
+      "BehaviorName": "PlayerJoinViewItemBehavior"
+    }
+  ],
+  "VariablesHiddenFromInstances": []
+}

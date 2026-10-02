@@ -1,0 +1,251 @@
+{
+  "Name": "GraphicsSettingsScreenGum",
+  "States": [
+    {
+      "Name": "Default",
+      "Variables": [
+        {
+          "Name": "AnimationsState",
+          "Type": "Animations",
+          "SetsValue": true
+        },
+        {
+          "Name": "BackBtn.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "BackBtn.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Return"
+        },
+        {
+          "Name": "BackBtn.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "BackBtn.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "BackBtn.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "BackBtn.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.ChildrenLayout",
+          "Type": "ChildrenLayout",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 153
+        },
+        {
+          "Name": "ButtonContainer.StackSpacing",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 12
+        },
+        {
+          "Name": "ButtonContainer.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 198
+        },
+        {
+          "Name": "ButtonContainer.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        },
+        {
+          "Name": "ButtonContainer.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ButtonContainer.YOrigin",
+          "Type": "VerticalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "ButtonContainer.YUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 7
+        },
+        {
+          "Name": "ResolutionList.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 29
+        },
+        {
+          "Name": "ResolutionList.LeftLabelText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Resolution"
+        },
+        {
+          "Name": "ResolutionList.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "ResolutionList.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 200
+        },
+        {
+          "Name": "ResolutionList.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "ResolutionList.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -3
+        },
+        {
+          "Name": "VideoModeList.Height",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 29
+        },
+        {
+          "Name": "VideoModeList.LeftLabelText",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_Mode"
+        },
+        {
+          "Name": "VideoModeList.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "VideoModeList.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 200
+        },
+        {
+          "Name": "VideoModeList.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "VideoModeList.Y",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": -3
+        },
+        {
+          "Name": "VSyncBox.Parent",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "ButtonContainer"
+        },
+        {
+          "Name": "VSyncBox.Text",
+          "Type": "string",
+          "SetsValue": true,
+          "ValueAsString": "T_VSync"
+        },
+        {
+          "Name": "VSyncBox.Width",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 74
+        },
+        {
+          "Name": "VSyncBox.X",
+          "Type": "float",
+          "SetsValue": true,
+          "ValueAsFloat": 0
+        },
+        {
+          "Name": "VSyncBox.XOrigin",
+          "Type": "HorizontalAlignment",
+          "SetsValue": true,
+          "ValueAsInt": 1
+        },
+        {
+          "Name": "VSyncBox.XUnits",
+          "Type": "PositionUnitType",
+          "SetsValue": true,
+          "ValueAsInt": 6
+        }
+      ],
+      "VariableLists": []
+    }
+  ],
+  "Categories": [
+    {
+      "Name": "Animations",
+      "States": []
+    }
+  ],
+  "Instances": [
+    {
+      "Name": "ButtonContainer",
+      "BaseType": "Container"
+    },
+    {
+      "Name": "VideoModeList",
+      "BaseType": "Custom/HorizontalList"
+    },
+    {
+      "Name": "ResolutionList",
+      "BaseType": "Custom/HorizontalList"
+    },
+    {
+      "Name": "VSyncBox",
+      "BaseType": "Custom/CheckBoxGlow"
+    },
+    {
+      "Name": "BackBtn",
+      "BaseType": "Controls/ButtonGlow"
+    }
+  ],
+  "Events": [],
+  "Behaviors": [],
+  "VariablesHiddenFromInstances": []
+}
