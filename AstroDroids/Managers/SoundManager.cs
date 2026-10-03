@@ -3,8 +3,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using MonoSound;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,13 +55,37 @@ namespace AstroDroids.Managers
             initialized = true;
         }
 
-        public static async Task InitializeAsync(AstroDroidsGame game)
+        public static async Task InitializeAsync(AstroDroidsGame game, Action<float> progress)
         {
             if (initialized) return;
 
             MonoSoundLibrary.Init(game);
 
-            await Task.WhenAll(LoadAllSoundsAsync(game.Content), LoadAllMusicAsync(game.Content));
+            string[] musicFiles = Directory.GetFiles("Content/Music", "*.ogg", SearchOption.AllDirectories);
+            string[] soundFiles = Directory.GetFiles("Content/Sounds", "*.ogg", SearchOption.AllDirectories);
+
+            int totalFiles = musicFiles.Length + soundFiles.Length;
+
+            if (totalFiles == 0)
+            {
+                progress?.Invoke(1f);
+                initialized = true;
+                return;
+            }
+
+            int filesLoaded = 0;
+            object progressLock = new object();
+
+            Action onFileLoaded = () =>
+            {
+                lock (progressLock)
+                {
+                    filesLoaded++;
+                    progress?.Invoke((float)filesLoaded / totalFiles);
+                }
+            };
+
+            await Task.WhenAll(LoadAllSoundsAsync(soundFiles, onFileLoaded), LoadAllMusicAsync(musicFiles, onFileLoaded));
 
             coroutineManager.StartCoroutine(MusicCoroutine());
             initialized = true;
@@ -209,12 +235,10 @@ namespace AstroDroids.Managers
             });
         }
 
-        static async Task LoadAllSoundsAsync(ContentManager content)
+        static async Task LoadAllSoundsAsync(string[] files, Action onFileLoaded)
         {
             await Task.Run(() =>
             {
-                var files = Directory.GetFiles("Content/Sounds", "*.ogg", SearchOption.AllDirectories);
-
                 foreach (var filePath in files)
                 {
                     string relativePath = filePath.Replace("\\", "/");
@@ -228,6 +252,8 @@ namespace AstroDroids.Managers
 
                         soundPools.Add(key, new SoundPool(sound, 16));
                     }
+
+                    onFileLoaded();
                 }
             });
         }
@@ -254,12 +280,10 @@ namespace AstroDroids.Managers
             });
         }
 
-        static async Task LoadAllMusicAsync(ContentManager content)
+        static async Task LoadAllMusicAsync(string[] files, Action onFileLoaded)
         {
             await Task.Run(() =>
             {
-                var files = Directory.GetFiles("Content/Music", "*.ogg", SearchOption.AllDirectories);
-
                 foreach (var filePath in files)
                 {
                     string relativePath = filePath.Replace("\\", "/");
@@ -272,6 +296,8 @@ namespace AstroDroids.Managers
                         string key = Path.GetFileNameWithoutExtension(relativePath.Substring(6));
                         musics.Add(key, music);
                     }
+
+                    onFileLoaded();
                 }
             });
         }

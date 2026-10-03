@@ -3,6 +3,7 @@ using AstroDroids.Graphics;
 using AstroDroids.Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections;
 using System.Threading.Tasks;
 
@@ -12,6 +13,8 @@ namespace AstroDroids.Scenes
     {
         CoroutineManager coroutineManager = new CoroutineManager();
         Task soundLoadTask;
+        float LoadingPercentage = 0f;
+
 
         Vector2 loadingTextMeasurement;
         float loadingTextSize = 18f;
@@ -19,6 +22,7 @@ namespace AstroDroids.Scenes
 
         Texture2D starfield;
         Texture2D gameLogo;
+        Texture2D loadingBar;
 
         public LoadingScene()
         {
@@ -26,11 +30,19 @@ namespace AstroDroids.Scenes
 
             gameLogo = TextureManager.Get("UI/GameLogo");
             starfield = TextureManager.GetStarfield();
+
+            loadingBarColor = new Color(255, 255, 255, 127);
+            loadingBar = TextureManager.Get("UI/LoadingBar");
         }
 
         public override void Set()
         {
-            soundLoadTask = SoundManager.InitializeAsync(AstroDroidsGame.Instance);
+            var progressHandler = new Action<float>(percentage =>
+            {
+                LoadingPercentage = percentage;
+            });
+
+            soundLoadTask = SoundManager.InitializeAsync(AstroDroidsGame.Instance, progressHandler);
         }
 
         public override void Update(GameTime gameTime)
@@ -48,8 +60,13 @@ namespace AstroDroids.Scenes
         {
             Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointWrap);
             Screen.spriteBatch.Draw(starfield, new Rectangle(0, 0, Screen.ScreenWidth, Screen.ScreenHeight), Color.White);
-            Screen.DrawText(loadingText, new Vector2(Screen.ScreenWidth - loadingTextMeasurement.X - 10, Screen.ScreenHeight - loadingTextMeasurement.Y - 10), Color.White, loadingTextSize);
+            Screen.DrawText(loadingText, new Vector2(Screen.ScreenWidth - loadingTextMeasurement.X - 10, Screen.ScreenHeight - loadingTextMeasurement.Y - 30), Color.White, loadingTextSize);
             Screen.spriteBatch.Draw(gameLogo, new Vector2(Screen.ScreenWidth / 2f - gameLogo.Width / 2f, Screen.ScreenHeight / 2f - gameLogo.Height / 2f), Color.White);
+
+            int currentWidth = (int)(Screen.ScreenWidth * LoadingPercentage);
+            Screen.spriteBatch.Draw(TextureManager.GetPixelTexture(), new Rectangle(0, Screen.ScreenHeight - 25, Screen.ScreenWidth, 30), Color.Black);
+            Screen.spriteBatch.Draw(loadingBar, new Rectangle(0, Screen.ScreenHeight - 20, currentWidth, 20), new Rectangle(0, 0, currentWidth, loadingBar.Height), Color.White);
+
             Screen.spriteBatch.End();
         }
 
