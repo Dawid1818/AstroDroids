@@ -18,8 +18,8 @@ namespace AstroDroids.Screens
             MusicVolumeControl.X = -600;
             SoundEffectsVolumeControl.X = -600;
 
-            MusicVolumeControl.SetValue(SettingsManager.curSettings.MusicVolume);
-            SoundEffectsVolumeControl.SetValue(SettingsManager.curSettings.SoundVolume);
+            MusicVolumeControl.SetValue(SettingsManager.curSettings.MusicVolume * 100f);
+            SoundEffectsVolumeControl.SetValue(SettingsManager.curSettings.SoundVolume * 100f);
 
             MusicVolumeControl.ValueChanged += MusicVolumeChanged;
             SoundEffectsVolumeControl.ValueChanged += SoundVolumeChanged;
@@ -33,13 +33,13 @@ namespace AstroDroids.Screens
 
         private void SoundVolumeChanged()
         {
-            SettingsManager.curSettings.SoundVolume = SoundEffectsVolumeControl.GetValue();
+            SettingsManager.curSettings.SoundVolume = SoundEffectsVolumeControl.GetValue() / 100f;
             SoundManager.SoundVolume = SettingsManager.curSettings.SoundVolume;
         }
 
         private void MusicVolumeChanged()
         {
-            SettingsManager.curSettings.MusicVolume = MusicVolumeControl.GetValue();
+            SettingsManager.curSettings.MusicVolume = MusicVolumeControl.GetValue() / 100f;
             SoundManager.MusicVolume = SettingsManager.curSettings.MusicVolume;
         }
 

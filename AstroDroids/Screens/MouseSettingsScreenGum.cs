@@ -17,6 +17,8 @@ namespace AstroDroids.Screens
             BackBtn.X = -600;
             MouseSensitivitySlider.X = -600;
 
+            MouseSensitivitySlider.SetMinMax(10, 100);
+
             MouseSensitivitySlider.SetValue(SettingsManager.curSettings.MouseSensitivty);
 
             MouseSensitivitySlider.ValueChanged += MouseSensitivityChanged;
@@ -68,7 +70,7 @@ namespace AstroDroids.Screens
         private void ReturnBtn_Click(object sender, System.EventArgs e)
         {
             SettingsManager.Save();
-            scene.SetPage(new SettingsScreenGum(), false);
+            scene.SetPage(new ControlsSettingsScreenGum(), false);
         }
 
         partial void CustomInitialize()

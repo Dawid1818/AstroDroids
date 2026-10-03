@@ -18,6 +18,12 @@ namespace AstroDroids.Components.Custom
             VolumeSlider.ThumbInstance.FocusUpdate += ThumbInstance_FocusUpdate;
         }
 
+        public void SetMinMax(float minval, float maxval)
+        {
+            VolumeSlider.Minimum = minval;
+            VolumeSlider.Maximum = maxval;
+        }
+
         private void ThumbInstance_FocusUpdate(IInputReceiver obj)
         {
             VolumeSlider.OnFocusUpdate();
@@ -31,14 +37,14 @@ namespace AstroDroids.Components.Custom
 
         public void SetValue(float volume)
         {
-            VolumeSlider.Value = volume * 100;
-            VolumeSlider.SliderPercent = volume * 100f;
+            VolumeSlider.Value = volume;
+            VolumeSlider.SliderPercent = (volume / (float)VolumeSlider.Maximum) * 100f;
             ValueLabel.Text = ((int)VolumeSlider.Value).ToString() + "%";
         }
 
         public float GetValue()
         {
-            return (float)VolumeSlider.Value / 100f;
+            return (float)VolumeSlider.Value;
         }
     }
 }

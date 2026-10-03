@@ -49,7 +49,7 @@ namespace AstroDroids.Data
         public float SoundVolume { get; set; } = 1f;
         public Dictionary<GameAction, ButtonInputAction> Actions { get; set; } = new Dictionary<GameAction, ButtonInputAction>();
 
-        public float MouseSensitivty { get; set; } = 1f;
+        public float MouseSensitivty { get; set; } = 100f;
 
         public void Load(BinaryReader reader, int version)
         {
@@ -90,7 +90,7 @@ namespace AstroDroids.Data
             }
             else
             {
-                MouseSensitivty = 1f;
+                MouseSensitivty = 100f;
             }
         }
 

@@ -43,6 +43,8 @@ namespace AstroDroids.Entities.Friendly
 
         float yVisOffset = 0f;
 
+        Vector2 mouseMovement = Vector2.Zero;
+
         public Player(int playerIndex, Vector2 position) : base(new Transform(position), 1)
         {
             this.playerIndex = playerIndex;
@@ -127,11 +129,13 @@ namespace AstroDroids.Entities.Friendly
                 movement.X += leftJoy.X;
                 movement.Y += -leftJoy.Y;
 
+                float mouseSensitivity = (SettingsManager.curSettings.MouseSensitivty / 100f);
                 Vector2 mouseDelta = InputSystem.GetMouseDelta();
-                if (mouseDelta.Length() >= 5f)
+                mouseMovement = mouseDelta;
+                if (mouseDelta.Length() >= 2f)
                 {
-                    movement.X += mouseDelta.X;
-                    movement.Y += mouseDelta.Y;
+                    movement.X += mouseDelta.X * mouseSensitivity;
+                    movement.Y += mouseDelta.Y * mouseSensitivity;
                 }
 
                 float length = movement.Length();
@@ -198,6 +202,9 @@ namespace AstroDroids.Entities.Friendly
                 Screen.shapeBatch.DrawCircle(offsetPlayerPos, size - 3, new Apos.Shapes.Gradient(Transform.Position, lightColor, Transform.Position + new Vector2(60, 0), fillColor, Apos.Shapes.Gradient.Shape.Radial), borderColor, 1);
                 Screen.shapeBatch.BorderCircleBlurred(offsetPlayerPos, size, borderColor, 2, 3);
             }
+
+            if(AstroDroidsGame.Debug)
+                Scene.World.DrawDebugText($"Mouse delta: {mouseMovement}");
         }
 
         public Vector2 GetPosition()
