@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AstroDroids.Scenes
@@ -24,14 +25,16 @@ namespace AstroDroids.Scenes
         Texture2D gameLogo;
         Texture2D loadingBar;
 
-        public LoadingScene()
+        CancellationToken token;
+
+        public LoadingScene(CancellationToken cancellationToken)
         {
+            token = cancellationToken;
             loadingTextMeasurement = Screen.MeasureText(loadingText, loadingTextSize);
 
             gameLogo = TextureManager.Get("UI/GameLogo");
             starfield = TextureManager.GetStarfield();
 
-            loadingBarColor = new Color(255, 255, 255, 127);
             loadingBar = TextureManager.Get("UI/LoadingBar");
         }
 
@@ -42,7 +45,7 @@ namespace AstroDroids.Scenes
                 LoadingPercentage = percentage;
             });
 
-            soundLoadTask = SoundManager.InitializeAsync(AstroDroidsGame.Instance, progressHandler);
+            soundLoadTask = SoundManager.InitializeAsync(AstroDroidsGame.Instance, progressHandler, token);
         }
 
         public override void Update(GameTime gameTime)

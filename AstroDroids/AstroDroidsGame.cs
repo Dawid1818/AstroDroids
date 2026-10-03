@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoSound;
 using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace AstroDroids
 {
@@ -23,6 +24,7 @@ namespace AstroDroids
 
         [DllImport("SDL2.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SDL_MaximizeWindow(IntPtr window);
+        CancellationTokenSource cancelLoadSource;
 
         public AstroDroidsGame()
         {
@@ -35,6 +37,8 @@ namespace AstroDroids
             Graphics.PreferredBackBufferHeight = Screen.ScreenHeight;
             Window.AllowUserResizing = true;
             Graphics.GraphicsProfile = GraphicsProfile.HiDef;
+
+            cancelLoadSource = new CancellationTokenSource();
         }
 
         protected override void Initialize()
@@ -63,7 +67,7 @@ namespace AstroDroids
             //SceneManager.SetScene(new LevelEditorScene());
             //SceneManager.SetScene(new ShipEditorScene());
             //SceneManager.SetScene(new MainMenuScene());
-            SceneManager.SetScene(new LoadingScene());
+            SceneManager.SetScene(new LoadingScene(cancelLoadSource.Token));
         }
 
         protected override void Update(GameTime gameTime)
@@ -97,6 +101,11 @@ namespace AstroDroids
         protected override void OnExiting(object sender, ExitingEventArgs args)
         {
             base.OnExiting(sender, args);
+
+            if (cancelLoadSource != null && !cancelLoadSource.IsCancellationRequested)
+            {
+                cancelLoadSource.Cancel();
+            }
 
             MonoSoundLibrary.DeInit();
         }

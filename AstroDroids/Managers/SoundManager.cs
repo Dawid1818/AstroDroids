@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AstroDroids.Managers
@@ -55,7 +56,7 @@ namespace AstroDroids.Managers
             initialized = true;
         }
 
-        public static async Task InitializeAsync(AstroDroidsGame game, Action<float> progress)
+        public static async Task InitializeAsync(AstroDroidsGame game, Action<float> progress, CancellationToken cancellationToken)
         {
             if (initialized) return;
 
@@ -85,10 +86,13 @@ namespace AstroDroids.Managers
                 }
             };
 
-            await Task.WhenAll(LoadAllSoundsAsync(soundFiles, onFileLoaded), LoadAllMusicAsync(musicFiles, onFileLoaded));
+            await Task.WhenAll(LoadAllSoundsAsync(soundFiles, onFileLoaded, cancellationToken), LoadAllMusicAsync(musicFiles, onFileLoaded, cancellationToken));
 
-            coroutineManager.StartCoroutine(MusicCoroutine());
-            initialized = true;
+            if (!cancellationToken.IsCancellationRequested)
+            {
+                coroutineManager.StartCoroutine(MusicCoroutine());
+                initialized = true;
+            }
         }
 
         static IEnumerator MusicCoroutine()
@@ -235,12 +239,15 @@ namespace AstroDroids.Managers
             });
         }
 
-        static async Task LoadAllSoundsAsync(string[] files, Action onFileLoaded)
+        static async Task LoadAllSoundsAsync(string[] files, Action onFileLoaded, CancellationToken cancellationToken)
         {
             await Task.Run(() =>
             {
                 foreach (var filePath in files)
                 {
+                    if (cancellationToken.IsCancellationRequested)
+                        return;
+
                     string relativePath = filePath.Replace("\\", "/");
                     string soundName = Path.GetFileNameWithoutExtension(filePath);
                     if (!sounds.ContainsKey(soundName))
@@ -280,12 +287,15 @@ namespace AstroDroids.Managers
             });
         }
 
-        static async Task LoadAllMusicAsync(string[] files, Action onFileLoaded)
+        static async Task LoadAllMusicAsync(string[] files, Action onFileLoaded, CancellationToken cancellationToken)
         {
             await Task.Run(() =>
             {
                 foreach (var filePath in files)
                 {
+                    if (cancellationToken.IsCancellationRequested)
+                        return;
+
                     string relativePath = filePath.Replace("\\", "/");
                     string musicName = Path.GetFileNameWithoutExtension(filePath);
 
