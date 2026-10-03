@@ -1,3 +1,4 @@
+using AstroDroids.Managers;
 using Gum.Forms.Controls;
 using Gum.Forms.Input;
 using Gum.Wireframe;
@@ -154,6 +155,11 @@ namespace AstroDroids.Components.Custom
 
             allowedKeys.Add((Keys.Space, false), " ");
             allowedKeys.Add((Keys.OemQuestion, true), "?");
+
+            GotFocus += (not, used) =>
+            {
+                SoundManager.PlaySound(Sounds.UI_ButtonFocus);
+            };
         }
 
         public override void UpdateState()

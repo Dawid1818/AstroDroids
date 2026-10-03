@@ -54,9 +54,9 @@ namespace AstroDroids
         protected override void LoadContent()
         {
             InputSystem.Initialize();
+            TextureManager.Initialize(this);
             Screen.Initialize(this);
             SettingsManager.Initialize(this);
-            TextureManager.Initialize(this);
             //SoundManager.Initialize(this);
             GameDatabase.Initialize();
             LevelManager.Initialize();

@@ -40,6 +40,8 @@ namespace AstroDroids.Scenes
 
         public override void Set()
         {
+            TransitionManager.SetState(TransitionState.Out);
+
             var progressHandler = new Action<float>(percentage =>
             {
                 LoadingPercentage = percentage;

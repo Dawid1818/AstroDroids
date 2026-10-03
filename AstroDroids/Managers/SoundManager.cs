@@ -6,7 +6,6 @@ using MonoSound;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -27,7 +26,6 @@ namespace AstroDroids.Managers
         static Dictionary<string, SoundEffect> sounds = new Dictionary<string, SoundEffect>();
         static Dictionary<string, SoundPool> soundPools = new Dictionary<string, SoundPool>();
         static Dictionary<string, SoundEffect> musics = new Dictionary<string, SoundEffect>();
-        //static StreamPackage currentMusicPackage = null;
 
         static CoroutineManager coroutineManager = new CoroutineManager();
 
@@ -41,7 +39,7 @@ namespace AstroDroids.Managers
         public static float SoundVolume { get; set; } = 1f;
         public static float MusicVolume { get; set; } = 1f;
         public static bool IsMusicStopped => musicInstance == null || musicInstance.IsDisposed || musicInstance.State == SoundState.Stopped;
-        //public static TimeSpan MusicPlayPositionSeconds => musicInstance?.CurrentDuration ?? TimeSpan.Zero;
+
         public static void Initialize(AstroDroidsGame game)
         {
             if (initialized) return;
@@ -228,7 +226,6 @@ namespace AstroDroids.Managers
                 string soundName = Path.GetFileNameWithoutExtension(filePath);
                 if (!sounds.ContainsKey(soundName))
                 {
-                    //SoundEffect sound = content.Load<SoundEffect>(relativePath);
                     SoundEffect sound = EffectLoader.GetEffect(relativePath);
                     sound.Name = soundName;
                     string key = Path.GetFileNameWithoutExtension(relativePath.Substring(7));
@@ -278,11 +275,6 @@ namespace AstroDroids.Managers
                     music.Name = musicName;
                     string key = Path.GetFileNameWithoutExtension(relativePath.Substring(6));
                     musics.Add(key, music);
-
-                    //soundPools.Add(key, new SoundPool(sound, 16));
-
-                    //Song song = content.Load<Song>(relativePath);
-                    //music.Add(relativePath.Substring(6), song);
                 }
             });
         }
