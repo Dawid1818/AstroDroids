@@ -1,15 +1,13 @@
 ﻿using AstroDroids.Audio;
-using FlatRedBall.Glue.StateInterpolation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using MonoSound;
-using MonoSound.Streaming;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AstroDroids.Managers
 {
@@ -52,6 +50,18 @@ namespace AstroDroids.Managers
 
             coroutineManager.StartCoroutine(MusicCoroutine());
 
+            initialized = true;
+        }
+
+        public static async Task InitializeAsync(AstroDroidsGame game)
+        {
+            if (initialized) return;
+
+            MonoSoundLibrary.Init(game);
+
+            await Task.WhenAll(LoadAllSoundsAsync(game.Content), LoadAllMusicAsync(game.Content));
+
+            coroutineManager.StartCoroutine(MusicCoroutine());
             initialized = true;
         }
 
@@ -199,6 +209,29 @@ namespace AstroDroids.Managers
             });
         }
 
+        static async Task LoadAllSoundsAsync(ContentManager content)
+        {
+            await Task.Run(() =>
+            {
+                var files = Directory.GetFiles("Content/Sounds", "*.ogg", SearchOption.AllDirectories);
+
+                foreach (var filePath in files)
+                {
+                    string relativePath = filePath.Replace("\\", "/");
+                    string soundName = Path.GetFileNameWithoutExtension(filePath);
+                    if (!sounds.ContainsKey(soundName))
+                    {
+                        SoundEffect sound = EffectLoader.GetEffect(relativePath);
+                        sound.Name = soundName;
+                        string key = Path.GetFileNameWithoutExtension(relativePath.Substring(7));
+                        sounds.Add(key, sound);
+
+                        soundPools.Add(key, new SoundPool(sound, 16));
+                    }
+                }
+            });
+        }
+
         static void LoadAllMusic(ContentManager content)
         {
             Directory.GetFiles("Content/Music", "*.ogg", SearchOption.AllDirectories).ToList().ForEach(filePath =>
@@ -217,6 +250,28 @@ namespace AstroDroids.Managers
 
                     //Song song = content.Load<Song>(relativePath);
                     //music.Add(relativePath.Substring(6), song);
+                }
+            });
+        }
+
+        static async Task LoadAllMusicAsync(ContentManager content)
+        {
+            await Task.Run(() =>
+            {
+                var files = Directory.GetFiles("Content/Music", "*.ogg", SearchOption.AllDirectories);
+
+                foreach (var filePath in files)
+                {
+                    string relativePath = filePath.Replace("\\", "/");
+                    string musicName = Path.GetFileNameWithoutExtension(filePath);
+
+                    if (!musics.ContainsKey(musicName))
+                    {
+                        SoundEffect music = EffectLoader.GetEffect(relativePath);
+                        music.Name = musicName;
+                        string key = Path.GetFileNameWithoutExtension(relativePath.Substring(6));
+                        musics.Add(key, music);
+                    }
                 }
             });
         }

@@ -53,7 +53,7 @@ namespace AstroDroids
             Screen.Initialize(this);
             SettingsManager.Initialize(this);
             TextureManager.Initialize(this);
-            SoundManager.Initialize(this);
+            //SoundManager.Initialize(this);
             GameDatabase.Initialize();
             LevelManager.Initialize();
             TransitionManager.Initialize();
@@ -62,7 +62,8 @@ namespace AstroDroids
             //SceneManager.SetScene(new GameScene());
             //SceneManager.SetScene(new LevelEditorScene());
             //SceneManager.SetScene(new ShipEditorScene());
-            SceneManager.SetScene(new MainMenuScene());
+            //SceneManager.SetScene(new MainMenuScene());
+            SceneManager.SetScene(new LoadingScene());
         }
 
         protected override void Update(GameTime gameTime)
