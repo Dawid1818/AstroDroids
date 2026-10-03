@@ -17,17 +17,14 @@ namespace AstroDroids.Scenes
         float loadingTextSize = 18f;
         string loadingText = "Loading...";
 
-        string gameTitle = "Astrodroids";
-        float gameTextSize = 98f;
-        Vector2 gameTileTextMeasurement;
-
         Texture2D starfield;
+        Texture2D gameLogo;
 
         public LoadingScene()
         {
             loadingTextMeasurement = Screen.MeasureText(loadingText, loadingTextSize);
-            gameTileTextMeasurement = Screen.MeasureText(gameTitle, gameTextSize);
 
+            gameLogo = TextureManager.Get("UI/GameLogo");
             starfield = TextureManager.GetStarfield();
         }
 
@@ -52,7 +49,7 @@ namespace AstroDroids.Scenes
             Screen.spriteBatch.Begin(blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointWrap);
             Screen.spriteBatch.Draw(starfield, new Rectangle(0, 0, Screen.ScreenWidth, Screen.ScreenHeight), Color.White);
             Screen.DrawText(loadingText, new Vector2(Screen.ScreenWidth - loadingTextMeasurement.X - 10, Screen.ScreenHeight - loadingTextMeasurement.Y - 10), Color.White, loadingTextSize);
-            Screen.DrawText(gameTitle, new Vector2(Screen.ScreenWidth / 2f - gameTileTextMeasurement.X / 2f, Screen.ScreenHeight / 2f - gameTileTextMeasurement.Y / 2f), Color.White, gameTextSize);
+            Screen.spriteBatch.Draw(gameLogo, new Vector2(Screen.ScreenWidth / 2f - gameLogo.Width / 2f, Screen.ScreenHeight / 2f - gameLogo.Height / 2f), Color.White);
             Screen.spriteBatch.End();
         }
 

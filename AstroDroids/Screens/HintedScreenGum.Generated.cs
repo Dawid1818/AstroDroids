@@ -13,7 +13,11 @@ using System.Linq;
 namespace AstroDroids.Screens;
 partial class HintedScreenGum : global::Gum.Forms.Controls.FrameworkElement
 {
+    #if UNITY_5_3_OR_NEWER
+    [UnityEngine.RuntimeInitializeOnLoadMethod(UnityEngine.RuntimeInitializeLoadType.SubsystemRegistration)]
+    #else
     [System.Runtime.CompilerServices.ModuleInitializer]
+    #endif
     public static void RegisterRuntimeType()
     {
         var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
@@ -71,7 +75,7 @@ partial class HintedScreenGum : global::Gum.Forms.Controls.FrameworkElement
     public ActionHint ActionHintInstance { get; protected set; }
     public ActionHint ActionHintInstance2 { get; protected set; }
     public ActionHint ActionHintInstance1 { get; protected set; }
-    public TextRuntime LogoLabel { get; protected set; }
+    public SpriteRuntime LogoLabel { get; protected set; }
 
 
     #region Animation Fields
@@ -92,10 +96,10 @@ partial class HintedScreenGum : global::Gum.Forms.Controls.FrameworkElement
         base.ReactToVisualChanged();
         HostPane = this.Visual?.GetGraphicalUiElementByName("HostPane") as global::Gum.GueDeriving.ContainerRuntime;
         ActionHintsPanel = this.Visual?.GetGraphicalUiElementByName("ActionHintsPanel") as global::Gum.GueDeriving.ContainerRuntime;
-        ActionHintInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ActionHint>(this.Visual,"ActionHintInstance");
-        ActionHintInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ActionHint>(this.Visual,"ActionHintInstance2");
-        ActionHintInstance1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ActionHint>(this.Visual,"ActionHintInstance1");
-        LogoLabel = this.Visual?.GetGraphicalUiElementByName("LogoLabel") as global::Gum.GueDeriving.TextRuntime;
+        ActionHintInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.FindFormsControl<ActionHint>(this.Visual,"ActionHintInstance");
+        ActionHintInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.FindFormsControl<ActionHint>(this.Visual,"ActionHintInstance2");
+        ActionHintInstance1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.FindFormsControl<ActionHint>(this.Visual,"ActionHintInstance1");
+        LogoLabel = this.Visual?.GetGraphicalUiElementByName("LogoLabel") as global::Gum.GueDeriving.SpriteRuntime;
         Enter = this.Visual.GetAnimation("Enter");
         Leave = this.Visual.GetAnimation("Leave");
         CustomInitialize();
@@ -105,7 +109,6 @@ partial class HintedScreenGum : global::Gum.Forms.Controls.FrameworkElement
     {
         this.ActionHintInstance.Text = GumService.Default.LocalizationService.Translate("T_Navigate");
         this.ActionHintInstance1.Text = GumService.Default.LocalizationService.Translate("T_Return");
-        this.LogoLabel.Text = GumService.Default.LocalizationService.Translate("T_GameName");
     }
     partial void CustomInitialize();
 }

@@ -304,6 +304,13 @@
           "ValueAsInt": 4
         },
         {
+          "Name": "LogoLabel.SourceFile",
+          "Type": "string",
+          "SetsValue": true,
+          "IsFile": true,
+          "ValueAsString": "GameLogo.png"
+        },
+        {
           "Name": "LogoLabel.Text",
           "Type": "string",
           "SetsValue": true,
@@ -421,7 +428,7 @@
     },
     {
       "Name": "LogoLabel",
-      "BaseType": "Text"
+      "BaseType": "Sprite"
     }
   ],
   "Events": [],
