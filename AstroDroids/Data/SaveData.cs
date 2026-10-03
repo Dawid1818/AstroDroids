@@ -11,7 +11,7 @@ namespace AstroDroids.Data
         public const string Magic = "adsave";
         public const int FileVersion = 4;
 
-        public string PlayerName { get; set; } = "Player";
+        public string PlayerName { get; set; } = "PLAYER";
         public int ReachedLevel = 0;
         public bool FinishedStory = false;
         public ShipCustomization Ship { get; set; } = new ShipCustomization();
@@ -34,7 +34,7 @@ namespace AstroDroids.Data
             }
             else
             {
-                PlayerName = "Player";
+                PlayerName = "PLAYER";
             }
 
             if(actualVersion >= 4)
