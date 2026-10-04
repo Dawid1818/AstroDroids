@@ -23,7 +23,7 @@ namespace AstroDroids.Projectiles
         bool isCluster = false;
         int powerLevel;
 
-        int damage = 1;
+        float damage = 1;
         float size;
 
         public PlasmaMortarProjectile(Vector2 position, float angle, bool isCluster, int powerLevel, float launchForce) : base(position)
@@ -39,28 +39,28 @@ namespace AstroDroids.Projectiles
             {
                 default:
                 case 1:
-                    damage = 2;
+                    damage = 5;
                     clusterAmount = 0;
                     size = 14;
                     break;
                 case 2:
-                    damage = 3;
+                    damage = 7;
                     clusterAmount = 0;
                     size = 16;
                     break;
                 case 3:
-                    damage = 4;
-                    clusterAmount = 2;
+                    damage = 9;
+                    clusterAmount = 1;
                     size = 18;
                     break;
                 case 4:
-                    damage = 5;
-                    clusterAmount = 2;
+                    damage = 11;
+                    clusterAmount = 3;
                     size = 20;
                     break;
                 case 5:
-                    damage = 6;
-                    clusterAmount = 3;
+                    damage = 13;
+                    clusterAmount = 4;
                     size = 22;
                     break;
             }
@@ -69,7 +69,7 @@ namespace AstroDroids.Projectiles
             {
                 speed = speed / 3f;
                 size = size / 1.5f;
-                damage = damage / 2;
+                damage = damage / 2f;
             }
 
             AddCircleCollider(Vector2.Zero, size);
@@ -139,6 +139,7 @@ namespace AstroDroids.Projectiles
         void Explode()
         {
             Scene.World.AddEffect(new StandardExplosion(new Transform(Transform.Position.X, Transform.Position.Y), (size / 35f) * 2.5f));
+            SoundManager.PlaySound("PlasmaMortar explode", Random.NextSingle() * 2f - 1f);
 
             CircleF blast = new CircleF(Transform.Position, size * 2.5f);
 

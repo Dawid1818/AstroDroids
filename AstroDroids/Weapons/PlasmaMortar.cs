@@ -1,5 +1,6 @@
 ﻿using AstroDroids.Entities.Friendly;
 using AstroDroids.Gameplay;
+using AstroDroids.Helpers;
 using AstroDroids.Input;
 using AstroDroids.Managers;
 using AstroDroids.Projectiles;
@@ -65,23 +66,23 @@ namespace AstroDroids.Weapons
                             break;
                         case 2:
                             SpawnProjectile(player, player.LeftWeaponPod, gameTime, 0, 1f, false);
-                            SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
+                            //SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
 
                             currentCooldown = 0.5f;
                             break;
                         case 3:
                             SpawnProjectile(player, player.LeftWeaponPod, gameTime, 0, 1f, false);
-                            SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
+                            //SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
 
 
                             SpawnProjectile(player, player.RearLeftWeaponPod, gameTime, -20, 3f, true);
                             SpawnProjectile(player, player.RearRightWeaponPod, gameTime, 20, 3f, true);
 
-                            currentCooldown = 1f;
+                            currentCooldown = 0.75f;
                             break;
                         case 4:
                             SpawnProjectile(player, player.LeftWeaponPod, gameTime, 0, 1f, false);
-                            SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
+                            //SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
 
                             SpawnProjectile(player, player.RearLeftWeaponPod, gameTime, -20, 3f, true);
                             SpawnProjectile(player, player.RearRightWeaponPod, gameTime, 20, 3f, true);
@@ -93,7 +94,7 @@ namespace AstroDroids.Weapons
                             break;
                         case 5:
                             SpawnProjectile(player, player.LeftWeaponPod, gameTime, 0, 1f, false);
-                            SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
+                            //SpawnProjectile(player, player.RightWeaponPod, gameTime, 0, 1f, false);
 
                             SpawnProjectile(player, player.RearLeftWeaponPod, gameTime, -20, 3f, true);
                             SpawnProjectile(player, player.RearRightWeaponPod, gameTime, 20, 3f, true);
@@ -104,6 +105,8 @@ namespace AstroDroids.Weapons
                             currentCooldown = 1f;
                             break;
                     }
+
+                    SoundManager.PlaySound("PlasmaMortar fire", 1f * (GameStateManager.GetFirepower() / (float)GameStateManager.MaxFirepower));
                     otherShot = !otherShot;
                 }
             }
@@ -117,8 +120,22 @@ namespace AstroDroids.Weapons
 
         void SpawnProjectile(Player player, Vector2 relative, GameTime gameTime, float angle, float launchForce, bool isCluster)
         {
-            float extraPower = float.Clamp(-playerVelocity.Y, 0, 0.7f);
-            PlasmaMortarProjectile projectile = new PlasmaMortarProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle + playerExtraAngle) + player.Angle, isCluster, GameStateManager.GetFirepower(), launchForce + extraPower);
+            //float extraPower = float.Clamp(-playerVelocity.Y, 0f, 0.7f);
+            float extraPower = float.Clamp(playerVelocity.Length(), 0f, 0.7f);
+
+            float shootAngle;
+
+            if(playerVelocity == Vector2.Zero)
+            {
+                shootAngle = MathHelper.ToRadians(-90 + angle) + player.Angle;
+            }
+            else
+            {
+                shootAngle = GameHelper.AngleFromDir(playerVelocity) + MathHelper.ToRadians(angle) + player.Angle;
+            }
+
+            //PlasmaMortarProjectile projectile = new PlasmaMortarProjectile(player.GetPosition() + relative, MathHelper.ToRadians(-90 + angle + playerExtraAngle) + player.Angle, isCluster, GameStateManager.GetFirepower(), launchForce + extraPower);
+            PlasmaMortarProjectile projectile = new PlasmaMortarProjectile(player.GetPosition(), shootAngle, isCluster, GameStateManager.GetFirepower(), launchForce + extraPower);
             Scene.World.AddProjectile(projectile, true);
         }
     }
