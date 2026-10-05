@@ -57,6 +57,8 @@ namespace AstroDroids.Screens
             VSyncBox.IsChecked = SettingsManager.curSettings.Video.VSync;
             VSyncBox.Checked += VSyncBox_Checked;
             VSyncBox.Unchecked += VSyncBox_Checked;
+
+            ResolutionList.IsEnabled = SettingsManager.curSettings.Video.DisplayMode != DisplayModeType.Borderless;
         }
 
         private void VSyncBox_Checked(object sender, System.EventArgs e)

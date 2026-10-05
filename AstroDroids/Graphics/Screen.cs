@@ -188,7 +188,7 @@ namespace AstroDroids.Graphics
 
                 spriteBatch.End();
 
-                spriteBatch.Begin(samplerState: SamplerState.LinearWrap);
+                spriteBatch.Begin(samplerState: SamplerState.PointWrap);
 
                 spriteBatch.Draw(borderImage, new Rectangle(0, 0, gameWnd.ClientBounds.Width, DestinationRectangle.Top), new Rectangle(0, 0, gameWnd.ClientBounds.Width, DestinationRectangle.Top), Color.White);
                 spriteBatch.DrawRectangle(new Rectangle(-1, 0, gameWnd.ClientBounds.Width + 2, DestinationRectangle.Top), Color.Black);
@@ -343,36 +343,54 @@ namespace AstroDroids.Graphics
             switch (SettingsManager.curSettings.Video.DisplayMode)
             {
                 case DisplayModeType.Borderless:
-                    gameWnd.IsBorderless = true;
-                    gameWnd.AllowUserResizing = false;
-
                     var desktopMode = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode;
                     graphicsManager.PreferredBackBufferWidth = desktopMode.Width;
                     graphicsManager.PreferredBackBufferHeight = desktopMode.Height;
-                    graphicsManager.IsFullScreen = false;
+                    graphicsManager.IsFullScreen = true;
+                    graphicsManager.HardwareModeSwitch = false;
                     break;
 
                 case DisplayModeType.Windowed:
-                    gameWnd.IsBorderless = false;
-                    gameWnd.AllowUserResizing = true;
-
                     graphicsManager.PreferredBackBufferWidth = SettingsManager.curSettings.Video.Resolution.X;
                     graphicsManager.PreferredBackBufferHeight = SettingsManager.curSettings.Video.Resolution.Y;
                     graphicsManager.IsFullScreen = false;
+                    graphicsManager.HardwareModeSwitch = false;
                     break;
 
                 case DisplayModeType.Exclusive:
-                    gameWnd.IsBorderless = false;
-                    gameWnd.AllowUserResizing = false;
-
                     graphicsManager.PreferredBackBufferWidth = SettingsManager.curSettings.Video.Resolution.X;
                     graphicsManager.PreferredBackBufferHeight = SettingsManager.curSettings.Video.Resolution.Y;
                     graphicsManager.IsFullScreen = true;
+                    graphicsManager.HardwareModeSwitch = true;
                     break;
             }
 
             graphicsManager.SynchronizeWithVerticalRetrace = SettingsManager.curSettings.Video.VSync;
             graphicsManager.ApplyChanges();
+
+            switch (SettingsManager.curSettings.Video.DisplayMode)
+            {
+                case DisplayModeType.Borderless:
+                    gameWnd.IsBorderless = true;
+                    gameWnd.AllowUserResizing = false;
+                    break;
+
+                case DisplayModeType.Windowed:
+                    gameWnd.IsBorderless = false;
+                    gameWnd.AllowUserResizing = true;
+                    break;
+
+                case DisplayModeType.Exclusive:
+                    gameWnd.IsBorderless = false;
+                    gameWnd.AllowUserResizing = false;
+                    break;
+            }
+
+            //with HardwareModeSwitch this shouldn't be needed
+            //if(SettingsManager.curSettings.Video.DisplayMode == DisplayModeType.Borderless)
+            //{
+            //    gameWnd.Position = Point.Zero;
+            //}
 
             UpdateViewport();
         }
