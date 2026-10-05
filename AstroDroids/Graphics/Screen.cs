@@ -188,20 +188,18 @@ namespace AstroDroids.Graphics
 
                 spriteBatch.End();
 
-                spriteBatch.Begin();
+                spriteBatch.Begin(samplerState: SamplerState.LinearWrap);
 
                 spriteBatch.Draw(borderImage, new Rectangle(0, 0, gameWnd.ClientBounds.Width, DestinationRectangle.Top), new Rectangle(0, 0, gameWnd.ClientBounds.Width, DestinationRectangle.Top), Color.White);
-                spriteBatch.DrawRectangle(new Rectangle(-1, 0, gameWnd.ClientBounds.Width+2, DestinationRectangle.Top), Color.Black);
+                spriteBatch.DrawRectangle(new Rectangle(-1, 0, gameWnd.ClientBounds.Width + 2, DestinationRectangle.Top), Color.Black);
 
                 spriteBatch.Draw(borderImage, new Rectangle(0, DestinationRectangle.Bottom, gameWnd.ClientBounds.Width, gameWnd.ClientBounds.Height - DestinationRectangle.Bottom), new Rectangle(0, 300, gameWnd.ClientBounds.Width, gameWnd.ClientBounds.Height - DestinationRectangle.Bottom), Color.White);
                 spriteBatch.DrawRectangle(new Rectangle(-1, DestinationRectangle.Bottom, gameWnd.ClientBounds.Width + 2, gameWnd.ClientBounds.Height - DestinationRectangle.Bottom), Color.Black);
 
                 spriteBatch.Draw(borderImage, new Rectangle(0, 0, DestinationRectangle.Left, gameWnd.ClientBounds.Height), new Rectangle(0, 0, DestinationRectangle.Left, gameWnd.ClientBounds.Height), Color.White);
-
                 spriteBatch.DrawRectangle(new Rectangle(0, -1, DestinationRectangle.Left, gameWnd.ClientBounds.Height + 2), Color.Black);
 
                 spriteBatch.Draw(borderImage, new Rectangle(DestinationRectangle.Right, 0, gameWnd.ClientBounds.Width - DestinationRectangle.Right, gameWnd.ClientBounds.Height), new Rectangle(300, 0, gameWnd.ClientBounds.Width - DestinationRectangle.Right, gameWnd.ClientBounds.Height), Color.White);
-
                 spriteBatch.DrawRectangle(new Rectangle(DestinationRectangle.Right, -1, gameWnd.ClientBounds.Width - DestinationRectangle.Right, gameWnd.ClientBounds.Height + 2), Color.Black);
 
                 spriteBatch.End();
